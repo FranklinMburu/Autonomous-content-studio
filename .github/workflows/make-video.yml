@@ -74,6 +74,14 @@ jobs:
             python -m studio next ${LANE:+--lane "$LANE"}
           fi
 
+      - name: Show the report on the run page
+        if: always()
+        run: |
+          for r in out/*/report.md; do
+            [ -f "$r" ] && { cat "$r"; echo; echo "---"; } >> "$GITHUB_STEP_SUMMARY"
+          done
+          [ -n "$(ls out/*/report.md 2>/dev/null)" ] || echo "No video was produced. Open the 'Make the video' step to see why." >> "$GITHUB_STEP_SUMMARY"
+
       - name: Record finished topic
         if: success() && github.event.inputs.topic == '' && github.event.inputs.script == ''
         run: |
