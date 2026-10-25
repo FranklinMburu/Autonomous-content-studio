@@ -1,0 +1,163 @@
+{
+ "title": "Your cat's purr is hiding a cry",
+ "topic": "Why do cats purr?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "@cat",
+   "reveal": {
+    "text": "?",
+    "at": "cry"
+   },
+   "lines": [
+    "Your cat might be hiding a cry inside its purr."
+   ]
+  },
+  {
+   "scene": "tags",
+   "title": "Cats purr when...",
+   "icon": "@cat",
+   "items": [
+    {
+     "text": "content",
+     "at": "content",
+     "tone": "neutral"
+    },
+    {
+     "text": "hurt",
+     "at": "hurt",
+     "tone": "bad"
+    },
+    {
+     "text": "scared",
+     "at": "scared",
+     "tone": "bad"
+    },
+    {
+     "text": "giving birth",
+     "at": "giving",
+     "tone": "good"
+    }
+   ],
+   "verdict": {
+    "text": "purr ≠ happy",
+    "sub": "(not always)",
+    "at": "happy"
+   },
+   "lines": [
+    "Cats purr when they're content.",
+    "But also when they're hurt, scared, or even giving birth.",
+    "So a purr doesn't always mean happy."
+   ]
+  },
+  {
+   "scene": "link",
+   "kicker": "The old theory",
+   "from": {
+    "icon": "brain",
+    "label": "brain",
+    "at": "brain"
+   },
+   "to": {
+    "icon": "activity",
+    "label": "throat muscles",
+    "at": "throat"
+   },
+   "note": {
+    "text": "~25× per second",
+    "at": "twenty-five"
+   },
+   "lines": [
+    "For decades, scientists thought every purr needed the brain to twitch the throat muscles about twenty-five times a second."
+   ]
+  },
+  {
+   "scene": "link",
+   "kicker": "2023 · Vienna",
+   "source": "Herbst et al., Current Biology (2023)",
+   "from": {
+    "icon": "brain",
+    "label": "brain",
+    "at": "Then"
+   },
+   "to": {
+    "icon": "wave-sine",
+    "label": "vocal folds purr alone",
+    "at": "voice"
+   },
+   "cut": {
+    "at": "signal",
+    "label": "no brain signal"
+   },
+   "lines": [
+    "Then in 2023, researchers in Vienna showed a cat's voice box can purr with no brain signal at all, likely thanks to tiny pads in its vocal folds."
+   ]
+  },
+  {
+   "scene": "wave",
+   "icon": "bowl",
+   "label": "purr",
+   "source": "McComb et al. (2009), Univ. of Sussex",
+   "overlay": {
+    "label": "+ hidden cry ~380 Hz",
+    "at": "cry"
+   },
+   "note": {
+    "text": "≈ pitch of a crying baby",
+    "at": "baby"
+   },
+   "lines": [
+    "And when your cat wants food?",
+    "Researchers at Sussex found a high-pitched cry hidden in that purr, close to the pitch of a crying baby."
+   ]
+  },
+  {
+   "scene": "meter",
+   "title": "Listeners rated those purrs",
+   "low": "calm",
+   "high": "urgent",
+   "value": 0.85,
+   "label": "MORE URGENT",
+   "at": "urgent",
+   "lines": [
+    "People rated those purrs as more urgent."
+   ]
+  },
+  {
+   "scene": "bubble",
+   "icon": "@cat",
+   "prop": "bowl",
+   "text": "feed me.",
+   "at": "request",
+   "lines": [
+    "So the next time your cat purrs at breakfast, listen closely.",
+    "That's not contentment. That's a request."
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Cats purr when content, hurt, scared, or giving birth",
+   "url": "https://en.wikipedia.org/wiki/Purr"
+  },
+  {
+   "claim": "Cat larynges produce purring without neural input; vocal-fold pads (Herbst et al. 2023)",
+   "url": "https://medienportal.univie.ac.at/en/media/recent-press-releases/detailansicht-en/artikel/cats-purr-differently-than-previously-thought"
+  },
+  {
+   "claim": "Solicitation purrs hide a ~380 Hz cry; rated more urgent (McComb et al. 2009)",
+   "url": "https://www.nationalgeographic.com/science/article/cats-manipulate-their-owners-with-a-cry-embedded-in-a-purr"
+  }
+ ],
+ "youtube": {
+  "title": "Your cat's purr is hiding a cry 🐱",
+  "description": "Why do cats purr? It's not always happiness.",
+  "tags": [
+   "cats",
+   "cat facts",
+   "science",
+   "animal behavior"
+  ]
+ }
+}

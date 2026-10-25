@@ -1,0 +1,125 @@
+{
+ "title": "Wrinkly fingers aren't soggy skin",
+ "topic": "Why do fingers wrinkle in water?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "hand-stop",
+   "reveal": {
+    "text": "nerves?",
+    "at": "nervous"
+   },
+   "lines": [
+    "Wrinkly bath fingers aren't soggy skin. They're your nervous system at work."
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "link",
+   "from": {
+    "icon": "brain",
+    "label": "nerves",
+    "at": "nerves"
+   },
+   "to": {
+    "icon": "hand-stop",
+    "label": "fingertips",
+    "at": "fingertips"
+   },
+   "note": {
+    "text": "vessels narrow",
+    "at": "narrow"
+   },
+   "lines": [
+    "When your hands soak, nerves tell the blood vessels in your fingertips to narrow.",
+    "The padding underneath shrinks, and the skin folds into ridges."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "compare",
+   "kicker": "1936 · the clue",
+   "source": "Pickering & Lewis (1936)",
+   "left": {
+    "icon": "hand-stop",
+    "label": "healthy nerves",
+    "value": "wrinkles",
+    "at": "doctors"
+   },
+   "right": {
+    "icon": "hand-off",
+    "label": "damaged nerves",
+    "value": "smooth",
+    "at": "smooth"
+   },
+   "lines": [
+    "In 1936, doctors noticed something odd.",
+    "Patients with nerve damage soaked their hands, and their fingers stayed perfectly smooth."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "number",
+   "kicker": "2013 · Newcastle",
+   "source": "Kareklas et al., Biology Letters (2013)",
+   "icon": "droplet",
+   "value": 12,
+   "suffix": "%",
+   "label": "faster moving wet marbles",
+   "at": "twelve",
+   "lines": [
+    "So why bother? A Newcastle study found people moved wet marbles twelve percent faster with wrinkly fingers."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "statement",
+   "kicker": "2014 · Berlin",
+   "source": "Haseleu et al., PLOS ONE (2014)",
+   "text": "no grip advantage at all",
+   "highlight": [
+    "no"
+   ],
+   "lines": [
+    "But a year later, a Berlin team tested forty people and found no grip advantage at all."
+   ],
+   "id": "beat5"
+  },
+  {
+   "scene": "bubble",
+   "icon": "microscope",
+   "text": "still arguing",
+   "at": "arguing",
+   "lines": [
+    "So the wrinkles are real, and your nerves make them.",
+    "Why they exist? Scientists are still arguing."
+   ],
+   "id": "beat6"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Wrinkling is caused by the sympathetic nervous system narrowing blood vessels; 1936 patients with nerve damage stayed smooth",
+   "url": "https://www.popsci.com/science/why-do-fingers-wrinkle-in-water/"
+  },
+  {
+   "claim": "2013 Newcastle study: 12% faster with wet marbles when wrinkled",
+   "url": "https://www.ncl.ac.uk/press/articles/archive/2013/01/getagrip-whywegetwrinklyfingersandtoes.html"
+  },
+  {
+   "claim": "2014 Berlin MDC study of 40 volunteers found no grip advantage",
+   "url": "https://www.mdc-berlin.de/news/archive/2014/20140109-better_grip_with_wrinkly_fingers__mdc-rese"
+  }
+ ],
+ "youtube": {
+  "title": "Wrinkly fingers aren't soggy skin 🫧",
+  "description": "Your fingers wrinkle in water because of your nerves, not soggy skin. But why? Scientists still disagree.",
+  "tags": [
+   "human body",
+   "science",
+   "biology",
+   "fun facts"
+  ]
+ }
+}

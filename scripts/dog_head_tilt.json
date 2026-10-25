@@ -1,0 +1,123 @@
+{
+ "title": "What your dog's head tilt means",
+ "topic": "Why do dogs tilt their heads?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "dog",
+   "reveal": {
+    "text": "?",
+    "at": "understands"
+   },
+   "lines": [
+    "Your dog's head tilt might mean it actually understands you."
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "number",
+   "kicker": "2021 · Budapest",
+   "source": "Sommese et al., Animal Cognition (2021)",
+   "icon": "dog",
+   "value": 40,
+   "label": "dogs asked for toys by name",
+   "at": "forty",
+   "lines": [
+    "In 2021, researchers in Budapest watched forty dogs as their owners asked for toys by name."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "compare",
+   "title": "Asked for a toy by name...",
+   "left": {
+    "icon": "dog",
+    "label": "typical dogs",
+    "value": "rarely",
+    "at": "Most"
+   },
+   "right": {
+    "icon": "bulb",
+    "label": "toy-name experts",
+    "value": "often",
+    "at": "seven"
+   },
+   "lines": [
+    "Most dogs rarely tilted their heads.",
+    "But seven dogs that knew the names of many toys tilted again and again."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "link",
+   "from": {
+    "icon": "ear",
+    "label": "a word",
+    "at": "heard"
+   },
+   "to": {
+    "icon": "brain",
+    "label": "processing",
+    "at": "meant"
+   },
+   "note": {
+    "text": "meaningful sounds",
+    "at": "meaningful"
+   },
+   "lines": [
+    "The tilt came when they heard a word that meant something.",
+    "Researchers think it's linked to processing meaningful sounds."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "tags",
+   "title": "And each dog's tilt...",
+   "items": [
+    {
+     "text": "same side",
+     "at": "same",
+     "tone": "good"
+    },
+    {
+     "text": "every time",
+     "at": "two",
+     "tone": "neutral"
+    }
+   ],
+   "lines": [
+    "And each dog tilted to the same side for two years."
+   ],
+   "id": "beat5"
+  },
+  {
+   "scene": "bubble",
+   "icon": "dog",
+   "prop": "ball-tennis",
+   "text": "my toy?",
+   "at": "think",
+   "lines": [
+    "So next time your dog tilts its head, say its favorite toy's name.",
+    "You might be watching it think."
+   ],
+   "id": "beat6"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "2021 Animal Cognition study, 40 dogs, gifted word learners tilted more when asked for named toys; same side over 24 months",
+   "url": "https://ttkold.elte.hu/en/content/talk-to-tilt-head-tilting-in-dogs.t.5018"
+  }
+ ],
+ "youtube": {
+  "title": "What your dog's head tilt really means 🐶",
+  "description": "A 2021 study found dogs that know toy names tilt their heads far more. Here's what scientists think it means.",
+  "tags": [
+   "dogs",
+   "dog behavior",
+   "animal science",
+   "pets"
+  ]
+ }
+}

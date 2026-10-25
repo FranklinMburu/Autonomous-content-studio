@@ -1,0 +1,95 @@
+name: Make a video
+
+# Free on GitHub for PUBLIC repositories (standard runners). No payment method needed.
+on:
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "Topic or question for the video (leave empty to take the next one from topics.txt)"
+        required: false
+        default: ""
+      lane:
+        description: "Channel focus / audience (optional; defaults to the CHANNEL_LANE repository variable)"
+        required: false
+        default: ""
+      script:
+        description: "Instead of a topic: path to a hand-written script, e.g. scripts/cat_purr.json"
+        required: false
+        default: ""
+  # To make videos automatically, remove the # from the next two lines (this example: 06:30 Nairobi time daily).
+  # schedule:
+  #   - cron: "30 3 * * *"
+
+permissions:
+  contents: write   # lets the run record which topics are done (topics-done.txt)
+
+concurrency:
+  group: make-video
+  cancel-in-progress: false
+
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install system tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libcairo2-dev pkg-config fontconfig > /dev/null
+
+      - name: Install Python packages
+        run: pip install -r requirements.txt
+
+      - name: Restore voice model and icons
+        uses: actions/cache@v4
+        with:
+          path: cache
+          key: assets-kokoro-v1.1-tabler-3.49.0
+
+      - name: Setup check
+        run: python -m studio setup
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Make the video
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          TOPIC: ${{ github.event.inputs.topic }}
+          LANE: ${{ github.event.inputs.lane || vars.CHANNEL_LANE }}
+          SCRIPT: ${{ github.event.inputs.script }}
+        run: |
+          if [ -n "$SCRIPT" ]; then
+            python -m studio render --script "$SCRIPT" ${GEMINI_API_KEY:+--factcheck}
+          elif [ -n "$TOPIC" ]; then
+            python -m studio make --topic "$TOPIC" ${LANE:+--lane "$LANE"}
+          else
+            python -m studio next ${LANE:+--lane "$LANE"}
+          fi
+
+      - name: Record finished topic
+        if: success() && github.event.inputs.topic == '' && github.event.inputs.script == ''
+        run: |
+          if ! git diff --quiet -- topics-done.txt 2>/dev/null || [ -n "$(git status --porcelain topics-done.txt)" ]; then
+            git config user.name "content-studio-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add topics-done.txt
+            git commit -m "Mark topic done"
+            git push
+          fi
+
+      - name: Upload the video folder
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-${{ github.run_number }}
+          path: out/
+          retention-days: 14
+          if-no-files-found: ignore

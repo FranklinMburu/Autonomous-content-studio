@@ -1,0 +1,111 @@
+{
+ "title": "Silence made of sound",
+ "topic": "How do noise-cancelling headphones work?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "headphones",
+   "reveal": {
+    "text": "+ sound",
+    "at": "adding"
+   },
+   "lines": [
+    "Noise-cancelling headphones make things quieter by adding more sound."
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "link",
+   "from": {
+    "icon": "microphone",
+    "label": "tiny mics",
+    "at": "microphones"
+   },
+   "to": {
+    "icon": "cpu",
+    "label": "a chip",
+    "at": "chip"
+   },
+   "note": {
+    "text": "listening nonstop",
+    "at": "constantly"
+   },
+   "lines": [
+    "Tiny microphones on the outside constantly listen to the noise around you.",
+    "Then a chip builds a copy of that sound wave."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "wave",
+   "label": "noise",
+   "anti": {
+    "label": "flipped copy",
+    "at": "flipped"
+   },
+   "flat": {
+    "label": "≈ silence",
+    "at": "cancel"
+   },
+   "lines": [
+    "But it plays the copy flipped upside down.",
+    "When the two waves meet, peaks fill valleys, and they cancel out."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "compare",
+   "title": "Works best on...",
+   "source": "SoundGuys",
+   "left": {
+    "icon": "plane",
+    "label": "steady engine hum",
+    "value": "easy",
+    "at": "steady"
+   },
+   "right": {
+    "icon": "message-circle",
+    "label": "sudden voices",
+    "value": "harder",
+    "at": "Sudden"
+   },
+   "lines": [
+    "It works best on steady sounds, like a plane's engine hum.",
+    "Sudden, random sounds like voices are much harder to predict."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "bubble",
+   "icon": "headphones",
+   "text": "shhh.",
+   "at": "cancelling",
+   "lines": [
+    "So the quiet you hear isn't really silence.",
+    "It's two sounds cancelling each other out."
+   ],
+   "id": "beat5"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "ANC uses microphones and anti-noise of opposite phase; destructive interference; best on steady sounds, worse on sudden ones",
+   "url": "https://www.soundguys.com/how-noise-cancelling-headphones-work-12380"
+  },
+  {
+   "claim": "Active noise control principle",
+   "url": "https://en.wikipedia.org/wiki/Active_noise_control"
+  }
+ ],
+ "youtube": {
+  "title": "Noise-cancelling headphones add sound to make silence 🎧",
+  "description": "How active noise cancelling really works: microphones, a flipped sound wave, and destructive interference.",
+  "tags": [
+   "technology",
+   "physics",
+   "how it works",
+   "headphones"
+  ]
+ }
+}

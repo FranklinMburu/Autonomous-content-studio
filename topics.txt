@@ -1,0 +1,25 @@
+# One topic per line. The "Make a video" run with an empty topic takes the first one not yet made
+# (finished topics are listed in topics-done.txt). Lines starting with # are ignored.
+#
+# Three test lanes. Keep the one whose videos people watch longest.
+
+# Lane A - Your body's hidden logic (human body science; no medical advice)
+Why do we get goosebumps?
+Why does your stomach growl?
+Why do you yawn when someone else yawns?
+Why can't you tickle yourself?
+What happens to your body when you hold your breath?
+
+# Lane B - Why animals do that (pet and animal behaviour, backed by studies)
+Why do cats knead with their paws?
+Why do dogs sniff each other's butts?
+How do pigeons find their way home?
+Why do cats bring you dead animals?
+Do fish sleep?
+
+# Lane C - How everyday things secretly work (tech and physics of ordinary objects)
+How does a microwave heat food?
+Why does a phone screen only respond to fingers?
+How does a fridge make things cold?
+How do touchless thermometers read your temperature?
+Why does ice float?
