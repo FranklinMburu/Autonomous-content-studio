@@ -15,6 +15,8 @@ def main(argv=None):
     s = sub.add_parser("produce"); s.add_argument("--limit", type=int)
     s = sub.add_parser("published"); s.add_argument("--issue", type=int, required=True)
     sub.add_parser("status")
+    s = sub.add_parser("upload"); s.add_argument("--issue", type=int, required=True)
+    s.add_argument("--privacy", default="public", choices=["public", "unlisted", "private"])
     s = sub.add_parser("drift"); s.add_argument("--set-baseline", action="store_true")
     a = p.parse_args(argv)
     if a.cmd == "draft":
@@ -25,6 +27,8 @@ def main(argv=None):
         return run.cmd_produce(a.limit)
     if a.cmd == "published":
         return run.cmd_published(a.issue)
+    if a.cmd == "upload":
+        return run.cmd_upload(a.issue, a.privacy)
     if a.cmd == "status":
         return run.cmd_status()
     if a.cmd == "drift":

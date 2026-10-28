@@ -25,6 +25,12 @@ jobs:
         with:
           python-version: "3.12"
       - run: python -m studio.pipeline published --issue "${{ github.event.issue.number }}"
+      - name: Show the log on the Summary page
+        if: always()
+        run: |
+          if [ -f pipeline.log ]; then
+            { echo '### Pipeline log (last 200 lines)'; echo '```'; tail -n 200 pipeline.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          fi
       - name: Update the pinned status issue
         if: always()
         continue-on-error: true

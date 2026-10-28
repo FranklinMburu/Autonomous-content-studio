@@ -57,7 +57,15 @@ jobs:
         env:
           TOPIC: ${{ github.event.inputs.topic }}
           COUNT: ${{ github.event.inputs.count }}
-        run: python -m studio.pipeline draft ${TOPIC:+--topic "$TOPIC"} ${COUNT:+--count "$COUNT"}
+        run: |
+          set -o pipefail
+          python -m studio.pipeline draft ${TOPIC:+--topic "$TOPIC"} ${COUNT:+--count "$COUNT"} 2>&1 | tee -a pipeline.log
+      - name: Show the log on the Summary page
+        if: always()
+        run: |
+          if [ -f pipeline.log ]; then
+            { echo '### Pipeline log (last 200 lines)'; echo '```'; tail -n 200 pipeline.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          fi
       - name: Update the pinned status issue
         if: always()
         continue-on-error: true

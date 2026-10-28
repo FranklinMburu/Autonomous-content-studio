@@ -99,6 +99,8 @@ def draft_one(topic, lane, cfg):
             return item_id, "attention"
         return item_id, "queue"
     except Exception as e:
+        import traceback
+        log(traceback.format_exc()[-2500:])
         store.move(item_id, "attention", f"drafting failed: {str(e)[:400]}")
         log(f"  -> attention: {str(e)[:300]}")
         return item_id, "attention"
@@ -374,3 +376,41 @@ def cmd_status():
         subprocess.run(["gh", "issue", "pin", str(n)], cwd=store.ROOT)
     log(body)
     return 0
+
+
+# ---------------------------------------------------------------- upload (after Google's audit)
+
+def cmd_upload(issue, privacy="public"):
+    import urllib.request
+    from . import github as gh, youtube
+    if os.environ.get("YOUTUBE_UPLOADS_APPROVED", "").lower() != "true":
+        gh.comment(issue, "Automatic upload isn't switched on yet (it waits for Google's API audit; until then "
+                          "YouTube would lock the video as private). Upload it by hand, then close this issue.")
+        return 0
+    for item_id in store.items("delivered"):
+        f = store.folder("delivered", item_id)
+        v = store.read_json(f / "video.json", {})
+        if v.get("issue") != issue:
+            continue
+        script = store.read_json(f / "polished.json")
+        local = store.ROOT / "out" / f"{item_id}.mp4"
+        local.parent.mkdir(parents=True, exist_ok=True)
+        with urllib.request.urlopen(v["asset"], timeout=300) as r:
+            local.write_bytes(r.read())
+        try:
+            vid = youtube.upload(local, script, privacy)
+        except youtube.YouTubeError as e:
+            gh.comment(issue, f"Upload failed: {e}. Nothing was published; you can upload by hand.")
+            return 1
+        v["youtube"] = {"id": vid, "url": f"https://youtube.com/shorts/{vid}", "at": store.now(), "privacy": privacy}
+        store.write_json(f / "video.json", v)
+        it = store.read_json(f / "item.json")
+        store.move(item_id, "published", f"uploaded to YouTube as {vid}")
+        with open(store.ROOT / "topics-done.txt", "a", encoding="utf-8") as fh:
+            fh.write(it["topic"] + "\n")
+        commit_and_push(f"Uploaded: {item_id}")
+        gh.comment(issue, f"Uploaded: https://youtube.com/shorts/{vid} ({privacy}). Closing this issue.")
+        gh.update_issue(issue, state="closed")
+        return 0
+    gh.comment(issue, "This issue isn't a delivered video I can find; nothing uploaded.")
+    return 1

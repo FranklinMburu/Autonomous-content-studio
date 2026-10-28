@@ -50,3 +50,9 @@ jobs:
           path: cache
           key: assets-kokoro-v1.1-tabler-3.49.0
       - run: python -m studio.pipeline drift ${{ github.event.inputs.set_baseline == 'true' && '--set-baseline' || '' }}
+      - name: Show the log on the Summary page
+        if: always()
+        run: |
+          if [ -f pipeline.log ]; then
+            { echo '### Pipeline log (last 200 lines)'; echo '```'; tail -n 200 pipeline.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          fi

@@ -57,4 +57,12 @@ jobs:
       - name: Draft
         env:
           PIPELINE_BRANCH: studio-pipeline
-        run: python -m studio.pipeline draft --topic "Why do we get goosebumps?"
+        run: |
+          set -o pipefail
+          python -m studio.pipeline draft --topic "Why do we get goosebumps?" 2>&1 | tee -a pipeline.log
+      - name: Show the log on the Summary page
+        if: always()
+        run: |
+          if [ -f pipeline.log ]; then
+            { echo '### Pipeline log (last 200 lines)'; echo '```'; tail -n 200 pipeline.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          fi

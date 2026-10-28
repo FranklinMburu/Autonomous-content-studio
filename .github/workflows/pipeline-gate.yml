@@ -49,7 +49,15 @@ jobs:
           PR: ${{ github.event.pull_request.number }}
           AUTHOR: ${{ github.event.pull_request.user.login }}
           HEAD_REF: ${{ github.event.pull_request.head.ref }}
-        run: python -m studio.pipeline gate-pr --pr "$PR" --author "$AUTHOR" --head-ref "$HEAD_REF"
+        run: |
+          set -o pipefail
+          python -m studio.pipeline gate-pr --pr "$PR" --author "$AUTHOR" --head-ref "$HEAD_REF" 2>&1 | tee -a pipeline.log
+      - name: Show the log on the Summary page
+        if: always()
+        run: |
+          if [ -f pipeline.log ]; then
+            { echo '### Pipeline log (last 200 lines)'; echo '```'; tail -n 200 pipeline.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          fi
       - name: Update the pinned status issue
         if: always()
         continue-on-error: true

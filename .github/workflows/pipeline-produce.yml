@@ -51,7 +51,15 @@ jobs:
           path: cache
           key: assets-kokoro-v1.1-tabler-3.49.0
       - name: Produce
-        run: python -m studio.pipeline produce
+        run: |
+          set -o pipefail
+          python -m studio.pipeline produce 2>&1 | tee -a pipeline.log
+      - name: Show the log on the Summary page
+        if: always()
+        run: |
+          if [ -f pipeline.log ]; then
+            { echo '### Pipeline log (last 200 lines)'; echo '```'; tail -n 200 pipeline.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          fi
       - name: Update the pinned status issue
         if: always()
         continue-on-error: true
