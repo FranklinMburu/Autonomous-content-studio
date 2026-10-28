@@ -1,0 +1,88 @@
+{
+ "at": "2026-10-28T15:38:56+00:00",
+ "offline": [],
+ "fact_check": {
+  "results": [
+   {
+    "claim": "Remembering a big win can raise goosebumps all over your body.",
+    "verdict": "supported",
+    "evidence": "Source 2: \"...after winning a sports event...\" can cause goosebumps."
+   },
+   {
+    "claim": "Cold can do it.",
+    "verdict": "supported",
+    "evidence": "Source 2: \"Goose bumps can be experienced in the presence of flash‑cold temperatures...\""
+   },
+   {
+    "claim": "and so can fear, music, or a horror film.",
+    "verdict": "supported",
+    "evidence": "Source 2: \"Goose bumps can also be a response to anger or fear...\"; \"Music can also be a cause of piloerection...\"; \"...while watching a horror film.\""
+   },
+   {
+    "claim": "Tiny muscles at the base of your hairs contract and pull them straight up, a reflex started by your fight-or-flight nerves.",
+    "verdict": "supported",
+    "evidence": "Source 2: \"...tiny muscles at the base of each hair, known as arrector pili muscles, contract and pull the hair straight up.\"; \"The reflex is started by the sympathetic nervous system, which is responsible for many fight‑or‑flight responses.\""
+   },
+   {
+    "claim": "Here's the twist: feeling chills and getting bumps are not the same thing.",
+    "verdict": "supported",
+    "evidence": "Source 2: \"Research has shown that the self‑reported feeling of goosebumps does not always correlate with a physiological piloerection.\""
+   },
+   {
+    "claim": "In research, the bumps people reported didn't always match the bumps measured.",
+    "verdict": "supported",
+    "evidence": "Source 2: same as above about lack of correlation between self‑reported chills and observed piloerection."
+   },
+   {
+    "claim": "In furry animals, raised hair traps warm air.",
+    "verdict": "supported",
+    "evidence": "Source 2: \"In animals covered with fur or hair, the erect hairs trap air to create a layer of insulation.\""
+   },
+   {
+    "claim": "Frightened cats and chimpanzees bristle to look bigger.",
+    "verdict": "supported",
+    "evidence": "Source 2: \"...in the intimidation displays of chimpanzees... and in frightened cats.\""
+   },
+   {
+    "claim": "Porcupines raise their quills when threatened.",
+    "verdict": "supported",
+    "evidence": "Source 2: \"...a prominent example is porcupines, which raise their quills when threatened...\""
+   },
+   {
+    "claim": "And some people can raise goosebumps on purpose, no trigger needed.",
+    "verdict": "supported",
+    "evidence": "Source 2: \"Some people can deliberately evoke goose bumps in themselves without any external trigger. This is called 'voluntarily generated piloerection.'\""
+   },
+   {
+    "claim": "Many don't realize not everyone can.",
+    "verdict": "supported",
+    "evidence": "Source 2: \"An unknown proportion of people may consciously initiate... The ability appears to correlate with personality traits... not known to be possible for everyone.\""
+   },
+   {
+    "claim": "Some call it a leftover reflex, but it may be your body's sign that you were moved.",
+    "verdict": "supported",
+    "evidence": "Source 2: \"The formation of goose bumps in humans under stress is considered by some to be a vestigial reflex... goose bumps are thought to indicate the emotional state of being moved.\""
+   }
+  ],
+  "counts": {
+   "unsupported": 0,
+   "supported": 12,
+   "partial": 0
+  },
+  "model": "groq:openai/gpt-oss-120b"
+ },
+ "judge": {
+  "index": 1,
+  "scores": {
+   "1": 4,
+   "2": 5
+  },
+  "reason": "Candidate 2 delivers a clear hook, accurate facts, a tight narrative, and a fresh, memorable payoff about the reflex being a sign you were moved.",
+  "model": "groq:openai/gpt-oss-120b"
+ },
+ "score": {
+  "score": 4,
+  "reason": "Accurate and engaging with a strong hook, but the narrative flow could be tightened for a smoother story.",
+  "model": "groq:openai/gpt-oss-120b"
+ }
+}
