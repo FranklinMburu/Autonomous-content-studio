@@ -1,0 +1,48 @@
+{
+ "id": "20261028-why-do-we-get-goosebumps",
+ "topic": "Why do we get goosebumps?",
+ "lane": null,
+ "topic_key": "5131e31c0a573733",
+ "stage": "queue",
+ "created": "2026-10-28T14:28:47+00:00",
+ "attempts": 0,
+ "history": [
+  {
+   "at": "2026-10-28T14:28:47+00:00",
+   "to": "queue",
+   "why": "created"
+  }
+ ],
+ "provenance": {
+  "research_plan": {
+   "questions": [
+    "What is the physiological mechanism behind goosebumps?",
+    "Why do goosebumps occur in response to cold or emotion?",
+    "What evolutionary purpose do goosebumps serve?",
+    "How do goosebumps differ across species?"
+   ],
+   "wikipedia": [
+    "Goosebumps",
+    "Piloerection",
+    "Thermoregulation",
+    "Why do we get goosebumps?"
+   ],
+   "scholar": [
+    "piloerection mechanism cold response",
+    "goosebumps evolutionary function"
+   ],
+   "model": "groq:openai/gpt-oss-20b"
+  },
+  "writer": "nvidia:minimaxai/minimax-m3.1-flash",
+  "candidates": [
+   "nvidia:minimaxai/minimax-m3.1-flash"
+  ],
+  "judge": {
+   "index": 0,
+   "scores": {},
+   "reason": "only one candidate",
+   "model": null
+  },
+  "rules": "studio/pipeline/draft.py TASK + POLISH.md"
+ }
+}

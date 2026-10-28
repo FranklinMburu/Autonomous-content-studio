@@ -1,0 +1,37 @@
+name: "Pipeline 4: published"
+# When you close a "Ready to upload" issue, the video is recorded as published.
+on:
+  issues:
+    types: [closed]
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: pipeline-published
+  cancel-in-progress: false
+jobs:
+  published:
+    if: contains(github.event.issue.labels.*.name, 'ready-to-upload')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: python -m studio.pipeline published --issue "${{ github.event.issue.number }}"
+      - name: Show the log on the Summary page
+        if: always()
+        run: |
+          if [ -f pipeline.log ]; then
+            { echo '### Pipeline log (last 200 lines)'; echo '```'; tail -n 200 pipeline.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Update the pinned status issue
+        if: always()
+        continue-on-error: true
+        run: python -m studio.pipeline status > /dev/null

@@ -4,7 +4,6 @@ The script names icons in plain words ("brain", "heart", "rocket"). If a name do
 we search the tags and pick the closest match, so a script never fails over an icon name.
 """
 import difflib, io, json, re
-import cairo, cairosvg
 from .paths import icons_dir
 
 _index = None
@@ -52,6 +51,7 @@ def exists(name):
 
 def surface(name, size, color, filled=False):
     """Cairo surface of the icon at `size` px, stroked in `color` (r,g,b 0..1)."""
+    import cairo, cairosvg   # imported here so name lookups work without the drawing libraries
     name, _ = resolve(name)
     key = (name, size, color, filled)
     if key in _cache:

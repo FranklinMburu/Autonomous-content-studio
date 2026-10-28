@@ -1,0 +1,10 @@
+{
+ "_note": "Pipeline settings. buffer_target: stop drafting when this many videos are in the pipeline. drafts_per_run: new drafts per nightly run. produce_per_run: videos rendered per run. polish batch size lives in POLISH.md.",
+ "buffer_target": 5,
+ "drafts_per_run": 2,
+ "produce_per_run": 3,
+ "max_unsupported_in_draft": 2,
+ "draft_models": ["groq:openai/gpt-oss-120b", "google:gemini-3.6-flash", "nvidia:minimaxai/minimax-m3.1-flash"],
+ "lane": null,
+ "owner_logins": ["FranklinMburu"]
+}

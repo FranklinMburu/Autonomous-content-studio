@@ -1,0 +1,64 @@
+name: "Pipeline 2: polish gate"
+# Runs on every pull request that adds polished scripts. Trusted code from main reads the PR's polished.json
+# files as DATA only (PR code is never executed), runs the gates, fact check and judge, copies accepted scripts
+# into pipeline/ready on main, records reasons for rejected ones, then closes the PR.
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize, ready_for_review]
+    branches: [main]
+    paths: ["pipeline/queue/**"]
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  actions: write
+concurrency:
+  group: pipeline-gate-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      ACCOUNT_KEY_franklincopil3: ${{ secrets.GEMINI_API_KEY }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      AILAYER_STATE_URL: ${{ secrets.AILAYER_STATE_URL }}
+      AILAYER_STATE_TOKEN: ${{ secrets.AILAYER_STATE_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Get the brain (private repo, read-only deploy key)
+        uses: actions/checkout@v5
+        with:
+          repository: FranklinMburu/AI-layer
+          ssh-key: ${{ secrets.AILAYER_DEPLOY_KEY }}
+          path: .brain
+          persist-credentials: false
+      - run: echo "PYTHONPATH=$GITHUB_WORKSPACE/.brain:$GITHUB_WORKSPACE" >> "$GITHUB_ENV"
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Gate the polished scripts
+        env:
+          PR: ${{ github.event.pull_request.number }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+        run: |
+          set -o pipefail
+          python -m studio.pipeline gate-pr --pr "$PR" --author "$AUTHOR" --head-ref "$HEAD_REF" 2>&1 | tee -a pipeline.log
+      - name: Show the log on the Summary page
+        if: always()
+        run: |
+          if [ -f pipeline.log ]; then
+            { echo '### Pipeline log (last 200 lines)'; echo '```'; tail -n 200 pipeline.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Update the pinned status issue
+        if: always()
+        continue-on-error: true
+        run: python -m studio.pipeline status > /dev/null

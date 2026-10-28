@@ -1,0 +1,43 @@
+name: "Pipeline 6: upload to YouTube"
+# Add the label "approve-publish" to a "Ready to upload" issue and this uploads the video.
+# Switched off until Google approves the API audit (repository variable YOUTUBE_UPLOADS_APPROVED=true);
+# before that, YouTube would lock API uploads as private for good.
+on:
+  issues:
+    types: [labeled]
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: pipeline-upload
+  cancel-in-progress: false
+jobs:
+  upload:
+    if: github.event.label.name == 'approve-publish' && github.event.sender.login == github.repository_owner
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+      YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+      YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+      YOUTUBE_UPLOADS_APPROVED: ${{ vars.YOUTUBE_UPLOADS_APPROVED }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: python -m studio.pipeline upload --issue "${{ github.event.issue.number }}"
+      - name: Show the log on the Summary page
+        if: always()
+        run: |
+          if [ -f pipeline.log ]; then
+            { echo '### Pipeline log (last 200 lines)'; echo '```'; tail -n 200 pipeline.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Update the pinned status issue
+        if: always()
+        continue-on-error: true
+        run: python -m studio.pipeline status > /dev/null

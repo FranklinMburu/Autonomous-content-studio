@@ -1,0 +1,148 @@
+{
+ "title": "Why Do We Get Goosebumps?",
+ "topic": "Why do we get goosebumps?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "feather",
+   "label": "goosebumps",
+   "reveal": {
+    "text": "memory?",
+    "at": "memory"
+   },
+   "lines": [
+    "Your skin can react to a memory, even when nothing touches you."
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "link",
+   "from": {
+    "icon": "brain",
+    "label": "sympathetic nervous system",
+    "at": "sympathetic"
+   },
+   "to": {
+    "icon": "activity",
+    "label": "arrector pili muscles",
+    "at": "muscles"
+   },
+   "note": {
+    "text": "hairs rise",
+    "at": "upright"
+   },
+   "lines": [
+    "Goosebumps start with your sympathetic nervous system, which handles fight-or-flight.",
+    "Cold makes tiny arrector pili muscles contract and pull hairs upright."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "compare",
+   "title": "Feeling versus physiology",
+   "left": {
+    "icon": "mood-surprised",
+    "label": "reported chills",
+    "value": "subjective",
+    "at": "report"
+   },
+   "right": {
+    "icon": "microscope",
+    "label": "measured bumps",
+    "value": "physiological",
+    "at": "measured"
+   },
+   "verdict": {
+    "text": "Can disagree",
+    "sub": "not always linked",
+    "at": "match"
+   },
+   "lines": [
+    "Here's the twist: strong emotions can trigger goosebumps, but why is less understood.",
+    "People report chills, but those feelings do not always match measured goosebumps."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "tags",
+   "title": "Raised hair across species",
+   "icon": "feather",
+   "items": [
+    {
+     "text": "insulation",
+     "at": "insulation",
+     "tone": "good"
+    },
+    {
+     "text": "look bigger",
+     "at": "bigger",
+     "tone": "good"
+    },
+    {
+     "text": "porcupine quills",
+     "at": "quills",
+     "tone": "neutral"
+    },
+    {
+     "text": "sea otters",
+     "at": "sea",
+     "tone": "neutral"
+    }
+   ],
+   "verdict": {
+    "text": "vestigial in humans",
+    "sub": "by some scientists",
+    "at": "vestigial"
+   },
+   "lines": [
+    "In hairy mammals, raised hairs trap air for insulation.",
+    "Some animals look bigger to intimidate enemies.",
+    "Porcupines raise quills when threatened; sea otters raise hair when meeting sharks.",
+    "For humans, some scientists call stress-related goosebumps a vestigial reflex."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "bubble",
+   "icon": "user",
+   "prop": "eye",
+   "text": "check your skin",
+   "at": "check",
+   "lines": [
+    "Next time a powerful memory moves you, check your skin for bumps.",
+    "Your feeling of chills and your visible goosebumps may not match."
+   ],
+   "id": "beat5"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Goosebumps occur when arrector pili muscles contract and pull hairs upright, and the reflex begins in the sympathetic nervous system.",
+   "url": "https://en.wikipedia.org/wiki/Goose_bumps"
+  },
+  {
+   "claim": "Strong and remembered emotions can cause goosebumps, but emotional correlates are not well understood, and self-reported goosebumps do not always match physiological piloerection.",
+   "url": "https://en.wikipedia.org/wiki/Goose_bumps"
+  },
+  {
+   "claim": "Raised hairs trap air for insulation and can make animals appear larger; porcupines raise their quills when threatened, and sea otters raise hair when encountering sharks.",
+   "url": "https://en.wikipedia.org/wiki/Goose_bumps"
+  },
+  {
+   "claim": "The formation of goosebumps in humans under stress is considered by some to be a vestigial reflex.",
+   "url": "https://en.wikipedia.org/wiki/Goose_bumps"
+  }
+ ],
+ "youtube": {
+  "title": "Why Do We Get Goosebumps? The Ancient Reflex Inside",
+  "description": "Cold, emotion, and memory can trigger piloerection. Here's the muscle reflex behind your goosebumps—and why other animals use theirs.",
+  "tags": [
+   "goosebumps explained",
+   "piloerection",
+   "human biology",
+   "science",
+   "animal behavior"
+  ]
+ }
+}

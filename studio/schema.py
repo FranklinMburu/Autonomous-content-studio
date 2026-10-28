@@ -69,8 +69,9 @@ def _at_values(beat):
     return out
 
 
-def validate(script, fix=True):
-    """Return (errors, warnings). With fix=True, repairs what it safely can (icon names, missing ids)."""
+def validate(script, fix=True, check_icons=True):
+    """Return (errors, warnings). With fix=True, repairs what it safely can (icon names, missing ids).
+    check_icons=False skips the icon lookup (used by the pipeline gates, which check icons against a fixed list)."""
     errors, warns = [], []
     if not script.get("title"):
         errors.append("missing title")
@@ -100,7 +101,7 @@ def validate(script, fix=True):
         for at in _at_values(b):
             if _norm(at) not in spoken:
                 warns.append(f"beat {i + 1}: cue word '{at}' is not in its narration; timing will be estimated")
-        for path in ICON_PATHS:
+        for path in (ICON_PATHS if check_icons else ()):
             parent = b
             for k in path[:-1]:
                 parent = parent.get(k) if isinstance(parent, dict) else None

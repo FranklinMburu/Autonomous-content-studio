@@ -1,0 +1,17 @@
+name: "Pipeline tests"
+# Offline tests on every push: no keys, no network, no quota.
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: python tests/test_pipeline.py

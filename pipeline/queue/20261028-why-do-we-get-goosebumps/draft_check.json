@@ -1,0 +1,125 @@
+{
+ "gates": [],
+ "writer": "nvidia:minimaxai/minimax-m3.1-flash",
+ "candidates": [
+  "nvidia:minimaxai/minimax-m3.1-flash"
+ ],
+ "failed": [
+  {
+   "ref": "groq:openai/gpt-oss-120b",
+   "error": "no model in tier 'standard' could answer (groq:openai/gpt-oss-120b: invalid output; groq:openai/gpt-oss-120b: HTTP 413)"
+  },
+  {
+   "ref": "google:gemini-3.6-flash",
+   "error": "no model in tier 'standard' could answer (google:gemini-3.6-flash: invalid output; google:gemini-3.6-flash: invalid output)"
+  }
+ ],
+ "judge": {
+  "index": 0,
+  "scores": {},
+  "reason": "only one candidate",
+  "model": null
+ },
+ "fact_check": {
+  "results": [
+   {
+    "claim": "Your skin can react to a memory, even when nothing touches you.",
+    "verdict": "unsupported",
+    "evidence": "No source mentions skin reacting to memory without touch."
+   },
+   {
+    "claim": "Goosebumps start with your sympathetic nervous system, which handles fight-or-flight.",
+    "verdict": "supported",
+    "evidence": "Source 2: \"The reflex is started by the sympathetic nervous system, which is responsible for many fight-or-flight responses.\""
+   },
+   {
+    "claim": "Cold makes tiny arrector pili muscles contract and pull hairs upright.",
+    "verdict": "supported",
+    "evidence": "Source 2: \"Goose bumps are created when tiny muscles at the base of each hair, known as arrector pili muscles, contract and pull the hair straight up.\""
+   },
+   {
+    "claim": "Strong emotions can trigger goosebumps, but why is less understood.",
+    "verdict": "supported",
+    "evidence": "Source 2: \"The emotional correlates of piloerection in humans are not well understood.\""
+   },
+   {
+    "claim": "People report chills, but those feelings do not always match measured goosebumps.",
+    "verdict": "supported",
+    "evidence": "Source 2: \"Research has shown that the self‑reported feeling of goosebumps does not always correlate with a physiological piloerection.\""
+   },
+   {
+    "claim": "In hairy mammals, raised hairs trap air for insulation.",
+    "verdict": "supported",
+    "evidence": "Source 2: \"In animals covered with fur or hair, the erect hairs trap air to create a layer of insulation.\""
+   },
+   {
+    "claim": "Some animals look bigger to intimidate enemies.",
+    "verdict": "supported",
+    "evidence": "Source 2: \"the erect hairs make the animal appear larger, in order to intimidate enemies.\""
+   },
+   {
+    "claim": "Porcupines raise quills when threatened; sea otters raise hair when meeting sharks.",
+    "verdict": "supported",
+    "evidence": "Source 2: \"a prominent example is porcupines, which raise their quills when threatened, or sea otters when they encounter sharks or other predators.\""
+   },
+   {
+    "claim": "For humans, some scientists call stress‑related goosebumps a vestigial reflex.",
+    "verdict": "supported",
+    "evidence": "Source 2: \"The formation of goose bumps in humans under stress is considered by some to be a vestigial reflex.\""
+   },
+   {
+    "claim": "Next time a powerful memory moves you, check your skin for bumps.",
+    "verdict": "unsupported",
+    "evidence": "No source advises checking skin after a memory."
+   },
+   {
+    "claim": "Your feeling of chills and your visible goosebumps may not match.",
+    "verdict": "supported",
+    "evidence": "Source 2: \"Research has shown that the self‑reported feeling of goosebumps does not always correlate with a physiological piloerection.\""
+   }
+  ],
+  "counts": {
+   "partial": 0,
+   "unsupported": 2,
+   "supported": 9
+  },
+  "model": "groq:openai/gpt-oss-120b"
+ },
+ "provenance": {
+  "layer_version": "0.3.0",
+  "config": "dcef84aa41c6",
+  "tier": "standard",
+  "ref": "nvidia:minimaxai/minimax-m3.1-flash",
+  "prompt_sha256": "3c5e81b71971fb35",
+  "system_sha256": "a328b827560026be",
+  "temperature": 0.7,
+  "max_tokens": 4000,
+  "json": true,
+  "cached": false,
+  "finish": "stop",
+  "tokens_in": 5368,
+  "tokens_out": 11461,
+  "at": "2026-10-28T14:44:17+00:00",
+  "best_of": {
+   "candidates": [
+    "nvidia:minimaxai/minimax-m3.1-flash"
+   ],
+   "failed": [
+    {
+     "ref": "groq:openai/gpt-oss-120b",
+     "error": "no model in tier 'standard' could answer (groq:openai/gpt-oss-120b: invalid output; groq:openai/gpt-oss-120b: HTTP 413)"
+    },
+    {
+     "ref": "google:gemini-3.6-flash",
+     "error": "no model in tier 'standard' could answer (google:gemini-3.6-flash: invalid output; google:gemini-3.6-flash: invalid output)"
+    }
+   ],
+   "judge": {
+    "index": 0,
+    "scores": {},
+    "reason": "only one candidate",
+    "model": null
+   }
+  }
+ }
+}
