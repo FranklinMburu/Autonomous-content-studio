@@ -19,6 +19,11 @@ OPENALEX = "https://api.openalex.org/works"
 MIN_WIKI_CHARS = 1500
 MIN_ABSTRACT_CHARS = 400
 MAX_TEXT = 40000
+# Articles about films, shows, books or music that share the topic's words are not sources for the science.
+OFF_TOPIC = re.compile(r"\((?:[0-9]{4} )?(?:film|tv series|television series|novel|book series|album|song|band|"
+                       r"video game|musical|play|episode|franchise|magazine|comics?)\)|\(disambiguation\)", re.I)
+OFF_TOPIC_LEAD = re.compile(r"\bis an? (?:[0-9]{4} )?(?:[a-z-]+ ){0,3}(?:film|television series|tv series|novel|album|"
+                            r"song|band|video game|horror anthology|book series|musical)\b", re.I)
 
 
 class ResearchError(Exception):
@@ -123,6 +128,8 @@ def research(topic, ask=None, log=print):
     sources, seen = [], set()
 
     def relevant(s):
+        if OFF_TOPIC.search(s["title"]) or OFF_TOPIC_LEAD.search(s["text"][:400]):
+            return False
         low = s["text"][:6000].lower() + " " + s["title"].lower()
         return sum(1 for k in kw if k[:-1] in low) >= min(2, len(kw)) if kw else True
     for title in p["wikipedia"]:

@@ -36,13 +36,15 @@ def log(*a):
 def git(*args, check=True):
     r = subprocess.run(["git", *args], cwd=store.ROOT, capture_output=True, text=True)
     if check and r.returncode:
-        raise RuntimeError(f"git {' '.join(args[:2])} failed: {r.stderr.strip()[:300]}")
+        raise RuntimeError(f"git {' '.join(a for a in args if not a.startswith('user.'))[:60]} failed: "
+                           f"{(r.stderr or r.stdout).strip()[:300]}")
     return r.stdout
 
 
 def commit_and_push(message):
-    git("add", "-A", "pipeline", "topics-done.txt", check=False)
-    if not git("status", "--porcelain", "pipeline", "topics-done.txt").strip():
+    paths = [p for p in ("pipeline", "topics-done.txt") if (store.ROOT / p).exists()]
+    git("add", "-A", *paths)
+    if not git("diff", "--cached", "--name-only").strip():
         log("nothing to commit")
         return False
     git("-c", "user.name=content-studio-bot", "-c", "user.email=actions@users.noreply.github.com",
