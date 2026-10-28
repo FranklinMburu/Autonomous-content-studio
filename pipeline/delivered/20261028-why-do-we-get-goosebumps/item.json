@@ -3,7 +3,7 @@
  "topic": "Why do we get goosebumps?",
  "lane": null,
  "topic_key": "5131e31c0a573733",
- "stage": "ready",
+ "stage": "delivered",
  "created": "2026-10-28T14:28:47+00:00",
  "attempts": 0,
  "history": [
@@ -17,6 +17,12 @@
    "from": "queue",
    "to": "ready",
    "why": "polish accepted from PR #3 (score 4)"
+  },
+  {
+   "at": "2026-10-28T15:43:01+00:00",
+   "from": "ready",
+   "to": "delivered",
+   "why": "rendered; issue #5"
   }
  ],
  "provenance": {
