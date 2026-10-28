@@ -1,0 +1,64 @@
+name: "Pipeline 1: draft"
+# Nightly: research real sources, write grounded drafts with free models, check them, queue them for polish.
+# 00:13 UTC = 03:13 Nairobi. Run by hand: Actions -> "Pipeline 1: draft" -> Run workflow.
+on:
+  schedule:
+    - cron: "13 0 * * *"
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "Draft this topic now (empty = next topics from topics.txt)"
+        required: false
+        default: ""
+      count:
+        description: "How many topics (empty = config)"
+        required: false
+        default: ""
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: pipeline-draft
+  cancel-in-progress: false
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      ACCOUNT_KEY_franklincopil3: ${{ secrets.GEMINI_API_KEY }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      AILAYER_STATE_URL: ${{ secrets.AILAYER_STATE_URL }}
+      AILAYER_STATE_TOKEN: ${{ secrets.AILAYER_STATE_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Get the brain (private repo, read-only deploy key)
+        uses: actions/checkout@v5
+        with:
+          repository: FranklinMburu/AI-layer
+          ssh-key: ${{ secrets.AILAYER_DEPLOY_KEY }}
+          path: .brain
+          persist-credentials: false
+      - run: echo "PYTHONPATH=$GITHUB_WORKSPACE/.brain:$GITHUB_WORKSPACE" >> "$GITHUB_ENV"
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Restore icons
+        uses: actions/cache@v4
+        with:
+          path: cache
+          key: assets-kokoro-v1.1-tabler-3.49.0
+      - name: Draft
+        env:
+          TOPIC: ${{ github.event.inputs.topic }}
+          COUNT: ${{ github.event.inputs.count }}
+        run: python -m studio.pipeline draft ${TOPIC:+--topic "$TOPIC"} ${COUNT:+--count "$COUNT"}
+      - name: Update the pinned status issue
+        if: always()
+        continue-on-error: true
+        run: python -m studio.pipeline status > /dev/null

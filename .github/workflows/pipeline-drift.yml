@@ -1,0 +1,52 @@
+name: "Pipeline 5: weekly quality test"
+# Mondays 06:17 UTC: drafts 3 fixed test topics and compares their scores with the baseline.
+# A drop opens a "Quality alert" issue. Nothing here enters the real queue.
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      set_baseline:
+        description: "Accept this run as the new baseline"
+        type: boolean
+        default: false
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: pipeline-drift
+  cancel-in-progress: false
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      ACCOUNT_KEY_franklincopil3: ${{ secrets.GEMINI_API_KEY }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      AILAYER_STATE_URL: ${{ secrets.AILAYER_STATE_URL }}
+      AILAYER_STATE_TOKEN: ${{ secrets.AILAYER_STATE_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Get the brain (private repo, read-only deploy key)
+        uses: actions/checkout@v5
+        with:
+          repository: FranklinMburu/AI-layer
+          ssh-key: ${{ secrets.AILAYER_DEPLOY_KEY }}
+          path: .brain
+          persist-credentials: false
+      - run: echo "PYTHONPATH=$GITHUB_WORKSPACE/.brain:$GITHUB_WORKSPACE" >> "$GITHUB_ENV"
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Restore icons
+        uses: actions/cache@v4
+        with:
+          path: cache
+          key: assets-kokoro-v1.1-tabler-3.49.0
+      - run: python -m studio.pipeline drift ${{ github.event.inputs.set_baseline == 'true' && '--set-baseline' || '' }}
