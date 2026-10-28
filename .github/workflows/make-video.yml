@@ -39,15 +39,15 @@ jobs:
           python-version: "3.12"
           cache: pip
 
-      # The brain (private repo FranklinMburu/AI-layer), read with a read-only token.
-      # If the token is missing or the checkout fails, the studio simply uses direct Gemini as before.
+      # The brain (private repo FranklinMburu/AI-layer), read with a read-only deploy key.
+      # If the key is missing or the checkout fails, the studio simply uses direct Gemini as before.
       - name: Get the brain
         id: brain
         continue-on-error: true
         uses: actions/checkout@v4
         with:
           repository: FranklinMburu/AI-layer
-          token: ${{ secrets.AILAYER_REPO_TOKEN }}
+          ssh-key: ${{ secrets.AILAYER_DEPLOY_KEY }}
           path: .brain
           persist-credentials: false
 
@@ -57,7 +57,7 @@ jobs:
             echo "PYTHONPATH=$GITHUB_WORKSPACE/.brain" >> "$GITHUB_ENV"
             echo "Brain connected: $(cd .brain && git rev-parse --short HEAD)"
           else
-            echo "::warning::Brain not available (AILAYER_REPO_TOKEN missing?). Using direct Gemini."
+            echo "::warning::Brain not available (AILAYER_DEPLOY_KEY missing?). Using direct Gemini."
           fi
 
       - name: Install system tools
