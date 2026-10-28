@@ -1,7 +1,13 @@
-"""Minimal client for Google's Gemini API (free tier). No SDK needed.
+"""The studio's single doorway to AI models.
 
-The key comes from the GEMINI_API_KEY environment variable (a GitHub secret in the workflow).
-Models are tried in order; on quota/availability errors we fall back to the next one.
+1. The brain first (ailayer, the private FranklinMburu/AI-layer repo). When it is available (the workflow checks
+   it out next to the studio) every call goes through it: several free providers (Gemini, Groq, NVIDIA) with
+   fallback, daily allowances, circuit breakers and shared memory.
+2. Direct Gemini as the safety net: if the brain isn't there, or every brain model fails, the original minimal
+   Gemini client below answers instead. Set USE_BRAIN=0 to skip the brain entirely.
+
+Direct-Gemini key: GEMINI_API_KEY (a GitHub secret). Models are tried in order; quota/availability errors fall
+back to the next one.
 """
 import json, os, re, time, urllib.error, urllib.request
 
@@ -18,7 +24,29 @@ def models():
     return [m.strip() for m in env.split(",") if m.strip()] if env else DEFAULT_MODELS
 
 
+def _brain():
+    if os.environ.get("USE_BRAIN", "1").strip() == "0":
+        return None
+    try:
+        from ailayer import compat
+        return compat
+    except ImportError:
+        return None
+
+
 def generate(prompt, system=None, json_mode=True, temperature=0.8, max_tokens=8192):
+    """Returns (text, model). Same signature as before, so writer.py and factcheck.py are unchanged."""
+    brain = _brain()
+    if brain is not None:
+        try:
+            return brain.generate(prompt, system=system, json_mode=json_mode, temperature=temperature,
+                                  max_tokens=max_tokens)
+        except Exception as e:      # the brain's errors never contain keys
+            print(f"  [brain] no model answered ({str(e)[:200]}); falling back to direct Gemini")
+    return _direct_gemini(prompt, system=system, json_mode=json_mode, temperature=temperature, max_tokens=max_tokens)
+
+
+def _direct_gemini(prompt, system=None, json_mode=True, temperature=0.8, max_tokens=8192):
     key = os.environ.get("GEMINI_API_KEY", "").strip()
     if not key:
         raise GeminiError("GEMINI_API_KEY is not set. Add it as a secret (see README).")

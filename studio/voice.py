@@ -118,6 +118,14 @@ def _word_times(k, words, timings, offset, dur):
 def narrate(script, wav_path, timing_path):
     k = engine()
     voice = script.get("voice", "af_heart")
+    try:
+        known = set(k.get_voices())
+    except Exception:
+        known = None
+    if known is not None and voice not in known:
+        # Writers sometimes invent a voice name; never let that sink the whole video.
+        print(f"  [voice] unknown voice '{voice}', using af_heart")
+        voice = script["voice"] = "af_heart"
     speed = float(script.get("speed", 1.0))
     sr = 24000
     chunks = [np.zeros(int(LEAD_IN * sr), np.float32)]
