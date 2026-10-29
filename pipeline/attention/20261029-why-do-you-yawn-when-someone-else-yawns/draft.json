@@ -1,0 +1,129 @@
+{
+ "title": "Why does one yawn make everyone yawn?",
+ "topic": "Why do you yawn when someone else yawns?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "brain",
+   "reveal": {
+    "text": "?",
+    "at": "sigh"
+   },
+   "lines": [
+    "Ever wonder why a single yawn can make the whole room sigh?"
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "tags",
+   "title": "What a yawn does",
+   "icon": "brain",
+   "items": [
+    {
+     "text": "swap air",
+     "at": "swap",
+     "tone": "neutral"
+    },
+    {
+     "text": "stretch",
+     "at": "stretch",
+     "tone": "neutral"
+    }
+   ],
+   "lines": [
+    "Yawning helps swap stale air for fresh, but that alone doesn’t spread it.",
+    "It often comes with a stretch that readies muscles for quick action."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "link",
+   "from": {
+    "icon": "brain",
+    "label": "brain",
+    "at": "brain"
+   },
+   "to": {
+    "icon": "brain",
+    "label": "motor cortex",
+    "at": "cortex"
+   },
+   "note": {
+    "text": "~50 % variance",
+    "at": "variability"
+   },
+   "lines": [
+    "Research shows contagious yawning links to brain cooling and mirrors our empathy.",
+    "A 2017 brain‑stimulation study found motor cortex excitability predicts who will yawn next."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "compare",
+   "title": "Animals that yawn together",
+   "left": {
+    "icon": "dog",
+    "label": "wolves",
+    "value": "",
+    "at": "wolves"
+   },
+   "right": {
+    "icon": "dog",
+    "label": "dogs",
+    "value": "",
+    "at": "dogs"
+   },
+   "verdict": {
+    "text": "social bond matters",
+    "at": "bond"
+   },
+   "lines": [
+    "Wolves and dogs also catch yawns, especially from close pack members.",
+    "The stronger the social bond, the faster the response, hinting at an empathy link."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "bubble",
+   "icon": "brain",
+   "prop": "ear",
+   "text": "watch them",
+   "at": "watch",
+   "lines": [
+    "Next time you hear a yawn, notice who’s nearby—your brain may be syncing with theirs!",
+    "Try holding your breath first—you might stop the chain."
+   ],
+   "id": "beat5"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Contagious yawning may be linked to empathy and social bonding",
+   "url": "https://en.wikipedia.org/wiki/Yawn"
+  },
+  {
+   "claim": "Wolves show contagious yawning that correlates with social bond strength",
+   "url": "https://doi.org/10.1371/journal.pone.0105963"
+  },
+  {
+   "claim": "Motor cortex excitability predicts contagious yawning propensity",
+   "url": "https://doi.org/10.1016/j.cub.2017.07.062"
+  },
+  {
+   "claim": "Domestic dogs catch human yawns, suggesting cross‑species contagion",
+   "url": "https://en.wikipedia.org/wiki/Yawn"
+  }
+ ],
+ "youtube": {
+  "title": "Why does one yawn make everyone yawn? 🤔",
+  "description": "Explore the science behind contagious yawning, its link to empathy, and how animals like wolves and dogs share this quirky behavior.",
+  "tags": [
+   "yawning",
+   "contagious yawning",
+   "empathy",
+   "brain",
+   "animals"
+  ]
+ }
+}

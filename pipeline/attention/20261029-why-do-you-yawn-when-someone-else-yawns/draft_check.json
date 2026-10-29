@@ -1,0 +1,110 @@
+{
+ "gates": [],
+ "writer": "groq:openai/gpt-oss-120b",
+ "candidates": [
+  "groq:openai/gpt-oss-120b",
+  "nvidia:minimaxai/minimax-m3.1-flash"
+ ],
+ "failed": [
+  {
+   "ref": "google:gemini-3.6-flash",
+   "error": "no model in tier 'standard' could answer (google:gemini-3.6-flash: HTTP 429)"
+  }
+ ],
+ "judge": {
+  "index": 0,
+  "scores": {
+   "1": 5,
+   "2": 4
+  },
+  "reason": "Candidate 1 delivers a spot‑on hook, clear story flow, accurate claims, strong payoff and concrete visual cues.",
+  "model": "groq:openai/gpt-oss-120b"
+ },
+ "fact_check": {
+  "results": [
+   {
+    "claim": "Yawning helps swap stale air for fresh, but that alone doesn’t spread it.",
+    "verdict": "unsupported",
+    "evidence": "Sources discuss yawning’s possible roles in brain cooling, alertness, and social signaling, but do not mention air exchange as a function."
+   },
+   {
+    "claim": "It often comes with a stretch that readies muscles for quick action.",
+    "verdict": "unsupported",
+    "evidence": "No source mentions a stretch accompanying yawning or a preparatory muscular function."
+   },
+   {
+    "claim": "Research shows contagious yawning links to brain cooling and mirrors our empathy.",
+    "verdict": "supported",
+    "evidence": "Source 1 cites the brain‑cooling hypothesis and links contagious yawning to empathy; Source 3 and Source 4 discuss empathy‑related mechanisms."
+   },
+   {
+    "claim": "A 2017 brain‑stimulation study found motor cortex excitability predicts who will yawn next.",
+    "verdict": "supported",
+    "evidence": "Source 4 (2017 study) reports that cortical excitability measured by TMS predicts propensity for contagious yawning."
+   },
+   {
+    "claim": "Wolves and dogs also catch yawns, especially from close pack members.",
+    "verdict": "supported",
+    "evidence": "Source 3 shows wolves exhibit contagious yawning, stronger with close social bonds; Source 1 reports dogs yawn contagiously."
+   },
+   {
+    "claim": "The stronger the social bond, the faster the response, hinting at an empathy link.",
+    "verdict": "supported",
+    "evidence": "Source 3 states that stronger social bonds increase frequency of contagious yawning and females react faster, suggesting an empathy connection."
+   },
+   {
+    "claim": "Next time you hear a yawn, notice who’s nearby—your brain may be syncing with theirs!",
+    "verdict": "unsupported",
+    "evidence": "Sources do not describe a direct ‘brain syncing’ effect observable by an individual in that context."
+   },
+   {
+    "claim": "Try holding your breath first—you might stop the chain.",
+    "verdict": "unsupported",
+    "evidence": "Source 1 mentions reduced contagious yawning with nasal breathing, but does not address breath‑holding as a method to stop contagion."
+   }
+  ],
+  "counts": {
+   "supported": 4,
+   "unsupported": 4,
+   "partial": 0
+  },
+  "model": "groq:openai/gpt-oss-120b"
+ },
+ "provenance": {
+  "layer_version": "0.3.0",
+  "config": "dcef84aa41c6",
+  "tier": "standard",
+  "ref": "groq:openai/gpt-oss-120b",
+  "prompt_sha256": "9bca7c8e0534aac5",
+  "system_sha256": "a328b827560026be",
+  "temperature": 0.7,
+  "max_tokens": 4000,
+  "json": true,
+  "cached": false,
+  "finish": "stop",
+  "tokens_in": 7120,
+  "tokens_out": 1818,
+  "at": "2026-10-29T05:59:48+00:00",
+  "best_of": {
+   "candidates": [
+    "groq:openai/gpt-oss-120b",
+    "nvidia:minimaxai/minimax-m3.1-flash"
+   ],
+   "failed": [
+    {
+     "ref": "google:gemini-3.6-flash",
+     "error": "no model in tier 'standard' could answer (google:gemini-3.6-flash: HTTP 429)"
+    }
+   ],
+   "judge": {
+    "index": 0,
+    "scores": {
+     "1": 5,
+     "2": 4
+    },
+    "reason": "Candidate 1 delivers a spot‑on hook, clear story flow, accurate claims, strong payoff and concrete visual cues.",
+    "model": "groq:openai/gpt-oss-120b"
+   }
+  }
+ }
+}

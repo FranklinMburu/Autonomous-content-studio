@@ -1,0 +1,58 @@
+{
+ "id": "20261029-why-do-you-yawn-when-someone-else-yawns",
+ "topic": "Why do you yawn when someone else yawns?",
+ "lane": null,
+ "topic_key": "e16ef00e3b87ac0a",
+ "stage": "attention",
+ "created": "2026-10-29T05:58:03+00:00",
+ "attempts": 0,
+ "history": [
+  {
+   "at": "2026-10-29T05:58:03+00:00",
+   "to": "queue",
+   "why": "created"
+  },
+  {
+   "at": "2026-10-29T06:07:30+00:00",
+   "from": "queue",
+   "to": "attention",
+   "why": "draft has 4 unsupported claims (limit 2)"
+  }
+ ],
+ "provenance": {
+  "research_plan": {
+   "questions": [
+    "Why is yawning contagious?",
+    "Is contagious yawning a sign of empathy?",
+    "Do animals other than humans catch yawns?",
+    "What part of the brain controls contagious yawning?"
+   ],
+   "wikipedia": [
+    "Contagious yawning",
+    "Yawn",
+    "Mirror neuron",
+    "Why do you yawn when someone else yawns?"
+   ],
+   "scholar": [
+    "contagious yawning empathy mechanism",
+    "neurological basis of contagious yawning"
+   ],
+   "model": "google:gemini-3.5-flash-lite"
+  },
+  "writer": "groq:openai/gpt-oss-120b",
+  "candidates": [
+   "groq:openai/gpt-oss-120b",
+   "nvidia:minimaxai/minimax-m3.1-flash"
+  ],
+  "judge": {
+   "index": 0,
+   "scores": {
+    "1": 5,
+    "2": 4
+   },
+   "reason": "Candidate 1 delivers a spot‑on hook, clear story flow, accurate claims, strong payoff and concrete visual cues.",
+   "model": "groq:openai/gpt-oss-120b"
+  },
+  "rules": "studio/pipeline/draft.py TASK + POLISH.md"
+ }
+}
