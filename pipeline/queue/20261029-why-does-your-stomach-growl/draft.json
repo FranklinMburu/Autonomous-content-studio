@@ -1,0 +1,124 @@
+{
+ "title": "Why does your stomach growl?",
+ "topic": "Why does your stomach growl?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "wave-sine",
+   "reveal": {
+    "text": "?",
+    "at": "growls"
+   },
+   "lines": [
+    "Ever wonder why your belly growls like a tiny thunderstorm?"
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "statement",
+   "text": "The rumble is just gas and fluid sliding through your intestines as they contract.",
+   "highlight": [
+    "rumble",
+    "gas",
+    "fluid"
+   ],
+   "icon": "wave-sine",
+   "lines": [
+    "The rumble is just gas and fluid sliding through your intestines as they contract.",
+    "Peristalsis pushes the mixture along, and the moving gas creates the gurgle."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "statement",
+   "text": "When the stomach is empty, the space amplifies the noise, so growls are louder.",
+   "highlight": [
+    "empty",
+    "amplifies",
+    "louder"
+   ],
+   "icon": "wave-sine",
+   "lines": [
+    "When the stomach is empty, the space amplifies the noise, so growls are louder.",
+    "That’s why you hear it strongest right before a meal."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "link",
+   "from": {
+    "icon": "clock",
+    "label": "MMC",
+    "at": "every"
+   },
+   "to": {
+    "icon": "wave-sine",
+    "label": "rumble",
+    "at": "rumble"
+   },
+   "note": {
+    "text": "90–230 min",
+    "at": "90"
+   },
+   "lines": [
+    "Every 90 to 230 minutes, a fasting wave called the migrating motor complex sweeps the gut, creating the classic rumble.",
+    "It also helps clear leftover food and bacteria between meals."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "statement",
+   "text": "Swallowed air while talking or drinking makes bubbles that add to the rumble.",
+   "highlight": [
+    "air",
+    "bubbles"
+   ],
+   "icon": "cloud-rain",
+   "lines": [
+    "Swallowed air while talking or drinking makes bubbles that add to the rumble.",
+    "Carbonated drinks can make the effect even louder."
+   ],
+   "id": "beat5"
+  },
+  {
+   "scene": "bubble",
+   "icon": "hand-finger",
+   "text": "Try sipping water.",
+   "at": "sip",
+   "lines": [
+    "Try sipping water and notice the silence right after."
+   ],
+   "id": "beat6"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Stomach rumble is produced by movement of gas and fluid through the intestines as they contract.",
+   "url": "https://en.wikipedia.org/wiki/Stomach_rumble"
+  },
+  {
+   "claim": "Louder rumbles occur when the stomach is empty; empty space amplifies the sound.",
+   "url": "https://en.wikipedia.org/wiki/Stomach_rumble"
+  },
+  {
+   "claim": "The migrating motor complex occurs every 90–230 minutes during fasting and causes rumbling.",
+   "url": "https://en.wikipedia.org/wiki/Migrating_motor_complex"
+  },
+  {
+   "claim": "Swallowed air while talking, eating, or drinking creates bubbles that add to stomach noises.",
+   "url": "https://en.wikipedia.org/wiki/Stomach_rumble"
+  }
+ ],
+ "youtube": {
+  "title": "Why does your stomach growl? 🤔",
+  "description": "Find out what really makes your belly rumble, when it happens, and how to quiet it.",
+  "tags": [
+   "stomach",
+   "borborygmus",
+   "digestion",
+   "science",
+   "health"
+  ]
+ }
+}

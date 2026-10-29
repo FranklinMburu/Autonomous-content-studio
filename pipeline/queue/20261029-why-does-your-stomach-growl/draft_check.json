@@ -1,0 +1,115 @@
+{
+ "gates": [],
+ "writer": "groq:openai/gpt-oss-120b",
+ "candidates": [
+  "groq:openai/gpt-oss-120b",
+  "nvidia:minimaxai/minimax-m3.1-flash"
+ ],
+ "failed": [
+  {
+   "ref": "google:gemini-3.6-flash",
+   "error": "no model in tier 'standard' could answer (google:gemini-3.6-flash: HTTP 429)"
+  }
+ ],
+ "judge": {
+  "index": 0,
+  "scores": {
+   "1": 4,
+   "2": 3
+  },
+  "reason": "Candidate 1 has a tighter, curiosity‑driving hook and solid accuracy, meeting the top criteria better than the alternative.",
+  "model": "groq:openai/gpt-oss-120b"
+ },
+ "fact_check": {
+  "results": [
+   {
+    "claim": "The rumble is just gas and fluid sliding through your intestines as they contract.",
+    "verdict": "supported",
+    "evidence": "“produced by movement of the contents of the gastrointestinal tract… as they are propelled… by peristalsis… fluid and gas move forward in the intestines.”"
+   },
+   {
+    "claim": "Peristalsis pushes the mixture along, and the moving gas creates the gurgle.",
+    "verdict": "supported",
+    "evidence": "Source describes peristaltic muscle contractions moving contents, and gas moving produces the sound."
+   },
+   {
+    "claim": "When the stomach is empty, the space amplifies the noise, so growls are louder.",
+    "verdict": "supported",
+    "evidence": "“The sound of air moving around the lumen of the stomach is amplified by the empty space.”"
+   },
+   {
+    "claim": "You hear it strongest right before a meal.",
+    "verdict": "supported",
+    "evidence": "“Louder rumbles may occur when the individual is hungry… before a meal.”"
+   },
+   {
+    "claim": "Every 90 to 230 minutes, a fasting wave called the migrating motor complex sweeps the gut, creating the classic rumble.",
+    "verdict": "supported",
+    "evidence": "MMC occurs every 90–230 minutes during the interdigestive phase and is responsible for the rumbling experienced when hungry."
+   },
+   {
+    "claim": "It also helps clear leftover food and bacteria between meals.",
+    "verdict": "supported",
+    "evidence": "MMC acts as an “interdigestive housekeeper,” transporting indigestible substances and bacteria from the small intestine."
+   },
+   {
+    "claim": "Swallowed air while talking or drinking makes bubbles that add to the rumble.",
+    "verdict": "supported",
+    "evidence": "“Stomach rumbles may also occur… when air is swallowed while talking, eating, and drinking.”"
+   },
+   {
+    "claim": "Carbonated drinks can make the effect even louder.",
+    "verdict": "supported",
+    "evidence": "“Stomach rumbles may also occur due to carbon dioxide moving through… following the consumption of carbonated drinks.”"
+   },
+   {
+    "claim": "Try sipping water and notice the silence right after.",
+    "verdict": "unsupported",
+    "evidence": "No source mentions the effect of sipping water on stomach sounds."
+   }
+  ],
+  "counts": {
+   "supported": 8,
+   "unsupported": 1,
+   "partial": 0
+  },
+  "model": "groq:openai/gpt-oss-120b"
+ },
+ "provenance": {
+  "layer_version": "0.3.0",
+  "config": "dcef84aa41c6",
+  "tier": "standard",
+  "ref": "groq:openai/gpt-oss-120b",
+  "prompt_sha256": "e5b5df6c41b97a39",
+  "system_sha256": "a328b827560026be",
+  "temperature": 0.7,
+  "max_tokens": 4000,
+  "json": true,
+  "cached": false,
+  "finish": "stop",
+  "tokens_in": 5348,
+  "tokens_out": 1674,
+  "at": "2026-10-29T05:47:31+00:00",
+  "best_of": {
+   "candidates": [
+    "groq:openai/gpt-oss-120b",
+    "nvidia:minimaxai/minimax-m3.1-flash"
+   ],
+   "failed": [
+    {
+     "ref": "google:gemini-3.6-flash",
+     "error": "no model in tier 'standard' could answer (google:gemini-3.6-flash: HTTP 429)"
+    }
+   ],
+   "judge": {
+    "index": 0,
+    "scores": {
+     "1": 4,
+     "2": 3
+    },
+    "reason": "Candidate 1 has a tighter, curiosity‑driving hook and solid accuracy, meeting the top criteria better than the alternative.",
+    "model": "groq:openai/gpt-oss-120b"
+   }
+  }
+ }
+}

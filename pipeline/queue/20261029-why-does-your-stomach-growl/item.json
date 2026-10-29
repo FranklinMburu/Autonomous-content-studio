@@ -1,0 +1,52 @@
+{
+ "id": "20261029-why-does-your-stomach-growl",
+ "topic": "Why does your stomach growl?",
+ "lane": null,
+ "topic_key": "ef3b3bb024d0cf66",
+ "stage": "queue",
+ "created": "2026-10-29T05:45:46+00:00",
+ "attempts": 0,
+ "history": [
+  {
+   "at": "2026-10-29T05:45:46+00:00",
+   "to": "queue",
+   "why": "created"
+  }
+ ],
+ "provenance": {
+  "research_plan": {
+   "questions": [
+    "What causes the noise in your stomach?",
+    "Does stomach growling only happen when you are hungry?",
+    "What organs are actually making the sound?",
+    "Does drinking water make it stop?"
+   ],
+   "wikipedia": [
+    "Borborygmus",
+    "Migrating motor complex",
+    "Hunger",
+    "Why does your stomach growl?"
+   ],
+   "scholar": [
+    "gastrointestinal motility migrating motor complex",
+    "mechanisms of borborygmus and bowel sounds"
+   ],
+   "model": "google:gemini-3.5-flash-lite"
+  },
+  "writer": "groq:openai/gpt-oss-120b",
+  "candidates": [
+   "groq:openai/gpt-oss-120b",
+   "nvidia:minimaxai/minimax-m3.1-flash"
+  ],
+  "judge": {
+   "index": 0,
+   "scores": {
+    "1": 4,
+    "2": 3
+   },
+   "reason": "Candidate 1 has a tighter, curiosity‑driving hook and solid accuracy, meeting the top criteria better than the alternative.",
+   "model": "groq:openai/gpt-oss-120b"
+  },
+  "rules": "studio/pipeline/draft.py TASK + POLISH.md"
+ }
+}
