@@ -1,0 +1,23 @@
+{
+ "id": "20261030-why-can-t-you-tickle-yourself",
+ "topic": "Why can't you tickle yourself?",
+ "lane": null,
+ "topic_key": "730f73e48269a66e",
+ "stage": "attention",
+ "created": "2026-10-30T05:44:47+00:00",
+ "attempts": 0,
+ "history": [
+  {
+   "at": "2026-10-30T05:44:47+00:00",
+   "to": "queue",
+   "why": "created"
+  },
+  {
+   "at": "2026-10-30T05:45:25+00:00",
+   "from": "queue",
+   "to": "attention",
+   "why": "drafting failed: only 0 usable source(s) found; need 2, including Wikipedia"
+  }
+ ],
+ "provenance": {}
+}
