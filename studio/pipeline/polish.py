@@ -34,6 +34,23 @@ def packet(item_id):
     }
 
 
+def prompt(pk):
+    """The polish job as one prompt (used by the free-model backup; Claude reads POLISH.md itself)."""
+    from ailayer.skills import Source, sources_block
+    rules = (store.ROOT / "POLISH.md").read_text(encoding="utf-8").split("## Hard rules", 1)[1]
+    flagged = [r for r in pk["draft_check"].get("fact_check", {}).get("results", []) if r.get("verdict") != "supported"]
+    srcs = [Source(s["url"], s["text"], s.get("title", "")) for s in pk["sources"]]
+    fb = "\n".join("- " + "; ".join(x.get("problems", []))[:600] for x in pk["feedback"]) or "- none"
+    return ("You are the EDITOR of a short animated explainer. Polish this DRAFT script (JSON) into a script viewers "
+            "watch to the end, following these rules.\n\n## Hard rules" + rules +
+            "\n\nDRAFT:\n" + json.dumps(pk["draft"], ensure_ascii=False) +
+            "\n\nCLAIMS THE FACT CHECK FLAGGED (fix or remove):\n" +
+            ("\n".join(f"- [{r['verdict']}] {r['claim']}" for r in flagged) or "- none") +
+            "\n\nEARLIER POLISH ATTEMPTS WERE REJECTED FOR:\n" + fb +
+            "\n\nALLOWED ICONS: " + ", ".join(pk["allowed_icons"]) + "\n\n" +
+            sources_block(srcs, pk["item"]["topic"], 7000) + "\n\nReturn ONLY the complete polished JSON object.")
+
+
 def check(item_id, polished=None):
     p = packet(item_id)
     if polished is None:

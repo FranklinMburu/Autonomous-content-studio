@@ -18,7 +18,11 @@ from . import gates, polish, store
 CONFIG = store.ROOT / "pipeline" / "config.json"
 DEFAULTS = {"buffer_target": 5, "drafts_per_run": 2, "produce_per_run": 3, "max_unsupported_in_draft": 2,
             "draft_models": ["groq:openai/gpt-oss-120b", "google:gemini-3.6-flash", "nvidia:minimaxai/minimax-m3.1-flash"],
-            "lane": None, "owner_logins": ["FranklinMburu"]}
+            "lane": None, "owner_logins": ["FranklinMburu"],
+            "retry_attention_once": True, "polish_stall_hours": 48, "backup_polish_after_hours": 72,
+            "backup_polish_models": ["groq:openai/gpt-oss-120b", "google:gemini-3.6-flash",
+                                     "nvidia:minimaxai/minimax-m3.1-flash"]}
+RETRYABLE = ("drafting failed", "draft has")
 
 
 def config():
@@ -108,9 +112,42 @@ def draft_one(topic, lane, cfg):
         return item_id, "attention"
 
 
-def cmd_draft(topic=None, count=None):
+def queued_since(it):
+    """When the item last entered the queue (UTC timestamp)."""
+    from datetime import datetime
+    at = next((h["at"] for h in reversed(it.get("history", [])) if h.get("to") == "queue"), it.get("created"))
+    return datetime.fromisoformat(at).timestamp()
+
+
+def retry_attention(cfg, lane, force=False):
+    """Re-draft topics that stopped in drafting (once each, unless forced): research may find better sources and
+    the models get another try with the repair rounds."""
+    import shutil
+    rpath = store.base() / "retries.json"
+    retries = store.read_json(rpath, {})
+    out = []
+    for i in store.items("attention"):
+        f = store.folder("attention", i)
+        it = store.read_json(f / "item.json")
+        why = it["history"][-1].get("why", "")
+        if not why.startswith(RETRYABLE):
+            continue
+        if retries.get(it["topic_key"], 0) >= 1 and not force:
+            continue
+        retries[it["topic_key"]] = retries.get(it["topic_key"], 0) + 1
+        shutil.rmtree(f)
+        store.write_json(rpath, retries)
+        log(f"[retry] {it['topic']} (stopped before: {why[:160]})")
+        out.append(draft_one(it["topic"], it.get("lane") or lane, cfg))
+        commit_and_push(f"Retry draft: {it['topic'][:60]}")
+    return out
+
+
+def cmd_draft(topic=None, count=None, retry=False):
     cfg = config()
     lane = cfg.get("lane") or os.environ.get("LANE") or None
+    if not topic and (retry or cfg.get("retry_attention_once")):
+        retry_attention(cfg, lane, force=retry)
     if topic:
         todo = [topic]
     else:
@@ -254,7 +291,10 @@ def _issue_body(script, item_id, asset_url, release_url, gate):
     tags = ", ".join(yt.get("tags", []))
     fc = gate.get("fact_check", {}).get("counts", {})
     sc = gate.get("score", {})
-    return f"""**Download the video:** [{Path(asset_url).name}]({asset_url})
+    backup = ("> ⚠️ **Backup polish:** Claude's polish wasn't available, so a free model ("
+              f"{gate['backup'].get('model')}) polished this one. It passed every check, but watch it before "
+              "uploading.\n\n") if gate.get("backup") else ""
+    return backup + f"""**Download the video:** [{Path(asset_url).name}]({asset_url})
 
 ### 1. Title (copy)
 ```
@@ -366,9 +406,79 @@ def status_markdown():
     return "\n".join(lines)
 
 
+def stall_check(gh, cfg):
+    """Open a 'Polish has stalled' issue when scripts have waited for polish too long; close it when they move."""
+    hours = cfg.get("polish_stall_hours") or 48
+    waiting = [store.read_json(store.folder("queue", i) / "item.json") for i in polish.waiting()]
+    oldest = max(((time.time() - queued_since(it)) / 3600 for it in waiting), default=0)
+    gh.ensure_label("polish-stalled", "d93f0b", "Scripts have waited too long for the polish step")
+    open_ = gh.issues("polish-stalled")
+    if oldest >= hours and not open_:
+        gh.create_issue("Polish has stalled: scripts are waiting",
+                        f"{len(waiting)} script(s) have been waiting for the polish step; the oldest for "
+                        f"{oldest:.0f} hours.\n\nUsual causes: your Claude usage limit was reached, or the "
+                        "\"Polish the queue\" scheduled task is paused.\n\nWhat to do: open claude.ai/code/routines → "
+                        "\"Polish the queue\" → **Run now** once your usage is back. If nothing happens for "
+                        f"{cfg.get('backup_polish_after_hours', 72)} hours, the nightly run polishes with a free "
+                        "model as a backup (clearly labelled on the upload issue).\n\nThis issue closes itself when "
+                        "the queue moves again.", ["polish-stalled"])
+    elif oldest < hours:
+        for iss in open_:
+            gh.comment(iss["number"], "The polish queue is moving again. Closing.")
+            gh.update_issue(iss["number"], state="closed")
+
+
+def cmd_backup_polish():
+    """Free-model polish for scripts that have waited too long for Claude. Same gates; labelled on the issue."""
+    from ailayer import ask
+    cfg = config()
+    hours = cfg.get("backup_polish_after_hours")
+    if not hours:
+        return 0
+    accepted = []
+    for i in polish.waiting():
+        f = store.folder("queue", i)
+        it = store.read_json(f / "item.json")
+        waited = (time.time() - queued_since(it)) / 3600
+        if waited < hours:
+            continue
+        log(f"[backup polish] {i} has waited {waited:.0f} h")
+        pk = polish.packet(i)
+
+        def v(d):
+            return gates.check_script(d, pk["sources"], pk["allowed_icons"], stage="polished", draft=pk["draft"])
+        try:
+            r = ask(polish.prompt(pk), models=cfg["backup_polish_models"], validate=v, json_out=True,
+                    temperature=0.5, max_tokens=6000)
+            ok, report = gate_one(i, r.data)
+        except Exception as e:
+            ok, report, r = False, {"at": store.now(), "offline": [f"backup polish failed: {str(e)[:300]}"]}, None
+        if ok:
+            report["backup"] = {"model": r.ref}
+            store.write_json(f / "polished.json", r.data)
+            store.write_json(f / "gate.json", report)
+            store.move(i, "ready", f"backup polish by {r.ref} accepted (score {report['score']['score']})")
+            accepted.append(i)
+            log(f"  accepted (score {report['score']['score']})")
+        else:
+            fb = store.read_json(f / "feedback.json", [])
+            fb.append({"at": store.now(), "backup": True, "problems": report["offline"]})
+            store.write_json(f / "feedback.json", fb)
+            log(f"  not accepted: {'; '.join(report['offline'])[:300]}")
+        commit_and_push(f"Backup polish: {i}")
+    if accepted:
+        from . import github as gh
+        gh.dispatch("pipeline-produce.yml")
+    return 0
+
+
 def cmd_status():
     from . import github as gh
     gh.ensure_label("studio-status", "0969da", "The pinned studio status issue")
+    try:
+        stall_check(gh, config())
+    except Exception as e:
+        log(f"stall check skipped: {e}")
     body = status_markdown()
     found = gh.issues("studio-status")
     if found:

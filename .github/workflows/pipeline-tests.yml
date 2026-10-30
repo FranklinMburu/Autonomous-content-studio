@@ -15,3 +15,4 @@ jobs:
         with:
           python-version: "3.12"
       - run: python tests/test_pipeline.py
+      - run: python tests/test_pipeline_fixes.py

@@ -10,6 +10,8 @@ def main(argv=None):
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="cmd", required=True)
     s = sub.add_parser("draft"); s.add_argument("--topic"); s.add_argument("--count", type=int)
+    s.add_argument("--retry", action="store_true", help="re-draft every topic that stopped in drafting")
+    sub.add_parser("backup-polish")
     s = sub.add_parser("gate-pr"); s.add_argument("--pr", type=int, required=True); s.add_argument("--author")
     s.add_argument("--head-ref")
     s = sub.add_parser("produce"); s.add_argument("--limit", type=int)
@@ -20,7 +22,9 @@ def main(argv=None):
     s = sub.add_parser("drift"); s.add_argument("--set-baseline", action="store_true")
     a = p.parse_args(argv)
     if a.cmd == "draft":
-        return run.cmd_draft(a.topic, a.count)
+        return run.cmd_draft(a.topic, a.count, a.retry)
+    if a.cmd == "backup-polish":
+        return run.cmd_backup_polish()
     if a.cmd == "gate-pr":
         return run.cmd_gate_pr(a.pr, a.author, a.head_ref)
     if a.cmd == "produce":

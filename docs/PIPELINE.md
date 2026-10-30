@@ -16,13 +16,21 @@ Optional: tap **Run now** on the "Polish the queue" scheduled task at claude.ai/
 
 | Workflow | When | What |
 | --- | --- | --- |
-| Pipeline 1: draft | nightly 03:13 Nairobi | Research (Wikipedia + OpenAlex), free-model drafts, gates, fact check → `pipeline/queue/` |
-| "Polish the queue" (Claude Code scheduled task) | every morning | Follows `POLISH.md`; opens a pull request with `polished.json` files only |
+| Pipeline 1: draft | nightly 03:13 Nairobi (GitHub often starts it a few hours late) | Retries topics that stopped in drafting (once each), then research, free-model drafts with up to 2 repair rounds, gates, fact check → `pipeline/queue/`; then the backup polish for scripts that waited 72 h+ |
+| "Polish the queue" (Claude Code scheduled task) | daily 12:43 Nairobi | Follows `POLISH.md`; opens a pull request with `polished.json` files only |
 | Pipeline 2: polish gate | on that pull request | Gates + fact check + judge; accepted → `pipeline/ready/`; rejected → reason in `feedback.json`; PR closed |
 | Pipeline 3: produce | after the gate, and daily | Render + technical checks → GitHub Release + "Ready to upload" issue → `pipeline/delivered/` |
 | Pipeline 4: published | when you close an upload issue | → `pipeline/published/`, topic marked done |
 | Pipeline 5: weekly quality test | Mondays | 3 fixed topics drafted and scored against a baseline; a drop opens a "Quality alert" issue |
 | Pipeline 6: upload | label `approve-publish` on an upload issue | Off until Google's audit; see `YOUTUBE_SETUP.md` |
+
+## When something stops
+
+- **Claude usage runs out:** scripts wait in the queue. After 48 h a "Polish has stalled" issue opens (it closes
+  itself when the queue moves). After 72 h the nightly run polishes with a free model instead; those videos are
+  labelled "Backup polish" on their upload issue, so watch them before uploading.
+- **A topic stops in drafting** (no sources, or no draft passed the checks): it's retried once automatically the
+  next night. To retry everything now: Actions → "Pipeline 1: draft" → Run workflow → tick "retry".
 
 ## Where things are
 

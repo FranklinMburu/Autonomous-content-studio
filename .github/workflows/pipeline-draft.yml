@@ -14,9 +14,14 @@ on:
         description: "How many topics (empty = config)"
         required: false
         default: ""
+      retry:
+        description: "Also re-draft every topic that stopped in drafting"
+        type: boolean
+        default: false
 permissions:
   contents: write
   issues: write
+  actions: write
 concurrency:
   group: pipeline-draft
   cancel-in-progress: false
@@ -57,9 +62,14 @@ jobs:
         env:
           TOPIC: ${{ github.event.inputs.topic }}
           COUNT: ${{ github.event.inputs.count }}
+          RETRY: ${{ github.event.inputs.retry == 'true' && 'yes' || '' }}
         run: |
           set -o pipefail
-          python -m studio.pipeline draft ${TOPIC:+--topic "$TOPIC"} ${COUNT:+--count "$COUNT"} 2>&1 | tee -a pipeline.log
+          python -m studio.pipeline draft ${TOPIC:+--topic "$TOPIC"} ${COUNT:+--count "$COUNT"} ${RETRY:+--retry} 2>&1 | tee -a pipeline.log
+      - name: Backup polish (only scripts that waited too long for Claude)
+        run: |
+          set -o pipefail
+          python -m studio.pipeline backup-polish 2>&1 | tee -a pipeline.log
       - name: Show the log on the Summary page
         if: always()
         run: |
