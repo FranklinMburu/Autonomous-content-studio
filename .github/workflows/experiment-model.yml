@@ -1,0 +1,56 @@
+name: "Experiment: try a new model (branch only)"
+on:
+  push:
+    branches: [experiment-nemotron]
+    paths: [".github/workflows/experiment-model.yml"]
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: experiment-model
+  cancel-in-progress: false
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      ACCOUNT_KEY_franklincopil3: ${{ secrets.GEMINI_API_KEY }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      AILAYER_STATE_URL: ${{ secrets.AILAYER_STATE_URL }}
+      AILAYER_STATE_TOKEN: ${{ secrets.AILAYER_STATE_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Get the brain (private repo, read-only deploy key)
+        uses: actions/checkout@v5
+        with:
+          repository: FranklinMburu/AI-layer
+          ssh-key: ${{ secrets.AILAYER_DEPLOY_KEY }}
+          path: .brain
+          persist-credentials: false
+      - run: echo "PYTHONPATH=$GITHUB_WORKSPACE/.brain:$GITHUB_WORKSPACE" >> "$GITHUB_ENV"
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Restore icons
+        uses: actions/cache@v4
+        with:
+          path: cache
+          key: assets-kokoro-v1.1-tabler-3.49.0
+      - name: Try the model
+        env:
+          PIPELINE_BRANCH: experiment-nemotron
+        run: |
+          set -o pipefail
+          python -m studio.pipeline.experiment 2>&1 | tee -a pipeline.log
+      - name: Show the log on the Summary page
+        if: always()
+        run: |
+          if [ -f pipeline.log ]; then
+            { echo '### Pipeline log (last 200 lines)'; echo '```'; tail -n 120 pipeline.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          fi
