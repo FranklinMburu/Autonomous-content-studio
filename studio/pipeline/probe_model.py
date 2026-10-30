@@ -38,10 +38,12 @@ def real(ref):
     pk = packets()[0]
     prompt = polish_prompt(pk)
     print(f"polish prompt: {len(prompt)} chars")
-    for mt in (6000, 12000):
+    for system in ("/no_think", "detailed thinking off", "Reasoning: off. Answer directly with the JSON only."):
+        mt = 12000
         t0 = time.time()
+        print(f"system={system!r}")
         try:
-            text, info = call_model(ref, prompt, temperature=0.6, max_tokens=mt, cfg=cfg, tier="probe")
+            text, info = call_model(ref, prompt, system=system, temperature=0.6, max_tokens=mt, cfg=cfg, tier="probe")
             print(f"max_tokens={mt}: OK in {time.time() - t0:.1f}s, {len(text)} chars, starts {text.strip()[:200]!r}")
             print(f"  ends {text.strip()[-200:]!r}")
         except ProviderError as e:
