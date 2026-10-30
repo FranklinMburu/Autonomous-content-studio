@@ -1,0 +1,23 @@
+{
+ "id": "20261030-what-happens-to-your-body-when-you-hold-your-breat",
+ "topic": "What happens to your body when you hold your breath?",
+ "lane": null,
+ "topic_key": "f5c8b446ef5d099a",
+ "stage": "attention",
+ "created": "2026-10-30T05:45:26+00:00",
+ "attempts": 0,
+ "history": [
+  {
+   "at": "2026-10-30T05:45:26+00:00",
+   "to": "queue",
+   "why": "created"
+  },
+  {
+   "at": "2026-10-30T05:58:04+00:00",
+   "from": "queue",
+   "to": "attention",
+   "why": "drafting failed: best_of: no model produced a valid answer"
+  }
+ ],
+ "provenance": {}
+}
