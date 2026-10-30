@@ -96,6 +96,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--match", default=r"nemotron-3\.5|nemotron-3-5")
     ap.add_argument("--models", default="")
+    ap.add_argument("--no-baseline", action="store_true")
     a = ap.parse_args(argv)
     found = nvidia_models(a.match)
     print(f"NVIDIA models matching {a.match!r}: {found or 'NONE'}")
@@ -104,7 +105,8 @@ def main(argv=None):
     if not cands:
         print("No candidate model available on this NVIDIA account.")
         return 1
-    rows, keep, pks = run(cands + BASELINE)
+    base = [] if a.no_baseline else BASELINE
+    rows, keep, pks = run(cands + base)
     lines = ["| Model | Job | Topic | Gates | Fact check | Score /5 | Time |", "|---|---|---|---|---|---|---|"]
     for r in rows:
         fc = r.get("fact") or {}
@@ -116,7 +118,7 @@ def main(argv=None):
     print("\n".join(lines))
     day = time.strftime("%Y%m%d-%H%M")
     out = store.base() / "experiments" / day
-    store.write_json(out / "results.json", {"models": cands + BASELINE, "rows": rows})
+    store.write_json(out / "results.json", {"models": cands + base, "rows": rows})
     for k, s in keep.items():
         store.write_json(out / f"{k}.json", s)
     from .run import commit_and_push
