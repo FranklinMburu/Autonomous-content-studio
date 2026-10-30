@@ -47,7 +47,7 @@ jobs:
           PIPELINE_BRANCH: experiment-nemotron
         run: |
           set -o pipefail
-          python -m studio.pipeline.experiment --models nvidia:nvidia/nemotron-3.5-super-vl-120b-a12b --no-baseline 2>&1 | tee -a pipeline.log
+          python -m studio.pipeline.probe_model nvidia:nvidia/nemotron-3.5-super-vl-120b-a12b 2>&1 | tee -a pipeline.log
       - name: Show the log on the Summary page
         if: always()
         run: |
