@@ -47,10 +47,11 @@ jobs:
           PIPELINE_BRANCH: experiment-nemotron
         run: |
           set -o pipefail
-          python -m studio.pipeline.probe_model nvidia:nvidia/nemotron-3.5-super-vl-120b-a12b --real 2>&1 # r2 | tee -a pipeline.log
+          python -m studio.pipeline.probe_model nvidia:nvidia/nemotron-3.5-super-vl-120b-a12b --real 2>&1 | tee -a pipeline.log
       - name: Show the log on the Summary page
         if: always()
         run: |
           if [ -f pipeline.log ]; then
             { echo '### Pipeline log (last 200 lines)'; echo '```'; tail -n 120 pipeline.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
           fi
+# rerun 3
