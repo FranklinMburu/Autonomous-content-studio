@@ -28,4 +28,26 @@ def main(ref):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    if "--real" in sys.argv:
+        real(sys.argv[1])
+    else:
+        main(sys.argv[1])
+
+
+def real(ref):
+    """The actual polish job, called directly, so the exact failure reason is visible."""
+    from ailayer.client import call_model, load_config
+    from ailayer.providers import ProviderError
+    from .experiment import packets, polish_prompt
+    cfg = load_config()
+    pk = packets()[0]
+    prompt = polish_prompt(pk)
+    print(f"polish prompt: {len(prompt)} chars")
+    for mt in (6000, 12000):
+        t0 = time.time()
+        try:
+            text, info = call_model(ref, prompt, temperature=0.6, max_tokens=mt, cfg=cfg, tier="probe")
+            print(f"max_tokens={mt}: OK in {time.time() - t0:.1f}s, {len(text)} chars, starts {text.strip()[:200]!r}")
+            print(f"  ends {text.strip()[-200:]!r}")
+        except ProviderError as e:
+            print(f"max_tokens={mt}: FAILED in {time.time() - t0:.1f}s -> HTTP {e.status}: {str(e.reason)[:400]}")
