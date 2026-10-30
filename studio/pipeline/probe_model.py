@@ -27,11 +27,6 @@ def main(ref):
             time.sleep(5)
 
 
-if __name__ == "__main__":
-    if "--real" in sys.argv:
-        real(sys.argv[1])
-    else:
-        main(sys.argv[1])
 
 
 def real(ref):
@@ -51,3 +46,10 @@ def real(ref):
             print(f"  ends {text.strip()[-200:]!r}")
         except ProviderError as e:
             print(f"max_tokens={mt}: FAILED in {time.time() - t0:.1f}s -> HTTP {e.status}: {str(e.reason)[:400]}")
+
+
+if __name__ == "__main__":
+    if "--real" in sys.argv:
+        real(sys.argv[1])
+    else:
+        main(sys.argv[1])
