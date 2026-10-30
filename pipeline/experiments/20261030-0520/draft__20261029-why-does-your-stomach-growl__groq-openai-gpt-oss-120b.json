@@ -1,0 +1,109 @@
+{
+ "title": "Why does your stomach growl?",
+ "topic": "Why does your stomach growl?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "wave-sine",
+   "label": "rumble",
+   "reveal": {
+    "text": "?",
+    "at": "drum"
+   },
+   "lines": [
+    "Ever wonder why your belly sometimes sounds like a drum?"
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "link",
+   "from": {
+    "icon": "droplet",
+    "label": "gas & liquid",
+    "at": "gas"
+   },
+   "to": {
+    "icon": "wave-sine",
+    "label": "vibrations",
+    "at": "vibrations"
+   },
+   "note": {
+    "text": "move forward",
+    "at": "move"
+   },
+   "lines": [
+    "Your gut is a tube that constantly pushes contents forward.",
+    "Gas and liquid moving create vibrations we hear as rumbling."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "number",
+   "value": "2",
+   "prefix": "",
+   "suffix": " hrs",
+   "label": "MMC cycle",
+   "at": "two",
+   "icon": "clock",
+   "lines": [
+    "Between meals, a cleaning wave called the migrating motor complex sweeps the stomach every two hours.",
+    "This wave is the main source of the hungry growl."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "wave",
+   "label": "echo",
+   "icon": "wave-sine",
+   "note": {
+    "text": "ghrelin spikes",
+    "at": "ghrelin"
+   },
+   "lines": [
+    "An empty stomach lets the sound echo, and the hunger hormone ghrelin spikes."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "bubble",
+   "icon": "user",
+   "text": "listen",
+   "at": "listen",
+   "lines": [
+    "When you hear a growl, check how long since your last meal—about two hours means the MMC is active.",
+    "You’ll hear the rhythm of your own digestive housekeeper!"
+   ],
+   "id": "beat5"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Stomach rumble is produced by movement of gas and fluid in the intestines as they are propelled by peristalsis.",
+   "url": "https://en.wikipedia.org/wiki/Stomach_rumble"
+  },
+  {
+   "claim": "The migrating motor complex occurs every 90–230 minutes (about two hours) during fasting and causes the rumbling when hungry.",
+   "url": "https://en.wikipedia.org/wiki/Migrating_motor_complex"
+  },
+  {
+   "claim": "When the stomach is empty, ghrelin is produced and contributes to the sensation of hunger and louder sounds.",
+   "url": "https://en.wikipedia.org/wiki/Stomach_rumble"
+  },
+  {
+   "claim": "Around two hours after the stomach has been emptied, it sends signals to the brain and the MMC restarts, producing growls.",
+   "url": "https://en.wikipedia.org/wiki/Stomach_rumble"
+  }
+ ],
+ "youtube": {
+  "title": "Why does your stomach growl? 🤔",
+  "description": "Learn the science behind those noisy belly growls and how the migrating motor complex works.",
+  "tags": [
+   "stomach",
+   "growl",
+   "digestion",
+   "science",
+   "shorts"
+  ]
+ }
+}

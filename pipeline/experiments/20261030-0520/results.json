@@ -1,0 +1,126 @@
+{
+ "models": [
+  "nvidia:nvidia/nemotron-3.5-bolt-e4b",
+  "nvidia:nvidia/nemotron-3.5-lightning-30b-a3b",
+  "groq:openai/gpt-oss-120b"
+ ],
+ "rows": [
+  {
+   "model": "nvidia:nvidia/nemotron-3.5-bolt-e4b",
+   "topic": "Why do we get goosebumps?",
+   "job": "draft",
+   "gates": "FAIL",
+   "error": "best_of: no model produced a valid answer",
+   "seconds": 43
+  },
+  {
+   "model": "nvidia:nvidia/nemotron-3.5-bolt-e4b",
+   "topic": "Why do we get goosebumps?",
+   "job": "polish",
+   "gates": "FAIL",
+   "error": "no model in tier 'standard' could answer (nvidia:nvidia/nemotron-3.5-bolt-e4b: invalid output; nvidia:nvidia/nemotron-3.5-bolt-e4b: invalid output)",
+   "seconds": 51
+  },
+  {
+   "model": "nvidia:nvidia/nemotron-3.5-bolt-e4b",
+   "topic": "Why does your stomach growl?",
+   "job": "draft",
+   "gates": "FAIL",
+   "error": "best_of: no model produced a valid answer",
+   "seconds": 38
+  },
+  {
+   "model": "nvidia:nvidia/nemotron-3.5-bolt-e4b",
+   "topic": "Why does your stomach growl?",
+   "job": "polish",
+   "gates": "FAIL",
+   "error": "no model in tier 'standard' could answer (nvidia:nvidia/nemotron-3.5-bolt-e4b: invalid output; nvidia:nvidia/nemotron-3.5-bolt-e4b: invalid output)",
+   "seconds": 54
+  },
+  {
+   "model": "nvidia:nvidia/nemotron-3.5-lightning-30b-a3b",
+   "topic": "Why do we get goosebumps?",
+   "job": "draft",
+   "gates": "FAIL",
+   "error": "best_of: no model produced a valid answer",
+   "seconds": 76
+  },
+  {
+   "model": "nvidia:nvidia/nemotron-3.5-lightning-30b-a3b",
+   "topic": "Why do we get goosebumps?",
+   "job": "polish",
+   "gates": "FAIL",
+   "error": "no model in tier 'standard' could answer (nvidia:nvidia/nemotron-3.5-lightning-30b-a3b: HTTP 0)",
+   "seconds": 83
+  },
+  {
+   "model": "nvidia:nvidia/nemotron-3.5-lightning-30b-a3b",
+   "topic": "Why does your stomach growl?",
+   "job": "draft",
+   "gates": "FAIL",
+   "error": "best_of: no model produced a valid answer",
+   "seconds": 35
+  },
+  {
+   "model": "nvidia:nvidia/nemotron-3.5-lightning-30b-a3b",
+   "topic": "Why does your stomach growl?",
+   "job": "polish",
+   "gates": "FAIL",
+   "error": "no model in tier 'standard' could answer (nvidia:nvidia/nemotron-3.5-lightning-30b-a3b: HTTP 0)",
+   "seconds": 53
+  },
+  {
+   "model": "groq:openai/gpt-oss-120b",
+   "topic": "Why do we get goosebumps?",
+   "job": "draft",
+   "gates": "pass",
+   "fact": {
+    "supported": 5,
+    "partial": 2,
+    "unsupported": 0
+   },
+   "score": 4,
+   "score_reason": "Accurate and engaging with a strong hook and clear flow, but the final payoff is a modest call‑to‑action rather than a fresh twist.",
+   "judge_model": "groq:openai/gpt-oss-120b",
+   "seconds": 105
+  },
+  {
+   "model": "groq:openai/gpt-oss-120b",
+   "topic": "Why do we get goosebumps?",
+   "job": "polish",
+   "gates": "pass",
+   "fact": {
+    "supported": 3,
+    "partial": 0,
+    "unsupported": 2
+   },
+   "score": 4,
+   "score_reason": "Accurate and well‑structured with a clear hook and payoff, but the opening could be punchier.",
+   "judge_model": "groq:openai/gpt-oss-120b",
+   "seconds": 130
+  },
+  {
+   "model": "groq:openai/gpt-oss-120b",
+   "topic": "Why does your stomach growl?",
+   "job": "draft",
+   "gates": "pass",
+   "fact": {
+    "supported": 3,
+    "partial": 3,
+    "unsupported": 1
+   },
+   "score": 4,
+   "score_reason": "Accurate and engaging with a strong hook and clear story, but minor phrasing could be tightened.",
+   "judge_model": "groq:openai/gpt-oss-120b",
+   "seconds": 249
+  },
+  {
+   "model": "groq:openai/gpt-oss-120b",
+   "topic": "Why does your stomach growl?",
+   "job": "polish",
+   "gates": "FAIL",
+   "error": "no model in tier 'standard' could answer (groq:openai/gpt-oss-120b: invalid output; groq:openai/gpt-oss-120b: invalid output)",
+   "seconds": 62
+  }
+ ]
+}

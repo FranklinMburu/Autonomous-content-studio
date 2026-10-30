@@ -1,0 +1,128 @@
+{
+ "title": "Why Do We Get Goosebumps?",
+ "topic": "Why do we get goosebumps?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "feather",
+   "label": "goosebumps",
+   "reveal": {
+    "text": "shiver",
+    "at": "shiver"
+   },
+   "lines": [
+    "Your skin can shiver without a touch, sending a tiny ripple across the surface."
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "link",
+   "from": {
+    "icon": "brain",
+    "label": "sympathetic nervous system",
+    "at": "sympathetic"
+   },
+   "to": {
+    "icon": "activity",
+    "label": "arrector pili muscles",
+    "at": "muscles"
+   },
+   "lines": [
+    "When you feel cold or stressed, the sympathetic nervous system tells tiny arrector pili muscles to contract, pulling each hair upright."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "compare",
+   "title": "Feeling versus physiology",
+   "left": {
+    "icon": "mood-surprised",
+    "label": "strong emotion",
+    "value": "subjective",
+    "at": "emotion"
+   },
+   "right": {
+    "icon": "microscope",
+    "label": "measured bumps",
+    "value": "physiological",
+    "at": "match"
+   },
+   "verdict": {
+    "text": "may differ",
+    "sub": "",
+    "at": "match"
+   },
+   "lines": [
+    "Strong emotion can cause bumps, but researchers note the feeling often does not match the visible rise."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "tags",
+   "title": "Raised hair across species",
+   "icon": "feather",
+   "items": [
+    {
+     "text": "insulation",
+     "at": "insulation",
+     "tone": "good"
+    },
+    {
+     "text": "look bigger",
+     "at": "bigger",
+     "tone": "good"
+    },
+    {
+     "text": "vestigial",
+     "at": "vestigial",
+     "tone": "neutral"
+    }
+   ],
+   "lines": [
+    "Raised hairs trap air for insulation and can make an animal look bigger; in humans the response is a vestigial reflex."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "bubble",
+   "icon": "user",
+   "prop": "eye",
+   "text": "glance",
+   "at": "glance",
+   "lines": [
+    "Next time you feel a rush, glance at your skin to see if tiny bumps appear."
+   ],
+   "id": "beat5"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Goose bumps can develop when a person is cold or experiencing strong emotions, without any touch.",
+   "url": "https://en.wikipedia.org/wiki/Goose_bumps"
+  },
+  {
+   "claim": "The reflex starts in the sympathetic nervous system and causes arrector pili muscles to contract, pulling hairs upright.",
+   "url": "https://en.wikipedia.org/wiki/Goose_bumps"
+  },
+  {
+   "claim": "Strong emotions can cause goose bumps, but self‑reported feelings do not always match physiological piloerection.",
+   "url": "https://en.wikipedia.org/wiki/Goose_bumps"
+  },
+  {
+   "claim": "Raised hairs trap air for insulation and can make an animal appear larger; in humans the response is considered a vestigial reflex.",
+   "url": "https://en.wikipedia.org/wiki/Goose_bumps"
+  }
+ ],
+ "youtube": {
+  "title": "Why Do We Get Goosebumps? 🪶",
+  "description": "Cold or emotion makes tiny muscles pull your hairs up. Learn the hidden purpose behind this ancient reflex.",
+  "tags": [
+   "goosebumps",
+   "piloerection",
+   "human biology",
+   "reflex",
+   "animal adaptation"
+  ]
+ }
+}

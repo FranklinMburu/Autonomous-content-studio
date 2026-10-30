@@ -1,0 +1,116 @@
+{
+ "title": "Why do we get goosebumps?",
+ "topic": "Why do we get goosebumps?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "bolt",
+   "reveal": {
+    "text": "?",
+    "at": "hills"
+   },
+   "lines": [
+    "Ever wonder why a chill makes your skin sprout tiny hills?"
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "link",
+   "from": {
+    "icon": "brain",
+    "label": "sympathetic nervous system",
+    "at": "sympathetic"
+   },
+   "to": {
+    "icon": "hand-finger",
+    "label": "arrector pili muscles",
+    "at": "muscles"
+   },
+   "note": {
+    "text": "contract",
+    "at": "contract"
+   },
+   "lines": [
+    "When you’re cold or scared, smooth muscles called arrector pili contract.",
+    "They’re activated by the sympathetic nervous system, the fight‑or‑flight driver."
+   ],
+   "source": "https://en.wikipedia.org/wiki/Goose_bumps",
+   "id": "beat2"
+  },
+  {
+   "scene": "tags",
+   "title": "What the bumps do",
+   "icon": "snowflake",
+   "items": [
+    {
+     "text": "insulation",
+     "at": "warmth",
+     "tone": "good"
+    },
+    {
+     "text": "intimidation",
+     "at": "bigger",
+     "tone": "good"
+    }
+   ],
+   "lines": [
+    "The hair lifts, trapping a thin air layer for warmth.",
+    "In many animals the puffed‑up fur also makes them look bigger, scaring off threats."
+   ],
+   "source": "https://en.wikipedia.org/wiki/Goose_bumps",
+   "id": "beat3"
+  },
+  {
+   "scene": "statement",
+   "text": "Humans keep this reflex despite little hair.",
+   "highlight": [
+    "Humans",
+    "reflex"
+   ],
+   "icon": "user",
+   "lines": [
+    "It’s a leftover from our furry ancestors.",
+    "So we get goosebumps from cold, fear, awe, or a powerful song."
+   ],
+   "source": "https://en.wikipedia.org/wiki/Goose_bumps",
+   "id": "beat4"
+  },
+  {
+   "scene": "bubble",
+   "icon": "music",
+   "prop": "hand-finger",
+   "text": "Feel the bumps",
+   "at": "appear",
+   "lines": [
+    "Next time a stirring song gives you chills, watch the skin on your forearm and feel the tiny bumps appear."
+   ],
+   "id": "beat5"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Arrector pili muscles contract via sympathetic nervous system",
+   "url": "https://en.wikipedia.org/wiki/Goose_bumps"
+  },
+  {
+   "claim": "Hair standing traps air for insulation and makes animal appear larger",
+   "url": "https://en.wikipedia.org/wiki/Goose_bumps"
+  },
+  {
+   "claim": "Goosebumps persist in humans as a vestigial reflex triggered by cold, fear, awe, music",
+   "url": "https://en.wikipedia.org/wiki/Goose_bumps"
+  }
+ ],
+ "youtube": {
+  "title": "Why do we get goosebumps? 🦢",
+  "description": "Explore the science behind those tiny skin bumps that appear when you're cold, scared, or moved by music.",
+  "tags": [
+   "goosebumps",
+   "piloerection",
+   "science",
+   "biology",
+   "human body"
+  ]
+ }
+}
