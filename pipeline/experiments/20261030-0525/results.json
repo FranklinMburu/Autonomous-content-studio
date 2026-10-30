@@ -1,0 +1,39 @@
+{
+ "models": [
+  "nvidia:nvidia/nemotron-3.5-super-vl-120b-a12b"
+ ],
+ "rows": [
+  {
+   "model": "nvidia:nvidia/nemotron-3.5-super-vl-120b-a12b",
+   "topic": "Why do we get goosebumps?",
+   "job": "draft",
+   "gates": "FAIL",
+   "error": "best_of: no model produced a valid answer",
+   "seconds": 29
+  },
+  {
+   "model": "nvidia:nvidia/nemotron-3.5-super-vl-120b-a12b",
+   "topic": "Why do we get goosebumps?",
+   "job": "polish",
+   "gates": "FAIL",
+   "error": "no model in tier 'standard' could answer (nvidia:nvidia/nemotron-3.5-super-vl-120b-a12b: HTTP 0)",
+   "seconds": 94
+  },
+  {
+   "model": "nvidia:nvidia/nemotron-3.5-super-vl-120b-a12b",
+   "topic": "Why does your stomach growl?",
+   "job": "draft",
+   "gates": "FAIL",
+   "error": "best_of: no model produced a valid answer",
+   "seconds": 40
+  },
+  {
+   "model": "nvidia:nvidia/nemotron-3.5-super-vl-120b-a12b",
+   "topic": "Why does your stomach growl?",
+   "job": "polish",
+   "gates": "FAIL",
+   "error": "no model in tier 'standard' could answer (nvidia:nvidia/nemotron-3.5-super-vl-120b-a12b: HTTP 0)",
+   "seconds": 76
+  }
+ ]
+}
