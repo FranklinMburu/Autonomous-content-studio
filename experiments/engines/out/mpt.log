@@ -1,0 +1,150 @@
+2026-10-31 16:51:29 | DEBUG | "./app/services/subtitle.py:101": recognized - [12.36s -> 14.96s] a reflex started by your fight-or-flight nerves
+2026-10-31 16:51:29 | DEBUG | "./app/services/subtitle.py:101": recognized - [15.74s -> 16.72s] Here's the twist
+2026-10-31 16:51:29 | DEBUG | "./app/services/subtitle.py:101": recognized - [17.00s -> 19.70s] Feeling chills and getting bumps are not the same thing
+2026-10-31 16:51:29 | DEBUG | "./app/services/subtitle.py:101": recognized - [19.92s -> 20.80s] In research
+2026-10-31 16:51:29 | DEBUG | "./app/services/subtitle.py:101": recognized - [21.08s -> 24.24s] the bumps people reported didn't always match the bumps measured
+2026-10-31 16:51:29 | DEBUG | "./app/services/subtitle.py:101": recognized - [24.70s -> 25.88s] In furry animals
+2026-10-31 16:51:29 | DEBUG | "./app/services/subtitle.py:101": recognized - [26.18s -> 27.70s] raised hair traps warm air
+2026-10-31 16:51:40 | DEBUG | "./app/services/subtitle.py:101": recognized - [27.70s -> 30.96s] Frightened cats and chimpanzees bristle to look bigger
+2026-10-31 16:51:40 | DEBUG | "./app/services/subtitle.py:101": recognized - [31.68s -> 33.70s] Porcupines raise their quills when threatened
+2026-10-31 16:51:40 | DEBUG | "./app/services/subtitle.py:101": recognized - [34.46s -> 36.86s] And some people can raise goose bumps on purpose
+2026-10-31 16:51:40 | DEBUG | "./app/services/subtitle.py:101": recognized - [37.10s -> 38.22s] no trigger needed
+2026-10-31 16:51:40 | DEBUG | "./app/services/subtitle.py:101": recognized - [38.58s -> 40.92s] Many don't realize not everyone can
+2026-10-31 16:51:40 | DEBUG | "./app/services/subtitle.py:101": recognized - [41.48s -> 43.36s] Some call it a leftover reflex
+2026-10-31 16:51:40 | DEBUG | "./app/services/subtitle.py:101": recognized - [43.68s -> 46.08s] but it may be your body's sign that you were moved
+2026-10-31 16:51:40 | INFO | "./app/services/subtitle.py:163": create - complete, elapsed: 24.20 s
+2026-10-31 16:51:40 | INFO | "./app/services/subtitle.py:183": create - subtitle file created: ./storage/tasks/20b01fe7-e073-41d8-ae4a-0f108194d28a/.subtitle-7wlu67ed.srt
+2026-10-31 16:51:40 | INFO | "./app/services/task.py:717": generate_subtitle - 
+
+## correcting subtitle
+2026-10-31 16:51:40 | WARNING | "./app/services/subtitle.py:266": correct - Merged/Corrected - Script: Just remembering a big win can raise goosebumps all over your body, Subtitle: Just remembering a big win can raise goose bumps all over your body
+2026-10-31 16:51:40 | WARNING | "./app/services/subtitle.py:266": correct - Merged/Corrected - Script: Tiny muscles at the base of your hairs contract and pull them straight up, Subtitle: Tiny muscles at the base of your hair's contract and pull them straight up
+2026-10-31 16:51:40 | WARNING | "./app/services/subtitle.py:266": correct - Merged/Corrected - Script: feeling chills and getting bumps are not the same thing, Subtitle: Feeling chills and getting bumps are not the same thing
+2026-10-31 16:51:40 | WARNING | "./app/services/subtitle.py:266": correct - Merged/Corrected - Script: And some people can raise goosebumps on purpose, Subtitle: And some people can raise goose bumps on purpose
+2026-10-31 16:51:40 | INFO | "./app/services/subtitle.py:329": correct - Subtitle corrected
+2026-10-31 16:51:40 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=materials, provider=, remote_id=, elapsed=0s
+2026-10-31 16:51:40 | INFO | "./app/services/task.py:816": get_video_materials - 
+
+## downloading videos from pixabay
+2026-10-31 16:51:40 | INFO | "./app/services/material.py:484": search_videos_pixabay - searching videos on pixabay: term='goosebumps skin', proxy_enabled=False
+2026-10-31 16:51:40 | INFO | "./app/services/material.py:2134": _search_terms_in_parallel - found 4 videos for 'goosebumps skin'
+2026-10-31 16:51:40 | INFO | "./app/services/material.py:484": search_videos_pixabay - searching videos on pixabay: term='cold winter breath', proxy_enabled=False
+2026-10-31 16:51:40 | INFO | "./app/services/material.py:2134": _search_terms_in_parallel - found 5 videos for 'cold winter breath'
+2026-10-31 16:51:40 | INFO | "./app/services/material.py:484": search_videos_pixabay - searching videos on pixabay: term='horror movie scared', proxy_enabled=False
+2026-10-31 16:51:40 | INFO | "./app/services/material.py:2134": _search_terms_in_parallel - found 2 videos for 'horror movie scared'
+2026-10-31 16:51:40 | INFO | "./app/services/material.py:484": search_videos_pixabay - searching videos on pixabay: term='concert crowd music', proxy_enabled=False
+2026-10-31 16:51:40 | INFO | "./app/services/material.py:2134": _search_terms_in_parallel - found 1 videos for 'concert crowd music'
+2026-10-31 16:51:40 | INFO | "./app/services/material.py:484": search_videos_pixabay - searching videos on pixabay: term='cat hissing', proxy_enabled=False
+2026-10-31 16:51:41 | INFO | "./app/services/material.py:2134": _search_terms_in_parallel - found 2 videos for 'cat hissing'
+2026-10-31 16:51:41 | INFO | "./app/services/material.py:484": search_videos_pixabay - searching videos on pixabay: term='porcupine', proxy_enabled=False
+2026-10-31 16:51:41 | INFO | "./app/services/material.py:2134": _search_terms_in_parallel - found 0 videos for 'porcupine'
+2026-10-31 16:51:41 | INFO | "./app/services/material.py:484": search_videos_pixabay - searching videos on pixabay: term='chimpanzee', proxy_enabled=False
+2026-10-31 16:51:41 | INFO | "./app/services/material.py:2134": _search_terms_in_parallel - found 1 videos for 'chimpanzee'
+2026-10-31 16:51:41 | INFO | "./app/services/material.py:484": search_videos_pixabay - searching videos on pixabay: term='emotional person', proxy_enabled=False
+2026-10-31 16:51:41 | INFO | "./app/services/material.py:2134": _search_terms_in_parallel - found 3 videos for 'emotional person'
+2026-10-31 16:51:41 | INFO | "./app/services/material.py:2488": download_videos - found total videos: 18, required duration: 47.45 seconds, found duration: 211.0 seconds
+2026-10-31 16:51:41 | INFO | "./app/services/material.py:2516": download_videos - downloading pixabay video: asset_id=220305
+2026-10-31 16:51:41 | INFO | "./app/services/material.py:2516": download_videos - downloading pixabay video: asset_id=203733
+2026-10-31 16:51:41 | INFO | "./app/services/material.py:2516": download_videos - downloading pixabay video: asset_id=339338
+2026-10-31 16:51:41 | INFO | "./app/services/material.py:2516": download_videos - downloading pixabay video: asset_id=233400
+2026-10-31 16:51:41 | INFO | "./app/services/material.py:2516": download_videos - downloading pixabay video: asset_id=335201
+2026-10-31 16:51:41 | INFO | "./app/services/material.py:2516": download_videos - downloading pixabay video: asset_id=326539
+2026-10-31 16:51:41 | INFO | "./app/services/material.py:2516": download_videos - downloading pixabay video: asset_id=170617
+2026-10-31 16:51:41 | INFO | "./app/services/material.py:2516": download_videos - downloading pixabay video: asset_id=326538
+2026-10-31 16:51:41 | INFO | "./app/services/material.py:2516": download_videos - downloading pixabay video: asset_id=213130
+2026-10-31 16:51:41 | INFO | "./app/services/material.py:2516": download_videos - downloading pixabay video: asset_id=174262
+2026-10-31 16:51:41 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=downloading, provider=, remote_id=, elapsed=1s
+2026-10-31 16:51:42 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=verifying, provider=, remote_id=, elapsed=2s
+2026-10-31 16:51:43 | INFO | "./app/services/material.py:2188": _report_material_downloaded - downloaded material 1/10: vid-e468801e2d72737e93da29708541c8bb.mp4 (6.4 MB)
+2026-10-31 16:51:43 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=downloading, provider=, remote_id=, elapsed=3s
+2026-10-31 16:51:43 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=verifying, provider=, remote_id=, elapsed=3s
+2026-10-31 16:51:44 | INFO | "./app/services/material.py:2188": _report_material_downloaded - downloaded material 2/10: vid-e6aacf86538c40db0fd2b8b91ab1ef37.mp4 (2.7 MB)
+2026-10-31 16:51:44 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=downloading, provider=, remote_id=, elapsed=4s
+2026-10-31 16:51:44 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=verifying, provider=, remote_id=, elapsed=4s
+2026-10-31 16:51:46 | INFO | "./app/services/material.py:2188": _report_material_downloaded - downloaded material 3/10: vid-d876a07285356e4b9c0b58b65d7484e6.mp4 (8.6 MB)
+2026-10-31 16:51:46 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=downloading, provider=, remote_id=, elapsed=6s
+2026-10-31 16:51:46 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=verifying, provider=, remote_id=, elapsed=6s
+2026-10-31 16:51:47 | INFO | "./app/services/material.py:2188": _report_material_downloaded - downloaded material 4/10: vid-5ed3f8748b15e7e8e9a29ed1f36dfd89.mp4 (4.3 MB)
+2026-10-31 16:51:47 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=downloading, provider=, remote_id=, elapsed=7s
+2026-10-31 16:51:47 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=verifying, provider=, remote_id=, elapsed=7s
+2026-10-31 16:51:49 | INFO | "./app/services/material.py:2188": _report_material_downloaded - downloaded material 5/10: vid-271bb2630bcb3786954cfb1aa0926ff1.mp4 (13.1 MB)
+2026-10-31 16:51:49 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=downloading, provider=, remote_id=, elapsed=9s
+2026-10-31 16:51:49 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=verifying, provider=, remote_id=, elapsed=9s
+2026-10-31 16:51:50 | INFO | "./app/services/material.py:2188": _report_material_downloaded - downloaded material 6/10: vid-9fa22529841f9e061b2b984447596361.mp4 (6.0 MB)
+2026-10-31 16:51:50 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=downloading, provider=, remote_id=, elapsed=10s
+2026-10-31 16:51:51 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=verifying, provider=, remote_id=, elapsed=11s
+2026-10-31 16:51:55 | INFO | "./app/services/material.py:2188": _report_material_downloaded - downloaded material 7/10: vid-b7ab493c194df4873a180fbbda405f49.mp4 (31.4 MB)
+2026-10-31 16:51:55 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=downloading, provider=, remote_id=, elapsed=15s
+2026-10-31 16:51:56 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=verifying, provider=, remote_id=, elapsed=16s
+2026-10-31 16:51:57 | INFO | "./app/services/material.py:2188": _report_material_downloaded - downloaded material 8/10: vid-30472818a5a27ac85f7969f58315baa2.mp4 (2.9 MB)
+2026-10-31 16:51:57 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=downloading, provider=, remote_id=, elapsed=17s
+2026-10-31 16:51:57 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=verifying, provider=, remote_id=, elapsed=17s
+2026-10-31 16:52:05 | INFO | "./app/services/material.py:2188": _report_material_downloaded - downloaded material 9/10: vid-e1691a3f5c792743816618637eae6ce4.mp4 (62.6 MB)
+2026-10-31 16:52:05 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=downloading, provider=, remote_id=, elapsed=25s
+2026-10-31 16:52:05 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=verifying, provider=, remote_id=, elapsed=25s
+2026-10-31 16:52:06 | INFO | "./app/services/material.py:2188": _report_material_downloaded - downloaded material 10/10: vid-f77da40b297e4007f68403a3a022fe5e.mp4 (10.0 MB)
+2026-10-31 16:52:06 | INFO | "./app/services/material.py:2529": download_videos - video saved: ./storage/cache_videos/vid-e468801e2d72737e93da29708541c8bb.mp4
+2026-10-31 16:52:06 | INFO | "./app/services/material.py:2529": download_videos - video saved: ./storage/cache_videos/vid-e6aacf86538c40db0fd2b8b91ab1ef37.mp4
+2026-10-31 16:52:06 | INFO | "./app/services/material.py:2529": download_videos - video saved: ./storage/cache_videos/vid-d876a07285356e4b9c0b58b65d7484e6.mp4
+2026-10-31 16:52:06 | INFO | "./app/services/material.py:2529": download_videos - video saved: ./storage/cache_videos/vid-5ed3f8748b15e7e8e9a29ed1f36dfd89.mp4
+2026-10-31 16:52:06 | INFO | "./app/services/material.py:2529": download_videos - video saved: ./storage/cache_videos/vid-271bb2630bcb3786954cfb1aa0926ff1.mp4
+2026-10-31 16:52:06 | INFO | "./app/services/material.py:2529": download_videos - video saved: ./storage/cache_videos/vid-9fa22529841f9e061b2b984447596361.mp4
+2026-10-31 16:52:06 | INFO | "./app/services/material.py:2529": download_videos - video saved: ./storage/cache_videos/vid-b7ab493c194df4873a180fbbda405f49.mp4
+2026-10-31 16:52:06 | INFO | "./app/services/material.py:2529": download_videos - video saved: ./storage/cache_videos/vid-30472818a5a27ac85f7969f58315baa2.mp4
+2026-10-31 16:52:06 | INFO | "./app/services/material.py:2529": download_videos - video saved: ./storage/cache_videos/vid-e1691a3f5c792743816618637eae6ce4.mp4
+2026-10-31 16:52:06 | INFO | "./app/services/material.py:2529": download_videos - video saved: ./storage/cache_videos/vid-f77da40b297e4007f68403a3a022fe5e.mp4
+2026-10-31 16:52:06 | INFO | "./app/services/material.py:2546": download_videos - total duration of downloaded videos: 50.0 seconds, skip downloading more
+2026-10-31 16:52:06 | SUCCESS | "./app/services/material.py:2556": download_videos - downloaded 10 videos
+2026-10-31 16:52:06 | INFO | "./app/services/material.py:192": _persist_material_sources - saved material source records: task_id=20b01fe7-e073-41d8-ae4a-0f108194d28a, count=10
+2026-10-31 16:52:06 | INFO | "./app/services/generation_progress.py:45": publish - generation activity: phase=rendering, provider=, remote_id=, elapsed=0s
+2026-10-31 16:52:06 | INFO | "./app/services/task.py:1058": generate_final_videos - 
+
+## combining video: 1 => ./storage/tasks/20b01fe7-e073-41d8-ae4a-0f108194d28a/combined-1.mp4
+2026-10-31 16:52:06 | INFO | "./app/services/video.py:999": combine_videos - audio duration: 47.45 seconds
+2026-10-31 16:52:06 | INFO | "./app/services/video.py:1000": combine_videos - maximum clip duration: 5 seconds
+2026-10-31 16:52:06 | INFO | "./app/services/video.py:1002": combine_videos - required video duration: 47.55 seconds (audio duration + 0.10s safety margin)
+2026-10-31 16:52:09 | INFO | "./app/services/video.py:290": _prioritize_unique_source_clips - prioritized unique video materials, sources: 10, primary clips: 10, fallback clips: 22
+2026-10-31 16:52:09 | DEBUG | "./app/services/video.py:1083": combine_videos - total subclipped items: 32
+2026-10-31 16:52:09 | DEBUG | "./app/services/video.py:1093": process_one_clip - processing clip 1: 2160x3840, source: vid-e1691a3f5c792743816618637eae6ce4.mp4
+2026-10-31 16:52:09 | DEBUG | "./app/services/video.py:1113": process_one_clip - resizing clip, source: 2160x3840, ratio: 0.56, target: 1080x1920, ratio: 0.56, fit_mode: cover
+2026-10-31 16:52:27 | DEBUG | "./app/services/video.py:1093": process_one_clip - processing clip 2: 2160x3840, source: vid-271bb2630bcb3786954cfb1aa0926ff1.mp4
+2026-10-31 16:52:27 | INFO | "./app/services/video.py:1234": combine_videos - processed clip 1: 5.0 of 47.6s covered
+2026-10-31 16:52:27 | DEBUG | "./app/services/video.py:1113": process_one_clip - resizing clip, source: 2160x3840, ratio: 0.56, target: 1080x1920, ratio: 0.56, fit_mode: cover
+2026-10-31 16:52:41 | DEBUG | "./app/services/video.py:1093": process_one_clip - processing clip 3: 1080x1920, source: vid-e6aacf86538c40db0fd2b8b91ab1ef37.mp4
+2026-10-31 16:52:41 | INFO | "./app/services/video.py:1234": combine_videos - processed clip 2: 10.0 of 47.6s covered
+2026-10-31 16:52:45 | DEBUG | "./app/services/video.py:1093": process_one_clip - processing clip 4: 2160x4096, source: vid-b7ab493c194df4873a180fbbda405f49.mp4
+2026-10-31 16:52:45 | INFO | "./app/services/video.py:1234": combine_videos - processed clip 3: 15.0 of 47.6s covered
+2026-10-31 16:52:46 | DEBUG | "./app/services/video.py:1113": process_one_clip - resizing clip, source: 2160x4096, ratio: 0.53, target: 1080x1920, ratio: 0.56, fit_mode: cover
+2026-10-31 16:53:01 | DEBUG | "./app/services/video.py:1093": process_one_clip - processing clip 5: 1080x1920, source: vid-f77da40b297e4007f68403a3a022fe5e.mp4
+2026-10-31 16:53:01 | INFO | "./app/services/video.py:1234": combine_videos - processed clip 4: 20.0 of 47.6s covered
+2026-10-31 16:53:06 | DEBUG | "./app/services/video.py:1093": process_one_clip - processing clip 6: 1080x1920, source: vid-e468801e2d72737e93da29708541c8bb.mp4
+2026-10-31 16:53:06 | INFO | "./app/services/video.py:1234": combine_videos - processed clip 5: 25.0 of 47.6s covered
+2026-10-31 16:53:09 | DEBUG | "./app/services/video.py:1093": process_one_clip - processing clip 7: 1440x2602, source: vid-9fa22529841f9e061b2b984447596361.mp4
+2026-10-31 16:53:09 | INFO | "./app/services/video.py:1234": combine_videos - processed clip 6: 30.0 of 47.6s covered
+2026-10-31 16:53:09 | DEBUG | "./app/services/video.py:1113": process_one_clip - resizing clip, source: 1440x2602, ratio: 0.55, target: 1080x1920, ratio: 0.56, fit_mode: cover
+2026-10-31 16:53:19 | DEBUG | "./app/services/video.py:1093": process_one_clip - processing clip 8: 1080x1920, source: vid-5ed3f8748b15e7e8e9a29ed1f36dfd89.mp4
+2026-10-31 16:53:19 | INFO | "./app/services/video.py:1234": combine_videos - processed clip 7: 35.0 of 47.6s covered
+2026-10-31 16:53:23 | DEBUG | "./app/services/video.py:1093": process_one_clip - processing clip 9: 1440x2602, source: vid-30472818a5a27ac85f7969f58315baa2.mp4
+2026-10-31 16:53:23 | INFO | "./app/services/video.py:1234": combine_videos - processed clip 8: 40.0 of 47.6s covered
+2026-10-31 16:53:23 | DEBUG | "./app/services/video.py:1113": process_one_clip - resizing clip, source: 1440x2602, ratio: 0.55, target: 1080x1920, ratio: 0.56, fit_mode: cover
+2026-10-31 16:53:33 | DEBUG | "./app/services/video.py:1093": process_one_clip - processing clip 10: 2160x3240, source: vid-d876a07285356e4b9c0b58b65d7484e6.mp4
+2026-10-31 16:53:33 | INFO | "./app/services/video.py:1234": combine_videos - processed clip 9: 45.0 of 47.6s covered
+2026-10-31 16:53:33 | DEBUG | "./app/services/video.py:1113": process_one_clip - resizing clip, source: 2160x3240, ratio: 0.67, target: 1080x1920, ratio: 0.56, fit_mode: cover
+2026-10-31 16:53:47 | INFO | "./app/services/video.py:1234": combine_videos - processed clip 10: 50.0 of 47.6s covered
+2026-10-31 16:53:47 | INFO | "./app/services/video.py:1262": combine_videos - starting clip merging process
+2026-10-31 16:53:47 | INFO | "./app/services/video.py:1270": combine_videos - concatenating 10 clips with ffmpeg
+2026-10-31 16:54:17 | INFO | "./app/services/video.py:581": log_heartbeat - ffmpeg concat still running: elapsed=30s, output size: 11.00 MB
+2026-10-31 16:54:23 | INFO | "./app/services/video.py:1292": combine_videos - video combining completed
+2026-10-31 16:54:23 | INFO | "./app/services/task.py:1143": generate_final_videos - 
+
+## generating video: 1 => ./storage/tasks/20b01fe7-e073-41d8-ae4a-0f108194d28a/final-1.mp4
+2026-10-31 16:54:23 | INFO | "./app/services/video.py:1620": generate_video - generating video: 1080 x 1920
+2026-10-31 16:54:23 | INFO | "./app/services/video.py:1621": generate_video -   ① video: ./storage/tasks/20b01fe7-e073-41d8-ae4a-0f108194d28a/combined-1.mp4
+2026-10-31 16:54:23 | INFO | "./app/services/video.py:1622": generate_video -   ② audio: /home/runner/work/Autonomous-content-studio/Autonomous-content-studio/experiments/engines/narration.wav
+2026-10-31 16:54:23 | INFO | "./app/services/video.py:1623": generate_video -   ③ subtitle: ./storage/tasks/20b01fe7-e073-41d8-ae4a-0f108194d28a/subtitle.srt
+2026-10-31 16:54:23 | INFO | "./app/services/video.py:1624": generate_video -   ④ output: ./storage/tasks/20b01fe7-e073-41d8-ae4a-0f108194d28a/final-1.mp4
+2026-10-31 16:54:23 | INFO | "./app/services/video.py:1644": generate_video -   ⑤ font: ./resource/fonts/STHeitiMedium.ttc
+2026-10-31 16:54:53 | INFO | "./app/services/video.py:531": log_heartbeat - final video render still running: elapsed=30s
+2026-10-31 16:55:23 | INFO | "./app/services/video.py:531": log_heartbeat - final video render still running: elapsed=60s
+2026-10-31 16:55:37 | SUCCESS | "./app/services/task.py:1920": _run_pipeline - task 20b01fe7-e073-41d8-ae4a-0f108194d28a finished, generated 1 videos.
+{"task_id": "20b01fe7-e073-41d8-ae4a-0f108194d28a", "result": {"videos": ["/home/runner/work/Autonomous-content-studio/Autonomous-content-studio/mpt/storage/tasks/20b01fe7-e073-41d8-ae4a-0f108194d28a/final-1.mp4"], "combined_videos": ["/home/runner/work/Autonomous-content-studio/Autonomous-content-studio/mpt/storage/tasks/20b01fe7-e073-41d8-ae4a-0f108194d28a/combined-1.mp4"], "script": "Just remembering a big win can raise goosebumps all over your body. Cold can do it, and so can fear, music, or a horror film. Tiny muscles at the base of your hairs contract and pull them straight up, a reflex started by your fight-or-flight nerves. Here's the twist: feeling chills and getting bumps are not the same thing. In research, the bumps people reported didn't always match the bumps measured. In furry animals, raised hair traps warm air. Frightened cats and chimpanzees bristle to look bigger. Porcupines raise their quills when threatened. And some people can raise goosebumps on purpose, no trigger needed. Many don't realize not everyone can. Some call it a leftover reflex, but it may be your body's sign that you were moved.", "terms": ["goosebumps skin", "cold winter breath", "horror movie scared", "concert crowd music", "cat hissing", "porcupine", "chimpanzee", "emotional person"], "audio_file": "/home/runner/work/Autonomous-content-studio/Autonomous-content-studio/experiments/engines/narration.wav", "audio_duration": 47.45, "subtitle_path": "/home/runner/work/Autonomous-content-studio/Autonomous-content-studio/mpt/storage/tasks/20b01fe7-e073-41d8-ae4a-0f108194d28a/subtitle.srt", "materials": ["/home/runner/work/Autonomous-content-studio/Autonomous-content-studio/mpt/storage/cache_videos/vid-e468801e2d72737e93da29708541c8bb.mp4", "/home/runner/work/Autonomous-content-studio/Autonomous-content-studio/mpt/storage/cache_videos/vid-e6aacf86538c40db0fd2b8b91ab1ef37.mp4", "/home/runner/work/Autonomous-content-studio/Autonomous-content-studio/mpt/storage/cache_videos/vid-d876a07285356e4b9c0b58b65d7484e6.mp4", "/home/runner/work/Autonomous-content-studio/Autonomous-content-studio/mpt/storage/cache_videos/vid-5ed3f8748b15e7e8e9a29ed1f36dfd89.mp4", "/home/runner/work/Autonomous-content-studio/Autonomous-content-studio/mpt/storage/cache_videos/vid-271bb2630bcb3786954cfb1aa0926ff1.mp4", "/home/runner/work/Autonomous-content-studio/Autonomous-content-studio/mpt/storage/cache_videos/vid-9fa22529841f9e061b2b984447596361.mp4", "/home/runner/work/Autonomous-content-studio/Autonomous-content-studio/mpt/storage/cache_videos/vid-b7ab493c194df4873a180fbbda405f49.mp4", "/home/runner/work/Autonomous-content-studio/Autonomous-content-studio/mpt/storage/cache_videos/vid-30472818a5a27ac85f7969f58315baa2.mp4", "/home/runner/work/Autonomous-content-studio/Autonomous-content-studio/mpt/storage/cache_videos/vid-e1691a3f5c792743816618637eae6ce4.mp4", "/home/runner/work/Autonomous-content-studio/Autonomous-content-studio/mpt/storage/cache_videos/vid-f77da40b297e4007f68403a3a022fe5e.mp4"], "cross_post_state": null, "cross_post_results": null, "cross_post_error": null, "cross_post_owner": null, "warnings": null}}
