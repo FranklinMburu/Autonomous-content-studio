@@ -1,0 +1,100 @@
+{
+ "gates": [],
+ "writer": "groq:openai/gpt-oss-120b",
+ "candidates": [
+  "groq:openai/gpt-oss-120b"
+ ],
+ "failed": [
+  {
+   "ref": "google:gemini-3.6-flash",
+   "error": "no model in tier 'standard' could answer (google:gemini-3.6-flash: HTTP 503)"
+  },
+  {
+   "ref": "nvidia:minimaxai/minimax-m3.1-flash",
+   "error": "no model in tier 'standard' could answer (nvidia:minimaxai/minimax-m3.1-flash: HTTP 0)"
+  }
+ ],
+ "judge": {
+  "index": 0,
+  "scores": {},
+  "reason": "only one candidate",
+  "model": null
+ },
+ "fact_check": {
+  "results": [
+   {
+    "claim": "Kittens knead their mother’s belly to stimulate milk flow.",
+    "verdict": "supported",
+    "evidence": "Source 1 and Source 2 state that kittens knead the breast while suckling to stimulate lactation and milk let-down from the mother."
+   },
+   {
+    "claim": "The motion of kneading stays with cats into adulthood.",
+    "verdict": "supported",
+    "evidence": "Both Source 1 and Source 2 state that cats carry these infantile behaviors beyond nursing and into adulthood."
+   },
+   {
+    "claim": "Adults use the same rhythm to stretch muscles and release feel‑good hormones, often before a nap.",
+    "verdict": "partial",
+    "evidence": "Sources mention that kneading is often a precursor to sleeping and may make the cat feel good in the same manner as a human stretching, but they do not mention stretching muscles directly or releasing feel-good hormones."
+   },
+   {
+    "claim": "The pads under a cat’s paws contain scent glands, so kneading also leaves a personal perfume on blankets or laps.",
+    "verdict": "supported",
+    "evidence": "Source 2 states that cats have scent glands on the underside of their paws and transfer pheromones to the person or object being kneaded."
+   },
+   {
+    "claim": "When your cat kneads, it’s showing trust, marking you as safe, and getting a cozy stretch.",
+    "verdict": "unsupported",
+    "evidence": "The sources state that facial marking marks territory as safe and exposed bellies communicate trust, but do not state that kneading marks a person as safe or indicates trust."
+   },
+   {
+    "claim": "Gently massaging the spot they press can deepen the bond.",
+    "verdict": "unsupported",
+    "evidence": "The provided source material makes no mention of massaging the spot or deepening the bond."
+   }
+  ],
+  "counts": {
+   "unsupported": 2,
+   "partial": 1,
+   "supported": 3
+  },
+  "model": "google:gemini-3.6-flash"
+ },
+ "provenance": {
+  "layer_version": "0.3.0",
+  "config": "1cd713cd88bb",
+  "tier": "standard",
+  "ref": "groq:openai/gpt-oss-120b",
+  "prompt_sha256": "c586fab84edfc3b1",
+  "system_sha256": "a328b827560026be",
+  "temperature": 0.7,
+  "max_tokens": 4000,
+  "json": true,
+  "cached": false,
+  "finish": "stop",
+  "tokens_in": 5791,
+  "tokens_out": 1177,
+  "at": "2026-10-31T05:38:29+00:00",
+  "best_of": {
+   "candidates": [
+    "groq:openai/gpt-oss-120b"
+   ],
+   "failed": [
+    {
+     "ref": "google:gemini-3.6-flash",
+     "error": "no model in tier 'standard' could answer (google:gemini-3.6-flash: HTTP 503)"
+    },
+    {
+     "ref": "nvidia:minimaxai/minimax-m3.1-flash",
+     "error": "no model in tier 'standard' could answer (nvidia:minimaxai/minimax-m3.1-flash: HTTP 0)"
+    }
+   ],
+   "judge": {
+    "index": 0,
+    "scores": {},
+    "reason": "only one candidate",
+    "model": null
+   }
+  }
+ }
+}

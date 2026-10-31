@@ -1,0 +1,115 @@
+{
+ "title": "The secret behind your cat’s kneading",
+ "topic": "Why do cats knead with their paws?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "cat",
+   "reveal": {
+    "text": "?",
+    "at": "kneading"
+   },
+   "lines": [
+    "Ever wonder why your cat rhythmically pushes its paws into you?"
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "tags",
+   "title": "Kneading origins",
+   "icon": "cat",
+   "items": [
+    {
+     "text": "nursing",
+     "at": "nursing",
+     "tone": "neutral"
+    },
+    {
+     "text": "stretch",
+     "at": "stretch",
+     "tone": "good"
+    },
+    {
+     "text": "scent",
+     "at": "scent",
+     "tone": "neutral"
+    }
+   ],
+   "lines": [
+    "Kittens knead their mother’s belly to stimulate milk flow, and the motion stays with them into adulthood."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "link",
+   "from": {
+    "icon": "paw",
+    "label": "muscles",
+    "at": "stretch"
+   },
+   "to": {
+    "icon": "heart",
+    "label": "feel‑good hormones",
+    "at": "hormones"
+   },
+   "note": {
+    "text": "pre‑nap stretch",
+    "at": "nap"
+   },
+   "lines": [
+    "Adults use the same rhythm to stretch muscles and release feel‑good hormones, often before a nap."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "statement",
+   "text": "Paw pads hold scent glands, leaving a personal perfume on anything they press.",
+   "highlight": [
+    "scent glands"
+   ],
+   "icon": "leaf",
+   "lines": [
+    "The pads under a cat’s paws contain scent glands, so kneading also leaves a personal perfume on blankets or laps."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "bubble",
+   "icon": "cat",
+   "prop": "paw",
+   "text": "Try a gentle rub",
+   "at": "rub",
+   "lines": [
+    "When your cat kneads, it’s showing trust, marking you as safe, and getting a cozy stretch.",
+    "Try gently massaging the spot they press – it can deepen the bond."
+   ],
+   "id": "beat5"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Kneading is an instinctive behavior derived from kitten nursing.",
+   "url": "https://en.wikipedia.org/wiki/Cat_behavior"
+  },
+  {
+   "claim": "Kneading may also stimulate the cat and feel good, similar to a human stretching; it is often a precursor to sleeping.",
+   "url": "https://en.wikipedia.org/wiki/Cat_behavior"
+  },
+  {
+   "claim": "Cats have scent glands on the underside of their paws, transferred when kneading.",
+   "url": "https://en.wikipedia.org/wiki/Cat_communication"
+  }
+ ],
+ "youtube": {
+  "title": "Why cats knead – the hidden reasons 🐾",
+  "description": "Discover the kitten‑origin, comfort stretch, and scent‑marking behind your cat’s kneading habit.",
+  "tags": [
+   "cats",
+   "cat behavior",
+   "kneading",
+   "pet science",
+   "animal facts"
+  ]
+ }
+}
