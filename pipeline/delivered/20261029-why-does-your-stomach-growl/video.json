@@ -1,0 +1,25 @@
+{
+ "at": "2026-10-31T09:55:18+00:00",
+ "release": "https://github.com/FranklinMburu/Autonomous-content-studio/releases/tag/video-20261029-why-does-your-stomach-growl",
+ "asset": "https://github.com/FranklinMburu/Autonomous-content-studio/releases/download/video-20261029-why-does-your-stomach-growl/your-stomach-growl-isn-t-really-your-stomach.mp4",
+ "issue": 8,
+ "technical": {
+  "duration_s": 47.37,
+  "video": "h264 1080x1920 30/1",
+  "audio": "aac 48000 Hz",
+  "mid_silences": [],
+  "black_segments": 0,
+  "loudness_lufs": -15.5,
+  "decode_errors": 0,
+  "checks": {
+   "vertical 1080x1920": true,
+   "has audio": true,
+   "length 20-60 s (Shorts)": true,
+   "no silence gaps over 1 s": true,
+   "no black segments": true,
+   "loudness near -14 LUFS": true,
+   "no decode errors": true
+  },
+  "passed": true
+ }
+}

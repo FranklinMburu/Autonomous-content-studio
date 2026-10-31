@@ -3,7 +3,7 @@
  "topic": "Why does your stomach growl?",
  "lane": null,
  "topic_key": "ef3b3bb024d0cf66",
- "stage": "ready",
+ "stage": "delivered",
  "created": "2026-10-29T05:45:46+00:00",
  "attempts": 0,
  "history": [
@@ -17,6 +17,12 @@
    "from": "queue",
    "to": "ready",
    "why": "polish accepted from PR #7 (score 5)"
+  },
+  {
+   "at": "2026-10-31T09:55:18+00:00",
+   "from": "ready",
+   "to": "delivered",
+   "why": "rendered; issue #8"
   }
  ],
  "provenance": {
