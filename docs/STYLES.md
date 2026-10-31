@@ -17,7 +17,7 @@ Adding the second one changed nothing in the first.
 ## Style 1: Explainer (unchanged)
 
 Everything in `docs/PIPELINE.md` still applies: the nightly pipeline, polish, gates and "Ready to upload" issues.
-The exact version that was running before the story style was added is saved as the git tag **`v1.0-explainer`**:
+The exact version that was running before the story style was added is saved as the branch **`v1.0-explainer`** (never changed after today):
 
 ```
 git checkout v1.0-explainer      # the old system, exactly as it was

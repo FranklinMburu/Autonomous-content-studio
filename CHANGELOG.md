@@ -7,6 +7,6 @@
 - New: `tests/test_story.py`, run on every push. `docs/STYLES.md` explains both styles.
 - Unchanged: the explainer pipeline, its workflows and commands.
 
-## v1.0-explainer (tag)
+## v1.0-explainer (frozen branch)
 - The explainer system as it ran before the story style: nightly research and drafts, Claude polish, gates,
   "Ready to upload" issues. `git checkout v1.0-explainer` to get it exactly.
