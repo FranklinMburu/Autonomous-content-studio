@@ -1,0 +1,120 @@
+{
+ "gates": [],
+ "writer": "nvidia:minimaxai/minimax-m3.1-flash",
+ "candidates": [
+  "nvidia:minimaxai/minimax-m3.1-flash"
+ ],
+ "failed": [
+  {
+   "ref": "groq:openai/gpt-oss-120b",
+   "error": "no model in tier 'standard' could answer (groq:openai/gpt-oss-120b: invalid output; groq:openai/gpt-oss-120b: invalid output)"
+  },
+  {
+   "ref": "google:gemini-3.6-flash",
+   "error": "no model in tier 'standard' could answer (google:gemini-3.6-flash: HTTP 503)"
+  }
+ ],
+ "judge": {
+  "index": 0,
+  "scores": {},
+  "reason": "only one candidate",
+  "model": null
+ },
+ "fact_check": {
+  "results": [
+   {
+    "claim": "Dogs treat another dog's rear end like a social profile.",
+    "verdict": "unsupported",
+    "evidence": "The source material does not contain any reference to dogs treating a rear end like a social profile."
+   },
+   {
+    "claim": "Dogs use scent to communicate.",
+    "verdict": "supported",
+    "evidence": "Source 1 states that communication behaviors include 'gustatory communication (scents, pheromones and taste)' and that 'special scents that dogs use for communication are called pheromones.'"
+   },
+   {
+    "claim": "Their sense of smell is forty times more sensitive than ours.",
+    "verdict": "supported",
+    "evidence": "Source 1 states that 'Dogs have an olfactory sense 40 times more sensitive than a human's'."
+   },
+   {
+    "claim": "Each odor contains volatile molecules that differ in concentration and volatility.",
+    "verdict": "partial",
+    "evidence": "Source 4 states 'Individual odours in disease consist of different volatile organic molecules that differ in magnitude, volatility and concentration', which specifically refers to disease odours rather than all odors generally."
+   },
+   {
+    "claim": "Dogs detect them with an extraordinary sense of smell.",
+    "verdict": "supported",
+    "evidence": "Source 4 refers to '[t]he extraordinary olfactory sense of canines'."
+   },
+   {
+    "claim": "Dogs mark territory with urine and stools.",
+    "verdict": "supported",
+    "evidence": "Source 1 states that 'Dogs (and wolves) mark their territories with urine and their stools.'"
+   },
+   {
+    "claim": "A rear sniff samples pheromones from urine and an anal-gland signature from feces, identifying the marker and the place.",
+    "verdict": "partial",
+    "evidence": "Source 1 states that urine contains pheromones and the anal gland gives a signature to fecal deposits identifying the marker and place, but describes sniffing urine/feces left at locations rather than performing a rear sniff on another dog."
+   },
+   {
+    "claim": "Those scents can signal sex and age, plus female estrus, pregnancy, or recent birth.",
+    "verdict": "supported",
+    "evidence": "Source 1 states that 'some chemical signatures identify the sex and age of the dog, and if a female is in the estrus cycle, pregnant or recently given birth.'"
+   },
+   {
+    "claim": "Different hormones are also released when a dog feels angry, fearful, or confident.",
+    "verdict": "supported",
+    "evidence": "Source 1 states 'Different hormones are secreted when a dog is angry, fearful or confident'."
+   },
+   {
+    "claim": "That rear sniff is a quick scent-based identity check.",
+    "verdict": "unsupported",
+    "evidence": "The sources do not mention rear sniffing or describe it as a quick scent-based identity check."
+   }
+  ],
+  "counts": {
+   "unsupported": 2,
+   "partial": 2,
+   "supported": 6
+  },
+  "model": "google:gemini-3.6-flash"
+ },
+ "provenance": {
+  "layer_version": "0.3.0",
+  "config": "1cd713cd88bb",
+  "tier": "standard",
+  "ref": "nvidia:minimaxai/minimax-m3.1-flash",
+  "prompt_sha256": "6da19f5b84be459b",
+  "system_sha256": "a328b827560026be",
+  "temperature": 0.7,
+  "max_tokens": 4000,
+  "json": true,
+  "cached": false,
+  "finish": "stop",
+  "tokens_in": 5446,
+  "tokens_out": 11239,
+  "at": "2026-10-31T05:59:14+00:00",
+  "best_of": {
+   "candidates": [
+    "nvidia:minimaxai/minimax-m3.1-flash"
+   ],
+   "failed": [
+    {
+     "ref": "groq:openai/gpt-oss-120b",
+     "error": "no model in tier 'standard' could answer (groq:openai/gpt-oss-120b: invalid output; groq:openai/gpt-oss-120b: invalid output)"
+    },
+    {
+     "ref": "google:gemini-3.6-flash",
+     "error": "no model in tier 'standard' could answer (google:gemini-3.6-flash: HTTP 503)"
+    }
+   ],
+   "judge": {
+    "index": 0,
+    "scores": {},
+    "reason": "only one candidate",
+    "model": null
+   }
+  }
+ }
+}

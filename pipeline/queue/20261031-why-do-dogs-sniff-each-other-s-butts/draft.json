@@ -1,0 +1,170 @@
+{
+ "title": "Why Dogs Sniff Each Other's Butts",
+ "topic": "Why do dogs sniff each other's butts?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "dog",
+   "label": "rear-end greeting",
+   "reveal": {
+    "text": "social profile?",
+    "at": "profile"
+   },
+   "lines": [
+    "Dogs treat another dog's rear end like a social profile."
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "number",
+   "value": 40,
+   "prefix": "",
+   "suffix": "×",
+   "label": "more sensitive than humans",
+   "at": "forty",
+   "icon": "search",
+   "lines": [
+    "Dogs use scent to communicate.",
+    "Their sense of smell is forty times more sensitive than ours."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "link",
+   "kicker": "How smell works",
+   "from": {
+    "icon": "droplet",
+    "label": "odor molecules",
+    "at": "molecules"
+   },
+   "to": {
+    "icon": "dog",
+    "label": "scent detected",
+    "at": "detect"
+   },
+   "note": {
+    "text": "volatile molecules",
+    "at": "volatile"
+   },
+   "lines": [
+    "Each odor contains volatile molecules that differ in concentration and volatility.",
+    "Dogs detect them with an extraordinary sense of smell."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "compare",
+   "title": "Why the rear?",
+   "left": {
+    "icon": "droplet",
+    "label": "urine",
+    "value": "pheromones",
+    "at": "urine"
+   },
+   "right": {
+    "icon": "fingerprint",
+    "label": "feces",
+    "value": "anal-gland signature",
+    "at": "feces"
+   },
+   "verdict": {
+    "text": "marker + location",
+    "at": "place"
+   },
+   "lines": [
+    "Dogs mark territory with urine and stools.",
+    "A rear sniff samples pheromones from urine and an anal-gland signature from feces, identifying the marker and the place."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "tags",
+   "title": "Scent signals",
+   "icon": "users",
+   "items": [
+    {
+     "text": "sex",
+     "at": "sex",
+     "tone": "neutral"
+    },
+    {
+     "text": "age",
+     "at": "age",
+     "tone": "neutral"
+    },
+    {
+     "text": "female estrus",
+     "at": "estrus",
+     "tone": "neutral"
+    },
+    {
+     "text": "pregnancy",
+     "at": "pregnancy",
+     "tone": "neutral"
+    },
+    {
+     "text": "recent birth",
+     "at": "birth",
+     "tone": "neutral"
+    },
+    {
+     "text": "emotional state",
+     "at": "angry",
+     "tone": "neutral"
+    }
+   ],
+   "verdict": {
+    "text": "anger, fear, confidence",
+    "sub": "different hormones",
+    "at": "confident"
+   },
+   "lines": [
+    "Those scents can signal sex and age, plus female estrus, pregnancy, or recent birth.",
+    "Different hormones are also released when a dog feels angry, fearful, or confident."
+   ],
+   "id": "beat5"
+  },
+  {
+   "scene": "bubble",
+   "icon": "dog",
+   "prop": "paw",
+   "text": "identity check",
+   "at": "identity",
+   "lines": [
+    "Next time two dogs meet, watch their greeting.",
+    "That rear sniff is a quick scent-based identity check."
+   ],
+   "id": "beat6"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Dogs' sense of smell is forty times more sensitive than a human's, and scents and pheromones are used for communication.",
+   "url": "https://en.wikipedia.org/wiki/Dog_behavior"
+  },
+  {
+   "claim": "Urine contains pheromone chemicals, canine anal glands give fecal deposits a signature identifying the marker and location, and scent signatures can indicate sex, age, and reproductive status.",
+   "url": "https://en.wikipedia.org/wiki/Dog_behavior"
+  },
+  {
+   "claim": "Different hormones are secreted when a dog is angry, fearful, or confident.",
+   "url": "https://en.wikipedia.org/wiki/Dog_behavior"
+  },
+  {
+   "claim": "Individual odors consist of volatile organic molecules that differ in magnitude, volatility, and concentration, and canines have an extraordinary olfactory sense.",
+   "url": "https://doi.org/10.1186/s12879-021-06523-8"
+  }
+ ],
+ "youtube": {
+  "title": "Why Dogs Sniff Each Other's Butts 🐶",
+  "description": "A rear sniff can reveal another dog's identity, mood, age, and reproductive status.",
+  "tags": [
+   "dogs",
+   "dog behavior",
+   "animal behavior",
+   "scent",
+   "science"
+  ]
+ }
+}

@@ -1,0 +1,48 @@
+{
+ "id": "20261031-why-do-dogs-sniff-each-other-s-butts",
+ "topic": "Why do dogs sniff each other's butts?",
+ "lane": null,
+ "topic_key": "b4667c2196444b9a",
+ "stage": "queue",
+ "created": "2026-10-31T05:49:25+00:00",
+ "attempts": 0,
+ "history": [
+  {
+   "at": "2026-10-31T05:49:25+00:00",
+   "to": "queue",
+   "why": "created"
+  }
+ ],
+ "provenance": {
+  "research_plan": {
+   "questions": [
+    "What information do dogs get from sniffing each other's butts?",
+    "Why is the butt the chosen spot for sniffing?",
+    "How does the scent detection work biologically?",
+    "What social signals are communicated through this behavior?"
+   ],
+   "wikipedia": [
+    "Dog behavior",
+    "Canine olfactory system",
+    "Dog anatomy",
+    "Why do dogs sniff each other's butts?"
+   ],
+   "scholar": [
+    "Canine scent communication butts",
+    "Canine olfactory receptors social behavior"
+   ],
+   "model": "groq:openai/gpt-oss-20b"
+  },
+  "writer": "nvidia:minimaxai/minimax-m3.1-flash",
+  "candidates": [
+   "nvidia:minimaxai/minimax-m3.1-flash"
+  ],
+  "judge": {
+   "index": 0,
+   "scores": {},
+   "reason": "only one candidate",
+   "model": null
+  },
+  "rules": "studio/pipeline/draft.py TASK + POLISH.md"
+ }
+}
