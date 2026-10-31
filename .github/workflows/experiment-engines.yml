@@ -64,9 +64,9 @@ jobs:
           fi
           tail -n 150 mpt.log > experiments/engines/out/mpt.log || true
           git config user.name "content-studio-bot"; git config user.email "actions@users.noreply.github.com"
-          git add experiments/engines/out && git commit -qm "MoneyPrinterTurbo test result" && git pull -q --rebase origin experiment-engines || true; git push origin HEAD:experiment-engines
+          git add -f experiments/engines/out && git commit -qm "MoneyPrinterTurbo test result" && git pull -q --rebase origin experiment-engines || true; git push origin HEAD:experiment-engines
       - name: Log on the Summary page
         if: always()
         run: |
           { echo '```'; tail -n 80 mpt.log 2>/dev/null; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
-# run 2
+# run 3
