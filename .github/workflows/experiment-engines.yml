@@ -56,12 +56,17 @@ jobs:
         run: |
           f=$(find mpt/storage -name 'final-*.mp4' -o -name 'combined-*.mp4' | sort | tail -1)
           mkdir -p experiments/engines/out
-          [ -n "$f" ] && cp "$f" experiments/engines/out/mpt_goosebumps.mp4
+          if [ -n "$f" ]; then
+            ls -la "$f"
+            # Shrink it so it fits in Git (GitHub refuses files over 100 MB)
+            ffmpeg -y -loglevel error -i "$f" -vf scale=720:-2 -c:v libx264 -preset veryfast -crf 28 -c:a aac -b:a 96k experiments/engines/out/mpt_goosebumps.mp4
+            ls -la experiments/engines/out/
+          fi
           tail -n 150 mpt.log > experiments/engines/out/mpt.log || true
           git config user.name "content-studio-bot"; git config user.email "actions@users.noreply.github.com"
-          git add experiments/engines/out && git commit -qm "MoneyPrinterTurbo test result" && git push -q origin HEAD:experiment-engines || true
+          git add experiments/engines/out && git commit -qm "MoneyPrinterTurbo test result" && git pull -q --rebase origin experiment-engines || true; git push origin HEAD:experiment-engines
       - name: Log on the Summary page
         if: always()
         run: |
           { echo '```'; tail -n 80 mpt.log 2>/dev/null; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
-# run 2026-10-31T16:31:08Z
+# run 2
