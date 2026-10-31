@@ -1,0 +1,161 @@
+{
+ "title": "Remembering a big win can raise your goosebumps",
+ "topic": "Why do we get goosebumps?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "trophy",
+   "label": "goosebumps",
+   "reveal": {
+    "text": "just a memory",
+    "at": "remembering"
+   },
+   "lines": [
+    "Just remembering a big win can raise goosebumps all over your body."
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "link",
+   "from": {
+    "icon": "brain",
+    "label": "fight-or-flight nerves",
+    "at": "nerves"
+   },
+   "to": {
+    "icon": "activity",
+    "label": "tiny hair muscles",
+    "at": "muscles"
+   },
+   "note": {
+    "text": "hairs stand up",
+    "at": "straight"
+   },
+   "lines": [
+    "Cold can do it, and so can fear, music, or a horror film.",
+    "Tiny muscles at the base of your hairs contract and pull them straight up, a reflex started by your fight-or-flight nerves."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "compare",
+   "title": "Feeling vs. skin",
+   "left": {
+    "icon": "mood-surprised",
+    "label": "felt chills",
+    "value": "reported",
+    "at": "reported"
+   },
+   "right": {
+    "icon": "microscope",
+    "label": "real bumps",
+    "value": "measured",
+    "at": "measured"
+   },
+   "verdict": {
+    "text": "not always a match",
+    "at": "match"
+   },
+   "lines": [
+    "Here's the twist: feeling chills and getting bumps are not the same thing.",
+    "In research, the bumps people reported didn't always match the bumps measured."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "tags",
+   "title": "Raised hair in animals",
+   "icon": "paw",
+   "items": [
+    {
+     "text": "warm air layer",
+     "at": "air",
+     "tone": "good"
+    },
+    {
+     "text": "look bigger",
+     "at": "bigger",
+     "tone": "good"
+    },
+    {
+     "text": "porcupine quills",
+     "at": "quills",
+     "tone": "neutral"
+    }
+   ],
+   "lines": [
+    "In furry animals, raised hair traps warm air.",
+    "Frightened cats and chimpanzees bristle to look bigger.",
+    "Porcupines raise their quills when threatened."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "statement",
+   "text": "goosebumps on purpose",
+   "highlight": [
+    "purpose"
+   ],
+   "icon": "user",
+   "lines": [
+    "And some people can raise goosebumps on purpose, no trigger needed.",
+    "Many don't realize not everyone can."
+   ],
+   "id": "beat5"
+  },
+  {
+   "scene": "bubble",
+   "icon": "user",
+   "prop": "heart",
+   "text": "you were moved",
+   "at": "moved",
+   "lines": [
+    "Some call it a leftover reflex, but it may be your body's sign that you were moved."
+   ],
+   "id": "beat6"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Feeling or remembering strong positive emotions, such as after winning a sports event, can cause piloerection; emotionally triggered goose bumps tend to occur across the whole body.",
+   "url": "https://en.wikipedia.org/wiki/Goose_bumps"
+  },
+  {
+   "claim": "Goose bumps can come from cold, fear, music, or watching a horror film.",
+   "url": "https://en.wikipedia.org/wiki/Goose_bumps"
+  },
+  {
+   "claim": "Arrector pili muscles at the base of hairs contract and pull the hair straight up; the reflex is started by the sympathetic nervous system, responsible for many fight-or-flight responses.",
+   "url": "https://en.wikipedia.org/wiki/Goose_bumps"
+  },
+  {
+   "claim": "The self-reported feeling of goosebumps does not always correlate with physiological piloerection.",
+   "url": "https://en.wikipedia.org/wiki/Goose_bumps"
+  },
+  {
+   "claim": "In furred animals erect hairs trap air for insulation and make the animal appear larger to intimidate enemies, seen in chimpanzees and frightened cats; porcupines raise their quills when threatened.",
+   "url": "https://en.wikipedia.org/wiki/Goose_bumps"
+  },
+  {
+   "claim": "Some people can voluntarily generate piloerection without an external trigger, and those with the ability are frequently unaware that not everyone can.",
+   "url": "https://en.wikipedia.org/wiki/Goose_bumps"
+  },
+  {
+   "claim": "Goose bumps under stress are considered by some a vestigial reflex; goose bumps are accompanied by a response pattern thought to indicate the emotional state of being moved.",
+   "url": "https://en.wikipedia.org/wiki/Goose_bumps"
+  }
+ ],
+ "youtube": {
+  "title": "Your goosebumps might know something you don't 🧠",
+  "description": "A memory, a song or the cold can make your hair stand up. Here's the tiny reflex behind goosebumps, and why the feeling and the bumps don't always match.",
+  "tags": [
+   "goosebumps",
+   "human body",
+   "science",
+   "biology",
+   "reflexes",
+   "animal behavior"
+  ]
+ }
+}

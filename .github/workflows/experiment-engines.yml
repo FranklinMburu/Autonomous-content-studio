@@ -1,0 +1,61 @@
+name: "Experiment: MoneyPrinterTurbo test (branch only)"
+# Runs MoneyPrinterTurbo on the same goosebumps script and the same Kokoro narration used for the Manim test.
+# Needs the free PEXELS_API_KEY secret (stock footage). The finished video is committed back to this branch.
+on:
+  push:
+    branches: [experiment-engines]
+    paths: [".github/workflows/experiment-engines.yml"]
+permissions:
+  contents: write
+jobs:
+  mpt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - name: System tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg imagemagick > /dev/null
+      - name: Get MoneyPrinterTurbo
+        run: git clone --depth 1 https://github.com/harry0703/MoneyPrinterTurbo mpt
+      - name: Install
+        run: pip install -q -r mpt/requirements.txt
+      - name: Configure (key only from the secret, never printed)
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: |
+          if [ -z "$PEXELS_API_KEY" ]; then echo "::error::PEXELS_API_KEY secret is missing"; exit 1; fi
+          cp mpt/config.example.toml mpt/config.toml
+          python - <<'PY'
+          import os, re
+          p = "mpt/config.toml"; s = open(p, encoding="utf-8").read()
+          s = s.replace('pexels_api_keys = []', 'pexels_api_keys = ["%s"]' % os.environ["PEXELS_API_KEY"])
+          s = re.sub(r'subtitle_provider = "edge"', 'subtitle_provider = "whisper"', s)
+          open(p, "w", encoding="utf-8").write(s)
+          PY
+      - name: Make the video
+        working-directory: mpt
+        run: |
+          set -o pipefail
+          python cli.py \
+            --video-script "$(cat ../experiments/engines/narration.txt)" \
+            --video-terms "goosebumps skin,cold winter breath,horror movie scared,concert crowd music,cat hissing,porcupine,chimpanzee,emotional person" \
+            --custom-audio-file ../experiments/engines/narration.wav \
+            --video-source pexels --video-aspect 9:16 2>&1 | tee ../mpt.log
+      - name: Save the result to this branch
+        if: always()
+        run: |
+          f=$(find mpt/storage -name 'final-*.mp4' -o -name 'combined-*.mp4' | sort | tail -1)
+          mkdir -p experiments/engines/out
+          [ -n "$f" ] && cp "$f" experiments/engines/out/mpt_goosebumps.mp4
+          tail -n 150 mpt.log > experiments/engines/out/mpt.log || true
+          git config user.name "content-studio-bot"; git config user.email "actions@users.noreply.github.com"
+          git add experiments/engines/out && git commit -qm "MoneyPrinterTurbo test result" && git push -q origin HEAD:experiment-engines || true
+      - name: Log on the Summary page
+        if: always()
+        run: |
+          { echo '```'; tail -n 80 mpt.log 2>/dev/null; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
