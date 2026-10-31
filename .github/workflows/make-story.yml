@@ -13,9 +13,6 @@ on:
         description: "OR an existing episode folder to render, e.g. episodes/hidden_reasons/001-scurvy"
         required: false
         default: "episodes/hidden_reasons/001-scurvy"
-  push:   # TEMPORARY for testing on the story-style branch; removed before merging
-    branches: [story-style]
-    paths: [".github/story-try.txt"]
 
 permissions:
   contents: write   # to publish the finished video as a GitHub Release
@@ -51,7 +48,6 @@ jobs:
         id: what
         run: |
           topic="${{ github.event.inputs.topic }}"
-          if [ "${{ github.event_name }}" = "push" ]; then topic=$(head -n1 .github/story-try.txt); fi
           echo "topic=$topic" >> "$GITHUB_OUTPUT"
           [ -f .brain/ailayer/__init__.py ] && echo "PYTHONPATH=$GITHUB_WORKSPACE/.brain" >> "$GITHUB_ENV" || true
 

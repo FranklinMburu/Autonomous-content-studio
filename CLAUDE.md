@@ -18,7 +18,7 @@ Six more channels are ideas only (ranked in Notion); they have no code yet.
 
 ## Two video styles (see docs/STYLES.md)
 - Explainer: `python -m studio ...` + the pipeline. Unchanged. Pre-story version kept on branch `v1.0-explainer` (frozen; never commit to it).
-- Story: `python -m studio.story make episodes/<channel>/<NNN-slug>`. Each episode = script.json + scenes.py + sources.md.
+- Story: `python -m studio.story make episodes/<channel>/<NNN-slug>` or `write --topic "..."` (AI writes it). Each episode = script.json + storyboard.json (data, uses the library in studio/story/board.py) + sources.md.
   Scenes refer to words by occurrence (`L.wt("six", 2)`), never seconds. `tests/test_story.py` must pass.
 
 Rules:

@@ -7,7 +7,7 @@ Adding the second one changed nothing in the first.
 | --- | --- | --- |
 | Channel | Body Science | Hidden Reasons |
 | What it is | Facts explained with icons and scene templates | A 1-minute story with a character, then the hidden science |
-| How it's made | Fully automatic pipeline: research, AI drafts, polish, gates | Script, scenes and sources written per episode (by Claude today) |
+| How it's made | Fully automatic pipeline: research, AI drafts, polish, gates | AI writes script + storyboard from a topic, checked by gates; or hand-written |
 | Command | `python -m studio ...` | `python -m studio.story ...` |
 | GitHub button | **Make a video** / the pipeline workflows | **Make a story video** |
 | Where the work lives | `pipeline/`, `scripts/` | `episodes/<channel>/<NNN-slug>/` |
@@ -31,17 +31,21 @@ Each video is one folder:
 ```
 episodes/hidden_reasons/001-scurvy/
   script.json   the narration (beats and lines), voice, speed and pace
-  scenes.py     the pictures: one function per shot and the SHOTS list
+  storyboard.json  the pictures as data: shots, backgrounds, characters, props, animations (no code)
   sources.md    a source for every claim (required)
 ```
 
-Shots are tied to words, not seconds: `L.wt("Six", 2)` means "the second time 'six' is spoken", so a change of
-voice or speed keeps pictures and words in sync.
+A storyboard only uses the shared library in `studio/story/board.py` (backgrounds, characters, props,
+animations), so a new video needs no new code. Shots are tied to words, not seconds: `"Six#2"` means "the second
+time 'six' is spoken", so a change of voice or speed keeps pictures and words in sync.
+Episode 001's storyboard reproduces the original hand-coded video frame for frame (mean pixel difference < 1/255).
 
 ### Make one on GitHub (no setup)
 
-**Actions → Make a story video → Run workflow**, type the episode folder, press **Run**. After about 5 minutes
-the video is on the **Releases** page (`story-001-scurvy-runN`), with the sources in the release notes.
+**Actions → Make a story video → Run workflow**. Either type a **topic** (the AI researches, writes, fact-checks
+and storyboards a new episode, then renders it) or an existing **episode** folder. After about 5 minutes
+the video is on the **Releases** page (`story-...`), with the sources in the release notes and the episode files
+(`episode-files.zip`) attached. A topic takes about 30 minutes (most of it the storyboard step).
 
 ### Make one on your computer
 
@@ -70,15 +74,17 @@ Note: the story style needs only `pycairo` for drawing (Windows wheels exist). T
 
 ### Add a new episode
 
-1. Copy an episode folder, number it (`002-...`).
-2. Write `script.json` in the Hidden Reasons format: a strange hook in the first 3 seconds, doubt, escalation,
-   "You see..." with an everyday comparison, the real science, a one-line twist. 145-235 words.
-3. Write `sources.md`: one row per claim.
-4. Write `scenes.py` using the helpers in `studio/story/lib.py` (characters, props, captions).
-5. `python -m studio.story check ...`, then `stills ...` to look at frames, then `make ...`.
-6. `python tests/test_story.py` must pass.
+Automatic: `python -m studio.story write --topic "..." --make` (needs the brain and its keys; normally run on GitHub).
+The writer: research (Wikipedia + OpenAlex) -> script by the free models (judge picks the best) -> claim-by-claim
+fact check (one repair round) -> narration (pace corrected to 195-235 words/min) -> storyboard (up to 3 repair
+rounds against the checks) -> sources.md + report.md.
+
+By hand: copy an episode folder, edit script.json, storyboard.json and sources.md, then `check`, `stills`, `make`.
+New kinds of pictures are added to the library in `studio/story/board.py` (once, for every later video).
+`python tests/test_story.py` must pass.
 
 ### What's next for this style
 
-Today each episode's scenes are written by hand (by Claude). The next step is a scene library big enough for an
-AI to assemble scenes from a script on its own, checked by the same kind of gates as the explainer.
+Episode 002 was made by the AI from a topic alone and passed every check, but the library is still small, so its
+pictures repeat. Next: more settings, characters and props (some generated once with free image models), a visual
+check that rejects repeated or empty shots, and a second logic check on the script.
