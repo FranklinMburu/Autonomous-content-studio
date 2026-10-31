@@ -1,6 +1,6 @@
 name: "Experiment: MoneyPrinterTurbo test (branch only)"
 # Runs MoneyPrinterTurbo on the same goosebumps script and the same Kokoro narration used for the Manim test.
-# Needs the free PEXELS_API_KEY secret (stock footage). The finished video is committed back to this branch.
+# Needs a free stock-footage key as a secret: PIXABAY_API_KEY (Pexels has paused new keys) or PEXELS_API_KEY. The finished video is committed back to this branch.
 on:
   push:
     branches: [experiment-engines]
@@ -27,13 +27,18 @@ jobs:
       - name: Configure (key only from the secret, never printed)
         env:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
         run: |
-          if [ -z "$PEXELS_API_KEY" ]; then echo "::error::PEXELS_API_KEY secret is missing"; exit 1; fi
+          if [ -z "$PEXELS_API_KEY$PIXABAY_API_KEY" ]; then echo "::error::No PIXABAY_API_KEY or PEXELS_API_KEY secret"; exit 1; fi
+          if [ -n "$PIXABAY_API_KEY" ]; then echo "SOURCE=pixabay" >> "$GITHUB_ENV"; else echo "SOURCE=pexels" >> "$GITHUB_ENV"; fi
           cp mpt/config.example.toml mpt/config.toml
           python - <<'PY'
           import os, re
           p = "mpt/config.toml"; s = open(p, encoding="utf-8").read()
-          s = s.replace('pexels_api_keys = []', 'pexels_api_keys = ["%s"]' % os.environ["PEXELS_API_KEY"])
+          if os.environ.get("PEXELS_API_KEY"):
+              s = s.replace('pexels_api_keys = []', 'pexels_api_keys = ["%s"]' % os.environ["PEXELS_API_KEY"])
+          if os.environ.get("PIXABAY_API_KEY"):
+              s = s.replace('pixabay_api_keys = []', 'pixabay_api_keys = ["%s"]' % os.environ["PIXABAY_API_KEY"])
           s = re.sub(r'subtitle_provider = "edge"', 'subtitle_provider = "whisper"', s)
           open(p, "w", encoding="utf-8").write(s)
           PY
@@ -45,7 +50,7 @@ jobs:
             --video-script "$(cat ../experiments/engines/narration.txt)" \
             --video-terms "goosebumps skin,cold winter breath,horror movie scared,concert crowd music,cat hissing,porcupine,chimpanzee,emotional person" \
             --custom-audio-file ../experiments/engines/narration.wav \
-            --video-source pexels --video-aspect 9:16 2>&1 | tee ../mpt.log
+            --video-source "$SOURCE" --video-aspect 9:16 2>&1 | tee ../mpt.log
       - name: Save the result to this branch
         if: always()
         run: |
