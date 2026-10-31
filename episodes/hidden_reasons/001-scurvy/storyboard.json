@@ -1,0 +1,113 @@
+{
+ "key_words": ["scar", "1747", "twelve", "six", "pairs", "oranges", "lemon", "fruit", "collagen", "vitamin", "c", "forty-eight", "duty", "years"],
+ "shots": [
+  {"name": "hook_scar", "at": 0, "bg": "none", "items": [
+   {"type": "arm_scar", "open_at": "splits#1", "dur": 0.8}]},
+
+  {"name": "ship", "at": "It's#1", "bg": "sea", "items": [
+   {"type": "ship", "x": 540, "y": 1170},
+   {"type": "text", "text": "1747", "x": 540, "y": 330, "size": 180, "color": "cream", "stroke_w": 16, "in": "1747#1"},
+   {"type": "text", "text": "HMS SALISBURY", "x": 540, "y": 470, "size": 84, "color": "orange", "in": "HMS#1"}]},
+
+  {"name": "gums", "at": "His#1", "bg": {"type": "gradient", "top": [0.20, 0.30, 0.40], "bottom": [0.06, 0.10, 0.18]}, "items": [
+   {"type": "glow", "x": 540, "y": 700, "r": 600, "color": [1, 0.8, 0.5], "alpha": 0.3},
+   {"type": "character", "role": "sailor", "mood": "gums", "x": 540, "y": 1800, "s": 3.2}]},
+
+  {"name": "sick_bay", "at": "And#1", "focus": 1000, "bg": {"type": "gradient", "top": [0.20, 0.12, 0.08], "bottom": [0.07, 0.04, 0.03]}, "items": [
+   {"type": "glow", "x": 540, "y": 300, "r": 520, "color": [1, 0.75, 0.35], "alpha": 0.5},
+   {"type": "prop", "name": "lantern", "x": 540, "y": 300},
+   {"type": "group", "grid": {"cols": 3, "rows": 3, "x": 220, "y": 760, "dx": 320, "dy": 380, "stagger": 60},
+    "item": {"type": "prop", "name": "hammock"}},
+   {"type": "group", "grid": {"cols": 3, "rows": 3, "x": 220, "y": 760, "dx": 320, "dy": 380, "stagger": 60},
+    "item": {"type": "character", "role": "sailor", "mood": "sick", "x": 20, "y": -40, "s": 0.72, "lie": true}}]},
+
+  {"name": "compare", "at": "The#2", "bg": {"type": "gradient", "top": [0.10, 0.12, 0.20], "bottom": [0.04, 0.05, 0.10]}, "items": [
+   {"type": "prop", "name": "cannon", "x": 300, "y": 1150},
+   {"type": "text", "text": "ENEMY GUNS", "x": 300, "y": 1370, "size": 54, "color": "cream", "stroke_w": 8},
+   {"type": "bar", "x": 300, "base_y": 850, "h": 220, "color": "grey", "grow_at": "kills#1", "dur": 0.6},
+   {"type": "character", "role": "sailor", "mood": "sick", "x": 780, "y": 1210, "s": 0.55},
+   {"type": "text", "text": "SCURVY", "x": 780, "y": 1370, "size": 64, "color": "orange", "stroke_w": 8},
+   {"type": "bar", "x": 780, "base_y": 850, "h": 620, "color": "red", "grow_at": "kills#1", "delay": 0.3, "dur": 0.9},
+   {"type": "text", "text": "kills more sailors", "x": 540, "y": 300, "size": 70, "stroke_w": 10}]},
+
+  {"name": "pairs", "at": "So#1", "bg": {"type": "gradient", "top": [0.55, 0.75, 0.85], "bottom": [0.85, 0.80, 0.65]}, "items": [
+   {"type": "floor", "y": 1250, "planks": 12},
+   {"type": "group", "count": 12, "grid": {"cols": 4, "x": 170, "y": 820, "dx": 250, "dy": 260},
+    "item": {"type": "character", "role": "sailor", "mood": "sick", "s": 0.42},
+    "regroup": {"at": "splits#2", "dur": 0.9, "size": 2, "cols": 3, "x": 200, "y": 820, "dx": 340, "dy": 420,
+                "member_dx": 120, "number": true, "number_dx": 60, "number_dy": -220}},
+   {"type": "character", "role": "surgeon", "mood": "calm", "x": 540, "y": 600, "s": 0.75, "look": 0.5, "in": "Lind#1"},
+   {"type": "text", "text": "JAMES LIND", "x": 540, "y": 260, "size": 84, "color": "cream", "in": "Lind#1", "anim": "none"}]},
+
+  {"name": "cures", "at": "Each#1", "focus": 960, "bg": {"type": "gradient", "top": [0.18, 0.14, 0.12], "bottom": [0.06, 0.05, 0.05]}, "items": [
+   {"type": "text", "text": "6 DIFFERENT CURES", "x": 540, "y": 260, "size": 92, "color": "lemon", "in": "+0.05"},
+   {"type": "card", "icon": "mug", "label": "CIDER", "x": 540, "y": 520, "s": 0.78, "in": "Cider#1"},
+   {"type": "card", "icon": "bottle", "label": "VINEGAR", "x": 540, "y": 850, "s": 0.78, "in": "Vinegar#1"},
+   {"type": "card", "icon": "bucket", "label": "SEAWATER", "x": 540, "y": 1180, "s": 0.78, "in": "Seawater#1"}]},
+
+  {"name": "fruit", "at": "And#3", "focus": 1000, "bg": {"type": "gradient", "top": [0.30, 0.18, 0.08], "bottom": [0.08, 0.05, 0.03]}, "items": [
+   {"type": "glow", "x": 540, "y": 1000, "r": 700, "color": [1, 0.8, 0.3], "alpha": 0.6, "fade_in": 0.6},
+   {"type": "prop", "name": "plate", "x": 540, "y": 1200},
+   {"type": "prop", "name": "orange", "x": 350, "y": 1080, "in": "oranges#1", "anim": "drop"},
+   {"type": "prop", "name": "orange", "x": 580, "y": 1080, "in": "oranges#1", "delay": 0.15, "anim": "drop"},
+   {"type": "prop", "name": "lemon", "x": 820, "y": 1110, "in": "lemon#1", "anim": "drop"},
+   {"type": "text", "text": "EVERY DAY", "x": 540, "y": 420, "size": 110, "color": "lemon", "stroke_w": 14, "in": "every#1"}]},
+
+  {"name": "doubt", "at": "Fruit#1", "bg": {"type": "gradient", "top": [0.45, 0.55, 0.65], "bottom": [0.15, 0.20, 0.28]}, "items": [
+   {"type": "character", "role": "sailor", "mood": "doubt", "x": 540, "y": 1750, "s": 2.6, "look": -0.6},
+   {"type": "text", "text": "?", "x": 230, "y": 380, "size": 220, "color": "orange", "stroke_w": 14, "in": "+0.2"},
+   {"type": "text", "text": "?", "x": 530, "y": 460, "size": 220, "color": "orange", "stroke_w": 14, "in": "+0.45"},
+   {"type": "text", "text": "?", "x": 830, "y": 380, "size": 220, "color": "orange", "stroke_w": 14, "in": "+0.7"}]},
+
+  {"name": "day6", "at": "Six#2", "bg": {"type": "gradient", "top": [0.22, 0.17, 0.13], "bottom": [0.08, 0.06, 0.05]}, "items": [
+   {"type": "prop", "name": "crate", "x": 540, "y": 1215},
+   {"type": "text", "text": "EMPTY", "x": 540, "y": 1260, "size": 90, "color": "cream", "stroke_w": 10},
+   {"type": "calendar", "x": 540, "y": 600, "s": 1.4, "top": "DAY", "count": {"from": 1, "to": 6, "at": "Six#2", "dur": 0.9}}]},
+
+  {"name": "back_on_duty", "at": "But#1", "focus": 1000, "bg": {"type": "gradient", "top": [0.55, 0.80, 0.95], "bottom": [0.95, 0.85, 0.60]}, "items": [
+   {"type": "glow", "x": 540, "y": 500, "r": 600, "color": [1, 1, 0.8], "alpha": 0.6},
+   {"type": "floor", "y": 1400},
+   {"type": "character", "role": "sailor", "mood": "sick", "x": 540, "y": 1420, "s": 1.6,
+    "states": [{"at": "already#1", "mood": "happy", "arm": 1.6, "dur": 0.5}]},
+   {"type": "text", "text": "BACK ON DUTY", "x": 540, "y": 360, "size": 110, "stroke_w": 14, "in": "back#1"}]},
+
+  {"name": "you", "at": "You#1", "bg": {"type": "gradient", "top": [0.93, 0.92, 0.95], "bottom": [0.80, 0.82, 0.90]}, "items": [
+   {"type": "finger", "x": 540, "y": 1050, "cut_at": "cut#1"},
+   {"type": "text", "text": "YOU", "x": 540, "y": 360, "size": 160, "color": "navy", "stroke": false}]},
+
+  {"name": "collagen", "at": "Your#1", "focus": 860, "bg": "none", "items": [
+   {"type": "ropes", "weave_at": "collagen#1", "weave_dur": 1.6},
+   {"type": "text", "text": "COLLAGEN", "x": 540, "y": 300, "size": 120, "color": "cream", "stroke_w": 14, "in": "collagen#1"}]},
+
+  {"name": "vitamin_c", "at": "And#5", "focus": 860, "bg": "none", "items": [
+   {"type": "ropes", "knots_at": "vitamin#1", "knots_dur": 1.2},
+   {"type": "group", "count": 5, "grid": {"cols": 5, "x": 160, "y": 1330, "dx": 190}, "stagger_in": 0.1,
+    "item": {"type": "prop", "name": "vitamin_c", "in": "vitamin#1", "anim": "drop", "drop_from": 200}},
+   {"type": "dim", "in": "can't#1"},
+   {"type": "character", "role": "person", "mood": "shock", "x": 540, "y": 1300, "s": 1.3, "in": "can't#1", "anim": "none"},
+   {"type": "cross", "x": 540, "y": 720, "size": 400, "in": "can't#1"},
+   {"type": "prop", "name": "vitamin_c", "x": 540, "y": 720, "s": 2, "in": "can't#1", "anim": "none"}]},
+
+  {"name": "slipping", "at": "Months#1", "focus": 860, "bg": "none", "items": [
+   {"type": "ropes", "knots": 1.0, "slip_at": "knots#1", "slip_dur": 1.0, "until": "Even#1"},
+   {"type": "text", "text": "NO FRESH FOOD", "x": 540, "y": 320, "size": 96, "color": "cream", "until": "Even#1"},
+   {"type": "arm_scar", "open_at": "Even#1", "dur": 0.5, "from": "Even#1"},
+   {"type": "text", "text": "EVEN OLD SCARS", "x": 540, "y": 320, "size": 96, "color": "orange", "from": "Even#1"}]},
+
+  {"name": "fruit_wins", "at": "Two#3", "bg": {"type": "gradient", "top": [0.98, 0.75, 0.30], "bottom": [0.85, 0.35, 0.15]}, "items": [
+   {"type": "glow", "x": 540, "y": 900, "r": 700, "color": [1, 1, 0.7], "alpha": 0.7},
+   {"type": "rays", "x": 540, "y": 900},
+   {"type": "prop", "name": "orange", "x": 380, "y": 900, "s": 1.31},
+   {"type": "prop", "name": "orange", "x": 690, "y": 860, "s": 1.31},
+   {"type": "prop", "name": "lemon", "x": 540, "y": 1130, "s": 1.26},
+   {"type": "prop", "name": "medicine_crossed", "x": 200, "y": 1450, "in": "medicine#1", "anim": "fade", "dur": 0.25},
+   {"type": "prop", "name": "medicine_crossed", "x": 880, "y": 1450, "in": "medicine#1", "anim": "fade", "dur": 0.25}]},
+
+  {"name": "navy_waits", "at": "And#8", "bg": {"type": "gradient", "top": [0.12, 0.10, 0.12], "bottom": [0.04, 0.03, 0.05]}, "items": [
+   {"type": "glow", "x": 540, "y": 700, "r": 600, "color": [0.9, 0.7, 0.4], "alpha": 0.35},
+   {"type": "floor", "y": 1350, "color": "wood2"},
+   {"type": "character", "role": "official", "mood": "calm", "x": 540, "y": 1360, "s": 1.2, "look": -1},
+   {"type": "calendar", "x": 540, "y": 560, "s": 1.25, "top": "YEAR", "color": "navy", "count": {"from": 1747, "to": 1795, "at": "took#1", "dur": 1.0}},
+   {"type": "text", "text": "48 YEARS", "x": 540, "y": 1720, "size": 140, "color": "orange", "stroke_w": 16, "in": "forty-eight#1"}]}
+ ]
+}

@@ -5,10 +5,17 @@ name: Make a story video
 on:
   workflow_dispatch:
     inputs:
+      topic:
+        description: "NEW video: a topic, and the AI writes the episode (research, script, fact check, storyboard)"
+        required: false
+        default: ""
       episode:
-        description: "Episode folder, e.g. episodes/hidden_reasons/001-scurvy"
-        required: true
+        description: "OR an existing episode folder to render, e.g. episodes/hidden_reasons/001-scurvy"
+        required: false
         default: "episodes/hidden_reasons/001-scurvy"
+  push:   # TEMPORARY for testing on the story-style branch; removed before merging
+    branches: [story-style]
+    paths: [".github/story-try.txt"]
 
 permissions:
   contents: write   # to publish the finished video as a GitHub Release
@@ -29,6 +36,25 @@ jobs:
           python-version: "3.12"
           cache: pip
 
+      # The brain (private repo FranklinMburu/AI-layer), only needed when the AI writes a new episode.
+      - name: Get the brain
+        id: brain
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: FranklinMburu/AI-layer
+          ssh-key: ${{ secrets.AILAYER_DEPLOY_KEY }}
+          path: .brain
+          persist-credentials: false
+
+      - name: Choose what to make
+        id: what
+        run: |
+          topic="${{ github.event.inputs.topic }}"
+          if [ "${{ github.event_name }}" = "push" ]; then topic=$(head -n1 .github/story-try.txt); fi
+          echo "topic=$topic" >> "$GITHUB_OUTPUT"
+          [ -f .brain/ailayer/__init__.py ] && echo "PYTHONPATH=$GITHUB_WORKSPACE/.brain" >> "$GITHUB_ENV" || true
+
       - name: Install system tools
         run: |
           sudo apt-get update -qq
@@ -46,30 +72,58 @@ jobs:
       - name: Setup check
         run: python -m studio setup
 
+      - name: AI writes a new episode
+        if: steps.what.outputs.topic != ''
+        env:
+          TOPIC: ${{ steps.what.outputs.topic }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ACCOUNT_KEY_franklincopil3: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          AILAYER_STATE_URL: ${{ secrets.AILAYER_STATE_URL }}
+          AILAYER_STATE_TOKEN: ${{ secrets.AILAYER_STATE_TOKEN }}
+        run: |
+          set -o pipefail
+          python -m studio.story write --topic "$TOPIC" | tee write.log
+          echo "EPISODE_DIR=$(grep '^EPISODE=' write.log | tail -1 | cut -d= -f2)" >> "$GITHUB_ENV"
+
+      - name: Use the given episode
+        if: steps.what.outputs.topic == ''
+        run: echo "EPISODE_DIR=${{ github.event.inputs.episode }}" >> "$GITHUB_ENV"
+
       - name: Check the episode
-        run: python -m studio.story check "${{ github.event.inputs.episode }}"
+        run: python -m studio.story check "$EPISODE_DIR"
 
       - name: Make the video
-        run: python -m studio.story make "${{ github.event.inputs.episode }}"
+        run: python -m studio.story make "$EPISODE_DIR"
 
       - name: Publish as a release
         env:
           GH_TOKEN: ${{ github.token }}
-          EPISODE: ${{ github.event.inputs.episode }}
         run: |
+          EPISODE="$EPISODE_DIR"
           d=$(ls -d out/*story* | tail -1)
           title=$(python -c "import json,sys; print(json.load(open(sys.argv[1]))['title'])" "$d/script.json")
           tag="story-$(basename "$EPISODE")-run${{ github.run_number }}"
           { echo "Story video: $title"; echo; echo "Episode: $EPISODE"; echo; echo "Sources:"; cat "$d/sources.md"; } > notes.md
           cp "$d/video.mp4" "$(basename "$EPISODE").mp4"
-          gh release create "$tag" "$(basename "$EPISODE").mp4" "$d/contact.png" --title "Story: $title" --notes-file notes.md
+          (cd "$(dirname "$EPISODE")" && zip -qr "$GITHUB_WORKSPACE/episode-files.zip" "$(basename "$EPISODE")")
+          gh release create "$tag" "$(basename "$EPISODE").mp4" "$d/contact.png" episode-files.zip --title "Story: $title" --notes-file notes.md
           { echo "## $title"; echo; echo "Video: release **$tag** (Releases page)."; } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Upload the video folder
+      - name: Show the writer's report
+        if: always()
+        run: |
+          for r in episodes/*/*/report.md; do [ -f "$r" ] && [ "$r" -nt requirements.txt ] && { cat "$r"; echo; } >> "$GITHUB_STEP_SUMMARY"; done
+          [ -f write.log ] && { echo '```'; tail -n 40 write.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY" || true
+
+      - name: Upload the video and episode folders
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: story-${{ github.run_number }}
-          path: out/
+          path: |
+            out/
+            episodes/
           retention-days: 14
           if-no-files-found: ignore

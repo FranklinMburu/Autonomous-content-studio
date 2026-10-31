@@ -5,7 +5,7 @@ from pathlib import Path
 from ..paths import OUT, ensure_fonts, slugify
 from . import lib
 
-REQUIRED = ("script.json", "scenes.py", "sources.md")
+REQUIRED = ("script.json", "sources.md")  # plus storyboard.json (preferred) or scenes.py
 
 
 def log(*a):
@@ -15,12 +15,18 @@ def log(*a):
 def load_episode(folder):
     folder = Path(folder)
     missing = [f for f in REQUIRED if not (folder / f).exists()]
+    if not (folder / "storyboard.json").exists() and not (folder / "scenes.py").exists():
+        missing.append("storyboard.json")
     if missing:
         raise SystemExit(f"{folder}: missing {', '.join(missing)}")
     return folder, json.loads((folder / "script.json").read_text(encoding="utf-8"))
 
 
 def import_scenes(folder):
+    """Shots for an episode: from storyboard.json (data, preferred) or the older scenes.py (code)."""
+    if (folder / "storyboard.json").exists():
+        from . import board
+        return board.build_shots(json.loads((folder / "storyboard.json").read_text(encoding="utf-8")))
     spec = importlib.util.spec_from_file_location(f"episode_{folder.name.replace('-', '_')}", folder / "scenes.py")
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
@@ -54,14 +60,18 @@ def cmd_make(a):
     lib.set_timing(timing)
     shots, key = import_scenes(folder)
     probs = lib.check_shots(shots)
+    if (folder / "storyboard.json").exists():
+        from . import board
+        probs += board.validate(json.loads((folder / "storyboard.json").read_text(encoding="utf-8")))
     if probs:
         log("Shot problems:\n  " + "\n  ".join(probs)); return 1
     log(f"[render] {len(shots)} shots")
     lib.render_video(shots, key, out / "narration.wav", out / "video.mp4", preset=a.preset, log=log)
     from ..qc import contact_sheet
     contact_sheet(out / "video.mp4", out / "contact.png", every=2.0)
-    for f in REQUIRED:
-        shutil.copy(folder / f, out / f)
+    for f in REQUIRED + ("storyboard.json", "scenes.py"):
+        if (folder / f).exists():
+            shutil.copy(folder / f, out / f)
     (out / "narration.wav").unlink(missing_ok=True)
     log(f"[done] {time.time() - t0:.0f} s -> {out / 'video.mp4'}")
     return 0
@@ -96,14 +106,29 @@ def cmd_check(a):
     return 1 if problems else 0
 
 
+def cmd_write(a):
+    """AI writes a new episode (research, script, fact check, narration, storyboard), then optionally renders it."""
+    from .writer import write
+    from ..paths import ROOT
+    ensure_fonts()
+    folder = write(a.topic, ROOT / "episodes" / a.channel, log=log)
+    print(f"EPISODE={folder.relative_to(ROOT).as_posix()}", flush=True)
+    if a.make:
+        a.episode, a.preset = str(folder), "veryfast"
+        return cmd_make(a)
+    return 0
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(prog="studio.story", description=__doc__)
     sub = p.add_subparsers(dest="cmd", required=True)
     m = sub.add_parser("make"); m.add_argument("episode"); m.add_argument("--preset", default="veryfast")
     s = sub.add_parser("stills"); s.add_argument("episode"); s.add_argument("times", nargs="*")
     c = sub.add_parser("check"); c.add_argument("episode")
+    w = sub.add_parser("write"); w.add_argument("--topic", required=True)
+    w.add_argument("--channel", default="hidden_reasons"); w.add_argument("--make", action="store_true")
     a = p.parse_args(argv)
-    return {"make": cmd_make, "stills": cmd_stills, "check": cmd_check}[a.cmd](a)
+    return {"make": cmd_make, "stills": cmd_stills, "check": cmd_check, "write": cmd_write}[a.cmd](a)
 
 
 if __name__ == "__main__":
