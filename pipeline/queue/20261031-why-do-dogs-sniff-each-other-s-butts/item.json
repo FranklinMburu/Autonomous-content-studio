@@ -5,7 +5,7 @@
  "topic_key": "b4667c2196444b9a",
  "stage": "queue",
  "created": "2026-10-31T05:49:25+00:00",
- "attempts": 0,
+ "attempts": 1,
  "history": [
   {
    "at": "2026-10-31T05:49:25+00:00",

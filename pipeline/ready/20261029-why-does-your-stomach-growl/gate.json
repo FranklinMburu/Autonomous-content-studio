@@ -1,0 +1,73 @@
+{
+ "at": "2026-10-31T09:46:33+00:00",
+ "offline": [],
+ "fact_check": {
+  "results": [
+   {
+    "claim": "Stomach growls mostly come from somewhere other than actual inside of the stomach.",
+    "verdict": "supported",
+    "evidence": "Source 1 states the sound occurs 'in the vicinity of, but not actually within the stomach' as fluid and gas move through the intestines."
+   },
+   {
+    "claim": "The noise is gas and fluid squeezed through the small intestine by muscle contractions called peristalsis.",
+    "verdict": "supported",
+    "evidence": "Source 1 states the noise is produced as contents 'are propelled through the small intestine by a series of muscle contractions called peristalsis' as 'fluid and gas move forward'."
+   },
+   {
+    "claim": "Between meals, a cleaning wave sweeps through the gut every 90 to 230 minutes.",
+    "verdict": "supported",
+    "evidence": "Source 2 notes that 'The MMC occurs every 90–230 minutes during the interdigestive phase (i.e., between meals)'."
+   },
+   {
+    "claim": "The cleaning wave pushes leftover food and bacteria down toward the large intestine.",
+    "verdict": "supported",
+    "evidence": "Source 2 states the MMC facilitates 'transportation of indigestible substances... into the colon' and serves to 'transport bacteria from the small intestine to the large intestine'."
+   },
+   {
+    "claim": "The cleaning wave sweep is responsible for the rumbling heard when hungry.",
+    "verdict": "supported",
+    "evidence": "Source 2 states that the MMC 'is responsible for the rumbling experienced when hungry.'"
+   },
+   {
+    "claim": "An empty stomach makes the rumbling louder because empty space amplifies the sound of moving air.",
+    "verdict": "supported",
+    "evidence": "Source 1 states that 'Louder rumbles may occur when the individual is hungry. The sound of air moving around the lumen of the stomach is amplified by the empty space.'"
+   },
+   {
+    "claim": "Eating switches off the cleaning wave.",
+    "verdict": "supported",
+    "evidence": "Source 2 mentions that the MMC 'is interrupted by feeding' and 'stops upon eating a meal'."
+   },
+   {
+    "claim": "In one study, a 450 calorie breakfast paused the wave for about 213 minutes.",
+    "verdict": "supported",
+    "evidence": "Source 2 states that 'one study found that a continental breakfast of 450 Kcal causes the MMC to disappear for 213 ± 48 minutes.'"
+   },
+   {
+    "claim": "The rumbling is caused by the gut's housekeeper tidying up between meals.",
+    "verdict": "supported",
+    "evidence": "Source 2 notes that the MMC acts as an 'interdigestive housekeeper' in the small intestine during the interdigestive phase between meals."
+   }
+  ],
+  "counts": {
+   "partial": 0,
+   "unsupported": 0,
+   "supported": 9
+  },
+  "model": "google:gemini-3.6-flash"
+ },
+ "judge": {
+  "index": 1,
+  "scores": {
+   "1": 4,
+   "2": 5
+  },
+  "reason": "Candidate 2 delivers a concise hook, quickly introduces the surprising MMC cleaning wave, ends with a fresh housekeeper analogy, and provides clear visual cues while staying accurate.",
+  "model": "groq:openai/gpt-oss-120b"
+ },
+ "score": {
+  "score": 5,
+  "reason": "The script is fully accurate, hooks quickly, tells a clear story with a strong payoff, and its visual cues match the narration.",
+  "model": "groq:openai/gpt-oss-120b"
+ }
+}

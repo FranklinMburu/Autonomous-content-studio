@@ -1,0 +1,150 @@
+{
+ "title": "Your stomach growl isn't really your stomach",
+ "topic": "Why does your stomach growl?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "wave-sine",
+   "reveal": {
+    "text": "?",
+    "at": "else"
+   },
+   "lines": [
+    "That stomach growl? It's mostly coming from somewhere else."
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "link",
+   "from": {
+    "icon": "activity",
+    "label": "muscle waves",
+    "at": "muscle"
+   },
+   "to": {
+    "icon": "wave-sine",
+    "label": "gurgle",
+    "at": "noise"
+   },
+   "note": {
+    "text": "small intestine",
+    "at": "intestine"
+   },
+   "lines": [
+    "The noise is gas and fluid being squeezed through your small intestine by waves of muscle called peristalsis."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "number",
+   "value": 90,
+   "suffix": "-230 min",
+   "label": "between cleaning waves",
+   "at": "ninety",
+   "icon": "clock",
+   "lines": [
+    "And between meals, a cleaning wave sweeps through your gut every ninety to two hundred thirty minutes."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "tags",
+   "title": "What it sweeps",
+   "icon": "search",
+   "items": [
+    {
+     "text": "leftover food",
+     "at": "leftover",
+     "tone": "neutral"
+    },
+    {
+     "text": "bacteria",
+     "at": "bacteria",
+     "tone": "bad"
+    }
+   ],
+   "verdict": {
+    "text": "hunger rumble",
+    "at": "rumbling"
+   },
+   "lines": [
+    "It pushes leftover food and bacteria down toward the large intestine.",
+    "That sweep is behind the rumbling you hear when you're hungry."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "wave",
+   "icon": "volume",
+   "label": "growl",
+   "note": {
+    "text": "empty = louder",
+    "at": "empty"
+   },
+   "lines": [
+    "And an empty stomach makes it louder, because the empty space amplifies the sound of moving air."
+   ],
+   "id": "beat5"
+  },
+  {
+   "scene": "compare",
+   "left": {
+    "icon": "clock",
+    "label": "between meals",
+    "value": "sweeping",
+    "at": "Eating"
+   },
+   "right": {
+    "icon": "bread",
+    "label": "after breakfast",
+    "value": "paused ~213 min",
+    "at": "breakfast"
+   },
+   "lines": [
+    "Eating switches the cleaner off.",
+    "In one study, a four hundred fifty calorie breakfast paused it for about two hundred thirteen minutes."
+   ],
+   "id": "beat6"
+  },
+  {
+   "scene": "bubble",
+   "icon": "user",
+   "text": "just tidying up",
+   "at": "housekeeper",
+   "lines": [
+    "So next time your belly growls, it's not complaining. It's your gut's housekeeper, tidying up between meals."
+   ],
+   "id": "beat7"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Rumbling is gas and fluid moving through the small intestine, propelled by peristalsis; heard near but not actually within the stomach.",
+   "url": "https://en.wikipedia.org/wiki/Stomach_rumble"
+  },
+  {
+   "claim": "Louder rumbles when hungry; the sound of air in the stomach is amplified by the empty space.",
+   "url": "https://en.wikipedia.org/wiki/Stomach_rumble"
+  },
+  {
+   "claim": "The migrating motor complex occurs every 90-230 minutes between meals, causes the hunger rumbling, sweeps indigestible material and bacteria toward the large intestine, and acts as an 'interdigestive housekeeper'.",
+   "url": "https://en.wikipedia.org/wiki/Migrating_motor_complex"
+  },
+  {
+   "claim": "Eating interrupts the MMC; one study found a 450 kcal breakfast made it disappear for 213 +/- 48 minutes.",
+   "url": "https://en.wikipedia.org/wiki/Migrating_motor_complex"
+  }
+ ],
+ "youtube": {
+  "title": "Your stomach growl isn't really your stomach 🤔",
+  "description": "That hunger rumble is your gut's cleaning wave at work between meals.",
+  "tags": [
+   "stomach growl",
+   "digestion",
+   "gut health",
+   "body facts",
+   "science"
+  ]
+ }
+}
