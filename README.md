@@ -11,6 +11,10 @@ topic ──▶ script (Gemini, free tier) ──▶ fact check (reads the sourc
 You press **Run** on GitHub, wait a few minutes, download the folder, watch the video, and upload it yourself.
 Nothing runs on your laptop and nothing costs money.
 
+**Two styles now:** the explainer described below (unchanged), and a new 1-minute **story** style for the
+Hidden Reasons channel (`python -m studio.story`, button **Make a story video**). See [docs/STYLES.md](docs/STYLES.md).
+The version from before the story style is kept as the git tag `v1.0-explainer`.
+
 ---
 
 ## One-time setup (about 10 minutes)

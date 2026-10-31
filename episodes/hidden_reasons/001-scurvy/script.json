@@ -1,0 +1,54 @@
+{
+ "title": "Why a lemon beat the sailors' deadliest enemy",
+ "channel": "Hidden Reasons",
+ "voice": "am_michael",
+ "speed": 1.38,
+ "pace": {
+  "gap_line": 0.08,
+  "gap_beat": 0.2,
+  "lead_in": 0.05,
+  "tail": 0.7
+ },
+ "beats": [
+  {
+   "lines": [
+    "A sailor's old scar splits open, years after it healed."
+   ]
+  },
+  {
+   "lines": [
+    "It's 1747, aboard HMS Salisbury.",
+    "His gums are bleeding. His teeth are loose.",
+    "And he's not the only one. The ship's surgeon says this disease kills more British sailors than enemy guns."
+   ]
+  },
+  {
+   "lines": [
+    "So the surgeon, James Lind, picks twelve sick men and splits them into six pairs.",
+    "Each pair gets a different cure. Cider. Vinegar. Seawater.",
+    "And one pair gets two oranges and a lemon, every day."
+   ]
+  },
+  {
+   "lines": [
+    "Fruit? Against the deadliest killer at sea?",
+    "Six days later, the fruit runs out.",
+    "But one of those two men is already back on duty."
+   ]
+  },
+  {
+   "lines": [
+    "You see, think of the last time you cut yourself.",
+    "Your body sewed it shut with collagen, tiny ropes that hold your skin together.",
+    "And to tie those ropes, your body needs vitamin C. It can't make its own.",
+    "Months at sea with no fresh food, and the knots start slipping. Even the old ones."
+   ]
+  },
+  {
+   "lines": [
+    "Two oranges and a lemon did what medicine couldn't.",
+    "And the navy took forty-eight years to listen."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,75 @@
+name: Make a story video
+
+# Story style (channel: Hidden Reasons). Separate from "Make a video" (explainer style), which is unchanged.
+# Free on GitHub for public repositories. No keys needed: the script and scenes are already in the episode folder.
+on:
+  workflow_dispatch:
+    inputs:
+      episode:
+        description: "Episode folder, e.g. episodes/hidden_reasons/001-scurvy"
+        required: true
+        default: "episodes/hidden_reasons/001-scurvy"
+
+permissions:
+  contents: write   # to publish the finished video as a GitHub Release
+
+concurrency:
+  group: make-story
+  cancel-in-progress: false
+
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install system tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libcairo2-dev pkg-config fontconfig > /dev/null
+
+      - name: Install Python packages
+        run: pip install -r requirements.txt
+
+      - name: Restore voice model and icons
+        uses: actions/cache@v4
+        with:
+          path: cache
+          key: assets-kokoro-v1.1-tabler-3.49.0
+
+      - name: Setup check
+        run: python -m studio setup
+
+      - name: Check the episode
+        run: python -m studio.story check "${{ github.event.inputs.episode }}"
+
+      - name: Make the video
+        run: python -m studio.story make "${{ github.event.inputs.episode }}"
+
+      - name: Publish as a release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EPISODE: ${{ github.event.inputs.episode }}
+        run: |
+          d=$(ls -d out/*story* | tail -1)
+          title=$(python -c "import json,sys; print(json.load(open(sys.argv[1]))['title'])" "$d/script.json")
+          tag="story-$(basename "$EPISODE")-run${{ github.run_number }}"
+          { echo "Story video: $title"; echo; echo "Episode: $EPISODE"; echo; echo "Sources:"; cat "$d/sources.md"; } > notes.md
+          cp "$d/video.mp4" "$(basename "$EPISODE").mp4"
+          gh release create "$tag" "$(basename "$EPISODE").mp4" "$d/contact.png" --title "Story: $title" --notes-file notes.md
+          { echo "## $title"; echo; echo "Video: release **$tag** (Releases page)."; } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload the video folder
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: story-${{ github.run_number }}
+          path: out/
+          retention-days: 14
+          if-no-files-found: ignore
