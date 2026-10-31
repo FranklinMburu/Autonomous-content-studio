@@ -1,0 +1,79 @@
+{
+ "title": "Your cat's kneading is a kitten habit",
+ "topic": "Why do cats knead with their paws?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "cat",
+   "reveal": {"text": "kitten mode", "at": "nursing"},
+   "lines": ["When your cat kneads your lap, it's acting like a nursing kitten."],
+   "id": "beat1"
+  },
+  {
+   "scene": "link",
+   "from": {"icon": "paw", "label": "alternating paws", "at": "paws"},
+   "to": {"icon": "droplet", "label": "milk flows", "at": "milk"},
+   "lines": ["Kittens push on their mother's belly with alternating paws while nursing, to get the milk flowing."],
+   "id": "beat2"
+  },
+  {
+   "scene": "statement",
+   "text": "Some even suck on blankets while they knead.",
+   "highlight": ["suck", "blankets"],
+   "icon": "bed",
+   "lines": ["But many cats never drop the habit as adults.", "Some even suck on blankets while they knead."],
+   "id": "beat3"
+  },
+  {
+   "scene": "number",
+   "value": 2,
+   "prefix": "1-",
+   "suffix": " sec",
+   "label": "between paw pushes",
+   "at": "seconds",
+   "icon": "clock",
+   "lines": ["Watch closely: the paws alternate every one to two seconds, toes spreading to flash the claws, then curling up."],
+   "id": "beat4"
+  },
+  {
+   "scene": "wave",
+   "icon": "cat",
+   "label": "purr",
+   "note": {"text": "a kitten feeding sound", "at": "feeding"},
+   "lines": ["Many cats purr while kneading, a sound kittens make mostly while newborn and feeding, a hint it's a leftover instinct."],
+   "id": "beat5"
+  },
+  {
+   "scene": "tags",
+   "title": "Kneading may also mean",
+   "icon": "paw",
+   "items": [
+    {"text": "feels good", "at": "good", "tone": "good"},
+    {"text": "nap coming", "at": "nap", "tone": "neutral"}
+   ],
+   "lines": ["It may also simply feel good, like a human stretching, and it often comes right before a nap."],
+   "id": "beat6"
+  },
+  {
+   "scene": "bubble",
+   "icon": "cat",
+   "prop": "paw",
+   "text": "scent delivered",
+   "at": "scent",
+   "lines": ["And since paw pads hold scent glands, after a good knead you likely walk away smelling a little like your cat."],
+   "id": "beat7"
+  }
+ ],
+ "sources": [
+  {"claim": "Kittens knead the breast while suckling, alternating forelimbs, to stimulate lactation; cats carry this into adulthood and some suck on clothing or bedding while kneading.", "url": "https://en.wikipedia.org/wiki/Cat_behavior"},
+  {"claim": "The cat presses down, spreading its toes to expose its claws, then curls its toes as it lifts, alternating paws at intervals of one to two seconds.", "url": "https://en.wikipedia.org/wiki/Cat_communication"},
+  {"claim": "Many cats purr while kneading; they purr mostly when newborn or feeding, supporting kneading as a remnant instinct. Kneading may feel good like a human stretching and is often a precursor to sleeping.", "url": "https://en.wikipedia.org/wiki/Cat_behavior"},
+  {"claim": "Cats have scent glands on the underside of their paws; when they knead people or objects, these pheromones are likely transferred.", "url": "https://en.wikipedia.org/wiki/Cat_communication"}
+ ],
+ "youtube": {
+  "title": "Your cat's kneading is a leftover kitten habit 🐾",
+  "description": "Why cats knead: a nursing instinct they never outgrow, plus a little scent left on you.",
+  "tags": ["cats", "cat kneading", "cat behavior", "cat facts", "kittens", "pets"]
+ }
+}

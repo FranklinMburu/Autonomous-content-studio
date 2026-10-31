@@ -1,0 +1,73 @@
+{
+ "title": "Dogs carry a scent signature back there",
+ "topic": "Why do dogs sniff each other's butts?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "dog",
+   "label": "rear-end greeting",
+   "reveal": {"text": "a signature", "at": "signature"},
+   "lines": ["Dogs carry a scent gland back there that works like a signature."],
+   "id": "beat1"
+  },
+  {
+   "scene": "number",
+   "value": 40,
+   "suffix": "x",
+   "label": "more sensitive than your nose",
+   "at": "forty",
+   "icon": "search",
+   "lines": ["A dog's sense of smell is forty times more sensitive than yours, and puppies start life running almost entirely on smell and touch."],
+   "id": "beat2"
+  },
+  {
+   "scene": "compare",
+   "title": "Scent messages",
+   "left": {"icon": "droplet", "label": "urine", "value": "pheromones", "at": "urine"},
+   "right": {"icon": "fingerprint", "label": "droppings", "value": "who left it", "at": "droppings"},
+   "lines": ["Many of their scent chemicals end up in urine, and that rear gland, the anal gland, stamps droppings with a signature identifying who left them."],
+   "id": "beat3"
+  },
+  {
+   "scene": "tags",
+   "title": "A dog's scent can reveal",
+   "icon": "dog",
+   "items": [
+    {"text": "sex", "at": "sex", "tone": "neutral"},
+    {"text": "age", "at": "age", "tone": "neutral"},
+    {"text": "in heat", "at": "heat", "tone": "neutral"},
+    {"text": "pregnant", "at": "pregnant", "tone": "neutral"}
+   ],
+   "lines": ["Those chemical signatures can reveal a dog's sex and age, and whether a female is in heat, pregnant, or just gave birth."],
+   "id": "beat4"
+  },
+  {
+   "scene": "statement",
+   "text": "Angry, fearful or confident: different hormones.",
+   "highlight": ["angry", "fearful", "confident"],
+   "icon": "mood-surprised",
+   "lines": ["Even mood leaks out: different hormones are released when a dog is angry, fearful or confident."],
+   "id": "beat5"
+  },
+  {
+   "scene": "bubble",
+   "icon": "dog",
+   "prop": "search",
+   "text": "reading you",
+   "at": "reading",
+   "lines": ["These studies don't test the greeting sniff itself, but that gland sits right where the noses go.", "So next time two dogs meet nose to tail, picture each one reading the other's chemical signature."],
+   "id": "beat6"
+  }
+ ],
+ "sources": [
+  {"claim": "Dogs have an olfactory sense 40 times more sensitive than a human's and start life operating almost exclusively on smell and touch.", "url": "https://en.wikipedia.org/wiki/Dog_behavior"},
+  {"claim": "Many pheromone chemicals are dissolved in urine; the anal gland gives fecal deposits a signature identifying the marker.", "url": "https://en.wikipedia.org/wiki/Dog_behavior"},
+  {"claim": "Chemical signatures identify sex and age, and whether a female is in estrus, pregnant or has recently given birth; different hormones are secreted when a dog is angry, fearful or confident.", "url": "https://en.wikipedia.org/wiki/Dog_behavior"}
+ ],
+ "youtube": {
+  "title": "Dogs carry a scent signature back there 🐶",
+  "description": "What a dog's scent can reveal about who it is, and why noses head for the rear.",
+  "tags": ["dogs", "dog behavior", "dog facts", "sense of smell", "pets", "science"]
+ }
+}
