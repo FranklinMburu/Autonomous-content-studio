@@ -1,0 +1,1322 @@
+{
+ "duration": 47.381,
+ "exact_word_timing": true,
+ "lines": [
+  {
+   "beat": 0,
+   "text": "A sailor's old scar splits open, years after it healed.",
+   "start": 0.05,
+   "end": 2.695
+  },
+  {
+   "beat": 1,
+   "text": "It's 1747, aboard HMS Salisbury.",
+   "start": 2.895,
+   "end": 5.602
+  },
+  {
+   "beat": 1,
+   "text": "His gums are bleeding. His teeth are loose.",
+   "start": 5.682,
+   "end": 7.857
+  },
+  {
+   "beat": 1,
+   "text": "And he's not the only one. The ship's surgeon says this disease kills more British sailors than enemy guns.",
+   "start": 7.937,
+   "end": 12.587
+  },
+  {
+   "beat": 2,
+   "text": "So the surgeon, James Lind, picks twelve sick men and splits them into six pairs.",
+   "start": 12.787,
+   "end": 16.525
+  },
+  {
+   "beat": 2,
+   "text": "Each pair gets a different cure. Cider. Vinegar. Seawater.",
+   "start": 16.605,
+   "end": 19.384
+  },
+  {
+   "beat": 2,
+   "text": "And one pair gets two oranges and a lemon, every day.",
+   "start": 19.464,
+   "end": 22.088
+  },
+  {
+   "beat": 3,
+   "text": "Fruit? Against the deadliest killer at sea?",
+   "start": 22.288,
+   "end": 24.165
+  },
+  {
+   "beat": 3,
+   "text": "Six days later, the fruit runs out.",
+   "start": 24.245,
+   "end": 25.888
+  },
+  {
+   "beat": 3,
+   "text": "But one of those two men is already back on duty.",
+   "start": 25.968,
+   "end": 28.251
+  },
+  {
+   "beat": 4,
+   "text": "You see, think of the last time you cut yourself.",
+   "start": 28.451,
+   "end": 30.731
+  },
+  {
+   "beat": 4,
+   "text": "Your body sewed it shut with collagen, tiny ropes that hold your skin together.",
+   "start": 30.811,
+   "end": 34.379
+  },
+  {
+   "beat": 4,
+   "text": "And to tie those ropes, your body needs vitamin C. It can't make its own.",
+   "start": 34.459,
+   "end": 38.091
+  },
+  {
+   "beat": 4,
+   "text": "Months at sea with no fresh food, and the knots start slipping. Even the old ones.",
+   "start": 38.171,
+   "end": 41.87
+  },
+  {
+   "beat": 5,
+   "text": "Two oranges and a lemon did what medicine couldn't.",
+   "start": 42.07,
+   "end": 44.438
+  },
+  {
+   "beat": 5,
+   "text": "And the navy took forty-eight years to listen.",
+   "start": 44.518,
+   "end": 46.481
+  }
+ ],
+ "words": [
+  {
+   "w": "A",
+   "start": 0.119,
+   "end": 0.144,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "sailor's",
+   "start": 0.194,
+   "end": 0.419,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "old",
+   "start": 0.444,
+   "end": 0.569,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "scar",
+   "start": 0.619,
+   "end": 0.869,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "splits",
+   "start": 0.919,
+   "end": 1.119,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "open,",
+   "start": 1.144,
+   "end": 1.619,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "years",
+   "start": 1.669,
+   "end": 1.869,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "after",
+   "start": 1.894,
+   "end": 2.044,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "it",
+   "start": 2.069,
+   "end": 2.119,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "healed.",
+   "start": 2.169,
+   "end": 2.695,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "It's",
+   "start": 2.964,
+   "end": 3.039,
+   "line": 1,
+   "beat": 1
+  },
+  {
+   "w": "1747,",
+   "start": 3.089,
+   "end": 4.164,
+   "line": 1,
+   "beat": 1
+  },
+  {
+   "w": "aboard",
+   "start": 4.254,
+   "end": 4.504,
+   "line": 1,
+   "beat": 1
+  },
+  {
+   "w": "HMS",
+   "start": 4.554,
+   "end": 4.904,
+   "line": 1,
+   "beat": 1
+  },
+  {
+   "w": "Salisbury.",
+   "start": 4.954,
+   "end": 5.602,
+   "line": 1,
+   "beat": 1
+  },
+  {
+   "w": "His",
+   "start": 5.726,
+   "end": 5.801,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "gums",
+   "start": 5.851,
+   "end": 6.051,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "are",
+   "start": 6.076,
+   "end": 6.151,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "bleeding.",
+   "start": 6.201,
+   "end": 6.676,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "His",
+   "start": 6.821,
+   "end": 6.921,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "teeth",
+   "start": 6.971,
+   "end": 7.171,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "are",
+   "start": 7.196,
+   "end": 7.271,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "loose.",
+   "start": 7.321,
+   "end": 7.807,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "And",
+   "start": 8.006,
+   "end": 8.081,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "he's",
+   "start": 8.106,
+   "end": 8.206,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "not",
+   "start": 8.231,
+   "end": 8.356,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "the",
+   "start": 8.381,
+   "end": 8.431,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "only",
+   "start": 8.481,
+   "end": 8.706,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "one.",
+   "start": 8.731,
+   "end": 9.231,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "The",
+   "start": 9.281,
+   "end": 9.331,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "ship's",
+   "start": 9.406,
+   "end": 9.531,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "surgeon",
+   "start": 9.581,
+   "end": 9.806,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "says",
+   "start": 9.856,
+   "end": 10.006,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "this",
+   "start": 10.031,
+   "end": 10.131,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "disease",
+   "start": 10.156,
+   "end": 10.506,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "kills",
+   "start": 10.556,
+   "end": 10.806,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "more",
+   "start": 10.856,
+   "end": 11.006,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "British",
+   "start": 11.056,
+   "end": 11.231,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "sailors",
+   "start": 11.306,
+   "end": 11.656,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "than",
+   "start": 11.681,
+   "end": 11.756,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "enemy",
+   "start": 11.806,
+   "end": 12.006,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "guns.",
+   "start": 12.056,
+   "end": 12.567,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "So",
+   "start": 12.856,
+   "end": 12.956,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "the",
+   "start": 12.981,
+   "end": 13.031,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "surgeon,",
+   "start": 13.106,
+   "end": 13.406,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "James",
+   "start": 13.431,
+   "end": 13.606,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "Lind,",
+   "start": 13.656,
+   "end": 14.181,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "picks",
+   "start": 14.281,
+   "end": 14.406,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "twelve",
+   "start": 14.456,
+   "end": 14.656,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "sick",
+   "start": 14.731,
+   "end": 14.856,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "men",
+   "start": 14.881,
+   "end": 15.056,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "and",
+   "start": 15.081,
+   "end": 15.156,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "splits",
+   "start": 15.206,
+   "end": 15.406,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "them",
+   "start": 15.431,
+   "end": 15.531,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "into",
+   "start": 15.556,
+   "end": 15.681,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "six",
+   "start": 15.756,
+   "end": 15.881,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "pairs.",
+   "start": 15.931,
+   "end": 16.485,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "Each",
+   "start": 16.674,
+   "end": 16.799,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "pair",
+   "start": 16.824,
+   "end": 16.949,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "gets",
+   "start": 16.974,
+   "end": 17.099,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "a",
+   "start": 17.124,
+   "end": 17.149,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "different",
+   "start": 17.174,
+   "end": 17.374,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "cure.",
+   "start": 17.424,
+   "end": 17.899,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "Cider.",
+   "start": 18.014,
+   "end": 18.339,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "Vinegar.",
+   "start": 18.389,
+   "end": 18.714,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "Seawater.",
+   "start": 18.789,
+   "end": 19.354,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "And",
+   "start": 19.576,
+   "end": 19.651,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "one",
+   "start": 19.676,
+   "end": 19.776,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "pair",
+   "start": 19.826,
+   "end": 19.976,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "gets",
+   "start": 20.001,
+   "end": 20.126,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "two",
+   "start": 20.176,
+   "end": 20.276,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "oranges",
+   "start": 20.326,
+   "end": 20.726,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "and",
+   "start": 20.751,
+   "end": 20.826,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "a",
+   "start": 20.851,
+   "end": 20.876,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "lemon,",
+   "start": 20.926,
+   "end": 21.326,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "every",
+   "start": 21.376,
+   "end": 21.576,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "day.",
+   "start": 21.601,
+   "end": 22.088,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "Fruit?",
+   "start": 22.403,
+   "end": 22.703,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "Against",
+   "start": 22.728,
+   "end": 22.903,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "the",
+   "start": 22.928,
+   "end": 22.978,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "deadliest",
+   "start": 23.028,
+   "end": 23.328,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "killer",
+   "start": 23.353,
+   "end": 23.528,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "at",
+   "start": 23.553,
+   "end": 23.603,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "sea?",
+   "start": 23.678,
+   "end": 24.165,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "Six",
+   "start": 24.361,
+   "end": 24.486,
+   "line": 8,
+   "beat": 3
+  },
+  {
+   "w": "days",
+   "start": 24.511,
+   "end": 24.661,
+   "line": 8,
+   "beat": 3
+  },
+  {
+   "w": "later,",
+   "start": 24.686,
+   "end": 24.986,
+   "line": 8,
+   "beat": 3
+  },
+  {
+   "w": "the",
+   "start": 25.011,
+   "end": 25.061,
+   "line": 8,
+   "beat": 3
+  },
+  {
+   "w": "fruit",
+   "start": 25.111,
+   "end": 25.261,
+   "line": 8,
+   "beat": 3
+  },
+  {
+   "w": "runs",
+   "start": 25.286,
+   "end": 25.436,
+   "line": 8,
+   "beat": 3
+  },
+  {
+   "w": "out.",
+   "start": 25.461,
+   "end": 25.888,
+   "line": 8,
+   "beat": 3
+  },
+  {
+   "w": "But",
+   "start": 26.033,
+   "end": 26.133,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "one",
+   "start": 26.158,
+   "end": 26.258,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "of",
+   "start": 26.283,
+   "end": 26.333,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "those",
+   "start": 26.358,
+   "end": 26.533,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "two",
+   "start": 26.583,
+   "end": 26.683,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "men",
+   "start": 26.708,
+   "end": 26.983,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "is",
+   "start": 27.033,
+   "end": 27.108,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "already",
+   "start": 27.158,
+   "end": 27.358,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "back",
+   "start": 27.383,
+   "end": 27.558,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "on",
+   "start": 27.583,
+   "end": 27.658,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "duty.",
+   "start": 27.708,
+   "end": 28.251,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "You",
+   "start": 28.566,
+   "end": 28.641,
+   "line": 10,
+   "beat": 4
+  },
+  {
+   "w": "see,",
+   "start": 28.716,
+   "end": 29.041,
+   "line": 10,
+   "beat": 4
+  },
+  {
+   "w": "think",
+   "start": 29.131,
+   "end": 29.256,
+   "line": 10,
+   "beat": 4
+  },
+  {
+   "w": "of",
+   "start": 29.281,
+   "end": 29.331,
+   "line": 10,
+   "beat": 4
+  },
+  {
+   "w": "the",
+   "start": 29.331,
+   "end": 29.381,
+   "line": 10,
+   "beat": 4
+  },
+  {
+   "w": "last",
+   "start": 29.431,
+   "end": 29.631,
+   "line": 10,
+   "beat": 4
+  },
+  {
+   "w": "time",
+   "start": 29.656,
+   "end": 29.806,
+   "line": 10,
+   "beat": 4
+  },
+  {
+   "w": "you",
+   "start": 29.831,
+   "end": 29.906,
+   "line": 10,
+   "beat": 4
+  },
+  {
+   "w": "cut",
+   "start": 29.956,
+   "end": 30.056,
+   "line": 10,
+   "beat": 4
+  },
+  {
+   "w": "yourself.",
+   "start": 30.081,
+   "end": 30.731,
+   "line": 10,
+   "beat": 4
+  },
+  {
+   "w": "Your",
+   "start": 30.88,
+   "end": 30.955,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "body",
+   "start": 30.98,
+   "end": 31.205,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "sewed",
+   "start": 31.255,
+   "end": 31.405,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "it",
+   "start": 31.43,
+   "end": 31.48,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "shut",
+   "start": 31.555,
+   "end": 31.68,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "with",
+   "start": 31.705,
+   "end": 31.78,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "collagen,",
+   "start": 31.83,
+   "end": 32.505,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "tiny",
+   "start": 32.615,
+   "end": 32.89,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "ropes",
+   "start": 32.94,
+   "end": 33.14,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "that",
+   "start": 33.165,
+   "end": 33.24,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "hold",
+   "start": 33.29,
+   "end": 33.465,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "your",
+   "start": 33.49,
+   "end": 33.565,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "skin",
+   "start": 33.615,
+   "end": 33.84,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "together.",
+   "start": 33.865,
+   "end": 34.369,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "And",
+   "start": 34.55,
+   "end": 34.625,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "to",
+   "start": 34.65,
+   "end": 34.7,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "tie",
+   "start": 34.75,
+   "end": 34.95,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "those",
+   "start": 34.975,
+   "end": 35.125,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "ropes,",
+   "start": 35.175,
+   "end": 35.475,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "your",
+   "start": 35.59,
+   "end": 35.665,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "body",
+   "start": 35.715,
+   "end": 35.94,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "needs",
+   "start": 35.965,
+   "end": 36.115,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "vitamin",
+   "start": 36.165,
+   "end": 36.415,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "C.",
+   "start": 36.49,
+   "end": 37.015,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "It",
+   "start": 37.065,
+   "end": 37.115,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "can't",
+   "start": 37.14,
+   "end": 37.29,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "make",
+   "start": 37.315,
+   "end": 37.44,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "its",
+   "start": 37.465,
+   "end": 37.54,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "own.",
+   "start": 37.59,
+   "end": 38.091,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "Months",
+   "start": 38.286,
+   "end": 38.436,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "at",
+   "start": 38.461,
+   "end": 38.511,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "sea",
+   "start": 38.586,
+   "end": 38.736,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "with",
+   "start": 38.761,
+   "end": 38.836,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "no",
+   "start": 38.861,
+   "end": 38.961,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "fresh",
+   "start": 39.011,
+   "end": 39.186,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "food,",
+   "start": 39.261,
+   "end": 39.611,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "and",
+   "start": 39.636,
+   "end": 39.711,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "the",
+   "start": 39.736,
+   "end": 39.786,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "knots",
+   "start": 39.811,
+   "end": 40.036,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "start",
+   "start": 40.061,
+   "end": 40.236,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "slipping.",
+   "start": 40.286,
+   "end": 40.861,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "Even",
+   "start": 40.911,
+   "end": 41.086,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "the",
+   "start": 41.111,
+   "end": 41.161,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "old",
+   "start": 41.186,
+   "end": 41.336,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "ones.",
+   "start": 41.361,
+   "end": 41.84,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "Two",
+   "start": 42.135,
+   "end": 42.26,
+   "line": 14,
+   "beat": 5
+  },
+  {
+   "w": "oranges",
+   "start": 42.31,
+   "end": 42.76,
+   "line": 14,
+   "beat": 5
+  },
+  {
+   "w": "and",
+   "start": 42.81,
+   "end": 42.885,
+   "line": 14,
+   "beat": 5
+  },
+  {
+   "w": "a",
+   "start": 42.91,
+   "end": 42.935,
+   "line": 14,
+   "beat": 5
+  },
+  {
+   "w": "lemon",
+   "start": 42.985,
+   "end": 43.385,
+   "line": 14,
+   "beat": 5
+  },
+  {
+   "w": "did",
+   "start": 43.435,
+   "end": 43.535,
+   "line": 14,
+   "beat": 5
+  },
+  {
+   "w": "what",
+   "start": 43.56,
+   "end": 43.635,
+   "line": 14,
+   "beat": 5
+  },
+  {
+   "w": "medicine",
+   "start": 43.685,
+   "end": 43.935,
+   "line": 14,
+   "beat": 5
+  },
+  {
+   "w": "couldn't.",
+   "start": 43.985,
+   "end": 44.438,
+   "line": 14,
+   "beat": 5
+  },
+  {
+   "w": "And",
+   "start": 44.608,
+   "end": 44.683,
+   "line": 15,
+   "beat": 5
+  },
+  {
+   "w": "the",
+   "start": 44.708,
+   "end": 44.758,
+   "line": 15,
+   "beat": 5
+  },
+  {
+   "w": "navy",
+   "start": 44.783,
+   "end": 45.008,
+   "line": 15,
+   "beat": 5
+  },
+  {
+   "w": "took",
+   "start": 45.058,
+   "end": 45.183,
+   "line": 15,
+   "beat": 5
+  },
+  {
+   "w": "forty-eight",
+   "start": 45.283,
+   "end": 45.633,
+   "line": 15,
+   "beat": 5
+  },
+  {
+   "w": "years",
+   "start": 45.683,
+   "end": 45.883,
+   "line": 15,
+   "beat": 5
+  },
+  {
+   "w": "to",
+   "start": 45.908,
+   "end": 45.958,
+   "line": 15,
+   "beat": 5
+  },
+  {
+   "w": "listen.",
+   "start": 45.983,
+   "end": 46.481,
+   "line": 15,
+   "beat": 5
+  }
+ ]
+}
