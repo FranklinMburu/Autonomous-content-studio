@@ -29,10 +29,10 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install the Kaggle tool
-        run: pip install -q -U kaggle
+        run: pip install -q -U kaggle six
       - name: Which lab
         run: |
-          LAB="${{ github.event.inputs.lab }}"; [ -z "$LAB" ] && LAB=$(head -1 lab/RUN | tr -d '[:space:]')
+          LAB="${{ github.event.inputs.lab }}"; [ -z "$LAB" ] && LAB=$(grep -v '^#' lab/RUN | tr -s '[:space:]' ',' | sed 's/,$//')
           WAIT="${{ github.event.inputs.wait_minutes }}"; [ -z "$WAIT" ] && WAIT=200
           echo "LAB=$LAB" >> "$GITHUB_ENV"; echo "WAIT=$WAIT" >> "$GITHUB_ENV"; echo "Lab: $LAB"
       - name: Run the lab on Kaggle
@@ -48,5 +48,5 @@ jobs:
           ls -la lab_out lab_out/out 2>/dev/null || true
           files=$(find lab_out -type f \( -name '*.mp4' -o -name '*.png' -o -name '*.txt' -o -name '*.wav' -o -name '*.log' \) | head -60)
           [ -z "$files" ] && { echo "No output files."; exit 0; }
-          tag="lab-$LAB-run${{ github.run_number }}"
+          tag="lab-run${{ github.run_number }}"
           gh release create "$tag" $files --prerelease --title "Lab: $LAB (run ${{ github.run_number }})" --notes "Experiment output, not a finished video."
