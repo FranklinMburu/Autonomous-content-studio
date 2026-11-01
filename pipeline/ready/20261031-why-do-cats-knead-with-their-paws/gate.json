@@ -1,0 +1,78 @@
+{
+ "at": "2026-11-01T09:46:09+00:00",
+ "offline": [],
+ "fact_check": {
+  "results": [
+   {
+    "claim": "A cat kneading on its owner's lap is probably a leftover juvenile behavior from its early life/nursing.",
+    "verdict": "supported",
+    "evidence": "\"kneading may be a relic juvenile behavior retained in adult domestic cats\"; \"The cat may knead while sitting on its owner's lap\""
+   },
+   {
+    "claim": "Kittens push their front paws, one at a time, against their mother's belly while nursing to stimulate milk flow.",
+    "verdict": "supported",
+    "evidence": "\"Kittens 'knead' the breast while suckling, using the forelimbs one at a time in an alternating pattern to push against the mammary glands to stimulate lactation in the mother.\""
+   },
+   {
+    "claim": "Cats carry this infantile nursing behavior into adulthood.",
+    "verdict": "supported",
+    "evidence": "\"Cats carry these infantile behaviors beyond nursing and into adulthood.\""
+   },
+   {
+    "claim": "Some cats suck on blankets or clothing while they knead.",
+    "verdict": "supported",
+    "evidence": "\"Some cats 'nurse', i.e. suck, on clothing or bedding during kneading.\""
+   },
+   {
+    "claim": "Each kneading press is firm, with toes spread and claws exposed, then claws curling as the paw lifts.",
+    "verdict": "supported",
+    "evidence": "\"The cat exerts firm downward pressure with its paw, opening its toes to expose its claws, then closes its claws as it lifts its paw.\""
+   },
+   {
+    "claim": "Kneading involves alternating paw presses at intervals of one to two seconds.",
+    "verdict": "supported",
+    "evidence": "\"The process takes place with alternate paws at intervals of one to two seconds.\""
+   },
+   {
+    "claim": "Cats have scent glands on the undersides of their paws, so kneading likely transfers their scent/pheromones to the person.",
+    "verdict": "supported",
+    "evidence": "\"Cats have scent glands on the underside of their paws and when they knead or scratch objects or people, it is likely these pheromones are transferred to the person or object being kneaded or scratched.\""
+   },
+   {
+    "claim": "Kneading may stimulate the cat and make it feel good, similar to how stretching feels for humans.",
+    "verdict": "supported",
+    "evidence": "\"It may also stimulate the cat and make it feel good, in the same manner as a human stretching.\""
+   },
+   {
+    "claim": "Many cats purr while kneading.",
+    "verdict": "supported",
+    "evidence": "\"Many cats purr while kneading.\""
+   },
+   {
+    "claim": "Kneading is often a precursor to sleeping, so a nap often follows.",
+    "verdict": "supported",
+    "evidence": "\"Kneading is often a precursor to sleeping.\""
+   }
+  ],
+  "counts": {
+   "supported": 10,
+   "partial": 0,
+   "unsupported": 0
+  },
+  "model": "nvidia:minimaxai/minimax-m3.1-flash"
+ },
+ "judge": {
+  "index": 1,
+  "scores": {
+   "1": 2,
+   "2": 5
+  },
+  "reason": "Candidate 2 is entirely accurate to the source text without introducing uncited claims like 'feel-good hormones' or 'showing trust', while meeting all hook and length requirements.",
+  "model": "google:gemini-3.6-flash"
+ },
+ "score": {
+  "score": 4,
+  "reason": "Every claim tracks the cited sources with appropriate hedging and the visuals match each beat, but the hook states the answer up front and the scent-gland 'twist' only lands at beat 5, slightly diluting the payoff.",
+  "model": "nvidia:minimaxai/minimax-m3.1-flash"
+ }
+}
