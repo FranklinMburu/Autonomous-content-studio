@@ -68,8 +68,15 @@ def cmd_make(a):
     if (folder / "storyboard.json").exists():
         q = board.quality(json.loads((folder / "storyboard.json").read_text(encoding="utf-8")))
         log("Quality warnings (below benchmark level):\n  " + "\n  ".join(q) if q else "[quality] meets the benchmark rules")
+    audio = out / "narration.wav"
+    if (folder / "storyboard.json").exists() and script.get("sound", True):
+        from . import sound
+        audio, cl, track = sound.mix(json.loads((folder / "storyboard.json").read_text(encoding="utf-8")), timing,
+                                     out / "narration.wav", out / "mix.wav", track=script.get("music"),
+                                     title=script.get("title", folder.name), log=log)
+        lib.set_timing(timing)
     log(f"[render] {len(shots)} shots")
-    lib.render_video(shots, key, out / "narration.wav", out / "video.mp4", preset=a.preset, log=log)
+    lib.render_video(shots, key, audio, out / "video.mp4", preset=a.preset, log=log)
     from ..qc import contact_sheet
     contact_sheet(out / "video.mp4", out / "contact.png", every=2.0)
     for f in REQUIRED + ("storyboard.json", "scenes.py"):

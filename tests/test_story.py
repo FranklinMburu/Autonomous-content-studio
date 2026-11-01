@@ -115,5 +115,23 @@ ok(any("can't draw" in p for p in board.quality(arrow)), "quality gate catches a
 bars = {"shots": [{"at": 0, "bg": "ward", "items": [{"type": "character", "role": "doctor"}]},
                   {"at": "+2", "bg": "ward", "items": [{"type": "bar", "x": 300, "base_y": 1300, "h": 500, "grow_at": "+2.5"}]}]}
 ok(any("no picture" in p for p in board.quality(bars)), "quality gate: a bar that hasn't grown yet is not a picture")
+# Sound: effects placed from the storyboard, generated in code, mixed under the narration (no music folder in CI).
+import tempfile, wave  # noqa: E402
+from studio.story import sound  # noqa: E402
+ex = json.loads((ROOT / "studio" / "story" / "example_storyboard.json").read_text(encoding="utf-8"))
+tm = fake_timing({"beats": [{"lines": ex["narration"]}]}, step=0.36)
+cl = sound.cues(ex["storyboard"], tm)
+kinds = {k for _, k, _ in cl}
+ok("whoosh" in kinds and "impact" in kinds and "riser" in kinds,
+   f"sound: effects placed from the storyboard ({len(cl)}: {sorted(kinds)})")
+ok(all(b - a >= 0.25 or kb != ka for (a, ka, _), (b, kb, _) in zip(cl, cl[1:])), "sound: effects never pile up")
+d = Path(tempfile.mkdtemp())
+n = int(tm["duration"] * 24000)
+with wave.open(str(d / "n.wav"), "wb") as w:
+    w.setnchannels(1); w.setsampwidth(2); w.setframerate(24000); w.writeframes(b"\x00\x00" * n)
+out, _, track = sound.mix(ex["storyboard"], tm, d / "n.wav", d / "mix.wav", music_dir=str(d / "none"), log=lambda *a: None)
+with wave.open(str(out)) as w:
+    secs = w.getnframes() / w.getframerate()
+ok(abs(secs - tm["duration"]) < 0.2 and track is None, f"sound: mix is the narration's length ({secs:.1f}s), effects only without music")
 print(f"\n{'ALL PASSED' if not fails else str(fails) + ' FAILED'}")
 sys.exit(1 if fails else 0)
