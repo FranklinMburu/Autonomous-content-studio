@@ -102,5 +102,11 @@ late = {"shots": [{"at": 0, "bg": "gradient", "items": [{"type": "prop", "name":
 q = board.quality(late)
 ok(any("no picture" in p for p in q) and any("opening shot" in p for p in q) and any("plain colour" in p for p in q),
    "quality gate catches an empty start, a weak opening and plain backgrounds")
+arrow = {"shots": [{"at": 0, "bg": "ward", "items": [{"type": "character", "role": "doctor"},
+                                                      {"type": "text", "text": "18% \u2192 3%"}]}]}
+ok(any("can't draw" in p for p in board.quality(arrow)), "quality gate catches a label the font can't draw (an arrow)")
+bars = {"shots": [{"at": 0, "bg": "ward", "items": [{"type": "character", "role": "doctor"}]},
+                  {"at": "+2", "bg": "ward", "items": [{"type": "bar", "x": 300, "base_y": 1300, "h": 500, "grow_at": "+2.5"}]}]}
+ok(any("no picture" in p for p in board.quality(bars)), "quality gate: a bar that hasn't grown yet is not a picture")
 print(f"\n{'ALL PASSED' if not fails else str(fails) + ' FAILED'}")
 sys.exit(1 if fails else 0)

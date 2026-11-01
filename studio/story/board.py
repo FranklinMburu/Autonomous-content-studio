@@ -611,6 +611,8 @@ DECOR = {"text", "dim", "glow", "rays", "floor", "cross"}  # these alone are not
 
 
 def _on_screen(it, t0, T):
+    if it.get("type") == "bar" and when(it.get("grow_at"), t0) > T + 0.05:
+        return False  # a bar is nothing until it grows
     for k in ("in", "from"):
         if k in it and when(it[k], t0) > T + 0.05:
             return False
@@ -647,6 +649,12 @@ def quality(board):
         bg = bg.get("type") if isinstance(bg, dict) else bg
         if bg in ("gradient", None, "none") and not any(it.get("type") in ("ship", "arm_scar", "ropes", "hands") for it in pics):
             plain += 1
+    for sh in shots:  # the font has letters, digits and common punctuation only: anything else shows as a box
+        for it in sh.get("items", []):
+            bad = sorted({ch for ch in str(it.get("text", "")) if not (ch.isascii() and ch.isprintable())})
+            if it.get("type") == "text" and bad:
+                problems.append(f"{sh.get('name', 'a shot')}: label {it['text']!r} uses {bad}, which the font can't draw; "
+                                "use plain words (e.g. TO instead of an arrow)")
     first = shots[0] if shots else {}
     if not any(it.get("type") in ("character", "hands", "group", "ship", "arm_scar") and _on_screen(it, built[0][0], built[0][0] + 0.3)
                for it in first.get("items", [])):

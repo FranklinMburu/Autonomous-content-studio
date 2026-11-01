@@ -7,6 +7,6 @@
  "draft_models": ["groq:openai/gpt-oss-120b", "google:gemini-3.6-flash", "nvidia:minimaxai/minimax-m3.1-flash"],
  "lane": null,
  "owner_logins": ["FranklinMburu"],
- "story_storyboard_models": ["google:gemini-3.6-flash", "nvidia:minimaxai/minimax-m3.1-flash"],
- "_note_story_storyboard_models": "Story storyboards need ~8-12k output tokens, so only models that can return that much (Groq's free tier caps answers at 2,500 tokens: its storyboards always came back cut off)."
+ "story_storyboard_models": ["google:gemini-3.6-flash", "nvidia:deepseek-ai/deepseek-v4.1-flash", "nvidia:minimaxai/minimax-m3.1-flash"],
+ "_note_story_storyboard_models": "Story storyboards need ~8-12k output tokens, so only models that can return that much (Groq's free tier caps answers at 2,500 tokens: its storyboards always came back cut off). 1 Nov 2026: DeepSeek V4.1 Flash made a storyboard passing every check in 261 s; MiniMax could not finish one in 10 min; GLM 5.3 was retired by NVIDIA on 28 Oct."
 }
