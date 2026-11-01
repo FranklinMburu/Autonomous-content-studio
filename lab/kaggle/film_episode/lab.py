@@ -11,10 +11,12 @@ LOG = open(f"{OUT}/log.txt", "a")
 FILM = json.loads(FILES["film.json"])  # noqa: F821  (injected by lab/kaggle/run.py)
 
 # settings chosen from visual tests 4-5
-IP_SCALE = 0.5          # face lock: higher = same face, lower = the action/pose follows the prompt better
+IP_SCALE = 0.6          # face lock strength, applied only AFTER the composition is set (see LOCK_FROM)
+LOCK_FROM = 0.4         # first 40% of steps: no face lock, so the pose/action comes from the prompt (test 5: a lock
+                        # from step 0 made kneeling/lying people stand, and gave every face in a crowd the hero's face)
 IMG_W, IMG_H = 832, 1216
-CLIP_W, CLIP_H, CLIP_FRAMES, CLIP_STEPS = 512, 896, 33, 30
-DISTILLED = False       # the faster 8-step LTX (test 5 decides)
+CLIP_W, CLIP_H, CLIP_FRAMES, CLIP_STEPS = 512, 896, 41, 30   # test 5: 33 frames barely moved; 49 melted (test 4)
+DISTILLED = False       # test 5: the 8-step distilled LTX dissolved into noise with these settings
 
 
 def log(*a):
@@ -124,8 +126,16 @@ for i, s in enumerate(FILM["shots"]):
     try:
         t = time.time()
         who = s.get("who")
-        pipe.set_ip_adapter_scale(float(s.get("ip", IP_SCALE)) if who else 0.0)
-        im = to916(gen(fill(s["prompt"]), int(s.get("seed", 7)), ip_adapter_image=refs.get(who, blank)))
+        scale = float(s.get("ip", IP_SCALE)) if who else 0.0
+        pipe.set_ip_adapter_scale(0.0)
+        start = int(30 * LOCK_FROM)
+
+        def late_lock(p_, step, ts, kw, scale=scale, start=start):
+            if step == start and scale:
+                p_.set_ip_adapter_scale(scale)
+            return kw
+        im = to916(gen(fill(s["prompt"]), int(s.get("seed", 7)), ip_adapter_image=refs.get(who, blank),
+                       callback_on_step_end=late_lock))
         p = f"{OUT}/shot_{n}.png"; im.save(p)
         depth(im)["depth"].save(f"{OUT}/depth_{n}.png")
         img_times.append(time.time() - t)

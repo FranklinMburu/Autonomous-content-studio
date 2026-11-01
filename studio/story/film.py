@@ -11,7 +11,7 @@ on a free Kaggle GPU (lab/kaggle/film_episode) and arrive in one assets folder:
 Rules from the benchmark (Ricks Clips, measured): a new shot every ~1.9 s, the camera never stops, hard cuts inside
 motion plus a few crossfades on the big turns, one caption word at a time, music and hits under the voice.
 """
-import argparse, json, shutil, subprocess, sys, time
+import argparse, json, math, shutil, subprocess, sys, time
 from pathlib import Path
 
 import cairo
@@ -105,7 +105,9 @@ class Shot:
             pos = min(n - 1.0, max(0.0, (T - self.t0) * speed * CLIP_FPS))
             i = int(pos); f = pos - i
             held = max(0.0, (T - self.t0) * speed * CLIP_FPS - (n - 1)) / CLIP_FPS  # seconds past the clip's end
-            z = 1.0 + 0.035 * held  # keep the camera moving while the last frame holds
+            # the camera always moves (benchmark: ~85% of frames move), on top of the clip's own motion
+            e = 0.5 - 0.5 * math.cos(math.pi * max(0.0, min(1.0, k)))
+            z = 1.0 + 0.06 * e + 0.035 * held
             if alpha < 1:
                 c.push_group()
             _cover(c, self.frames[i], z)

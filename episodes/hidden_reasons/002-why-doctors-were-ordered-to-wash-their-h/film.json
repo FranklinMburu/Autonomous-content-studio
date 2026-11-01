@@ -28,13 +28,12 @@
    "at": "before#1",
    "who": "mother",
    "clip": true,
-   "prompt": "{mother} lying in an iron hospital bed looking up worried, white pillow, 1847 maternity ward, soft window light",
+   "prompt": "a young woman lying in an iron hospital bed looking up worried, head on a white pillow, she is {mother}, 1847 maternity ward, soft window light",
    "motion": "she looks up worried and breathes, slow camera push in"
   },
   {
    "name": "offended",
    "at": "The#1",
-   "who": "elder",
    "clip": true,
    "prompt": "medium shot, {elder} and two other old doctors in black coats with arms crossed, offended and frowning, a grand 1847 lecture hall with wooden benches, warm lamp light",
    "motion": "they frown and shake their heads, slow camera push in",
@@ -43,7 +42,6 @@
   {
    "name": "gentlemen",
    "at": "They#1",
-   "who": "elder",
    "move": "up",
    "prompt": "low angle, proud elegant old doctors in top hats and fine black coats lifting their chins, standing in front of a grand Vienna hospital, golden afternoon light"
   },
@@ -80,7 +78,7 @@
    "at": "Women#1",
    "who": "mother",
    "clip": true,
-   "prompt": "full body, {mother} on her knees on stone steps begging with clasped hands raised, in front of a grand old hospital gate at dusk, warm lamps, low angle",
+   "prompt": "full body, low angle, a woman kneeling on both knees on stone steps with clasped hands raised, begging, she is {mother}, in front of a grand old hospital gate at dusk, warm lamps",
    "motion": "her clasped hands shake as she pleads, lamps flicker, slow camera push in"
   },
   {
@@ -88,7 +86,7 @@
    "at": "Some#1",
    "who": "mother",
    "clip": true,
-   "prompt": "{mother} sitting on a cobblestone street at night holding a newborn baby wrapped in a shawl, a street lantern, old Vienna houses",
+   "prompt": "a woman sitting on a cobblestone street at night holding a newborn baby wrapped in a shawl, she is {mother}, a street lantern, old Vienna houses",
    "motion": "she rocks the baby gently, the lantern flickers, slow camera push in"
   },
   {
@@ -112,7 +110,7 @@
    "at": "His#2",
    "who": "friend",
    "clip": true,
-   "prompt": "{friend} lying very sick and pale in a hospital bed, sweating, fever, dim night ward, a candle",
+   "prompt": "a sick pale man lying in a hospital bed with his head on a pillow, sweating, fever, he is {friend}, dim night ward, a candle",
    "motion": "he breathes weakly and his head turns, the candle flickers, slow camera push in"
   },
   {
@@ -143,7 +141,8 @@
    "who": "hero",
    "clip": true,
    "prompt": "medium shot, {hero} walking quickly through a doorway into a bright maternity ward, rolling down his sleeves, mothers in beds",
-   "motion": "he walks forward through the doorway, slow camera move back"
+   "motion": "he walks forward through the doorway, slow camera move back",
+   "ip": 0.4
   },
   {
    "name": "midwives",
@@ -157,7 +156,8 @@
    "at": "So#1",
    "who": "hero",
    "move": "left",
-   "prompt": "medium shot, {hero} nailing a handwritten notice to a wooden ward door while young students line up behind him, morning light"
+   "prompt": "medium shot, {hero} nailing a handwritten notice to a wooden ward door while young students line up behind him, morning light",
+   "ip": 0.4
   },
   {
    "name": "lime",
@@ -171,13 +171,12 @@
    "at": "Deaths#1",
    "who": "mother",
    "clip": true,
-   "prompt": "{mother} sitting up in a hospital bed, smiling and holding her healthy baby, a bright sunny ward with flowers",
+   "prompt": "a happy woman sitting up in a hospital bed holding her healthy baby, smiling, she is {mother}, a bright sunny ward with flowers",
    "motion": "she smiles and rocks the baby, sunlight shimmers, slow camera push in"
   },
   {
    "name": "rejected",
    "at": "But#2",
-   "who": "elder",
    "clip": true,
    "prompt": "medium shot, {elder} and other old doctors in black coats laughing and pointing mockingly, a grand 1847 lecture hall, warm lamp light",
    "motion": "they laugh and point, slow camera push in",
@@ -195,15 +194,16 @@
    "at": "guards#1",
    "who": "hero",
    "clip": true,
-   "prompt": "{hero} struggling between two rough guards in grey uniforms in a dark stone corridor, a lantern",
-   "motion": "the guards drag him down the corridor, the lantern swings, slow camera push in"
+   "prompt": "two rough guards in grey uniforms dragging a struggling man by the arms down a dark stone corridor, the man is {hero}, a lantern",
+   "motion": "the guards drag him down the corridor, the lantern swings, slow camera push in",
+   "ip": 0.4
   },
   {
    "name": "died",
    "at": "he#2",
    "who": "hero",
    "clip": true,
-   "prompt": "high angle, {hero} lying sick and pale in an iron bed with a bandaged hand, a bare stone asylum cell at night, moonlight through a barred window",
+   "prompt": "high angle, a sick pale man lying flat on his back in an iron bed with a bandaged hand, eyes closed, he is {hero}, a bare stone asylum cell at night, moonlight through a barred window",
    "motion": "he breathes weakly and closes his eyes, slow camera push in",
    "hit": "died#2"
   },
