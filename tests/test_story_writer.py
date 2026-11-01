@@ -25,6 +25,9 @@ EX = json.loads((ROOT / "studio" / "story" / "example_storyboard.json").read_tex
 SCRIPT = {"title": "The Doctor Who Scrubbed", "beats": [{"lines": [l]} for l in EX["narration"]],
           "claims": [{"claim": "x", "url": "https://example.org/a"}], "key_words": ["germs"]}
 log_calls = []
+FILM_OK = {"on": False}
+import itertools  # noqa: E402
+PROMPT_N = itertools.count()
 
 
 class R:  # stands in for ailayer.Result
@@ -44,6 +47,29 @@ def fake_ask(prompt, **kw):
         b = copy.deepcopy(EX["storyboard"])
         b["shots"][3]["items"][1]["name"] = "dragon"  # one broken shot ("cut")
         return R(b)
+    if "FILM SHOT LIST RULES" in prompt and FILM_OK["on"]:
+        import re as _re
+        log_calls.append("film")
+        if "STEP 1 of 2" in prompt:
+            return R({"era": "1840s", "music": "mysterious", "key_words": ["germs"],
+                      "cast": {"hero": "a 30 year old doctor with black slicked hair, a black mustache and a long green coat"}})
+        allowed = _re.findall(r"^\d+\.\d+s (\S+#\d+)$", prompt.split("(in order):")[1], _re.M)
+        n = int(_re.search(r"Write (\d+) shots", prompt).group(1))
+        pick = allowed[:: max(1, len(allowed) // n)][:n]
+        places = ["a candle lit ward", "a stone corridor", "a busy street at dusk", "a lecture hall", "a small kitchen",
+                  "a quiet garden", "a dark laboratory", "a crowded market"]
+        return R({"shots": [{"name": f"p{abs(hash(w)) % 10000}", "at": w, "who": "hero" if k % 2 else None, "clip": k % 3 != 2,
+                             "prompt": ["close-up, {hero} scrubbing hands in a basin, candle light",
+                                        "wide shot of a long ward with iron beds at dusk",
+                                        "low angle, stern professors laughing in a lecture hall",
+                                        "extreme close-up of a scalpel on a wooden table, lamp light",
+                                        "a mother holding a baby in a sunny room with flowers",
+                                        "{hero} walking down a rainy cobblestone street at night",
+                                        "a microscope beside glass flasks in a laboratory",
+                                        "a crowd of students lining up at washbasins in the morning",
+                                        "a dark asylum gate in the rain with a single lamp"][next(PROMPT_N) % 9],
+                             "motion": "he blinks and breathes, slow camera push in", "check": "Is a man in the picture?"}
+                            for k, w in enumerate(pick)]})
     if "FILM SHOT LIST RULES" in prompt:
         log_calls.append("film")
         return R({"cast": {"hero": "a 30 year old doctor with black hair, a mustache and a green coat"}, "key_words": [],
@@ -156,6 +182,16 @@ ok(not probs and not changed and json.loads((f3 / "film.json").read_text(encodin
    "film: a pasted reply (with chat text around the JSON) is read back into film.json")
 ok(not any("not a spoken word" in x or "spoken order" in x for x in fp), f"film: the read-back shot list resolves on the narration {fp[:3]}")
 ok(filmkit.apply_reply(f3, "sorry, I can't")[1], "film: a reply without JSON is rejected with a reason")
+
+# film plan in small steps: cast first, then each part of the story; code fixes the mechanical rules -> no polish
+FILM_OK["on"] = True
+log_calls.clear(); lines.clear()
+f5 = writer.write("A fourth topic", chan, log=lines.append)
+fj = json.loads((f5 / "film.json").read_text(encoding="utf-8"))
+ok(not (f5 / "NEEDS_POLISH.md").exists() and len(fj["shots"]) >= 3 and fj["shots"][0]["at"] == 0 and fj.get("era"),
+   f"film: cast + per-part shots + automatic fixes give a plan that passes ({len(fj['shots'])} shots, "
+   f"{sum(1 for l in lines if 'film part' in l)} part calls) {[l for l in lines if l.strip().startswith('- ')][:3]}")
+FILM_OK["on"] = False
 
 # guardrail: no first draft passes the rules (e.g. one model out of quota, others break a rule) -> the closest draft
 # is repaired instead of the run failing

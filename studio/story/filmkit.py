@@ -24,7 +24,7 @@ SHOT_RANGE = (24, 36)
 
 FILM_RULES = """FILM SHOT LIST RULES (the pictures are painted by an image AI in a Pixar-like 3D film style, then
 ~21 of them become 1.4-second moving clips; the rest get a slow 3D camera move)
-- 26-34 shots. A new shot every 1.5-2.2 s on average (fast, like a film trailer); each shot 0.7-3.2 s on screen.
+- About one shot per 1.9 s (~30 for a minute). A new shot every 1.5-2.2 s on average (fast, like a film trailer); each shot 0.7-3.2 s on screen.
 - "at": the word that starts the shot, exactly as WORD#N from the WORD LIST (N counts that word's occurrences,
   case-insensitive). The first shot has "at": 0. Shots in spoken order. Cut on the word whose picture you show.
 - Each shot SHOWS EXACTLY what is being said at that moment (literal, concrete, visual).
@@ -130,8 +130,9 @@ def film_problems(f, timing, memory=None, episode=None):
         for b in keys[i + 1:]:
             if _sim(cast[a], cast[b]) > 0.6:
                 p.append(f"cast {a} and {b} look too alike; make them clearly different")
-    if not SHOT_RANGE[0] <= len(shots) <= SHOT_RANGE[1]:
-        p.append(f"{len(shots)} shots; use 26-34 (a new shot every ~1.9 s)")
+    want = float(timing["duration"]) / 1.9          # benchmark: a new shot every ~1.9 s (30 in a minute)
+    if not max(3, 0.75 * want) <= len(shots) <= 1.25 * want + 1:
+        p.append(f"{len(shots)} shots; use about {want:.0f} (a new shot every ~1.9 s)")
     names, ts = set(), []
     dur = float(timing["duration"])
     for i, s in enumerate(shots):
@@ -205,38 +206,195 @@ def film_problems(f, timing, memory=None, episode=None):
 
 # ---------- free-model draft ----------
 
-def write_film(script, timing, ask, models, memory, word_list, log=print, episode=None, budget_min=20):
-    """Draft film.json with the free models and repair it until it passes (or the time budget ends).
+def _ask_patiently(ask, msg, models, log, deadline, label, **kw):
+    """ask() across the models; when they are all rate-limited or down, wait (up to 5 min at a time) and try again
+    until the deadline. Returns a Result or None."""
+    import time
+    while time.time() < deadline - 30:
+        try:
+            return ask(msg, models=models, json_out=True, time_budget_s=int(min(480, deadline - time.time())), **kw)
+        except Exception as e:  # noqa: BLE001
+            err = str(e)
+            if not re.search(r"rate limit|cooling down|HTTP (0|429|5\d\d)|timed? ?out|daily|budget|could answer", err, re.I):
+                log(f"    {label}: failed ({type(e).__name__}: {err[:160]})")   # not a wait-and-retry kind of error
+                return None
+            m = re.search(r"until (\d\d):(\d\d) UTC", err)
+            wait = 120
+            if m:
+                import datetime as _dt
+                now = _dt.datetime.now(_dt.timezone.utc)
+                until = now.replace(hour=int(m.group(1)), minute=int(m.group(2)), second=5)
+                wait = max(20, min(300, (until - now).total_seconds()))
+            log(f"    {label}: no model answered ({err[:140]}); waiting {wait:.0f}s")
+            time.sleep(min(wait, max(0, deadline - time.time() - 30)))
+    return None
+
+
+def _cast_problems(c):
+    if not isinstance(c, dict) or not isinstance(c.get("cast"), dict) or not c["cast"]:
+        return ['need {"era": "...", "cast": {...}, "music": "...", "key_words": [...]}']
+    p = [x for x in film_problems({**c, "shots": []}, {"duration": 1, "words": []}) if x.startswith(("cast", "need \"era"))]
+    return p
+
+
+def _beats_with_words(script, timing):
+    """[(beat lines, [(WORD#N, start)], t0, t1)] using the narration timing (word#N counted over the whole script)."""
+    words, seen, k, out = timing["words"], {}, 0, []
+    for b in script["beats"]:
+        n = sum(len(str(l).split()) for l in b["lines"])
+        ws = []
+        for w in words[k:k + n]:
+            key = w["w"].strip(".,?!").lower()
+            seen[key] = seen.get(key, 0) + 1
+            ws.append((f'{w["w"].strip(".,?!")}#{seen[key]}', w["start"]))
+        if ws:
+            out.append((b["lines"], ws, ws[0][1], None))
+        k += n
+    for i in range(len(out)):
+        out[i] = (out[i][0], out[i][1], out[i][2], out[i + 1][2] if i + 1 < len(out) else float(timing["duration"]))
+    return out
+
+
+def autofix(film, timing):
+    """Rules code can fix by itself: first shot at 0, crossfades on the story's parts, the share of moving clips,
+    shots too short to see (merged into the next one), missing defaults."""
+    L.set_timing(timing)
+    shots = [s for s in film.get("shots", []) if isinstance(s, dict)]
+    if shots:
+        shots[0]["at"] = 0
+    keep, ts = [], []
+    for s in shots:
+        try:
+            ts.append(B.when(s.get("at"), 0)); keep.append(s)
+        except Exception:  # noqa: BLE001 - an unknown trigger: drop the shot, its neighbour covers the time
+            continue
+    order = sorted(range(len(keep)), key=lambda i: ts[i])
+    keep, ts = [keep[i] for i in order], [ts[i] for i in order]
+    dur = float(timing["duration"])
+    out, out_t = [], []
+    for s, t in zip(keep, ts):
+        if out and t - out_t[-1] < 0.7:   # too short to see: keep the earlier shot
+            continue
+        out.append(s); out_t.append(t)
+    if out and dur - out_t[-1] < 0.7 and len(out) > 1:
+        out.pop(); out_t.pop()
+    names = set()
+    for i, s in enumerate(out):
+        n = re.sub(r"[^a-z0-9_]", "_", str(s.get("name", f"s{i}")).lower())[:24] or f"s{i}"
+        while n in names:
+            n = (n[:20] + f"_{i}")[:24]
+        s["name"] = n; names.add(n)
+        if not s.get("clip") and s.get("move") not in MOVES:
+            s["move"] = "push"
+        if s.get("clip") and len(str(s.get("motion", ""))) < 12:
+            s["motion"] = "a small natural movement, slow camera push in"
+        if s.get("who") and s["who"] not in film.get("cast", {}):
+            s.pop("who")
+    clips = sum(1 for s in out if s.get("clip"))
+    for s in out:   # too few clips: people shots move
+        if out and clips / len(out) >= 0.6:
+            break
+        if not s.get("clip") and s.get("who"):
+            s["clip"], s["motion"] = True, "they breathe and blink, a small natural movement, slow camera push in"; clips += 1
+    i = 0
+    while out and clips / len(out) > 0.8 and i < len(out):   # too many clips: calm shots become 3D camera moves
+        s = out[-1 - i] if i % 2 else out[i]
+        if s.get("clip") and not s.get("who") or (i > len(out) // 2 and s.get("clip")):
+            s["clip"] = False; s["move"] = s.get("move") if s.get("move") in MOVES else "push"; clips -= 1
+        i += 1
+    if out and sum(1 for s in out if s.get("xfade")) < 2:
+        for s in out[1:]:
+            if s.get("part_start"):
+                s["xfade"] = True
+    for s in out:
+        s.pop("part_start", None)
+    film["shots"] = out
+    return film
+
+
+def write_film(script, timing, ask, models, memory, word_list, log=print, episode=None, budget_min=40):
+    """Draft film.json with the free models in small steps, so one bad answer never sinks the plan:
+    1) the cast/era/music, 2) the shots for each part of the story (a short answer each, retried on its own),
+    3) code fixes the mechanical rules, 4) a final full check (+ one whole-plan repair if time is left).
     Returns (film or None, problems)."""
     import time
+    deadline = time.time() + budget_min * 60
     narration = " ".join(str(l) for b in script["beats"] for l in b["lines"])
     ex = json.loads((Path(__file__).parent / "example_film.json").read_text(encoding="utf-8"))
-    base = (f"{FILM_RULES}\n\n{memory_text(memory, episode)}\n\nTITLE: {script.get('title')}\nNARRATION:\n{narration}\n\n"
-            f"WORD LIST (start time, WORD#N):\n{word_list}\n\nTotal length {timing['duration']:.1f}s.\n\n"
+    head = (f"{FILM_RULES}\n\n{memory_text(memory, episode)}\n\nTITLE: {script.get('title')}\nNARRATION:\n{narration}\n\n"
             f"EXAMPLE film.json for a DIFFERENT story (copy the craft, not the people or places):\n"
             f"{json.dumps(ex, ensure_ascii=False)}\n")
-    film, probs, t0 = None, None, time.time()
-    for attempt in range(4):
-        if probs == []:
+    # 1. cast
+    msg = head + ('\nSTEP 1 of 2: write ONLY the story\'s cast, era, music mood and key words. Return JSON only: '
+                  '{"era": "...", "cast": {"role": "full visual description", ...}, "music": "...", "key_words": [...]}')
+    cast, cp = None, None
+    for attempt in range(3):
+        r = _ask_patiently(ask, msg if cast is None else msg + "\n\nYOUR ANSWER:\n" + json.dumps(cast) +
+                           "\nFix these problems:\n" + "\n".join(f"- {x}" for x in cp), models, log, deadline, "film cast",
+                           temperature=0.6, max_tokens=2000)
+        if r is None:
             break
-        if attempt and time.time() - t0 > budget_min * 60:
-            log("  film: stage time budget used; the polish step finishes it"); break
-        msg = base + ("\nWrite this story's film.json." if film is None else
-                      "\nYOUR PREVIOUS film.json:\n" + json.dumps(film, ensure_ascii=False)[:14000] +
-                      "\n\nIt failed these checks; fix every one and return the full film.json:\n" +
-                      "\n".join(f"- {x}" for x in probs[:30]))
-        try:
-            r = ask(msg, models=models, json_out=True, temperature=0.6, max_tokens=12000, time_budget_s=600)
-        except Exception as e:  # noqa: BLE001
-            log(f"  film draft failed: {str(e)[:200]}"); continue
-        new = r.data
-        pn = film_problems(new, timing, memory, episode)
-        log(f"  film draft by {r.ref}: {len(new.get('shots', [])) if isinstance(new, dict) else 0} shots, {len(pn)} problem(s)")
-        for x in pn[:8]:
-            log(f"    - {x}")
-        if probs is None or len(pn) <= len(probs):
-            film, probs = new, pn
-    return film, (probs if probs is not None else ["no film draft"])
+        cast, cp = r.data, _cast_problems(r.data)
+        log(f"  film cast by {r.ref}: {len((cast or {}).get('cast', {}) or {})} roles, {len(cp)} problem(s)")
+        if not cp:
+            break
+    if not cast or cp is None or not isinstance(cast, dict) or not isinstance(cast.get("cast"), dict):
+        return None, ["the free models could not write the cast"]
+    # 2. shots, one part of the story at a time
+    parts = _beats_with_words(script, timing)
+    shots = []
+    for i, (lines, ws, t0, t1) in enumerate(parts):
+        n_shots = max(1, round((t1 - t0) / 1.9))
+        allowed = {w for w, _ in ws}
+        wl = "\n".join(f"{t:.2f}s {w}" for w, t in ws)
+        msg = (head + f"\nTHE CAST (fixed): {json.dumps(cast['cast'], ensure_ascii=False)}\nERA: {cast.get('era')}\n\n"
+               f"STEP 2: write ONLY the shots for PART {i + 1} of {len(parts)} of the story: \"{' '.join(lines)}\" "
+               f"({t0:.1f}s to {t1:.1f}s). Write {n_shots} shots (about one per 1.9 s). The first shot's \"at\" is "
+               f"{'0' if i == 0 else ws[0][0]}; every \"at\" must be one of these WORD#N (in order):\n{wl}\n"
+               'Return JSON only: {"shots": [...]}')
+        got, gp = None, None
+        for attempt in range(3):
+            r = _ask_patiently(ask, msg if got is None else msg + "\n\nYOUR ANSWER:\n" + json.dumps(got)[:6000] +
+                               "\nFix these problems:\n" + "\n".join(f"- {x}" for x in gp), models, log, deadline,
+                               f"film part {i + 1}", temperature=0.6, max_tokens=5000)
+            if r is None:
+                break
+            sh = r.data.get("shots") if isinstance(r.data, dict) else None
+            if not isinstance(sh, list) or not sh:
+                got, gp = r.data, ['need {"shots": [...]}']; continue
+            if i == 0:
+                sh[0]["at"] = 0
+            gp = [f"shot {s.get('name')}: \"at\" {s.get('at')} is not one of this part's WORD#N"
+                  for s in sh if isinstance(s, dict) and s.get("at") not in allowed and not (i == 0 and s is sh[0])]
+            probe = film_problems({**cast, "shots": sh}, timing)
+            gp += [x for x in probe if x.startswith("shot ") and "on screen" not in x and "spoken order" not in x
+                   and "not a spoken word" not in x]
+            got = sh
+            log(f"  film part {i + 1}/{len(parts)} by {r.ref}: {len(sh)} shots, {len(gp)} problem(s)")
+            if not gp:
+                break
+        if got is None or not isinstance(got, list):
+            return None, [f"the free models could not write the shots for part {i + 1}"]
+        if got:
+            got[0]["part_start"] = i > 0
+        shots += got
+    film = autofix({**cast, "shots": shots}, timing)
+    probs = film_problems(film, timing, memory, episode)
+    log(f"  film plan: {len(film['shots'])} shots, {len(probs)} problem(s) after the automatic fixes")
+    # 4. one whole-plan repair if anything is left and there is time
+    if probs and time.time() < deadline - 300:
+        msg = (head + f"\nWORD LIST:\n{word_list}\n\nYOUR film.json:\n" + json.dumps(film, ensure_ascii=False)[:14000] +
+               "\n\nIt failed these checks; fix every one and return the full film.json:\n" + "\n".join(f"- {x}" for x in probs[:30]))
+        r = _ask_patiently(ask, msg, models, log, deadline, "film repair", temperature=0.4, max_tokens=12000)
+        if r is not None and isinstance(r.data, dict):
+            new = autofix(r.data, timing)
+            pn = film_problems(new, timing, memory, episode)
+            log(f"  film repair by {r.ref}: {len(pn)} problem(s)")
+            if len(pn) < len(probs):
+                film, probs = new, pn
+    for x in probs[:10]:
+        log(f"    - {x}")
+    return film, probs
 
 
 # ---------- copy-paste polish kit ----------
