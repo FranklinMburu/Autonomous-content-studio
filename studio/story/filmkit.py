@@ -346,7 +346,8 @@ def verify(folder, memory=None, renarrate=False, fact_check=True, log=print):
         from .writer import script_problems
         srcs = json.loads((folder / "sources.json").read_text(encoding="utf-8"))
         sources = [Source(x["url"], x["text"], x.get("title", "")) for x in srcs]
-        probs += [f"script: {x}" for x in script_problems(script, sources)]
+        probs += [f"script: {x}" for x in script_problems(script, sources)
+                  if script.get("claims") or "list the claims" not in x]   # older episodes keep claims in sources.md
         if renarrate and fact_check:   # new wording: check every claim against the frozen sources again
             from ailayer import skills
             from .writer import _words

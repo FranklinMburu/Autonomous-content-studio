@@ -371,7 +371,8 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
         save("folder.json", folder.name)
     folder.mkdir(parents=True, exist_ok=True)
     script = {"title": s["title"], "channel": "Hidden Reasons", "topic": topic, "voice": voice, "speed": speed,
-              "pace": {"gap_line": 0.08, "gap_beat": 0.2, "lead_in": 0.05, "tail": 0.7}, "beats": s["beats"]}
+              "pace": {"gap_line": 0.08, "gap_beat": 0.2, "lead_in": 0.05, "tail": 0.7}, "beats": s["beats"],
+              "claims": s.get("claims", []), "key_words": s.get("key_words", [])}
     t0 = time.time()
     timing = narrate(script, folder)
     wpm = len(timing["words"]) / timing["duration"] * 60
