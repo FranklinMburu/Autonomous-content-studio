@@ -204,6 +204,17 @@ jobs:
             { echo "Polish issue: $url"; } >> "$GITHUB_STEP_SUMMARY"
           fi
 
+      - name: Tell the owner if this run failed
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TOPIC_RAW: ${{ github.event.inputs.topic }}
+        run: |
+          gh label create pipeline-alert --color B60205 --description "A video run failed" 2>/dev/null || true
+          n=$(gh issue list --label pipeline-alert --state open --json number --jq '.[0].number // empty')
+          msg="A video run failed (topic: ${TOPIC_RAW:-$EPISODE_DIR}). Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} . The schedule retries a failed topic once, then skips it."
+          if [ -n "$n" ]; then gh issue comment "$n" --body "$msg"; else gh issue create --label pipeline-alert --title "Pipeline alerts" --body "$msg"; fi
+
       - name: Show the writer's report
         if: always()
         run: |

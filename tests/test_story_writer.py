@@ -157,6 +157,31 @@ ok(not probs and not changed and json.loads((f3 / "film.json").read_text(encodin
 ok(not any("not a spoken word" in x or "spoken order" in x for x in fp), f"film: the read-back shot list resolves on the narration {fp[:3]}")
 ok(filmkit.apply_reply(f3, "sorry, I can't")[1], "film: a reply without JSON is rejected with a reason")
 
+# guardrail: no first draft passes the rules (e.g. one model out of quota, others break a rule) -> the closest draft
+# is repaired instead of the run failing
+log_calls.clear()
+saved_best_of = sk.best_of
+def failing_best_of(prompt, **kw):
+    log_calls.append("best_of failed"); raise RuntimeError("best_of: no model produced a valid answer")
+sk.best_of = failing_best_of
+writer._compat = lambda fn: fn
+bad = copy.deepcopy(SCRIPT); bad["beats"] = bad["beats"][:1]   # far too short: breaks the word-count rule
+calls_seen = []
+def ask_for_repair(prompt, **kw):
+    calls_seen.append(kw.get("models"))
+    if "It breaks these rules" in prompt:
+        return R(copy.deepcopy(SCRIPT), "fake:fixer")
+    if "Write a 1-minute YouTube Short" in prompt and "YOUR SCRIPT" not in prompt and "YOUR DRAFT" not in prompt:
+        return R(copy.deepcopy(bad), "fake:drafter")
+    return fake_ask(prompt, **kw)
+ail.ask = ask_for_repair
+facts["n"] = 1
+lines.clear()
+f4 = writer.write("A third topic", chan, log=lines.append)
+ok("best_of failed" in log_calls and any("repair 1 by" in l for l in lines) and (f4 / "script.json").exists(),
+   "guardrail: when no draft passes, the closest one is repaired (the run goes on)")
+sk.best_of, ail.ask = saved_best_of, fake_ask
+
 # schedule: topics are taken in order, once; a finished episode's topic is never made again; failures retry once
 from studio.story import topics as T  # noqa: E402
 mem = {"episodes": [{"episode": "005-x", "topic": T.queue("hidden_reasons")[0]}]}

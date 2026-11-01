@@ -36,7 +36,44 @@ SCRIPT_SHAPE = """Return JSON only:
 def _cfg():
     p = ROOT / "pipeline" / "config.json"
     cfg = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
-    return cfg.get("draft_models") or ["groq:openai/gpt-oss-120b"]
+    return cfg.get("story_script_models") or cfg.get("draft_models") or ["groq:openai/gpt-oss-120b"]
+
+
+def repair_draft(prompt, models, check, ask, log, rounds=3, budget_s=900):
+    """Fallback when no model's first draft passes the rules: each model drafts once without the rule gate, then
+    the best draft (fewest problems) is repaired round by round with its exact problems. Returns (draft, problems);
+    problems may be non-empty (then the copy-paste polish finishes the script)."""
+    import time
+    t0, best, best_p = time.time(), None, None
+    for m in models:
+        if time.time() - t0 > budget_s:
+            break
+        try:
+            r = ask(prompt, models=[m], json_out=True, temperature=0.7, max_tokens=3000, time_budget_s=300)
+        except Exception as e:  # noqa: BLE001
+            log(f"    {m}: no draft ({str(e)[:120]})"); continue
+        pr = check(r.data)
+        log(f"    {m}: draft with {len(pr)} rule problem(s): {'; '.join(pr)[:300]}")
+        if best_p is None or len(pr) < len(best_p):
+            best, best_p = r.data, pr
+        if not pr:
+            return best, []
+    for rnd in range(rounds):
+        if not best_p or best is None or time.time() - t0 > budget_s:
+            break
+        fix = (prompt + "\n\nYOUR DRAFT:\n" + json.dumps(best, ensure_ascii=False)[:9000] + "\n\nIt breaks these rules. "
+               "Fix every one and return the complete corrected JSON only:\n" + "\n".join(f"- {x}" for x in best_p))
+        for m in models:
+            try:
+                r = ask(fix, models=[m], json_out=True, temperature=0.4, max_tokens=3000, time_budget_s=300)
+            except Exception:  # noqa: BLE001
+                continue
+            pr = check(r.data)
+            log(f"    repair {rnd + 1} by {m}: {len(pr)} problem(s) {('; '.join(pr))[:200]}")
+            if len(pr) < len(best_p):
+                best, best_p = r.data, pr
+            break
+    return best, best_p or []
 
 
 def _words(script):
@@ -298,21 +335,32 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
     stage = saved("script.json")
     if stage:
         s, fc, info, logic = stage["script"], stage["fact_check"], stage["info"], stage["logic"]
+        script_left = stage.get("left", [])
         log(f"[script] resumed: {s['title']!r}, fact check {fc['counts']}")
     else:
         log(f"[script] {len(models)} models in parallel: {', '.join(models)}")
-        best, info = _timed(log, "script drafts", lambda: best_of(
-            prompt, models=models, criteria=criteria, task=f"Story Short: {topic}", sources=sources, validate=check,
-            json_out=True, temperature=0.8, max_tokens=3000, text_of=lambda r: " ".join(_words(r.data)),
-            parallel=True, time_budget_s=600))
-        for f in info.get("failed", []):
-            log(f"    model failed the script step: {f['ref']}")
-            for line in calls(type("E", (), {"attempts": f.get("attempts", [])})()):
-                log(f"      call: {line}")
-        info = {"candidates": info["candidates"], "failed": [{"ref": f["ref"], "error": f["error"]} for f in info["failed"]],
-                "judge": info.get("judge"), "by": best.ref}
-        s = best.data
-        log(f"  script by {best.ref}: {s['title']!r}, {len(_words(s))} words (valid candidates {info['candidates']})")
+        script_left = []
+        try:
+            best, info = _timed(log, "script drafts", lambda: best_of(
+                prompt, models=models, criteria=criteria, task=f"Story Short: {topic}", sources=sources, validate=check,
+                json_out=True, temperature=0.8, max_tokens=3000, text_of=lambda r: " ".join(_words(r.data)),
+                parallel=True, time_budget_s=600))
+            for f in info.get("failed", []):
+                log(f"    model failed the script step: {f['ref']}")
+                for line in calls(type("E", (), {"attempts": f.get("attempts", [])})()):
+                    log(f"      call: {line}")
+            info = {"candidates": info["candidates"], "failed": [{"ref": f["ref"], "error": f["error"]} for f in info["failed"]],
+                    "judge": info.get("judge"), "by": best.ref}
+            s = best.data
+        except Exception as e:  # noqa: BLE001 - guardrail: repair the closest draft instead of giving up
+            log(f"  no draft passed the rules first time ({str(e)[:160]}); repairing the closest draft")
+            s, script_left = repair_draft(prompt, models, check, ask, log)
+            if not isinstance(s, dict) or not s.get("beats"):
+                raise RuntimeError("no model produced a usable script draft (all free models failed or are out of quota)")
+            if script_left and os.environ.get("STORY_STYLE", "film") != "film":
+                raise RuntimeError("script still breaks the rules: " + "; ".join(script_left))
+            info = {"candidates": [], "failed": [], "judge": None, "by": "repair"}
+        log(f"  script: {s.get('title')!r}, {len(_words(s))} words")
 
         fc = _timed(log, "fact check", lambda: fact_check(" ".join(_words(s)), sources, time_budget_s=300))
         log(f"  fact check: {fc['counts']}")
@@ -325,8 +373,11 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
             fix = (prompt + "\n\nYOUR SCRIPT:\n" + json.dumps(s, ensure_ascii=False) + "\n\nA fact checker found these "
                    f"claims NOT supported by the sources. {how}\n" +
                    "\n".join(f"- {r['claim']} ({r.get('evidence', '')})" for r in bad))
-            s = _timed(log, f"fact repair {rnd + 1}", lambda: ask(fix, models=models, validate=check, temperature=0.3,
-                                                                  max_tokens=3000, time_budget_s=480)).data
+            try:
+                s = _timed(log, f"fact repair {rnd + 1}", lambda: ask(fix, models=models, validate=check, temperature=0.3,
+                                                                      max_tokens=3000, time_budget_s=480)).data
+            except Exception:  # noqa: BLE001 - keep the current script; unsupported claims then go to the polish
+                break
             fc = _timed(log, "fact check", lambda: fact_check(" ".join(_words(s)), sources, time_budget_s=300))
             log(f"  fact check after repair {rnd + 1}: {fc['counts']}")
         if any(r.get("verdict") == "unsupported" for r in fc["results"]):
@@ -353,7 +404,7 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
                     log("  logic repair added unsupported claims; kept the earlier script (the polish step reviews it)")
             except Exception:  # noqa: BLE001 - logged above; the earlier, fact-checked script stands
                 log("  logic repair failed; kept the earlier script (the polish step reviews it)")
-        save("script.json", {"script": s, "fact_check": fc, "info": info, "logic": logic})
+        save("script.json", {"script": s, "fact_check": fc, "info": info, "logic": logic, "left": script_left})
     narration = " ".join(_words(s))
 
     # 3. Episode folder + narration (paced into the proven range)
@@ -406,7 +457,7 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
                                                     "polish fixes them):\n\n" + "\n".join(f"- {x}" for x in fprobs) + "\n",
                                                     encoding="utf-8")
         facts = [f"script: not supported by the sources, fix or remove: {r['claim']}" for r in fc["results"]
-                 if r.get("verdict") == "unsupported"]
+                 if r.get("verdict") == "unsupported"] + [f"script: {x}" for x in script_left]
         if facts:
             fprobs = facts + list(fprobs or [])
             (folder / "NEEDS_POLISH.md").write_text("Problems left by the free models (the copy-paste polish fixes "
