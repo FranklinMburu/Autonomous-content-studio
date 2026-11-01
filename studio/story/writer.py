@@ -244,24 +244,37 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
                  f"{word_list(timing)}\n\nTotal length {timing['duration']:.1f}s.\n\n"
                  f"EXAMPLE of a finished storyboard for a different story (copy the style, not the content):\n{example}\n\n"
                  f'Return JSON only: {{"key_words": {json.dumps(s.get("key_words", []))}, "shots": [...]}}')
-    b, problems = None, []
+    import time
+    b, problems, best_b, best_p, t_start = None, [], None, None, time.time()
     for attempt in range(3):
+        if attempt and time.time() - t_start > 30 * 60:
+            log("  storyboard: time budget used; keeping the best draft for the polish step"); break
         msg = sb_prompt if attempt == 0 else (sb_prompt + "\n\nYOUR PREVIOUS STORYBOARD:\n" + json.dumps(b)[:12000] +
                                               "\n\nIt failed these checks; fix every one and return the full storyboard:\n" +
                                               "\n".join(f"- {x}" for x in problems[:25]))
+        t1 = time.time()
         try:
-            b = ask(msg, models=models, json_out=True, temperature=0.5, max_tokens=12000).data
+            r = ask(msg, models=models, json_out=True, temperature=0.5, max_tokens=12000)
+            b = r.data
         except Exception as e:  # noqa: BLE001
-            problems = [f"no valid JSON: {e}"]; continue
+            problems = [f"no valid JSON: {e}"]
+            log(f"  storyboard attempt {attempt + 1}: no valid JSON ({str(e)[:200]})"); continue
         problems = board_problems(b, timing)
-        log(f"  storyboard attempt {attempt + 1}: {len(b.get('shots', [])) if isinstance(b, dict) else 0} shots, "
-            f"{len(problems)} problem(s)")
+        log(f"  storyboard attempt {attempt + 1} by {r.ref} in {time.time() - t1:.0f}s: "
+            f"{len(b.get('shots', [])) if isinstance(b, dict) else 0} shots, {len(problems)} problem(s)")
+        for x in problems[:10]:
+            log(f"    - {x}")
+        if best_p is None or len(problems) < len(best_p):
+            best_b, best_p = b, problems
         if not problems:
             break
-    if problems:
-        (folder / "storyboard.rejected.json").write_text(json.dumps(b, indent=1, ensure_ascii=False), encoding="utf-8")
-        raise RuntimeError("storyboard failed its checks:\n  " + "\n  ".join(problems[:15]))
+    if best_b is None:
+        raise RuntimeError("no storyboard draft at all: " + "; ".join(problems[:3]))
+    b, problems = best_b, best_p
     (folder / "storyboard.json").write_text(json.dumps(b, indent=1, ensure_ascii=False), encoding="utf-8")
+    if problems:  # the Claude polish step (POLISH.md) fixes these before the video is published
+        (folder / "NEEDS_POLISH.md").write_text("Storyboard problems left by the AI draft:\n\n" +
+                                                "\n".join(f"- {x}" for x in problems) + "\n", encoding="utf-8")
 
     rows = "\n".join(f"| {c['claim']} | {c['url']} |" for c in s.get("claims", []))
     checks = "\n".join(f"| {r['claim']} | {r['verdict']} | {r.get('evidence', '')[:120]} |" for r in fc["results"])
@@ -276,7 +289,8 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
         f"- Models that failed the script rules: {[f['ref'] + ': ' + f['error'][:160] for f in info.get('failed', [])]}\n"
         f"- Logic check issues found and fixed: {len(logic)}\n"
         f"- Words: {len(timing['words'])}, length {timing['duration']:.1f}s, {wpm:.0f} words/min, {first3} words in first 3 s\n"
-        f"- Fact check: {fc['counts']}\n- Storyboard: {len(b['shots'])} shots, passed all checks\n", encoding="utf-8")
+        f"- Fact check: {fc['counts']}\n- Storyboard: {len(b['shots'])} shots, "
+        f"{'passed all checks' if not problems else str(len(problems)) + ' problem(s) left for the polish step (NEEDS_POLISH.md)'}\n", encoding="utf-8")
     (folder / "narration.wav").unlink(missing_ok=True)
     log(f"[written] {folder}")
     return folder

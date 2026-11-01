@@ -24,7 +24,7 @@ concurrency:
 jobs:
   make:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
 
@@ -88,12 +88,18 @@ jobs:
         run: echo "EPISODE_DIR=${{ github.event.inputs.episode }}" >> "$GITHUB_ENV"
 
       - name: Check the episode
-        run: python -m studio.story check "$EPISODE_DIR"
+        run: |
+          python -m studio.story check "$EPISODE_DIR"
+          if [ -f "$EPISODE_DIR/NEEDS_POLISH.md" ]; then
+            { echo "## Needs the Claude polish step"; cat "$EPISODE_DIR/NEEDS_POLISH.md"; } >> "$GITHUB_STEP_SUMMARY"
+          fi
 
       - name: Make the video
+        if: hashFiles(format('{0}/NEEDS_POLISH.md', env.EPISODE_DIR)) == ''
         run: python -m studio.story make "$EPISODE_DIR"
 
       - name: Publish as a release
+        if: hashFiles(format('{0}/NEEDS_POLISH.md', env.EPISODE_DIR)) == ''
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
