@@ -1,0 +1,155 @@
+{
+ "title": "Why can't you tickle yourself?",
+ "topic": "Why can't you tickle yourself?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "hand-finger",
+   "label": "self-tickle",
+   "reveal": {
+    "text": "Same hand?",
+    "at": "hand"
+   },
+   "lines": [
+    "Why does your own hand feel less ticklish than someone else’s?"
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "compare",
+   "title": "Tickle response",
+   "left": {
+    "icon": "hand-finger",
+    "label": "self-touch",
+    "value": "predictable",
+    "at": "own"
+   },
+   "right": {
+    "icon": "users",
+    "label": "other-touch",
+    "value": "surprising",
+    "at": "Other"
+   },
+   "verdict": {
+    "text": "Surprise matters",
+    "at": "surprise"
+   },
+   "lines": [
+    "Other people can surprise you.",
+    "Your own hand cannot."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "statement",
+   "icon": "settings",
+   "text": "A tickling robot couldn't make them laugh.",
+   "highlight": [
+    "tickling robot",
+    "couldn't"
+   ],
+   "sub": "One MRI study",
+   "lines": [
+    "In one MRI study, people used a joystick to control a tickling robot—and still couldn't make themselves laugh."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "link",
+   "from": {
+    "icon": "brain",
+    "label": "cerebellum",
+    "at": "cerebellum"
+   },
+   "to": {
+    "icon": "brain",
+    "label": "somatosensory cortex",
+    "at": "cortex"
+   },
+   "note": {
+    "text": "tickle response reduced",
+    "at": "reduces"
+   },
+   "lines": [
+    "When you move your hand, the cerebellum predicts the contact and tells the somatosensory cortex what to expect.",
+    "An unknown cortical mechanism then reduces the tickle response."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "tags",
+   "title": "Evolutionary hypotheses",
+   "icon": "shield",
+   "items": [
+    {
+     "text": "non-self detector",
+     "at": "detector",
+     "tone": "good"
+    },
+    {
+     "text": "guard foreign objects",
+     "at": "foreign",
+     "tone": "good"
+    },
+    {
+     "text": "protect vulnerable spots",
+     "at": "vulnerable",
+     "tone": "neutral"
+    }
+   ],
+   "verdict": {
+    "text": "proposed benefit",
+    "sub": "hypothesis",
+    "at": "proposed"
+   },
+   "lines": [
+    "One proposed benefit: light touch acts as a “non-self detector,” helping guard against foreign objects.",
+    "Ticklish areas may also prompt protection of vulnerable spots."
+   ],
+   "id": "beat5"
+  },
+  {
+   "scene": "bubble",
+   "icon": "user",
+   "prop": "hand-finger",
+   "text": "The difference",
+   "at": "difference",
+   "lines": [
+    "So try this: close your eyes and touch your nose.",
+    "Then let a friend surprise you with a tickle.",
+    "The difference is surprise."
+   ],
+   "id": "beat6"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Self-tickling fails because self-produced contact is predictable and lacks the unexpected motion needed to activate the tickle response.",
+   "url": "https://en.wikipedia.org/wiki/Tickling"
+  },
+  {
+   "claim": "In an MRI study using a joystick-controlled tickling robot, participants could not make themselves laugh.",
+   "url": "https://en.wikipedia.org/wiki/Tickling"
+  },
+  {
+   "claim": "Researchers suggested that the cerebellum sends the somatosensory cortex precise information about expected self-generated sensation, while an unknown cortical mechanism reduces tickling.",
+   "url": "https://en.wikipedia.org/wiki/Tickling"
+  },
+  {
+   "claim": "Light-touch knismesis may serve as a non-self detector against foreign objects, and ticklish areas may encourage protection of vulnerable body areas.",
+   "url": "https://en.wikipedia.org/wiki/Tickling"
+  }
+ ],
+ "youtube": {
+  "title": "Why Can't You Tickle Yourself? Surprise Is the Key",
+  "description": "Your brain predicts self-generated touch, reducing the surprise that makes tickling ticklish.",
+  "tags": [
+   "tickling",
+   "why can't you tickle yourself",
+   "brain science",
+   "touch",
+   "neuroscience"
+  ]
+ }
+}

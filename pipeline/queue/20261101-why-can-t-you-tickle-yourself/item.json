@@ -1,0 +1,52 @@
+{
+ "id": "20261101-why-can-t-you-tickle-yourself",
+ "topic": "Why can't you tickle yourself?",
+ "lane": null,
+ "topic_key": "730f73e48269a66e",
+ "stage": "queue",
+ "created": "2026-11-01T06:22:58+00:00",
+ "attempts": 0,
+ "history": [
+  {
+   "at": "2026-11-01T06:22:58+00:00",
+   "to": "queue",
+   "why": "created"
+  }
+ ],
+ "provenance": {
+  "research_plan": {
+   "questions": [
+    "Why does self‑tickling fail to produce the same sensation?",
+    "What brain mechanisms prevent us from predicting our own tickle?",
+    "How does the sense of touch differ between self‑ and other‑initiated stimuli?",
+    "What evolutionary advantage might self‑tickle avoidance provide?"
+   ],
+   "wikipedia": [
+    "Tactile perception",
+    "Somatosensory cortex",
+    "Predictive coding",
+    "Why can't you tickle yourself?"
+   ],
+   "scholar": [
+    "self tickling neural mechanisms",
+    "predictive coding somatosensory self‑touch"
+   ],
+   "model": "groq:openai/gpt-oss-20b"
+  },
+  "writer": "nvidia:minimaxai/minimax-m3.1-flash",
+  "candidates": [
+   "groq:openai/gpt-oss-120b",
+   "nvidia:minimaxai/minimax-m3.1-flash"
+  ],
+  "judge": {
+   "index": 1,
+   "scores": {
+    "1": 3,
+    "2": 4
+   },
+   "reason": "Candidate 2 is more accurate (it hedges with 'an unknown cortical mechanism' and 'may also prompt protection' rather than overstating the cerebellum's role or declaring ticklish spots 'the most vulnerable' parts), surfaces the surprising joystick-controlled tickle-robot finding early, keeps one clea",
+   "model": "nvidia:minimaxai/minimax-m3.1-flash"
+  },
+  "rules": "studio/pipeline/draft.py TASK + POLISH.md"
+ }
+}
