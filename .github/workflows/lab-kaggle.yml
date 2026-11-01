@@ -50,3 +50,6 @@ jobs:
           [ -z "$files" ] && { echo "No output files."; exit 0; }
           tag="lab-run${{ github.run_number }}"
           gh release create "$tag" $files --prerelease --title "Lab: $LAB (run ${{ github.run_number }})" --notes "Experiment output, not a finished video."
+      - name: Fail if a lab script crashed part-way
+        if: always()
+        run: if [ -f lab_publish/CRASHED.txt ]; then cat lab_publish/CRASHED.txt; exit 1; fi

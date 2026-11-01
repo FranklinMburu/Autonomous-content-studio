@@ -59,3 +59,10 @@ for name in slugs:
         if f.is_file() and f.suffix in (".mp4", ".png", ".txt", ".wav", ".log", ".json"):
             shutil.copy(f, flat / f"{name}__{f.name}")
 print("FINAL:", done)
+# a script that crashed still "completes" on Kaggle: fail the run (after publishing, so the logs stay readable)
+# (every lab ends by logging "total <seconds>s"; no such line = it died part-way)
+crashed = [n for n in slugs if not any(ln.startswith("total ") for f in (Path("lab_out") / n).rglob("log.txt")
+                                       for ln in f.read_text(errors="ignore").splitlines())]
+if crashed:
+    Path("lab_publish/CRASHED.txt").write_text("crashed: " + ", ".join(crashed) + "\n")
+    print("CRASHED:", crashed)
