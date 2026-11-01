@@ -73,6 +73,62 @@ def picture_prompt(p, shot=None):
     return f"{STYLE_SHORT}, {p}{era}" + (f", {looks}" if looks else "")
 
 
+# ---------- GPU 1: the clip maker, a SEPARATE process (test: two GPUs driven from one process crashed CUDA) ----------
+# It waits for job files (out/jobs/<name>.json) written as pictures finish, and stops after out/jobs/DONE.
+CLIPPER = r"""
+import gc, json, os, sys, time, traceback
+import torch
+from PIL import Image
+from diffusers import LTXImageToVideoPipeline
+from diffusers.utils import export_to_video
+OUT, W, H, N, STEPS, STYLE, NEG = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4]), int(sys.argv[5]), sys.argv[6], sys.argv[7]
+LOG = open(f"{OUT}/log.txt", "a")
+def log(*a):
+    s = " ".join(str(x) for x in a); print(s, flush=True); LOG.write(s + "\n"); LOG.flush()
+t = time.time()
+lp = LTXImageToVideoPipeline.from_pretrained("Lightricks/LTX-Video", torch_dtype=torch.float16)
+lp.enable_model_cpu_offload()
+log(f"ltx load {time.time() - t:.0f}s")
+done, times = set(), []
+while True:
+    jobs = sorted((f for f in os.listdir(f"{OUT}/jobs") if f.endswith(".json") and f not in done),
+                  key=lambda f: os.path.getmtime(f"{OUT}/jobs/{f}"))
+    if not jobs:
+        if os.path.exists(f"{OUT}/jobs/DONE"):
+            break
+        time.sleep(3); continue
+    f = jobs[0]; done.add(f)
+    j = json.load(open(f"{OUT}/jobs/{f}"))
+    try:
+        t = time.time()
+        fr = lp(image=Image.open(j["path"]).convert("RGB").resize((W, H)), prompt=f"{j['motion']}, {STYLE}", negative_prompt=NEG,
+                width=W, height=H, num_frames=N, num_inference_steps=STEPS, decode_timestep=0.05, decode_noise_scale=0.025,
+                generator=torch.Generator("cpu").manual_seed(0)).frames[0]
+        export_to_video(fr, f"{OUT}/clip_{j['name']}.mp4", fps=24)
+        times.append(time.time() - t); log(f"clip {j['name']}: {time.time() - t:.0f}s")
+    except Exception:
+        log(f"clip {j['name']} FAILED", traceback.format_exc()[-600:])
+    gc.collect(); torch.cuda.empty_cache()
+json.dump(times, open(f"{OUT}/clip_times.json", "w"))
+"""
+open("/kaggle/working/clipper.py", "w").write(CLIPPER)
+clip_args = [sys.executable, "/kaggle/working/clipper.py", OUT, str(CLIP_W), str(CLIP_H), str(CLIP_FRAMES), str(CLIP_STEPS), STYLE, NEG]
+clipper = None
+if TWO:   # starts now: loads LTX on GPU 1 while GPU 0 paints
+    clipper = subprocess.Popen(clip_args, env={**os.environ, "CUDA_VISIBLE_DEVICES": "1"})
+
+
+# ---------- GPU 0: pictures + depth ----------
+from diffusers import StableDiffusionXLPipeline, AutoencoderKL  # noqa: E402
+from transformers import CLIPVisionModelWithProjection, pipeline  # noqa: E402
+vae = AutoencoderKL.from_pretrained("madebyollin/sdxl-vae-fp16-fix", torch_dtype=torch.float16)
+enc = CLIPVisionModelWithProjection.from_pretrained("h94/IP-Adapter", subfolder="models/image_encoder", torch_dtype=torch.float16)
+pipe = StableDiffusionXLPipeline.from_pretrained("stabilityai/stable-diffusion-xl-base-1.0", vae=vae, image_encoder=enc,
+                                                 torch_dtype=torch.float16, variant="fp16", use_safetensors=True).to("cuda")
+pipe.vae.enable_tiling()
+depth = pipeline("depth-estimation", model="depth-anything/Depth-Anything-V2-Small-hf", device=0)
+
+
 def gen(prompt, seed, w=IMG_W, h=IMG_H, neg=None, **kw):
     im = pipe(prompt=prompt, prompt_2=f"{prompt}, {STYLE}", negative_prompt=neg or NEG, width=w, height=h, num_inference_steps=30,
               guidance_scale=6.5, generator=torch.Generator("cuda").manual_seed(seed), **kw).images[0]

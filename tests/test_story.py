@@ -147,6 +147,15 @@ db = 20 * np.log10(g)
 ok(abs(db[int(1.5 * sound.SR)] + 19) < 0.5 and abs(db[int(3.0 * sound.SR)] + 15) < 0.5 and abs(db[int(6.5 * sound.SR)] + 8) < 0.5
    and np.abs(np.diff(db)).max() < 0.01, "film mix: music bed under speech, up in pauses, swell at the end, smooth ramps")
 
+# the Kaggle film job has no undefined names (1 Nov: an edit deleted the model loading and Kaggle failed in 1 min)
+try:
+    import subprocess as _sp2
+    lint = _sp2.run([sys.executable, "-m", "pyflakes", str(ROOT / "lab/kaggle/film_episode/lab.py")], capture_output=True, text=True).stdout
+    bad = [l for l in lint.splitlines() if "undefined name" in l and "'FILES'" not in l and "'vlm'" not in l]
+    ok(not bad, f"film job: no undefined names {bad[:3]}")
+except Exception as e:  # noqa: BLE001
+    print("(pyflakes not installed: film job lint skipped)", e)
+
 # every film-only episode's plan passes the checks (on a fake timing of its own script)
 from studio.story import filmkit as FK  # noqa: E402
 for fe in sorted(p for p in (ROOT / "episodes").glob("*/*") if (p / "film.json").exists()):
