@@ -41,6 +41,11 @@ FILM_RULES = """FILM SHOT LIST RULES (the pictures are painted by an image AI in
   their description. One single scene. NO text, signs, letters, labels, logos or numbers in the picture.
   Keep each prompt short (under 260 characters): the image model only reads the beginning.
   Mix shot sizes; change places as the story moves; never the same place more than 3 shots in a row.
+- Every shot shows a visible ACTION with a verb (scrubbing, kneeling, pouring, pointing, lying sick), never people
+  just sitting or posing for a portrait.
+- Never draw ideas or invisible things (germs, bacteria, acid, infection, "decay", "the reason") as creatures, faces or
+  mascots. Show them through real things: a dirty hand, a microscope, a rotting apple, a bottle being poured, a pale
+  patient, a bandage. No talking animals or objects.
 - "clip": true for 60-75% of shots (anything with a person acting or a hand doing something). Then "motion": ONE
   small physical action + a slow camera move ("she rocks the baby gently, slow camera push in"). Small motions only:
   big moves (running, fighting, walking far, falling) melt in the AI video.
@@ -207,6 +212,26 @@ def film_problems(f, timing, memory=None, episode=None):
 
 # ---------- free-model draft ----------
 
+def examples_text(episode=None, n=2):
+    """Approved shot plans from finished episodes (the owner's Stage 1 reference and its successors) as few-shot
+    examples: real full-length plans teach the free models far more than an abridged made-up one."""
+    root = Path(__file__).resolve().parents[2] / "episodes"
+    good = [p for p in sorted(root.glob("*/*/film.json")) if p.parent.name != episode
+            and json.loads(p.read_text(encoding="utf-8")).get("approved")]
+    out = []
+    for p in good[-n:]:
+        f = json.loads(p.read_text(encoding="utf-8"))
+        f = {k: v for k, v in f.items() if k in ("era", "cast", "music", "shots")}
+        for s in f["shots"]:
+            s.pop("ip", None); s.pop("seed", None)
+        out.append(f"EXAMPLE (approved, a DIFFERENT story: copy the craft, never its people, places or shots):\n"
+                   f"{json.dumps(f, ensure_ascii=False)}")
+    if not out:
+        ex = json.loads((Path(__file__).parent / "example_film.json").read_text(encoding="utf-8"))
+        out.append("EXAMPLE film.json for a DIFFERENT story (copy the craft, not the people or places):\n" + json.dumps(ex, ensure_ascii=False))
+    return "\n\n".join(out)
+
+
 def _ask_patiently(ask, msg, models, log, deadline, label, **kw):
     """ask() across the models; when they are all rate-limited or down, wait (up to 5 min at a time) and try again
     until the deadline. Returns a Result or None."""
@@ -321,10 +346,8 @@ def write_film(script, timing, ask, models, memory, word_list, log=print, episod
     import time
     deadline = time.time() + budget_min * 60
     narration = " ".join(str(l) for b in script["beats"] for l in b["lines"])
-    ex = json.loads((Path(__file__).parent / "example_film.json").read_text(encoding="utf-8"))
     head = (f"{FILM_RULES}\n\n{memory_text(memory, episode)}\n\nTITLE: {script.get('title')}\nNARRATION:\n{narration}\n\n"
-            f"EXAMPLE film.json for a DIFFERENT story (copy the craft, not the people or places):\n"
-            f"{json.dumps(ex, ensure_ascii=False)}\n")
+            f"{examples_text(episode)}\n")
     # 1. cast
     msg = head + ('\nSTEP 1 of 2: write ONLY the story\'s cast, era, music mood and key words. Return JSON only: '
                   '{"era": "...", "cast": {"role": "full visual description", ...}, "music": "...", "key_words": [...]}')
