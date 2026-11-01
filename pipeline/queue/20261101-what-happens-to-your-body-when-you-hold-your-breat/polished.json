@@ -1,0 +1,88 @@
+{
+ "title": "Your urge to breathe isn't about oxygen",
+ "topic": "What happens to your body when you hold your breath?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "id": "beat1",
+   "scene": "hero",
+   "icon": "lungs",
+   "label": "breath hold",
+   "reveal": {"text": "Not oxygen?", "at": "oxygen"},
+   "lines": ["Your urge to breathe isn't mainly about running out of oxygen."]
+  },
+  {
+   "id": "beat2",
+   "scene": "link",
+   "from": {"icon": "wind", "label": "carbon dioxide", "at": "carbon"},
+   "to": {"icon": "brain", "label": "breathe!", "at": "alarm"},
+   "lines": ["The alarm comes mainly from rising carbon dioxide levels."]
+  },
+  {
+   "id": "beat3",
+   "scene": "number",
+   "value": 20,
+   "prefix": "",
+   "suffix": "%",
+   "label": "of oxygen at rest goes to the brain",
+   "at": "twenty",
+   "icon": "brain",
+   "lines": ["Meanwhile, your brain uses about twenty percent of your oxygen at rest, with little in reserve."]
+  },
+  {
+   "id": "beat4",
+   "scene": "compare",
+   "title": "Before a dive",
+   "left": {"icon": "wind", "label": "fast breathing", "value": "CO₂ down", "at": "deep"},
+   "right": {"icon": "brain", "label": "warning", "value": "delayed", "at": "delaying"},
+   "verdict": {"text": "oxygen still dropping", "at": "drops"},
+   "lines": [
+    "Here's the trap: breathing fast and deep before a dive lowers carbon dioxide, delaying the warning.",
+    "So the brain can feel comfortable while oxygen drops to dangerous levels."
+   ]
+  },
+  {
+   "id": "beat5",
+   "scene": "statement",
+   "text": "Blackout can strike within seconds",
+   "highlight": ["seconds"],
+   "sub": "most likely on the way up",
+   "icon": "eye",
+   "lines": ["Blackouts are most likely on the way up, can strike within seconds, and may come with no urgent urge to breathe."]
+  },
+  {
+   "id": "beat6",
+   "scene": "tags",
+   "title": "Who blacks out?",
+   "icon": "users",
+   "items": [
+    {"text": "fit", "at": "fit", "tone": "neutral"},
+    {"text": "strong swimmers", "at": "strong", "tone": "neutral"},
+    {"text": "many dives", "at": "many", "tone": "neutral"}
+   ],
+   "lines": ["And the victims are often fit, strong swimmers who had done many dives without problems."]
+  },
+  {
+   "id": "beat7",
+   "scene": "bubble",
+   "icon": "user",
+   "prop": "users",
+   "text": "Buddy up",
+   "at": "buddy",
+   "lines": ["So never breathe fast and deep before going under, and always dive with a buddy watching from the surface."]
+  }
+ ],
+ "sources": [
+  {"claim": "The urge to breathe is primarily driven by rising carbon dioxide levels rather than falling oxygen levels.", "url": "https://en.wikipedia.org/wiki/Freediving"},
+  {"claim": "The brain uses about 20% of the oxygen under resting conditions but has low reserves.", "url": "https://en.wikipedia.org/wiki/Hypoxia_%28medicine%29"},
+  {"claim": "Hyperventilation before a dive reduces carbon dioxide, delays the warning signals to breathe and can mislead the brain into feeling comfortable while oxygen drops to dangerous levels.", "url": "https://en.wikipedia.org/wiki/Freediving"},
+  {"claim": "Blackouts are more likely during ascent, can occur within seconds, and happen when the swimmer does not necessarily feel an urgent need to breathe.", "url": "https://en.wikipedia.org/wiki/Freediving"},
+  {"claim": "Victims are often established breath-hold divers who are fit, strong swimmers and have completed many dives before without problems.", "url": "https://en.wikipedia.org/wiki/Freediving"},
+  {"claim": "Freedivers are strongly advised not to hyperventilate and are encouraged to dive only with a buddy observing from the surface.", "url": "https://en.wikipedia.org/wiki/Freediving"}
+ ],
+ "youtube": {
+  "title": "Your urge to breathe isn't about oxygen 🫁",
+  "description": "Holding your breath sets off a carbon dioxide alarm, not an oxygen one, and that is why breathing fast before a dive is so risky.",
+  "tags": ["breath holding", "human body", "oxygen", "carbon dioxide", "freediving", "water safety"]
+ }
+}
