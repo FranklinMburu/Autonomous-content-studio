@@ -34,7 +34,7 @@ vae = AutoencoderKL.from_pretrained("madebyollin/sdxl-vae-fp16-fix", torch_dtype
 enc = CLIPVisionModelWithProjection.from_pretrained("h94/IP-Adapter", subfolder="models/image_encoder", torch_dtype=torch.float16)
 pipe = StableDiffusionXLPipeline.from_pretrained("stabilityai/stable-diffusion-xl-base-1.0", vae=vae, image_encoder=enc,
                                                  torch_dtype=torch.float16, variant="fp16", use_safetensors=True).to("cuda")
-pipe.enable_vae_tiling()
+pipe.vae.enable_tiling()
 
 
 def gen(prompt, seed, w=768, h=1344, **kw):
