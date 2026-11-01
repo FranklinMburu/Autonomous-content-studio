@@ -1,0 +1,52 @@
+{
+ "id": "20261101-why-do-you-yawn-when-someone-else-yawns",
+ "topic": "Why do you yawn when someone else yawns?",
+ "lane": null,
+ "topic_key": "e16ef00e3b87ac0a",
+ "stage": "queue",
+ "created": "2026-11-01T05:59:10+00:00",
+ "attempts": 0,
+ "history": [
+  {
+   "at": "2026-11-01T05:59:10+00:00",
+   "to": "queue",
+   "why": "created"
+  }
+ ],
+ "provenance": {
+  "research_plan": {
+   "questions": [
+    "What is the physiological mechanism behind contagious yawning?",
+    "Is contagious yawning linked to empathy or social bonding?",
+    "Does contagious yawning occur across all species?",
+    "What evolutionary advantage might contagious yawning provide?"
+   ],
+   "wikipedia": [
+    "Contagious yawning",
+    "Yawning",
+    "Empathy",
+    "Why do you yawn when someone else yawns?"
+   ],
+   "scholar": [
+    "contagious yawning mechanism",
+    "evolutionary advantage of contagious yawning"
+   ],
+   "model": "groq:openai/gpt-oss-20b"
+  },
+  "writer": "groq:openai/gpt-oss-120b",
+  "candidates": [
+   "groq:openai/gpt-oss-120b",
+   "nvidia:minimaxai/minimax-m3.1-flash"
+  ],
+  "judge": {
+   "index": 0,
+   "scores": {
+    "1": 4,
+    "2": 3
+   },
+   "reason": "Candidate 1 stays tighter to the source, presents a clear hook‑story‑payoff flow, and avoids unsupported claims found in Candidate 2.",
+   "model": "groq:openai/gpt-oss-120b"
+  },
+  "rules": "studio/pipeline/draft.py TASK + POLISH.md"
+ }
+}

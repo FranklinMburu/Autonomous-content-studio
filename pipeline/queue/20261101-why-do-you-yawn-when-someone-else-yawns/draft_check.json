@@ -1,0 +1,141 @@
+{
+ "gates": [],
+ "writer": "groq:openai/gpt-oss-120b",
+ "candidates": [
+  "groq:openai/gpt-oss-120b",
+  "nvidia:minimaxai/minimax-m3.1-flash"
+ ],
+ "failed": [
+  {
+   "ref": "google:gemini-3.6-flash",
+   "error": "no model in tier 'standard' could answer (google:gemini-3.6-flash: invalid output; google:gemini-3.6-flash: HTTP 429)",
+   "attempts": [
+    {
+     "ref": "google:gemini-3.6-flash",
+     "invalid": [
+      "output was not valid JSON (Unterminated string starting at: line 110 column 4 (char 2505))"
+     ],
+     "latency_s": 15.21,
+     "tokens_in": 4624,
+     "tokens_out": 860,
+     "finish": "MAX_TOKENS"
+    },
+    {
+     "ref": "google:gemini-3.6-flash",
+     "error": "HTTP 429",
+     "reason": "{\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a",
+     "seconds": 1.4
+    }
+   ]
+  }
+ ],
+ "judge": {
+  "index": 0,
+  "scores": {
+   "1": 4,
+   "2": 3
+  },
+  "reason": "Candidate 1 stays tighter to the source, presents a clear hook‑story‑payoff flow, and avoids unsupported claims found in Candidate 2.",
+  "model": "groq:openai/gpt-oss-120b"
+ },
+ "fact_check": {
+  "results": [
+   {
+    "claim": "Seeing someone yawn triggers a reflex in our brain that mirrors theirs.",
+    "verdict": "supported",
+    "evidence": "Source 1: “In humans, yawning is often triggered by the perception that others are yawning… The proximate cause for contagious yawning may lie with mirror neurons…\""
+   },
+   {
+    "claim": "The visual cue activates mirror neurons, sending a signal to the yawning centre.",
+    "verdict": "supported",
+    "evidence": "Source 1: “The proximate cause for contagious yawning may lie with mirror neurons in the frontal cortex…\""
+   },
+   {
+    "claim": "Scientists think the reflex helps cool the brain—cold packs cut contagion dramatically.",
+    "verdict": "supported",
+    "evidence": "Source 1 & 2: Both discuss the brain‑cooling hypothesis and report that cold packs greatly reduce contagious yawning."
+   },
+   {
+    "claim": "In experiments, cold forehead packs reduced contagious yawning to about nine percent.",
+    "verdict": "supported",
+    "evidence": "Source 2: “When participants held a cold pack (4 °C) to their forehead, contagious yawning dropped to 9%.”"
+   },
+   {
+    "claim": "The more socially close you are, the faster you catch the yawn.",
+    "verdict": "partial",
+    "evidence": "Source 3: “the strength of the social bond… positively affected the frequency of contagious yawning… female wolves showed a shorter reaction time…\" The source confirms higher frequency and faster reaction in close associates for wolves, but does not provide a general rule for all species."
+   },
+   {
+    "claim": "Studies on wolves and dogs show the same pattern—close bonds boost contagion.",
+    "verdict": "supported",
+    "evidence": "Source 3: wolves show contagion linked to social bond; Source 1: dogs show higher susceptibility with familiar humans."
+   },
+   {
+    "claim": "Try breathing through your nose next time and see if the yawn stops!",
+    "verdict": "supported",
+    "evidence": "Source 2: “When instructed to breathe nasally… no participants exhibited contagious yawning.”"
+   }
+  ],
+  "counts": {
+   "partial": 1,
+   "unsupported": 0,
+   "supported": 6
+  },
+  "model": "groq:openai/gpt-oss-120b"
+ },
+ "provenance": {
+  "layer_version": "0.3.0",
+  "config": "1cd713cd88bb",
+  "tier": "standard",
+  "ref": "groq:openai/gpt-oss-120b",
+  "prompt_sha256": "2f2820389c053980",
+  "system_sha256": "a328b827560026be",
+  "temperature": 0.7,
+  "max_tokens": 4000,
+  "json": true,
+  "cached": false,
+  "finish": "stop",
+  "tokens_in": 5436,
+  "tokens_out": 1528,
+  "at": "2026-11-01T06:00:21+00:00",
+  "best_of": {
+   "candidates": [
+    "groq:openai/gpt-oss-120b",
+    "nvidia:minimaxai/minimax-m3.1-flash"
+   ],
+   "failed": [
+    {
+     "ref": "google:gemini-3.6-flash",
+     "error": "no model in tier 'standard' could answer (google:gemini-3.6-flash: invalid output; google:gemini-3.6-flash: HTTP 429)",
+     "attempts": [
+      {
+       "ref": "google:gemini-3.6-flash",
+       "invalid": [
+        "output was not valid JSON (Unterminated string starting at: line 110 column 4 (char 2505))"
+       ],
+       "latency_s": 15.21,
+       "tokens_in": 4624,
+       "tokens_out": 860,
+       "finish": "MAX_TOKENS"
+      },
+      {
+       "ref": "google:gemini-3.6-flash",
+       "error": "HTTP 429",
+       "reason": "{\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a",
+       "seconds": 1.4
+      }
+     ]
+    }
+   ],
+   "judge": {
+    "index": 0,
+    "scores": {
+     "1": 4,
+     "2": 3
+    },
+    "reason": "Candidate 1 stays tighter to the source, presents a clear hook‑story‑payoff flow, and avoids unsupported claims found in Candidate 2.",
+    "model": "groq:openai/gpt-oss-120b"
+   }
+  }
+ }
+}
