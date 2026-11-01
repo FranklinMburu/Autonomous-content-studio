@@ -12,7 +12,7 @@ Channels are the **Sub-item** records of that page. They are parts of this proje
 | Code | Channel | Stage | Notion record |
 |---|---|---|---|
 | BS | Body Science (placeholder name) | Pilot | YouTube Creator Studio · Body Science |
-| HR | Hidden Reasons | Test video 1 made | YouTube Creator Studio · Hidden Reasons |
+| HR | Hidden Reasons (true stories behind history's strangest acts) | Film style Stage 1 (episode 002 film v2); scheduled pipeline built | YouTube Creator Studio · Hidden Reasons — True Stories Behind History's Strangest Acts (HR) |
 
 Six more channels are ideas only (ranked in Notion); they have no code yet.
 
