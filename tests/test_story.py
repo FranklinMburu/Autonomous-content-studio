@@ -30,7 +30,8 @@ def fake_timing(script, step=0.25):
     return {"duration": round(t + 0.7, 3), "words": words}
 
 
-episodes = sorted(p for p in (ROOT / "episodes").glob("*/*") if (p / "script.json").exists())
+episodes = sorted(p for p in (ROOT / "episodes").glob("*/*") if (p / "script.json").exists()
+                  and ((p / "storyboard.json").exists() or (p / "scenes.py").exists()))   # 2D episodes (film-only ones are checked below)
 ok(len(episodes) >= 1, f"found {len(episodes)} episode(s)")
 for ep in episodes:
     ok(main(["check", str(ep)]) == 0, f"{ep.name}: offline check")
@@ -145,6 +146,13 @@ g = sound.music_gain({"words": [{"w": "a", "start": 1.0, "end": 2.0}, {"w": "b",
 db = 20 * np.log10(g)
 ok(abs(db[int(1.5 * sound.SR)] + 19) < 0.5 and abs(db[int(3.0 * sound.SR)] + 15) < 0.5 and abs(db[int(6.5 * sound.SR)] + 8) < 0.5
    and np.abs(np.diff(db)).max() < 0.01, "film mix: music bed under speech, up in pauses, swell at the end, smooth ramps")
+
+# every film-only episode's plan passes the checks (on a fake timing of its own script)
+from studio.story import filmkit as FK  # noqa: E402
+for fe in sorted(p for p in (ROOT / "episodes").glob("*/*") if (p / "film.json").exists()):
+    tmf = fake_timing(json.loads((fe / "script.json").read_text(encoding="utf-8")), step=0.3)
+    fp = [x for x in FK.film_problems(json.loads((fe / "film.json").read_text(encoding="utf-8")), tmf) if "on screen" not in x]
+    ok(not fp, f"film plan {fe.name}: passes the checks {fp[:3]}")
 
 # film style (studio/story/film.py): the shot plan, missing assets, effects, and a short render from tiny fake assets
 from studio.story import film as F
