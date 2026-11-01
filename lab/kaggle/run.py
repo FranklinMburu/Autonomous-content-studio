@@ -27,6 +27,10 @@ for name in names:
     work = Path("lab_push") / name
     shutil.rmtree(work, ignore_errors=True); shutil.copytree(src, work)
     slug = f"studio-lab-{name}".replace("_", "-")
+    data = {f.name: f.read_text(encoding="utf-8") for f in src.glob("*.json")}
+    if data:  # a Kaggle script is a single file: carry the lab's data files inside it
+        code = (work / "lab.py").read_text(encoding="utf-8")
+        (work / "lab.py").write_text(f"FILES = {json.dumps(data)}\n" + code, encoding="utf-8")
     (work / "kernel-metadata.json").write_text(json.dumps({
         "id": f"{user}/{slug}", "title": slug, "code_file": "lab.py", "language": "python", "kernel_type": "script",
         "is_private": True, "enable_gpu": True, "enable_internet": True, "dataset_sources": [],
