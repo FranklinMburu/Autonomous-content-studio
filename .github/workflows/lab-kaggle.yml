@@ -1,0 +1,45 @@
+name: Lab (Kaggle GPU)
+
+# Runs one experiment from lab/kaggle/<lab>/ on the owner's free Kaggle GPU and publishes what it made as a
+# GitHub pre-release "lab-<lab>-run<N>". Free: GitHub Actions (public repo) + Kaggle's free weekly GPU hours.
+on:
+  workflow_dispatch:
+    inputs:
+      lab:
+        description: "Lab folder name in lab/kaggle/ (e.g. visual_test1)"
+        required: true
+        default: "visual_test1"
+      wait_minutes:
+        description: "How long to wait for Kaggle (minutes)"
+        required: false
+        default: "200"
+
+permissions:
+  contents: write
+
+jobs:
+  lab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install the Kaggle tool
+        run: pip install -q -U kaggle
+      - name: Run the lab on Kaggle
+        env:
+          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+        run: python lab/kaggle/run.py "${{ github.event.inputs.lab }}" --wait-min "${{ github.event.inputs.wait_minutes }}"
+      - name: Publish the results
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ls -la lab_out lab_out/out 2>/dev/null || true
+          files=$(find lab_out -type f \( -name '*.mp4' -o -name '*.png' -o -name '*.txt' -o -name '*.wav' -o -name '*.log' \) | head -60)
+          [ -z "$files" ] && { echo "No output files."; exit 0; }
+          tag="lab-${{ github.event.inputs.lab }}-run${{ github.run_number }}"
+          gh release create "$tag" $files --prerelease --title "Lab: ${{ github.event.inputs.lab }} (run ${{ github.run_number }})" --notes "Experiment output, not a finished video."
