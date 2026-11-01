@@ -3,7 +3,7 @@
  "topic": "Why do cats knead with their paws?",
  "lane": null,
  "topic_key": "feee612edbeff3cf",
- "stage": "ready",
+ "stage": "delivered",
  "created": "2026-10-31T05:37:42+00:00",
  "attempts": 1,
  "history": [
@@ -17,6 +17,12 @@
    "from": "queue",
    "to": "ready",
    "why": "polish accepted from PR #11 (score 4)"
+  },
+  {
+   "at": "2026-11-01T09:53:28+00:00",
+   "from": "ready",
+   "to": "delivered",
+   "why": "rendered; issue #12"
   }
  ],
  "provenance": {
