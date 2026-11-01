@@ -53,12 +53,31 @@ _P = {
 POSES = sorted(_P)
 
 
+LW = 0.6     # outline weight (benchmark characters have thin lines; 1.0 = the old thick cartoon outline)
+SHADE = True  # 3D-style volume shading (benchmark characters look like lit 3D toys, not flat stickers)
+
+
+def _shade_fill(c, col, x0, y0, x1, y1, radial=None):
+    """Fill the current path with a lit gradient of col (light from the upper left), then keep the path."""
+    if not SHADE:
+        _rgb(c, col); c.fill_preserve(); return
+    hi = tuple(min(1.0, v * 1.18 + 0.06) for v in col); lo = tuple(v * 0.62 for v in col)
+    if radial:
+        cx, cy, r = radial
+        g = cairo.RadialGradient(cx - r * 0.38, cy - r * 0.42, r * 0.05, cx, cy, r * 1.05)
+        g.add_color_stop_rgb(0, *hi); g.add_color_stop_rgb(0.55, *col); g.add_color_stop_rgb(1, *lo)
+    else:
+        g = cairo.LinearGradient(x0, y0, x1, y1)
+        g.add_color_stop_rgb(0, *hi); g.add_color_stop_rgb(0.5, *col); g.add_color_stop_rgb(1, *lo)
+    c.set_source(g); c.fill_preserve()
+
+
 def _rgb(c, col, a=1.0):
     c.set_source_rgba(col[0], col[1], col[2], a)
 
 
 def _circle(c, x, y, r, fill, lw=6, a=1.0):
-    c.arc(x, y, r, 0, 2 * math.pi); _rgb(c, fill, a); c.fill_preserve(); _rgb(c, INK); c.set_line_width(lw); c.stroke()
+    c.arc(x, y, r, 0, 2 * math.pi); _rgb(c, fill, a); c.fill_preserve(); _rgb(c, INK); c.set_line_width((lw) * LW); c.stroke()
 
 
 def _limb(c, x, y, a1, a2, l1, l2, w, col, end=None, end_r=0, end_col=None, face=1):
@@ -66,7 +85,7 @@ def _limb(c, x, y, a1, a2, l1, l2, w, col, end=None, end_r=0, end_col=None, face
     x1, y1 = x + face * math.sin(a1) * l1, y + math.cos(a1) * l1
     x2, y2 = x1 + face * math.sin(a1 + a2) * l2, y1 + math.cos(a1 + a2) * l2
     c.set_line_cap(cairo.LINE_CAP_ROUND); c.set_line_join(cairo.LINE_JOIN_ROUND)
-    for lw, colr in ((w + 10, INK), (w, col)):
+    for lw, colr in ((w + 10 * LW, INK), (w, col)):
         c.move_to(x, y); c.line_to(x1, y1); c.line_to(x2, y2); _rgb(c, colr); c.set_line_width(lw); c.stroke()
     if end == "hand":
         _circle(c, x2, y2, end_r, end_col, 5)
@@ -98,9 +117,9 @@ def _face(c, mood, look, t, extras, skin, seed=0.0):
     for sx in (-28, 30):
         c.save(); c.translate(sx, -8)
         if blink:
-            c.set_line_width(6); _rgb(c, INK); c.move_to(-16, 2); c.curve_to(-6, 10, 6, 10, 16, 2); c.stroke()
+            c.set_line_width((6) * LW); _rgb(c, INK); c.move_to(-16, 2); c.curve_to(-6, 10, 6, 10, 16, 2); c.stroke()
         elif mood in ("laugh", "happy") and mood == "laugh":
-            c.set_line_width(6); _rgb(c, INK); c.arc(0, 6, 14, math.pi * 1.1, math.pi * 1.9); c.stroke()
+            c.set_line_width((6) * LW); _rgb(c, INK); c.arc(0, 6, 14, math.pi * 1.1, math.pi * 1.9); c.stroke()
         else:
             r = 20 if mood not in ("shock", "scared") else 24
             _circle(c, 0, 0, r, WHITE, 4)
@@ -108,15 +127,15 @@ def _face(c, mood, look, t, extras, skin, seed=0.0):
             _rgb(c, INK); c.arc(ex + (2 if mood != "doubt" else -3), 2, pr, 0, 2 * math.pi); c.fill()
             if mood in ("sick", "sad"):
                 _rgb(c, skin); c.rectangle(-22, -24, 44, 16); c.fill()   # heavy eyelids
-                c.set_line_width(4); _rgb(c, INK); c.move_to(-21, -8); c.line_to(21, -8); c.stroke()
+                c.set_line_width((4) * LW); _rgb(c, INK); c.move_to(-21, -8); c.line_to(21, -8); c.stroke()
         c.restore()
     if "glasses" in extras:
-        c.set_line_width(5); _rgb(c, INK)
+        c.set_line_width((5) * LW); _rgb(c, INK)
         for sx in (-28, 30):
             c.arc(sx, -8, 26, 0, 2 * math.pi); c.new_sub_path()
         c.stroke(); c.move_to(-2, -8); c.line_to(4, -8); c.stroke()
     # brows
-    c.set_line_width(7); _rgb(c, INK); c.set_line_cap(cairo.LINE_CAP_ROUND)
+    c.set_line_width((7) * LW); _rgb(c, INK); c.set_line_cap(cairo.LINE_CAP_ROUND)
     br = {"angry": ((-44, -38, -14, -28), (14, -28, 46, -38)), "doubt": ((-44, -34, -14, -34), (14, -44, 46, -52)),
           "sad": ((-44, -30, -14, -40), (14, -40, 46, -30)), "sick": ((-44, -30, -14, -40), (14, -40, 46, -30)),
           "scared": ((-44, -42, -14, -50), (14, -50, 46, -42)), "shock": ((-44, -50, -14, -54), (14, -54, 46, -50)),
@@ -125,7 +144,7 @@ def _face(c, mood, look, t, extras, skin, seed=0.0):
         c.move_to(x1, y1); c.line_to(x2, y2)
     c.stroke()
     # mouth
-    c.set_line_width(6)
+    c.set_line_width((6) * LW)
     if mood in ("happy", "smug"):
         c.arc(4, 26, 20, 0.2 * math.pi, 0.8 * math.pi); c.stroke()
     elif mood == "laugh":
@@ -147,7 +166,7 @@ def _face(c, mood, look, t, extras, skin, seed=0.0):
     if "mustache" in extras:
         c.save(); c.translate(4, 20); c.scale(1, 0.45); _rgb(c, (0.25, 0.16, 0.10)); c.arc(-14, 0, 16, 0, 2 * math.pi); c.arc(20, 0, 16, 0, 2 * math.pi); c.fill(); c.restore()
     if "beard" in extras:
-        c.move_to(-58, 10); c.curve_to(-50, 95, 58, 95, 64, 10); c.curve_to(30, 50, -20, 50, -58, 10); _rgb(c, (0.88, 0.88, 0.88)); c.fill_preserve(); _rgb(c, INK); c.set_line_width(5); c.stroke()
+        c.move_to(-58, 10); c.curve_to(-50, 95, 58, 95, 64, 10); c.curve_to(30, 50, -20, 50, -58, 10); _rgb(c, (0.88, 0.88, 0.88)); c.fill_preserve(); _rgb(c, INK); c.set_line_width((5) * LW); c.stroke()
 
 
 def _hood(c, hat):
@@ -157,15 +176,15 @@ def _hood(c, hat):
 
 def _hair_back(c, style, col):
     if style == "long":
-        c.move_to(-80, -20); c.curve_to(-95, 90, 95, 90, 82, -20); c.close_path(); _rgb(c, col); c.fill_preserve(); _rgb(c, INK); c.set_line_width(6); c.stroke()
+        c.move_to(-80, -20); c.curve_to(-95, 90, 95, 90, 82, -20); c.close_path(); _rgb(c, col); c.fill_preserve(); _rgb(c, INK); c.set_line_width((6) * LW); c.stroke()
     if style == "bun":
         _circle(c, -55, -60, 34, col, 6)
 
 
 def _hair_front(c, style, col):
-    c.set_line_width(6)
+    c.set_line_width((6) * LW)
     if style == "bald":
-        c.move_to(-78, -10); c.curve_to(-84, -40, -70, -50, -62, -46); _rgb(c, col); c.set_line_width(14); c.stroke()
+        c.move_to(-78, -10); c.curve_to(-84, -40, -70, -50, -62, -46); _rgb(c, col); c.set_line_width((14) * LW); c.stroke()
         return
     c.new_path()
     if style in ("short", "side", "bun", "long"):
@@ -188,7 +207,7 @@ def _hair_front(c, style, col):
 def _hat(c, hat, col):
     if not hat:
         return
-    c.set_line_width(6)
+    c.set_line_width((6) * LW)
     if hat == "bonnet":  # a brim around the top of the face; the hood itself is drawn behind the head
         c.new_path(); c.arc(0, 0, 98, math.pi * 1.08, math.pi * 1.92); c.arc_negative(0, 0, 78, math.pi * 1.92, math.pi * 1.08)
         c.close_path(); _rgb(c, (0.95, 0.92, 0.85)); c.fill_preserve(); _rgb(c, INK); c.stroke()
@@ -209,7 +228,7 @@ def _hat(c, hat, col):
 
 def _body(c, look, sk):
     top, style = look["top"], look["style"]
-    c.set_line_width(7)
+    c.set_line_width((7) * LW)
     c.new_path()
     if style in ("dress", "robe"):
         c.move_to(-58, -235); c.curve_to(-70, -150, -120, -40, -110, 0); c.line_to(110, 0)
@@ -217,17 +236,17 @@ def _body(c, look, sk):
     else:
         c.move_to(-62, -240); c.curve_to(-80, -170, -78, -120, -66, -95); c.line_to(66, -95)
         c.curve_to(78, -120, 80, -170, 62, -240); c.close_path()
-    _rgb(c, top); c.fill_preserve(); _rgb(c, INK); c.stroke()
+    _shade_fill(c, top, -90, -240, 90, 0); _rgb(c, INK); c.stroke()
     if style == "coat":
-        c.move_to(0, -235); c.line_to(0, -98); _rgb(c, INK); c.set_line_width(4); c.stroke()
+        c.move_to(0, -235); c.line_to(0, -98); _rgb(c, INK); c.set_line_width((4) * LW); c.stroke()
         for y in (-200, -165, -130):
             _circle(c, 12, y, 5, (0.85, 0.75, 0.40), 3)
         c.move_to(-14, -238); c.line_to(0, -205); c.line_to(14, -238); _rgb(c, WHITE); c.fill()
     if style == "apron":
         c.move_to(-46, -200); c.line_to(46, -200); c.line_to(80, -8); c.line_to(-80, -8); c.close_path()
-        _rgb(c, (0.97, 0.96, 0.92)); c.fill_preserve(); _rgb(c, INK); c.set_line_width(5); c.stroke()
+        _rgb(c, (0.97, 0.96, 0.92)); c.fill_preserve(); _rgb(c, INK); c.set_line_width((5) * LW); c.stroke()
     if style == "uniform":
-        c.move_to(-62, -170); c.line_to(62, -170); _rgb(c, (0.85, 0.75, 0.40)); c.set_line_width(10); c.stroke()
+        c.move_to(-62, -170); c.line_to(62, -170); _rgb(c, (0.85, 0.75, 0.40)); c.set_line_width((10) * LW); c.stroke()
     if "stripes" in look.get("extras", []):
         for k in range(3):
             c.rectangle(-70, -210 + k * 36, 140, 12); _rgb(c, WHITE, 0.85); c.fill()
@@ -286,7 +305,7 @@ def draw(c, role, pose="stand", mood="calm", t=0.0, face=1, look=0.0, hold=None,
     c.save(); c.translate(face * 4, -318)
     _hood(c, L.get("hat"))
     _hair_back(c, L["hair"][0], L["hair"][1])
-    _circle(c, 0, 0, 80, skin, 7)
+    c.arc(0, 0, 80, 0, 2 * math.pi); _shade_fill(c, skin, 0, 0, 0, 0, radial=(0, 0, 80)); _rgb(c, INK); c.set_line_width((7) * LW); c.stroke()
     _hair_front(c, L["hair"][0], L["hair"][1])
     c.save()
     if face < 0:

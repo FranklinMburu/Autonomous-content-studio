@@ -311,10 +311,25 @@ def _cast_member(c, it, T, t0):
         return
     blend = min(1.0, (T - t_pose) / 0.35) if prev_pose else 1.0
     hop = (T - t_mood) / 0.3 if 0 <= T - t_mood < 0.3 else 0.0
+    if _PAINT:
+        from .depth_scene import draw_lit, scene_light
+        sc, k, mv, am = _PAINT
+        px, py, ps = sc.place(x, y, k, mv, am)
+        light = scene_light(sc, float(it.get("x", 540)), float(it.get("y", 1500)))
+        sz = float(it.get("s", 1.0)) * ps * (p if anim == "pop" else 1.0)
+        draw_lit(c, lambda c: cast.draw(c, it["role"], draw_pose, mood, T + float(it.get("phase", 0)), draw_face,
+                                        float(it.get("look", 0)), hold_fn=PROPS.get(hold), prev_pose=prev_pose,
+                                        blend=blend, outfit=outfit, seed=seed, hop=hop), px, py, max(0.01, sz), light)
+        _tag(c, it, T, t0, tin, px, py)
+        return
     placed(c, {**it2, "x": x, "y": y}, p,
            lambda c: cast.draw(c, it["role"], draw_pose, mood, T + float(it.get("phase", 0)), draw_face,
                                float(it.get("look", 0)), hold_fn=PROPS.get(hold), prev_pose=prev_pose, blend=blend,
                                outfit=outfit, seed=seed, hop=hop))
+    _tag(c, it, T, t0, tin, x, y)
+
+
+def _tag(c, it, T, t0, tin, x, y):
     tag = it.get("name_tag")
     if tag and T < max(tin, t0) + 2.5:
         h = 380 * float(it.get("s", 1.0)) * cast.ROLES[it["role"]].get("scale", 1.0)
@@ -692,6 +707,26 @@ def picture_changes(shots, dur, fps=10):
     return out
 
 
+# ---- painted 2.5D backgrounds (studio/story/depth_scene.py) ----
+PAINT_DIR = None          # folder with bg_<id>.png + depth_<id>.png (set by the caller, e.g. the episode's paint/ folder)
+_SCENES = {}
+_PAINT = None             # (scene, k, move, amount) while a painted shot is being drawn
+
+
+def paint_scene(pid):
+    import os
+    from pathlib import Path
+    d = Path(PAINT_DIR or os.environ.get("STORY_PAINT_DIR", "") or ".")
+    key = (str(d), pid)
+    if key not in _SCENES:
+        bg, dp = d / f"bg_{pid}.png", d / f"depth_{pid}.png"
+        if not bg.exists() or not dp.exists():
+            raise BoardError(f"painted background {pid!r} not found in {d} (bg_{pid}.png + depth_{pid}.png)")
+        from .depth_scene import DepthScene
+        _SCENES[key] = DepthScene(bg, dp)
+    return _SCENES[key]
+
+
 def build_shots(board):
     """Turn storyboard.json into shots for lib.frame: (t0, scene_fn, focus_y, camera_fn, overlay_fn)."""
     starts = []
@@ -703,18 +738,31 @@ def build_shots(board):
         t1 = starts[i + 1] if i + 1 < len(starts) else max(L.DUR, t0 + 0.5)
         auto = board.get("camera", "auto") == "auto"
 
-        def draw(c, lt, T, sh=sh, t0=t0, auto=auto):
-            background(c, sh.get("bg", "gradient"), T)
-            for it in sh.get("items", []):
-                if not (auto and it.get("type") in OVERLAY):
-                    draw_item(c, it, T, t0, lt)
+        def draw(c, lt, T, sh=sh, t0=t0, t1=t1, auto=auto):
+            global _PAINT
+            bg = sh.get("bg", "gradient")
+            if isinstance(bg, dict) and bg.get("type") == "paint":
+                sc = paint_scene(bg["id"])
+                k = (T - t0) / max(0.3, t1 - t0)
+                mv, am = bg.get("move", "push"), float(bg.get("amount", 1.0))
+                sc.draw(c, k, mv, am)
+                _PAINT = (sc, k, mv, am)
+            else:
+                background(c, bg, T)
+            try:
+                for it in sh.get("items", []):
+                    if not (auto and it.get("type") in OVERLAY):
+                        draw_item(c, it, T, t0, lt)
+            finally:
+                _PAINT = None
 
         def over(c, lt, T, sh=sh, t0=t0):
             for it in sh.get("items", []):
                 if it.get("type") in OVERLAY:
                     draw_item(c, it, T, t0, lt)
         draw.__name__ = sh.get("name", f"shot{i + 1}")
-        cam = make_camera(sh, t0, t1) if auto else None
+        painted = isinstance(sh.get("bg"), dict) and sh["bg"].get("type") == "paint"
+        cam = make_camera(sh, t0, t1) if auto and not painted else None
         shots.append((t0, draw, float(sh.get("focus", 900)), cam, over if auto else None))
     return shots, {w.lower() for w in board.get("key_words", [])}
 
