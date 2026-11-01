@@ -18,7 +18,9 @@ LINES = ("Ignaz Semmelweis ordered every student to scrub in bleach before touch
          "You see, it's like cutting raw chicken, then making a salad without washing your hands. "
          "The doctor who told everyone to clean their hands died from an infected hand.")
 t0 = time.time()
-subprocess.run([sys.executable, "-m", "pip", "install", "-q", "chatterbox-tts"], check=False)
+# chatterbox pins torch 2.6; install the matching torchvision/torchaudio so imports don't break
+subprocess.run([sys.executable, "-m", "pip", "install", "-q", "chatterbox-tts", "torch==2.6.0", "torchaudio==2.6.0",
+                "torchvision==0.21.0"], check=False)
 log(f"install {time.time() - t0:.0f}s")
 try:
     import torchaudio
