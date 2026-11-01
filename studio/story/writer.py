@@ -253,6 +253,35 @@ def _timed(log, label, fn):
     return r
 
 
+RATE = re.compile(r"rate limit|cooling down|HTTP (0|429|5\d\d)|daily|allowance|quota|could answer|timed? ?out", re.I)
+
+
+def patient(fn, label, log, max_wait_s=1500):
+    """Run fn(); when every free model is rate-limited or down, wait for the cooldown and try again (up to
+    max_wait_s in total) instead of failing the video (1 Nov: a fact check failed because all three providers were
+    cooling down at that minute)."""
+    import time, datetime as dt
+    t0 = time.time()
+    while True:
+        try:
+            return fn()
+        except Exception as e:  # noqa: BLE001
+            err = str(e)
+            if not RATE.search(err) or time.time() - t0 > max_wait_s:
+                raise
+            m = re.search(r"until (\d\d):(\d\d) UTC", err)
+            wait = 120
+            if m:
+                now = dt.datetime.now(dt.timezone.utc)
+                until = now.replace(hour=int(m.group(1)), minute=int(m.group(2)), second=5)
+                if until < now:
+                    until += dt.timedelta(days=1)
+                wait = (until - now).total_seconds()
+            wait = max(30, min(300, wait, max_wait_s - (time.time() - t0)))
+            log(f"  {label}: all models busy ({err[:120]}); waiting {wait:.0f}s and trying again")
+            time.sleep(wait)
+
+
 def _sb_models():
     pass  # os is imported at the top
     if os.environ.get("STORY_STORYBOARD_MODELS", "").strip():  # a run can try other models without a code change
@@ -341,10 +370,10 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
         log(f"[script] {len(models)} models in parallel: {', '.join(models)}")
         script_left = []
         try:
-            best, info = _timed(log, "script drafts", lambda: best_of(
+            best, info = patient(lambda: _timed(log, "script drafts", lambda: best_of(
                 prompt, models=models, criteria=criteria, task=f"Story Short: {topic}", sources=sources, validate=check,
                 json_out=True, temperature=0.8, max_tokens=3000, text_of=lambda r: " ".join(_words(r.data)),
-                parallel=True, time_budget_s=600))
+                parallel=True, time_budget_s=600)), "script drafts", log, max_wait_s=900)
             for f in info.get("failed", []):
                 log(f"    model failed the script step: {f['ref']}")
                 for line in calls(type("E", (), {"attempts": f.get("attempts", [])})()):
@@ -362,7 +391,7 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
             info = {"candidates": [], "failed": [], "judge": None, "by": "repair"}
         log(f"  script: {s.get('title')!r}, {len(_words(s))} words")
 
-        fc = _timed(log, "fact check", lambda: fact_check(" ".join(_words(s)), sources, time_budget_s=300))
+        fc = patient(lambda: _timed(log, "fact check", lambda: fact_check(" ".join(_words(s)), sources, time_budget_s=300)), "fact check", log)
         log(f"  fact check: {fc['counts']}")
         for rnd in range(2):  # repair: round 1 correct or remove; round 2 delete the sentences outright
             bad = [r for r in fc["results"] if r.get("verdict") == "unsupported"]
@@ -378,7 +407,7 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
                                                                       max_tokens=3000, time_budget_s=480)).data
             except Exception:  # noqa: BLE001 - keep the current script; unsupported claims then go to the polish
                 break
-            fc = _timed(log, "fact check", lambda: fact_check(" ".join(_words(s)), sources, time_budget_s=300))
+            fc = patient(lambda: _timed(log, "fact check", lambda: fact_check(" ".join(_words(s)), sources, time_budget_s=300)), "fact check", log)
             log(f"  fact check after repair {rnd + 1}: {fc['counts']}")
         if any(r.get("verdict") == "unsupported" for r in fc["results"]):
             import os as _os
@@ -396,7 +425,7 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
             try:
                 s2 = _timed(log, "logic repair", lambda: ask(fix, models=models, validate=check, temperature=0.4,
                                                              max_tokens=3000, time_budget_s=480)).data
-                fc2 = _timed(log, "fact check", lambda: fact_check(" ".join(_words(s2)), sources, time_budget_s=300))
+                fc2 = patient(lambda: _timed(log, "fact check", lambda: fact_check(" ".join(_words(s2)), sources, time_budget_s=300)), "fact check", log)
                 if not any(r.get("verdict") == "unsupported" for r in fc2["results"]):
                     s, fc = s2, fc2
                     log(f"  after logic repair: {len(logic_check(s, sources, models))} issue(s), fact check {fc['counts']}")
