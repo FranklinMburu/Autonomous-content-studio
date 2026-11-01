@@ -228,7 +228,18 @@ def i_prop(c, it, T, t0, lt):
     if name not in PROPS:
         raise BoardError(f"unknown prop {name!r}; known: {', '.join(sorted(PROPS))}")
     p = appear(it, T, t0)
-    if p:
+    if p and _PAINT and name not in ("germs",):  # inside a painting: lit by the scene, moving with the floor
+        from .depth_scene import draw_lit, scene_light
+        sc, k, mv, am = _PAINT
+        x, y = float(it.get("x", 540)), float(it.get("y", 960))
+        px, py, ps = sc.place(x, y, k, mv, am)
+        sz = float(it.get("s", 1.0)) * ps * (p if it.get("anim", "pop" if "in" in it else "none") in ("pop", "grow") else 1.0)
+        draw_lit(c, PROPS[name], px, py, max(0.01, sz), scene_light(sc, x, y))
+    elif p:
+        if _PAINT:  # floating things (germs) still drift with the camera
+            sc, k, mv, am = _PAINT
+            px, py, ps = sc.place(float(it.get("x", 540)), float(it.get("y", 960)), k, mv, am)
+            it = {**it, "x": px, "y": py, "s": float(it.get("s", 1.0)) * ps}
         placed(c, it, p, PROPS[name])
 
 
