@@ -46,7 +46,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           ls -la lab_publish 2>/dev/null || true
-          files=$(find lab_publish -type f | head -60)
+          files=$(find lab_publish -type f | head -400)
           [ -z "$files" ] && { echo "No output files."; exit 0; }
           tag="lab-run${{ github.run_number }}"
           gh release create "$tag" $files --prerelease --title "Lab: $LAB (run ${{ github.run_number }})" --notes "Experiment output, not a finished video."
