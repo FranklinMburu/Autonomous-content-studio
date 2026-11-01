@@ -13,6 +13,15 @@ on:
         description: "OR an existing episode folder to render, e.g. episodes/hidden_reasons/001-scurvy"
         required: false
         default: "episodes/hidden_reasons/001-scurvy"
+      storyboard:
+        description: "Storyboard for a NEW video: ai (free models draft it) or skip (made in the Claude polish step)"
+        type: choice
+        options: [ai, skip]
+        default: ai
+      storyboard_models:
+        description: "Optional: try other storyboard models, comma-separated provider:model (blank = pipeline/config.json)"
+        required: false
+        default: ""
 
 permissions:
   contents: write   # to publish the finished video as a GitHub Release
@@ -88,6 +97,8 @@ jobs:
         if: steps.what.outputs.topic != ''
         env:
           TOPIC: ${{ steps.what.outputs.topic }}
+          STORY_STORYBOARD: ${{ github.event.inputs.storyboard }}
+          STORY_STORYBOARD_MODELS: ${{ github.event.inputs.storyboard_models }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           ACCOUNT_KEY_franklincopil3: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
@@ -105,10 +116,11 @@ jobs:
 
       - name: Check the episode
         run: |
-          python -m studio.story check "$EPISODE_DIR"
           if [ -f "$EPISODE_DIR/NEEDS_POLISH.md" ]; then
             { echo "## Needs the Claude polish step"; cat "$EPISODE_DIR/NEEDS_POLISH.md"; } >> "$GITHUB_STEP_SUMMARY"
+            [ -f "$EPISODE_DIR/storyboard.json" ] || exit 0   # nothing to check until the polish step adds it
           fi
+          python -m studio.story check "$EPISODE_DIR"
 
       - name: Make the video
         if: hashFiles(format('{0}/NEEDS_POLISH.md', env.EPISODE_DIR)) == ''
@@ -128,6 +140,18 @@ jobs:
           (cd "$(dirname "$EPISODE")" && zip -qr "$GITHUB_WORKSPACE/episode-files.zip" "$(basename "$EPISODE")")
           gh release create "$tag" "$(basename "$EPISODE").mp4" "$d/contact.png" episode-files.zip --title "Story: $title" --notes-file notes.md
           { echo "## $title"; echo; echo "Video: release **$tag** (Releases page)."; } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish the draft for the polish step
+        if: env.EPISODE_DIR != '' && hashFiles(format('{0}/NEEDS_POLISH.md', env.EPISODE_DIR)) != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          EPISODE="$EPISODE_DIR"
+          tag="draft-$(basename "$EPISODE")-run${{ github.run_number }}"
+          (cd "$(dirname "$EPISODE")" && zip -qr "$GITHUB_WORKSPACE/episode-files.zip" "$(basename "$EPISODE")")
+          { echo "Draft for the Claude polish step (not a finished video)."; echo; cat "$EPISODE/NEEDS_POLISH.md"; } > notes.md
+          gh release create "$tag" episode-files.zip --prerelease --title "Draft: $(basename "$EPISODE")" --notes-file notes.md
+          { echo "Draft files: pre-release **$tag**."; } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Show the writer's report
         if: always()

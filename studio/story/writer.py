@@ -217,6 +217,9 @@ def _timed(log, label, fn):
 
 
 def _sb_models():
+    import os
+    if os.environ.get("STORY_STORYBOARD_MODELS", "").strip():  # a run can try other models without a code change
+        return [m.strip() for m in os.environ["STORY_STORYBOARD_MODELS"].split(",") if m.strip()]
     p = ROOT / "pipeline" / "config.json"
     cfg = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
     return cfg.get("story_storyboard_models") or _cfg()
@@ -379,14 +382,16 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
     sb_prompt = (f"Design the storyboard (the pictures) for this narrated Short.\n\n{base}"
                  f"EXAMPLE of a finished storyboard for a different story (copy the style, not the content):\n{example}\n\n"
                  f'Return JSON only: {{"key_words": {json.dumps(s.get("key_words", []))}, "shots": [...]}}')
+    import os
+    skip = os.environ.get("STORY_STORYBOARD", "ai") == "skip"
     sb_models = _sb_models()
-    log(f"[storyboard] models: {', '.join(sb_models)}")
+    log("[storyboard] skipped: made in the Claude polish step" if skip else f"[storyboard] models: {', '.join(sb_models)}")
     b = saved("storyboard.json")
     problems = board_problems(b, timing) if b else None
     if b:
         log(f"  storyboard resumed: {len(b.get('shots', []))} shots, {len(problems)} problem(s)")
     t_stage = time.time()
-    for attempt in range(4):
+    for attempt in range(0 if skip else 4):
         if problems == []:
             break
         if attempt and time.time() - t_stage > 25 * 60:
@@ -424,10 +429,16 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
         if problems is None or len(p_new) <= len(problems):
             b, problems = new, p_new
             save("storyboard.json", b)
-    if b is None:
-        raise RuntimeError("no storyboard draft at all (see the call log above)")
-    (folder / "storyboard.json").write_text(json.dumps(b, indent=1, ensure_ascii=False), encoding="utf-8")
     (folder / "NEEDS_POLISH.md").unlink(missing_ok=True)
+    (folder / "timing.json").write_text(json.dumps(timing), encoding="utf-8")  # for the polish step's storyboard
+    if b is None:  # no model produced one: the polish step writes it (script, sources and timing are all here)
+        log("  no storyboard draft: the Claude polish step makes it")
+        (folder / "NEEDS_POLISH.md").write_text("No storyboard yet: the AI storyboard step " +
+                                                ("was skipped" if skip else "produced nothing (see the call log)") +
+                                                ". Make storyboard.json in the polish step (POLISH.md).\n", encoding="utf-8")
+        b, problems = {"shots": []}, []
+    else:
+        (folder / "storyboard.json").write_text(json.dumps(b, indent=1, ensure_ascii=False), encoding="utf-8")
     if problems:  # the Claude polish step (POLISH.md) fixes these before the video is published
         (folder / "NEEDS_POLISH.md").write_text("Storyboard problems left by the AI draft:\n\n" +
                                                 "\n".join(f"- {x}" for x in problems) + "\n", encoding="utf-8")
@@ -446,8 +457,9 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
         f"- Models that failed the script step: {[f['ref'] + ': ' + f['error'][:200] for f in info.get('failed', [])]}\n"
         f"- Logic check issues found: {len(logic)}\n"
         f"- Words: {len(timing['words'])}, length {timing['duration']:.1f}s, {wpm:.0f} words/min, {first3} words in first 3 s\n"
-        f"- Fact check: {fc['counts']}\n- Storyboard: {len(b['shots'])} shots, "
-        f"{'passed all checks' if not problems else str(len(problems)) + ' problem(s) left for the polish step (NEEDS_POLISH.md)'}\n",
+        f"- Fact check: {fc['counts']}\n- Storyboard: " + ("none yet: made in the polish step" if not b["shots"] else
+        f"{len(b['shots'])} shots, " + ("passed all checks" if not problems else
+                                        f"{len(problems)} problem(s) left for the polish step (NEEDS_POLISH.md)")) + "\n",
         encoding="utf-8")
     (folder / "narration.wav").unlink(missing_ok=True)
     log(f"[written] {folder}")
