@@ -86,12 +86,20 @@ def _pose(pose, t):
     return _P.get(pose, _P["stand"])
 
 
-def _face(c, mood, look, t, extras, skin):
+def _blinking(t, seed):
+    ph = (t + seed * 1.7) % 3.3
+    return ph < 0.11
+
+
+def _face(c, mood, look, t, extras, skin, seed=0.0):
     ex = look * 8
+    blink = _blinking(t, seed) and mood not in ("laugh", "shock")
     # eyes
     for sx in (-28, 30):
         c.save(); c.translate(sx, -8)
-        if mood in ("laugh", "happy") and mood == "laugh":
+        if blink:
+            c.set_line_width(6); _rgb(c, INK); c.move_to(-16, 2); c.curve_to(-6, 10, 6, 10, 16, 2); c.stroke()
+        elif mood in ("laugh", "happy") and mood == "laugh":
             c.set_line_width(6); _rgb(c, INK); c.arc(0, 6, 14, math.pi * 1.1, math.pi * 1.9); c.stroke()
         else:
             r = 20 if mood not in ("shock", "scared") else 24
@@ -225,16 +233,41 @@ def _body(c, look, sk):
             c.rectangle(-70, -210 + k * 36, 140, 12); _rgb(c, WHITE, 0.85); c.fill()
 
 
-def draw(c, role, pose="stand", mood="calm", t=0.0, face=1, look=0.0, hold=None, hold_fn=None):
-    """Draw a cast member with feet at the current origin."""
-    L = ROLES[role]
+def _blend(a, b, k):
+    """Pose a -> b at k (0..1): every limb angle, tilt and crouch move smoothly instead of snapping."""
+    if k >= 1:
+        return b
+    k = k * k * (3 - 2 * k)
+    out = []
+    for x, y in zip(a, b):
+        out.append(tuple(p + (q - p) * k for p, q in zip(x, y)) if isinstance(x, tuple) else x + (y - x) * k)
+    return tuple(out)
+
+
+def draw(c, role, pose="stand", mood="calm", t=0.0, face=1, look=0.0, hold=None, hold_fn=None,
+         prev_pose=None, blend=1.0, outfit=None, seed=0.0, hop=0.0):
+    """Draw a cast member with feet at the current origin.
+
+    prev_pose/blend: move smoothly from the previous pose (blend 0 -> 1). outfit: overrides for the role's look
+    (e.g. {"top": (r, g, b), "extras": [...]}) so a story's hero looks different from everyone else.
+    seed: per-character offset so blinks and idle movement aren't in sync. hop: 0..1 small reaction jump."""
+    L = {**ROLES[role], **(outfit or {})}
     skin = SKINS[L["skin"]]
     sc = L.get("scale", 1.0)
     c.save(); c.scale(sc, sc)
+    if hop:
+        c.translate(0, -28 * math.sin(math.pi * min(1.0, hop)))
     if pose == "lie":
         c.translate(0, -60); c.rotate(-math.pi / 2 * face); pose = "stand"
+        prev_pose = "stand" if prev_pose else None
     la, ra, ll, rl, tilt, crouch = _pose(pose, t)
-    breath = math.sin(t * 2.2) * 3
+    if prev_pose and prev_pose != pose and prev_pose not in ("lie",):
+        la, ra, ll, rl, tilt, crouch = _blend(_pose(prev_pose, t), (la, ra, ll, rl, tilt, crouch), blend)
+    if pose not in ("walk", "run", "scrub"):  # idle life: arms and head never freeze
+        sw = math.sin(t * 1.7 + seed * 3.1) * 0.06
+        la, ra = (la[0] + sw, la[1]), (ra[0] - sw * 0.8, ra[1] + sw * 0.5)
+        tilt += math.sin(t * 1.1 + seed) * 0.015
+    breath = math.sin(t * 2.2 + seed) * 3
     # shadow
     c.save(); c.scale(1, 0.22); _rgb(c, INK, 0.22); c.arc(0, 0, 105, 0, 2 * math.pi); c.fill(); c.restore()
     c.translate(0, crouch)
@@ -258,7 +291,7 @@ def draw(c, role, pose="stand", mood="calm", t=0.0, face=1, look=0.0, hold=None,
     c.save()
     if face < 0:
         c.scale(-1, 1)
-    _face(c, mood, look * face if face < 0 else look, t, L.get("extras", []), skin)
+    _face(c, mood, look * face if face < 0 else look, t, L.get("extras", []), skin, seed)
     c.restore()
     _hat(c, L.get("hat"), L["top"])
     c.restore()

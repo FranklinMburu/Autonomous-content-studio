@@ -17,3 +17,9 @@ Topic: Ignaz Semmelweis and why doctors in 1847 Vienna were ordered to wash thei
   The AI draft is kept as script.ai-draft.json.
 - Storyboard: written in the polish step (the AI storyboard step had no working model that day). 20 shots, every one
   in a place (ward, street, room, lab), cast acting on the words; a new picture every 0.88 s.
+
+## Re-polish (1 Nov 2026, animation engine v2)
+- Script: Semmelweis is named in the hook; 221 words/min.
+- Storyboard v2: the hero has his own look (green coat) and name tag; Kolletschka and Pasteur are tagged; characters
+  walk in, change pose smoothly and react on their words; the camera frames each shot tightly and holds it (no zoom
+  pulses); something new happens on screen every 0.66 s; passes the layout checks (no labels on faces, no heads cut).

@@ -7,29 +7,246 @@
   "The germs were riding on his hands."
  ],
  "storyboard": {
-  "key_words": ["bled", "laughed", "dying", "germs"],
+  "key_words": [
+   "bled",
+   "laughed",
+   "dying",
+   "germs"
+  ],
   "shots": [
-   {"name": "scrub", "at": 0, "bg": {"type": "ward", "tone": "night"}, "focus": 1000, "items": [
-    {"type": "prop", "name": "basin", "x": 560, "y": 1250, "s": 1.1},
-    {"type": "character", "role": "doctor", "pose": "scrub", "mood": "angry", "x": 520, "y": 1330, "s": 1.5,
-     "states": [{"at": "bled#1", "mood": "pain"}]},
-    {"type": "text", "text": "UNTIL THEY BLED", "x": 540, "y": 300, "size": 96, "color": "red", "in": "bled#1"}]},
-   {"name": "laugh", "at": "other#1", "bg": {"type": "street", "tone": "day"}, "focus": 950, "items": [
-    {"type": "character", "role": "doctor", "pose": "scrub", "mood": "doubt", "x": 260, "y": 1360, "s": 1.1},
-    {"type": "character", "role": "noble", "pose": "point", "mood": "laugh", "face": -1, "x": 700, "y": 1340, "s": 1.1, "in": "laughed#1"},
-    {"type": "character", "role": "scientist", "pose": "facepalm", "mood": "laugh", "face": -1, "x": 900, "y": 1380, "s": 0.95, "in": "+0.3"}]},
-   {"name": "ward", "at": "Then#1", "bg": {"type": "ward", "tone": "warm"}, "focus": 950, "items": [
-    {"type": "prop", "name": "bed", "x": 380, "y": 1280, "s": 1.2},
-    {"type": "character", "role": "mother", "pose": "sit", "mood": "sick", "x": 380, "y": 1240, "s": 1.0,
-     "states": [{"at": "dying#1", "mood": "happy"}]},
-    {"type": "character", "role": "midwife", "pose": "wave", "mood": "happy", "x": 800, "y": 1360, "s": 1.1, "in": "stopped#1"},
-    {"type": "cross", "x": 540, "y": 380, "size": 180, "in": "dying#1"}]},
-   {"name": "cut", "at": "You#1", "bg": {"type": "room", "tone": "day"}, "focus": 900, "items": [
-    {"type": "finger", "cut_at": "cut#1"},
-    {"type": "prop", "name": "basin", "x": 820, "y": 1250, "s": 0.8, "in": "washing#1"}]},
-   {"name": "germs", "at": "The#3", "bg": {"type": "gradient", "top": "navy2", "bottom": "ink"}, "focus": 950, "items": [
-    {"type": "hands", "dirty": true, "x": 540, "y": 1000, "s": 1.2},
-    {"type": "text", "text": "GERMS", "x": 540, "y": 320, "size": 130, "color": "lemon", "in": "germs#1"}]}
+   {
+    "name": "scrub",
+    "at": 0,
+    "bg": {
+     "type": "ward",
+     "tone": "night"
+    },
+    "focus": 1000,
+    "items": [
+     {
+      "type": "prop",
+      "name": "basin",
+      "x": 560,
+      "y": 1250,
+      "s": 1.1
+     },
+     {
+      "type": "character",
+      "role": "doctor",
+      "pose": "scrub",
+      "mood": "angry",
+      "x": 520,
+      "y": 1330,
+      "s": 1.5,
+      "states": [
+       {
+        "at": "bled#1",
+        "mood": "pain"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "UNTIL THEY BLED",
+      "x": 540,
+      "y": 300,
+      "size": 96,
+      "color": "red",
+      "in": "bled#1"
+     }
+    ],
+    "camera": "close"
+   },
+   {
+    "name": "laugh",
+    "at": "other#1",
+    "bg": {
+     "type": "street",
+     "tone": "day"
+    },
+    "focus": 950,
+    "items": [
+     {
+      "type": "character",
+      "role": "doctor",
+      "pose": "scrub",
+      "mood": "doubt",
+      "x": 260,
+      "y": 1360,
+      "s": 1.1
+     },
+     {
+      "type": "character",
+      "role": "noble",
+      "pose": "point",
+      "mood": "laugh",
+      "face": -1,
+      "x": 700,
+      "y": 1340,
+      "s": 1.1,
+      "in": "laughed#1"
+     },
+     {
+      "type": "character",
+      "role": "scientist",
+      "pose": "facepalm",
+      "mood": "laugh",
+      "face": -1,
+      "x": 900,
+      "y": 1380,
+      "s": 0.95,
+      "in": "+0.3"
+     }
+    ]
+   },
+   {
+    "name": "ward",
+    "at": "Then#1",
+    "bg": {
+     "type": "ward",
+     "tone": "warm"
+    },
+    "focus": 950,
+    "items": [
+     {
+      "type": "prop",
+      "name": "bed",
+      "x": 380,
+      "y": 1280,
+      "s": 1.2
+     },
+     {
+      "type": "character",
+      "role": "mother",
+      "pose": "sit",
+      "mood": "sick",
+      "x": 380,
+      "y": 1240,
+      "s": 1.0,
+      "states": [
+       {
+        "at": "ward#1",
+        "mood": "sad"
+       },
+       {
+        "at": "stopped#1",
+        "mood": "happy"
+       }
+      ]
+     },
+     {
+      "type": "character",
+      "role": "midwife",
+      "pose": "wave",
+      "mood": "happy",
+      "x": 800,
+      "y": 1360,
+      "s": 1.1,
+      "in": "mothers#1"
+     },
+     {
+      "type": "cross",
+      "x": 540,
+      "y": 380,
+      "size": 180,
+      "in": "dying#1"
+     }
+    ]
+   },
+   {
+    "name": "cut",
+    "at": "You#1",
+    "bg": {
+     "type": "room",
+     "tone": "day"
+    },
+    "focus": 900,
+    "items": [
+     {
+      "type": "finger",
+      "cut_at": "cut#1"
+     },
+     {
+      "type": "prop",
+      "name": "basin",
+      "x": 820,
+      "y": 1250,
+      "s": 0.8,
+      "in": "washing#1"
+     },
+     {
+      "type": "prop",
+      "name": "paper",
+      "x": 300,
+      "y": 1240,
+      "s": 0.8,
+      "in": "bandage#1",
+      "cut": false
+     }
+    ]
+   },
+   {
+    "name": "germs",
+    "at": "The#3",
+    "bg": {
+     "type": "gradient",
+     "top": "navy2",
+     "bottom": "ink"
+    },
+    "focus": 950,
+    "items": [
+     {
+      "type": "hands",
+      "dirty": true,
+      "x": 540,
+      "y": 1000,
+      "s": 1.2
+     },
+     {
+      "type": "prop",
+      "name": "germs",
+      "x": 420,
+      "y": 760,
+      "s": 0.9,
+      "in": "germs#1",
+      "cut": false
+     },
+     {
+      "type": "text",
+      "text": "GERMS",
+      "x": 540,
+      "y": 320,
+      "size": 130,
+      "color": "lemon",
+      "in": "germs#1"
+     },
+     {
+      "type": "prop",
+      "name": "germs",
+      "x": 680,
+      "y": 820,
+      "s": 0.8,
+      "in": "riding#1",
+      "cut": false
+     },
+     {
+      "type": "character",
+      "role": "doctor",
+      "pose": "stand",
+      "mood": "calm",
+      "x": 860,
+      "y": 1460,
+      "s": 0.9,
+      "in": "his#1",
+      "states": [
+       {
+        "at": "hands#1",
+        "mood": "shock"
+       }
+      ]
+     }
+    ]
+   }
   ]
  }
 }

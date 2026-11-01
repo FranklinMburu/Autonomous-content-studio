@@ -256,29 +256,82 @@ def i_character(c, it, T, t0, lt):
                                                             lie=bool(it.get("lie", False))))
 
 
+STILL_POSES = ("sit", "lie", "kneel", "beg", "fall")
+
+
 def _cast_member(c, it, T, t0):
-    """A cast member (studio/story/cast.py): pose, mood, facing and held prop can change on words via "states"."""
+    """A cast member (studio/story/cast.py), animated: walks in from the side on its "in" word (anim "enter",
+    the default for standing characters), moves smoothly between poses, hops a little when its mood changes,
+    blinks and breathes. "states" change pose/mood/facing/position on spoken words.
+    "outfit": {"top": COLOUR, "legs": COLOUR, "extras": [...]} gives a story's hero a look of their own;
+    "name_tag": "SEMMELWEIS" shows the name above the head for 2.5 s after they appear."""
     pose, mood, face = it.get("pose", "stand"), it.get("mood", "calm"), int(it.get("face", 1))
     x, y = float(it.get("x", 540)), float(it.get("y", 1500))
+    prev_pose, t_pose, t_mood = None, -99.0, -99.0
     for st in it.get("states", []):  # e.g. [{"at": "ran#1", "pose": "run", "mood": "scared", "to_x": 900}]
         ts = when(st["at"], t0)
         if T >= ts:
+            if st.get("pose", pose) != pose:
+                prev_pose, t_pose = pose, ts
+            if st.get("mood", mood) != mood:
+                t_mood = ts
             pose, mood, face = st.get("pose", pose), st.get("mood", mood), int(st.get("face", face))
             k = ease((T - ts) / float(st.get("dur", 0.8)))
+            moving = ("to_x" in st or "to_y" in st) and k < 1
             x += (float(st["to_x"]) - x) * k if "to_x" in st else 0
             y += (float(st["to_y"]) - y) * k if "to_y" in st else 0
-    if pose not in cast.POSES:
-        raise BoardError(f"unknown pose {pose!r}; known: {', '.join(cast.POSES)}")
-    if mood not in cast.MOODS:
-        raise BoardError(f"unknown mood {mood!r}; known: {', '.join(cast.MOODS)}")
+            if moving and pose in ("stand", "point", "hold", "wave", "think"):
+                prev_pose, pose, t_pose = None, "walk", ts
+    for name, known in ((pose, cast.POSES), (mood, cast.MOODS)):
+        if name not in known:
+            raise BoardError(f"unknown {'pose' if known is cast.POSES else 'mood'} {name!r}; known: {', '.join(known)}")
     hold = it.get("hold")
     if hold and hold not in PROPS:
         raise BoardError(f"unknown prop {hold!r} to hold; known: {', '.join(sorted(PROPS))}")
-    p = appear(it, T, t0)
+    outfit = {}
+    for k_, v in (it.get("outfit") or {}).items():
+        outfit[k_] = col(v) if k_ in ("top", "legs") else v
+    seed = (x * 0.013 + y * 0.007) % 6.28
+    anim = it.get("anim", ("enter" if pose not in STILL_POSES else "pop") if "in" in it else "none")
+    tin = when(it.get("in"), t0) + float(it.get("delay", 0)) if "in" in it else -99.0
+    if T < tin - 1e-6:
+        return
+    draw_pose, draw_face = pose, face
+    if anim == "enter" and T < tin + 0.7:  # walk in from the nearer side of the frame
+        k = ease((T - tin) / 0.7)
+        side = -1 if x < 540 else 1
+        start = x + side * 520
+        x = start + (x - start) * k
+        draw_pose, draw_face, prev_pose = "walk", -side, None
+        it2 = {**it, "anim": "none"}
+    else:
+        it2 = {**it, "anim": anim if anim != "enter" else "none"}
+    p = appear(it2, T, t0) if "in" in it else 1.0
     if not p:
         return
-    placed(c, {**it, "x": x, "y": y}, p, lambda c: cast.draw(c, it["role"], pose, mood, T + float(it.get("phase", 0)), face,
-                                                          float(it.get("look", 0)), hold_fn=PROPS.get(hold)))
+    blend = min(1.0, (T - t_pose) / 0.35) if prev_pose else 1.0
+    hop = (T - t_mood) / 0.3 if 0 <= T - t_mood < 0.3 else 0.0
+    placed(c, {**it2, "x": x, "y": y}, p,
+           lambda c: cast.draw(c, it["role"], draw_pose, mood, T + float(it.get("phase", 0)), draw_face,
+                               float(it.get("look", 0)), hold_fn=PROPS.get(hold), prev_pose=prev_pose, blend=blend,
+                               outfit=outfit, seed=seed, hop=hop))
+    tag = it.get("name_tag")
+    if tag and T < max(tin, t0) + 2.5:
+        h = 380 * float(it.get("s", 1.0)) * cast.ROLES[it["role"]].get("scale", 1.0)
+        a_ = min(1.0, (T - max(tin, t0)) / 0.25) * min(1.0, (max(tin, t0) + 2.5 - T) / 0.3)
+        c.save(); c.push_group()
+        _name_tag(c, str(tag), x, y - h - 40)
+        c.pop_group_to_source(); c.paint_with_alpha(max(0.0, a_)); c.restore()
+
+
+def _name_tag(c, text, x, y):
+    """A small dark label with the person's name (first appearance of a story's hero)."""
+    c.select_font_face("Poppins", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD); c.set_font_size(50)
+    e = c.text_extents(text)
+    w, h = e.width + 48, 74
+    rrect(c, x - w / 2, y - h, w, h, 20, col("ink"))
+    c.set_source_rgb(*col("lemon")); c.move_to(x - e.width / 2 - e.x_bearing, y - h / 2 - e.height / 2 - e.y_bearing)
+    c.show_text(text)
 
 
 def i_bar(c, it, T, t0, lt):
@@ -497,73 +550,132 @@ def _clamp(cx, cy, z):
     return min(max(cx, hw), 1080 - hw), min(max(cy, hh), 1920 - hh), z
 
 
+def _fit(sh, t0, t1):
+    """The tightest steady framing that keeps everything the shot shows (people, props, bars; labels excluded)
+    in view for the whole shot, with a margin. None if there's nothing to frame."""
+    xs0, ys0, xs1, ys1 = [], [], [], []
+    for it in sh.get("items", []):
+        t = it.get("type")
+        sc = float(it.get("s", 1.0))
+        x, y = float(it.get("x", 540)), float(it.get("y", 960))
+        boxes = []
+        if t == "character":
+            for T in (t0 + 0.05, (t0 + t1) / 2, t1 - 0.05):
+                boxes += [_boxes(it, t0, T).get("body")]
+        elif t == "prop":
+            boxes = [(x - 140 * sc, y - 220 * sc, x + 140 * sc, y + 40 * sc)]
+        elif t == "hands":
+            boxes = [(x - 260 * sc, y - 300 * sc, x + 260 * sc, y + 180 * sc)]
+        elif t == "bar":
+            boxes = [(float(it["x"]) - 100, float(it["base_y"]) - float(it["h"]), float(it["x"]) + 100, float(it["base_y"]))]
+        elif t == "group":
+            g = it["grid"]; cols, rows = int(g.get("cols", 1)), int(g.get("rows", 1))
+            boxes = [(g["x"] - 160, g["y"] - 420, g["x"] + (cols - 1) * g.get("dx", 0) + 160, g["y"] + (rows - 1) * g.get("dy", 0) + 40)]
+        elif t in ("finger", "arm_scar", "ship", "ropes", "card"):
+            return None  # drawn for the full frame
+        for b_ in boxes:
+            if b_:
+                xs0.append(b_[0]); ys0.append(b_[1]); xs1.append(b_[2]); ys1.append(b_[3])
+    if not xs0:
+        return None
+    x0, y0, x1, y1 = min(xs0), min(ys0), max(xs1), max(ys1)
+    w, h = (x1 - x0) * 1.25, (y1 - y0) * 1.3 + 260  # margin, plus room for the caption band below
+    z = max(1.0, min(1.6, W / max(w, 1), H / max(h, 1)))
+    return ((x0 + x1) / 2, (y0 + y1) / 2 + 90 / z, z)
+
+
 def make_camera(sh, t0, t1, beat=1.0):
-    """Automatic camera: cut to each focusable item as it appears ("in" trigger); between those, alternate
-    wide / medium / close every ~beat seconds; a slow push within every beat. Shot "camera": "static" turns it off."""
+    """The camera, like an editor would use it (not a zoom template): each shot opens on one framing ("camera":
+    "wide" (default) | "medium" | "close", close = on the first character) and holds it with a slow sideways drift.
+    It cuts (instantly, no zooming) to a close-up only when something important appears ("in") and the cut shows a
+    clearly different picture, at most once every 0.8 s. "camera": "static" = no drift and no cuts."""
     if sh.get("camera") == "static":
         return None
     fy = float(sh.get("focus", 900))
     items = [it for it in sh.get("items", []) if it.get("type") in FOCUSABLE]
-    events = sorted((when(it["in"], t0), _target(it)) for it in items if "in" in it)
-
-    def visible(T):
-        out = []
-        for it in items:
-            if "in" in it and when(it["in"], t0) > T + 0.05:
+    mode = sh.get("camera", "fit")
+    chars = [it for it in items if it.get("type") in ("character", "hands")]
+    if mode == "close" and chars:
+        x, y, z = _target(chars[0]); first = (x, y, max(1.25, z))
+    elif mode == "medium":
+        first = (540, fy + 60, 1.18)
+    elif mode == "wide":
+        first = (540, fy, 1.0)
+    else:  # "fit" (default): frame the shot's people and things tightly, like a camera operator would
+        first = _fit(sh, t0, t1) or (540, fy, 1.0)
+    def clean(fr, T):
+        """True if no head is half in, half out of this framing at time T (and labels don't land on faces)."""
+        cx, cy, z = _clamp(*fr)
+        for it in sh.get("items", []):
+            if it.get("type") != "character" or not _on_screen(it, t0, T + 0.3):
                 continue
-            if "from" in it and when(it["from"], t0) > T + 0.05:
+            hd = _boxes(it, t0, T + 0.3).get("head")
+            if not hd:
                 continue
-            if "until" in it and when(it["until"], t0) <= T:
-                continue
-            out.append(_target(it))
-        return out
+            v = ((hd[0] - cx) * z + 540, (hd[1] - cy) * z + 960, (hd[2] - cx) * z + 540, (hd[3] - cy) * z + 960)
+            visible = v[2] > 0 and v[0] < W and v[3] > 0 and v[1] < H
+            if visible and not (v[0] >= 0 and v[2] <= W and v[1] >= 0):
+                return False
+        return True
 
-    def differs(a, b):
-        a, b = _clamp(*a), _clamp(*b)
-        return abs(a[0] - b[0]) >= 60 or abs(a[1] - b[1]) >= 60 or abs(a[2] / b[2] - 1) >= 0.15
-
-    n = max(1, round((t1 - t0) / beat))
-    step = (t1 - t0) / n
-    beats = [(t0 + k * step, None) for k in range(n)]
-    for te, tgt in events:  # the moment something is named, show it (replaces nearby automatic beats only)
-        if t0 <= te < t1:
-            beats = [b for b in beats if b[1] is not None or abs(b[0] - te) > 0.45] + [(te, tgt)]
-    if not any(b[0] <= t0 + 0.3 for b in beats):  # the shot always opens on a framing of its own
-        beats.append((t0, None))
-    beats.sort(key=lambda b: b[0])
-    filled = []
-    for tb, tgt in beats:  # never hold one framing longer than ~1.25 s
-        while filled and tb - filled[-1][0] > 1.25:
-            filled.append((filled[-1][0] + 1.0, None))
-        filled.append((tb, tgt))
-    while filled and t1 - filled[-1][0] > 1.25:
-        filled.append((filled[-1][0] + 1.0, None))
-    out = []
-    for k, (tb, tgt) in enumerate(filled):
-        prev = out[-1][1] if out else None
-        if tgt is None or (prev and not differs(tgt, prev)):
-            vis = visible(tb)
-            if vis:  # framings built only from what is on screen now
-                cx = sum(v[0] for v in vis) / len(vis); cy = sum(v[1] for v in vis) / len(vis)
-                cands = [(540, fy, 1.0)] + vis + [(cx, cy, 1.2), (cx, cy - 150, 1.35)]
-            else:  # nothing to show yet: breathe in and out on the scene centre
-                cands = [(540, fy, 1.0), (540, fy, 1.18)]
-            cands = cands[k % len(cands):] + cands[:k % len(cands)]
-            tgt = next((c for c in cands if not prev or differs(c, prev)), cands[0])
-        out.append((tb, tgt))
-    beats = out
+    if not clean(first, t0):
+        first = next((f for f in ((first[0], first[1], 1.0), (540, fy, 1.0)) if clean(f, t0)), (540, fy, 1.0))
+    beats = [(t0, first)]
+    for it in sorted((i for i in items if "in" in i), key=lambda i: when(i["in"], t0)):
+        te = when(it["in"], t0)
+        tx, ty, tz = _target(it)
+        if not (t0 + 0.3 < te < t1 - 0.8 and te - beats[-1][0] >= 0.8 and it.get("cut", True)):
+            continue
+        cur = _clamp(*beats[-1][1])
+        for fr in ((tx, ty, max(1.2, tz)), (tx, ty, 1.35), (tx, ty, 1.2)):
+            new = _clamp(*fr)
+            big_change = abs(new[2] / cur[2] - 1) >= 0.18 or abs(new[0] - cur[0]) >= 200 or abs(new[1] - cur[1]) >= 200
+            if big_change and clean(fr, te):
+                beats.append((te, fr))
+                break
+    drift = 1 if int(t0 * 10) % 2 else -1
 
     def cam(T):
-        cur = beats[0]
-        for b in beats:
-            if b[0] <= T + 1e-6:
-                cur = b
-        tb, (x, y, z) = cur
-        nxt = next((b[0] for b in beats if b[0] > tb), t1)
-        z = z * (1.0 + 0.05 * ease((T - tb) / max(0.3, nxt - tb))) + 0.06 * (1 - ease((T - tb) / 0.2))
-        return _clamp(x, y, z)
+        tb, (x, y, z) = beats[0]
+        for b_ in beats:
+            if b_[0] <= T + 1e-6:
+                tb, (x, y, z) = b_
+        nxt = next((b_[0] for b_ in beats if b_[0] > tb), t1)
+        k = (T - tb) / max(0.5, nxt - tb)
+        return _clamp(x + drift * 24 * (k - 0.5), y, z)  # slow sideways drift, no zoom
     cam.beats = beats
     return cam
+
+
+def activity(board):
+    """Times (s) when something new happens on screen: a new shot, something appears, a character changes
+    pose/mood/place, a bar grows, a count runs, an action trigger fires. Camera moves are NOT counted:
+    pace must come from things happening, not from zooming."""
+    built, _ = build_shots(board)
+    out = []
+    for sh, (t0, *_r) in zip(board.get("shots", []), built):
+        out.append(t0)
+
+        def add(trig):
+            try:
+                out.append(when(trig, t0))
+            except (BoardError, KeyError, ValueError):
+                pass
+        for it in sh.get("items", []):
+            src = [it] + ([it["item"]] if isinstance(it.get("item"), dict) else [])
+            for x in src:
+                if "in" in x and x is it:
+                    add(x["in"])
+                for st in x.get("states", []):
+                    add(st["at"])
+                for k_, v in x.items():
+                    if k_.endswith("_at") and isinstance(v, (str, int, float)):
+                        add(v)
+                if isinstance(x.get("regroup"), dict):
+                    add(x["regroup"].get("at"))
+                if isinstance(x.get("count"), dict):
+                    add(x["count"].get("at"))
+    return sorted(set(round(t, 2) for t in out))
 
 
 def picture_changes(shots, dur, fps=10):
@@ -619,6 +731,98 @@ def _on_screen(it, t0, T):
     return not ("until" in it and when(it["until"], t0) <= T)
 
 
+def _pos(it, t0, T):
+    """Where a character stands at time T (follows its states' to_x / to_y)."""
+    x, y = float(it.get("x", 540)), float(it.get("y", 1500))
+    pose = it.get("pose", "stand")
+    for st in it.get("states", []):
+        ts = when(st["at"], t0)
+        if T >= ts:
+            k = ease((T - ts) / float(st.get("dur", 0.8)))
+            x += (float(st["to_x"]) - x) * k if "to_x" in st else 0
+            y += (float(st["to_y"]) - y) * k if "to_y" in st else 0
+            pose = st.get("pose", pose)
+    return x, y, pose
+
+
+def _boxes(it, t0, T):
+    """Screen boxes (x0, y0, x1, y1) of an item at time T: {"head": ..., "body": ...} or {"label": ...}."""
+    t = it.get("type")
+    s = float(it.get("s", 1.0))
+    if t == "character" and it.get("role") in cast.ROLES:
+        x, y, pose = _pos(it, t0, T)
+        h = 380 * s * cast.ROLES[it["role"]].get("scale", 1.0)
+        if pose == "lie":
+            return {"body": (x - h * 0.5, y - h * 0.45, x + h * 0.5, y)}
+        y += {"sit": 95, "kneel": 70, "beg": 70}.get(pose, 0) * s
+        return {"head": (x - 0.24 * h, y - h, x + 0.24 * h, y - 0.6 * h), "body": (x - 0.3 * h, y - h, x + 0.3 * h, y)}
+    if t == "text":
+        size, n = float(it.get("size", 90)) * s, len(str(it.get("text", "")))
+        x, y = float(it.get("x", 540)), float(it.get("y", 960))
+        return {"label": (x - 0.31 * size * n, y - 0.78 * size, x + 0.31 * size * n, y + 0.12 * size)}
+    if t == "calendar":
+        x, y = float(it.get("x", 540)), float(it.get("y", 960))
+        return {"label": (x - 150 * s, y - 170 * s, x + 150 * s, y + 170 * s)}
+    if t == "card":
+        x, y = float(it.get("x", 540)), float(it.get("y", 960))
+        return {"label": (x - 380 * s, y - 190 * s, x + 380 * s, y + 190 * s)}
+    if t == "bar" and when(it.get("grow_at"), t0) <= T:
+        x, base, w, h = float(it["x"]), float(it["base_y"]), float(it.get("w", 140)), float(it["h"])
+        return {"bar": (x - w / 2, base - h, x + w / 2, base)}
+    return {}
+
+
+def _overlap(a, b):
+    """Overlap area as a share of the smaller box."""
+    w = min(a[2], b[2]) - max(a[0], b[0]); h = min(a[3], b[3]) - max(a[1], b[1])
+    if w <= 0 or h <= 0:
+        return 0.0
+    return w * h / max(1.0, min((a[2] - a[0]) * (a[3] - a[1]), (b[2] - b[0]) * (b[3] - b[1])))
+
+
+def layout_problems(board):
+    """Composition mistakes a viewer notices: a label or calendar over a face, a bar over a person, two heads on
+    top of each other, a person cut off by the frame edge. Checked through every shot, every 0.25 s."""
+    built, _ = build_shots(board)
+    starts = [b_[0] for b_ in built] + [L.DUR]
+    out = []
+    for sh, bs, a, b in zip(board.get("shots", []), built, starts, starts[1:]):
+        name, found = sh.get("name", "a shot"), set()
+        items = sh.get("items", [])
+        cam = bs[3] if len(bs) > 3 else None
+        T = a
+        while T < b:
+            cx, cy, z = cam(T) if cam else (540, 960, 1.0)
+
+            def view(it, bx):  # what the viewer sees: overlays stay put, everything else moves with the camera
+                if it.get("type") in OVERLAY:
+                    return bx
+                return {k: ((v[0] - cx) * z + 540, (v[1] - cy) * z + 960, (v[2] - cx) * z + 540, (v[3] - cy) * z + 960)
+                        for k, v in bx.items()}
+            vis = [(it, view(it, _boxes(it, a, T))) for it in items if _on_screen(it, a, T)]
+            people = [(it, bx) for it, bx in vis if "head" in bx or ("body" in bx and it.get("type") == "character")]
+            for it, bx in vis:
+                for key in ("label", "bar"):
+                    if key in bx:
+                        for p_, pb in people:
+                            if "head" in pb and _overlap(bx[key], pb["head"]) > 0.15:
+                                found.add(f"{name}: a {it['type']} covers the {p_['role']}'s face; move one of them")
+                            elif key == "bar" and _overlap(bx[key], pb["body"]) > 0.25:
+                                found.add(f"{name}: a bar stands on top of the {p_['role']}; move one of them")
+            for i, (p1, b1) in enumerate(people):
+                for p2, b2 in people[i + 1:]:
+                    if "head" in b1 and "head" in b2 and _overlap(b1["head"], b2["head"]) > 0.25:
+                        found.add(f"{name}: the {p1['role']}'s and {p2['role']}'s heads overlap; space them apart")
+                hd = b1.get("head") or b1["body"]
+                inside = hd[0] >= 0 and hd[2] <= W and hd[1] >= 0
+                visible = hd[2] > 0 and hd[0] < W and hd[3] > 0
+                if visible and not inside:
+                    found.add(f"{name}: the {p1['role']}'s head is cut by the frame edge; move them inward")
+            T += 0.25
+        out += sorted(found)
+    return out
+
+
 def quality(board):
     """Benchmark-level rules (stricter than validate). The AI writer must pass these; older episodes show them as warnings.
     Based on the benchmark research: a real picture from the first frame, a new picture about every second,
@@ -638,10 +842,11 @@ def quality(board):
             label_only += 1
             problems.append(f"{name}: only words on screen; add a character, prop or scene")
             continue
+        pics = [it for it in pics if not (it.get("type") == "prop" and float(it.get("s", 1.0)) < 0.7)]
         T, empty = a, 0.0
         while T < b:
             empty = 0.0 if any(_on_screen(it, a, T) for it in pics) else empty + 0.25
-            if empty > 0.75:
+            if empty > 0.5:
                 problems.append(f"{name}: no picture for ~1s at {T:.1f}s (items appear later); show something from the start")
                 break
             T += 0.25
@@ -656,18 +861,27 @@ def quality(board):
                 problems.append(f"{sh.get('name', 'a shot')}: label {it['text']!r} uses {bad}, which the font can't draw; "
                                 "use plain words (e.g. TO instead of an arrow)")
     first = shots[0] if shots else {}
-    if not any(it.get("type") in ("character", "hands", "group", "ship", "arm_scar") and _on_screen(it, built[0][0], built[0][0] + 0.3)
-               for it in first.get("items", [])):
+    lead = [it for it in first.get("items", []) if it.get("type") in ("character", "hands", "group", "ship", "arm_scar", "finger")
+            and _on_screen(it, built[0][0], built[0][0] + 0.3)]
+    if not lead:
         problems.append("opening shot: start mid-action with a person or body part on screen in the first 0.3 s")
+    elif not (first.get("camera") == "close" or any(it.get("type") in ("hands", "arm_scar", "finger") or
+                                                    float(it.get("s", 1.0)) >= 1.6 for it in lead)):
+        problems.append('opening shot: show the action up close ("camera": "close", or the person at s 1.6+), '
+                        "not a small figure in a big room")
+    problems += layout_problems(board)
     if label_only > 0.1 * len(shots):
         problems.append(f"{label_only} of {len(shots)} shots are words only (limit 10%)")
     if plain > len(shots) / 2:
         problems.append(f"{plain} of {len(shots)} shots sit on a plain colour; use a place (bg: ward, street, room, lab, deck)")
-    ch = picture_changes(built, L.DUR)
-    gaps = [y - x for x, y in zip(ch, ch[1:] + [L.DUR])]
-    if L.DUR / max(1, len(ch)) > 1.3 or max(gaps) > 1.5:
-        problems.append(f"pace: a new picture every {L.DUR / max(1, len(ch)):.2f}s, longest hold {max(gaps):.1f}s "
-                        "(target about 1s, never over 1.5s)")
+    end = L.WORDS[-1]["end"] if L.WORDS else L.DUR  # the silent tail after the last word doesn't count
+    ev = [t for t in activity(board) if t < end]
+    gaps = [(y - x, x) for x, y in zip(ev, ev[1:] + [end])]
+    worst = max(gaps)
+    if L.DUR / max(1, len(ev)) > 1.3 or worst[0] > 1.6:
+        problems.append(f"pace: something new happens every {L.DUR / max(1, len(ev)):.2f}s, but nothing happens for "
+                        f"{worst[0]:.1f}s from {worst[1]:.1f}s; add an action (an entrance, a pose or mood change, "
+                        "an object appearing) there (target about 1s, never over 1.6s)")
     return problems
 
 

@@ -91,9 +91,16 @@ lib.set_timing(fake_timing({"beats": [{"lines": ex["narration"]}]}, step=0.36))
 ok(not board.validate(ex["storyboard"]), "writer's example storyboard passes validate")
 ok(not board.quality(ex["storyboard"]), f"writer's example storyboard passes the quality gate {board.quality(ex['storyboard'])[:2]}")
 shots, _ = board.build_shots(ex["storyboard"])
-ch = board.picture_changes(shots, lib.DUR)
-gaps = [b - a for a, b in zip(ch, ch[1:] + [lib.DUR])]
-ok(max(gaps) <= 1.5 and lib.DUR / len(ch) <= 1.3, f"auto camera: new picture every {lib.DUR / len(ch):.2f}s, longest hold {max(gaps):.1f}s")
+ev = board.activity(ex["storyboard"])
+end = lib.WORDS[-1]["end"]
+gaps = [b - a for a, b in zip(ev, ev[1:] + [end])]
+ok(max(gaps) <= 1.6, f"pace comes from things happening: something new every {lib.DUR / len(ev):.2f}s, longest gap {max(gaps):.1f}s")
+zooms = []
+for t0, fn, fy, cam, *_ in shots:
+    if cam:
+        zs = [round(cam(t0 + k * 0.05)[2], 3) for k in range(40)]
+        zooms.append(all(a == b or abs(a / b - 1) > 0.15 for a, b in zip(zs, zs[1:])))
+ok(all(zooms), "camera never zooms in or out within a framing (only clean cuts)")
 words_only = {"shots": [{"at": 0, "bg": "street", "items": [{"type": "character", "role": "doctor"}]},
                         {"at": "+2", "items": [{"type": "text", "text": "WORDS"}]}]}
 q = board.quality(words_only)
