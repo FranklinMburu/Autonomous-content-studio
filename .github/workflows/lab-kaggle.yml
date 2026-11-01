@@ -45,8 +45,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          ls -la lab_out lab_out/out 2>/dev/null || true
-          files=$(find lab_out -type f \( -name '*.mp4' -o -name '*.png' -o -name '*.txt' -o -name '*.wav' -o -name '*.log' \) | head -60)
+          ls -la lab_publish 2>/dev/null || true
+          files=$(find lab_publish -type f | head -60)
           [ -z "$files" ] && { echo "No output files."; exit 0; }
           tag="lab-run${{ github.run_number }}"
           gh release create "$tag" $files --prerelease --title "Lab: $LAB (run ${{ github.run_number }})" --notes "Experiment output, not a finished video."

@@ -7,7 +7,8 @@ Needs KAGGLE_USERNAME and KAGGLE_API_TOKEN in the environment (GitHub secrets). 
 import json, os, shutil, subprocess, sys, time
 from pathlib import Path
 
-names = [n for n in sys.argv[1].split(",") if n]
+fetch_only = sys.argv[1].startswith("fetch:")
+names = [n for n in sys.argv[1].replace("fetch:", "").split(",") if n]
 wait_min = int(sys.argv[sys.argv.index("--wait-min") + 1]) if "--wait-min" in sys.argv else 180
 user = os.environ["KAGGLE_USERNAME"]
 
@@ -30,10 +31,11 @@ for name in names:
         "id": f"{user}/{slug}", "title": slug, "code_file": "lab.py", "language": "python", "kernel_type": "script",
         "is_private": True, "enable_gpu": True, "enable_internet": True, "dataset_sources": [],
         "competition_sources": [], "kernel_sources": []}, indent=1))
-    print(name, "->", run("kernels", "push", "-p", str(work)), flush=True)
+    if not fetch_only:
+        print(name, "->", run("kernels", "push", "-p", str(work)), flush=True)
     slugs[name] = slug
 
-t0, done = time.time(), {}
+t0, done = time.time(), ({n: "fetch only" for n in names} if fetch_only else {})
 while len(done) < len(slugs) and time.time() - t0 < wait_min * 60:
     time.sleep(60)
     for name, slug in slugs.items():
@@ -46,4 +48,10 @@ while len(done) < len(slugs) and time.time() - t0 < wait_min * 60:
 for name, slug in slugs.items():
     d = Path("lab_out") / name; d.mkdir(parents=True, exist_ok=True)
     print(name, "output:", run("kernels", "output", f"{user}/{slug}", "-p", str(d))[-300:], flush=True)
+# one flat folder with unique names, ready to publish (lab name + original file name)
+flat = Path("lab_publish"); flat.mkdir(exist_ok=True)
+for name in slugs:
+    for f in (Path("lab_out") / name).rglob("*"):
+        if f.is_file() and f.suffix in (".mp4", ".png", ".txt", ".wav", ".log", ".json"):
+            shutil.copy(f, flat / f"{name}__{f.name}")
 print("FINAL:", done)
