@@ -143,7 +143,7 @@ def paint(s, attempt=0):
         return kw
     im = to916(gen(fill(s["prompt"]), int(s.get("seed", 7)) + 1000 * attempt, ip_adapter_image=refs.get(who, blank),
                    callback_on_step_end=late_lock))
-    p = f"{OUT}/shot_{n}.png"; im.save(p)
+    p = f"{OUT}/shot_{n}.png"; im.save(p); im.save(f"/kaggle/working/try{attempt}_{n}.png")
     depth(im)["depth"].save(f"{OUT}/depth_{n}.png")
     img_times.append(time.time() - t)
     log(f"shot {n}{f' (retry {attempt})' if attempt else ''}: {time.time() - t:.0f}s")
@@ -193,9 +193,7 @@ try:
         a["text"] = ask(img, "Is there any text, letters or writing in this picture?")
         if a["text"].startswith("yes"):
             bad.append("text in the picture")
-        a["panels"] = ask(img, "Is this picture made of several separate panels or frames?")
-        if a["panels"].startswith("yes"):
-            bad.append("split into panels")
+        # (no "split into panels?" question: calibration showed the 2B model says yes to almost every picture)
         if PAST and not s.get("modern"):
             a["modern"] = ask(img, "Does this picture show anything modern, such as electric lights, fluorescent tubes, "
                                    "a modern hospital corridor, cars or phones?")
@@ -204,10 +202,12 @@ try:
         return a, bad
 
     todo = [s for s in SHOTS if s["name"] in pictures]
+    tries = {}   # name -> [(problems, attempt)]
     for attempt in range(3):
         retry = []
         for s in todo:
             a, bad = problems(s, pictures[s["name"]])
+            tries.setdefault(s["name"], []).append((len(bad), attempt))
             CHECKS[s["name"]] = {"attempt": attempt, "answers": a, "problems": bad}
             if bad:
                 retry.append(s); log(f"check {s['name']}: FAIL ({'; '.join(bad)})")
@@ -221,6 +221,20 @@ try:
         vlm.to("cuda")
         todo = retry
     del vlm; gc.collect(); torch.cuda.empty_cache()
+    # still failing after 3 tries: use the try with the fewest problems (the first one on a tie), not the last
+    for s in SHOTS:
+        n = s["name"]
+        if n in tries and len(tries[n]) > 1:
+            fewest, best = min(tries[n])
+            if best != tries[n][-1][1]:
+                im = Image.open(f"/kaggle/working/try{best}_{n}.png"); im.save(f"{OUT}/shot_{n}.png")
+                depth(im)["depth"].save(f"{OUT}/depth_{n}.png")
+                CHECKS[n]["kept_try"] = best
+                log(f"shot {n}: kept try {best} ({fewest} problem(s))")
+                if s.get("clip"):
+                    tmp = f"{OUT}/jobs/{n}__best.tmp"
+                    json.dump({"name": n, "path": f"{OUT}/shot_{n}.png", "motion": fill(s.get("motion", "slow camera push in"))}, open(tmp, "w"))
+                    os.replace(tmp, tmp[:-4] + ".json")
 except Exception:
     log("CHECKER FAILED (pictures kept unchecked)", traceback.format_exc()[-900:])
     failed = ["(checker did not run)"]

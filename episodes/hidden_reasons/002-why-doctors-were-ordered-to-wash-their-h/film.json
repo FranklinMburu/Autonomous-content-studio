@@ -21,9 +21,9 @@
    "name": "bleach",
    "at": "scrub#1",
    "clip": true,
-   "prompt": "close-up of a doctor scrubbing his hands together with thick white soap foam over a white porcelain washbasin, dark green coat sleeves rolled up, warm candle light",
-   "motion": "his hands rub together in the soap foam, slow camera push in",
-   "check": "Is a man washing his hands?"
+   "prompt": "extreme close-up of two hands rubbing thick white soap foam together over a white porcelain basin, warm candle light, dark background",
+   "motion": "the hands rub the soap foam together, slow camera push in",
+   "check": "Are hands covered in white soap foam?"
   },
   {
    "name": "mother",
@@ -262,10 +262,10 @@
    "name": "end",
    "at": "died#3",
    "clip": true,
-   "prompt": "close-up, a sad man holding up his own hand wrapped in a white cloth bandage with a small red stain, he is {hero}, a washbasin behind him, dim dusk light",
-   "motion": "he slowly raises his bandaged hand and looks at it, slow camera push in",
+   "prompt": "close-up, a pale man lying on his back in a bed with his eyes closed and a white bandage on his hand resting on his chest, he is {hero}, moonlight, a dark stone room",
+   "motion": "moonlight slowly shifts across his still face, very slow camera push in",
    "hit": "died#3",
-   "check": "Is a man holding up a bandaged hand?",
+   "check": "Is a man lying with his eyes closed?",
    "who": "hero"
   }
  ],
