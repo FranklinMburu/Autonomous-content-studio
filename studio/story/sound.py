@@ -99,38 +99,33 @@ def cues(board, timing):
         return b.get("type") if isinstance(b, dict) else b
     for i, (sh, bs) in enumerate(zip(shots, built)):
         t0 = bs[0]
-        if i:
-            out.append((t0 - 0.12, "whoosh", 0.55 if bg(sh) != bg(shots[i - 1]) else 0.3))
+        if i and bg(sh) != bg(shots[i - 1]):  # a whoosh only when the place changes (not on every cut)
+            out.append((t0 - 0.12, "whoosh", 0.4))
         for it in sh.get("items", []):
             try:
                 tin = B.when(it["in"], t0) if "in" in it else None
             except Exception:  # noqa: BLE001
                 tin = None
             t = it.get("type")
-            if t == "cross" and tin is not None:
-                out.append((tin, "impact", 0.7))
-            elif t == "text" and tin is not None:
-                big = float(it.get("size", 90)) >= 110 or it.get("color") in ("red", "lemon")
-                out.append((tin, "impact" if big else "pop", 0.45 if big else 0.3))
-            elif t == "dim" and tin is not None:
-                out.append((tin, "impact", 0.8))
+            if t in ("cross", "dim") and tin is not None:      # the story's big beats only
+                out.append((tin, "impact", 0.6))
             elif t == "calendar" and isinstance(it.get("count"), dict):
                 c = it["count"]; a, b = int(c["from"]), int(c["to"])
                 ts, dur = B.when(c.get("at"), t0), float(c.get("dur", 1.0))
-                for k in range(max(1, min(abs(b - a), 14))):
-                    out.append((ts + dur * k / max(1, min(abs(b - a), 14)), "tick", 0.35))
-            elif t == "calendar" and tin is not None:
-                out.append((tin, "pop", 0.3))
+                n = max(1, min(abs(b - a), 6))
+                for k in range(n):
+                    out.append((ts + dur * k / n, "tick", 0.25))
             elif t == "character":
                 for st in it.get("states", []):
                     if st.get("pose") == "fall":
-                        out.append((B.when(st["at"], t0), "impact", 0.55))
+                        out.append((B.when(st["at"], t0), "impact", 0.5))
     if len(built) > 2:  # build tension into the last shot (the twist)
         out.append((built[-1][0] - 1.6, "riser", 0.35))
     out.sort()
     spaced, last = [], {}
-    for t, k, g in out:
-        if t < 0 or (spaced and t - spaced[-1][0] < 0.3 and k in ("pop", "whoosh")) or t - last.get(k, -9) < 0.25:
+    for t, k, g in out:  # benchmark: hits every 2-5 s at most; never two big sounds on top of each other
+        gap = {"impact": 2.0, "whoosh": 4.5, "riser": 5.0, "tick": 0.1}.get(k, 0.5)
+        if t < 0 or t - last.get(k, -99) < gap or (spaced and t - spaced[-1][0] < 0.35 and k != "tick"):
             continue
         spaced.append((t, k, g)); last[k] = t
     return spaced
@@ -180,12 +175,13 @@ def mix(board, timing, narration_wav, out_wav, music_dir=None, track=None, title
     t = pick_track(title, music_dir, track)
     inputs = ["-i", str(narration_wav), "-i", str(fx)]
     if t:
-        gain = -27.0 - float(t.get("lufs", -14))
+        gain = -25.0 - float(t.get("lufs", -14))
         inputs += ["-ss", str(t.get("start", 0)), "-i", str(Path(music_dir) / t["file"])]
         graph = (f"[0]aresample={SR},aformat=channel_layouts=stereo,asplit=2[v][key];"
                  f"[2]aresample={SR},atrim=0:{dur:.2f},asetpts=N/SR/TB,volume={gain:.1f}dB,afade=t=in:d=0.6,"
                  f"afade=t=out:st={max(0, dur - 1.8):.2f}:d=1.8[m];"
-                 "[m][key]sidechaincompress=threshold=0.015:ratio=6:attack=20:release=400[md];"
+                 "[m]equalizer=f=2500:t=q:w=1.2:g=-5,equalizer=f=1000:t=q:w=1:g=-3[meq];"   # make room for the voice
+                 "[meq][key]sidechaincompress=threshold=0.03:ratio=2.5:attack=80:release=900[md];"  # gentle, no pumping
                  "[v][1][md]amix=inputs=3:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[out]")
         log(f"[sound] music: {t['file']} from {t.get('start', 0)}s; {len(cl)} effects")
     else:
