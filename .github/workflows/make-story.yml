@@ -16,6 +16,7 @@ on:
 
 permissions:
   contents: write   # to publish the finished video as a GitHub Release
+  actions: read     # to resume from the previous run's saved stages
 
 concurrency:
   group: make-story
@@ -68,6 +69,21 @@ jobs:
       - name: Setup check
         run: python -m studio setup
 
+      # Each finished stage (research, script, narration, storyboard) is saved; a new run of the same topic
+      # resumes from the last run's saved stages instead of redoing them.
+      - name: Resume saved stages
+        if: steps.what.outputs.topic != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          id=$(gh api "repos/${{ github.repository }}/actions/artifacts?name=story-drafts&per_page=1" --jq '.artifacts[0].id // empty' || true)
+          if [ -n "$id" ] && gh api "repos/${{ github.repository }}/actions/artifacts/$id/zip" > drafts.zip 2>/dev/null; then
+            unzip -qo drafts.zip && tar xzf drafts.tgz && echo "Resumed saved stages:" && ls episodes/*/_drafts/ || true
+            rm -f drafts.zip drafts.tgz
+          else
+            echo "No saved stages to resume."
+          fi
+
       - name: AI writes a new episode
         if: steps.what.outputs.topic != ''
         env:
@@ -118,6 +134,20 @@ jobs:
         run: |
           for r in episodes/*/*/report.md; do [ -f "$r" ] && [ "$r" -nt requirements.txt ] && { cat "$r"; echo; } >> "$GITHUB_STEP_SUMMARY"; done
           [ -f write.log ] && { echo '```'; tail -n 40 write.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY" || true
+
+      - name: Save finished stages for the next run
+        if: always() && steps.what.outputs.topic != ''
+        run: tar czf drafts.tgz episodes/*/_drafts 2>/dev/null || true
+
+      - name: Upload saved stages
+        if: always() && steps.what.outputs.topic != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: story-drafts
+          path: drafts.tgz
+          retention-days: 14
+          overwrite: true
+          if-no-files-found: ignore
 
       - name: Upload the video and episode folders
         if: always()
