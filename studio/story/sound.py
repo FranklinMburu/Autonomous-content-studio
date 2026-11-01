@@ -220,12 +220,16 @@ def _rms_db(x):
     return 20 * np.log10(np.sqrt(np.mean(x ** 2)) + 1e-9)
 
 
-def pick_film_track(title, music_dir, mood=None, avoid=()):
-    """A track for the episode's mood, not one used by the channel's recent videos when there is a choice."""
+def pick_film_track(title, music_dir, mood=None, avoid=(), name=None):
+    """The named track (script.json "music"), else one for the episode's mood that the channel's recent videos
+    didn't use."""
     if not music_dir or not Path(music_dir).is_dir():
         return None
     cat = json.loads(MUSIC_CATALOG.read_text(encoding="utf-8"))
     usable = [t for t in cat["tracks"] if (Path(music_dir) / t["file"]).exists() and not t.get("skip")]
+    named = [t for t in usable if name and name.lower() in t["file"].lower()]
+    if named:
+        return named[0]
     if mood:
         keys = MOODS.get(mood, (mood,))
         usable = [t for t in usable if any(k in t["mood"] for k in keys)] or usable
@@ -259,7 +263,7 @@ def music_gain(timing, n, bed_db, open_db, outro_db, ramp=0.4):
 
 
 def mix_film(timing, narration_wav, out_wav, cue_list, music_dir=None, mood=None, title="", avoid=(), outro=1.6,
-             log=print):
+             log=print, track_name=None):
     """Narration + music bed + real effects -> out_wav (length = narration + outro). Returns (out_wav, track_file)."""
     music_dir = music_dir or os.environ.get("STORY_MUSIC_DIR")
     dur = float(timing["duration"]) + outro
@@ -267,7 +271,7 @@ def mix_film(timing, narration_wav, out_wav, cue_list, music_dir=None, mood=None
     voice = np.zeros((n, 2)); v = _decode(narration_wav)[:n]; voice[:len(v)] = v
     vdb = _rms_db(v[np.abs(v).max(1) > 0.01]) if len(v) else -20.0     # speech level (pauses excluded)
     out = voice.copy()
-    track = pick_film_track(title, music_dir, mood, avoid)
+    track = pick_film_track(title, music_dir, mood, avoid, track_name)
     if track:
         m = _decode(Path(music_dir) / track["file"], float(track.get("start", 0)), dur + 0.5,
                     af="equalizer=f=2500:t=q:w=1.2:g=-4,equalizer=f=1000:t=q:w=1:g=-2,highpass=f=40")[:n]

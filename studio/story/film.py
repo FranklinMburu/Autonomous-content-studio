@@ -73,7 +73,24 @@ def read_clip(mp4, max_frames=None):
     fr = np.frombuffer(raw, np.uint8).reshape(-1, h, w, 3)
     if max_frames:
         fr = fr[:max_frames]
+    fr = fr[:good_frames(fr)]
     return [_surface(f) for f in fr]
+
+
+MELT = 0.85  # AI clips go soft as they "melt": keep frames while they stay at least 85% as sharp as the first one
+
+
+def good_frames(fr, min_keep=12):
+    """How many frames of a clip to keep: up to the first frame that lost >15% of the first frame's detail
+    (measured on episode 002: every clip that visibly smeared dropped below 0.85, the clean ones stayed above 0.93)."""
+    def sharp(x):
+        g = x.astype(np.float32).mean(2)
+        return np.abs(np.diff(g, axis=0)).mean() + np.abs(np.diff(g, axis=1)).mean()
+    s0 = sharp(fr[0]) + 1e-6
+    for i in range(min_keep, len(fr)):
+        if sharp(fr[i]) / s0 < MELT:
+            return i
+    return len(fr)
 
 
 def _cover(c, surf, zoom=1.0, dx=0.0, dy=0.0, alpha=1.0):
@@ -221,7 +238,7 @@ def make(folder, assets, narration=None, timing_path=None, out_dir=None, preset=
         avoid = [e.get("music") for e in load_memory(memory).get("episodes", [])[-4:] if e.get("episode") != folder.name]
         audio, track = sound.mix_film(timing, out / "narration.wav", out / "mix.wav", cues(film, timing),
                                       mood=film.get("music"), title=script.get("title", folder.name), avoid=avoid,
-                                      outro=OUTRO, log=log)
+                                      outro=OUTRO, log=log, track_name=script.get("music"))
     (out / "music.txt").write_text(track or "", encoding="utf-8")
     log(f"[render] {len(film['shots'])} shots")
     full = {**timing, "duration": float(timing["duration"]) + (OUTRO if script.get("sound", True) else 0)}
