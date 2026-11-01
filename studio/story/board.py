@@ -600,6 +600,62 @@ def build_shots(board):
     return shots, {w.lower() for w in board.get("key_words", [])}
 
 
+DECOR = {"text", "dim", "glow", "rays", "floor", "cross"}  # these alone are not a picture
+
+
+def _on_screen(it, t0, T):
+    for k in ("in", "from"):
+        if k in it and when(it[k], t0) > T + 0.05:
+            return False
+    return not ("until" in it and when(it["until"], t0) <= T)
+
+
+def quality(board):
+    """Benchmark-level rules (stricter than validate). The AI writer must pass these; older episodes show them as warnings.
+    Based on the benchmark research: a real picture from the first frame, a new picture about every second,
+    almost no label-only shots, places instead of plain colour."""
+    problems = []
+    shots = board.get("shots") or []
+    try:
+        built, _ = build_shots(board)
+    except BoardError as e:
+        return [f"timing: {e}"]
+    starts = [s[0] for s in built] + [L.DUR]
+    label_only, plain = 0, 0
+    for i, (sh, (a, *_), b) in enumerate(zip(shots, built, starts[1:])):
+        pics = [it for it in sh.get("items", []) if it.get("type") not in DECOR]
+        name = sh.get("name", f"shot {i + 1}")
+        if not pics:
+            label_only += 1
+            problems.append(f"{name}: only words on screen; add a character, prop or scene")
+            continue
+        T, empty = a, 0.0
+        while T < b:
+            empty = 0.0 if any(_on_screen(it, a, T) for it in pics) else empty + 0.25
+            if empty > 0.75:
+                problems.append(f"{name}: no picture for ~1s at {T:.1f}s (items appear later); show something from the start")
+                break
+            T += 0.25
+        bg = sh.get("bg", "gradient")
+        bg = bg.get("type") if isinstance(bg, dict) else bg
+        if bg in ("gradient", None, "none") and not any(it.get("type") in ("ship", "arm_scar", "ropes", "hands") for it in pics):
+            plain += 1
+    first = shots[0] if shots else {}
+    if not any(it.get("type") in ("character", "hands", "group", "ship", "arm_scar") and _on_screen(it, built[0][0], built[0][0] + 0.3)
+               for it in first.get("items", [])):
+        problems.append("opening shot: start mid-action with a person or body part on screen in the first 0.3 s")
+    if label_only > 0.1 * len(shots):
+        problems.append(f"{label_only} of {len(shots)} shots are words only (limit 10%)")
+    if plain > len(shots) / 2:
+        problems.append(f"{plain} of {len(shots)} shots sit on a plain colour; use a place (bg: ward, street, room, lab, deck)")
+    ch = picture_changes(built, L.DUR)
+    gaps = [y - x for x, y in zip(ch, ch[1:] + [L.DUR])]
+    if L.DUR / max(1, len(ch)) > 1.3 or max(gaps) > 1.5:
+        problems.append(f"pace: a new picture every {L.DUR / max(1, len(ch)):.2f}s, longest hold {max(gaps):.1f}s "
+                        "(target about 1s, never over 1.5s)")
+    return problems
+
+
 def validate(board, sample=True):
     """Problems with a storyboard, as plain sentences. Needs lib.set_timing() first (word triggers)."""
     problems = []
