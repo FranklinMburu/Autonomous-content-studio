@@ -301,16 +301,28 @@ def caption(c, T, key=()):
 
 
 def frame(c, T, shots, key=()):
-    """Draw time T: pick the shot, punch-in at each cut then a slow push, vignette, caption."""
+    """Draw time T. A shot is (t0, scene_fn, focus_y) or (t0, scene_fn, focus_y, camera_fn, overlay_fn):
+    camera_fn(T) -> (cx, cy, zoom) frames the scene; overlay_fn draws labels on top, outside the camera."""
     idx = max(i for i, s in enumerate(shots) if s[0] <= T + 1e-6)
-    t0, fn, fy = shots[idx]
+    sh = shots[idx]
+    t0, fn, fy = sh[0], sh[1], sh[2]
     t1 = shots[idx + 1][0] if idx + 1 < len(shots) else DUR
     lt = T - t0
-    z = 1.0 + 0.07 * ease(lt / max(0.5, t1 - t0)) + 0.10 * (1 - ease(lt / 0.25))
+    cam = sh[3] if len(sh) > 3 else None
+    if cam:
+        cx, cy, z = cam(T)
+    else:
+        cx, cy = 540, fy
+        z = 1.0 + 0.07 * ease(lt / max(0.5, t1 - t0)) + 0.10 * (1 - ease(lt / 0.25))
     c.save()
-    c.translate(540, fy); c.scale(z, z); c.translate(-540, -fy)
+    if cam:   # frame the scene around (cx, cy)
+        c.translate(540, 960); c.scale(z, z); c.translate(-cx, -cy)
+    else:     # older episodes: zoom around (540, focus_y)
+        c.translate(540, fy); c.scale(z, z); c.translate(-540, -fy)
     fn(c, lt, T)
     c.restore()
+    if len(sh) > 4 and sh[4]:
+        sh[4](c, lt, T)
     g = cairo.RadialGradient(540, 960, 500, 540, 960, 1300)
     g.add_color_stop_rgba(0, 0, 0, 0, 0); g.add_color_stop_rgba(1, 0, 0, 0, 0.45)
     c.set_source(g); c.paint()
@@ -322,7 +334,7 @@ def check_shots(shots):
     problems = []
     if not shots or shots[0][0] != 0.0:
         problems.append("the first shot must start at 0.0")
-    for (a, fa, _), (b, fb, _) in zip(shots, shots[1:]):
+    for (a, fa, *_), (b, fb, *_) in zip(shots, shots[1:]):
         if b <= a:
             problems.append(f"shot {fb.__name__} starts at {b:.2f}s, not after {fa.__name__} ({a:.2f}s)")
     return problems
