@@ -13,14 +13,14 @@
    "at": 0,
    "who": "hero",
    "clip": true,
-   "prompt": "close-up, {hero} pointing firmly at a white washbasin, stern face, in a long 1847 hospital ward with iron beds, candle light",
+   "prompt": "medium close-up, a stern man pointing his finger firmly at a white porcelain washbasin on a wooden stand, he is {hero}, a long 1847 hospital ward with iron beds behind him, candle light",
    "motion": "he points firmly and frowns, candle flames flicker, slow camera push in"
   },
   {
    "name": "bleach",
    "at": "scrub#1",
    "clip": true,
-   "prompt": "extreme close-up of a man's hands scrubbing hard in a porcelain basin of cloudy white water with foam, green coat sleeves, candle light",
+   "prompt": "extreme close-up of a man's bare hands rubbing together in cloudy milky white water in a white porcelain basin, white foam, dark green coat sleeves, warm candle light in the background",
    "motion": "the hands scrub and rub together in the foamy water, slow camera push in"
   },
   {
@@ -63,7 +63,7 @@
    "at": "mothers#1",
    "who": "mother",
    "clip": true,
-   "prompt": "close-up, a pale sick sweating woman lying in a hospital bed with eyes half closed, she is {mother}, gloomy ward, cold dusk light",
+   "prompt": "close-up, a pale sick sweating young woman in a dark red dress lying in a hospital bed with eyes half closed, she is {mother}, gloomy 1847 ward, cold dusk light",
    "motion": "she breathes weakly and closes her eyes, slow camera push in",
    "hit": "dying#1"
   },
@@ -78,7 +78,7 @@
    "at": "Women#1",
    "who": "mother",
    "clip": true,
-   "prompt": "full body, low angle, a woman kneeling on both knees on stone steps with clasped hands raised, begging, she is {mother}, in front of a grand old hospital gate at dusk, warm lamps",
+   "prompt": "medium shot, a desperate young woman kneeling with both knees on stone steps, clasped hands raised, pleading, tears, she is {mother}, a grand old hospital gate behind her at dusk, warm lamps",
    "motion": "her clasped hands shake as she pleads, lamps flicker, slow camera push in"
   },
   {
@@ -140,7 +140,7 @@
    "at": "then#3",
    "who": "hero",
    "clip": true,
-   "prompt": "medium shot, {hero} walking quickly through a doorway into a bright maternity ward, rolling down his sleeves, mothers in beds",
+   "prompt": "medium shot, a man in a long 1840s coat striding through an arched wooden doorway into a candle lit 1847 maternity ward with iron beds and mothers, he is {hero}, stone walls",
    "motion": "he walks forward through the doorway, slow camera move back",
    "ip": 0.4
   },
@@ -233,7 +233,7 @@
    "name": "end",
    "at": "died#3",
    "clip": true,
-   "prompt": "extreme close-up of a bandaged hand with a dark red stain resting on the edge of a white porcelain washbasin, dusk light, dark background",
+   "prompt": "extreme close-up of a man's hand wrapped in a blood-stained cloth bandage resting on the rim of a white porcelain washbasin, dark green coat sleeve, dim dusk light",
    "motion": "the bandaged hand trembles slightly, the light fades, very slow camera push in",
    "hit": "died#3"
   }

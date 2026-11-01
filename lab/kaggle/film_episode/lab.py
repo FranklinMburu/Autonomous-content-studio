@@ -36,8 +36,9 @@ STYLE = ("single scene, one continuous image, 3D animated movie still, Pixar-lik
          "illumination, cinematic lighting, rich colors, highly detailed, 1840s, oil lamps and candles only")
 NEG = ("collage, multiple panels, split screen, grid, comic panels, border, frame, multiple views, duplicate, inset, "
        "photo, realistic, ugly, deformed, extra limbs, extra fingers, bad hands, text, letters, watermark, blurry, "
-       "modern, electric light, plain background")
+       "modern, electric light, fluorescent light, modern hospital corridor, plain background")
 STYLE = FILM.get("style", STYLE)
+ONLY = set(FILM.get("only") or [])   # redo just these shots (the rest of the episode is kept)
 CAST = FILM["cast"]
 
 
@@ -126,6 +127,8 @@ blank = Image.new("RGB", (224, 224), (128, 128, 128))
 img_times = []
 for i, s in enumerate(FILM["shots"]):
     n = s["name"]
+    if ONLY and n not in ONLY:
+        continue
     try:
         t = time.time()
         who = s.get("who")
