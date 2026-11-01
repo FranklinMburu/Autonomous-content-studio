@@ -479,7 +479,7 @@ def _target(it):
     x, y, s = float(it.get("x", 540)), float(it.get("y", 960)), float(it.get("s", 1.0))
     if it.get("type") == "character":
         h = 380 * s * (cast.ROLES[it["role"]].get("scale", 1.0) if it.get("role") in cast.ROLES else 0.9)
-        return x, y - h * 0.62, max(1.0, min(1.8, 1250 / max(h, 1)))
+        return x, y - h * 0.55, max(1.0, min(1.55, 1100 / max(h, 1)))  # whole head and body stay in frame
     if it.get("type") == "group":
         g = it["grid"]
         return g["x"] + (g["cols"] - 1) * g["dx"] / 2, g["y"] + (g.get("rows", 1) - 1) * g.get("dy", 0) / 2, 1.15

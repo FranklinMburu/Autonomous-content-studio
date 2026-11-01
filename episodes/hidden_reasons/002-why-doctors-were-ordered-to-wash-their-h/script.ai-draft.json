@@ -1,0 +1,58 @@
+{
+ "title": "Why Doctors Were Ordered to Wash Their Hands",
+ "channel": "Hidden Reasons",
+ "topic": "Ignaz Semmelweis and why doctors in 1847 Vienna were ordered to wash their hands (childbed fever)",
+ "voice": "am_michael",
+ "speed": 1.54,
+ "pace": {
+  "gap_line": 0.08,
+  "gap_beat": 0.2,
+  "lead_in": 0.05,
+  "tail": 0.7
+ },
+ "beats": [
+  {
+   "lines": [
+    "A doctor scrubbed his hands in lime bleach before touching new mothers.",
+    "It was 1847, and childbed fever was killing mothers in hospitals."
+   ]
+  },
+  {
+   "lines": [
+    "Some doctors mocked Semmelweis for demanding clean hands.",
+    "Other doctors felt the request insulted their status as gentlemen.",
+    "Women begged on their knees to avoid his ward.",
+    "Some women gave birth in the streets to escape it."
+   ]
+  },
+  {
+   "lines": [
+    "In May 1847, Semmelweis ordered hand washing in the First Division.",
+    "Every doctor and student washed before ward work.",
+    "Semmelweis later ordered washing before each vaginal examination.",
+    "The First Division death rate fell from 18% to less than 3%."
+   ]
+  },
+  {
+   "lines": [
+    "You see, it is like cleaning a kitchen after a greasy meal."
+   ]
+  },
+  {
+   "lines": [
+    "Doctors in the First Division performed autopsies each morning.",
+    "Second Division midwives did no autopsies, and their death rate stayed low.",
+    "Semmelweis believed corpse particles stuck to doctors' hands and spread childbed fever.",
+    "Chlorinated lime, a strong cleaning solution, washed those particles away."
+   ]
+  },
+  {
+   "lines": [
+    "Semmelweis's ideas were accepted only after his death.",
+    "Louis Pasteur later confirmed that germs cause disease.",
+    "His colleagues committed him to an asylum, where guards beat him.",
+    "The man who demanded clean hands died from a rotting hand wound."
+   ]
+  }
+ ]
+}
