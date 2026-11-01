@@ -36,7 +36,7 @@ for name in names:
         "is_private": True, "enable_gpu": True, "enable_internet": True, "dataset_sources": [],
         "competition_sources": [], "kernel_sources": []}, indent=1))
     if not fetch_only:
-        print(name, "->", run("kernels", "push", "-p", str(work)), flush=True)
+        print(name, "->", run("kernels", "push", "-p", str(work), "--accelerator", "NvidiaTeslaT4"), flush=True)
     slugs[name] = slug
 
 t0, done = time.time(), ({n: "fetch only" for n in names} if fetch_only else {})

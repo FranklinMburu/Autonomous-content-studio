@@ -165,11 +165,12 @@ def pick_track(script_title, music_dir, track=None):
     return usable[zlib.crc32(script_title.encode()) % len(usable)]
 
 
-def mix(board, timing, narration_wav, out_wav, music_dir=None, track=None, title="", log=print):
-    """Narration + ducked music + effects, loudness-matched for YouTube (-14 LUFS)."""
+def mix(board, timing, narration_wav, out_wav, music_dir=None, track=None, title="", log=print, cue_list=None):
+    """Narration + ducked music + effects, loudness-matched for YouTube (-14 LUFS). Effects come from the storyboard,
+    or from a ready cue_list [(time, kind, gain)] (the film style)."""
     out_wav, dur = Path(out_wav), float(timing["duration"])
     music_dir = music_dir or os.environ.get("STORY_MUSIC_DIR")
-    cl = cues(board, timing)
+    cl = cue_list if cue_list is not None else cues(board, timing)
     fx = out_wav.with_name("effects.wav")
     _write_wav(fx, effects_track(cl, dur))
     t = pick_track(title, music_dir, track)

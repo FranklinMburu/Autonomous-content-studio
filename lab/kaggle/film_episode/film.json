@@ -1,0 +1,267 @@
+{
+ "_about": "Film style (studio/story/film.py): one painted 3D-film shot per beat, the cast kept consistent with reference portraits; 'clip' shots get ~1.4 s of AI motion, the rest a depth-parallax camera move. 'at' = the word that starts the shot (word#n, counted case-insensitively).",
+ "cast": {
+  "hero": "a 29 year old doctor with black slicked hair, a black mustache and a long dark green coat with gold buttons",
+  "mother": "a young mother with brown hair in a bun and a long dark red 19th century dress",
+  "friend": "a kind 43 year old professor with grey hair, grey sideburns and small round glasses in a brown coat",
+  "elder": "a stern old professor with white hair and white whiskers in a black frock coat",
+  "pasteur": "an old French scientist with a short grey beard and a black velvet cap"
+ },
+ "shots": [
+  {
+   "name": "hook",
+   "at": 0,
+   "who": "hero",
+   "clip": true,
+   "prompt": "close-up, {hero} pointing firmly at a white washbasin, stern face, in a long 1847 hospital ward with iron beds, candle light",
+   "motion": "he points firmly and frowns, candle flames flicker, slow camera push in"
+  },
+  {
+   "name": "bleach",
+   "at": "scrub#1",
+   "clip": true,
+   "prompt": "extreme close-up of a man's hands scrubbing hard in a porcelain basin of cloudy white water with foam, green coat sleeves, candle light",
+   "motion": "the hands scrub and rub together in the foamy water, slow camera push in"
+  },
+  {
+   "name": "mother",
+   "at": "before#1",
+   "who": "mother",
+   "clip": true,
+   "prompt": "{mother} lying in an iron hospital bed looking up worried, white pillow, 1847 maternity ward, soft window light",
+   "motion": "she looks up worried and breathes, slow camera push in"
+  },
+  {
+   "name": "offended",
+   "at": "The#1",
+   "who": "elder",
+   "clip": true,
+   "prompt": "medium shot, {elder} and two other old doctors in black coats with arms crossed, offended and frowning, a grand 1847 lecture hall with wooden benches, warm lamp light",
+   "motion": "they frown and shake their heads, slow camera push in",
+   "xfade": true
+  },
+  {
+   "name": "gentlemen",
+   "at": "They#1",
+   "who": "elder",
+   "move": "up",
+   "prompt": "low angle, proud elegant old doctors in top hats and fine black coats lifting their chins, standing in front of a grand Vienna hospital, golden afternoon light"
+  },
+  {
+   "name": "dirty",
+   "at": "How#1",
+   "clip": true,
+   "prompt": "extreme close-up of a doctor's pale hands with dark dried stains under the fingernails, black coat cuffs, dark background, candle light",
+   "motion": "the hands turn over slowly, candle light flickers, slow camera push in"
+  },
+  {
+   "name": "clinic",
+   "at": "But#1",
+   "move": "push",
+   "prompt": "wide shot of a long gloomy 1847 maternity ward with two rows of iron beds, women lying sick, tall arched windows, grey dusk light, dust in the air"
+  },
+  {
+   "name": "dying",
+   "at": "mothers#1",
+   "who": "mother",
+   "clip": true,
+   "prompt": "close-up, a pale sick sweating woman lying in a hospital bed with eyes half closed, she is {mother}, gloomy ward, cold dusk light",
+   "motion": "she breathes weakly and closes her eyes, slow camera push in",
+   "hit": "dying#1"
+  },
+  {
+   "name": "three",
+   "at": "Three#1",
+   "move": "right",
+   "prompt": "two hospital doors side by side in a stone corridor, the left door dark and grim with black cloth, the right door warm and glowing with candle light, 1847"
+  },
+  {
+   "name": "begging",
+   "at": "Women#1",
+   "who": "mother",
+   "clip": true,
+   "prompt": "full body, {mother} on her knees on stone steps begging with clasped hands raised, in front of a grand old hospital gate at dusk, warm lamps, low angle",
+   "motion": "her clasped hands shake as she pleads, lamps flicker, slow camera push in"
+  },
+  {
+   "name": "street",
+   "at": "Some#1",
+   "who": "mother",
+   "clip": true,
+   "prompt": "{mother} sitting on a cobblestone street at night holding a newborn baby wrapped in a shawl, a street lantern, old Vienna houses",
+   "motion": "she rocks the baby gently, the lantern flickers, slow camera push in"
+  },
+  {
+   "name": "friend",
+   "at": "Then#1",
+   "who": "friend",
+   "move": "push",
+   "prompt": "medium shot, {friend} smiling and teaching young students in an 1847 anatomy room, wooden tables, oil lamps",
+   "xfade": true
+  },
+  {
+   "name": "scalpel",
+   "at": "cut#1",
+   "clip": true,
+   "prompt": "extreme close-up of a scalpel blade slipping and nicking a man's finger, a small drop of red blood, brown coat sleeve, anatomy table, lamp light",
+   "motion": "the blade slips and a drop of blood forms, slow camera push in",
+   "hit": "cut#1"
+  },
+  {
+   "name": "signs",
+   "at": "His#2",
+   "who": "friend",
+   "clip": true,
+   "prompt": "{friend} lying very sick and pale in a hospital bed, sweating, fever, dim night ward, a candle",
+   "motion": "he breathes weakly and his head turns, the candle flickers, slow camera push in"
+  },
+  {
+   "name": "chicken",
+   "at": "You#1",
+   "clip": true,
+   "prompt": "close-up of hands cutting a raw chicken on a wooden board in a cozy kitchen, a knife, warm window light",
+   "motion": "the knife cuts into the raw chicken, slow camera push in",
+   "xfade": true
+  },
+  {
+   "name": "salad",
+   "at": "then#2",
+   "clip": true,
+   "prompt": "close-up of the same unwashed hands tearing fresh green salad leaves into a bowl next to a raw chicken on a wooden board, cozy kitchen, warm window light",
+   "motion": "the hands tear the salad leaves into the bowl, slow camera push in"
+  },
+  {
+   "name": "morning",
+   "at": "Every#2",
+   "move": "push",
+   "prompt": "a dim stone autopsy room at dawn, doctors in dark coats standing around a stone table with a body under a white sheet, cold blue light through a high window",
+   "xfade": true
+  },
+  {
+   "name": "living",
+   "at": "then#3",
+   "who": "hero",
+   "clip": true,
+   "prompt": "medium shot, {hero} walking quickly through a doorway into a bright maternity ward, rolling down his sleeves, mothers in beds",
+   "motion": "he walks forward through the doorway, slow camera move back"
+  },
+  {
+   "name": "midwives",
+   "at": "the#10",
+   "clip": true,
+   "prompt": "a kind midwife with a white bonnet and white apron gently holding a newborn baby next to a smiling mother in a clean bright ward, warm sunlight",
+   "motion": "the midwife rocks the baby gently, the mother smiles, slow camera push in"
+  },
+  {
+   "name": "order",
+   "at": "So#1",
+   "who": "hero",
+   "move": "left",
+   "prompt": "medium shot, {hero} nailing a handwritten notice to a wooden ward door while young students line up behind him, morning light"
+  },
+  {
+   "name": "lime",
+   "at": "hand#1",
+   "clip": true,
+   "prompt": "close-up of hands dipping into a porcelain basin of milky white chlorinated lime water, a wooden ward, morning light",
+   "motion": "the hands dip and wash in the milky water, slow camera push in"
+  },
+  {
+   "name": "fell",
+   "at": "Deaths#1",
+   "who": "mother",
+   "clip": true,
+   "prompt": "{mother} sitting up in a hospital bed, smiling and holding her healthy baby, a bright sunny ward with flowers",
+   "motion": "she smiles and rocks the baby, sunlight shimmers, slow camera push in"
+  },
+  {
+   "name": "rejected",
+   "at": "But#2",
+   "who": "elder",
+   "clip": true,
+   "prompt": "medium shot, {elder} and other old doctors in black coats laughing and pointing mockingly, a grand 1847 lecture hall, warm lamp light",
+   "motion": "they laugh and point, slow camera push in",
+   "xfade": true
+  },
+  {
+   "name": "asylum",
+   "at": "in#7",
+   "move": "pull",
+   "prompt": "a grim grey stone asylum building with barred windows on a rainy night, iron gate, a single lamp",
+   "hit": "asylum#1"
+  },
+  {
+   "name": "guards",
+   "at": "guards#1",
+   "who": "hero",
+   "clip": true,
+   "prompt": "{hero} struggling between two rough guards in grey uniforms in a dark stone corridor, a lantern",
+   "motion": "the guards drag him down the corridor, the lantern swings, slow camera push in"
+  },
+  {
+   "name": "died",
+   "at": "he#2",
+   "who": "hero",
+   "clip": true,
+   "prompt": "high angle, {hero} lying sick and pale in an iron bed with a bandaged hand, a bare stone asylum cell at night, moonlight through a barred window",
+   "motion": "he breathes weakly and closes his eyes, slow camera push in",
+   "hit": "died#2"
+  },
+  {
+   "name": "pasteur",
+   "at": "Years#1",
+   "who": "pasteur",
+   "move": "push",
+   "prompt": "{pasteur} looking into a brass microscope in a 19th century laboratory full of glass flasks, warm lamp light"
+  },
+  {
+   "name": "vindicated",
+   "at": "why#1",
+   "who": "hero",
+   "move": "push",
+   "prompt": "an old oil portrait painting of {hero} in a gold frame hanging on a museum wall, warm spotlight"
+  },
+  {
+   "name": "twist",
+   "at": "the#11",
+   "who": "hero",
+   "clip": true,
+   "prompt": "close-up, {hero} looking sadly at his own bandaged hand, standing beside a white washbasin, dusk light through a ward window",
+   "motion": "he slowly lifts his bandaged hand and looks at it, slow camera push in"
+  },
+  {
+   "name": "end",
+   "at": "died#3",
+   "clip": true,
+   "prompt": "extreme close-up of a bandaged hand with a dark red stain resting on the edge of a white porcelain washbasin, dusk light, dark background",
+   "motion": "the bandaged hand trembles slightly, the light fades, very slow camera push in",
+   "hit": "died#3"
+  }
+ ],
+ "key_words": [
+  "bleach",
+  "offended",
+  "gentlemen",
+  "dirty",
+  "dying",
+  "three",
+  "begged",
+  "knees",
+  "street",
+  "scalpel",
+  "same",
+  "chicken",
+  "salad",
+  "corpse",
+  "lime",
+  "18%",
+  "3%",
+  "rejected",
+  "asylum",
+  "beat",
+  "died",
+  "infected",
+  "hand",
+  "right"
+ ]
+}

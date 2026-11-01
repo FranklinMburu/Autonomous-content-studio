@@ -133,5 +133,28 @@ out, _, track = sound.mix(ex["storyboard"], tm, d / "n.wav", d / "mix.wav", musi
 with wave.open(str(out)) as w:
     secs = w.getnframes() / w.getframerate()
 ok(abs(secs - tm["duration"]) < 0.2 and track is None, f"sound: mix is the narration's length ({secs:.1f}s), effects only without music")
+
+# film style (studio/story/film.py): the shot plan, missing assets, effects, and a short render from tiny fake assets
+from studio.story import film as F
+import cairo as _c
+ep2 = Path(__file__).resolve().parents[1] / "episodes/hidden_reasons/002-why-doctors-were-ordered-to-wash-their-h"
+fj = json.loads((ep2 / "film.json").read_text(encoding="utf-8"))
+tm2 = fake_timing(json.loads((ep2 / "script.json").read_text(encoding="utf-8")))
+pl = F.plan(fj, tm2)
+ok(pl[0][0] == 0 and all(a[0] < b[0] for a, b in zip(pl, pl[1:])), f"film: 002 has {len(pl)} shots in spoken order")
+ok(any("no picture" in x for x in F.problems(fj, tm2, d)), "film: missing pictures are reported")
+fc = F.cues(fj, tm2)
+ok({"whoosh", "impact", "riser"} <= {k for _, k, _ in fc}, f"film: effects from crossfades, hits and the ending ({len(fc)})")
+mini = {"shots": [{"name": "a", "at": 0, "move": "push"}, {"name": "b", "at": 0.6, "clip": True, "xfade": True}]}
+for nm, col in (("a", (0.8, 0.3, 0.2)), ("b", (0.2, 0.4, 0.8))):
+    s_ = _c.ImageSurface(_c.FORMAT_RGB24, 90, 160); cc = _c.Context(s_); cc.set_source_rgb(*col); cc.paint()
+    s_.write_to_png(str(d / f"shot_{nm}.png"))
+    g_ = _c.ImageSurface(_c.FORMAT_RGB24, 90, 160); cg = _c.Context(g_); cg.set_source_rgb(0.5, 0.5, 0.5); cg.paint()
+    g_.write_to_png(str(d / f"depth_{nm}.png"))
+import subprocess as _sp
+_sp.run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", "testsrc=s=64x112:r=24:d=0.5", str(d / "clip_b.mp4")], check=True)
+tm3 = {"duration": 1.2, "words": [{"w": "Hi", "start": 0.1, "end": 0.4}]}
+F.render(mini, tm3, d, d / "n.wav", d / "film.mp4", preset="ultrafast", log=lambda *a: None)
+ok((d / "film.mp4").stat().st_size > 1000 and not F.problems(mini, tm3, d), "film: renders stills (parallax) and clips with a crossfade")
 print(f"\n{'ALL PASSED' if not fails else str(fails) + ' FAILED'}")
 sys.exit(1 if fails else 0)

@@ -1,0 +1,236 @@
+"""Film style: an episode made of painted 3D-film shots (like the benchmark), not drawn 2D scenes.
+
+film.json (in the episode folder) lists the cast (one look per role) and ~30 shots. Each shot starts on a spoken word
+("at": word#n) and is either a short AI clip ("clip": true, ~1.4 s of real motion) or a still painting filmed with a
+depth-parallax camera move ("move": push | pull | left | right | up | down). The pictures, depth maps and clips are made
+on a free Kaggle GPU (lab/kaggle/film_episode) and arrive in one assets folder:
+    shot_<name>.png  depth_<name>.png  clip_<name>.mp4 (clip shots)
+
+    python -m studio.story.film make episodes/<ch>/<NNN-slug> --assets <dir> [--narration n.wav --timing t.json]
+
+Rules from the benchmark (Ricks Clips, measured): a new shot every ~1.9 s, the camera never stops, hard cuts inside
+motion plus a few crossfades on the big turns, one caption word at a time, music and hits under the voice.
+"""
+import argparse, json, shutil, subprocess, sys, time
+from pathlib import Path
+
+import cairo
+import numpy as np
+
+from . import board as B, lib as L
+from .depth_scene import DepthScene
+
+W, H, FPS = L.W, L.H, L.FPS
+XFADE = 0.3      # seconds of crossfade into a shot marked "xfade"
+CLIP_FPS = 24
+MIN_SPEED = 0.6  # a clip may be slowed to 60% to fill its shot; after that it holds and the camera keeps pushing
+
+
+def plan(film, timing):
+    """[(t0, t1, shot)] from the narration timing."""
+    L.set_timing(timing)
+    shots = film["shots"]
+    ts = [B.when(s["at"], 0) for s in shots]
+    if ts[0] != 0 or ts != sorted(ts):
+        raise SystemExit(f"film.json: shots must start at 0 and be in spoken order: {ts}")
+    ends = ts[1:] + [float(timing["duration"])]
+    return list(zip(ts, ends, shots))
+
+
+def problems(film, timing, assets):
+    """What is missing or too fast; empty = ready to render."""
+    out = []
+    for t0, t1, s in plan(film, timing):
+        n = s["name"]
+        if not (Path(assets) / f"shot_{n}.png").exists():
+            out.append(f"{n}: no picture")
+        if s.get("clip") and not (Path(assets) / f"clip_{n}.mp4").exists() and not (Path(assets) / f"depth_{n}.png").exists():
+            out.append(f"{n}: no clip and no depth map")
+        if not s.get("clip") and not (Path(assets) / f"depth_{n}.png").exists():
+            out.append(f"{n}: no depth map")
+        if t1 - t0 < 0.5:
+            out.append(f"{n}: only {t1 - t0:.2f} s on screen")
+    return out
+
+
+def _surface(rgb):
+    """numpy HxWx3 uint8 -> cairo surface."""
+    h, w = rgb.shape[:2]
+    s = cairo.ImageSurface(cairo.FORMAT_RGB24, w, h)
+    a = np.ndarray((h, s.get_stride() // 4, 4), np.uint8, s.get_data())
+    a[:, :w, 0], a[:, :w, 1], a[:, :w, 2], a[:, :w, 3] = rgb[..., 2], rgb[..., 1], rgb[..., 0], 255
+    s.mark_dirty()
+    return s
+
+
+def read_clip(mp4, max_frames=None):
+    """Frames of a clip as cairo surfaces (native size)."""
+    probe = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height",
+                            "-of", "csv=p=0", str(mp4)], capture_output=True, text=True, check=True).stdout
+    w, h = (int(v) for v in probe.strip().split(",")[:2])
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(mp4), "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
+                         capture_output=True, check=True).stdout
+    fr = np.frombuffer(raw, np.uint8).reshape(-1, h, w, 3)
+    if max_frames:
+        fr = fr[:max_frames]
+    return [_surface(f) for f in fr]
+
+
+def _cover(c, surf, zoom=1.0, dx=0.0, dy=0.0, alpha=1.0):
+    """Paint a surface so it fills the 9:16 frame (centre crop), zoomed around the centre."""
+    w, h = surf.get_width(), surf.get_height()
+    s = max(W / w, H / h) * zoom
+    c.save(); c.translate(W / 2 + dx, H / 2 + dy); c.scale(s, s); c.translate(-w / 2, -h / 2)
+    c.set_source_surface(surf, 0, 0); c.get_source().set_filter(cairo.FILTER_GOOD)
+    c.paint_with_alpha(alpha) if alpha < 1 else c.paint()
+    c.restore()
+
+
+class Shot:
+    def __init__(self, t0, t1, spec, assets):
+        self.t0, self.t1, self.spec, self.name = t0, t1, spec, spec["name"]
+        a = Path(assets)
+        clip = a / f"clip_{self.name}.mp4"
+        self.frames = read_clip(clip, spec.get("clip_frames")) if spec.get("clip") and clip.exists() else None
+        self.scene = None
+        if not self.frames:
+            self.scene = DepthScene(a / f"shot_{self.name}.png", a / f"depth_{self.name}.png")
+
+    def draw(self, c, T, alpha=1.0):
+        d = max(0.3, self.t1 - self.t0)
+        k = (T - self.t0) / d
+        if self.frames:
+            n = len(self.frames)
+            speed = max(MIN_SPEED, min(1.0, (n / CLIP_FPS) / d))
+            pos = min(n - 1.0, max(0.0, (T - self.t0) * speed * CLIP_FPS))
+            i = int(pos); f = pos - i
+            held = max(0.0, (T - self.t0) * speed * CLIP_FPS - (n - 1)) / CLIP_FPS  # seconds past the clip's end
+            z = 1.0 + 0.035 * held  # keep the camera moving while the last frame holds
+            if alpha < 1:
+                c.push_group()
+            _cover(c, self.frames[i], z)
+            if f > 0.01 and i + 1 < n:   # blend neighbours: smooth slow motion
+                _cover(c, self.frames[i + 1], z, alpha=f)
+            if alpha < 1:
+                c.pop_group_to_source(); c.paint_with_alpha(alpha)
+        else:
+            if alpha < 1:
+                c.push_group()
+            self.scene.draw(c, k, self.spec.get("move", "push"), float(self.spec.get("amount", 1.0)))
+            if alpha < 1:
+                c.pop_group_to_source(); c.paint_with_alpha(alpha)
+
+
+def _vignette(c):
+    g = cairo.RadialGradient(W / 2, H / 2, 520, W / 2, H / 2, 1300)
+    g.add_color_stop_rgba(0, 0, 0, 0, 0); g.add_color_stop_rgba(1, 0, 0, 0, 0.42)
+    c.set_source(g); c.paint()
+
+
+def cues(film, timing):
+    """Sound effects for the film: a whoosh into each crossfade, hits on shots marked "hit", a riser into the ending."""
+    pl = plan(film, timing)
+    out = []
+    for t0, t1, s in pl:
+        if s.get("xfade"):
+            out.append((t0 - XFADE, "whoosh", 0.35))
+        if s.get("hit"):
+            out.append((B.when(s["hit"], t0) if isinstance(s["hit"], str) else t0, "impact", 0.55))
+    if len(pl) > 2:
+        out.append((pl[-1][0] - 1.6, "riser", 0.3))
+    out.sort()
+    spaced, last = [], {}
+    for t, k, g in out:
+        if t < 0 or t - last.get(k, -99) < {"impact": 2.0, "whoosh": 3.0, "riser": 5.0}.get(k, 0.5):
+            continue
+        spaced.append((t, k, g)); last[k] = t
+    return spaced
+
+
+def render(film, timing, assets, audio, out_mp4, preset="veryfast", log=print):
+    pl = plan(film, timing)
+    dur = float(timing["duration"])
+    key = {w.lower() for w in film.get("key_words", [])}
+    L.set_timing(timing)
+    cache = {}
+
+    def shot(i):
+        if i not in cache:
+            for j in [j for j in cache if j < i - 1]:
+                del cache[j]   # keep memory small: only the current and previous shot
+            t0, t1, s = pl[i]
+            cache[i] = Shot(t0, t1, s, assets)
+        return cache[i]
+    surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
+    n = int(dur * FPS)
+    ff = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "bgra", "-s", f"{W}x{H}",
+                           "-r", str(FPS), "-i", "-", "-i", str(audio), "-c:v", "libx264", "-preset", preset, "-crf", "19",
+                           "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-shortest", str(out_mp4)],
+                          stdin=subprocess.PIPE)
+    for f in range(n):
+        T = f / FPS
+        i = max(j for j, p in enumerate(pl) if p[0] <= T + 1e-6)
+        c = cairo.Context(surf); c.set_source_rgb(0, 0, 0); c.paint()
+        t0, _, s = pl[i]
+        if i and s.get("xfade") and T - t0 < XFADE:   # crossfade from the previous shot
+            shot(i - 1).draw(c, T)
+            shot(i).draw(c, T, alpha=(T - t0) / XFADE)
+        else:
+            shot(i).draw(c, T)
+        _vignette(c)
+        L.caption(c, T, key)
+        surf.flush(); ff.stdin.write(bytes(surf.get_data()))
+        if f % 300 == 0:
+            log(f"  frame {f}/{n}")
+    ff.stdin.close(); ff.wait()
+    if ff.returncode != 0:
+        raise RuntimeError("ffmpeg failed")
+    return out_mp4
+
+
+def make(folder, assets, narration=None, timing_path=None, out_dir=None, preset="veryfast", log=print):
+    from ..paths import OUT, ensure_fonts, slugify
+    from . import sound
+    folder = Path(folder)
+    film = json.loads((folder / "film.json").read_text(encoding="utf-8"))
+    script = json.loads((folder / "script.json").read_text(encoding="utf-8"))
+    ensure_fonts()
+    out = Path(out_dir) if out_dir else OUT / f"{time.strftime('%Y%m%d-%H%M')}-film-{slugify(script.get('title', folder.name))}"
+    out.mkdir(parents=True, exist_ok=True)
+    t0 = time.time()
+    if narration and timing_path:
+        shutil.copy(narration, out / "narration.wav"); timing = json.loads(Path(timing_path).read_text(encoding="utf-8"))
+    else:
+        from .__main__ import narrate
+        timing = narrate(script, out)
+    probs = problems(film, timing, assets)
+    if probs:
+        log("Film problems:\n  " + "\n  ".join(probs))
+        if any("no picture" in p or "no depth" in p for p in probs):
+            return 1
+    audio = out / "narration.wav"
+    if script.get("sound", True):
+        audio, cl, track = sound.mix(None, timing, out / "narration.wav", out / "mix.wav", track=script.get("music"),
+                                     title=script.get("title", folder.name), cue_list=cues(film, timing), log=log)
+    log(f"[render] {len(film['shots'])} shots")
+    render(film, timing, assets, audio, out / "video.mp4", preset=preset, log=log)
+    from ..qc import contact_sheet
+    contact_sheet(out / "video.mp4", out / "contact.png", every=2.0)
+    for f in ("script.json", "sources.md", "film.json"):
+        if (folder / f).exists():
+            shutil.copy(folder / f, out / f)
+    log(f"[done] {time.time() - t0:.0f} s -> {out / 'video.mp4'}")
+    return 0
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(prog="python -m studio.story.film")
+    sub = ap.add_subparsers(dest="cmd", required=True)
+    m = sub.add_parser("make"); m.add_argument("episode"); m.add_argument("--assets", required=True)
+    m.add_argument("--narration"); m.add_argument("--timing"); m.add_argument("--out"); m.add_argument("--preset", default="veryfast")
+    a = ap.parse_args(argv)
+    return make(a.episode, a.assets, a.narration, a.timing, a.out, a.preset)
+
+
+if __name__ == "__main__":
+    sys.exit(main())
