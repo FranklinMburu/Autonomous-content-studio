@@ -45,12 +45,17 @@ FILM_RULES = """FILM SHOT LIST RULES (the pictures are painted by an image AI in
   big moves (running, fighting, walking far, falling) melt in the AI video.
 - Shots without a clip get "move": push | pull | left | right | up | down (the 3D camera move). Use them for
   places, objects and calm moments.
+- "check": a short yes/no question about the ONE thing that must be visible for the shot to be right, answered
+  "yes" when it is ("Is a woman kneeling?", "Is there a raw chicken?"). A vision model asks it about every painted
+  picture; a "no" repaints the shot. Keep it simple and visual (no names, no story knowledge).
+- "era": top level, when the story happens ("1840s", "1950s", "today"). Pictures of past eras are also checked for
+  modern things (electric lights, cars, phones).
 - "xfade": true on 3-6 shots that start a new part of the story (a crossfade from the shot before).
 - "hit": "WORD#N" on 2-5 dramatic words (a low sound hit lands there). Use the shot's own words.
 - Make it unlike the channel's earlier videos (see CHANNEL MEMORY): new faces, new places, new framings.
-Return JSON only: {"cast": {...}, "key_words": [...], "music": "<one mood word: tense|mysterious|epic|curious|sad>",
- "shots": [{"name": "short_id", "at": ..., "who": ..., "prompt": ..., "clip": true, "motion": ...} or
-           {"name": ..., "at": ..., "prompt": ..., "move": "push"}, ...]}"""
+Return JSON only: {"era": "...", "cast": {...}, "key_words": [...], "music": "<one mood word: tense|mysterious|epic|curious|sad>",
+ "shots": [{"name": "short_id", "at": ..., "who": ..., "prompt": ..., "check": "Is ...?", "clip": true, "motion": ...} or
+           {"name": ..., "at": ..., "prompt": ..., "check": "Is ...?", "move": "push"}, ...]}"""
 
 
 def _toks(s):
@@ -75,12 +80,12 @@ def load_memory(path):
     return json.loads(p.read_text(encoding="utf-8")) if p and p.exists() else {"episodes": []}
 
 
-def remember(memory, episode, film, music=None):
+def remember(memory, episode, film, music=None, topic=None):
     """Add a finished episode's cast, places and music to the channel memory (one entry per episode, replaced on rerun)."""
     eps = [e for e in memory.get("episodes", []) if e.get("episode") != episode]
-    eps.append({"episode": episode, "cast": film.get("cast", {}), "music": music,
+    eps.append({"episode": episode, "cast": film.get("cast", {}), "music": music, "topic": topic,
                 "places": [_fill(s.get("prompt", ""), {}) for s in film.get("shots", [])]})
-    return {"episodes": eps}
+    return {**memory, "episodes": eps}
 
 
 def memory_text(memory, episode=None, max_eps=12):
@@ -101,6 +106,8 @@ def film_problems(f, timing, memory=None, episode=None):
     if not isinstance(f, dict) or not isinstance(f.get("shots"), list) or not isinstance(f.get("cast"), dict):
         return ['need {"cast": {...}, "key_words": [...], "shots": [...]}']
     p, cast, shots = [], f["cast"], f["shots"]
+    if not str(f.get("era", "")).strip():
+        p.append('need "era": when the story happens ("1840s", "1950s", "today")')
     if not 1 <= len(cast) <= 6:
         p.append(f"cast has {len(cast)} roles; use 1-6")
     for k, v in cast.items():
@@ -136,6 +143,9 @@ def film_problems(f, timing, memory=None, episode=None):
         for bad in BANNED_IN_PROMPTS:
             if re.search(rf"\b{re.escape(bad)}\b", low):
                 p.append(f"shot {n}: no {bad!r} in pictures (image AIs draw garbled text)"); break
+        q = str(s.get("check", ""))
+        if not (q.endswith("?") and 3 <= len(q.split()) <= 14):
+            p.append(f"shot {n}: needs \"check\": a short yes/no question about what must be visible (\"Is a woman kneeling?\")")
         if s.get("who") and s["who"] not in cast:
             p.append(f"shot {n}: who={s['who']!r} is not in the cast")
         if s.get("clip"):
@@ -416,7 +426,9 @@ def main(argv=None):
     if a.cmd == "remember":
         film = json.loads((folder / "film.json").read_text(encoding="utf-8"))
         music = a.music or None
-        Path(a.extra).write_text(json.dumps(remember(mem, folder.name, film, music), indent=1, ensure_ascii=False), encoding="utf-8")
+        sc = json.loads((folder / "script.json").read_text(encoding="utf-8")) if (folder / "script.json").exists() else {}
+        Path(a.extra).write_text(json.dumps(remember(mem, folder.name, film, music, sc.get("topic")), indent=1,
+                                            ensure_ascii=False), encoding="utf-8")
         return 0
 
 

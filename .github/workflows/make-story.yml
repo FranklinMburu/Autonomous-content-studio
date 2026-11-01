@@ -15,7 +15,7 @@ on:
         required: false
         default: ""
       episode:
-        description: "OR an existing episode folder to render, e.g. episodes/hidden_reasons/002-why-doctors-were-ordered-to-wash-their-h"
+        description: "OR an existing episode: a folder (episodes/hidden_reasons/002-...) or release:<tag> of an earlier run"
         required: false
         default: ""
       storyboard:
@@ -64,10 +64,12 @@ jobs:
         id: what
         env:
           GH_TOKEN: ${{ github.token }}
+          TOPIC_RAW: ${{ github.event.inputs.topic }}
+          STYLE_RAW: ${{ github.event.inputs.style }}
         run: |
-          topic="${{ github.event.inputs.topic }}"
+          topic=$(printf '%s' "$TOPIC_RAW" | tr -d '\n\r')   # passed as data, never pasted into the script
           echo "topic=$topic" >> "$GITHUB_OUTPUT"
-          style="${{ github.event.inputs.style }}"; [ -z "$style" ] && style=film
+          style="$STYLE_RAW"; [ -z "$style" ] && style=film
           echo "STORY_STYLE=$style" >> "$GITHUB_ENV"
           # the channel memory: casts, places and music of earlier videos, so a new story doesn't repeat them
           gh release download channel-memory -p used.json -D . 2>/dev/null || echo '{"episodes": []}' > used.json
@@ -129,7 +131,17 @@ jobs:
 
       - name: Use the given episode
         if: steps.what.outputs.topic == ''
-        run: echo "EPISODE_DIR=${{ github.event.inputs.episode }}" >> "$GITHUB_ENV"
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EPISODE_IN: ${{ github.event.inputs.episode }}
+        run: |
+          if [ "${EPISODE_IN#release:}" != "$EPISODE_IN" ]; then   # release:<tag> = an episode made in an earlier run
+            gh release download "${EPISODE_IN#release:}" -p episode-files.zip -D rel --clobber
+            unzip -qo rel/episode-files.zip -d episodes/hidden_reasons
+            echo "EPISODE_DIR=episodes/hidden_reasons/$(unzip -Z1 rel/episode-files.zip | head -1 | cut -d/ -f1)" >> "$GITHUB_ENV"
+          else
+            echo "EPISODE_DIR=$EPISODE_IN" >> "$GITHUB_ENV"
+          fi
 
       - name: Check the episode
         run: |

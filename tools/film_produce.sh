@@ -10,10 +10,10 @@ NAME=$(basename "$EP")
 CHANNEL_DIR=$(dirname "$EP")
 echo "::group::Pictures and clips on the free Kaggle GPU"
 cp "$EP/film.json" lab/kaggle/film_episode/film.json
-export KAGGLE_SLUG_SUFFIX="-${NAME:0:3}"
+export KAGGLE_SLUG_SUFFIX="-$(printf %s "$NAME" | md5sum | cut -c1-6)"   # one private Kaggle script per episode
 python lab/kaggle/run.py film_episode --wait-min 150
 mkdir -p film_assets
-find lab_out/film_episode -type f \( -name 'shot_*.png' -o -name 'depth_*.png' -o -name 'clip_*.mp4' -o -name 'ref_*.png' -o -name 'log.txt' \) -exec cp {} film_assets/ \;
+find lab_out/film_episode -type f \( -name 'shot_*.png' -o -name 'depth_*.png' -o -name 'clip_*.mp4' -o -name 'ref_*.png' -o -name 'log.txt' -o -name 'checks.json' \) -exec cp {} film_assets/ \;
 cat film_assets/log.txt || true
 echo "::endgroup::"
 
@@ -33,9 +33,25 @@ echo "::endgroup::"
 TITLE=$(python -c "import json,sys; print(json.load(open(sys.argv[1]))['title'])" "$EP/script.json")
 TAG="film-$NAME-run${GITHUB_RUN_NUMBER:-0}"
 cp film_out/video.mp4 "$NAME.mp4"
+cp film_assets/checks.json film_out/ 2>/dev/null || true
 (cd "$CHANNEL_DIR" && zip -qr "$OLDPWD/episode-files.zip" "$NAME")
-{ echo "Film-style story video: $TITLE"; echo; echo "Episode: $EP"; echo; echo "Sources:"; cat "$EP/sources.md" 2>/dev/null || true; } > notes.md
-gh release create "$TAG" "$NAME.mp4" film_out/contact.png episode-files.zip --title "Film: $TITLE" --notes-file notes.md
+QC_PROBLEMS=$(python -c "import json; print('; '.join(json.load(open('film_out/qc.json'))['problems']))")
+QC_NOTES=$(python -c "import json; print('; '.join(json.load(open('film_out/qc.json'))['notes']))")
+{ echo "Film-style story video: $TITLE"; echo; echo "Checks: $QC_NOTES"; [ -n "$QC_PROBLEMS" ] && echo "NEEDS REVIEW: $QC_PROBLEMS"
+  echo; echo "Episode: $EP"; echo; echo "Sources:"; cat "$EP/sources.md" 2>/dev/null || true; } > notes.md
+if [ -z "$QC_PROBLEMS" ]; then
+  gh release create "$TAG" "$NAME.mp4" film_out/contact.png episode-files.zip --title "Film: $TITLE" --notes-file notes.md
+else   # guardrail: a video that failed a final check is never published as finished; the owner gets an issue
+  gh release create "$TAG" "$NAME.mp4" film_out/contact.png episode-files.zip --prerelease --title "REVIEW: $TITLE" --notes-file notes.md
+  gh label create review --color D93F0B --description "A video failed a final check" 2>/dev/null || true
+  gh issue create --label review --title "Review needed: $TITLE" --body "The video was made but failed a final check, so it is held as a pre-release (not finished).
+
+Problems: $QC_PROBLEMS
+
+Video and contact sheet: https://github.com/$GITHUB_REPOSITORY/releases/tag/$TAG
+
+To retry: Actions -> Make a story video -> episode = release:$TAG"
+fi
 echo "RELEASE_TAG=$TAG" >> "${GITHUB_ENV:-/dev/null}"
 echo "VIDEO_URL=https://github.com/$GITHUB_REPOSITORY/releases/tag/$TAG" >> "${GITHUB_ENV:-/dev/null}"
 

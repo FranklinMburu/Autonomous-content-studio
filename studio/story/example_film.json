@@ -4,18 +4,98 @@
   "cook": "a chubby 40 year old ship's cook with a red bandana, a bushy ginger beard, a stained white apron over a striped blue shirt, 1780s",
   "captain": "a tall thin 55 year old sea captain with a grey ponytail, a hooked nose, a navy blue coat with brass buttons and a black tricorn hat, 1780s"
  },
- "key_words": ["lemons", "sea", "cheered", "bleeding", "charger"],
+ "key_words": [
+  "lemons",
+  "sea",
+  "cheered",
+  "bleeding",
+  "charger"
+ ],
  "music": "mysterious",
  "shots": [
-  {"name": "throw", "at": 0, "who": "cook", "clip": true, "prompt": "medium shot, {cook} grinning and tossing a wooden crate of bright yellow lemons over the rail of an 18th century sailing ship, choppy sea, golden afternoon light", "motion": "he swings the crate over the rail, lemons tumble, slow camera push in"},
-  {"name": "splash", "at": "sea#1", "clip": true, "hit": "sea#1", "prompt": "close-up of yellow lemons splashing into dark green ocean waves beside a wooden hull, spray, golden light", "motion": "lemons bob and sink in the waves, slow camera move down"},
-  {"name": "captain", "at": "captain's#1", "who": "captain", "move": "push", "prompt": "low angle, {captain} standing on the quarterdeck frowning, sails and rigging behind, golden light"},
-  {"name": "cheer", "at": "cheered#1", "clip": true, "prompt": "wide shot, a crowd of scruffy sailors on a ship deck raising their mugs and cheering, sunset sky", "motion": "the sailors raise their mugs and laugh, slow camera move right"},
-  {"name": "weeks", "at": "Ten#1", "xfade": true, "move": "pull", "prompt": "wide shot of a lonely sailing ship on a flat grey ocean under heavy clouds, cold light"},
-  {"name": "gums", "at": "gums#1", "clip": true, "hit": "bleeding#1", "prompt": "extreme close-up of a pale sweating sailor touching his sore mouth in a dim ship hold, a swinging lantern", "motion": "he winces and touches his mouth, the lantern swings, slow camera push in"},
-  {"name": "hold", "at": "bleeding#1", "move": "left", "prompt": "a dark ship hold full of sick sailors lying in hammocks, a single lantern, deep shadows"},
-  {"name": "phone", "at": "You#1", "xfade": true, "clip": true, "prompt": "close-up of a hand holding a modern phone with a black screen on a wooden table, cozy room, warm lamp light", "motion": "the thumb taps the dark screen, slow camera push in"},
-  {"name": "charger", "at": "charger#1", "move": "push", "prompt": "close-up of a phone charger cable lying beside a fresh yellow lemon on a wooden table, warm lamp light"},
-  {"name": "end", "at": "Lemons#2", "who": "cook", "clip": true, "prompt": "close-up, {cook} staring sadly at a single yellow lemon in his hand in a dark ship galley, candle light", "motion": "he turns the lemon slowly in his fingers, slow camera push in"}
- ]
+  {
+   "name": "throw",
+   "at": 0,
+   "who": "cook",
+   "clip": true,
+   "prompt": "medium shot, {cook} grinning and tossing a wooden crate of bright yellow lemons over the rail of an 18th century sailing ship, choppy sea, golden afternoon light",
+   "motion": "he swings the crate over the rail, lemons tumble, slow camera push in",
+   "check": "Is a man throwing lemons from a ship?"
+  },
+  {
+   "name": "splash",
+   "at": "sea#1",
+   "clip": true,
+   "hit": "sea#1",
+   "prompt": "close-up of yellow lemons splashing into dark green ocean waves beside a wooden hull, spray, golden light",
+   "motion": "lemons bob and sink in the waves, slow camera move down",
+   "check": "Are lemons falling into the sea?"
+  },
+  {
+   "name": "captain",
+   "at": "captain's#1",
+   "who": "captain",
+   "move": "push",
+   "prompt": "low angle, {captain} standing on the quarterdeck frowning, sails and rigging behind, golden light",
+   "check": "Is a man in a tricorn hat on a ship?"
+  },
+  {
+   "name": "cheer",
+   "at": "cheered#1",
+   "clip": true,
+   "prompt": "wide shot, a crowd of scruffy sailors on a ship deck raising their mugs and cheering, sunset sky",
+   "motion": "the sailors raise their mugs and laugh, slow camera move right",
+   "check": "Are sailors cheering?"
+  },
+  {
+   "name": "weeks",
+   "at": "Ten#1",
+   "xfade": true,
+   "move": "pull",
+   "prompt": "wide shot of a lonely sailing ship on a flat grey ocean under heavy clouds, cold light",
+   "check": "Is there a ship on the sea?"
+  },
+  {
+   "name": "gums",
+   "at": "gums#1",
+   "clip": true,
+   "hit": "bleeding#1",
+   "prompt": "extreme close-up of a pale sweating sailor touching his sore mouth in a dim ship hold, a swinging lantern",
+   "motion": "he winces and touches his mouth, the lantern swings, slow camera push in",
+   "check": "Is a man touching his mouth?"
+  },
+  {
+   "name": "hold",
+   "at": "bleeding#1",
+   "move": "left",
+   "prompt": "a dark ship hold full of sick sailors lying in hammocks, a single lantern, deep shadows",
+   "check": "Are there men in hammocks?"
+  },
+  {
+   "name": "phone",
+   "at": "You#1",
+   "xfade": true,
+   "clip": true,
+   "prompt": "close-up of a hand holding a modern phone with a black screen on a wooden table, cozy room, warm lamp light",
+   "motion": "the thumb taps the dark screen, slow camera push in",
+   "check": "Is a hand holding a phone?"
+  },
+  {
+   "name": "charger",
+   "at": "charger#1",
+   "move": "push",
+   "prompt": "close-up of a phone charger cable lying beside a fresh yellow lemon on a wooden table, warm lamp light",
+   "check": "Is there a lemon next to a cable?"
+  },
+  {
+   "name": "end",
+   "at": "Lemons#2",
+   "who": "cook",
+   "clip": true,
+   "prompt": "close-up, {cook} staring sadly at a single yellow lemon in his hand in a dark ship galley, candle light",
+   "motion": "he turns the lemon slowly in his fingers, slow camera push in",
+   "check": "Is a man holding a lemon?"
+  }
+ ],
+ "era": "1780s"
 }

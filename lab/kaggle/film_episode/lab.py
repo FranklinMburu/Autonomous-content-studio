@@ -125,33 +125,107 @@ for i, (role, look) in enumerate(CAST.items()):
 pipe.load_ip_adapter("h94/IP-Adapter", subfolder="sdxl_models", weight_name="ip-adapter-plus-face_sdxl_vit-h.safetensors")
 blank = Image.new("RGB", (224, 224), (128, 128, 128))
 img_times = []
-for i, s in enumerate(FILM["shots"]):
-    n = s["name"]
-    if ONLY and n not in ONLY:
-        continue
-    try:
-        t = time.time()
-        who = s.get("who")
-        scale = float(s.get("ip", IP_SCALE)) if who else 0.0
-        pipe.set_ip_adapter_scale(0.0)
-        start = int(30 * LOCK_FROM)
+SHOTS = [s for s in FILM["shots"] if not ONLY or s["name"] in ONLY]
 
-        def late_lock(p_, step, ts, kw, scale=scale, start=start):
-            if step == start and scale:
-                p_.set_ip_adapter_scale(scale)
-            return kw
-        im = to916(gen(fill(s["prompt"]), int(s.get("seed", 7)), ip_adapter_image=refs.get(who, blank),
-                       callback_on_step_end=late_lock))
-        p = f"{OUT}/shot_{n}.png"; im.save(p)
-        depth(im)["depth"].save(f"{OUT}/depth_{n}.png")
-        img_times.append(time.time() - t)
-        log(f"shot {n}: {time.time() - t:.0f}s")
-        if s.get("clip"):
-            json.dump({"name": n, "path": p, "motion": fill(s.get("motion", "slow camera push in"))},
-                      open(f"{OUT}/jobs/{n}.tmp", "w"))
-            os.replace(f"{OUT}/jobs/{n}.tmp", f"{OUT}/jobs/{n}.json")   # the clip maker never sees half a file
+
+def paint(s, attempt=0):
+    """Paint one shot (attempt 0 = its own seed; retries use new seeds; the last retry drops the face lock, which
+    can fight the pose). Saves shot + depth and queues its clip. Returns the picture."""
+    n, who = s["name"], s.get("who")
+    t = time.time()
+    scale = (float(s.get("ip", IP_SCALE)) if who else 0.0) if attempt < 2 else 0.0
+    pipe.set_ip_adapter_scale(0.0)
+    start = int(30 * LOCK_FROM)
+
+    def late_lock(p_, step, ts, kw, scale=scale, start=start):
+        if step == start and scale:
+            p_.set_ip_adapter_scale(scale)
+        return kw
+    im = to916(gen(fill(s["prompt"]), int(s.get("seed", 7)) + 1000 * attempt, ip_adapter_image=refs.get(who, blank),
+                   callback_on_step_end=late_lock))
+    p = f"{OUT}/shot_{n}.png"; im.save(p)
+    depth(im)["depth"].save(f"{OUT}/depth_{n}.png")
+    img_times.append(time.time() - t)
+    log(f"shot {n}{f' (retry {attempt})' if attempt else ''}: {time.time() - t:.0f}s")
+    if s.get("clip"):   # a repaint queues a new clip job; the clip maker works in order, so the last one wins
+        tmp = f"{OUT}/jobs/{n}__{attempt}.tmp"
+        json.dump({"name": n, "path": p, "motion": fill(s.get("motion", "slow camera push in"))}, open(tmp, "w"))
+        os.replace(tmp, tmp[:-4] + ".json")   # the clip maker never sees half a file
+    return im
+
+
+pictures = {}
+for s in SHOTS:
+    try:
+        pictures[s["name"]] = paint(s)
     except Exception:
-        log(f"shot {n} FAILED", traceback.format_exc()[-600:]); gc.collect(); torch.cuda.empty_cache()
+        log(f"shot {s['name']} FAILED", traceback.format_exc()[-600:]); gc.collect(); torch.cuda.empty_cache()
+
+# ---------- guardrail: a vision model checks every picture; failures are repainted (up to 2 more tries) ----------
+# Episode 002 showed what slips through otherwise: a woman standing where she should kneel, a modern hospital
+# corridor in 1847. Each shot's "check" question must be answered yes; text, panels and (for past eras) modern
+# things must be answered no.
+CHECKS, failed = {}, []
+try:
+    from transformers import AutoProcessor, AutoModelForImageTextToText
+    VLM_ID = "Qwen/Qwen2-VL-2B-Instruct"   # Apache-2.0
+    gc.collect(); torch.cuda.empty_cache()   # SDXL stays on the GPU (idle); the checker fits beside it in fp16
+    t = time.time()
+    proc = AutoProcessor.from_pretrained(VLM_ID, min_pixels=256 * 28 * 28, max_pixels=768 * 28 * 28)
+    vlm = AutoModelForImageTextToText.from_pretrained(VLM_ID, torch_dtype=torch.float16).to("cuda").eval()
+    log(f"checker load {time.time() - t:.0f}s")
+    PAST = str(FILM.get("era", "")).strip().lower() not in ("", "today", "now", "modern", "present")
+
+    def ask(img, q):
+        msgs = [{"role": "user", "content": [{"type": "image"}, {"type": "text", "text": q + " Answer yes or no."}]}]
+        text = proc.apply_chat_template(msgs, add_generation_prompt=True)
+        inp = proc(text=[text], images=[img], return_tensors="pt").to("cuda")
+        with torch.no_grad():
+            out = vlm.generate(**inp, max_new_tokens=3, do_sample=False)
+        return proc.batch_decode(out[:, inp["input_ids"].shape[1]:], skip_special_tokens=True)[0].strip().lower()
+
+    def problems(s, img):
+        a, bad = {}, []
+        if s.get("check"):
+            a["check"] = ask(img, s["check"])
+            if not a["check"].startswith("yes"):
+                bad.append(f"no to: {s['check']}")
+        a["text"] = ask(img, "Is there any text, letters or writing in this picture?")
+        if a["text"].startswith("yes"):
+            bad.append("text in the picture")
+        a["panels"] = ask(img, "Is this picture made of several separate panels or frames?")
+        if a["panels"].startswith("yes"):
+            bad.append("split into panels")
+        if PAST and not s.get("modern"):
+            a["modern"] = ask(img, "Does this picture show anything modern, such as electric lights, fluorescent tubes, "
+                                   "a modern hospital corridor, cars or phones?")
+            if a["modern"].startswith("yes"):
+                bad.append("modern things in a past era")
+        return a, bad
+
+    todo = [s for s in SHOTS if s["name"] in pictures]
+    for attempt in range(3):
+        retry = []
+        for s in todo:
+            a, bad = problems(s, pictures[s["name"]])
+            CHECKS[s["name"]] = {"attempt": attempt, "answers": a, "problems": bad}
+            if bad:
+                retry.append(s); log(f"check {s['name']}: FAIL ({'; '.join(bad)})")
+        log(f"check round {attempt + 1}: {len(todo) - len(retry)} of {len(todo)} pass")
+        if not retry or attempt == 2:
+            failed = [s["name"] for s in retry]
+            break
+        vlm.to("cpu"); gc.collect(); torch.cuda.empty_cache()     # room for SDXL to paint
+        for s in retry:
+            pictures[s["name"]] = paint(s, attempt + 1)
+        vlm.to("cuda")
+        todo = retry
+    del vlm; gc.collect(); torch.cuda.empty_cache()
+except Exception:
+    log("CHECKER FAILED (pictures kept unchecked)", traceback.format_exc()[-900:])
+    failed = ["(checker did not run)"]
+json.dump({"failed": failed, "shots": CHECKS}, open(f"{OUT}/checks.json", "w"), indent=1)
+log(f"checks: {len(failed)} shot(s) still failing after retries: {failed}")
 log(f"pictures done at {time.time() - t0:.0f}s")
 open(f"{OUT}/jobs/DONE", "w").close()
 if not TWO:      # one GPU: free it, then make the clips

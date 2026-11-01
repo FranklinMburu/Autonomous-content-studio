@@ -4,7 +4,7 @@ Uses the brain (ailayer) with the same free models as the explainer pipeline (pi
 Writes a new episode folder: script.json, storyboard.json, sources.md, sources.json, report.md.
 Nothing here is episode-specific code: the storyboard only uses the shared library in studio/story/board.py.
 """
-import json, re
+import json, os, re
 from pathlib import Path
 
 from ..paths import ROOT
@@ -217,7 +217,7 @@ def _timed(log, label, fn):
 
 
 def _sb_models():
-    import os
+    pass  # os is imported at the top
     if os.environ.get("STORY_STORYBOARD_MODELS", "").strip():  # a run can try other models without a code change
         return [m.strip() for m in os.environ["STORY_STORYBOARD_MODELS"].split(",") if m.strip()]
     p = ROOT / "pipeline" / "config.json"
@@ -360,8 +360,13 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
     if saved("folder.json"):
         folder = Path(channel_dir) / Path(saved("folder.json")).name
     else:
-        existing = sorted(p.name for p in Path(channel_dir).glob("[0-9][0-9][0-9]-*"))
-        num = int(existing[-1][:3]) + 1 if existing else 1
+        existing = [int(p.name[:3]) for p in Path(channel_dir).glob("[0-9][0-9][0-9]-*")]
+        if os.environ.get("STORY_MEMORY"):   # cloud runs: episodes made earlier live in releases, not in the repo
+            from .filmkit import load_memory
+            mem = load_memory(os.environ["STORY_MEMORY"])
+            existing += [int(e["episode"][:3]) for e in mem.get("episodes", []) if str(e.get("episode", ""))[:3].isdigit()]
+            existing += [int(x) for x in mem.get("numbers", []) if str(x).isdigit()]
+        num = max(existing) + 1 if existing else 1
         folder = Path(channel_dir) / f"{num:03d}-{slugify(s['title'])[:40]}"
         save("folder.json", folder.name)
     folder.mkdir(parents=True, exist_ok=True)
@@ -377,7 +382,7 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
     (folder / "script.json").write_text(json.dumps(script, indent=1, ensure_ascii=False), encoding="utf-8")
     log(f"  narration {timing['duration']:.1f}s at {wpm:.0f} wpm ({time.time() - t0:.0f}s)")
 
-    import os
+    pass  # os is imported at the top
     if os.environ.get("STORY_STYLE", "film") == "film":   # 4F. Film shot list (studio/story/film.py), then sources
         from . import filmkit
         memory = filmkit.load_memory(os.environ.get("STORY_MEMORY"))
@@ -418,7 +423,7 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
     sb_prompt = (f"Design the storyboard (the pictures) for this narrated Short.\n\n{base}"
                  f"EXAMPLE of a finished storyboard for a different story (copy the style, not the content):\n{example}\n\n"
                  f'Return JSON only: {{"key_words": {json.dumps(s.get("key_words", []))}, "shots": [...]}}')
-    import os
+    pass  # os is imported at the top
     skip = os.environ.get("STORY_STORYBOARD", "ai") == "skip"
     sb_models = _sb_models()
     log("[storyboard] skipped: made in the Claude polish step" if skip else f"[storyboard] models: {', '.join(sb_models)}")

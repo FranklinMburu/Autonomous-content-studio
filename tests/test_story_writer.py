@@ -156,6 +156,14 @@ ok(not probs and not changed and json.loads((f3 / "film.json").read_text(encodin
    "film: a pasted reply (with chat text around the JSON) is read back into film.json")
 ok(not any("not a spoken word" in x or "spoken order" in x for x in fp), f"film: the read-back shot list resolves on the narration {fp[:3]}")
 ok(filmkit.apply_reply(f3, "sorry, I can't")[1], "film: a reply without JSON is rejected with a reason")
+
+# schedule: topics are taken in order, once; a finished episode's topic is never made again; failures retry once
+from studio.story import topics as T  # noqa: E402
+mem = {"episodes": [{"episode": "005-x", "topic": T.queue("hidden_reasons")[0]}]}
+first = T.pending("hidden_reasons", mem)[0]
+ok(first == T.queue("hidden_reasons")[1], "schedule: a topic already made is skipped")
+mem["topics"] = {T.key(first): {"topic": first, "tries": 2}}
+ok(T.pending("hidden_reasons", mem)[0] == T.queue("hidden_reasons")[2], "schedule: a topic that failed twice is skipped")
 shutil.rmtree(tmp, ignore_errors=True)
 print(f"\n{'ALL PASSED' if not fails else str(fails) + ' FAILED'}")
 sys.exit(1 if fails else 0)

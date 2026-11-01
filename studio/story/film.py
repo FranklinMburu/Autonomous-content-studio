@@ -212,6 +212,35 @@ def render(film, timing, assets, audio, out_mp4, preset="veryfast", log=print):
 OUTRO = 1.6  # seconds after the last word: the final shot holds while the music swells and fades
 
 
+def qc(video, expected_s, assets=None):
+    """Last guardrail before publishing: length, loudness, no black gaps, and the picture checker's verdict.
+    Returns (problems, notes)."""
+    probs, notes = [], []
+    d = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(video)],
+                             capture_output=True, text=True).stdout or 0)
+    if abs(d - expected_s) > 0.5:
+        probs.append(f"video is {d:.1f}s, expected {expected_s:.1f}s")
+    er = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(video), "-af", "ebur128=framelog=quiet", "-f", "null", "-"],
+                        capture_output=True, text=True).stderr
+    m = [l for l in er.splitlines() if l.strip().startswith("I:")]
+    lufs = float(m[-1].split()[1]) if m else None
+    if lufs is None or abs(lufs + 14) > 1.5:
+        probs.append(f"loudness {lufs} LUFS (want -14)")
+    bd = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(video), "-vf", "blackdetect=d=0.3:pix_th=0.06", "-an", "-f", "null", "-"],
+                        capture_output=True, text=True).stderr
+    if "black_start" in bd:
+        probs.append("black gap(s) in the picture: " + "; ".join(l.split("blackdetect")[-1].strip() for l in bd.splitlines() if "black_start" in l)[:200])
+    ck = Path(assets or "") / "checks.json"
+    if assets and ck.exists():
+        failed = json.loads(ck.read_text(encoding="utf-8")).get("failed", [])
+        if failed:
+            notes.append(f"picture checker: still failing after 3 tries: {', '.join(failed)}")
+        if len(failed) >= 3 or "(checker did not run)" in failed:
+            probs.append(f"{len(failed)} shot(s) failed the picture check: {', '.join(failed)}")
+    notes.append(f"length {d:.1f}s, loudness {lufs} LUFS")
+    return probs, notes
+
+
 def make(folder, assets, narration=None, timing_path=None, out_dir=None, preset="veryfast", memory=None, log=print):
     from ..paths import OUT, ensure_fonts, slugify
     from . import sound
@@ -245,6 +274,9 @@ def make(folder, assets, narration=None, timing_path=None, out_dir=None, preset=
     render(film, full, assets, audio, out / "video.mp4", preset=preset, log=log)
     from ..qc import contact_sheet
     contact_sheet(out / "video.mp4", out / "contact.png", every=2.0)
+    qp, qn = qc(out / "video.mp4", full["duration"], assets)
+    (out / "qc.json").write_text(json.dumps({"problems": qp, "notes": qn}, indent=1), encoding="utf-8")
+    log("[qc] " + ("; ".join(qn)) + ("" if not qp else "\n[qc] PROBLEMS: " + "; ".join(qp)))
     for f in ("script.json", "sources.md", "film.json"):
         if (folder / f).exists():
             shutil.copy(folder / f, out / f)
