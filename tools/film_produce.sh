@@ -10,7 +10,7 @@ NAME=$(basename "$EP")
 CHANNEL_DIR=$(dirname "$EP")
 echo "::group::Pictures and clips on the free Kaggle GPU"
 cp "$EP/film.json" lab/kaggle/film_episode/film.json
-export KAGGLE_SLUG_SUFFIX="-$(printf %s "$NAME" | md5sum | cut -c1-6)"   # one private Kaggle script per episode
+export KAGGLE_SLUG_SUFFIX="-$(printf %s "$NAME-${GITHUB_RUN_ID:-0}" | md5sum | cut -c1-6)"   # one private Kaggle script per run
 python lab/kaggle/run.py film_episode --wait-min 150
 mkdir -p film_assets
 find lab_out/film_episode -type f \( -name 'shot_*.png' -o -name 'depth_*.png' -o -name 'clip_*.mp4' -o -name 'ref_*.png' -o -name 'log.txt' -o -name 'checks.json' \) -exec cp {} film_assets/ \;

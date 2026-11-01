@@ -1,0 +1,99 @@
+{
+ "title": "Why a Surgeon Wrapped a Boy's Leg in Acid",
+ "channel": "Hidden Reasons",
+ "topic": "Why Joseph Lister sprayed carbolic acid over his patients during surgery",
+ "voice": "am_michael",
+ "speed": 1.38,
+ "pace": {
+  "gap_line": 0.08,
+  "gap_beat": 0.2,
+  "lead_in": 0.05,
+  "tail": 0.7
+ },
+ "beats": [
+  {
+   "lines": [
+    "A surgeon wrapped a boy's broken leg in acid-soaked towels."
+   ]
+  },
+  {
+   "lines": [
+    "It was 1865, and the bone had burst through the skin.",
+    "Normally, that meant cutting the leg off.",
+    "At his hospital, sixteen of thirty-five surgery patients died.",
+    "Wounds filled with pus. Gangrene ate living flesh.",
+    "Doctors blamed bad air. They didn't even wash their hands."
+   ]
+  },
+  {
+   "lines": [
+    "But Joseph Lister believed tiny germs were rotting the wounds.",
+    "Louis Pasteur had shown that germs make things decay.",
+    "And in Carlisle, a chemical called carbolic acid was killing the stink of sewage."
+   ]
+  },
+  {
+   "lines": [
+    "You see, it's like a cut you clean right away. It heals. Leave it dirty, and it swells."
+   ]
+  },
+  {
+   "lines": [
+    "So Lister set the bone and soaked clean towels in pure carbolic acid.",
+    "He covered the wound with tin foil and waited four days.",
+    "No infection. Just a little redness where the acid burned.",
+    "Six weeks later, the boy walked home."
+   ]
+  },
+  {
+   "lines": [
+    "After that, deaths fell to six in forty.",
+    "But the acid irritated skin so much that surgeons finally learned to keep germs out completely."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "On August 12, 1865, Lister treated an eleven-year-old boy whose fractured tibia pierced the skin; amputation would ordinarily be the only solution.",
+   "url": "https://en.wikipedia.org/wiki/Phenol"
+  },
+  {
+   "claim": "Before antiseptic operations there were sixteen deaths in thirty-five surgical cases; afterwards six deaths in forty cases.",
+   "url": "https://en.wikipedia.org/wiki/Phenol"
+  },
+  {
+   "claim": "Hospital gangrene rots living tissue with remarkable rapidity; Lister saw pus in wounds.",
+   "url": "https://en.wikipedia.org/wiki/Joseph_Lister"
+  },
+  {
+   "claim": "Doctors blamed miasma ('bad air'); surgeons were not required to wash their hands.",
+   "url": "https://en.wikipedia.org/wiki/Joseph_Lister"
+  },
+  {
+   "claim": "Lister recognised that putrefaction in wounds is caused by germs, in connection to Pasteur's germ theory.",
+   "url": "https://en.wikipedia.org/wiki/Joseph_Lister"
+  },
+  {
+   "claim": "In Carlisle, officials experimented with carbolic acid to reduce the smell of sewage.",
+   "url": "https://en.wikipedia.org/wiki/Phenol"
+  },
+  {
+   "claim": "Lister set the bone, soaked clean cotton towels in undiluted carbolic acid, covered them with tin foil for four days, found no infection, only redness from mild burning; the boy walked home after about six weeks.",
+   "url": "https://en.wikipedia.org/wiki/Phenol"
+  },
+  {
+   "claim": "Skin irritation from continual exposure to phenol eventually led to aseptic (germ-free) techniques.",
+   "url": "https://en.wikipedia.org/wiki/Phenol"
+  }
+ ],
+ "key_words": [
+  "acid",
+  "pus",
+  "gangrene",
+  "germs",
+  "carbolic",
+  "sewage",
+  "infection",
+  "forty"
+ ]
+}
