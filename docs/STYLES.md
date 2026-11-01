@@ -76,15 +76,25 @@ Note: the story style needs only `pycairo` for drawing (Windows wheels exist). T
 
 Automatic: `python -m studio.story write --topic "..." --make` (needs the brain and its keys; normally run on GitHub).
 The writer: research (Wikipedia + OpenAlex) -> script by the free models (judge picks the best) -> claim-by-claim
-fact check (one repair round) -> narration (pace corrected to 195-235 words/min) -> storyboard (up to 3 repair
-rounds against the checks) -> sources.md + report.md.
+fact check (one repair round) -> whole-story logic check (who did what, order, misleading lines; one repair)
+-> narration (pace corrected to 195-235 words/min) -> storyboard (up to 3 repair rounds against the checks AND the
+quality gate) -> sources.md + report.md. Then the Claude polish step (POLISH.md, "Story episodes"):
+`python -m studio.story review <episode>` shows numbers, gate results, every sentence and a still of every shot.
 
 By hand: copy an episode folder, edit script.json, storyboard.json and sources.md, then `check`, `stills`, `make`.
 New kinds of pictures are added to the library in `studio/story/board.py` (once, for every later video).
 `python tests/test_story.py` must pass.
 
+### What the engine gives every video (no code per video)
+
+- Cast (`studio/story/cast.py`): 12 roles x 16 poses x 11 moods; pose/mood/position change on the spoken words.
+- Places (`studio/story/settings.py`): ward, street, room, lab, deck, each in day, dusk, night or warm light.
+- Auto camera (`board.make_camera`): cuts to each thing the moment it is named, otherwise moves between wide,
+  medium and close about every second (benchmark: a new picture every ~1 s). Episode 001: one every 0.88 s.
+- Quality gate (`board.quality`): opening shot mid-action, no empty moments, words-only shots under 10%,
+  places rather than plain colour, a new picture at least every 1.5 s. The AI writer must pass it; `make` warns.
+
 ### What's next for this style
 
-Episode 002 was made by the AI from a topic alone and passed every check, but the library is still small, so its
-pictures repeat. Next: more settings, characters and props (some generated once with free image models), a visual
-check that rejects repeated or empty shots, and a second logic check on the script.
+Painted backgrounds (free image model on Hugging Face), music and sound effects, a more expressive voice test.
+A separate 3D line (Branch Education bar) is being planned for the "how it works" channels.
