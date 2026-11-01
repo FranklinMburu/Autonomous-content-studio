@@ -75,10 +75,10 @@ def load_memory(path):
     return json.loads(p.read_text(encoding="utf-8")) if p and p.exists() else {"episodes": []}
 
 
-def remember(memory, episode, film):
-    """Add a finished episode's cast and places to the channel memory (one entry per episode, replaced on rerun)."""
+def remember(memory, episode, film, music=None):
+    """Add a finished episode's cast, places and music to the channel memory (one entry per episode, replaced on rerun)."""
     eps = [e for e in memory.get("episodes", []) if e.get("episode") != episode]
-    eps.append({"episode": episode, "cast": film.get("cast", {}),
+    eps.append({"episode": episode, "cast": film.get("cast", {}), "music": music,
                 "places": [_fill(s.get("prompt", ""), {}) for s in film.get("shots", [])]})
     return {"episodes": eps}
 
@@ -239,6 +239,10 @@ def polish_prompt(folder, memory=None, problems=None):
     srcs = json.loads((folder / "sources.json").read_text(encoding="utf-8")) if (folder / "sources.json").exists() else []
     if problems is None:
         problems = film_problems(film, timing, memory, folder.name) if film else ["film.json is missing: write it"]
+        np_ = folder / "NEEDS_POLISH.md"     # script problems the writer left (e.g. a claim the sources don't support)
+        if np_.exists():
+            problems = [x[2:].strip() for x in np_.read_text(encoding="utf-8").splitlines()
+                        if x.startswith("- script:")] + problems
     budget, parts = 14000, []
     for i, s in enumerate(srcs):
         t = re.sub(r"\s+", " ", str(s.get("text", "")))[: max(800, budget // max(1, len(srcs)))]
@@ -314,17 +318,87 @@ def apply_reply(folder, text):
     return changed, []
 
 
+def verify(folder, memory=None, renarrate=False, fact_check=True, log=print):
+    """Checks for a polished episode before it goes to the GPU. Re-narrates first if the script changed (the word
+    triggers are then checked against the new narration). Returns a list of problems (empty = go)."""
+    folder = Path(folder)
+    script = json.loads((folder / "script.json").read_text(encoding="utf-8"))
+    film = json.loads((folder / "film.json").read_text(encoding="utf-8"))
+    if renarrate or not (folder / "timing.json").exists():
+        from .__main__ import narrate
+        timing = narrate(script, folder)
+        (folder / "timing.json").write_text(json.dumps(timing), encoding="utf-8")
+        (folder / "narration.wav").unlink(missing_ok=True)
+    timing = json.loads((folder / "timing.json").read_text(encoding="utf-8"))
+    probs = film_problems(film, timing, memory, folder.name)
+    try:
+        from ailayer.skills import Source
+        from .writer import script_problems
+        srcs = json.loads((folder / "sources.json").read_text(encoding="utf-8"))
+        sources = [Source(x["url"], x["text"], x.get("title", "")) for x in srcs]
+        probs += [f"script: {x}" for x in script_problems(script, sources)]
+        if renarrate and fact_check:   # new wording: check every claim against the frozen sources again
+            from ailayer import skills
+            from .writer import _words
+            fc = skills.fact_check(" ".join(_words(script)), sources)
+            bad = [r for r in fc["results"] if r.get("verdict") == "unsupported"]
+            probs += [f"script: not supported by the sources: {r['claim']}" for r in bad]
+            log(f"fact check of the polished script: {fc['counts']}")
+    except ImportError:
+        log("(the brain is not available here: script checks other than the film shot list were skipped)")
+    return probs
+
+
+HOW_TO = """**What to do (about 3 minutes, works on a phone):**
+1. Tap the **copy** button at the top-right of the grey box below.
+   (GitHub phone app: tap the box, then *Copy*; or open this page in your browser.)
+2. Open **claude.ai**, start a **new chat**, paste, and send.
+3. When Claude has finished answering, tap **Copy** under its answer.
+4. Come back here, paste it as a **comment** below, and press **Comment**.
+
+That's all. Within a minute the pipeline checks Claude's answer here. If something needs fixing, it replies in
+this issue with a new box (same 4 steps). If it's good, it makes the video by itself (about 45 minutes) and posts
+the link here."""
+
+
+def issue_body(folder, draft_tag, memory=None, problems=None, retry=False):
+    """The GitHub issue (or comment) that asks the owner to paste one prompt into Claude and paste the answer back."""
+    folder = Path(folder)
+    script = json.loads((folder / "script.json").read_text(encoding="utf-8"))
+    prompt = polish_prompt(folder, memory, problems)
+    head = ("### Almost there: Claude's answer needs a few fixes\n\nThe checks found:\n" +
+            "\n".join(f"- {x}" for x in (problems or [])[:15]) + "\n\nThe box below already includes them.\n"
+            if retry else
+            f"### This video needs your quick polish\n\n**{script.get('title')}**: the free AI models wrote and "
+            "fact-checked the story but could not finish the shot list on their own. Claude can, in one message.\n")
+    return (f"<!-- polish: episode={folder.as_posix()} draft={draft_tag} -->\n{head}\n{HOW_TO}\n\n"
+            f"`````text\n{prompt.strip()}\n`````\n")
+
+
 def main(argv=None):
     import argparse
     ap = argparse.ArgumentParser(prog="python -m studio.story.filmkit")
-    ap.add_argument("cmd", choices=["prompt", "apply", "check", "remember"])
+    ap.add_argument("cmd", choices=["prompt", "apply", "check", "verify", "remember", "issue"])
     ap.add_argument("folder"); ap.add_argument("extra", nargs="?")
-    ap.add_argument("--memory")
+    ap.add_argument("--memory"); ap.add_argument("--music", help="remember: the music file the video used")
+    ap.add_argument("--renarrate", action="store_true", help="verify: the script changed, narrate it again first")
+    ap.add_argument("--problems", help="prompt/issue: a file of problems to fix (PROBLEM: lines), e.g. from verify")
+    ap.add_argument("--draft", help="issue: the draft release tag holding the episode files")
     a = ap.parse_args(argv)
     folder = Path(a.folder)
     mem = load_memory(a.memory or (a.extra if a.cmd == "remember" else None))
+    extra = [x.removeprefix("PROBLEM: ").strip() for x in Path(a.problems).read_text(encoding="utf-8").splitlines()
+             if x.startswith("PROBLEM:")] if a.problems else None
     if a.cmd == "prompt":
-        sys.stdout.write(polish_prompt(folder, mem)); return 0
+        sys.stdout.write(polish_prompt(folder, mem, extra)); return 0
+    if a.cmd == "issue":
+        sys.stdout.write(issue_body(folder, a.draft or "", mem, extra, retry=bool(extra))); return 0
+    if a.cmd == "verify":
+        probs = verify(folder, mem, a.renarrate)
+        for x in probs:
+            print("PROBLEM:", x)
+        print("OK" if not probs else f"{len(probs)} problem(s)")
+        return 1 if probs else 0
     if a.cmd == "apply":
         changed, probs = apply_reply(folder, Path(a.extra).read_text(encoding="utf-8"))
         print(f"SCRIPT_CHANGED={'yes' if changed else 'no'}")
@@ -341,7 +415,8 @@ def main(argv=None):
         return 1 if probs else 0
     if a.cmd == "remember":
         film = json.loads((folder / "film.json").read_text(encoding="utf-8"))
-        Path(a.extra).write_text(json.dumps(remember(mem, folder.name, film), indent=1, ensure_ascii=False), encoding="utf-8")
+        music = a.music or None
+        Path(a.extra).write_text(json.dumps(remember(mem, folder.name, film, music), indent=1, ensure_ascii=False), encoding="utf-8")
         return 0
 
 

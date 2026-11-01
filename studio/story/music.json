@@ -1,12 +1,47 @@
 {
- "_about": "Music for story videos: YouTube Audio Library tracks, 'Attribution not required', downloaded by the owner into a PRIVATE folder (STORY_MUSIC_DIR). Only names and settings are stored here; the audio is never committed (the library's terms forbid redistributing it). Checked 1 Nov 2026 with a voice detector: all instrumental except Gravel town shake, which has voice-like sounds in its first 28 s, so it starts at 30 s.",
+ "_about": "Music for story videos: YouTube Audio Library tracks, 'Attribution not required', downloaded by the owner into a PRIVATE folder (STORY_MUSIC_DIR). Only names and settings are stored here; the audio is never committed (the library's terms forbid redistributing it). Checked 1 Nov 2026 with a voice detector: all instrumental except Gravel town shake, which has voice-like sounds in its first 28 s, so it starts at 30 s. Start points (measured 1 Nov 2026): where each track reaches its full body, so a Short never opens on a near-silent intro.",
  "tracks": [
-  {"file": "Stake Out - Alex Jones _ Xander Jones.mp3", "mood": "tense, detective", "start": 0, "lufs": -13.6},
-  {"file": "Majestic-12 - Alex Jones _ Xander Jones.mp3", "mood": "mysterious", "start": 0, "lufs": -13.5},
-  {"file": "Ancient Civilisations - Alex Jones _ Xander Jones.mp3", "mood": "epic, history", "start": 0, "lufs": -13.0},
-  {"file": "Gravel town shake - Patrick Jordan Patrikios.mp3", "mood": "old times, blues", "start": 30, "lufs": -13.7},
-  {"file": "Standoff - Density & Time.mp3", "mood": "tension", "start": 0, "lufs": -11.9},
-  {"file": "Tiptoe - Nat Keefe.mp3", "mood": "sneaky, curious", "start": 0, "lufs": -16.2},
-  {"file": "Searching - Nat Keefe.mp3", "mood": "mysterious, investigation", "start": 0, "lufs": -16.2}
+  {
+   "file": "Stake Out - Alex Jones _ Xander Jones.mp3",
+   "mood": "tense, detective",
+   "start": 3,
+   "lufs": -13.6
+  },
+  {
+   "file": "Majestic-12 - Alex Jones _ Xander Jones.mp3",
+   "mood": "mysterious",
+   "start": 12,
+   "lufs": -13.5
+  },
+  {
+   "file": "Ancient Civilisations - Alex Jones _ Xander Jones.mp3",
+   "mood": "epic, history",
+   "start": 16,
+   "lufs": -13.0
+  },
+  {
+   "file": "Gravel town shake - Patrick Jordan Patrikios.mp3",
+   "mood": "old times, blues",
+   "start": 30,
+   "lufs": -13.7
+  },
+  {
+   "file": "Standoff - Density & Time.mp3",
+   "mood": "tension",
+   "start": 0,
+   "lufs": -11.9
+  },
+  {
+   "file": "Tiptoe - Nat Keefe.mp3",
+   "mood": "sneaky, curious",
+   "start": 0,
+   "lufs": -16.2
+  },
+  {
+   "file": "Searching - Nat Keefe.mp3",
+   "mood": "mysterious, investigation",
+   "start": 0,
+   "lufs": -16.2
+  }
  ]
 }

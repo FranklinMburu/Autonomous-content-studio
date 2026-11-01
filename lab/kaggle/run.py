@@ -26,7 +26,8 @@ for name in names:
     src = Path(__file__).parent / name
     work = Path("lab_push") / name
     shutil.rmtree(work, ignore_errors=True); shutil.copytree(src, work)
-    slug = f"studio-lab-{name}".replace("_", "-")
+    # an optional suffix gives each production run its own private Kaggle script (two episodes never collide)
+    slug = (f"studio-lab-{name}" + os.environ.get("KAGGLE_SLUG_SUFFIX", "")).replace("_", "-")[:50]
     data = {f.name: f.read_text(encoding="utf-8") for f in src.glob("*.json")}
     if data:  # a Kaggle script is a single file: carry the lab's data files inside it
         code = (work / "lab.py").read_text(encoding="utf-8")

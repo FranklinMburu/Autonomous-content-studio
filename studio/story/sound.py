@@ -9,7 +9,7 @@ Sound effects are GENERATED here (numpy only: shaped noise and tones), so they a
 Music comes from the owner's private YouTube Audio Library folder (STORY_MUSIC_DIR); it is never committed, because
 the library's terms don't allow redistributing the files. Without a music folder, the video gets effects only.
 """
-import json, os, subprocess, zlib
+import json, os, shutil, subprocess, zlib
 from pathlib import Path
 
 import numpy as np
@@ -192,3 +192,129 @@ def mix(board, timing, narration_wav, out_wav, music_dir=None, track=None, title
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", *inputs, "-filter_complex", graph, "-map", "[out]",
                     "-ar", str(SR), "-t", f"{dur:.2f}", str(out_wav)], check=True)
     return out_wav, cl, (t or {}).get("file")
+
+
+# ---------- film mix (studio/story/film.py) ----------
+# Lessons from the owner's review of the 2D episodes: synthetic effects sounded fake, too many effects felt "placed
+# everywhere", and audio-driven ducking pumped. So the film mix uses:
+#   - a music bed whose level follows the WORD TIMING (not a compressor): steady under speech, a little up in real
+#     pauses, smooth 0.4 s ramps, a short musical swell after the last word, then a long fade;
+#   - only real recorded effects (sfx.json), at most ~1 every 3 s, and none if the files are missing;
+#   - two-pass loudness normalisation (linear), so the whole mix is lifted evenly to -14 LUFS without pumping.
+SFX_CATALOG = Path(__file__).parent / "sfx.json"
+MOODS = {"tense": ("tense", "tension"), "mysterious": ("myster", "investigation"), "epic": ("epic", "history"),
+         "curious": ("curious", "sneaky"), "sad": ("myster", "old times")}
+
+
+def _decode(path, start=0.0, dur=None, af=None):
+    cmd = ["ffmpeg", "-v", "error", "-ss", f"{start:.2f}", "-i", str(path)]
+    if dur:
+        cmd += ["-t", f"{dur:.2f}"]
+    if af:
+        cmd += ["-af", af]
+    raw = subprocess.run(cmd + ["-ac", "2", "-ar", str(SR), "-f", "f32le", "-"], capture_output=True, check=True).stdout
+    return np.frombuffer(raw, np.float32).reshape(-1, 2).astype(np.float64)
+
+
+def _rms_db(x):
+    return 20 * np.log10(np.sqrt(np.mean(x ** 2)) + 1e-9)
+
+
+def pick_film_track(title, music_dir, mood=None, avoid=()):
+    """A track for the episode's mood, not one used by the channel's recent videos when there is a choice."""
+    if not music_dir or not Path(music_dir).is_dir():
+        return None
+    cat = json.loads(MUSIC_CATALOG.read_text(encoding="utf-8"))
+    usable = [t for t in cat["tracks"] if (Path(music_dir) / t["file"]).exists() and not t.get("skip")]
+    if mood:
+        keys = MOODS.get(mood, (mood,))
+        usable = [t for t in usable if any(k in t["mood"] for k in keys)] or usable
+    fresh = [t for t in usable if t["file"] not in set(avoid)]
+    usable = fresh or usable
+    return usable[zlib.crc32(title.encode()) % len(usable)] if usable else None
+
+
+def speech_spans(timing, merge=0.55):
+    """(start, end) of continuous speech: words closer than `merge` seconds count as one span."""
+    spans = []
+    for w in timing["words"]:
+        if spans and w["start"] - spans[-1][1] < merge:
+            spans[-1][1] = w["end"]
+        else:
+            spans.append([w["start"], w["end"]])
+    return spans
+
+
+def music_gain(timing, n, bed_db, open_db, outro_db, ramp=0.4):
+    """Per-sample gain (linear) for the music: bed under speech, open in pauses, swell after the last word."""
+    t = np.arange(n) / SR
+    g = np.full(n, open_db, float)
+    for a, b in speech_spans(timing):
+        g[(t >= a - 0.15) & (t <= b + 0.1)] = bed_db
+    last = timing["words"][-1]["end"] if timing["words"] else 0
+    g[t > last + 0.25] = outro_db
+    k = max(1, int(ramp * SR))   # smooth every change (moving average = ramps, no clicks, no pumping)
+    c = np.cumsum(np.pad(g, (k, k), mode="edge")); g = (c[2 * k:2 * k + n] - c[:n]) / (2 * k)
+    return 10 ** (g / 20)
+
+
+def mix_film(timing, narration_wav, out_wav, cue_list, music_dir=None, mood=None, title="", avoid=(), outro=1.6,
+             log=print):
+    """Narration + music bed + real effects -> out_wav (length = narration + outro). Returns (out_wav, track_file)."""
+    music_dir = music_dir or os.environ.get("STORY_MUSIC_DIR")
+    dur = float(timing["duration"]) + outro
+    n = int(dur * SR)
+    voice = np.zeros((n, 2)); v = _decode(narration_wav)[:n]; voice[:len(v)] = v
+    vdb = _rms_db(v[np.abs(v).max(1) > 0.01]) if len(v) else -20.0     # speech level (pauses excluded)
+    out = voice.copy()
+    track = pick_film_track(title, music_dir, mood, avoid)
+    if track:
+        m = _decode(Path(music_dir) / track["file"], float(track.get("start", 0)), dur + 0.5,
+                    af="equalizer=f=2500:t=q:w=1.2:g=-4,equalizer=f=1000:t=q:w=1:g=-2,highpass=f=40")[:n]
+        mm = np.zeros((n, 2)); mm[:len(m)] = m
+        mm *= 10 ** ((vdb - _rms_db(mm[: int(20 * SR)])) / 20)        # music level matched to the voice first
+        g = music_gain(timing, n, bed_db=-19, open_db=-15, outro_db=-8)   # benchmark: music ~16-20 dB under the voice
+        fade_in, fade_out = int(0.5 * SR), int(min(outro + 0.6, dur) * SR)
+        g[:fade_in] *= np.linspace(0, 1, fade_in) ** 2
+        g[-fade_out:] *= np.linspace(1, 0, fade_out) ** 1.5
+        out += mm * g[:, None]
+        log(f"[sound] music: {track['file']} from {track.get('start', 0)}s (bed 19 dB under the voice)")
+    else:
+        log("[sound] no music folder (STORY_MUSIC_DIR): narration only")
+    fx = json.loads(SFX_CATALOG.read_text(encoding="utf-8"))["effects"] if SFX_CATALOG.exists() else {}
+    used = 0
+    for t, kind, _g in cue_list:
+        spec = fx.get({"impact": "hit", "riser": "swell"}.get(kind, kind))
+        f = Path(music_dir or "") / spec["file"] if spec else None
+        if not f or not f.exists():
+            continue
+        af = f"lowpass=f={spec['lowpass']}" if spec.get("lowpass") else None
+        s = _decode(f, af=af)
+        if spec.get("reverse"):
+            s = s[::-1]
+            s = s[-int(1.6 * SR):]           # the swell's last 1.6 s, ending on the cut
+        s = s * 10 ** ((vdb + spec["gain_db"] - _rms_db(s[np.abs(s).max(1) > 0.003])) / 20)
+        env = np.convolve(np.abs(s).max(1), np.ones(480) / 480, mode="same")
+        peak = int(np.argmax(env)) if not spec.get("reverse") else len(s)
+        a = int(t * SR) - peak            # the loudest moment of the sound lands exactly on the cue
+        if a < 0:
+            s, a = s[-a:], 0
+        b = min(n, a + len(s))
+        tail = np.ones(b - a); tail[-min(len(tail), 2400):] = np.linspace(1, 0, min(len(tail), 2400))
+        out[a:b] += s[:b - a] * tail[:, None]
+        used += 1
+    log(f"[sound] {used} real effects" + ("" if fx else " (no sfx.json)"))
+    tmp = Path(out_wav).with_name("premix.wav")
+    _write_wav(tmp, out / max(1.0, np.abs(out).max() / 0.95))
+    # two-pass loudness: measure, then apply one linear gain (no pumping)
+    meas = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(tmp), "-af", "loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json",
+                           "-f", "null", "-"], capture_output=True, text=True).stderr
+    js = json.loads(meas[meas.rfind("{"): meas.rfind("}") + 1])
+    if "inf" in str(js.get("input_i")):   # silence (tests): nothing to normalise
+        shutil.move(str(tmp), str(out_wav))
+        return out_wav, (track or {}).get("file")
+    lin = (f"loudnorm=I=-14:TP=-1.5:LRA=11:linear=true:measured_I={js['input_i']}:measured_TP={js['input_tp']}:"
+           f"measured_LRA={js['input_lra']}:measured_thresh={js['input_thresh']}:offset={js['target_offset']}")
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(tmp), "-af", lin, "-ar", str(SR), str(out_wav)], check=True)
+    tmp.unlink(missing_ok=True)
+    return out_wav, (track or {}).get("file")

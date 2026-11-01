@@ -1,0 +1,133 @@
+name: Polish return (paste Claude's answer)
+
+# The copy-paste polish. When the free models can't finish a film-style episode, "Make a story video" opens an issue
+# labelled "polish" with one box to copy into Claude. The owner pastes Claude's answer as a comment on that issue;
+# this workflow reads it, checks it (shot list, script rules, fact check against the frozen sources), and either
+# replies with a new box listing what to fix, or makes the video and posts the link. Only the repository owner's
+# comments are read; the comment is treated as data (JSON), never run as code.
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  issues: write
+  actions: read
+
+concurrency:
+  group: polish-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  continue:
+    if: >-
+      !github.event.issue.pull_request &&
+      contains(github.event.issue.labels.*.name, 'polish') &&
+      github.event.comment.user.login == github.repository_owner &&
+      contains(github.event.comment.body, '{')
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      GH_TOKEN: ${{ github.token }}
+      ISSUE: ${{ github.event.issue.number }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Get the brain (for the fact check)
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: FranklinMburu/AI-layer
+          ssh-key: ${{ secrets.AILAYER_DEPLOY_KEY }}
+          path: .brain
+          persist-credentials: false
+
+      - name: Install tools
+        run: |
+          [ -f .brain/ailayer/__init__.py ] && echo "PYTHONPATH=$GITHUB_WORKSPACE/.brain" >> "$GITHUB_ENV" || true
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libcairo2-dev pkg-config fontconfig zip > /dev/null
+          pip install -q -r requirements.txt
+          pip install -q -U kaggle six
+
+      - name: Restore voice model and icons
+        uses: actions/cache@v4
+        with:
+          path: cache
+          key: assets-kokoro-v1.1-tabler-3.49.0
+
+      - name: Setup check
+        run: python -m studio setup
+
+      - name: Say it's being checked
+        run: gh issue comment "$ISSUE" --body "Got it. Checking Claude's answer now ([progress](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}))."
+
+      - name: Find the draft and read the answer
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          COMMENT: ${{ github.event.comment.body }}
+        run: |
+          printf '%s' "$COMMENT" > reply.txt
+          python - <<'PY'
+          import os, re
+          m = re.search(r"<!-- polish: episode=(\S+) draft=(\S+) -->", os.environ["ISSUE_BODY"])
+          if not m or not re.fullmatch(r"episodes/[a-z0-9_]+/[0-9]{3}-[a-z0-9-]+", m.group(1)) or not re.fullmatch(r"[A-Za-z0-9._-]+", m.group(2)):
+              raise SystemExit("This issue has no valid polish marker.")
+          with open(os.environ["GITHUB_ENV"], "a") as f:
+              f.write(f"EPISODE_DIR={m.group(1)}\nDRAFT_TAG={m.group(2)}\n")
+          PY
+
+      - name: Get the draft files
+        run: |
+          gh release download "$DRAFT_TAG" -p episode-files.zip -D draft --clobber
+          unzip -qo draft/episode-files.zip -d "$(dirname "$EPISODE_DIR")"
+          gh release download channel-memory -p used.json -D . 2>/dev/null || echo '{"episodes": []}' > used.json
+          ls "$EPISODE_DIR"
+
+      - name: Apply and check
+        id: check
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ACCOUNT_KEY_franklincopil3: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          AILAYER_STATE_URL: ${{ secrets.AILAYER_STATE_URL }}
+          AILAYER_STATE_TOKEN: ${{ secrets.AILAYER_STATE_TOKEN }}
+        run: |
+          set +e
+          python -m studio.story.filmkit apply "$EPISODE_DIR" reply.txt > apply.txt; rc=$?
+          cat apply.txt
+          if [ $rc -ne 0 ]; then cp apply.txt problems.txt; echo "ok=no" >> "$GITHUB_OUTPUT"; exit 0; fi
+          flag=""; grep -q "SCRIPT_CHANGED=yes" apply.txt && flag="--renarrate"
+          python -m studio.story.filmkit verify "$EPISODE_DIR" --memory used.json $flag | tee problems.txt
+          if grep -q "^PROBLEM:" problems.txt; then echo "ok=no" >> "$GITHUB_OUTPUT"; else echo "ok=yes" >> "$GITHUB_OUTPUT"; fi
+          rm -f "$EPISODE_DIR/NEEDS_POLISH.md"
+          # keep the latest version with the draft, so a second answer builds on it
+          (cd "$(dirname "$EPISODE_DIR")" && zip -qr "$GITHUB_WORKSPACE/episode-files.zip" "$(basename "$EPISODE_DIR")")
+          gh release upload "$DRAFT_TAG" episode-files.zip --clobber
+
+      - name: Ask for a fix
+        if: steps.check.outputs.ok == 'no'
+        run: |
+          python -m studio.story.filmkit issue "$EPISODE_DIR" --draft "$DRAFT_TAG" --memory used.json --problems problems.txt > again.md
+          gh issue comment "$ISSUE" --body-file again.md
+
+      - name: Make the video
+        if: steps.check.outputs.ok == 'yes'
+        env:
+          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+        run: |
+          gh issue comment "$ISSUE" --body "Accepted: every check passed. Making the video now (about 45 minutes). The link will appear here."
+          tools/film_produce.sh "$EPISODE_DIR"
+          gh issue comment "$ISSUE" --body "Your video is ready: $VIDEO_URL"
+          gh issue close "$ISSUE" --reason completed
+
+      - name: Report a failure
+        if: failure()
+        run: |
+          gh issue comment "$ISSUE" --body "Something went wrong while making this video. Details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} . Paste the same answer again to retry."

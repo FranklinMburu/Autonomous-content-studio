@@ -135,16 +135,18 @@ def cues(film, timing):
     out = []
     for t0, t1, s in pl:
         if s.get("xfade"):
-            out.append((t0 - XFADE, "whoosh", 0.35))
+            out.append((t0, "whoosh", 1.0))
         if s.get("hit"):
-            out.append((B.when(s["hit"], t0) if isinstance(s["hit"], str) else t0, "impact", 0.55))
+            out.append((B.when(s["hit"], t0) if isinstance(s["hit"], str) else t0, "impact", 1.0))
     if len(pl) > 2:
-        out.append((pl[-1][0] - 1.6, "riser", 0.3))
+        out.append((pl[-1][0], "riser", 1.0))   # a reverse swell that ends on the cut into the last shot
     out.sort()
     spaced, last = [], {}
     for t, k, g in out:
-        if t < 0 or t - last.get(k, -99) < {"impact": 2.0, "whoosh": 3.0, "riser": 5.0}.get(k, 0.5):
+        if t < 0 or t - last.get(k, -99) < {"impact": 4.0, "whoosh": 3.0, "riser": 5.0}.get(k, 0.5):
             continue
+        if spaced and t - spaced[-1][0] < 1.5 and k != "riser":   # never two effects on top of each other
+            continue                                             # (the swell ENDS on its cue, so it may meet a hit)
         spaced.append((t, k, g)); last[k] = t
     return spaced
 
@@ -190,7 +192,10 @@ def render(film, timing, assets, audio, out_mp4, preset="veryfast", log=print):
     return out_mp4
 
 
-def make(folder, assets, narration=None, timing_path=None, out_dir=None, preset="veryfast", log=print):
+OUTRO = 1.6  # seconds after the last word: the final shot holds while the music swells and fades
+
+
+def make(folder, assets, narration=None, timing_path=None, out_dir=None, preset="veryfast", memory=None, log=print):
     from ..paths import OUT, ensure_fonts, slugify
     from . import sound
     folder = Path(folder)
@@ -210,12 +215,17 @@ def make(folder, assets, narration=None, timing_path=None, out_dir=None, preset=
         log("Film problems:\n  " + "\n  ".join(probs))
         if any("no picture" in p or "no depth" in p for p in probs):
             return 1
-    audio = out / "narration.wav"
+    audio, track = out / "narration.wav", None
     if script.get("sound", True):
-        audio, cl, track = sound.mix(None, timing, out / "narration.wav", out / "mix.wav", track=script.get("music"),
-                                     title=script.get("title", folder.name), cue_list=cues(film, timing), log=log)
+        from .filmkit import load_memory
+        avoid = [e.get("music") for e in load_memory(memory).get("episodes", [])[-4:] if e.get("episode") != folder.name]
+        audio, track = sound.mix_film(timing, out / "narration.wav", out / "mix.wav", cues(film, timing),
+                                      mood=film.get("music"), title=script.get("title", folder.name), avoid=avoid,
+                                      outro=OUTRO, log=log)
+    (out / "music.txt").write_text(track or "", encoding="utf-8")
     log(f"[render] {len(film['shots'])} shots")
-    render(film, timing, assets, audio, out / "video.mp4", preset=preset, log=log)
+    full = {**timing, "duration": float(timing["duration"]) + (OUTRO if script.get("sound", True) else 0)}
+    render(film, full, assets, audio, out / "video.mp4", preset=preset, log=log)
     from ..qc import contact_sheet
     contact_sheet(out / "video.mp4", out / "contact.png", every=2.0)
     for f in ("script.json", "sources.md", "film.json"):
@@ -230,8 +240,9 @@ def main(argv=None):
     sub = ap.add_subparsers(dest="cmd", required=True)
     m = sub.add_parser("make"); m.add_argument("episode"); m.add_argument("--assets", required=True)
     m.add_argument("--narration"); m.add_argument("--timing"); m.add_argument("--out"); m.add_argument("--preset", default="veryfast")
+    m.add_argument("--memory", help="the channel memory (used.json): recent videos' music is not repeated")
     a = ap.parse_args(argv)
-    return make(a.episode, a.assets, a.narration, a.timing, a.out, a.preset)
+    return make(a.episode, a.assets, a.narration, a.timing, a.out, a.preset, a.memory)
 
 
 if __name__ == "__main__":

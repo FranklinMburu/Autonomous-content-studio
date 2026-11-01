@@ -98,3 +98,34 @@ New kinds of pictures are added to the library in `studio/story/board.py` (once,
 
 Painted backgrounds (free image model on Hugging Face), music and sound effects, a more expressive voice test.
 A separate 3D line (Branch Education bar) is being planned for the "how it works" channels.
+
+## Style 2b: Film (the default for new story videos)
+
+Painted 3D-film shots instead of 2D drawings, built to match the benchmark (Ricks Clips, ~30 shots in 56 s, the
+camera always moving). Everything runs free: GitHub Actions + the owner's Kaggle GPU (30 h/week) + free AI models.
+
+**How a video is made (no Claude needed):**
+1. *Make a story video* (Actions tab), style `film`, type a topic. Free models research, write and fact-check the
+   script, narrate it, and write `film.json`: the cast (a look per person) and ~30 shots, each starting on a word.
+2. Kaggle paints every shot with the cast kept consistent (one reference portrait per person; the face lock starts
+   only after the pose is set), makes a depth map per shot, and turns ~2/3 of the shots into short moving clips on
+   the second GPU at the same time. About 45 minutes.
+3. `studio/story/film.py` cuts it together: clips, 3D camera moves on the stills, crossfades on the story's turns,
+   one caption word at a time, the music bed and a few real sound effects, then publishes a Release.
+
+**No repeats across the channel.** After each video, its cast, scenes and music go into the channel memory (the
+`channel-memory` pre-release, `used.json`). The next story's shot list is checked against it: a new person may not
+reuse an earlier look, at most 20% of shots may resemble earlier scenes, and the music avoids the last 4 videos' tracks.
+
+**When the free models can't finish (the copy-paste polish).** The run opens an issue *Polish needed: <title>*
+(GitHub emails you). Open it, copy the grey box, paste it into a new claude.ai chat, copy Claude's answer, and paste
+it as a comment on the issue. The *Polish return* workflow checks the answer (shot list, script rules, a new fact
+check if the wording changed). If something is wrong it replies with a new box; if it passes it makes the video and
+posts the link, then closes the issue. Only the owner's comments are read. Locally the same kit is
+`python -m studio.story.filmkit prompt|apply|verify <episode>`.
+
+**Sound.** Music: the owner's YouTube Audio Library tracks (private Kaggle dataset `studio-audio`, never in this
+public repo), picked by the story's mood, ~19 dB under the voice, steady (its level follows the word timing, so it
+never pumps), a swell after the last word, then a fade. Effects: only real recordings from that dataset (`sfx.json`),
+a whoosh into each crossfade, a low hit on 2-5 dramatic words, a reverse swell into the last shot; never two within
+1.5 s. Final loudness -14 LUFS in two passes (one even gain).

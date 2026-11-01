@@ -117,6 +117,7 @@ bars = {"shots": [{"at": 0, "bg": "ward", "items": [{"type": "character", "role"
 ok(any("no picture" in p for p in board.quality(bars)), "quality gate: a bar that hasn't grown yet is not a picture")
 # Sound: effects placed from the storyboard, generated in code, mixed under the narration (no music folder in CI).
 import tempfile, wave  # noqa: E402
+import numpy as np  # noqa: E402
 from studio.story import sound  # noqa: E402
 ex = json.loads((ROOT / "studio" / "story" / "example_storyboard.json").read_text(encoding="utf-8"))
 tm = fake_timing({"beats": [{"lines": ex["narration"]}]}, step=0.36)
@@ -133,6 +134,17 @@ out, _, track = sound.mix(ex["storyboard"], tm, d / "n.wav", d / "mix.wav", musi
 with wave.open(str(out)) as w:
     secs = w.getnframes() / w.getframerate()
 ok(abs(secs - tm["duration"]) < 0.2 and track is None, f"sound: mix is the narration's length ({secs:.1f}s), effects only without music")
+
+# film mix: real effects only (none when the files are missing), the length includes the outro, steady loudness
+fx_out, tr = sound.mix_film(tm, d / "n.wav", d / "fmix.wav", [(1.0, "whoosh", 1.0)], music_dir=str(d / "none"),
+                            outro=1.6, log=lambda *a: None)
+with wave.open(str(fx_out)) as w:
+    secs = w.getnframes() / w.getframerate()
+ok(abs(secs - (tm["duration"] + 1.6)) < 0.2 and tr is None, f"film mix: narration + 1.6 s outro ({secs:.1f}s), no fake effects without the files")
+g = sound.music_gain({"words": [{"w": "a", "start": 1.0, "end": 2.0}, {"w": "b", "start": 4.0, "end": 5.0}]}, 7 * sound.SR, -19, -15, -8)
+db = 20 * np.log10(g)
+ok(abs(db[int(1.5 * sound.SR)] + 19) < 0.5 and abs(db[int(3.0 * sound.SR)] + 15) < 0.5 and abs(db[int(6.5 * sound.SR)] + 8) < 0.5
+   and np.abs(np.diff(db)).max() < 0.01, "film mix: music bed under speech, up in pauses, swell at the end, smooth ramps")
 
 # film style (studio/story/film.py): the shot plan, missing assets, effects, and a short render from tiny fake assets
 from studio.story import film as F

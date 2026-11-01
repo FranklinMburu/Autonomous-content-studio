@@ -330,7 +330,10 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
             fc = _timed(log, "fact check", lambda: fact_check(" ".join(_words(s)), sources, time_budget_s=300))
             log(f"  fact check after repair {rnd + 1}: {fc['counts']}")
         if any(r.get("verdict") == "unsupported" for r in fc["results"]):
-            raise RuntimeError("story still has unsupported claims after two repair rounds")
+            import os as _os
+            if _os.environ.get("STORY_STYLE", "film") != "film":
+                raise RuntimeError("story still has unsupported claims after two repair rounds")
+            log("  claims still unsupported after two repairs: the copy-paste polish fixes them (nothing is published before)")
 
         # Whole-story logic check: facts can each be true and the story still mislead (e.g. who did what).
         logic = logic_check(s, sources, models)
@@ -373,6 +376,39 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
         wpm = len(timing["words"]) / timing["duration"] * 60
     (folder / "script.json").write_text(json.dumps(script, indent=1, ensure_ascii=False), encoding="utf-8")
     log(f"  narration {timing['duration']:.1f}s at {wpm:.0f} wpm ({time.time() - t0:.0f}s)")
+
+    import os
+    if os.environ.get("STORY_STYLE", "film") == "film":   # 4F. Film shot list (studio/story/film.py), then sources
+        from . import filmkit
+        memory = filmkit.load_memory(os.environ.get("STORY_MEMORY"))
+        film = saved("film.json")
+        fprobs = filmkit.film_problems(film, timing, memory, folder.name) if film else None
+        if film:
+            log(f"  film shot list resumed: {len(film.get('shots', []))} shots, {len(fprobs)} problem(s)")
+        if fprobs != []:
+            log(f"[film] models: {', '.join(_sb_models())}")
+            film, fprobs = filmkit.write_film(script, timing, ask, _sb_models(), memory, word_list(timing), log=log,
+                                              episode=folder.name)
+            if film:
+                save("film.json", film)
+        (folder / "timing.json").write_text(json.dumps(timing), encoding="utf-8")
+        (folder / "NEEDS_POLISH.md").unlink(missing_ok=True)
+        if film:
+            (folder / "film.json").write_text(json.dumps(film, indent=1, ensure_ascii=False), encoding="utf-8")
+        if fprobs:
+            (folder / "NEEDS_POLISH.md").write_text("Film shot list problems left by the free models (the copy-paste "
+                                                    "polish fixes them):\n\n" + "\n".join(f"- {x}" for x in fprobs) + "\n",
+                                                    encoding="utf-8")
+        facts = [f"script: not supported by the sources, fix or remove: {r['claim']}" for r in fc["results"]
+                 if r.get("verdict") == "unsupported"]
+        if facts:
+            fprobs = facts + list(fprobs or [])
+            (folder / "NEEDS_POLISH.md").write_text("Problems left by the free models (the copy-paste polish fixes "
+                                                    "them):\n\n" + "\n".join(f"- {x}" for x in fprobs) + "\n", encoding="utf-8")
+        b, problems = {"shots": (film or {}).get("shots", [])}, fprobs
+        _finish(folder, s, fc, info, logic, srcs_raw, timing, wpm, topic, b, problems, kind="film shot list")
+        log(f"[written] {folder}")
+        return folder
 
     # 4. Storyboard: full draft, then repair only the broken shots (the whole board is re-checked every time)
     ex = json.loads((Path(__file__).parent / "example_storyboard.json").read_text(encoding="utf-8"))
@@ -443,7 +479,14 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
         (folder / "NEEDS_POLISH.md").write_text("Storyboard problems left by the AI draft:\n\n" +
                                                 "\n".join(f"- {x}" for x in problems) + "\n", encoding="utf-8")
 
-    # 5. Sources and report
+    _finish(folder, s, fc, info, logic, srcs_raw, timing, wpm, topic, b, problems)
+    (folder / "narration.wav").unlink(missing_ok=True)
+    log(f"[written] {folder}")
+    return folder
+
+
+def _finish(folder, s, fc, info, logic, srcs_raw, timing, wpm, topic, b, problems, kind="storyboard"):
+    """Step 5: sources.md, sources.json and report.md."""
     rows = "\n".join(f"| {c['claim']} | {c['url']} |" for c in s.get("claims", []))
     checks = "\n".join(f"| {r['claim']} | {r['verdict']} | {r.get('evidence', '')[:120]} |" for r in fc["results"])
     (folder / "sources.md").write_text(
@@ -457,10 +500,8 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
         f"- Models that failed the script step: {[f['ref'] + ': ' + f['error'][:200] for f in info.get('failed', [])]}\n"
         f"- Logic check issues found: {len(logic)}\n"
         f"- Words: {len(timing['words'])}, length {timing['duration']:.1f}s, {wpm:.0f} words/min, {first3} words in first 3 s\n"
-        f"- Fact check: {fc['counts']}\n- Storyboard: " + ("none yet: made in the polish step" if not b["shots"] else
+        f"- Fact check: {fc['counts']}\n- {kind.capitalize()}: " + ("none yet: made in the polish step" if not b["shots"] else
         f"{len(b['shots'])} shots, " + ("passed all checks" if not problems else
                                         f"{len(problems)} problem(s) left for the polish step (NEEDS_POLISH.md)")) + "\n",
         encoding="utf-8")
     (folder / "narration.wav").unlink(missing_ok=True)
-    log(f"[written] {folder}")
-    return folder

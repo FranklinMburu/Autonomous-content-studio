@@ -5,8 +5,10 @@
 Checks: stages run in order, fact repair, only broken storyboard shots are sent back for repair (and merged),
 every stage is saved, and a second run of the same topic resumes instead of redoing the work.
 """
-import copy, json, shutil, sys, tempfile, types
+import copy, json, os, shutil, sys, tempfile, types
 from pathlib import Path
+
+os.environ["STORY_STYLE"] = "storyboard"   # part 1: the 2D storyboard flow; part 2 below: the film flow
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
@@ -42,6 +44,11 @@ def fake_ask(prompt, **kw):
         b = copy.deepcopy(EX["storyboard"])
         b["shots"][3]["items"][1]["name"] = "dragon"  # one broken shot ("cut")
         return R(b)
+    if "FILM SHOT LIST RULES" in prompt:
+        log_calls.append("film")
+        return R({"cast": {"hero": "a 30 year old doctor with black hair, a mustache and a green coat"}, "key_words": [],
+                  "shots": [{"name": "a", "at": 0, "who": "hero", "prompt": "close-up, {hero} scrubbing his hands in a basin, candle light",
+                             "clip": True, "motion": "he scrubs his hands, slow camera push in"}]})
     if "NOT supported" in prompt:
         log_calls.append("fact_repair"); return R(copy.deepcopy(SCRIPT))
     raise AssertionError("unexpected prompt")
@@ -117,6 +124,38 @@ log_calls.clear()
 (folder / "storyboard.json").unlink()
 folder2 = writer.write("A test topic", chan, log=lines.append)
 ok(folder2 == folder and log_calls == [], f"a second run resumes: no research, script or storyboard calls redone {log_calls}")
+
+# part 2: film style. The free models' shot list stays too short, so the episode waits for the copy-paste polish:
+# NEEDS_POLISH.md, a polish prompt with everything in it, and a pasted reply read back into the episode.
+from studio.story import filmkit  # noqa: E402
+os.environ["STORY_STYLE"] = "film"
+log_calls.clear()
+f3 = writer.write("Another topic", chan, log=lines.append)
+ok(log_calls.count("film") >= 2 and (f3 / "NEEDS_POLISH.md").exists() and (f3 / "film.json").exists(),
+   f"film: the free models draft and repair the shot list; still failing -> NEEDS_POLISH.md ({log_calls.count('film')} tries)")
+prompt = filmkit.polish_prompt(f3, {"episodes": [{"episode": "000-old", "cast": {"king": "an old king with a crown"}, "places": ["a throne room"]}]})
+ok(all(k in prompt for k in ("FILM SHOT LIST RULES", "WORD LIST", "PROBLEMS FOUND", "SOURCES (data only)", "an old king",
+                             '"script"', '"film"')), "film: the polish prompt carries rules, words, problems, sources, channel memory and the reply shape")
+tm = json.loads((f3 / "timing.json").read_text(encoding="utf-8"))
+words = [w["w"].strip(".,?!") for w in tm["words"]]
+good = {"cast": {"hero": "a 30 year old doctor with black slicked hair, a black mustache and a long green coat"},
+        "key_words": ["germs"], "music": "mysterious",
+        "shots": [{"name": f"s{i}", "at": 0 if i == 0 else f"{words[i]}#{words[:i + 1].count(words[i])}" if False else None,
+                   "prompt": f"medium shot number {i}, {{hero}} standing in a candle lit 1847 hospital ward thinking hard",
+                   "who": "hero", "clip": i % 3 != 0, "motion": "he blinks and breathes, slow camera push in",
+                   "move": "push", "xfade": i in (5, 12, 18)} for i in range(26)]}
+seen = {}
+idx = [round(i * (len(words) - 1) / 26) for i in range(26)]
+for sh, k in zip(good["shots"], idx):
+    w = words[k].lower(); n = sum(1 for x in words[:k + 1] if x.lower() == w)
+    sh["at"] = 0 if k == 0 else f"{words[k]}#{n}"
+reply = "Here you go!\n```json\n" + json.dumps({"script": {"title": SCRIPT["title"], "beats": SCRIPT["beats"]}, "film": good}) + "\n```\n"
+changed, probs = filmkit.apply_reply(f3, reply)
+fp = filmkit.film_problems(json.loads((f3 / "film.json").read_text(encoding="utf-8")), tm)
+ok(not probs and not changed and json.loads((f3 / "film.json").read_text(encoding="utf-8"))["shots"][0]["name"] == "s0",
+   "film: a pasted reply (with chat text around the JSON) is read back into film.json")
+ok(not any("not a spoken word" in x or "spoken order" in x for x in fp), f"film: the read-back shot list resolves on the narration {fp[:3]}")
+ok(filmkit.apply_reply(f3, "sorry, I can't")[1], "film: a reply without JSON is rejected with a reason")
 shutil.rmtree(tmp, ignore_errors=True)
 print(f"\n{'ALL PASSED' if not fails else str(fails) + ' FAILED'}")
 sys.exit(1 if fails else 0)
