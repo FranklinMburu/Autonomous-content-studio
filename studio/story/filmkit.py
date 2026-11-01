@@ -75,9 +75,19 @@ def _fill(prompt, cast):
 
 # ---------- channel memory: what earlier episodes already used ----------
 
-def load_memory(path):
+SEED = Path(__file__).resolve().parents[2] / "episodes" / "hidden_reasons" / "memory_seed.json"
+
+
+def load_memory(path, seed=SEED):
+    """The channel memory (used.json from the 'channel-memory' release), plus the episodes committed in the repo's
+    memory_seed.json (made before the cloud pipeline existed) so those are never repeated either."""
     p = Path(path) if path else None
-    return json.loads(p.read_text(encoding="utf-8")) if p and p.exists() else {"episodes": []}
+    mem = json.loads(p.read_text(encoding="utf-8")) if p and p.exists() else {"episodes": []}
+    if seed and Path(seed).exists():
+        have = {e.get("episode") for e in mem.get("episodes", [])}
+        extra = [e for e in json.loads(Path(seed).read_text(encoding="utf-8")).get("episodes", []) if e.get("episode") not in have]
+        mem["episodes"] = extra + mem.get("episodes", [])
+    return mem
 
 
 def remember(memory, episode, film, music=None, topic=None):
