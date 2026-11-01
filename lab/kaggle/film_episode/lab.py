@@ -150,7 +150,12 @@ def gen(prompt, seed, w=IMG_W, h=IMG_H, neg=None, **kw):
         try:
             c, pooled = COMPEL(full)
             nc, npooled = COMPEL(negp)
-            c, nc = COMPEL.pad_conditioning_tensors_to_same_length([c, nc])
+            if c.shape[1] != nc.shape[1]:   # pad the shorter one with "empty prompt" chunks (compel's own pad fails on SDXL)
+                empty, _ = COMPEL("")
+                while c.shape[1] < nc.shape[1]:
+                    c = torch.cat([c, empty], dim=1)
+                while nc.shape[1] < c.shape[1]:
+                    nc = torch.cat([nc, empty], dim=1)
             im = pipe(prompt_embeds=c, pooled_prompt_embeds=pooled, negative_prompt_embeds=nc,
                       negative_pooled_prompt_embeds=npooled, **args).images[0]
             gc.collect(); torch.cuda.empty_cache()

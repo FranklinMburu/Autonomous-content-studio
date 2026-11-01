@@ -77,9 +77,9 @@
    "at": "Wounds#1",
    "hit": "Gangrene#1",
    "clip": true,
-   "prompt": "close-up, a pale sweating man lying in bed with a dirty yellow-stained bandage on his arm, feverish, dim ward",
+   "prompt": "medium shot, a feverish man lying in an iron hospital bed with a dirty bandage on his arm, sweat on his forehead, dim 1860s ward",
    "motion": "he shivers and turns his head weakly, slow camera push in",
-   "check": "Is a sick man lying with a bandaged arm?"
+   "check": "Is a sick man lying in a bed?"
   },
   {
    "name": "badair",
@@ -169,8 +169,8 @@
    "at": "dirty#1",
    "modern": true,
    "move": "push",
-   "prompt": "close-up of a red swollen finger with a dirty bandage, in a modern kitchen",
-   "check": "Is there a red swollen finger?"
+   "prompt": "close-up of a child's knee with a red swollen scrape under a dirty loose bandage, in a modern kitchen, soft light",
+   "check": "Is there a knee with a bandage?"
   },
   {
    "name": "splint",
