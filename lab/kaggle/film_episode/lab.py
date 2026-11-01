@@ -23,7 +23,7 @@ def log(*a):
 
 
 t0 = time.time()
-subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-U", "diffusers>=0.34", "transformers", "accelerate",
+subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-U", "diffusers>=0.34", "transformers", "accelerate", "compel",
                 "sentencepiece", "imageio[ffmpeg]"], check=False)
 NGPU = subprocess.run(["nvidia-smi", "-L"], capture_output=True, text=True).stdout.count("GPU ")
 TWO = NGPU > 1
@@ -43,8 +43,10 @@ STYLE = FILM.get("style") or ("single scene, one continuous image, 3D animated m
                               "characters, soft global illumination, cinematic lighting, rich colors, highly detailed")
 NEG_BASE = ("collage, multiple panels, split screen, grid, comic panels, border, frame, multiple views, duplicate, inset, "
             "photo, photograph, realistic, photorealistic, oil painting, portrait painting, ugly, deformed, extra limbs, "
-            "extra fingers, bad hands, text, letters, watermark, blurry, plain background")
-NEG_PAST = ", modern, electric light, fluorescent light, modern hospital corridor, cars, phones"
+            "extra fingers, bad hands, text, letters, watermark, blurry, plain background, sketch, pencil drawing, line art, "
+            "black and white, monochrome, grayscale, cartoon creature, mascot")
+NEG_PAST = (", modern, electric light, fluorescent light, modern hospital corridor, modern hospital bed, scrubs, "
+            "stethoscope, surgical mask, rubber gloves, cars, phones")
 NEG = NEG_BASE + (NEG_PAST if PAST else "")
 ONLY = set(FILM.get("only") or [])   # redo just these shots (the rest of the episode is kept)
 CAST = FILM["cast"]
@@ -69,8 +71,8 @@ def picture_prompt(p, shot=None):
     for k in used:
         p = p.replace("{" + k + "}", label(CAST[k]))
     looks = "; ".join(f"the {label(CAST[k]).removeprefix('a ').removeprefix('an ')} is {CAST[k]}" for k in used)
-    era = f", {ERA}" if ERA and not (shot or {}).get("modern") else ""
-    return f"{STYLE_SHORT}, {p}{era}" + (f", {looks}" if looks else "")
+    era = f"{ERA}, " if ERA and not (shot or {}).get("modern") else ""
+    return f"{STYLE_SHORT}, {era}{p}" + (f", {looks}" if looks else "")
 
 
 # ---------- GPU 1: the clip maker, a SEPARATE process (test: two GPUs driven from one process crashed CUDA) ----------
@@ -129,9 +131,33 @@ pipe.vae.enable_tiling()
 depth = pipeline("depth-estimation", model="depth-anything/Depth-Anything-V2-Small-hf", device=0)
 
 
+COMPEL = None
+try:   # long prompts: the whole description is read, not just the first 77 tokens (compel, MIT)
+    from compel import Compel, ReturnedEmbeddingsType
+    COMPEL = Compel(tokenizer=[pipe.tokenizer, pipe.tokenizer_2], text_encoder=[pipe.text_encoder, pipe.text_encoder_2],
+                    returned_embeddings_type=ReturnedEmbeddingsType.PENULTIMATE_HIDDEN_STATES_NON_NORMALIZED,
+                    requires_pooled=[False, True], truncate_long_prompts=False)
+    log("long prompts: on (compel)")
+except Exception:
+    log("long prompts: off (compel failed to load)", traceback.format_exc()[-300:])
+
+
 def gen(prompt, seed, w=IMG_W, h=IMG_H, neg=None, **kw):
-    im = pipe(prompt=prompt, prompt_2=f"{prompt}, {STYLE}", negative_prompt=neg or NEG, width=w, height=h, num_inference_steps=30,
-              guidance_scale=6.5, generator=torch.Generator("cuda").manual_seed(seed), **kw).images[0]
+    full, negp = f"{prompt}, {STYLE}", neg or NEG
+    args = dict(width=w, height=h, num_inference_steps=30, guidance_scale=6.5,
+                generator=torch.Generator("cuda").manual_seed(seed), **kw)
+    if COMPEL is not None:
+        try:
+            c, pooled = COMPEL(full)
+            nc, npooled = COMPEL(negp)
+            c, nc = COMPEL.pad_conditioning_tensors_to_same_length([c, nc])
+            im = pipe(prompt_embeds=c, pooled_prompt_embeds=pooled, negative_prompt_embeds=nc,
+                      negative_pooled_prompt_embeds=npooled, **args).images[0]
+            gc.collect(); torch.cuda.empty_cache()
+            return im
+        except Exception:
+            log("compel failed for one prompt; using the short form", traceback.format_exc()[-300:])
+    im = pipe(prompt=prompt, prompt_2=full, negative_prompt=negp, **args).images[0]
     gc.collect(); torch.cuda.empty_cache()
     return im
 
