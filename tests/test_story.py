@@ -66,5 +66,41 @@ bad3 = {"shots": [{"at": 0, "items": [{"type": "character", "mood": "furious"}]}
 ok(any("furious" in p for p in board.validate(bad3)), "checks catch an unknown mood")
 from studio.story.writer import catalogue  # noqa: E402
 ok("arm_scar" in catalogue() and "vitamin_c" in catalogue(), "the writer's library description is generated from the code")
+ok("ward" in catalogue() and "scrub" in catalogue() and "midwife" in catalogue(), "catalogue lists places, poses and cast")
+
+# Cast, places and camera (Phase 1 upgrades).
+from studio.story import cast, settings  # noqa: E402
+surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, lib.W, lib.H)
+drawn = True
+try:
+    for role in cast.ROLES:
+        for pose in cast.POSES:
+            c = cairo.Context(surf); c.translate(540, 1400); cast.draw(c, role, pose, "calm", 0.5, 1, 0)
+    for mood in cast.MOODS:
+        c = cairo.Context(surf); c.translate(540, 1400); cast.draw(c, "doctor", "stand", mood, 0.5, -1, 0.3)
+    for name in settings.SETTINGS:
+        for tone in settings.TONES:
+            settings.draw(cairo.Context(surf), name, 1.0, tone)
+except Exception as e:  # noqa: BLE001
+    drawn = False; print("   ", e)
+ok(drawn, f"draws {len(cast.ROLES)} roles x {len(cast.POSES)} poses, {len(cast.MOODS)} moods, "
+          f"{len(settings.SETTINGS)} places x {len(settings.TONES)} tones")
+
+ex = json.loads((ROOT / "studio" / "story" / "example_storyboard.json").read_text(encoding="utf-8"))
+lib.set_timing(fake_timing({"beats": [{"lines": ex["narration"]}]}, step=0.36))
+ok(not board.validate(ex["storyboard"]), "writer's example storyboard passes validate")
+ok(not board.quality(ex["storyboard"]), f"writer's example storyboard passes the quality gate {board.quality(ex['storyboard'])[:2]}")
+shots, _ = board.build_shots(ex["storyboard"])
+ch = board.picture_changes(shots, lib.DUR)
+gaps = [b - a for a, b in zip(ch, ch[1:] + [lib.DUR])]
+ok(max(gaps) <= 1.5 and lib.DUR / len(ch) <= 1.3, f"auto camera: new picture every {lib.DUR / len(ch):.2f}s, longest hold {max(gaps):.1f}s")
+words_only = {"shots": [{"at": 0, "bg": "street", "items": [{"type": "character", "role": "doctor"}]},
+                        {"at": "+2", "items": [{"type": "text", "text": "WORDS"}]}]}
+q = board.quality(words_only)
+ok(any("only words" in p for p in q), "quality gate catches a words-only shot")
+late = {"shots": [{"at": 0, "bg": "gradient", "items": [{"type": "prop", "name": "bed", "in": "+2.5"}]}]}
+q = board.quality(late)
+ok(any("no picture" in p for p in q) and any("opening shot" in p for p in q) and any("plain colour" in p for p in q),
+   "quality gate catches an empty start, a weak opening and plain backgrounds")
 print(f"\n{'ALL PASSED' if not fails else str(fails) + ' FAILED'}")
 sys.exit(1 if fails else 0)

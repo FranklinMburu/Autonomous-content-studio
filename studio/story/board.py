@@ -479,14 +479,16 @@ def _target(it):
     x, y, s = float(it.get("x", 540)), float(it.get("y", 960)), float(it.get("s", 1.0))
     if it.get("type") == "character":
         h = 380 * s * (cast.ROLES[it["role"]].get("scale", 1.0) if it.get("role") in cast.ROLES else 0.9)
-        return x, y - h * 0.62, max(1.0, min(2.3, 1250 / max(h, 1)))
+        return x, y - h * 0.62, max(1.0, min(1.8, 1250 / max(h, 1)))
     if it.get("type") == "group":
         g = it["grid"]
         return g["x"] + (g["cols"] - 1) * g["dx"] / 2, g["y"] + (g.get("rows", 1) - 1) * g.get("dy", 0) / 2, 1.15
     if it.get("type") == "hands":
         return x, y - 60, 1.25
-    if it.get("type") in ("card", "prop"):  # whole object stays in frame
-        return x, y, max(1.0, min(1.4, 1.1 / max(s, 0.5)))
+    if it.get("type") == "card":  # whole panel stays in frame
+        return x, y, max(1.0, min(1.35, 1.1 / max(s, 0.5)))
+    if it.get("type") == "prop":
+        return x, y, max(1.0, min(1.6, 1.5 / max(s, 0.5)))
     return x, y, max(1.0, min(1.8, 1.4 / max(s, 0.5)))
 
 
@@ -523,15 +525,19 @@ def make_camera(sh, t0, t1, beat=1.0):
     n = max(1, round((t1 - t0) / beat))
     step = (t1 - t0) / n
     beats = [(t0 + k * step, None) for k in range(n)]
-    for te, tgt in events:  # the moment something is named, show it
+    for te, tgt in events:  # the moment something is named, show it (replaces nearby automatic beats only)
         if t0 <= te < t1:
-            beats = [b for b in beats if abs(b[0] - te) > 0.45] + [(te, tgt)]
-    beats.sort()
+            beats = [b for b in beats if b[1] is not None or abs(b[0] - te) > 0.45] + [(te, tgt)]
+    if not any(b[0] <= t0 + 0.3 for b in beats):  # the shot always opens on a framing of its own
+        beats.append((t0, None))
+    beats.sort(key=lambda b: b[0])
     filled = []
     for tb, tgt in beats:  # never hold one framing longer than ~1.25 s
         while filled and tb - filled[-1][0] > 1.25:
             filled.append((filled[-1][0] + 1.0, None))
         filled.append((tb, tgt))
+    while filled and t1 - filled[-1][0] > 1.25:
+        filled.append((filled[-1][0] + 1.0, None))
     out = []
     for k, (tb, tgt) in enumerate(filled):
         prev = out[-1][1] if out else None
@@ -539,7 +545,7 @@ def make_camera(sh, t0, t1, beat=1.0):
             vis = visible(tb)
             if vis:  # framings built only from what is on screen now
                 cx = sum(v[0] for v in vis) / len(vis); cy = sum(v[1] for v in vis) / len(vis)
-                cands = [(540, fy, 1.0)] + vis + [(cx, cy, 1.2)]
+                cands = [(540, fy, 1.0)] + vis + [(cx, cy, 1.2), (cx, cy - 150, 1.35)]
             else:  # nothing to show yet: breathe in and out on the scene centre
                 cands = [(540, fy, 1.0), (540, fy, 1.18)]
             cands = cands[k % len(cands):] + cands[:k % len(cands)]
@@ -556,6 +562,7 @@ def make_camera(sh, t0, t1, beat=1.0):
         nxt = next((b[0] for b in beats if b[0] > tb), t1)
         z = z * (1.0 + 0.05 * ease((T - tb) / max(0.3, nxt - tb))) + 0.06 * (1 - ease((T - tb) / 0.2))
         return _clamp(x, y, z)
+    cam.beats = beats
     return cam
 
 

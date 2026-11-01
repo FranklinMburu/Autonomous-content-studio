@@ -65,6 +65,9 @@ def cmd_make(a):
         probs += board.validate(json.loads((folder / "storyboard.json").read_text(encoding="utf-8")))
     if probs:
         log("Shot problems:\n  " + "\n  ".join(probs)); return 1
+    if (folder / "storyboard.json").exists():
+        q = board.quality(json.loads((folder / "storyboard.json").read_text(encoding="utf-8")))
+        log("Quality warnings (below benchmark level):\n  " + "\n  ".join(q) if q else "[quality] meets the benchmark rules")
     log(f"[render] {len(shots)} shots")
     lib.render_video(shots, key, out / "narration.wav", out / "video.mp4", preset=a.preset, log=log)
     from ..qc import contact_sheet
@@ -106,6 +109,44 @@ def cmd_check(a):
     return 1 if problems else 0
 
 
+def cmd_review(a):
+    """Polish step (POLISH.md, story section): everything the polisher needs on one page, plus a still of every shot."""
+    from . import board
+    folder, script = load_episode(a.episode)
+    ensure_fonts()
+    out = OUT / f"review-{folder.name}"; out.mkdir(parents=True, exist_ok=True)
+    timing = narrate(script, out)
+    lib.set_timing(timing)
+    sb = json.loads((folder / "storyboard.json").read_text(encoding="utf-8"))
+    shots, key = board.build_shots(sb)
+    n, dur = len(timing["words"]), timing["duration"]
+    ch = board.picture_changes(shots, dur)
+    gaps = [y - x for x, y in zip(ch, ch[1:] + [dur])]
+    text = " ".join(l for b in script["beats"] for l in b["lines"])
+    sentences = [x for x in __import__("re").split(r"(?<=[.!?])\s+", text) if x.strip()]
+    lines = [f"# Review: {script.get('title')}", "",
+             f"- Length {dur:.1f}s, {n} words, {n / dur * 60:.0f} words/min (target 200-230), "
+             f"{sum(1 for w in timing['words'] if w['start'] < 3)} words in first 3 s",
+             f"- Hook: {script['beats'][0]['lines'][0]!r}",
+             f"- Sentences: {len(sentences)}, average {sum(len(x.split()) for x in sentences) / max(1, len(sentences)):.1f} words",
+             f"- Shots: {len(shots)}; picture changes {len(ch)} (one every {dur / max(1, len(ch)):.2f}s), longest hold {max(gaps):.1f}s",
+             "", "## Gate results", ""]
+    probs = board.validate(sb) + board.quality(sb)
+    lines += [f"- {x}" for x in probs] or ["- all checks pass"]
+    lines += ["", "## Script (one line per sentence)", ""] + [f"{i + 1}. {x}" for i, x in enumerate(sentences)]
+    lines += ["", "## Shots (start s, name, place, items)", ""]
+    starts = [s_[0] for s_ in shots]
+    for t0, sh in zip(starts, sb["shots"]):
+        bg = sh.get("bg", "gradient"); bg = bg.get("type") if isinstance(bg, dict) else bg
+        items = ", ".join(it.get("role") or it.get("name") or it.get("text") or it["type"] for it in sh.get("items", []))
+        lines.append(f"- {t0:5.1f}s {sh.get('name', '')} [{bg}] {items}")
+    paths = lib.stills(shots, key, [round(t + 0.8, 2) for t in starts], out)
+    lines += ["", f"Stills: {out}"]
+    (out / "review.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print("\n".join(lines))
+    return 0
+
+
 def cmd_write(a):
     """AI writes a new episode (research, script, fact check, narration, storyboard), then optionally renders it."""
     from .writer import write
@@ -125,10 +166,11 @@ def main(argv=None):
     m = sub.add_parser("make"); m.add_argument("episode"); m.add_argument("--preset", default="veryfast")
     s = sub.add_parser("stills"); s.add_argument("episode"); s.add_argument("times", nargs="*")
     c = sub.add_parser("check"); c.add_argument("episode")
+    r = sub.add_parser("review"); r.add_argument("episode")
     w = sub.add_parser("write"); w.add_argument("--topic", required=True)
     w.add_argument("--channel", default="hidden_reasons"); w.add_argument("--make", action="store_true")
     a = p.parse_args(argv)
-    return {"make": cmd_make, "stills": cmd_stills, "check": cmd_check, "write": cmd_write}[a.cmd](a)
+    return {"make": cmd_make, "stills": cmd_stills, "check": cmd_check, "review": cmd_review, "write": cmd_write}[a.cmd](a)
 
 
 if __name__ == "__main__":

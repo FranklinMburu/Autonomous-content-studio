@@ -1,0 +1,35 @@
+{
+ "_about": "Few-shot example for the AI storyboard writer (studio/story/writer.py). A made-up mini story, written to show the style: places, an acting cast, things appearing on their word, labels on top of pictures. tests/test_story.py checks that it passes validate() and quality().",
+ "narration": [
+  "A doctor scrubbed his hands until they bled, and the other doctors laughed at him.",
+  "Then the mothers in his ward stopped dying.",
+  "You see, it's like washing a cut before you bandage it.",
+  "The germs were riding on his hands."
+ ],
+ "storyboard": {
+  "key_words": ["bled", "laughed", "dying", "germs"],
+  "shots": [
+   {"name": "scrub", "at": 0, "bg": {"type": "ward", "tone": "night"}, "focus": 1000, "items": [
+    {"type": "prop", "name": "basin", "x": 560, "y": 1250, "s": 1.1},
+    {"type": "character", "role": "doctor", "pose": "scrub", "mood": "angry", "x": 520, "y": 1330, "s": 1.5,
+     "states": [{"at": "bled#1", "mood": "pain"}]},
+    {"type": "text", "text": "UNTIL THEY BLED", "x": 540, "y": 300, "size": 96, "color": "red", "in": "bled#1"}]},
+   {"name": "laugh", "at": "other#1", "bg": {"type": "street", "tone": "day"}, "focus": 950, "items": [
+    {"type": "character", "role": "doctor", "pose": "scrub", "mood": "doubt", "x": 260, "y": 1360, "s": 1.1},
+    {"type": "character", "role": "noble", "pose": "point", "mood": "laugh", "face": -1, "x": 700, "y": 1340, "s": 1.1, "in": "laughed#1"},
+    {"type": "character", "role": "scientist", "pose": "facepalm", "mood": "laugh", "face": -1, "x": 900, "y": 1380, "s": 0.95, "in": "+0.3"}]},
+   {"name": "ward", "at": "Then#1", "bg": {"type": "ward", "tone": "warm"}, "focus": 950, "items": [
+    {"type": "prop", "name": "bed", "x": 380, "y": 1280, "s": 1.2},
+    {"type": "character", "role": "mother", "pose": "sit", "mood": "sick", "x": 380, "y": 1240, "s": 1.0,
+     "states": [{"at": "dying#1", "mood": "happy"}]},
+    {"type": "character", "role": "midwife", "pose": "wave", "mood": "happy", "x": 800, "y": 1360, "s": 1.1, "in": "stopped#1"},
+    {"type": "cross", "x": 540, "y": 380, "size": 180, "in": "dying#1"}]},
+   {"name": "cut", "at": "You#1", "bg": {"type": "room", "tone": "day"}, "focus": 900, "items": [
+    {"type": "finger", "cut_at": "cut#1"},
+    {"type": "prop", "name": "basin", "x": 820, "y": 1250, "s": 0.8, "in": "washing#1"}]},
+   {"name": "germs", "at": "The#3", "bg": {"type": "gradient", "top": "navy2", "bottom": "ink"}, "focus": 950, "items": [
+    {"type": "hands", "dirty": true, "x": 540, "y": 1000, "s": 1.2},
+    {"type": "text", "text": "GERMS", "x": 540, "y": 320, "size": 130, "color": "lemon", "in": "germs#1"}]}
+  ]
+ }
+}
