@@ -39,6 +39,7 @@ FILM_RULES = """FILM SHOT LIST RULES (the pictures are painted by an image AI in
   is doing what + where + light. Put the ACTION/POSE first and the person after it ("a woman kneeling on both knees
   on stone steps, begging, she is {mother}, ..."): image AIs follow the start of a prompt most. Write cast members as {role} (e.g. "{hero} kneeling by a bed"), it is replaced by
   their description. One single scene. NO text, signs, letters, labels, logos or numbers in the picture.
+  Keep each prompt short (under 260 characters): the image model only reads the beginning.
   Mix shot sizes; change places as the story moves; never the same place more than 3 shots in a row.
 - "clip": true for 60-75% of shots (anything with a person acting or a hand doing something). Then "motion": ONE
   small physical action + a slow camera move ("she rocks the baby gently, slow camera push in"). Small motions only:
@@ -145,8 +146,8 @@ def film_problems(f, timing, memory=None, episode=None):
         except Exception as e:  # noqa: BLE001
             p.append(f"shot {n}: \"at\" {s.get('at')!r} is not a spoken word ({e})"); ts.append(None)
         pr = str(s.get("prompt", ""))
-        if not 40 <= len(pr) <= 420:
-            p.append(f"shot {n}: prompt should be one concrete picture of 40-420 characters")
+        if not 40 <= len(pr) <= 260:
+            p.append(f"shot {n}: prompt should be one concrete picture of 40-260 characters (the image model reads only the start)")
         for ph in re.findall(r"\{(\w+)\}", pr):
             if ph not in cast:
                 p.append(f"shot {n}: {{{ph}}} is not in the cast")
