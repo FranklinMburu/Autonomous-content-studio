@@ -1,0 +1,100 @@
+name: Review reply (approve or repaint)
+
+# On a "Review needed: <title>" issue (a film video held by the final check), the owner replies with one word:
+#   approve  -> the release becomes finished ("Film: ...") and a "Ready to upload" issue opens; this issue closes.
+#   repaint  -> only the weak shots are redone on Kaggle (pictures checked again, clips remade), the video is cut
+#               again and checked; the result goes to a new release (and a new Ready or Review issue).
+# Only the repository owner's comments are read.
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: review-${{ github.event.issue.number }}   # approve answers at once; a repaint may run beside another video
+  cancel-in-progress: false
+
+jobs:
+  reply:
+    if: >-
+      !github.event.issue.pull_request &&
+      contains(github.event.issue.labels.*.name, 'review') &&
+      github.event.comment.user.login == github.repository_owner
+    runs-on: ubuntu-latest
+    timeout-minutes: 200
+    env:
+      GH_TOKEN: ${{ github.token }}
+      ISSUE: ${{ github.event.issue.number }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read the reply and the issue
+        id: what
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          COMMENT: ${{ github.event.comment.body }}
+        run: |
+          python - <<'PY'
+          import os, re
+          body, comment = os.environ["ISSUE_BODY"], os.environ["COMMENT"].strip().lower()
+          m = re.search(r"<!-- review: tag=(\S+) episode=(\S+) failed=(\S*) -->", body)
+          word = "approve" if re.match(r"^\W*approve", comment) else "repaint" if re.match(r"^\W*repaint", comment) else ""
+          ok = m and re.fullmatch(r"[A-Za-z0-9._-]+", m.group(1)) and re.fullmatch(r"episodes/[a-z0-9_]+/[0-9]{3}-[a-z0-9-]+", m.group(2)) \
+               and re.fullmatch(r"[a-z0-9_,]*", m.group(3))
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write(f"word={word if ok else ''}\n")
+              if ok:
+                  f.write(f"tag={m.group(1)}\nepisode={m.group(2)}\nfailed={m.group(3)}\n")
+          PY
+
+      - name: Approve
+        if: steps.what.outputs.word == 'approve'
+        env:
+          TAG: ${{ steps.what.outputs.tag }}
+          EP: ${{ steps.what.outputs.episode }}
+        run: |
+          title=$(gh release view "$TAG" --json name --jq .name | sed 's/^REVIEW: //')
+          gh release edit "$TAG" --prerelease=false --title "Film: $title"
+          gh release download "$TAG" -p episode-files.zip -D rel --clobber
+          unzip -qo rel/episode-files.zip -d "$(dirname "$EP")"
+          tools/ready_issue.sh "$TAG" "$title" "$EP"
+          gh issue comment "$ISSUE" --body "Approved: the release is now finished and a *Ready to upload* issue is open."
+          gh issue close "$ISSUE" --reason completed
+
+      - uses: actions/setup-python@v5
+        if: steps.what.outputs.word == 'repaint'
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Restore voice model and icons
+        if: steps.what.outputs.word == 'repaint'
+        uses: actions/cache@v4
+        with:
+          path: cache
+          key: assets-kokoro-v1.1-tabler-3.49.0
+      - name: Repaint the weak shots and remake the video
+        if: steps.what.outputs.word == 'repaint'
+        env:
+          TAG: ${{ steps.what.outputs.tag }}
+          EP: ${{ steps.what.outputs.episode }}
+          FAILED: ${{ steps.what.outputs.failed }}
+          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+        run: |
+          [ -n "$FAILED" ] || { gh issue comment "$ISSUE" --body "No weak shots are listed for this video, so there is nothing to repaint. Reply **approve** to accept it."; exit 0; }
+          gh issue comment "$ISSUE" --body "Repainting $FAILED on Kaggle now (about 15-20 min plus the queue). Progress: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg libcairo2-dev pkg-config fontconfig zip > /dev/null
+          pip install -q -r requirements.txt && pip install -q -U kaggle six
+          python -m studio setup
+          gh release download "$TAG" -p episode-files.zip -D rel --clobber
+          unzip -qo rel/episode-files.zip -d "$(dirname "$EP")"
+          REPAINT_FROM="$TAG" REPAINT_SHOTS="$FAILED" tools/film_produce.sh "$EP"
+          gh issue comment "$ISSUE" --body "Repainted. New video: $VIDEO_URL (if it passed, a *Ready to upload* issue is open; if not, a new *Review needed* issue)."
+          gh issue close "$ISSUE" --reason completed
+
+      - name: Report a failure
+        if: failure()
+        run: |
+          gh issue comment "$ISSUE" --body "Something went wrong: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} . Reply again to retry."

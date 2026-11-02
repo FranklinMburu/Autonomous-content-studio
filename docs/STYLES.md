@@ -129,3 +129,12 @@ public repo), picked by the story's mood, ~19 dB under the voice, steady (its le
 never pumps), a swell after the last word, then a fade. Effects: only real recordings from that dataset (`sfx.json`),
 a whoosh into each crossfade, a low hit on 2-5 dramatic words, a reverse swell into the last shot; never two within
 1.5 s. Final loudness -14 LUFS in two passes (one even gain).
+
+**After a video is made (film style).**
+- Passed every check → a release "Film: <title>" and an issue **Ready to upload: <title>** (download, upload to
+  YouTube, close the issue). Nothing is ever published to YouTube automatically.
+- Failed a final check (3+ weak shots, or length/loudness/black gaps) → a pre-release "REVIEW: <title>" and an
+  issue **Review needed: <title>**. Reply **approve** (it becomes Ready to upload) or **repaint** (only the weak shots
+  are redone on Kaggle, ~15-20 min, then checked again). Every release keeps `film-assets.zip` (all pictures and
+  clips) so a repaint never redoes the good shots.
+- Schedule: 5 videos a day (03:23, 08:23, 13:23, 20:23, 00:23 Nairobi), at most 36 a week.

@@ -1,13 +1,13 @@
 name: Story schedule
 
-# Starts one film-style Hidden Reasons video, 6 times a day (the agreed 5-6 a day), from
+# Starts one film-style Hidden Reasons video, 5 times a day (agreed with Franklin, 2 Nov), from
 # episodes/hidden_reasons/topics.txt (new ideas are suggested automatically when fewer than 5 are left).
 # Each start dispatches "Make a story video", which runs one at a time (its concurrency group), so the free
 # Kaggle GPU (30 h/week; one video uses ~35 min) is never asked for two videos at once.
-# Times (UTC): 00:23, 04:23, 08:23, 12:23, 17:23, 21:23  =  03:23 ... 00:23 Nairobi.
+# Times (UTC): 00:23, 05:23, 10:23, 17:23, 21:23  =  03:23, 08:23, 13:23, 20:23, 00:23 Nairobi.
 on:
   schedule:
-    - cron: "23 0,4,8,12,17,21 * * *"
+    - cron: "23 0,5,10,17,21 * * *"
   workflow_dispatch:
     inputs:
       topic:
@@ -52,7 +52,7 @@ jobs:
                  --jq '[.workflow_runs[] | select(.conclusion=="success")] | length')
           echo "running/queued: $busy; finished this week: $week"
           if [ "$busy" -ge 2 ]; then echo "go=no" >> "$GITHUB_OUTPUT"; echo "Two videos already waiting: skipping this slot."
-          elif [ "$week" -ge 45 ]; then echo "go=no" >> "$GITHUB_OUTPUT"; echo "45 videos this week: saving the free GPU hours."
+          elif [ "$week" -ge 36 ]; then echo "go=no" >> "$GITHUB_OUTPUT"; echo "36 videos this week (5 a day): saving the free GPU hours."
           else echo "go=yes" >> "$GITHUB_OUTPUT"; fi
 
       - name: Pick the topic
