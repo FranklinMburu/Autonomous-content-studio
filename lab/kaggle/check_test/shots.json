@@ -1,0 +1,125 @@
+{
+ "era": "1840s",
+ "shots": [
+  {
+   "name": "hook",
+   "check": "Is a man pointing at a washbasin?"
+  },
+  {
+   "name": "bleach",
+   "check": "Are two hands in a basin of white water?"
+  },
+  {
+   "name": "mother",
+   "check": "Is a woman lying in a bed?"
+  },
+  {
+   "name": "offended",
+   "check": "Are there several old men in black coats?"
+  },
+  {
+   "name": "gentlemen",
+   "check": "Are there men wearing top hats?"
+  },
+  {
+   "name": "dirty",
+   "check": "Is this a close-up of hands?"
+  },
+  {
+   "name": "clinic",
+   "check": "Is this a long room with many beds?"
+  },
+  {
+   "name": "dying",
+   "check": "Is a woman lying in a bed?"
+  },
+  {
+   "name": "three",
+   "check": "Are there two doors?"
+  },
+  {
+   "name": "begging",
+   "check": "Is a woman kneeling?"
+  },
+  {
+   "name": "street",
+   "check": "Is a woman holding a baby?"
+  },
+  {
+   "name": "friend",
+   "check": "Is an older man with glasses standing with young people?"
+  },
+  {
+   "name": "scalpel",
+   "check": "Is there a blade and a finger?"
+  },
+  {
+   "name": "signs",
+   "check": "Is a man lying in a bed?"
+  },
+  {
+   "name": "chicken",
+   "check": "Is there a raw chicken?"
+  },
+  {
+   "name": "salad",
+   "check": "Is there a bowl of green salad?"
+  },
+  {
+   "name": "morning",
+   "check": "Is there a body covered by a white sheet on a table?"
+  },
+  {
+   "name": "living",
+   "check": "Is a man walking through a doorway?"
+  },
+  {
+   "name": "midwives",
+   "check": "Is a woman in a white apron holding a baby?"
+  },
+  {
+   "name": "order",
+   "check": "Is there a man with young people behind him?"
+  },
+  {
+   "name": "lime",
+   "check": "Are hands in a basin of milky water?"
+  },
+  {
+   "name": "fell",
+   "check": "Is a woman holding a baby?"
+  },
+  {
+   "name": "rejected",
+   "check": "Are men laughing?"
+  },
+  {
+   "name": "asylum",
+   "check": "Is this a dark building at night?"
+  },
+  {
+   "name": "guards",
+   "check": "Are there guards holding a man?"
+  },
+  {
+   "name": "died",
+   "check": "Is a man lying in a bed?"
+  },
+  {
+   "name": "pasteur",
+   "check": "Is an old man looking into a microscope?"
+  },
+  {
+   "name": "vindicated",
+   "check": "Is this a painted portrait in a frame?"
+  },
+  {
+   "name": "twist",
+   "check": "Is a man looking at his bandaged hand?"
+  },
+  {
+   "name": "end",
+   "check": "Is there a bandaged hand?"
+  }
+ ]
+}

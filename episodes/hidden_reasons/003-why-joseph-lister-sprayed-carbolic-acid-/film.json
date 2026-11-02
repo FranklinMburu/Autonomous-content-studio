@@ -1,0 +1,266 @@
+{
+ "era": "1860s",
+ "cast": {
+  "lister": "a 38 year old surgeon with neat wavy dark brown hair, long brown side whiskers, a clean shaven chin, a calm serious face, a dark grey frock coat, a white shirt and a black cravat, 1860s",
+  "boy": "an eleven year old boy with messy blond hair, freckles, a thin pale face, a torn brown wool shirt and grey trousers, 1860s",
+  "surgeon": "a heavy old surgeon with a shiny bald head, a red nose, a bushy grey beard and a stained brown leather apron over his shirt, 1860s",
+  "pasteur": "an old French scientist with a short grey beard and a black velvet cap"
+ },
+ "key_words": [
+  "acid",
+  "1865",
+  "sixteen",
+  "pus",
+  "Gangrene",
+  "germs",
+  "carbolic",
+  "sewage",
+  "infection",
+  "six",
+  "forty",
+  "germs"
+ ],
+ "music": "tense",
+ "shots": [
+  {
+   "name": "hook",
+   "at": 0,
+   "who": "lister",
+   "ip": 0.45,
+   "clip": true,
+   "prompt": "close-up, a surgeon wrapping white acid-soaked towels around a boy's leg on a hospital bed, he is {lister}, 1860s hospital ward, warm lamp light",
+   "motion": "his hands wrap the towel around the leg, slow camera push in",
+   "check": "Is a man wrapping a leg in towels?"
+  },
+  {
+   "name": "year",
+   "at": "It#1",
+   "move": "push",
+   "prompt": "wide shot of a huge grey stone hospital building in an old Scottish city on a cloudy day, horse carriages in the street, 1860s",
+   "check": "Is this a large stone building?"
+  },
+  {
+   "name": "bone",
+   "at": "bone#1",
+   "who": "boy",
+   "clip": true,
+   "prompt": "close-up, a boy lying on a wooden hospital table grimacing in pain, a blanket over his legs, he is {boy}, dim lamp light",
+   "motion": "he squeezes his eyes shut in pain and breathes fast, slow camera push in",
+   "check": "Is a boy lying down in pain?"
+  },
+  {
+   "name": "saw",
+   "at": "Normally#1",
+   "who": "surgeon",
+   "clip": true,
+   "prompt": "medium shot, a grim surgeon holding up a large steel bone saw beside a candle, he is {surgeon}, dark operating room",
+   "motion": "he raises the saw slowly, the candle flickers, slow camera push in",
+   "check": "Is a man holding a saw?"
+  },
+  {
+   "name": "ward",
+   "at": "At#1",
+   "move": "left",
+   "prompt": "wide shot of a long gloomy hospital ward with two rows of iron beds and sick patients, tall windows, grey light, 1860s",
+   "check": "Are there many beds in a long room?"
+  },
+  {
+   "name": "died",
+   "at": "sixteen#1",
+   "hit": "died#1",
+   "move": "push",
+   "prompt": "a hospital bed with a white sheet pulled over the pillow, a single candle beside it, dark ward at night",
+   "check": "Is there a bed covered with a white sheet?"
+  },
+  {
+   "name": "pus",
+   "at": "Wounds#1",
+   "hit": "Gangrene#1",
+   "clip": true,
+   "prompt": "medium shot, a feverish man lying in an iron hospital bed with a dirty bandage on his arm, sweat on his forehead, dim 1860s ward",
+   "motion": "he shivers and turns his head weakly, slow camera push in",
+   "check": "Is a sick man lying in a bed?"
+  },
+  {
+   "name": "badair",
+   "at": "Doctors#1",
+   "clip": true,
+   "prompt": "medium shot, old surgeons in stained black coats waving the air with their hands near an open tall window in a hospital ward, 1860s",
+   "motion": "they wave the air with their hands, curtains move, slow camera push in",
+   "check": "Are men near an open window?"
+  },
+  {
+   "name": "hands",
+   "at": "wash#1",
+   "clip": true,
+   "prompt": "extreme close-up of a surgeon's dirty hands with dark dried stains wiping on a stained apron, dim lamp light",
+   "motion": "the dirty hands wipe slowly on the apron, slow camera push in",
+   "check": "Is this a close-up of dirty hands?"
+  },
+  {
+   "name": "lister",
+   "at": "But#1",
+   "xfade": true,
+   "who": "lister",
+   "move": "push",
+   "prompt": "medium shot, a thoughtful man reading notes at a wooden desk by an oil lamp at night, he is {lister}, books and papers",
+   "check": "Is a man reading at a desk?"
+  },
+  {
+   "name": "micro",
+   "at": "germs#1",
+   "who": "lister",
+   "clip": true,
+   "prompt": "close-up, a man looking into a brass microscope, he is {lister}, an 1860s laboratory, lamp light",
+   "motion": "he adjusts the microscope and leans closer, slow camera push in",
+   "check": "Is a man looking into a microscope?"
+  },
+  {
+   "name": "pasteur",
+   "at": "Pasteur#1",
+   "who": "pasteur",
+   "move": "push",
+   "prompt": "medium shot, an old scientist holding up a glass flask in a laboratory full of bottles, he is {pasteur}, warm light",
+   "check": "Is a man holding a glass flask?"
+  },
+  {
+   "name": "decay",
+   "at": "decay#1",
+   "move": "push",
+   "prompt": "close-up of a rotting brown apple in a glass dish on a wooden laboratory table, lamp light",
+   "check": "Is there a rotten apple?"
+  },
+  {
+   "name": "carlisle",
+   "at": "Carlisle#1",
+   "clip": true,
+   "prompt": "wide shot, workers pouring liquid from wooden barrels into a dirty canal in a foggy old English town, 1860s",
+   "motion": "the liquid pours from the barrels, fog drifts, slow camera move right",
+   "check": "Are men pouring liquid from barrels?"
+  },
+  {
+   "name": "stink",
+   "at": "stink#1",
+   "clip": true,
+   "prompt": "close-up, a worker covering his nose with a cloth beside a dirty foggy canal in an old English town, 1860s",
+   "motion": "he turns away from the smell, fog drifts, slow camera push in",
+   "check": "Is a man covering his nose?"
+  },
+  {
+   "name": "knee",
+   "at": "You#1",
+   "xfade": true,
+   "modern": true,
+   "clip": true,
+   "prompt": "close-up of a parent's hands gently cleaning a small cut on a child's knee with a wet cloth in a bright modern bathroom",
+   "motion": "the cloth wipes the knee gently, slow camera push in",
+   "check": "Is someone cleaning a cut on a knee?"
+  },
+  {
+   "name": "healed",
+   "at": "heals#1",
+   "modern": true,
+   "move": "push",
+   "prompt": "close-up of a child's clean knee with a tiny healed pink scar, bright modern bathroom, soft light",
+   "check": "Is there a child's knee?"
+  },
+  {
+   "name": "swollen",
+   "at": "dirty#1",
+   "modern": true,
+   "move": "push",
+   "prompt": "close-up of a child's knee with a red swollen scrape under a dirty loose bandage, in a modern kitchen, soft light",
+   "check": "Is there a knee with a bandage?"
+  },
+  {
+   "name": "splint",
+   "at": "So#1",
+   "xfade": true,
+   "who": "lister",
+   "ip": 0.4,
+   "clip": true,
+   "prompt": "medium shot, a surgeon tying a wooden splint to a boy's leg on a hospital bed, he is {lister}, the boy biting a cloth, lamp light",
+   "motion": "he ties the splint firmly, slow camera push in",
+   "check": "Is a man putting a splint on a leg?"
+  },
+  {
+   "name": "soak",
+   "at": "soaked#1",
+   "clip": true,
+   "prompt": "close-up of hands dipping white cotton towels into a glass bowl of clear liquid, a brown glass bottle beside it, lamp light",
+   "motion": "the towel sinks into the liquid, slow camera push in",
+   "check": "Are towels being dipped in a bowl?"
+  },
+  {
+   "name": "pour",
+   "at": "pure#1",
+   "clip": true,
+   "prompt": "close-up of a brown glass bottle tipping clear liquid into a glass bowl of white cotton towels, lamp light",
+   "motion": "the clear liquid pours into the bowl, slow camera push in",
+   "check": "Is liquid pouring from a bottle?"
+  },
+  {
+   "name": "foil",
+   "at": "tin#1",
+   "clip": true,
+   "prompt": "close-up of hands wrapping shiny silver tin foil around a bandaged leg on a hospital bed, lamp light",
+   "motion": "the hands press the foil around the leg, slow camera push in",
+   "check": "Is a leg wrapped in silver foil?"
+  },
+  {
+   "name": "nights",
+   "at": "four#1",
+   "who": "boy",
+   "move": "pull",
+   "prompt": "a boy sleeping in a hospital bed at night, moonlight from a tall window, a candle on a small table, he is {boy}",
+   "check": "Is a boy sleeping in a bed?"
+  },
+  {
+   "name": "noinfection",
+   "at": "No#1",
+   "hit": "infection#1",
+   "who": "lister",
+   "ip": 0.4,
+   "clip": true,
+   "prompt": "medium shot, a surgeon unwrapping a bandage from a boy's leg and smiling with relief, he is {lister}, morning light in a hospital ward",
+   "motion": "he lifts the bandage and smiles, slow camera push in",
+   "check": "Is a man smiling beside a bed?"
+  },
+  {
+   "name": "home",
+   "at": "Six#1",
+   "who": "boy",
+   "clip": true,
+   "prompt": "full body, a boy walking out of a hospital gate with a wooden crutch into bright sunlight, smiling, he is {boy}, 1860s street",
+   "motion": "he takes a careful step with the crutch, slow camera push in",
+   "check": "Is a boy walking with a crutch?"
+  },
+  {
+   "name": "fell",
+   "at": "After#1",
+   "xfade": true,
+   "move": "right",
+   "prompt": "a bright clean hospital ward with patients sitting up in their beds smiling, sunlight through tall windows, 1860s",
+   "check": "Are patients sitting up in beds?"
+  },
+  {
+   "name": "irritated",
+   "at": "irritated#1",
+   "hit": "irritated#1",
+   "clip": true,
+   "prompt": "close-up of a surgeon's red sore hands in a fine mist of spray in an old operating room, lamp light",
+   "motion": "the mist drifts over the sore hands, slow camera push in",
+   "check": "Are there red hands?"
+  },
+  {
+   "name": "end",
+   "at": "keep#1",
+   "who": "lister",
+   "clip": true,
+   "prompt": "medium shot, a surgeon scrubbing his hands at a white basin in a clean bright operating room, he is {lister}, morning light",
+   "motion": "he scrubs his hands carefully, slow camera push in",
+   "check": "Is a man washing his hands?"
+  }
+ ],
+ "approved": true
+}

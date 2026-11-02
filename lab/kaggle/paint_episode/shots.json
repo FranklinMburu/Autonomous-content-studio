@@ -1,0 +1,37 @@
+{
+ "episode": "002",
+ "style": "1840s, antique, no electricity, lit only by oil lamps, candles and daylight, 3D animated movie background, stylized Pixar-like render, soft global illumination, cinematic lighting, volumetric light, rich colors, shallow depth of field, highly detailed, empty scene, no people, no characters",
+ "negative": "modern, electric light, light bulb, fluorescent lamp, ceiling lamp, plastic, radiator, people, person, man, woman, child, character, face, crowd, text, letters, watermark, signature, blurry, lowres, deformed",
+ "shots": [
+  {
+   "id": "dying",
+   "prompt": "long 1840s hospital maternity ward, many old wooden and iron beds with white linen in a row, oil lamps on the walls, gloomy dusk light through tall arched windows, sad mood, high angle",
+   "seed": 11
+  },
+  {
+   "id": "three_times",
+   "prompt": "plain 1840s hospital office, whitewashed wall, wooden floor, a wooden cabinet, soft daylight from a tall window, minimal empty space",
+   "seed": 11
+  },
+  {
+   "id": "to_mothers",
+   "prompt": "1840s hospital corridor with stone floor, a wooden door opening into a bright maternity ward with old beds, oil lamps, morning light",
+   "seed": 11
+  },
+  {
+   "id": "order",
+   "prompt": "row of old porcelain washbasins and jugs on wooden stands along a 1840s hospital wall, a wooden bucket, bright morning window light, perspective view",
+   "seed": 11
+  },
+  {
+   "id": "same_signs",
+   "prompt": "two old iron beds side by side in a dim 1840s ward at night, linen sheets, a single candle on a stool between them, moonlight from a tall window",
+   "seed": 11
+  },
+  {
+   "id": "chicken",
+   "prompt": "close-up of a rustic wooden kitchen table with a whole raw uncooked pink chicken on a cutting board next to a bowl of fresh green salad and a knife, warm window light, top-down angle",
+   "seed": 11
+  }
+ ]
+}

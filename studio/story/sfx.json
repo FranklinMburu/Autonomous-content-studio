@@ -1,0 +1,20 @@
+{
+ "_about": "Real recorded sound effects (YouTube Audio Library, owner's private folder STORY_MUSIC_DIR, never committed). Used sparingly by the film mix: a whoosh into each crossfade, a low hit on the 2-5 dramatic words, and the hit played backwards (a reverse swell) into the ending. Without these files the film gets no effects rather than synthetic ones.",
+ "effects": {
+  "whoosh": {
+   "file": "Rake Swing Whoosh Close.mp3",
+   "gain_db": -17
+  },
+  "hit": {
+   "file": "Crash Impact Sweetener.mp3",
+   "gain_db": -15,
+   "lowpass": 5000
+  },
+  "swell": {
+   "file": "Crash Impact Sweetener.mp3",
+   "reverse": true,
+   "gain_db": -19,
+   "lowpass": 7000
+  }
+ }
+}

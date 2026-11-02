@@ -58,3 +58,23 @@ viewer → a final line that pays off the hook with a NEW angle or a small actio
   least 4 different scene types; never put the whole narration on screen.
 - Write a `youtube` block: `title` (curiosity, under 70 characters, may end with one emoji), `description`
   (1-2 plain sentences), `tags` (4-8).
+
+## Story episodes (Hidden Reasons style): the Claude polish step
+
+Free models draft, Claude polishes, the gates verify. Nobody rates by hand. For each new episode folder
+(`episodes/<channel>/<NNN-slug>/`, made by `python -m studio.story write --topic "..."` or the Make story video workflow):
+
+1. `python -m studio.story review episodes/<channel>/<NNN-slug>`: prints `out/review-<slug>/review.md` (numbers,
+   gate results, every sentence, every shot) and saves a still of every shot. Look at **every still**.
+2. Script (`script.json`), using ONLY facts in `sources.md` / `sources.json`:
+   - The first line is a person doing a strange physical action; it can be drawn in one picture.
+   - Every sentence is clear on its own about who did what; events are in time order (or the jump is signposted).
+   - "You see," + an everyday comparison; the last line lands. No jargon a 12-year-old wouldn't know.
+   - Any change of wording: keep every number and name exactly as the sources give it.
+3. Storyboard (`storyboard.json`): fix what the stills show.
+   - Each shot shows what is being said at that moment, in a place (ward, street, room, lab, deck), with the cast acting
+     (pose and mood change on the words). Labels sit on top of a picture, never alone.
+   - Nothing cropped badly, nothing hidden under the captions (y 1480-1640), no two shots in a row that look alike.
+4. Gates: `python -m studio.story review ...` again until "all checks pass", then `python tests/test_story.py`.
+5. Render: `python -m studio.story make episodes/<channel>/<NNN-slug>` (or the workflow with `episode` set),
+   look at `contact.png`, and write what you changed at the end of the episode's `report.md` ("Polish" section).

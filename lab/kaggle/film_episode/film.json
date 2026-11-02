@@ -1,0 +1,303 @@
+{
+ "_about": "Film style (studio/story/film.py): one painted 3D-film shot per beat, the cast kept consistent with reference portraits; 'clip' shots get ~1.4 s of AI motion, the rest a depth-parallax camera move. 'at' = the word that starts the shot (word#n, counted case-insensitively).",
+ "cast": {
+  "hero": "a 29 year old doctor with black slicked hair, a black mustache and a long dark green coat with gold buttons",
+  "mother": "a young mother with brown hair in a bun and a long dark red 19th century dress",
+  "friend": "a kind 43 year old professor with grey hair, grey sideburns and small round glasses in a brown coat",
+  "elder": "a stern old professor with white hair and white whiskers in a black frock coat",
+  "pasteur": "an old French scientist with a short grey beard and a black velvet cap"
+ },
+ "shots": [
+  {
+   "name": "hook",
+   "at": 0,
+   "who": "hero",
+   "clip": true,
+   "prompt": "medium close-up, a stern man pointing his finger firmly at a white porcelain washbasin on a wooden stand, he is {hero}, a long 1847 hospital ward with iron beds behind him, candle light",
+   "motion": "he points firmly and frowns, candle flames flicker, slow camera push in",
+   "check": "Is a man pointing at a washbasin?"
+  },
+  {
+   "name": "bleach",
+   "at": "scrub#1",
+   "clip": true,
+   "prompt": "extreme close-up of two hands rubbing thick white soap foam together over a white porcelain basin, warm candle light, dark background",
+   "motion": "the hands rub the soap foam together, slow camera push in",
+   "check": "Are hands covered in white soap foam?"
+  },
+  {
+   "name": "mother",
+   "at": "before#1",
+   "who": "mother",
+   "clip": true,
+   "prompt": "a young woman lying in an iron hospital bed looking up worried, head on a white pillow, she is {mother}, 1847 maternity ward, soft window light",
+   "motion": "she looks up worried and breathes, slow camera push in",
+   "check": "Is a woman lying in a bed?"
+  },
+  {
+   "name": "offended",
+   "at": "The#1",
+   "clip": true,
+   "prompt": "medium shot, {elder} and two other old doctors in black coats with arms crossed, offended and frowning, a grand 1847 lecture hall with wooden benches, warm lamp light",
+   "motion": "they frown and shake their heads, slow camera push in",
+   "xfade": true,
+   "check": "Are there several old men in black coats?"
+  },
+  {
+   "name": "gentlemen",
+   "at": "They#1",
+   "move": "up",
+   "prompt": "low angle, proud elegant old doctors in top hats and fine black coats lifting their chins, standing in front of a grand Vienna hospital, golden afternoon light",
+   "check": "Are there men wearing top hats?"
+  },
+  {
+   "name": "dirty",
+   "at": "How#1",
+   "clip": true,
+   "prompt": "extreme close-up of a doctor's pale hands with dark dried stains under the fingernails, black coat cuffs, dark background, candle light",
+   "motion": "the hands turn over slowly, candle light flickers, slow camera push in",
+   "check": "Is this a close-up of hands?"
+  },
+  {
+   "name": "clinic",
+   "at": "But#1",
+   "move": "push",
+   "prompt": "wide shot of a long gloomy 1847 maternity ward with two rows of iron beds, women lying sick, tall arched windows, grey dusk light, dust in the air",
+   "check": "Is this a long room with many beds?"
+  },
+  {
+   "name": "dying",
+   "at": "mothers#1",
+   "who": "mother",
+   "clip": true,
+   "prompt": "close-up, a pale sick sweating young woman in a dark red dress lying in a hospital bed with eyes half closed, she is {mother}, gloomy 1847 ward, cold dusk light",
+   "motion": "she breathes weakly and closes her eyes, slow camera push in",
+   "hit": "dying#1",
+   "check": "Is a woman lying in a bed?"
+  },
+  {
+   "name": "three",
+   "at": "Three#1",
+   "move": "right",
+   "prompt": "two hospital doors side by side in a stone corridor, the left door dark and grim with black cloth, the right door warm and glowing with candle light, 1847",
+   "check": "Are there two doors?"
+  },
+  {
+   "name": "begging",
+   "at": "Women#1",
+   "who": "mother",
+   "clip": true,
+   "prompt": "medium shot, a desperate young woman kneeling with both knees on stone steps, clasped hands raised, pleading, tears, she is {mother}, a grand old hospital gate behind her at dusk, warm lamps",
+   "motion": "her clasped hands shake as she pleads, lamps flicker, slow camera push in",
+   "check": "Is a woman kneeling?"
+  },
+  {
+   "name": "street",
+   "at": "Some#1",
+   "who": "mother",
+   "clip": true,
+   "prompt": "a woman sitting on a cobblestone street at night holding a newborn baby wrapped in a shawl, she is {mother}, a street lantern, old Vienna houses",
+   "motion": "she rocks the baby gently, the lantern flickers, slow camera push in",
+   "check": "Is a woman holding a baby?"
+  },
+  {
+   "name": "friend",
+   "at": "Then#1",
+   "who": "friend",
+   "move": "push",
+   "prompt": "medium shot, {friend} smiling and teaching young students in an 1847 anatomy room, wooden tables, oil lamps",
+   "xfade": true,
+   "check": "Is an older man with glasses standing with young people?"
+  },
+  {
+   "name": "scalpel",
+   "at": "cut#1",
+   "clip": true,
+   "prompt": "extreme close-up of a scalpel blade slipping and nicking a man's finger, a small drop of red blood, brown coat sleeve, anatomy table, lamp light",
+   "motion": "the blade slips and a drop of blood forms, slow camera push in",
+   "hit": "cut#1",
+   "check": "Is there a blade and a finger?"
+  },
+  {
+   "name": "signs",
+   "at": "His#2",
+   "who": "friend",
+   "clip": true,
+   "prompt": "a sick pale man lying in a hospital bed with his head on a pillow, sweating, fever, he is {friend}, dim night ward, a candle",
+   "motion": "he breathes weakly and his head turns, the candle flickers, slow camera push in",
+   "check": "Is a man lying in a bed?"
+  },
+  {
+   "name": "chicken",
+   "at": "You#1",
+   "clip": true,
+   "prompt": "close-up of hands cutting a raw chicken on a wooden board in a cozy kitchen, a knife, warm window light",
+   "motion": "the knife cuts into the raw chicken, slow camera push in",
+   "xfade": true,
+   "check": "Is there a raw chicken?"
+  },
+  {
+   "name": "salad",
+   "at": "then#2",
+   "clip": true,
+   "prompt": "close-up of the same unwashed hands tearing fresh green salad leaves into a bowl next to a raw chicken on a wooden board, cozy kitchen, warm window light",
+   "motion": "the hands tear the salad leaves into the bowl, slow camera push in",
+   "check": "Is there a bowl of green salad?"
+  },
+  {
+   "name": "morning",
+   "at": "Every#2",
+   "move": "push",
+   "prompt": "a dim stone autopsy room at dawn, doctors in dark coats standing around a stone table with a body under a white sheet, cold blue light through a high window",
+   "xfade": true,
+   "check": "Is there a body covered by a white sheet on a table?"
+  },
+  {
+   "name": "living",
+   "at": "then#3",
+   "who": "hero",
+   "clip": true,
+   "prompt": "medium shot, a man in a long 1840s coat striding through an arched wooden doorway into a candle lit 1847 maternity ward with iron beds and mothers, he is {hero}, stone walls",
+   "motion": "he walks forward through the doorway, slow camera move back",
+   "ip": 0.4,
+   "check": "Is a man walking through a doorway?"
+  },
+  {
+   "name": "midwives",
+   "at": "the#10",
+   "clip": true,
+   "prompt": "a kind midwife with a white bonnet and white apron gently holding a newborn baby next to a smiling mother in a clean bright ward, warm sunlight",
+   "motion": "the midwife rocks the baby gently, the mother smiles, slow camera push in",
+   "check": "Is a woman in a white apron holding a baby?"
+  },
+  {
+   "name": "order",
+   "at": "So#1",
+   "who": "hero",
+   "move": "left",
+   "prompt": "medium shot, {hero} nailing a handwritten notice to a wooden ward door while young students line up behind him, morning light",
+   "ip": 0.4,
+   "check": "Is there a man with young people behind him?"
+  },
+  {
+   "name": "lime",
+   "at": "hand#1",
+   "clip": true,
+   "prompt": "close-up of hands dipping into a porcelain basin of milky white chlorinated lime water, a wooden ward, morning light",
+   "motion": "the hands dip and wash in the milky water, slow camera push in",
+   "check": "Are hands in a basin of milky water?"
+  },
+  {
+   "name": "fell",
+   "at": "Deaths#1",
+   "who": "mother",
+   "clip": true,
+   "prompt": "a happy woman sitting up in a hospital bed holding her healthy baby, smiling, she is {mother}, a bright sunny ward with flowers",
+   "motion": "she smiles and rocks the baby, sunlight shimmers, slow camera push in",
+   "check": "Is a woman holding a baby?"
+  },
+  {
+   "name": "rejected",
+   "at": "But#2",
+   "clip": true,
+   "prompt": "medium shot, {elder} and other old doctors in black coats laughing and pointing mockingly, a grand 1847 lecture hall, warm lamp light",
+   "motion": "they laugh and point, slow camera push in",
+   "xfade": true,
+   "check": "Are men laughing?"
+  },
+  {
+   "name": "asylum",
+   "at": "in#7",
+   "move": "pull",
+   "prompt": "a grim grey stone asylum building with barred windows on a rainy night, iron gate, a single lamp",
+   "hit": "asylum#1",
+   "check": "Is this a dark building at night?"
+  },
+  {
+   "name": "guards",
+   "at": "guards#1",
+   "who": "hero",
+   "clip": true,
+   "prompt": "two rough guards in grey uniforms dragging a struggling man by the arms down a dark stone corridor, the man is {hero}, a lantern",
+   "motion": "the guards drag him down the corridor, the lantern swings, slow camera push in",
+   "ip": 0.4,
+   "check": "Are there guards holding a man?"
+  },
+  {
+   "name": "died",
+   "at": "he#2",
+   "who": "hero",
+   "clip": true,
+   "prompt": "high angle, a sick pale man lying flat on his back in an iron bed with a bandaged hand, eyes closed, he is {hero}, a bare stone asylum cell at night, moonlight through a barred window",
+   "motion": "he breathes weakly and closes his eyes, slow camera push in",
+   "hit": "died#2",
+   "check": "Is a man lying in a bed?"
+  },
+  {
+   "name": "pasteur",
+   "at": "Years#1",
+   "who": "pasteur",
+   "move": "push",
+   "prompt": "{pasteur} looking into a brass microscope in a 19th century laboratory full of glass flasks, warm lamp light",
+   "check": "Is an old man looking into a microscope?"
+  },
+  {
+   "name": "vindicated",
+   "at": "why#1",
+   "who": "hero",
+   "move": "push",
+   "prompt": "an old oil portrait painting of {hero} in a gold frame hanging on a museum wall, warm spotlight",
+   "check": "Is this a painted portrait in a frame?"
+  },
+  {
+   "name": "twist",
+   "at": "the#11",
+   "who": "hero",
+   "clip": true,
+   "prompt": "close-up, {hero} looking sadly at his own bandaged hand, standing beside a white washbasin, dusk light through a ward window",
+   "motion": "he slowly lifts his bandaged hand and looks at it, slow camera push in",
+   "check": "Is a man looking at his bandaged hand?"
+  },
+  {
+   "name": "end",
+   "at": "died#3",
+   "clip": true,
+   "prompt": "close-up, a pale man lying on his back in a bed with his eyes closed and a white bandage on his hand resting on his chest, he is {hero}, moonlight, a dark stone room",
+   "motion": "moonlight slowly shifts across his still face, very slow camera push in",
+   "hit": "died#3",
+   "check": "Is a man lying with his eyes closed?",
+   "who": "hero"
+  }
+ ],
+ "key_words": [
+  "bleach",
+  "offended",
+  "gentlemen",
+  "dirty",
+  "dying",
+  "three",
+  "begged",
+  "knees",
+  "street",
+  "scalpel",
+  "same",
+  "chicken",
+  "salad",
+  "corpse",
+  "lime",
+  "18%",
+  "3%",
+  "rejected",
+  "asylum",
+  "beat",
+  "died",
+  "infected",
+  "hand",
+  "right"
+ ],
+ "era": "1840s",
+ "only": [
+  "bleach",
+  "end"
+ ]
+}

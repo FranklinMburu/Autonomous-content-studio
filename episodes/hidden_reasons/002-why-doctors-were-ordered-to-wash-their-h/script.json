@@ -1,0 +1,60 @@
+{
+ "title": "Why Doctors Were Ordered to Wash Their Hands",
+ "channel": "Hidden Reasons",
+ "topic": "Ignaz Semmelweis and why doctors in 1847 Vienna were ordered to wash their hands (childbed fever)",
+ "voice": "am_michael",
+ "speed": 1.43,
+ "pace": {
+  "gap_line": 0.08,
+  "gap_beat": 0.2,
+  "lead_in": 0.05,
+  "tail": 0.7
+ },
+ "beats": [
+  {
+   "lines": [
+    "Ignaz Semmelweis ordered every student to scrub in bleach before touching a mother."
+   ]
+  },
+  {
+   "lines": [
+    "The other doctors were offended.",
+    "They were gentlemen. How could their hands be dirty?",
+    "But in their clinic, mothers were dying of childbed fever.",
+    "Three times more than in the midwives' clinic.",
+    "Women begged on their knees not to be sent there.",
+    "Some gave birth in the street instead, and rarely got the fever."
+   ]
+  },
+  {
+   "lines": [
+    "Then his friend Jakob Kolletschka was cut by a student's scalpel during an autopsy.",
+    "His body showed the same signs as the dying mothers."
+   ]
+  },
+  {
+   "lines": [
+    "You see, it's like cutting raw chicken, then making a salad without washing your hands."
+   ]
+  },
+  {
+   "lines": [
+    "Every morning, the doctors cut open women who had died the day before.",
+    "Then they went straight to the living mothers.",
+    "The midwives never touched a corpse.",
+    "So in May 1847, he ordered hand washing in chlorinated lime.",
+    "Deaths fell from 18% to less than 3%."
+   ]
+  },
+  {
+   "lines": [
+    "But his ideas were rejected and ridiculed.",
+    "In 1865, his colleagues committed him to an asylum, where guards beat him.",
+    "He died 14 days later from an infected wound on his hand.",
+    "Years later, Louis Pasteur's germ theory explained why he was right.",
+    "The doctor who told everyone to clean their hands died from an infected hand."
+   ]
+  }
+ ],
+ "music": "Searching"
+}

@@ -1,0 +1,78 @@
+name: Story schedule
+
+# Starts one film-style Hidden Reasons video, 5 times a day (agreed with Franklin, 2 Nov), from
+# episodes/hidden_reasons/topics.txt (new ideas are suggested automatically when fewer than 5 are left).
+# Each start dispatches "Make a story video", which runs one at a time (its concurrency group), so the free
+# Kaggle GPU (30 h/week; one video uses ~35 min) is never asked for two videos at once.
+# Times (UTC): 00:23, 05:23, 10:23, 17:23, 21:23  =  03:23, 08:23, 13:23, 20:23, 00:23 Nairobi.
+on:
+  schedule:
+    - cron: "23 0,5,10,17,21 * * *"
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "Optional: make this topic now instead of the next one in the queue"
+        required: false
+        default: ""
+
+permissions:
+  contents: write   # the channel memory (a release asset)
+  actions: write    # to start "Make a story video"
+
+concurrency:
+  group: story-schedule
+  cancel-in-progress: false
+
+jobs:
+  start:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Get the brain (for new topic ideas)
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: FranklinMburu/AI-layer
+          ssh-key: ${{ secrets.AILAYER_DEPLOY_KEY }}
+          path: .brain
+          persist-credentials: false
+
+      - name: Guardrails (don't pile up, stay inside the free GPU week)
+        id: guard
+        run: |
+          busy=$(gh api "repos/${{ github.repository }}/actions/workflows/make-story.yml/runs?per_page=20" \
+                 --jq '[.workflow_runs[] | select(.status=="queued" or .status=="in_progress")] | length')
+          week=$(gh api "repos/${{ github.repository }}/actions/workflows/make-story.yml/runs?per_page=100&created=>$(date -u -d '7 days ago' +%Y-%m-%d)" \
+                 --jq '[.workflow_runs[] | select(.conclusion=="success")] | length')
+          echo "running/queued: $busy; finished this week: $week"
+          if [ "$busy" -ge 2 ]; then echo "go=no" >> "$GITHUB_OUTPUT"; echo "Two videos already waiting: skipping this slot."
+          elif [ "$week" -ge 36 ]; then echo "go=no" >> "$GITHUB_OUTPUT"; echo "36 videos this week (5 a day): saving the free GPU hours."
+          else echo "go=yes" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Pick the topic
+        if: steps.guard.outputs.go == 'yes'
+        env:
+          TOPIC_IN: ${{ github.event.inputs.topic }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ACCOUNT_KEY_franklincopil3: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          AILAYER_STATE_URL: ${{ secrets.AILAYER_STATE_URL }}
+          AILAYER_STATE_TOKEN: ${{ secrets.AILAYER_STATE_TOKEN }}
+        run: |
+          [ -f .brain/ailayer/__init__.py ] && export PYTHONPATH="$GITHUB_WORKSPACE/.brain"
+          pip install -q -r requirements.txt
+          gh release download channel-memory -p used.json -D . 2>/dev/null || echo '{"episodes": []}' > used.json
+          if [ -n "$TOPIC_IN" ]; then topic="$TOPIC_IN"; else topic=$(python -m studio.story.topics next --memory used.json); fi
+          [ -z "$topic" ] && { echo "No topics left."; exit 1; }
+          gh release view channel-memory >/dev/null 2>&1 || gh release create channel-memory --prerelease --title "Channel memory" \
+            --notes "What earlier videos used (cast, places, music, topics), so new stories don't repeat them. Updated by the pipeline."
+          gh release upload channel-memory used.json --clobber
+          echo "Topic: $topic" >> "$GITHUB_STEP_SUMMARY"
+          gh workflow run make-story.yml --ref "${{ github.ref_name }}" -f style=film -f topic="$topic"

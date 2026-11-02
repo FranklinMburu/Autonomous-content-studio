@@ -1,0 +1,1261 @@
+{
+ "key_words": [
+  "Semmelweis",
+  "bleach",
+  "offended",
+  "dirty",
+  "fever",
+  "knees",
+  "scalpel",
+  "chicken",
+  "corpse",
+  "18%",
+  "3%",
+  "asylum",
+  "right",
+  "hand"
+ ],
+ "shots": [
+  {
+   "name": "scrub",
+   "at": 0,
+   "bg": {
+    "type": "ward",
+    "tone": "night"
+   },
+   "focus": 1000,
+   "items": [
+    {
+     "type": "character",
+     "role": "doctor",
+     "outfit": {
+      "top": [
+       0.13,
+       0.36,
+       0.3
+      ]
+     },
+     "name_tag": "SEMMELWEIS",
+     "pose": "stand",
+     "mood": "angry",
+     "x": 380,
+     "y": 1450,
+     "s": 1.7,
+     "states": [
+      {
+       "at": "ordered#1",
+       "pose": "point"
+      },
+      {
+       "at": "touching#1",
+       "mood": "doubt"
+      }
+     ]
+    },
+    {
+     "type": "character",
+     "role": "student",
+     "pose": "stand",
+     "mood": "doubt",
+     "x": 790,
+     "y": 1440,
+     "s": 1.4,
+     "face": -1,
+     "in": "student#1",
+     "cut": false,
+     "states": [
+      {
+       "at": "scrub#1",
+       "pose": "scrub"
+      }
+     ]
+    },
+    {
+     "type": "prop",
+     "name": "basin",
+     "x": 790,
+     "y": 1230,
+     "s": 1.0,
+     "in": "scrub#1",
+     "cut": false
+    },
+    {
+     "type": "text",
+     "text": "BLEACH",
+     "x": 760,
+     "y": 330,
+     "size": 120,
+     "color": "lemon",
+     "in": "bleach#1"
+    }
+   ]
+  },
+  {
+   "name": "offended",
+   "at": "The#1",
+   "bg": {
+    "type": "street",
+    "tone": "day"
+   },
+   "focus": 980,
+   "items": [
+    {
+     "type": "character",
+     "role": "doctor",
+     "pose": "stand",
+     "mood": "doubt",
+     "x": 300,
+     "y": 1450,
+     "s": 1.4,
+     "states": [
+      {
+       "at": "offended#1",
+       "pose": "facepalm",
+       "mood": "angry"
+      }
+     ]
+    },
+    {
+     "type": "character",
+     "role": "elder",
+     "pose": "stand",
+     "mood": "angry",
+     "x": 790,
+     "y": 1450,
+     "s": 1.4,
+     "face": -1,
+     "in": "doctors#1",
+     "cut": false,
+     "states": [
+      {
+       "at": "offended#1",
+       "pose": "hands_up"
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "OFFENDED",
+     "x": 540,
+     "y": 330,
+     "size": 120,
+     "color": "red",
+     "in": "offended#1"
+    }
+   ]
+  },
+  {
+   "name": "gentlemen",
+   "at": "They#1",
+   "bg": {
+    "type": "room",
+    "tone": "warm"
+   },
+   "focus": 900,
+   "camera": "medium",
+   "items": [
+    {
+     "type": "character",
+     "role": "doctor",
+     "pose": "stand",
+     "mood": "smug",
+     "x": 540,
+     "y": 1460,
+     "s": 1.8,
+     "states": [
+      {
+       "at": "gentlemen#1",
+       "pose": "hold"
+      },
+      {
+       "at": "hands#1",
+       "pose": "shrug"
+      },
+      {
+       "at": "dirty#1",
+       "mood": "doubt"
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "GENTLEMEN",
+     "x": 540,
+     "y": 290,
+     "size": 110,
+     "color": "cream",
+     "in": "gentlemen#1"
+    },
+    {
+     "type": "text",
+     "text": "DIRTY?",
+     "x": 540,
+     "y": 430,
+     "size": 120,
+     "color": "lemon",
+     "in": "dirty#1"
+    }
+   ]
+  },
+  {
+   "name": "dying",
+   "at": "But#1",
+   "bg": {
+    "type": "ward",
+    "tone": "dusk"
+   },
+   "focus": 1000,
+   "items": [
+    {
+     "type": "group",
+     "grid": {
+      "cols": 3,
+      "rows": 1,
+      "x": 200,
+      "y": 1290,
+      "dx": 340,
+      "dy": 0
+     },
+     "item": {
+      "type": "prop",
+      "name": "bed",
+      "s": 0.9
+     }
+    },
+    {
+     "type": "group",
+     "grid": {
+      "cols": 3,
+      "rows": 1,
+      "x": 200,
+      "y": 1200,
+      "dx": 340,
+      "dy": 0
+     },
+     "item": {
+      "type": "character",
+      "role": "mother",
+      "pose": "sit",
+      "mood": "sick",
+      "s": 0.95
+     }
+    },
+    {
+     "type": "character",
+     "role": "doctor",
+     "outfit": {
+      "top": [
+       0.13,
+       0.36,
+       0.3
+      ]
+     },
+     "pose": "stand",
+     "mood": "calm",
+     "x": 540,
+     "y": 1470,
+     "s": 1.0,
+     "in": "mothers#1",
+     "cut": false,
+     "states": [
+      {
+       "at": "dying#1",
+       "mood": "sad"
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "CHILDBED FEVER",
+     "x": 540,
+     "y": 330,
+     "size": 100,
+     "color": "red",
+     "in": "childbed#1"
+    }
+   ]
+  },
+  {
+   "name": "three_times",
+   "at": "Three#1",
+   "bg": {
+    "type": "room",
+    "tone": "day"
+   },
+   "focus": 960,
+   "items": [
+    {
+     "type": "bar",
+     "x": 330,
+     "base_y": 1020,
+     "h": 600,
+     "w": 170,
+     "color": "red",
+     "grow_at": "Three#1"
+    },
+    {
+     "type": "bar",
+     "x": 750,
+     "base_y": 1020,
+     "h": 200,
+     "w": 170,
+     "color": "green",
+     "grow_at": "midwives'#1"
+    },
+    {
+     "type": "character",
+     "role": "doctor",
+     "pose": "stand",
+     "mood": "doubt",
+     "x": 330,
+     "y": 1460,
+     "s": 1.0
+    },
+    {
+     "type": "character",
+     "role": "midwife",
+     "pose": "wave",
+     "mood": "happy",
+     "x": 750,
+     "y": 1460,
+     "s": 1.0,
+     "face": -1,
+     "in": "midwives'#1",
+     "cut": false
+    },
+    {
+     "type": "text",
+     "text": "3X THE DEATHS",
+     "x": 540,
+     "y": 300,
+     "size": 100,
+     "color": "lemon",
+     "in": "Three#1"
+    }
+   ]
+  },
+  {
+   "name": "begging",
+   "at": "Women#1",
+   "bg": {
+    "type": "street",
+    "tone": "dusk"
+   },
+   "focus": 1000,
+   "items": [
+    {
+     "type": "character",
+     "role": "mother",
+     "pose": "beg",
+     "mood": "scared",
+     "x": 330,
+     "y": 1450,
+     "s": 1.45,
+     "states": [
+      {
+       "at": "knees#1",
+       "pose": "kneel"
+      }
+     ]
+    },
+    {
+     "type": "character",
+     "role": "doctor",
+     "outfit": {
+      "top": [
+       0.13,
+       0.36,
+       0.3
+      ]
+     },
+     "pose": "stand",
+     "mood": "calm",
+     "x": 800,
+     "y": 1450,
+     "s": 1.35,
+     "face": -1,
+     "states": [
+      {
+       "at": "sent#1",
+       "mood": "sad"
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "NOT THERE!",
+     "x": 540,
+     "y": 330,
+     "size": 110,
+     "color": "red",
+     "in": "sent#1"
+    }
+   ]
+  },
+  {
+   "name": "street_birth",
+   "at": "Some#1",
+   "bg": {
+    "type": "street",
+    "tone": "night"
+   },
+   "focus": 1000,
+   "camera": "medium",
+   "items": [
+    {
+     "type": "glow",
+     "x": 540,
+     "y": 1150,
+     "r": 520,
+     "color": "warm",
+     "alpha": 0.45
+    },
+    {
+     "type": "character",
+     "role": "mother",
+     "pose": "sit",
+     "mood": "pain",
+     "x": 470,
+     "y": 1400,
+     "s": 1.45,
+     "states": [
+      {
+       "at": "rarely#1",
+       "mood": "happy"
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "RARELY SICK",
+     "x": 540,
+     "y": 330,
+     "size": 110,
+     "color": "green",
+     "in": "rarely#1"
+    },
+    {
+     "type": "character",
+     "role": "elder",
+     "pose": "walk",
+     "mood": "doubt",
+     "x": 870,
+     "y": 1450,
+     "s": 1.1,
+     "face": -1,
+     "in": "street#1",
+     "cut": false,
+     "states": [
+      {
+       "at": "rarely#1",
+       "pose": "stand",
+       "mood": "shock"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "friend",
+   "at": "Then#1",
+   "bg": {
+    "type": "lab",
+    "tone": "warm"
+   },
+   "focus": 980,
+   "items": [
+    {
+     "type": "character",
+     "role": "scientist",
+     "name_tag": "KOLLETSCHKA",
+     "pose": "stand",
+     "mood": "happy",
+     "x": 330,
+     "y": 1450,
+     "s": 1.4,
+     "states": [
+      {
+       "at": "cut#1",
+       "pose": "hands_up",
+       "mood": "pain"
+      }
+     ]
+    },
+    {
+     "type": "character",
+     "role": "student",
+     "pose": "hold",
+     "hold": "scalpel",
+     "mood": "calm",
+     "x": 780,
+     "y": 1440,
+     "s": 1.3,
+     "face": -1,
+     "in": "Kolletschka#1",
+     "cut": false,
+     "states": [
+      {
+       "at": "autopsy#1",
+       "mood": "shock"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "same_signs",
+   "at": "His#2",
+   "bg": {
+    "type": "ward",
+    "tone": "night"
+   },
+   "focus": 1000,
+   "items": [
+    {
+     "type": "prop",
+     "name": "bed",
+     "x": 280,
+     "y": 1290,
+     "s": 1.0
+    },
+    {
+     "type": "character",
+     "role": "scientist",
+     "pose": "sit",
+     "mood": "sick",
+     "x": 280,
+     "y": 1200,
+     "s": 1.0,
+     "states": [
+      {
+       "at": "mothers#2",
+       "mood": "pain"
+      }
+     ]
+    },
+    {
+     "type": "prop",
+     "name": "bed",
+     "x": 800,
+     "y": 1290,
+     "s": 1.0,
+     "in": "same#1",
+     "cut": false
+    },
+    {
+     "type": "character",
+     "role": "mother",
+     "pose": "sit",
+     "mood": "sick",
+     "x": 800,
+     "y": 1200,
+     "s": 1.0,
+     "in": "same#1",
+     "cut": false,
+     "states": [
+      {
+       "at": "mothers#2",
+       "mood": "pain"
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "SAME SIGNS",
+     "x": 540,
+     "y": 330,
+     "size": 120,
+     "color": "red",
+     "in": "signs#1"
+    }
+   ]
+  },
+  {
+   "name": "chicken",
+   "at": "You#1",
+   "bg": {
+    "type": "room",
+    "tone": "day"
+   },
+   "focus": 950,
+   "items": [
+    {
+     "type": "hands",
+     "dirty": true,
+     "x": 540,
+     "y": 960,
+     "s": 1.1
+    },
+    {
+     "type": "prop",
+     "name": "germs",
+     "x": 330,
+     "y": 700,
+     "s": 0.8,
+     "in": "chicken#1",
+     "cut": false
+    },
+    {
+     "type": "prop",
+     "name": "plate",
+     "x": 540,
+     "y": 1330,
+     "s": 1.1,
+     "in": "salad#1",
+     "cut": false
+    },
+    {
+     "type": "cross",
+     "x": 540,
+     "y": 960,
+     "size": 380,
+     "in": "without#1"
+    }
+   ]
+  },
+  {
+   "name": "autopsy",
+   "at": "Every#2",
+   "bg": {
+    "type": "lab",
+    "tone": "night"
+   },
+   "focus": 1000,
+   "items": [
+    {
+     "type": "prop",
+     "name": "bed",
+     "x": 560,
+     "y": 1300,
+     "s": 1.25
+    },
+    {
+     "type": "character",
+     "role": "doctor",
+     "pose": "hold",
+     "hold": "scalpel",
+     "mood": "calm",
+     "x": 200,
+     "y": 1460,
+     "s": 1.15,
+     "states": [
+      {
+       "at": "cut#2",
+       "mood": "calm",
+       "pose": "point"
+      }
+     ]
+    },
+    {
+     "type": "character",
+     "role": "patient",
+     "pose": "lie",
+     "mood": "calm",
+     "x": 600,
+     "y": 1230,
+     "s": 0.9,
+     "in": "women#2",
+     "cut": false,
+     "face": -1
+    },
+    {
+     "type": "character",
+     "role": "student",
+     "pose": "think",
+     "mood": "doubt",
+     "x": 900,
+     "y": 1460,
+     "s": 1.05,
+     "face": -1,
+     "in": "doctors#2",
+     "cut": false,
+     "states": [
+      {
+       "at": "before#2",
+       "mood": "scared"
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "EVERY MORNING",
+     "x": 540,
+     "y": 330,
+     "size": 100,
+     "color": "lemon",
+     "in": "morning#1"
+    }
+   ]
+  },
+  {
+   "name": "to_mothers",
+   "at": "Then#3",
+   "bg": {
+    "type": "ward",
+    "tone": "day"
+   },
+   "focus": 1000,
+   "items": [
+    {
+     "type": "prop",
+     "name": "bed",
+     "x": 820,
+     "y": 1290,
+     "s": 1.0
+    },
+    {
+     "type": "character",
+     "role": "mother",
+     "pose": "sit",
+     "mood": "happy",
+     "x": 820,
+     "y": 1200,
+     "s": 1.0,
+     "states": [
+      {
+       "at": "mothers#3",
+       "mood": "scared"
+      }
+     ]
+    },
+    {
+     "type": "character",
+     "role": "doctor",
+     "pose": "stand",
+     "mood": "calm",
+     "x": 260,
+     "y": 1460,
+     "s": 1.2,
+     "states": [
+      {
+       "at": "went#1",
+       "to_x": 560,
+       "dur": 1.0
+      }
+     ]
+    },
+    {
+     "type": "prop",
+     "name": "germs",
+     "x": 640,
+     "y": 1060,
+     "s": 0.8,
+     "in": "living#1",
+     "cut": false
+    }
+   ]
+  },
+  {
+   "name": "midwives",
+   "at": "The#10",
+   "bg": {
+    "type": "ward",
+    "tone": "warm"
+   },
+   "focus": 980,
+   "items": [
+    {
+     "type": "character",
+     "role": "mother",
+     "pose": "stand",
+     "mood": "happy",
+     "x": 770,
+     "y": 1460,
+     "s": 1.3,
+     "face": -1
+    },
+    {
+     "type": "character",
+     "role": "midwife",
+     "pose": "stand",
+     "mood": "happy",
+     "x": 320,
+     "y": 1460,
+     "s": 1.35,
+     "in": "midwives#1",
+     "cut": false,
+     "states": [
+      {
+       "at": "never#1",
+       "pose": "wave"
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "NO CORPSES",
+     "x": 540,
+     "y": 330,
+     "size": 110,
+     "color": "green",
+     "in": "corpse#1"
+    }
+   ]
+  },
+  {
+   "name": "order",
+   "at": "So#1",
+   "bg": {
+    "type": "ward",
+    "tone": "day"
+   },
+   "focus": 980,
+   "items": [
+    {
+     "type": "character",
+     "role": "doctor",
+     "outfit": {
+      "top": [
+       0.13,
+       0.36,
+       0.3
+      ]
+     },
+     "pose": "stand",
+     "mood": "calm",
+     "x": 290,
+     "y": 1460,
+     "s": 1.45,
+     "states": [
+      {
+       "at": "ordered#2",
+       "pose": "point",
+       "mood": "angry"
+      }
+     ]
+    },
+    {
+     "type": "calendar",
+     "x": 780,
+     "y": 470,
+     "s": 0.75,
+     "top": "1847",
+     "value": "MAY",
+     "in": "May#1"
+    },
+    {
+     "type": "character",
+     "role": "student",
+     "pose": "stand",
+     "mood": "calm",
+     "x": 800,
+     "y": 1450,
+     "s": 1.25,
+     "face": -1,
+     "in": "hand#1",
+     "cut": false,
+     "states": [
+      {
+       "at": "washing#2",
+       "pose": "scrub"
+      }
+     ]
+    },
+    {
+     "type": "prop",
+     "name": "basin",
+     "x": 800,
+     "y": 1250,
+     "s": 1.0,
+     "in": "washing#2",
+     "cut": false
+    },
+    {
+     "type": "text",
+     "text": "CHLORINATED LIME",
+     "x": 540,
+     "y": 230,
+     "size": 80,
+     "color": "lemon",
+     "in": "chlorinated#1"
+    }
+   ]
+  },
+  {
+   "name": "fell",
+   "at": "Deaths#1",
+   "bg": {
+    "type": "room",
+    "tone": "day"
+   },
+   "focus": 960,
+   "camera": "static",
+   "items": [
+    {
+     "type": "character",
+     "role": "doctor",
+     "outfit": {
+      "top": [
+       0.13,
+       0.36,
+       0.3
+      ]
+     },
+     "pose": "stand",
+     "mood": "calm",
+     "x": 150,
+     "y": 1460,
+     "s": 0.8,
+     "states": [
+      {
+       "at": "less#1",
+       "mood": "happy"
+      }
+     ]
+    },
+    {
+     "type": "bar",
+     "x": 380,
+     "base_y": 1250,
+     "h": 700,
+     "w": 180,
+     "color": "red",
+     "grow_at": "18%#1"
+    },
+    {
+     "type": "text",
+     "text": "18%",
+     "x": 380,
+     "y": 500,
+     "size": 120,
+     "color": "red",
+     "in": "18%#1"
+    },
+    {
+     "type": "bar",
+     "x": 720,
+     "base_y": 1250,
+     "h": 110,
+     "w": 180,
+     "color": "green",
+     "grow_at": "3%#1"
+    },
+    {
+     "type": "text",
+     "text": "3%",
+     "x": 720,
+     "y": 1090,
+     "size": 120,
+     "color": "green",
+     "in": "3%#1"
+    },
+    {
+     "type": "character",
+     "role": "mother",
+     "pose": "wave",
+     "mood": "happy",
+     "x": 950,
+     "y": 1460,
+     "s": 0.75,
+     "face": -1,
+     "in": "3%#1"
+    }
+   ]
+  },
+  {
+   "name": "rejected",
+   "at": "But#2",
+   "bg": {
+    "type": "street",
+    "tone": "day"
+   },
+   "focus": 980,
+   "items": [
+    {
+     "type": "character",
+     "role": "doctor",
+     "outfit": {
+      "top": [
+       0.13,
+       0.36,
+       0.3
+      ]
+     },
+     "pose": "stand",
+     "mood": "sad",
+     "x": 540,
+     "y": 1460,
+     "s": 1.35
+    },
+    {
+     "type": "character",
+     "role": "elder",
+     "pose": "point",
+     "mood": "laugh",
+     "x": 190,
+     "y": 1450,
+     "s": 1.1,
+     "in": "rejected#1",
+     "cut": false
+    },
+    {
+     "type": "character",
+     "role": "doctor",
+     "pose": "point",
+     "mood": "laugh",
+     "x": 890,
+     "y": 1450,
+     "s": 1.1,
+     "face": -1,
+     "in": "ridiculed#1",
+     "cut": false
+    },
+    {
+     "type": "text",
+     "text": "REJECTED",
+     "x": 540,
+     "y": 330,
+     "size": 120,
+     "color": "red",
+     "in": "rejected#1"
+    }
+   ]
+  },
+  {
+   "name": "asylum",
+   "at": "In#7",
+   "bg": {
+    "type": "room",
+    "tone": "night"
+   },
+   "focus": 980,
+   "items": [
+    {
+     "type": "calendar",
+     "x": 790,
+     "y": 430,
+     "s": 0.75,
+     "top": "YEAR",
+     "value": "1865",
+     "in": "1865#1"
+    },
+    {
+     "type": "character",
+     "role": "doctor",
+     "outfit": {
+      "top": [
+       0.13,
+       0.36,
+       0.3
+      ]
+     },
+     "pose": "stand",
+     "mood": "calm",
+     "x": 330,
+     "y": 1460,
+     "s": 1.4,
+     "states": [
+      {
+       "at": "colleagues#1",
+       "mood": "scared"
+      },
+      {
+       "at": "asylum#1",
+       "mood": "shock"
+      },
+      {
+       "at": "beat#1",
+       "pose": "fall",
+       "mood": "pain"
+      }
+     ]
+    },
+    {
+     "type": "character",
+     "role": "guard",
+     "pose": "stand",
+     "mood": "angry",
+     "x": 800,
+     "y": 1460,
+     "s": 1.35,
+     "face": -1,
+     "in": "committed#1",
+     "cut": false,
+     "states": [
+      {
+       "at": "guards#1",
+       "pose": "point"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "died",
+   "at": "He#2",
+   "bg": {
+    "type": "ward",
+    "tone": "night"
+   },
+   "focus": 1050,
+   "camera": "medium",
+   "items": [
+    {
+     "type": "prop",
+     "name": "bed",
+     "x": 540,
+     "y": 1320,
+     "s": 1.3
+    },
+    {
+     "type": "character",
+     "role": "doctor",
+     "outfit": {
+      "top": [
+       0.13,
+       0.36,
+       0.3
+      ]
+     },
+     "pose": "lie",
+     "mood": "sick",
+     "x": 540,
+     "y": 1240,
+     "s": 0.95
+    },
+    {
+     "type": "calendar",
+     "x": 540,
+     "y": 470,
+     "s": 0.75,
+     "top": "DAYS",
+     "count": {
+      "from": 1,
+      "to": 14,
+      "at": "14#1",
+      "dur": 0.7
+     }
+    },
+    {
+     "type": "prop",
+     "name": "germs",
+     "x": 700,
+     "y": 1080,
+     "s": 0.7,
+     "in": "wound#1",
+     "cut": false
+    }
+   ]
+  },
+  {
+   "name": "pasteur",
+   "at": "Years#1",
+   "bg": {
+    "type": "lab",
+    "tone": "day"
+   },
+   "focus": 980,
+   "items": [
+    {
+     "type": "prop",
+     "name": "microscope",
+     "x": 790,
+     "y": 1260,
+     "s": 1.1
+    },
+    {
+     "type": "character",
+     "role": "elder",
+     "name_tag": "PASTEUR",
+     "pose": "think",
+     "mood": "calm",
+     "x": 330,
+     "y": 1460,
+     "s": 1.35,
+     "cut": false,
+     "states": [
+      {
+       "at": "Louis#1",
+       "pose": "stand",
+       "mood": "happy"
+      },
+      {
+       "at": "right#1",
+       "pose": "point",
+       "mood": "happy"
+      }
+     ]
+    },
+    {
+     "type": "prop",
+     "name": "germs",
+     "x": 790,
+     "y": 880,
+     "s": 1.0,
+     "in": "germ#1",
+     "cut": false
+    },
+    {
+     "type": "text",
+     "text": "GERM THEORY",
+     "x": 540,
+     "y": 330,
+     "size": 110,
+     "color": "lemon",
+     "in": "theory#1"
+    }
+   ]
+  },
+  {
+   "name": "twist",
+   "at": "The#11",
+   "bg": {
+    "type": "ward",
+    "tone": "dusk"
+   },
+   "focus": 980,
+   "camera": "close",
+   "items": [
+    {
+     "type": "character",
+     "role": "doctor",
+     "outfit": {
+      "top": [
+       0.13,
+       0.36,
+       0.3
+      ]
+     },
+     "pose": "stand",
+     "mood": "calm",
+     "x": 470,
+     "y": 1460,
+     "s": 1.75,
+     "states": [
+      {
+       "at": "told#1",
+       "pose": "point"
+      },
+      {
+       "at": "died#3",
+       "pose": "stand",
+       "mood": "sick"
+      }
+     ]
+    },
+    {
+     "type": "prop",
+     "name": "basin",
+     "x": 850,
+     "y": 1250,
+     "s": 0.9,
+     "in": "clean#1",
+     "cut": false
+    },
+    {
+     "type": "prop",
+     "name": "germs",
+     "x": 330,
+     "y": 1080,
+     "s": 0.8,
+     "in": "infected#2",
+     "cut": false
+    },
+    {
+     "type": "dim",
+     "in": "hand#3"
+    }
+   ]
+  }
+ ]
+}

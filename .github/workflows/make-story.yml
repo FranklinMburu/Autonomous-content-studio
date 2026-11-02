@@ -1,0 +1,247 @@
+name: Make a story video
+
+# Story style (channel: Hidden Reasons). Separate from "Make a video" (explainer style), which is unchanged.
+# Free on GitHub for public repositories. No keys needed: the script and scenes are already in the episode folder.
+on:
+  workflow_dispatch:
+    inputs:
+      style:
+        description: "film (painted 3D-film shots on the free Kaggle GPU) or storyboard (the older 2D drawings)"
+        type: choice
+        options: [film, storyboard]
+        default: film
+      topic:
+        description: "NEW video: a topic, and the AI writes the episode (research, script, fact check, storyboard)"
+        required: false
+        default: ""
+      episode:
+        description: "OR an existing episode: a folder (episodes/hidden_reasons/002-...) or release:<tag> of an earlier run"
+        required: false
+        default: ""
+      storyboard:
+        description: "Storyboard for a NEW video: ai (free models draft it) or skip (made in the Claude polish step)"
+        type: choice
+        options: [ai, skip]
+        default: ai
+      storyboard_models:
+        description: "Optional: try other storyboard models, comma-separated provider:model (blank = pipeline/config.json)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write   # to publish the finished video as a GitHub Release
+  actions: read     # to resume from the previous run's saved stages
+  issues: write     # to ask the owner for the copy-paste polish when the free models can't finish
+
+concurrency:
+  group: make-story
+  cancel-in-progress: false
+
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300   # writing (<60 min) + the Kaggle GPU (~45 min, up to 150) + assembling
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      # The brain (private repo FranklinMburu/AI-layer), only needed when the AI writes a new episode.
+      - name: Get the brain
+        id: brain
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: FranklinMburu/AI-layer
+          ssh-key: ${{ secrets.AILAYER_DEPLOY_KEY }}
+          path: .brain
+          persist-credentials: false
+
+      - name: Choose what to make
+        id: what
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TOPIC_RAW: ${{ github.event.inputs.topic }}
+          STYLE_RAW: ${{ github.event.inputs.style }}
+        run: |
+          topic=$(printf '%s' "$TOPIC_RAW" | tr -d '\n\r')   # passed as data, never pasted into the script
+          echo "topic=$topic" >> "$GITHUB_OUTPUT"
+          style="$STYLE_RAW"; [ -z "$style" ] && style=film
+          echo "STORY_STYLE=$style" >> "$GITHUB_ENV"
+          # the channel memory: casts, places and music of earlier videos, so a new story doesn't repeat them
+          gh release download channel-memory -p used.json -D . 2>/dev/null || echo '{"episodes": []}' > used.json
+          echo "STORY_MEMORY=$PWD/used.json" >> "$GITHUB_ENV"
+          [ -f .brain/ailayer/__init__.py ] && echo "PYTHONPATH=$GITHUB_WORKSPACE/.brain" >> "$GITHUB_ENV" || true
+
+      - name: Install the Kaggle tool (film style)
+        if: env.STORY_STYLE == 'film'
+        run: pip install -q -U kaggle six
+
+      - name: Install system tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libcairo2-dev pkg-config fontconfig > /dev/null
+
+      - name: Install Python packages
+        run: pip install -r requirements.txt
+
+      - name: Restore voice model and icons
+        uses: actions/cache@v4
+        with:
+          path: cache
+          key: assets-kokoro-v1.1-tabler-3.49.0
+
+      - name: Setup check
+        run: python -m studio setup
+
+      # Each finished stage (research, script, narration, storyboard) is saved; a new run of the same topic
+      # resumes from the last run's saved stages instead of redoing them.
+      - name: Resume saved stages
+        if: steps.what.outputs.topic != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          id=$(gh api "repos/${{ github.repository }}/actions/artifacts?name=story-drafts&per_page=1" --jq '.artifacts[0].id // empty' || true)
+          if [ -n "$id" ] && gh api "repos/${{ github.repository }}/actions/artifacts/$id/zip" > drafts.zip 2>/dev/null; then
+            unzip -qo drafts.zip && tar xzf drafts.tgz && echo "Resumed saved stages:" && ls episodes/*/_drafts/ || true
+            rm -f drafts.zip drafts.tgz
+          else
+            echo "No saved stages to resume."
+          fi
+
+      - name: AI writes a new episode
+        if: steps.what.outputs.topic != ''
+        env:
+          TOPIC: ${{ steps.what.outputs.topic }}
+          STORY_STORYBOARD: ${{ github.event.inputs.storyboard }}
+          STORY_STORYBOARD_MODELS: ${{ github.event.inputs.storyboard_models }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ACCOUNT_KEY_franklincopil3: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          AILAYER_STATE_URL: ${{ secrets.AILAYER_STATE_URL }}
+          AILAYER_STATE_TOKEN: ${{ secrets.AILAYER_STATE_TOKEN }}
+        run: |
+          set -o pipefail
+          python -m studio.story write --topic "$TOPIC" | tee write.log
+          echo "EPISODE_DIR=$(grep '^EPISODE=' write.log | tail -1 | cut -d= -f2)" >> "$GITHUB_ENV"
+
+      - name: Use the given episode
+        if: steps.what.outputs.topic == ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EPISODE_IN: ${{ github.event.inputs.episode }}
+        run: |
+          if [ "${EPISODE_IN#release:}" != "$EPISODE_IN" ]; then   # release:<tag> = an episode made in an earlier run
+            gh release download "${EPISODE_IN#release:}" -p episode-files.zip -D rel --clobber
+            unzip -qo rel/episode-files.zip -d episodes/hidden_reasons
+            echo "EPISODE_DIR=episodes/hidden_reasons/$(unzip -Z1 rel/episode-files.zip | head -1 | cut -d/ -f1)" >> "$GITHUB_ENV"
+          else
+            echo "EPISODE_DIR=$EPISODE_IN" >> "$GITHUB_ENV"
+          fi
+
+      - name: Check the episode
+        run: |
+          if [ "$STORY_STYLE" = film ]; then
+            [ -f "$EPISODE_DIR/NEEDS_POLISH.md" ] && { { echo "## Needs the copy-paste polish (see the new issue)"; cat "$EPISODE_DIR/NEEDS_POLISH.md"; } >> "$GITHUB_STEP_SUMMARY"; exit 0; }
+            python -m studio.story.filmkit verify "$EPISODE_DIR" --memory used.json
+            exit 0
+          fi
+          if [ -f "$EPISODE_DIR/NEEDS_POLISH.md" ]; then
+            { echo "## Needs the Claude polish step"; cat "$EPISODE_DIR/NEEDS_POLISH.md"; } >> "$GITHUB_STEP_SUMMARY"
+            [ -f "$EPISODE_DIR/storyboard.json" ] || exit 0   # nothing to check until the polish step adds it
+          fi
+          python -m studio.story check "$EPISODE_DIR"
+
+      - name: Make the film video (Kaggle GPU + assembly) and publish it
+        if: env.STORY_STYLE == 'film' && hashFiles(format('{0}/NEEDS_POLISH.md', env.EPISODE_DIR)) == ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+        run: |
+          tools/film_produce.sh "$EPISODE_DIR"
+          { echo "## Video ready"; echo; echo "$VIDEO_URL"; } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Make the video
+        if: env.STORY_STYLE != 'film' && hashFiles(format('{0}/NEEDS_POLISH.md', env.EPISODE_DIR)) == ''
+        run: python -m studio.story make "$EPISODE_DIR"
+
+      - name: Publish as a release
+        if: env.STORY_STYLE != 'film' && hashFiles(format('{0}/NEEDS_POLISH.md', env.EPISODE_DIR)) == ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          EPISODE="$EPISODE_DIR"
+          d=$(ls -d out/*story* | tail -1)
+          title=$(python -c "import json,sys; print(json.load(open(sys.argv[1]))['title'])" "$d/script.json")
+          tag="story-$(basename "$EPISODE")-run${{ github.run_number }}"
+          { echo "Story video: $title"; echo; echo "Episode: $EPISODE"; echo; echo "Sources:"; cat "$d/sources.md"; } > notes.md
+          cp "$d/video.mp4" "$(basename "$EPISODE").mp4"
+          (cd "$(dirname "$EPISODE")" && zip -qr "$GITHUB_WORKSPACE/episode-files.zip" "$(basename "$EPISODE")")
+          gh release create "$tag" "$(basename "$EPISODE").mp4" "$d/contact.png" episode-files.zip --title "Story: $title" --notes-file notes.md
+          { echo "## $title"; echo; echo "Video: release **$tag** (Releases page)."; } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish the draft for the polish step
+        if: env.EPISODE_DIR != '' && hashFiles(format('{0}/NEEDS_POLISH.md', env.EPISODE_DIR)) != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          EPISODE="$EPISODE_DIR"
+          tag="draft-$(basename "$EPISODE")-run${{ github.run_number }}"
+          (cd "$(dirname "$EPISODE")" && zip -qr "$GITHUB_WORKSPACE/episode-files.zip" "$(basename "$EPISODE")")
+          { echo "Draft for the Claude polish step (not a finished video)."; echo; cat "$EPISODE/NEEDS_POLISH.md"; } > notes.md
+          gh release create "$tag" episode-files.zip --prerelease --title "Draft: $(basename "$EPISODE")" --notes-file notes.md
+          { echo "Draft files: pre-release **$tag**."; } >> "$GITHUB_STEP_SUMMARY"
+          if [ "$STORY_STYLE" = film ]; then   # ask the owner: one issue with one box to copy into Claude
+            python -m studio.story.filmkit issue "$EPISODE" --draft "$tag" --memory used.json > issue.md
+            gh label create polish --color FBCA04 --description "Paste Claude's answer as a comment" 2>/dev/null || true
+            title=$(python -c "import json,sys; print(json.load(open(sys.argv[1]))['title'])" "$EPISODE/script.json")
+            url=$(gh issue create --title "Polish needed: $title" --label polish --body-file issue.md)
+            { echo "Polish issue: $url"; } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Tell the owner if this run failed
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TOPIC_RAW: ${{ github.event.inputs.topic }}
+        run: |
+          gh label create pipeline-alert --color B60205 --description "A video run failed" 2>/dev/null || true
+          n=$(gh issue list --label pipeline-alert --state open --json number --jq '.[0].number // empty')
+          msg="A video run failed (topic: ${TOPIC_RAW:-$EPISODE_DIR}). Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} . The schedule retries a failed topic once, then skips it."
+          if [ -n "$n" ]; then gh issue comment "$n" --body "$msg"; else gh issue create --label pipeline-alert --title "Pipeline alerts" --body "$msg"; fi
+
+      - name: Show the writer's report
+        if: always()
+        run: |
+          for r in episodes/*/*/report.md; do [ -f "$r" ] && [ "$r" -nt requirements.txt ] && { cat "$r"; echo; } >> "$GITHUB_STEP_SUMMARY"; done
+          [ -f write.log ] && { echo '```'; tail -n 40 write.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY" || true
+
+      - name: Save finished stages for the next run
+        if: always() && steps.what.outputs.topic != ''
+        run: tar czf drafts.tgz episodes/*/_drafts 2>/dev/null || true
+
+      - name: Upload saved stages
+        if: always() && steps.what.outputs.topic != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: story-drafts
+          path: drafts.tgz
+          retention-days: 14
+          overwrite: true
+          if-no-files-found: ignore
+
+      - name: Upload the video and episode folders
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: story-${{ github.run_number }}
+          path: |
+            out/
+            episodes/
+          retention-days: 14
+          if-no-files-found: ignore
