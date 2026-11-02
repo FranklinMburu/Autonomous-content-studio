@@ -1,5 +1,10 @@
 # UI brief: YouTube Creator Studio (landing site + app)
 
+> **Superseded (2 Nov 2026, v4).** The approved design, every page and the data rules now live in
+> [`README.md`](README.md) → [`BUILD_SPEC.md`](BUILD_SPEC.md), [`APP_PAGES.md`](APP_PAGES.md),
+> [`DATA_CONTRACT.md`](DATA_CONTRACT.md). Where this brief differs (blue base, gold buttons and headlines, the app
+> window in the hero, sample data), those files win. Kept for the taste notes and references.
+
 > **How to use this file.** Paste it whole into Google AI Studio (or any AI builder) as the first message, or import
 > this repo and say: *"Read design/UI_BRIEF.md and follow it exactly."* It records Franklin's taste (2 Nov 2026) and
 > the decisions made with Claude, so every tool starts from the same place. Change it here, not in chat.

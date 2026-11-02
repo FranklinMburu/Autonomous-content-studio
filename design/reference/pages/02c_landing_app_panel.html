@@ -1,0 +1,154 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Inter;src:url(../assets/fonts/InterVariable-latin.woff2) format('woff2');font-weight:100 900}
+@font-face{font-family:'Inter Display';src:url(../assets/fonts/InterDisplay-Bold.woff2) format('woff2');font-weight:700;font-style:normal}
+@font-face{font-family:'Inter Display';src:url(../assets/fonts/InterDisplay-BoldItalic.woff2) format('woff2');font-weight:700;font-style:italic}
+@font-face{font-family:'Inter Display';src:url(../assets/fonts/InterDisplay-ExtraBold.woff2) format('woff2');font-weight:800;font-style:normal}
+@font-face{font-family:'Inter Display';src:url(../assets/fonts/InterDisplay-ExtraBoldItalic.woff2) format('woff2');font-weight:800;font-style:italic}
+@font-face{font-family:Serif;src:url(../assets/fonts/instrument-serif-latin-400-normal.woff2) format('woff2');font-style:normal}
+@font-face{font-family:Serif;src:url(../assets/fonts/instrument-serif-latin-400-italic.woff2) format('woff2');font-style:italic}
+:root{--bg:#0B0B0F;--s1:#121217;--s2:#18191F;--s3:#202128;--line:rgba(255,255,255,.07);--line2:rgba(255,255,255,.12);
+--tx:#EDEFF5;--tx2:#A3A9B8;--tx3:#6E7586;--amber:#F5A524;--amber2:#FFC861;--ember:#E0661B;--ok:#3FB950;--warn:#D29922;--bad:#F85149;--info:#58A6FF}
+.light{--bg:#FAFAF7;--s1:#FFFFFF;--s2:#F3F3EF;--s3:#EAEAE4;--line:rgba(17,19,24,.08);--line2:rgba(17,19,24,.14);
+--tx:#111318;--tx2:#4B5160;--tx3:#7A8090;--amber:#D98A0B;--amber2:#F5A524}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--tx);font-family:Inter,system-ui;-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
+.ic{display:inline-block;vertical-align:middle;flex:none}
+.serif{font-family:Serif;font-weight:400;letter-spacing:-.01em}
+.btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 18px;border-radius:10px;font-weight:600;font-size:14px}
+.btn.pri{background:linear-gradient(180deg,#FFC861,#F5A524);color:#1A1205;box-shadow:0 0 0 1px rgba(255,200,97,.4) inset,0 8px 30px -8px rgba(245,165,36,.55)}
+.btn.sec{background:rgba(255,255,255,.04);color:var(--tx);box-shadow:0 0 0 1px var(--line2) inset}
+.chip{display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 9px;border-radius:999px;font-size:11.5px;font-weight:600;letter-spacing:.01em}
+.chip.ok{background:rgba(63,185,80,.12);color:#56D364} .chip.rev{background:rgba(245,165,36,.13);color:var(--amber2)}
+.chip.run{background:rgba(88,166,255,.12);color:#79C0FF} .chip.bad{background:rgba(248,81,73,.12);color:#FF7B72}
+.dot{width:6px;height:6px;border-radius:9px;background:currentColor;display:inline-block}
+.kbd{font:500 11px Inter;color:var(--tx3);border:1px solid var(--line2);border-radius:5px;padding:1px 5px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.muted{color:var(--tx2)} .faint{color:var(--tx3)}
+
+.nav{position:absolute;top:0;left:0;right:0;height:68px;display:flex;align-items:center;padding:0 56px;z-index:5}
+.nav .lg{display:flex;align-items:center;gap:10px;font-size:17px;letter-spacing:-.02em}
+.nav .links{display:flex;gap:30px;margin:0 auto;font-size:14px;color:var(--tx2)}
+.nav .right{display:flex;align-items:center;gap:22px;font-size:14px}
+.flow{position:absolute;left:0;top:0;pointer-events:none}
+canvas[data-world]{position:absolute;display:block}
+.grain{position:absolute;inset:0;pointer-events:none;background:radial-gradient(1200px 600px at 50% -10%,rgba(245,165,36,.07),transparent 60%)}
+.window{position:absolute;border-radius:16px;background:rgba(16,19,29,.82);backdrop-filter:blur(14px);
+ box-shadow:0 0 0 1px rgba(255,255,255,.08),0 40px 120px -20px rgba(0,0,0,.8),0 0 120px -30px rgba(245,165,36,.25);overflow:hidden}
+.wbar{height:38px;display:flex;align-items:center;gap:7px;padding:0 14px;border-bottom:1px solid var(--line)}
+.wbar i{width:10px;height:10px;border-radius:9px;background:#2A2F3E;display:block}
+.cursor{position:absolute;z-index:9;width:22px;height:22px}
+
+.sunres{position:absolute;left:0;right:0;top:-200px;height:600px;background:radial-gradient(50% 60% at 50% 0%,rgba(245,165,36,.10),transparent 70%)}
+.ptitle{position:absolute;top:64px;left:0;right:0;text-align:center;z-index:3}
+.ptitle h2{font-size:48px;letter-spacing:-.04em;font-weight:700;margin:14px 0 10px}.ptitle p{font-size:17px;color:var(--tx2)}
+.frame{position:absolute;left:100px;top:236px;width:1240px;height:806px;border-radius:18px;overflow:hidden;z-index:2;background:#0E0E12;
+ box-shadow:0 0 0 1px rgba(255,255,255,.10) inset,0 60px 140px -40px rgba(0,0,0,.9),0 0 120px -40px rgba(245,165,36,.18)}
+.fbar{height:42px;display:flex;align-items:center;gap:8px;padding:0 16px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#17171C,#121216)}
+.fbar>i{width:11px;height:11px;border-radius:9px;background:#2A2A31;display:block}
+.url{margin-left:18px;display:flex;align-items:center;gap:6px;height:26px;padding:0 12px;border-radius:8px;background:rgba(255,255,255,.04);font-size:12px;color:var(--tx3)}
+.fseg{margin-left:auto;display:flex;gap:2px;padding:3px;border-radius:9px;background:rgba(255,255,255,.04);font-size:12px;color:var(--tx3)}
+.fseg span{padding:4px 11px;border-radius:7px}.fseg span.on{background:rgba(255,255,255,.09);color:var(--tx)}
+.fview{position:absolute;top:42px;left:0;width:1240px;height:764px;overflow:hidden}
+.fview iframe{border:0;width:1440px;height:887px;transform:scale(.8611);transform-origin:0 0}
+.phint{position:absolute;z-index:4;display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:99px;font-size:12.5px;font-weight:600;color:#0B0B0F;
+ background:linear-gradient(180deg,#FFFFFF,#DADDE5);box-shadow:0 10px 30px -8px rgba(0,0,0,.7)}
+.phint i{width:7px;height:7px;border-radius:9px;background:#F5A524;box-shadow:0 0 0 3px rgba(245,165,36,.25)}
+.cursor{position:absolute;width:22px;height:22px;z-index:5}
+.pfoot{position:absolute;bottom:22px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:16px;font-size:13px;color:var(--tx3)}
+.pfoot i{width:1px;height:12px;background:var(--line2)}.pfoot .go{color:var(--tx);display:inline-flex;align-items:center;gap:5px;font-weight:500}
+
+/* v3: ink, not blue. Neutral black with a faint cool shadow and a faint warm light, plus film grain */
+html,body{background:radial-gradient(1100px 700px at 15% -10%,rgba(70,82,120,.16),transparent 60%),radial-gradient(900px 600px at 100% 110%,rgba(160,110,60,.08),transparent 60%),#0B0B0F}
+body.light{background:var(--bg)}
+body:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:50;opacity:.05;mix-blend-mode:overlay;
+ background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>")}
+/* v2 taste: chrome type + silver buttons; amber only as a small signal (icon, active, live) */
+h1,h2,.word,.t1{background:linear-gradient(180deg,#FFFFFF 0%,#F2F3F7 36%,#B4B9C6 74%,#80869A 100%);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+.hero h1,.mh h1{font-family:'Inter Display',Inter;font-weight:800!important;letter-spacing:-.04em!important}
+h1 .serif,h2 .serif,.tag .serif,.fam .serif,.fcard .serif,.t2{font-family:'Inter Display',Inter!important;font-style:italic!important;font-weight:800!important;letter-spacing:-.035em!important;
+ background:linear-gradient(180deg,#FFFFFF 0%,#E9EBF1 40%,#9BA1B1 80%,#6E7488 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;padding-right:.08em}
+.fam .serif,.fcard .serif{font-weight:700!important;font-size:inherit!important}
+.light h1,.light h2,.light h1 .serif,.light h2 .serif{background:linear-gradient(180deg,#0B0D14 0%,#2A2F3C 55%,#6B7182 100%)!important;-webkit-background-clip:text!important;background-clip:text!important}
+.btn.pri{background:linear-gradient(180deg,#FFFFFF 0%,#E4E7EE 55%,#C3C8D3 100%)!important;color:#0A0C14!important;
+ box-shadow:0 0 0 1px rgba(255,255,255,.7) inset,0 -1px 0 rgba(0,0,0,.12) inset,0 10px 32px -12px rgba(190,205,240,.45)!important}
+.light .btn.pri{background:linear-gradient(180deg,#2A2F3C,#0B0D14)!important;color:#fff!important;box-shadow:0 0 0 1px rgba(0,0,0,.6) inset,0 10px 26px -12px rgba(0,0,0,.45)!important}
+.eyebrow{color:var(--tx3)!important;letter-spacing:.18em}
+.fi{color:#D9DDE7!important;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02))!important;box-shadow:0 0 0 1px rgba(255,255,255,.1) inset!important}
+.fcard.on .fi,.fam:first-child .fi{color:var(--amber2)!important;background:rgba(245,165,36,.1)!important;box-shadow:0 0 0 1px rgba(245,165,36,.22) inset!important}
+.bar i{background:linear-gradient(90deg,#6F7FA6,#C8D2EA)!important}
+.pbar i{background:#E4E7EE!important}
+.ctl i{background:linear-gradient(90deg,#E4E7EE 40%,rgba(255,255,255,.15) 40%)!important}
+.hint{background:#F2F3F7!important;color:#0A0C14!important}
+.pill .ic{color:#C8CEDB!important}
+.slot{color:var(--tx2)!important}
+.src .n{background:rgba(255,255,255,.06)!important;color:var(--tx2)!important}
+.bb u{background:linear-gradient(180deg,#DDE3F1,#7182AC)!important}
+.light .bb u{background:linear-gradient(180deg,#5A6378,#1B1F2A)!important}.light .bb i{background:rgba(17,19,24,.07)!important}
+.st i{color:var(--tx3)!important}
+.cta{box-shadow:0 0 0 1px rgba(255,255,255,.1) inset,0 30px 80px -30px rgba(120,140,200,.3)!important}
+</style></head>
+<body class="" style="width:1440px;height:1080px;overflow:hidden;position:relative"><div class="sunres"></div>
+<div class="ptitle"><div class="eyebrow">Inside the studio</div><h2>Take a look <span class="serif">inside.</span></h2>
+<p>This is the real studio, live. Click anything.</p></div>
+<div class="frame"><div class="fbar"><i></i><i></i><i></i><div class="url"><svg class="ic " width="11" height="11" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,76H180V56A52,52,0,0,0,76,56V76H48A20,20,0,0,0,28,96V208a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V96A20,20,0,0,0,208,76ZM100,56a28,28,0,0,1,56,0V76H100ZM204,204H52V100H204Z"/></svg> studio.candela.film/films</div>
+<div class="fseg"><span class="on">Films</span><span>Runs</span><span>Review</span><span>Polish</span></div></div>
+<div class="fview"><iframe src="08_app_films.html" scrolling="no"></iframe></div></div>
+<div class="phint" style="left:470px;top:515px"><i></i>Click a film to watch it</div><div class="phint" style="left:150px;top:370px"><i></i>Every menu item works</div><div class="phint" style="left:1060px;top:455px"><i></i>Live from our GitHub</div>
+<svg class="cursor" style="left:610px;top:560px" viewBox="0 0 24 24"><path d="M4 3l15 7-6.5 2L10 19z" fill="#fff" stroke="#0B0B0F" stroke-width="1.2"/></svg>
+<div class="pfoot"><span>Live data</span><i></i><span>Read-only</span><i></i><span class="go">Make your own film <svg class="ic " width="12" height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M184.49,136.49l-80,80a12,12,0,0,1-17-17L159,128,87.51,56.49a12,12,0,1,1,17-17l80,80A12,12,0,0,1,184.49,136.49Z"/></svg></span></div><script>
+function world(canvas, opt){
+  const o = Object.assign({dots:1400, r:0.42, tilt:-0.35, spin:0.6, glow:'245,165,36', cool:'121,192,255', arcs:7, seed:3, dim:1}, opt||{});
+  const dpr = 2, W = canvas.clientWidth, H = canvas.clientHeight;
+  canvas.width = W*dpr; canvas.height = H*dpr;
+  const c = canvas.getContext('2d'); c.scale(dpr,dpr);
+  const R = Math.min(W,H)*o.r, cx = W/2, cy = H/2;
+  let s = o.seed; const rnd = ()=> (s = (s*9301+49297)%233280)/233280;
+  const pts=[]; const N=o.dots, ga=Math.PI*(3-Math.sqrt(5));
+  for(let i=0;i<N;i++){ const y=1-(i/(N-1))*2, rr=Math.sqrt(1-y*y), th=ga*i; pts.push([Math.cos(th)*rr, y, Math.sin(th)*rr, rnd()]); }
+  const rot=(p)=>{ let [x,y,z]=p; const a=o.spin, ca=Math.cos(a), sa=Math.sin(a); [x,z]=[x*ca+z*sa, -x*sa+z*ca];
+    const b=o.tilt, cb=Math.cos(b), sb=Math.sin(b); [y,z]=[y*cb-z*sb, y*sb+z*cb]; return [x,y,z]; };
+  // halo
+  let g=c.createRadialGradient(cx,cy,R*0.6,cx,cy,R*1.55); g.addColorStop(0,`rgba(${o.glow},${0.10*o.dim})`); g.addColorStop(1,'rgba(0,0,0,0)');
+  c.fillStyle=g; c.fillRect(0,0,W,H);
+  g=c.createRadialGradient(cx-R*0.35,cy-R*0.4,R*0.1,cx,cy,R); g.addColorStop(0,`rgba(${o.cool},${0.10*o.dim})`); g.addColorStop(1,'rgba(10,12,20,0)');
+  c.fillStyle=g; c.beginPath(); c.arc(cx,cy,R,0,7); c.fill();
+  // dots
+  const lit=[];
+  for(const p of pts){ const [x,y,z]=rot(p); if(z< -0.15) continue; const a=(z+0.15)/1.15;
+    const hot = p[3]>0.992; const warm = p[3]>0.90;
+    c.fillStyle = hot? `rgba(${o.glow},${(0.95*a).toFixed(3)})` : warm? `rgba(${o.glow},${(0.45*a*o.dim).toFixed(3)})` : `rgba(200,210,235,${Math.min(0.75,0.34*a*o.dim).toFixed(3)})`;
+    const rr = (hot? 2.4 : 1.15)*(o.dotScale||1); c.beginPath(); c.arc(cx+x*R, cy+y*R, rr*(0.6+0.4*a),0,7); c.fill();
+    if(hot){ lit.push([cx+x*R, cy+y*R]); const gg=c.createRadialGradient(cx+x*R,cy+y*R,0,cx+x*R,cy+y*R,14); gg.addColorStop(0,`rgba(${o.glow},.45)`); gg.addColorStop(1,`rgba(${o.glow},0)`); c.fillStyle=gg; c.beginPath(); c.arc(cx+x*R,cy+y*R,14,0,7); c.fill(); }
+  }
+  // labelled path mode: pick well-spread front-facing lit points, connect them in order (the steps of one film)
+  let pairs=[];
+  if(o.labels){
+    const front=[]; for(const p of pts){ const q=rot(p); if(q[2]>0.35) front.push([cx+q[0]*R, cy+q[1]*R, Math.atan2(q[1],q[0])]); }
+    const n=o.labels.length, chosen=[];
+    for(let i=0;i<n;i++){ const ang=-2.6+ i*(5.2/(n-1)); let best=null,bd=1e9;
+      for(const f of front){ const rr=Math.hypot(f[0]-cx,f[1]-cy)/R; if(rr<0.35||rr>0.78) continue; const d=Math.abs(((f[2]-ang+Math.PI*3)%(Math.PI*2))-Math.PI); if(d<bd){bd=d;best=f;} }
+      chosen.push(best); }
+    lit.length=0; for(const c2 of chosen){ lit.push([c2[0],c2[1]]);
+      const gg=c.createRadialGradient(c2[0],c2[1],0,c2[0],c2[1],18); gg.addColorStop(0,`rgba(${o.glow},.55)`); gg.addColorStop(1,`rgba(${o.glow},0)`); c.fillStyle=gg; c.beginPath(); c.arc(c2[0],c2[1],18,0,7); c.fill();
+      c.fillStyle='rgba(255,226,170,1)'; c.beginPath(); c.arc(c2[0],c2[1],3,0,7); c.fill(); }
+    for(let i=0;i<n-1;i++) pairs.push([lit[i],lit[i+1]]);
+    const host=canvas.parentElement, box=canvas.getBoundingClientRect();
+    o.labels.forEach((t,i)=>{ const d=document.createElement('div'); d.className='wl'; d.innerHTML=t;
+      d.style.left=(box.left+lit[i][0]+12)+'px'; d.style.top=(box.top+lit[i][1]-14)+'px'; host.appendChild(d); });
+  } else { for(let k=0;k<Math.min(o.arcs, lit.length-1);k++) pairs.push([lit[k], lit[(k*3+2)%lit.length]]); }
+  for(const [a,b] of pairs){ const mx=(a[0]+b[0])/2, my=(a[1]+b[1])/2 - Math.hypot(b[0]-a[0],b[1]-a[1])*0.45;
+    const lg=c.createLinearGradient(a[0],a[1],b[0],b[1]); lg.addColorStop(0,`rgba(${o.glow},0)`); lg.addColorStop(0.5,`rgba(${o.glow},.85)`); lg.addColorStop(1,`rgba(${o.cool},.15)`);
+    c.strokeStyle=lg; c.lineWidth=1.3; c.beginPath(); c.moveTo(a[0],a[1]); c.quadraticCurveTo(mx,my,b[0],b[1]); c.stroke();
+    // travelling spark
+    const t=0.62; const sx=(1-t)*(1-t)*a[0]+2*(1-t)*t*mx+t*t*b[0], sy=(1-t)*(1-t)*a[1]+2*(1-t)*t*my+t*t*b[1];
+    const sg=c.createRadialGradient(sx,sy,0,sx,sy,7); sg.addColorStop(0,'rgba(255,230,180,1)'); sg.addColorStop(1,`rgba(${o.glow},0)`); c.fillStyle=sg; c.beginPath(); c.arc(sx,sy,7,0,7); c.fill();
+  }
+  // rim / atmosphere: a warm sunrise along the top edge of the planet
+  if(o.horizon){
+    for(const [w,a] of [[60,0.10],[26,0.22],[8,0.5],[2,0.9]]){
+      c.save(); c.shadowColor=`rgba(${o.glow},${a})`; c.shadowBlur=w; c.strokeStyle=`rgba(255,214,150,${a*0.8})`; c.lineWidth=w>20?2:1.4;
+      c.beginPath(); c.arc(cx,cy,R,Math.PI*1.08,Math.PI*1.92); c.stroke(); c.restore(); }
+  } else { c.strokeStyle=`rgba(255,255,255,${0.06*o.dim})`; c.lineWidth=1; c.beginPath(); c.arc(cx,cy,R,0,7); c.stroke(); }
+}
+document.querySelectorAll('canvas[data-world]').forEach(cv=>world(cv, JSON.parse(cv.dataset.world||'{}')));
+</script></body></html>
