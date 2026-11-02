@@ -28,7 +28,7 @@ no guessing and no seed data.
 - **Right under the globe:** the real studio, live and clickable, inside a browser frame (read-only).
 - **Data:** no seed data anywhere. The site reads the running backend on GitHub (releases, issues, Actions runs,
   episode files) with `kit/github-data.js`. Every action opens GitHub.
-- **Light:** React + Lenis + Phosphor only. Canvas 2D globes (no three.js), measured ~13 ms per frame without a GPU.
+- **Light:** React + Phosphor only (the smooth scroll is the portfolio's own 50 lines). Canvas 2D globes (no three.js), measured ~13 ms per frame without a GPU.
 
 ## Test the kit yourself
 

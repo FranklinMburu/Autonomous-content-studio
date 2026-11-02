@@ -13,10 +13,10 @@
    a picture in `design/mockups/`. Port that HTML/CSS into components **value for value** (same px, same colours,
    same font sizes, same letter-spacing, same copy). Do not "improve", restyle, re-space, re-word or re-colour.
 2. **Use the kit.** `design/kit/` holds the finished, tested pieces: `candela.css` (all tokens and base styles),
-   `earth.js` (the hero globe), `studio-world.js` (the section-5 sphere), `smooth-scroll.js` (Lenis setup),
+   `earth.js` (the hero globe), `studio-world.js` (the section-5 sphere), `smooth-scroll.js` (the scroll and motion feel of Franklin's portfolio: no library),
    `github-data.js` (the data layer that reads the real studio on GitHub) and `places.json` (where each real story
    happened). Import them as they are. Do not rewrite them.
-3. **Light only.** React + TypeScript. Allowed libraries: `react`, `react-dom`, `lenis`, `@phosphor-icons/react`.
+3. **Light only.** React + TypeScript. Allowed libraries: `react`, `react-dom`, `@phosphor-icons/react`. (No scroll library: the smooth scroll is our own code.)
    Nothing else. **No three.js, no WebGL libraries, no GSAP, no framer-motion, no Tailwind, no UI kits, no chart
    libraries, no icon packs other than Phosphor.** Animations are CSS transitions + `requestAnimationFrame`.
 4. **One icon family:** Phosphor. Sidebar and feature icons use the **duotone** weight; small UI icons use **bold**
@@ -52,7 +52,8 @@
 | `kit/earth.js` | Hero globe (Canvas 2D, layered, scroll-driven sun). Tested at 1440×900 and 390×844. |
 | `kit/earth-demo.html` | A test page for the globe: serve the repo root and open `/design/kit/earth-demo.html`. |
 | `kit/studio-world.js` | Section-5 sphere (Canvas 2D). |
-| `kit/smooth-scroll.js` | Lenis setup with the approved feel. |
+| `kit/smooth-scroll.js` | The portfolio's scroll feel, exactly: gliding wheel scroll (lerp 0.1), `scrollVar`, `reveal`, `countUp`. |
+| `reference/portfolio-scroll.md` | Full notes and code of Franklin's portfolio motion (the feel to match). |
 | `kit/github-data.js` | The data layer: reads releases, issues, Actions runs and episode files of the real repo (no keys). |
 | `kit/github-data.test.mjs` | Live test of the data layer (read-only). |
 | `kit/places.json` | Where each real episode and each queued topic happened (for the globe). |
@@ -86,7 +87,7 @@
 - **Vite + React 19 + TypeScript**, plain CSS (import `candela.css` once, then one CSS file per component, written
   by porting the `<style>` of the reference page). If your environment cannot run Vite, use its standard
   React + TypeScript setup; the rest of this spec does not change.
-- Dependencies (exactly these): `react@^19`, `react-dom@^19`, `lenis@^1.3`, `@phosphor-icons/react@^2.1`.
+- Dependencies (exactly these): `react@^19`, `react-dom@^19`, `@phosphor-icons/react@^2.1`.
   Dev: `vite@^6`, `@vitejs/plugin-react`, `typescript`.
 - Put the app in a folder named **`web/`** at the repo root:
 
@@ -144,7 +145,8 @@ Never write a colour that is not in `candela.css` or the reference pages.
 ## 4. The landing page, top to bottom
 
 Page width is fluid; the design is drawn at 1440 px. Content side margins are **96 px** at 1440 (use
-`clamp(20px, 6.6vw, 96px)`). Sections are full-bleed. Scrolling uses Lenis (`kit/smooth-scroll.js`).
+`clamp(20px, 6.6vw, 96px)`). Sections are full-bleed. Call `startSmoothScroll()` once on mount (`kit/smooth-scroll.js`); it is the exact scroll of
+Franklin's portfolio (mouse wheel glides, touch/keyboard/scrollbar stay native, off for reduced motion).
 
 ### 4.0 Nav (all landing sections)
 From `02_landing_hero.html` (`.nav`): height 68 px, logo mark 26 px + "Candela" (17 px, 600), centre links
@@ -175,6 +177,11 @@ listing the five family products (same cards as section 3, compact: icon + name 
   **Watch a film ›** (15.5 px, 500, `#DDE2EE`; opens `/films/:id` of the newest finished film), gap 28 px.
 - While scrolling, the text block moves up at 0.25× scroll speed and fades from opacity 1 to 0 between progress
   0.55 and 1.0. Nothing else moves except the globe and its labels.
+- **The sheet (portfolio pattern):** after the sun has risen, section 2 slides up **over** the still-pinned hero like a
+  sheet of glass: section 2 is wrapped in `.sheet` (radius 36 px on top, shadow `0 -30px 70px -20px rgba(0,0,0,.55)`,
+  `z-index: 10`, ink background). Set `--hp` on the hero stage with `scrollVar(stage, "--hp", el =>
+  (scrollY - 800) / el.offsetHeight)` and use it in CSS: hero stage content
+  `transform: translateY(calc(var(--hp,0) * 70px)) scale(calc(1 - var(--hp,0) * .07)); opacity: calc(1 - var(--hp,0) * .85)`.
 - **Places on the globe are real** (DATA_CONTRACT §6): `buildGlobe(await films(), await topics(), places)` from
   `kit/github-data.js` + `kit/places.json` returns the made films (bright lights, ring) and the queued topics (small
   dim lights) and the arcs. Pass `{ stories, arcs }` to `createEarth`.
@@ -217,8 +224,8 @@ It shows the real studio (the same data as `/app`), **read-only**.
   Below the frame: `Live data | Read-only | Make your own film ›`.
 - Entry animation: when the frame is 20% in view, it rises from `translateY(48px) scale(.97)` and `opacity 0` to
   rest over 700 ms (`cubic-bezier(.2,.7,.2,1)`). Once.
-- Scrolling inside the frame must scroll the panel, not the page: add `data-lenis-prevent` to the panel's scroll
-  containers.
+- Scrolling inside the frame scrolls the panel, not the page: give the panel's scroll areas `overflow-y: auto`;
+  `startSmoothScroll` detects inner scrollable boxes and leaves their wheel native.
 - **Phone:** the frame becomes full-width with 16 px gutters, shows the phone layout of the app (mockup 12 right
   phone: stats row, film cards, bottom tab bar) and stays interactive.
 
@@ -226,7 +233,7 @@ It shows the real studio (the same data as `/app`), **read-only**.
 - Height 560. Eyebrow **ONE STUDIO, FIVE PARTS**, h2 "Everything a film needs. *Nothing* it doesn't." (52 px).
 - Five cards in a 5-column grid (gap 14, top 240): icon tile 38–40 px (neutral glass; the Studio card's tile and
   border are amber because it is "where you are"), "Candela *Studio*" etc., one line, link "Open →".
-- Clicking a card scrolls (Lenis `scrollTo`, 1.2 s) up to the section-2 panel and switches it to that product's view
+- Clicking a card scrolls (`scrollIntoView({ behavior: 'smooth' })`) up to the section-2 panel and switches it to that product's view
   (Studio → Films, Brain → Brain, Lab → Lab, Guard → Guard, Channels → Channels). The clicked card becomes the
   amber "You are here" card.
 - Stripe-style lines behind the cards: the SVG from the reference page (`lines_svg`), animated with a slow
@@ -293,7 +300,9 @@ GitHub) in 13 px `--tx3` · "© 2026 Candela". Nothing else.
 
 | Where | What | Timing |
 |---|---|---|
-| Whole landing | Lenis smooth scroll (`kit/smooth-scroll.js`) | lerp 0.085 |
+| Whole landing | gliding wheel scroll (`startSmoothScroll`, portfolio code) | lerp 0.1 per 16.7 ms, frame-time corrected |
+| Every section title and block | reveal once (`reveal()`, `.reveal`) | 0.9 s `cubic-bezier(.2,.7,.2,1)` from `translateY(60px) scale(.98)`; stagger `i × 80 ms` |
+| Hero → panel | the panel section slides up over the pinned hero like a sheet (`.sheet`) while the hero content sinks and dims (`--hp`) | scroll-linked |
 | Hero | sun rises + globe turns 4°, driven by scroll | progress over 800 px, ease-out cubic (inside earth.js) |
 | Hero | globe fades in after `earth.json` loads | 600 ms opacity |
 | Hero | text parallax 0.25× and fade between progress 0.55–1 | scroll-linked |
@@ -313,7 +322,7 @@ the start position (earth.js already does this), no parallax, no tickers.
 
 ## 8. Performance budget (non-negotiable)
 
-- First load JS ≤ 180 KB gzipped (React + Lenis + Phosphor icons imported **one by one**, never the whole set).
+- First load JS ≤ 180 KB gzipped (React + Phosphor icons imported **one by one**, never the whole set).
 - `earth.json` is fetched after first paint and cached (`Cache-Control` long); gzip/brotli on.
 - Hero canvas: device pixel ratio capped at 2; `earth.js` redraws the dots only when the globe turns ≥ 0.5° and uses
   no canvas blur filter (measured ~13 ms per frame without a GPU at 1440×900). Redraw only on scroll changes.
@@ -337,7 +346,11 @@ keyboard-navigable (Tab through sidebar, Enter to open).
   logos of other companies, "AI-powered" slogans, gradient blobs, glassmorphism cards outside those specified,
   or stock illustrations.
 - Never use gold on headlines, buttons or charts (rule 6). Never use a blue page background (rule 7).
-- Never use three.js/WebGL libraries, GSAP, framer-motion, Tailwind, component kits, or Google Fonts.
+- Never use three.js/WebGL libraries, Lenis or any scroll library, Locomotive-style scroll, GSAP, framer-motion, Tailwind,
+  component kits, or Google Fonts.
+- Never add cursor-chasing effects, big cursor glows, or `filter: blur()` glows (glows are layered `radial-gradient`).
+- Scroll moves must vary: never repeat the same entrance for every section (reveal for blocks, pinning for the hero
+  and How it works, the sheet for the panel).
 - Never put the app panel in an iframe or as an image. Never fetch anything except our own files.
 - Never commit to `main`, never add secrets, keys, analytics or third-party scripts.
 

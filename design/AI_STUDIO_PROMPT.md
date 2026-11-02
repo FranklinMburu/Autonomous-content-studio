@@ -35,7 +35,7 @@ HARD RULES (breaking any of them means the work is rejected):
 - The site never writes anything and has no secrets: every action button opens the GitHub page listed in
   DATA_CONTRACT.md section 4, in a new tab.
 - Build only the pages listed in APP_PAGES.md. Planned pages use the "Soon" template (mockup 13) with no numbers.
-- Stack: React 19 + TypeScript (+ Vite if available). Allowed packages ONLY: react, react-dom, lenis,
+- Stack: React 19 + TypeScript (+ Vite if available). Allowed packages ONLY: react, react-dom,
   @phosphor-icons/react. NO three.js or any WebGL library, NO GSAP, NO framer-motion, NO Tailwind, NO UI kits,
   NO chart libraries, NO other icon sets, NO Google Fonts (fonts are local files in design/reference/assets/fonts).
 - Icons: Phosphor only. Duotone in the sidebar and on feature tiles; bold/regular for small UI icons, exactly as in
@@ -44,7 +44,8 @@ HARD RULES (breaking any of them means the work is rejected):
   silver. Gold/amber (#F5A524, #FFC861) ONLY for: the logo mark, the active sidebar item and its glow, live status
   dots, Review/Polish chips, the globe's sun, arcs and city lights, schedule times. Never on headlines, buttons,
   charts or large areas.
-- Motion: only what BUILD_SPEC.md section 7 lists. Smooth scroll with kit/smooth-scroll.js. Animate only transform
+- Motion: only what BUILD_SPEC.md section 7 lists. Smooth scroll, reveals and count-ups with kit/smooth-scroll.js (Franklin's portfolio
+  feel; no scroll library). Animate only transform
   and opacity. Respect prefers-reduced-motion.
 - Performance: BUILD_SPEC.md section 8 (first-load JS <= 180 KB gzipped, canvases paused off-screen, fps watchdog).
 - Put all code in a new folder web/ at the repo root. Work on a new branch named ui-web created from ui-sketch.

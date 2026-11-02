@@ -117,3 +117,22 @@ canvas[data-world]{position:absolute;display:block}
 .wbar{height:38px;display:flex;align-items:center;gap:7px;padding:0 14px;border-bottom:1px solid var(--line)}
 .wbar i{width:10px;height:10px;border-radius:9px;background:#2A2F3E;display:block}
 .cursor{position:absolute;z-index:9;width:22px;height:22px}
+
+/* 5. motion (from Franklin's portfolio, value for value; see kit/smooth-scroll.js and reference/portfolio-scroll.md) */
+html { scroll-behavior: smooth; }   /* anchor links; the wheel glide writes with behavior:'instant' */
+.reveal { opacity: 0; transform: translateY(60px) scale(0.98);
+  transition: opacity .9s cubic-bezier(0.2, 0.7, 0.2, 1), transform .9s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.reveal.is-visible { opacity: 1; transform: none; }
+.reveal.reveal-grow { transform: scale(0.92); }
+.reveal.reveal-grow.is-visible { transform: none; }
+@keyframes intro { from { opacity: 0; transform: translateY(28px); filter: blur(8px); } to { opacity: 1; transform: none; filter: blur(0); } }
+.intro { animation: intro 1s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; animation-delay: var(--d, 0ms); }
+.sheet { position: relative; z-index: 10; background: var(--bg); border-radius: 36px 36px 0 0; overflow: hidden;
+  box-shadow: 0 -30px 70px -20px rgba(0, 0, 0, .55); }
+body.light .sheet { box-shadow: 0 -18px 40px -24px rgba(15, 27, 51, .18); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .intro { animation: none !important; }
+  .reveal, .reveal.reveal-grow { opacity: 1; transform: none; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+}

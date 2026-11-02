@@ -10,6 +10,8 @@ html,body{margin:0;background:#0B0B0F;color:#EDEFF5;font-family:Inter,system-ui}
 <section class="hero"><canvas id="c"></canvas><div id="tags"></div></section><div class="spacer"></div>
 <script type="module">
 import { createEarth, pickTags } from "./earth.js";
+import { startSmoothScroll } from "./smooth-scroll.js";
+startSmoothScroll();   // the portfolio scroll feel
 import { createStudio, buildGlobe } from "./github-data.js";
 const data = await (await fetch("../reference/assets/earth.json")).json();
 const studio = createStudio();
