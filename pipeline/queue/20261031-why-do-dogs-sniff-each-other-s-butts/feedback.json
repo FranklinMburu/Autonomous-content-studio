@@ -5,5 +5,12 @@
   "problems": [
    "fact check: 2 unsupported, 0 partial claims: These studies don't test the greeting sniff itself, but that gland sits right where the noses go.; So next time two dogs meet nose to tail, picture each one reading the other's chemical signature."
   ]
+ },
+ {
+  "at": "2026-11-03T07:01:24+00:00",
+  "backup": true,
+  "problems": [
+   "backup polish failed: no model in tier 'standard' could answer (groq:openai/gpt-oss-120b: invalid output; groq:openai/gpt-oss-120b: invalid output; google:gemini-3.6-flash: invalid output; google:gemini-3.6-flash: HTTP 429; nvidia:minimaxai/minimax-m3.1-flash: HTTP 0)"
+  ]
  }
 ]
