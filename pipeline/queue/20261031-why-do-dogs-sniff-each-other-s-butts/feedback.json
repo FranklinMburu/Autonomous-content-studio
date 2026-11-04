@@ -12,5 +12,12 @@
   "problems": [
    "backup polish failed: no model in tier 'standard' could answer (groq:openai/gpt-oss-120b: invalid output; groq:openai/gpt-oss-120b: invalid output; google:gemini-3.6-flash: invalid output; google:gemini-3.6-flash: HTTP 429; nvidia:minimaxai/minimax-m3.1-flash: HTTP 0)"
   ]
+ },
+ {
+  "at": "2026-11-04T06:27:34+00:00",
+  "backup": true,
+  "problems": [
+   "backup polish failed: no model in tier 'standard' could answer (groq:openai/gpt-oss-120b: invalid output; groq:openai/gpt-oss-120b: HTTP 413; google:gemini-3.6-flash: invalid output; google:gemini-3.6-flash: invalid output; nvidia:minimaxai/minimax-m3.1-flash: HTTP 0)"
+  ]
  }
 ]
