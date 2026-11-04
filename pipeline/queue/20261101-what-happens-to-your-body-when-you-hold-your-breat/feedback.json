@@ -5,5 +5,12 @@
   "problems": [
    "fact check: 0 unsupported, 1 partial claims: So never breathe fast and deep before going under, and always dive with a buddy watching from the surface."
   ]
+ },
+ {
+  "at": "2026-11-04T06:37:23+00:00",
+  "backup": true,
+  "problems": [
+   "backup polish failed: no model in tier 'standard' could answer (groq:openai/gpt-oss-120b: invalid output; groq:openai/gpt-oss-120b: invalid output; google:gemini-3.6-flash: HTTP 503; nvidia:minimaxai/minimax-m3.1-flash: HTTP 0)"
+  ]
  }
 ]
