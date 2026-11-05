@@ -35,7 +35,7 @@ export const FilmsTrust: React.FC = () => {
     >
       <div className="grain" />
 
-      <div style={{ maxWidth: '1440px', margin: '0 auto', height: '100%', minHeight: '900px', position: 'relative' }}>
+      <div className="films-trust-inner" style={{ maxWidth: '1440px', margin: '0 auto', position: 'relative' }}>
         {/* Header */}
         <div className="fhead">
           <div className="eyebrow">Made with Candela</div>

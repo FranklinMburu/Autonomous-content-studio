@@ -158,6 +158,8 @@ export const AppShell: React.FC<AppShellProps> = ({
     return sub.charAt(0).toUpperCase() + sub.slice(1);
   };
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+
   return (
     <div
       className="app"
@@ -165,8 +167,8 @@ export const AppShell: React.FC<AppShellProps> = ({
         position: embedded ? 'absolute' : 'fixed',
         inset: 0,
         overflow: 'hidden',
-        width: embedded ? '1440px' : '100%',
-        height: embedded ? '887px' : '100%',
+        width: embedded && !isMobile ? '1440px' : '100%',
+        height: embedded && !isMobile ? '887px' : '100%',
       }}
       onClick={onFirstInteraction}
     >

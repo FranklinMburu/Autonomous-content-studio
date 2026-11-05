@@ -69,74 +69,117 @@ export const FilmsView: React.FC<FilmsViewProps> = ({ onSelectFilm, onNavigate }
 
   return (
     <div className="content" style={{ overflowY: 'auto' }}>
-      {/* Header */}
-      <div className="hd">
-        <div>
-          <h1 className="pt">Films</h1>
-          <p style={{ color: 'var(--tx3)', fontSize: '13px', marginTop: '4px' }}>
-            Hidden Reasons · 5 films a day · next at {nextSlotTime}
-          </p>
+      {/* Mobile view matching mockup 12 right phone */}
+      <div className="mobile-films-view" style={{ display: 'none' }}>
+        <div className="mtop">
+          <b>Films</b>
+          <span className="chip ok" style={{ marginLeft: 'auto', fontSize: '11px' }}>5 / day</span>
         </div>
-        <div className="tabs">
-          <span className={filter === 'all' ? 'on' : ''} onClick={() => setFilter('all')} style={{ cursor: 'pointer' }}>
-            All <i>{films.length}</i>
-          </span>
-          <span className={filter === 'ready' ? 'on' : ''} onClick={() => setFilter('ready')} style={{ cursor: 'pointer' }}>
-            Ready <i>{readyCount}</i>
-          </span>
-          <span className={filter === 'review' ? 'on' : ''} onClick={() => setFilter('review')} style={{ cursor: 'pointer' }}>
-            Review <i>{reviewCount}</i>
-          </span>
-          <span className={filter === 'making' ? 'on' : ''} onClick={() => setFilter('making')} style={{ cursor: 'pointer' }}>
-            Making <i>{makingCount}</i>
-          </span>
+        <div className="mstat">
+          <div>
+            <b>{films.length}</b>
+            <span>films made</span>
+          </div>
+          <div>
+            <b>{makingCount}</b>
+            <span>running now</span>
+          </div>
+          <div>
+            <b>{reviewCount}</b>
+            <span>need review</span>
+          </div>
         </div>
-      </div>
-
-      {/* Stats row */}
-      <div className="stats">
-        <div className="st">
-          <span>Films this week</span>
-          <b>{filmsThisWeek || '5'}</b>
-          <i>releases last 7 days</i>
-        </div>
-        <div className="st">
-          <span>Passed every check</span>
-          <b>{passedPct}%</b>
-          <i>{passedThisWeek} of {filmsThisWeek || '5'} passed first time</i>
-        </div>
-        <div className="st">
-          <span>Next film</span>
-          <b>{nextSlotTime}</b>
-          <i>in ~2 h</i>
-        </div>
-        <div className="st">
-          <span>Cost</span>
-          <b>$0</b>
-          <i>always free tiers</i>
-        </div>
-      </div>
-
-      {/* Main split row */}
-      <div className="row2">
-        {/* Left column: Grid of film cards */}
-        <div className="left">
-          {filteredFilms.length === 0 ? (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', paddingBottom: '30px' }}>
+          {films.map(film => (
             <div
-              style={{
-                padding: '48px',
-                textAlign: 'center',
-                background: 'var(--s1)',
-                borderRadius: '14px',
-                boxShadow: '0 0 0 1px var(--line) inset',
-                color: 'var(--tx3)',
-                fontSize: '14px',
-              }}
+              key={film.id}
+              className="mc"
+              onClick={() => onSelectFilm(film.id)}
+              style={{ cursor: 'pointer' }}
             >
-              No films matching this filter.
+              <img
+                src={film.contact?.url || film.video?.poster || '/img/hook.jpg'}
+                alt={film.title}
+              />
+              <div>
+                <b>{film.title}</b>
+                <Chip status={film.status} />
+              </div>
             </div>
-          ) : (
-            <div className="grid">
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop view matching mockup 08 */}
+      <div className="desktop-films-view">
+        {/* Header */}
+        <div className="hd">
+          <div>
+            <h1 className="pt">Films</h1>
+            <p style={{ color: 'var(--tx3)', fontSize: '13px', marginTop: '4px' }}>
+              Hidden Reasons · 5 films a day · next at {nextSlotTime}
+            </p>
+          </div>
+          <div className="tabs">
+            <span className={filter === 'all' ? 'on' : ''} onClick={() => setFilter('all')} style={{ cursor: 'pointer' }}>
+              All <i>{films.length}</i>
+            </span>
+            <span className={filter === 'ready' ? 'on' : ''} onClick={() => setFilter('ready')} style={{ cursor: 'pointer' }}>
+              Ready <i>{readyCount}</i>
+            </span>
+            <span className={filter === 'review' ? 'on' : ''} onClick={() => setFilter('review')} style={{ cursor: 'pointer' }}>
+              Review <i>{reviewCount}</i>
+            </span>
+            <span className={filter === 'making' ? 'on' : ''} onClick={() => setFilter('making')} style={{ cursor: 'pointer' }}>
+              Making <i>{makingCount}</i>
+            </span>
+          </div>
+        </div>
+
+        {/* Stats row */}
+        <div className="stats">
+          <div className="st">
+            <span>Films this week</span>
+            <b>{filmsThisWeek || '5'}</b>
+            <i>releases last 7 days</i>
+          </div>
+          <div className="st">
+            <span>Passed every check</span>
+            <b>{passedPct}%</b>
+            <i>{passedThisWeek} of {filmsThisWeek || '5'} passed first time</i>
+          </div>
+          <div className="st">
+            <span>Next film</span>
+            <b>{nextSlotTime}</b>
+            <i>in ~2 h</i>
+          </div>
+          <div className="st">
+            <span>Cost</span>
+            <b>$0</b>
+            <i>always free tiers</i>
+          </div>
+        </div>
+
+        {/* Main split row */}
+        <div className="row2">
+          {/* Left column: Grid of film cards */}
+          <div className="left">
+            {filteredFilms.length === 0 ? (
+              <div
+                style={{
+                  padding: '48px',
+                  textAlign: 'center',
+                  background: 'var(--s1)',
+                  borderRadius: '14px',
+                  boxShadow: '0 0 0 1px var(--line) inset',
+                  color: 'var(--tx3)',
+                  fontSize: '14px',
+                }}
+              >
+                No films matching this filter.
+              </div>
+            ) : (
+              <div className="grid">
               {filteredFilms.map(film => (
                 <div
                   key={film.id}
@@ -266,6 +309,7 @@ export const FilmsView: React.FC<FilmsViewProps> = ({ onSelectFilm, onNavigate }
             ))}
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

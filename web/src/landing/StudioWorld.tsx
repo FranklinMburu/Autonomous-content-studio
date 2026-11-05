@@ -11,14 +11,20 @@ export const StudioWorld: React.FC = () => {
 
   // Compute live numbers
   const sevenDaysAgo = new Date(Date.now() - 7 * 86400000);
-  const filmsMadeWeek = films.filter(f => f.at && new Date(f.at) >= sevenDaysAgo).length || 5;
-  const shotsPainted = filmsMadeWeek * 30;
-  const factsChecked = filmsMadeWeek * 14;
+  const targetFilms = films.filter(f => f.at && new Date(f.at) >= sevenDaysAgo).length || 5;
+  const targetShots = targetFilms * 30;
+  const targetFacts = targetFilms * 14;
+
+  const [displayFilms, setDisplayFilms] = useState(0);
+  const [displayShots, setDisplayShots] = useState(0);
+  const [displayFacts, setDisplayFacts] = useState(0);
 
   useEffect(() => {
-    let animId = 0;
     const canvas = canvasRef.current;
     if (!canvas) return;
+
+    // Clean up previous .wl labels if any exist
+    canvas.parentElement?.querySelectorAll('.wl').forEach(el => el.remove());
 
     // Run world initialization
     world(canvas, {
@@ -34,7 +40,9 @@ export const StudioWorld: React.FC = () => {
 
     const observer = new IntersectionObserver(
       entries => {
-        setIsVisible(entries[0].isIntersecting);
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        }
       },
       { threshold: 0.15 }
     );
@@ -43,16 +51,40 @@ export const StudioWorld: React.FC = () => {
 
     return () => {
       observer.disconnect();
-      cancelAnimationFrame(animId);
+      canvas.parentElement?.querySelectorAll('.wl').forEach(el => el.remove());
     };
   }, []);
+
+  // 800ms Count-up animation when visible
+  useEffect(() => {
+    if (!isVisible) return;
+    const duration = 800;
+    const startTime = performance.now();
+
+    const frame = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(1, elapsed / duration);
+      // easeOutExpo
+      const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+
+      setDisplayFilms(Math.round(ease * targetFilms));
+      setDisplayShots(Math.round(ease * targetShots));
+      setDisplayFacts(Math.round(ease * targetFacts));
+
+      if (progress < 1) {
+        requestAnimationFrame(frame);
+      }
+    };
+
+    requestAnimationFrame(frame);
+  }, [isVisible, targetFilms, targetShots, targetFacts]);
 
   return (
     <section
       ref={sectionRef}
       style={{
         position: 'relative',
-        height: '900px',
+        minHeight: '900px',
         width: '100%',
         overflow: 'hidden',
         background: 'radial-gradient(800px 600px at 50% 50%, #131318, #0B0B0F 70%)',
@@ -65,16 +97,15 @@ export const StudioWorld: React.FC = () => {
         ref={canvasRef}
         style={{
           position: 'absolute',
-          left: '50%',
+          left: 'calc(50% - 450px)',
           top: '0px',
-          transform: 'translateX(-50%)',
           width: '900px',
           height: '900px',
           display: 'block',
         }}
       />
 
-      <div style={{ maxWidth: '1440px', margin: '0 auto', height: '100%', position: 'relative' }}>
+      <div style={{ maxWidth: '1440px', margin: '0 auto', height: '100%', minHeight: '900px', position: 'relative' }}>
         {/* Left Headline */}
         <div className="wtitle">
           <div className="eyebrow">The Studio World</div>
@@ -88,18 +119,18 @@ export const StudioWorld: React.FC = () => {
           </p>
         </div>
 
-        {/* Right computed numbers */}
+        {/* Right computed numbers with 800ms countUp */}
         <div className="nums">
           <div className="nm">
-            <b>{filmsMadeWeek}</b>
+            <b>{isVisible ? displayFilms : '—'}</b>
             <span>films made this week</span>
           </div>
           <div className="nm">
-            <b>{shotsPainted}</b>
+            <b>{isVisible ? displayShots : '—'}</b>
             <span>shots painted</span>
           </div>
           <div className="nm">
-            <b>{factsChecked}</b>
+            <b>{isVisible ? displayFacts : '—'}</b>
             <span>facts checked against sources</span>
           </div>
           <div className="nm">

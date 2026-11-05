@@ -58,10 +58,9 @@ export const Family: React.FC<FamilyProps> = ({ activeKey, onSelectFamily }) => 
 
   return (
     <section
+      className="family-sec"
       style={{
         position: 'relative',
-        minHeight: '560px',
-        padding: '70px 0 60px',
         width: '100%',
         overflow: 'hidden',
       }}

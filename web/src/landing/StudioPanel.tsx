@@ -15,6 +15,7 @@ export const StudioPanel: React.FC<StudioPanelProps> = ({
   const { navigate } = useStudio();
   const [hintsVisible, setHintsVisible] = useState(true);
   const [scale, setScale] = useState(0.8611);
+  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
@@ -22,7 +23,9 @@ export const StudioPanel: React.FC<StudioPanelProps> = ({
   // Resize calculation to keep scaling crisp
   useEffect(() => {
     const updateScale = () => {
-      if (frameRef.current) {
+      const mob = window.innerWidth < 640;
+      setIsMobile(mob);
+      if (!mob && frameRef.current) {
         const frameW = frameRef.current.clientWidth;
         setScale(frameW / 1440);
       }
@@ -152,22 +155,33 @@ export const StudioPanel: React.FC<StudioPanelProps> = ({
             overflow: 'hidden',
           }}
         >
-          <div
-            style={{
-              width: '1440px',
-              height: '887px',
-              transform: `scale(${scale})`,
-              transformOrigin: '0 0',
-              position: 'relative',
-            }}
-          >
-            <AppShell
-              embedded
-              embeddedRoute={embeddedRoute}
-              onEmbeddedRouteChange={onEmbeddedRouteChange}
-              onFirstInteraction={handleFirstClick}
-            />
-          </div>
+          {isMobile ? (
+            <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+              <AppShell
+                embedded
+                embeddedRoute={embeddedRoute}
+                onEmbeddedRouteChange={onEmbeddedRouteChange}
+                onFirstInteraction={handleFirstClick}
+              />
+            </div>
+          ) : (
+            <div
+              style={{
+                width: '1440px',
+                height: '887px',
+                transform: `scale(${scale})`,
+                transformOrigin: '0 0',
+                position: 'relative',
+              }}
+            >
+              <AppShell
+                embedded
+                embeddedRoute={embeddedRoute}
+                onEmbeddedRouteChange={onEmbeddedRouteChange}
+                onFirstInteraction={handleFirstClick}
+              />
+            </div>
+          )}
         </div>
       </div>
 
