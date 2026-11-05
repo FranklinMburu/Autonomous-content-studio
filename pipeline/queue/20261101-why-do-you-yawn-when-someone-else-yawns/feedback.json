@@ -5,5 +5,12 @@
   "problems": [
    "fact check: 1 unsupported, 2 partial claims: A single yawn can set off a chain reaction in a room.; When you see someone yawn, mirror neurons fire and immediately trigger the brain’s yawning centre activates.; Yawns spread most among close companions, family members, and strangers;"
   ]
+ },
+ {
+  "at": "2026-11-05T07:22:37+00:00",
+  "backup": true,
+  "problems": [
+   "backup polish failed: no model in tier 'standard' could answer (groq:openai/gpt-oss-120b: invalid output; groq:openai/gpt-oss-120b: invalid output; google:gemini-3.6-flash: circuit open after 3 failures in a row (HTTP 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"Thi); nvidia:minimaxai/minimax-m3.1-flash: HTTP 0)"
+  ]
  }
 ]
