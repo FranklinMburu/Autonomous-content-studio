@@ -19,12 +19,12 @@ export const PricingPage: React.FC = () => {
             Free while we build.
           </h1>
           <p style={{ color: 'var(--tx2)', fontSize: '17px', marginTop: '8px', maxWidth: '580px', margin: '8px auto 0' }}>
-            Candela runs on free-tier APIs and open models today. No subscriptions, no hidden tokens.
+            Candela runs on free tiers. Plans for teams are planned.
           </p>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '40px' }}>
-          {/* Builder Tier (Current, 100% Free) */}
+          {/* Card 1: Studio — Free */}
           <div
             style={{
               padding: '32px 28px',
@@ -38,27 +38,27 @@ export const PricingPage: React.FC = () => {
           >
             <div>
               <span className="chip ok" style={{ marginBottom: '10px' }}>CURRENT TIER</span>
-              <h2 style={{ fontSize: '26px', fontWeight: 700 }}>Open Studio</h2>
+              <h2 style={{ fontSize: '26px', fontWeight: 700 }}>Studio — Free</h2>
               <div style={{ fontSize: '36px', fontWeight: 800, marginTop: '8px', letterSpacing: '-0.03em' }}>
                 $0 <span style={{ fontSize: '14px', color: 'var(--tx3)', fontWeight: 500 }}>/ month</span>
               </div>
               <p style={{ fontSize: '13px', color: 'var(--tx2)', marginTop: '8px' }}>
-                Full access to our open-source autonomous pipeline on GitHub Actions.
+                5 films a day per channel, built on GitHub Actions and Kaggle free tiers.
               </p>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '13.5px', color: 'var(--tx2)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <CheckCircle size={16} color="#3FB950" weight="duotone" />
-                <span>5 true-story films per day</span>
+                <span>5 films a day per channel</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <CheckCircle size={16} color="#3FB950" weight="duotone" />
+                <span>GitHub + Kaggle free tiers</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <CheckCircle size={16} color="#3FB950" weight="duotone" />
                 <span>Fact-checking against primary sources</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <CheckCircle size={16} color="#3FB950" weight="duotone" />
-                <span>Kaggle T4 × 2 GPU painting engine</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <CheckCircle size={16} color="#3FB950" weight="duotone" />
@@ -75,7 +75,7 @@ export const PricingPage: React.FC = () => {
             </button>
           </div>
 
-          {/* Planned Pro Tier */}
+          {/* Card 2: Teams — Planned */}
           <div
             style={{
               padding: '32px 28px',
@@ -92,9 +92,9 @@ export const PricingPage: React.FC = () => {
               <span className="chip" style={{ background: 'rgba(255,255,255,0.06)', color: 'var(--tx2)', marginBottom: '10px' }}>
                 PLANNED
               </span>
-              <h2 style={{ fontSize: '26px', fontWeight: 700 }}>Pro Studio</h2>
+              <h2 style={{ fontSize: '26px', fontWeight: 700 }}>Teams — Planned</h2>
               <div style={{ fontSize: '36px', fontWeight: 800, marginTop: '8px', letterSpacing: '-0.03em', color: 'var(--tx3)' }}>
-                TBD <span style={{ fontSize: '14px', color: 'var(--tx3)', fontWeight: 500 }}>once launched</span>
+                Planned <span style={{ fontSize: '14px', color: 'var(--tx3)', fontWeight: 500 }}>(no price)</span>
               </div>
               <p style={{ fontSize: '13px', color: 'var(--tx2)', marginTop: '8px' }}>
                 For multi-channel creator teams needing automated direct YouTube publishing.

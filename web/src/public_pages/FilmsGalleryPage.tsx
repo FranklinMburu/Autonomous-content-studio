@@ -4,6 +4,7 @@ import { Nav } from '../landing/Nav';
 import { Footer } from '../landing/Footer';
 import { Chip } from '../ui/Chip';
 import { useStudio } from '../context/StudioContext';
+import placesData from '../lib/places.json';
 
 export const FilmsGalleryPage: React.FC = () => {
   const { films, navigate } = useStudio();
@@ -49,75 +50,90 @@ export const FilmsGalleryPage: React.FC = () => {
               gap: '24px',
             }}
           >
-            {finishedFilms.map(film => (
-              <div
-                key={film.id}
-                onClick={() => navigate(`/films/${film.id}`)}
-                style={{
-                  cursor: 'pointer',
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  background: 'var(--s1)',
-                  boxShadow: '0 0 0 1px var(--line) inset',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  transition: 'transform 200ms ease',
-                }}
-              >
-                <div style={{ position: 'relative', width: '100%', height: '340px', overflow: 'hidden' }}>
-                  {film.video?.url ? (
-                    <video
-                      src={`${film.video.url}#t=0.5`}
-                      preload="metadata"
-                      muted
-                      playsInline
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            {finishedFilms.map(film => {
+              const epKey = film.episode || film.id;
+              const placeMatch =
+                (placesData.episodes as any)?.[epKey] ||
+                placesData.topics?.find((t: any) => t.match && film.title?.toLowerCase().includes(t.match.toLowerCase()));
+              const placeLine = placeMatch?.name
+                ? `${placeMatch.name.toUpperCase()}${placeMatch.year ? ` · ${placeMatch.year}` : ''}`
+                : null;
+
+              return (
+                <div
+                  key={film.id}
+                  onClick={() => navigate(`/films/${film.id}`)}
+                  style={{
+                    cursor: 'pointer',
+                    borderRadius: '16px',
+                    overflow: 'hidden',
+                    background: 'var(--s1)',
+                    boxShadow: '0 0 0 1px var(--line) inset',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    transition: 'transform 200ms ease',
+                  }}
+                >
+                  <div style={{ position: 'relative', width: '100%', height: '340px', overflow: 'hidden' }}>
+                    {film.video?.url ? (
+                      <video
+                        src={`${film.video.url}#t=0.5`}
+                        preload="metadata"
+                        muted
+                        playsInline
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    ) : film.contact?.url ? (
+                      <img
+                        src={film.contact.url}
+                        alt={film.title}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    ) : (
+                      <div
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          display: 'grid',
+                          placeItems: 'center',
+                          color: 'var(--tx3)',
+                        }}
+                      >
+                        <FilmStrip size={36} weight="duotone" />
+                      </div>
+                    )}
+                    <Chip
+                      status={film.status}
+                      style={{ position: 'absolute', top: '10px', left: '10px' }}
                     />
-                  ) : film.contact?.url ? (
-                    <img
-                      src={film.contact.url}
-                      alt={film.title}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    />
-                  ) : (
                     <div
                       style={{
-                        width: '100%',
-                        height: '100%',
+                        position: 'absolute',
+                        inset: 0,
+                        background: 'rgba(0,0,0,0.2)',
                         display: 'grid',
                         placeItems: 'center',
-                        color: 'var(--tx3)',
+                        opacity: 0.8,
                       }}
                     >
-                      <FilmStrip size={36} weight="duotone" />
+                      <PlayCircle size={44} weight="duotone" color="#FFF" />
                     </div>
-                  )}
-                  <Chip
-                    status={film.status}
-                    style={{ position: 'absolute', top: '10px', left: '10px' }}
-                  />
-                  <div
-                    style={{
-                      position: 'absolute',
-                      inset: 0,
-                      background: 'rgba(0,0,0,0.2)',
-                      display: 'grid',
-                      placeItems: 'center',
-                      opacity: 0.8,
-                    }}
-                  >
-                    <PlayCircle size={44} weight="duotone" color="#FFF" />
+                  </div>
+
+                  <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    {placeLine && (
+                      <span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--amber2)', letterSpacing: '0.04em' }}>
+                        {placeLine}
+                      </span>
+                    )}
+                    <b style={{ fontSize: '14.5px', color: 'var(--tx)' }}>{film.title}</b>
+                    <span style={{ fontSize: '12px', color: 'var(--tx3)' }}>
+                      {film.at ? new Date(film.at).toLocaleDateString() : '—'}
+                    </span>
                   </div>
                 </div>
-
-                <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                  <b style={{ fontSize: '14.5px', color: 'var(--tx)' }}>{film.title}</b>
-                  <span style={{ fontSize: '12px', color: 'var(--tx3)' }}>
-                    {film.at ? new Date(film.at).toLocaleDateString() : '—'}
-                  </span>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </main>

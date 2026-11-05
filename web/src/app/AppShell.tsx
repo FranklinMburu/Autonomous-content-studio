@@ -98,6 +98,28 @@ export const AppShell: React.FC<AppShellProps> = ({
         />
       );
     }
+    // Runs detail
+    if (activeRoute.startsWith('/app/runs/')) {
+      const runId = activeRoute.replace('/app/runs/', '');
+      return (
+        <RunsView
+          initialRunId={runId}
+          onBack={() => handleNavigate('/app/runs')}
+          onSelectRun={id => handleNavigate(`/app/runs/${id}`)}
+        />
+      );
+    }
+    // Review detail
+    if (activeRoute.startsWith('/app/review/')) {
+      const issueNumber = activeRoute.replace('/app/review/', '');
+      return (
+        <ReviewView
+          initialIssueId={issueNumber}
+          onBack={() => handleNavigate('/app/review')}
+          onSelectIssue={num => handleNavigate(`/app/review/${num}`)}
+        />
+      );
+    }
 
     switch (activeRoute) {
       case '/app':
@@ -109,9 +131,9 @@ export const AppShell: React.FC<AppShellProps> = ({
           />
         );
       case '/app/runs':
-        return <RunsView />;
+        return <RunsView onSelectRun={id => handleNavigate(`/app/runs/${id}`)} />;
       case '/app/review':
-        return <ReviewView />;
+        return <ReviewView onSelectIssue={num => handleNavigate(`/app/review/${num}`)} />;
       case '/app/polish':
         return <PolishView />;
       case '/app/upload':
@@ -153,6 +175,8 @@ export const AppShell: React.FC<AppShellProps> = ({
   const getPageName = () => {
     if (activeRoute.startsWith('/app/films/')) return 'Film Detail';
     if (activeRoute.startsWith('/app/channels/')) return 'Channel Detail';
+    if (activeRoute.startsWith('/app/runs/')) return 'Run Detail';
+    if (activeRoute.startsWith('/app/review/')) return 'Review';
     const sub = activeRoute.replace('/app/', '');
     if (!sub || sub === '/app') return 'Films';
     return sub.charAt(0).toUpperCase() + sub.slice(1);

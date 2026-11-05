@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Eye,
   CheckCircle,
@@ -8,14 +8,36 @@ import {
   MagicWand,
   Books,
   Check,
+  ArrowLeft,
 } from '@phosphor-icons/react';
 import { Chip } from '../../ui/Chip';
 import { useStudio } from '../../context/StudioContext';
 
-export const ReviewView: React.FC = () => {
+export interface ReviewViewProps {
+  initialIssueId?: string;
+  onBack?: () => void;
+  onSelectIssue?: (issueId: string) => void;
+}
+
+export const ReviewView: React.FC<ReviewViewProps> = ({
+  initialIssueId,
+  onBack,
+  onSelectIssue,
+}) => {
   const { reviewItems, polishItems, films, studio } = useStudio();
-  const [selectedIssue, setSelectedIssue] = useState<any>(reviewItems[0] || null);
+  const [selectedIssue, setSelectedIssue] = useState<any>(null);
   const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (initialIssueId) {
+      const match = reviewItems.find(
+        r => String(r.number || r.id) === String(initialIssueId) || r.episode === initialIssueId
+      );
+      if (match) setSelectedIssue(match);
+    } else if (!selectedIssue && reviewItems.length > 0) {
+      setSelectedIssue(reviewItems[0]);
+    }
+  }, [reviewItems, initialIssueId]);
 
   const activeIssue = selectedIssue || reviewItems[0];
   const relatedFilm = films.find(f => f.episode === activeIssue?.episode || f.title === activeIssue?.title);

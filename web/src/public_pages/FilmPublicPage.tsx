@@ -126,6 +126,57 @@ export const FilmPublicPage: React.FC<FilmPublicPageProps> = ({ filmId }) => {
               {film.title}
             </h1>
 
+            {/* Story in one paragraph (first two script lines) */}
+            <p style={{ fontSize: '15.5px', lineHeight: 1.6, color: 'var(--tx2)', marginBottom: '20px' }}>
+              {(episodeData?.script?.lines?.slice(0, 2).join(' ')) ||
+                (episodeData?.script?.beats?.slice(0, 2).map((b: any) => b.line || b.narration || b.text).join(' ')) ||
+                'True history researched from primary sources, medical journals, and museum archives, brought to life through autonomous painting pipelines.'}
+            </p>
+
+            {/* Made with Candela strip */}
+            <div
+              style={{
+                padding: '14px 18px',
+                borderRadius: '12px',
+                background: 'var(--s1)',
+                boxShadow: '0 0 0 1px var(--line) inset',
+                marginBottom: '20px',
+              }}
+            >
+              <div
+                style={{
+                  fontSize: '11px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  color: 'var(--amber2)',
+                  fontWeight: 650,
+                  marginBottom: '8px',
+                }}
+              >
+                Made with Candela
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  flexWrap: 'wrap',
+                  fontSize: '12.5px',
+                  color: 'var(--tx2)',
+                }}
+              >
+                <span>Research</span>
+                <span style={{ color: 'var(--tx3)' }}>→</span>
+                <span>Script</span>
+                <span style={{ color: 'var(--tx3)' }}>→</span>
+                <span>Fact check</span>
+                <span style={{ color: 'var(--tx3)' }}>→</span>
+                <span>Painted</span>
+                <span style={{ color: 'var(--tx3)' }}>→</span>
+                <span style={{ color: '#3FB950', fontWeight: 600 }}>Checked</span>
+              </div>
+            </div>
+
             <div
               style={{
                 padding: '14px 16px',

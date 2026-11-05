@@ -1,19 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { CaretRight, ArrowSquareOut, Clock } from '@phosphor-icons/react';
+import { CaretRight, ArrowSquareOut, Clock, ArrowLeft } from '@phosphor-icons/react';
 import { Chip } from '../../ui/Chip';
 import { useStudio } from '../../context/StudioContext';
 
-export const RunsView: React.FC = () => {
+export interface RunsViewProps {
+  initialRunId?: string;
+  onBack?: () => void;
+  onSelectRun?: (runId: string) => void;
+}
+
+export const RunsView: React.FC<RunsViewProps> = ({
+  initialRunId,
+  onBack,
+  onSelectRun,
+}) => {
   const { runs, topics, nextSlots, studio } = useStudio();
   const [filter, setFilter] = useState<'all' | 'making' | 'needs_you' | 'failed'>('all');
-  const [selectedRun, setSelectedRun] = useState<any>(runs[0] || null);
+  const [selectedRun, setSelectedRun] = useState<any>(null);
   const [timelineSteps, setTimelineSteps] = useState<any[]>([]);
+  const [mobileDetailOpen, setMobileDetailOpen] = useState(false);
 
   useEffect(() => {
-    if (!selectedRun && runs.length > 0) {
+    if (initialRunId) {
+      const match = runs.find(r => String(r.id) === String(initialRunId));
+      if (match) {
+        setSelectedRun(match);
+        setMobileDetailOpen(true);
+      }
+    } else if (!selectedRun && runs.length > 0) {
       setSelectedRun(runs[0]);
     }
-  }, [runs, selectedRun]);
+  }, [runs, initialRunId]);
 
   useEffect(() => {
     if (selectedRun && selectedRun.id) {
@@ -45,6 +62,80 @@ export const RunsView: React.FC = () => {
     if (slot instanceof Date) return slot.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
     return String(slot);
   };
+
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+
+  if (isMobile && mobileDetailOpen && selectedRun) {
+    return (
+      <div className="content" style={{ overflowY: 'auto' }}>
+        <button
+          onClick={() => {
+            setMobileDetailOpen(false);
+            if (onBack) onBack();
+          }}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            background: 'none',
+            border: 'none',
+            color: 'var(--tx3)',
+            cursor: 'pointer',
+            fontSize: '13px',
+            marginBottom: '16px',
+            padding: 0,
+          }}
+        >
+          <ArrowLeft size={16} />
+          <span>Back to Runs</span>
+        </button>
+
+        <div className="detail" style={{ width: '100%' }}>
+          <div className="dtop">
+            <b style={{ fontSize: '15px' }}>{selectedRun.title || selectedRun.workflow}</b>
+            <Chip status={selectedRun.state} />
+          </div>
+          <div className="meta">
+            <span>Started: {selectedRun.started ? new Date(selectedRun.started).toLocaleTimeString() : '—'}</span>
+            <span>Duration: {selectedRun.minutes ? `${selectedRun.minutes} min` : '—'}</span>
+          </div>
+
+          <div style={{ marginTop: '16px' }}>
+            <b style={{ fontSize: '13px', color: 'var(--tx)', display: 'block', marginBottom: '10px' }}>
+              Execution Timeline
+            </b>
+            {timelineSteps.map((step, idx) => {
+              const isOk = step.state === 'completed' || step.conclusion === 'success';
+              const isNow = step.state === 'in_progress';
+              return (
+                <div key={idx} className={`ds ${isOk ? 'ok' : isNow ? 'now' : ''}`}>
+                  <span className="b" />
+                  <b>{step.name}</b>
+                  <span className="m">{isOk ? 'Completed' : isNow ? 'Running...' : 'Queued'}</span>
+                  <span className="t">{step.duration ? `${step.duration}s` : '—'}</span>
+                </div>
+              );
+            })}
+          </div>
+
+          {selectedRun.url && (
+            <div style={{ marginTop: '24px' }}>
+              <a
+                href={selectedRun.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn sec"
+                style={{ width: '100%', justifyContent: 'center', height: '36px', fontSize: '13px', textDecoration: 'none' }}
+              >
+                <span>Open on GitHub</span>
+                <ArrowSquareOut size={14} />
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="content" style={{ overflowY: 'auto' }}>
@@ -78,7 +169,11 @@ export const RunsView: React.FC = () => {
                 <div
                   key={run.id}
                   className="runrow"
-                  onClick={() => setSelectedRun(run)}
+                  onClick={() => {
+                    setSelectedRun(run);
+                    setMobileDetailOpen(true);
+                    if (onSelectRun) onSelectRun(String(run.id));
+                  }}
                   style={{
                     cursor: 'pointer',
                     background: isSelected ? 'rgba(245,165,36,0.08)' : undefined,
