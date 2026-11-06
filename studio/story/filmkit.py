@@ -41,6 +41,11 @@ FILM_RULES = """FILM SHOT LIST RULES (the pictures are painted by an image AI in
   their description. One single scene. NO text, signs, letters, labels, logos or numbers in the picture.
   Keep each prompt short (under 260 characters): the image model only reads the beginning.
   Mix shot sizes; change places as the story moves; never the same place more than 3 shots in a row.
+- Paint what the image AI CAN paint (it got 11 of 36 shots wrong on 6 Nov): ONE main subject that fills the frame.
+  Simple poses work (kneeling, pointing, holding up, pouring, lying in bed, writing). These fail, so avoid them:
+  two things in an exact relation ("a boot between a well and a pit"), hands doing a fiddly job to an object
+  ("pulling the handle off a pump"), and small objects in a wide shot. Show such moments as a close-up of the
+  result instead ("a water pump with no handle, close-up").
 - Every shot shows a visible ACTION with a verb (scrubbing, kneeling, pouring, pointing, lying sick), never people
   just sitting or posing for a portrait.
 - Never draw ideas or invisible things (germs, bacteria, acid, infection, "decay", "the reason") as creatures, faces or
@@ -53,7 +58,8 @@ FILM_RULES = """FILM SHOT LIST RULES (the pictures are painted by an image AI in
   places, objects and calm moments.
 - "check": a short yes/no question about the ONE thing that must be visible for the shot to be right, answered
   "yes" when it is ("Is a woman kneeling?", "Is there a raw chicken?"). A vision model asks it about every painted
-  picture; a "no" repaints the shot. Keep it simple and visual (no names, no story knowledge).
+  picture; a "no" repaints the shot. Keep it simple and visual (no names, no story knowledge). Ask about the main
+  subject named at the START of the prompt, using the same words ("a brick well" in both), not a small detail.
 - "era": top level, when the story happens ("1840s", "1950s", "today"). Pictures of past eras are also checked for
   modern things (electric lights, cars, phones).
 - "xfade": true on 3-6 shots that start a new part of the story (a crossfade from the shot before).
