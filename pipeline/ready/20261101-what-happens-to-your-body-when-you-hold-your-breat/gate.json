@@ -1,0 +1,73 @@
+{
+ "at": "2026-11-06T09:47:11+00:00",
+ "offline": [],
+ "fact_check": {
+  "results": [
+   {
+    "claim": "Your urge to breathe mostly isn't about oxygen.",
+    "verdict": "supported",
+    "evidence": "Source 1 states that 'the urge to breath is primarily driven by rising carbon dioxide (CO2) levels rather than falling oxygen levels.'"
+   },
+   {
+    "claim": "Hold your breath, and your oxygen stores start running down.",
+    "verdict": "supported",
+    "evidence": "Source 2 notes that 'the partial pressure of the oxygen in the lung gas is depleted during the dive', and Source 1 references oxygen reserves being consumed and dropping during a breath-hold."
+   },
+   {
+    "claim": "The urge to breathe is driven mainly by rising carbon dioxide, not falling oxygen.",
+    "verdict": "supported",
+    "evidence": "Source 1 explicitly states: 'the urge to breath is primarily driven by rising carbon dioxide (CO2) levels rather than falling oxygen levels.'"
+   },
+   {
+    "claim": "Fast, deep breathing before a dive is so dangerous.",
+    "verdict": "supported",
+    "evidence": "Source 1 states that hyperventilating just before a dive provokes blackouts and that freedivers are strongly advised against it due to high risk."
+   },
+   {
+    "claim": "It lowers carbon dioxide, delays the warning, and can fool your brain into feeling comfortable while oxygen sinks.",
+    "verdict": "supported",
+    "evidence": "Source 1 states that 'Hyperventilation just before a dive significantly reduces carbon dioxide levels in the blood which delays the body's warning signals to breathe and can mislead the brain into feeling comfortable despite oxygen levels dropping to dangerous levels.'"
+   },
+   {
+    "claim": "The riskiest moment is the way up.",
+    "verdict": "supported",
+    "evidence": "Source 1 states that 'Blackouts are more likely to occur when divers ascend to the surface compared with descending or while at depth.'"
+   },
+   {
+    "claim": "As a diver rises, oxygen pressure in the lungs drops, and oxygen can fall so fast that blackout comes within seconds.",
+    "verdict": "supported",
+    "evidence": "Source 1 explains that as a diver ascends, pressure lowers, 'which causes partial pressure in their lungs to drop. This can rapidly reduce oxygen levels available to the body... blackouts can occur within seconds.'"
+   },
+   {
+    "claim": "The victims are often fit, strong swimmers who have done many dives before.",
+    "verdict": "supported",
+    "evidence": "Source 1 states that 'victims are often established practitioners of breath-hold diving, are fit, strong swimmers and have completed many dives before without previous problems.'"
+   },
+   {
+    "claim": "If a breath hold feels easy, don't trust it: stay within your limits and come up slowly.",
+    "verdict": "supported",
+    "evidence": "Source 1 notes that hyperventilation misleads the brain into feeling comfortable and that 'Safety guidelines advises divers to keep within their limits, be aware of their body signals, and to ascend slowly.'"
+   }
+  ],
+  "counts": {
+   "supported": 9,
+   "partial": 0,
+   "unsupported": 0
+  },
+  "model": "google:gemini-3.6-flash"
+ },
+ "judge": {
+  "index": 1,
+  "scores": {
+   "1": 3,
+   "2": 5
+  },
+  "reason": "Candidate 2 adheres strictly to the provided sources with 100% accuracy, whereas Candidate 1 includes claims about injuring neurons that are not present in the source text.",
+  "model": "google:gemini-3.6-flash"
+ },
+ "score": {
+  "score": 5,
+  "reason": "All claims are accurate to the sources, the hook is concise and intriguing, the narrative flows to a fresh payoff, and the visual cues match the spoken content.",
+  "model": "groq:openai/gpt-oss-120b"
+ }
+}
