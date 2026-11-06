@@ -57,7 +57,7 @@ for name, slug in slugs.items():
 flat = Path("lab_publish"); flat.mkdir(exist_ok=True)
 for name in slugs:
     for f in (Path("lab_out") / name).rglob("*"):
-        if f.is_file() and f.suffix in (".mp4", ".png", ".txt", ".wav", ".log", ".json") and f.parent.name != "jobs":
+        if f.is_file() and f.suffix in (".mp4", ".webm", ".png", ".jpg", ".txt", ".wav", ".log", ".json") and f.parent.name != "jobs":
             shutil.copy(f, flat / f"{name}__{f.name}")
 print("FINAL:", done)
 # a script that crashed still "completes" on Kaggle: fail the run (after publishing, so the logs stay readable)
