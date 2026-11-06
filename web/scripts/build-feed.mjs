@@ -25,6 +25,13 @@ await Promise.all([s.reviewQueue(), s.polishQueue(), s.uploadQueue(), s.uploaded
 const runs = await s.runs(50);
 await s.runs(30);
 for (const r of runs.slice(0, 12)) await s.runSteps(r.id);
+// what earlier films used (topics, cast, music): the pipeline's own memory, so the site knows which topics are done
+let memory = null;
+try {
+  const rels = await s.releases();
+  const asset = (rels.find(r => r.tag === "channel-memory")?.assets || []).find(a => a.name === "used.json");
+  if (asset) { const r = await realFetch(asset.url); if (r.ok) memory = await r.json(); }
+} catch (e) { console.log("memory: not included (" + e.message + ")"); }
 // keep the file small: drop what the site never reads (people, nested repos, API links)
 const DROP = new Set(["author", "uploader", "user", "actor", "triggering_actor", "head_commit", "repository", "head_repository",
   "reactions", "performed_via_github_app", "assignee", "assignees", "milestone", "closed_by", "pull_requests", "referenced_workflows",
@@ -34,6 +41,6 @@ const prune = v => Array.isArray(v) ? v.map(prune) : v && typeof v === "object"
   ? Object.fromEntries(Object.entries(v).filter(([k]) => !DROP.has(k) && !(k.endsWith("_url") && !KEEP_URL.has(k)) && k !== "url").map(([k, x]) => [k, prune(x)]))
   : v;
 for (const k of Object.keys(responses)) responses[k] = prune(responses[k]);
-const feed = { built: new Date().toISOString(), note: "Built by the Site feed workflow. Public data only.", responses };
+const feed = { built: new Date().toISOString(), note: "Built by the Site feed workflow. Public data only.", responses, memory };
 writeFileSync(out, JSON.stringify(feed));
 console.log(`feed: ${Object.keys(responses).length} answers, ${(JSON.stringify(feed).length / 1024).toFixed(0)} KB`);

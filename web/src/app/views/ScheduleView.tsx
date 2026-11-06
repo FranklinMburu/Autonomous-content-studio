@@ -1,14 +1,13 @@
 import React from 'react';
 import { CalendarDots, Clock, ArrowSquareOut } from '@phosphor-icons/react';
 import { useStudio } from '../../context/StudioContext';
-import { topicMade } from '../../lib/github-data.js';
 
 export const ScheduleView: React.FC = () => {
-  const { nextSlots, topics, films } = useStudio();
+  const { nextSlots, topics, isTopicMade } = useStudio();
 
   // Real slots (Date objects in your local time) grouped by calendar day; each slot takes the next topic that is
   // not made yet, in queue order (what the schedule workflow does).
-  const queue = topics.filter(t => !topicMade(t, films));
+  const queue = topics.filter(t => !isTopicMade(t));
   const dayKey = (d: Date) => d.toDateString();
   const today = new Date();
   const tomorrow = new Date(Date.now() + 86400000);

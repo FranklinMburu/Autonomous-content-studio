@@ -1,18 +1,17 @@
 import React from 'react';
 import { LightbulbFilament, ArrowSquareOut, MapPin } from '@phosphor-icons/react';
 import { useStudio } from '../../context/StudioContext';
-import { topicMade } from '../../lib/github-data.js';
 import placesData from '../../lib/places.json';
 
 export const TopicsView: React.FC = () => {
-  const { topics, films, studio } = useStudio();
+  const { topics, films, studio, isTopicMade } = useStudio();
 
   const getPlaceInfo = (topic: string) => {
     const p = placesData.topics.find(t => topic.toLowerCase().includes(t.match.toLowerCase()));
     return p && p.name ? `${p.name} · ${p.year}` : null;
   };
 
-  const isMade = (topic: string) => topicMade(topic, films);
+  const isMade = (topic: string) => isTopicMade(topic);
 
   return (
     <div className="content" style={{ overflowY: 'auto' }}>

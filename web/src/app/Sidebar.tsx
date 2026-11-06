@@ -25,7 +25,6 @@ import {
   MagnifyingGlass,
 } from '@phosphor-icons/react';
 import { Mark } from '../ui/Mark';
-import { topicMade } from '../lib/github-data.js';
 import { useStudio } from '../context/StudioContext';
 
 interface SidebarProps {
@@ -44,7 +43,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentRoute, onNavigate, onOp
     alerts,
     nextSlots,
     scheduleData,
-    films,
+    isTopicMade,
   } = useStudio();
 
   const growPages = [
@@ -67,7 +66,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentRoute, onNavigate, onOp
   const reviewCount = reviewItems.length;
   const polishCount = polishItems.length;
   const uploadCount = uploadItems.length;
-  const topicsCount = topics.filter((t: string) => !topicMade(t, films)).length;   // still to make
+  const topicsCount = topics.filter((t: string) => !isTopicMade(t)).length;   // still to make
   const hasAlerts = alerts.length > 0;
 
   // Next film calculation

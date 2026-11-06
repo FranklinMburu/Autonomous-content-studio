@@ -284,9 +284,11 @@ export function createStudio(opts = {}) {
     release: tag => `https://github.com/${repoPath}/releases/tag/${tag}`,
   };
 
+  // the pipeline's memory (channel-memory release, used.json), only via the feed: release downloads have no CORS
+  const usedMemory = async () => { const f = await loadFeed(); return (f && f.memory) || null; };
   const feedInfo = async () => { const f = await loadFeed(); return f ? { built: f.built } : null; };
 
-  return { cfg, feedInfo, releases, films, runs, runSteps, reviewQueue, polishQueue, uploadQueue, uploaded, alerts, statusBoard,
+  return { cfg, feedInfo, usedMemory, releases, films, runs, runSteps, reviewQueue, polishQueue, uploadQueue, uploaded, alerts, statusBoard,
            topics, schedule, nextSlots, episode, memorySeed, models, labRuns, links };
 }
 
@@ -343,7 +345,9 @@ export function buildGlobe(films, topics, places) {
 // Is this queued topic already made? Episode folders are named NNN-<first 40 chars of the topic as a slug>,
 // so a topic is done when some film's id (without the number) starts its slug. Same rule as the pipeline's queue.
 export function slugify(t) { return String(t).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+/, ""); }
-export function topicMade(topic, films) {
+export function topicKey(t) { return String(t).toLowerCase().replace(/[^a-z0-9]+/g, " ").trim(); }   // = topics.py key()
+export function topicMade(topic, films, used) {
+  if (used && Array.isArray(used.episodes) && used.episodes.some(e => topicKey(e.topic || "") === topicKey(topic))) return true;
   const s = slugify(topic);
   return (films || []).some(f => { const id = String(f.id || "").replace(/^\d+-/, "").replace(/-+$/, ""); return id.length > 8 && s.startsWith(id); });
 }

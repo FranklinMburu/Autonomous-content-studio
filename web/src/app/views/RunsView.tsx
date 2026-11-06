@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { CaretRight, ArrowSquareOut, Clock, ArrowLeft } from '@phosphor-icons/react';
 import { Chip } from '../../ui/Chip';
 import { useStudio } from '../../context/StudioContext';
-import { topicMade } from '../../lib/github-data.js';
 
 export interface RunsViewProps {
   initialRunId?: string;
@@ -15,7 +14,7 @@ export const RunsView: React.FC<RunsViewProps> = ({
   onBack,
   onSelectRun,
 }) => {
-  const { runs, films, topics, nextSlots, studio } = useStudio();
+  const { runs, topics, nextSlots, studio, isTopicMade } = useStudio();
   const [filter, setFilter] = useState<'all' | 'making' | 'needs_you' | 'failed'>('all');
   const [selectedRun, setSelectedRun] = useState<any>(null);
   const [timelineSteps, setTimelineSteps] = useState<any[]>([]);
@@ -189,7 +188,7 @@ export const RunsView: React.FC<RunsViewProps> = ({
           )}
 
           {/* Scheduled future slots */}
-          {topics.filter((x: string) => !topicMade(x, films)).slice(0, 3).map((topic, idx) => (
+          {topics.filter((x: string) => !isTopicMade(x)).slice(0, 3).map((topic, idx) => (
             <div key={idx} className="runrow sched">
               <span className="slot">{formatSlot(nextSlots[idx])}</span>
               <div className="rt">

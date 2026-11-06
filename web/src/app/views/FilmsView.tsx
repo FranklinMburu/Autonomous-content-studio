@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { FilmStrip, Clock, ArrowRight, Play } from '@phosphor-icons/react';
 import { Chip } from '../../ui/Chip';
 import { useStudio } from '../../context/StudioContext';
-import { topicMade } from '../../lib/github-data.js';
 
 interface FilmsViewProps {
   onSelectFilm: (id: string) => void;
@@ -10,7 +9,7 @@ interface FilmsViewProps {
 }
 
 export const FilmsView: React.FC<FilmsViewProps> = ({ onSelectFilm, onNavigate }) => {
-  const { films, runs, topics, nextSlots, studio } = useStudio();
+  const { films, runs, topics, nextSlots, studio, isTopicMade } = useStudio();
   const [filter, setFilter] = useState<'all' | 'ready' | 'review' | 'making'>('all');
   const [activeRunSteps, setActiveRunSteps] = useState<any[]>([]);
 
@@ -303,7 +302,7 @@ export const FilmsView: React.FC<FilmsViewProps> = ({ onSelectFilm, onNavigate }
                 Schedule <ArrowRight size={11} />
               </span>
             </div>
-            {topics.filter((x: string) => !topicMade(x, films)).slice(0, 3).map((t, idx) => (
+            {topics.filter((x: string) => !isTopicMade(x)).slice(0, 3).map((t, idx) => (
               <div className="sr" key={idx}>
                 <span className="t">{formatSlot(nextSlots[idx])}</span>
                 <span style={{ fontSize: '12.5px', color: 'var(--tx2)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>

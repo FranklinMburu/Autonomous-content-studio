@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState, useMemo, useCallback } from 'react';
-import { createStudio, DEFAULTS, StudioError } from '../lib/github-data.js';
+import { createStudio, DEFAULTS, StudioError, topicMade } from '../lib/github-data.js';
 
 export interface StudioContextValue {
   studio: ReturnType<typeof createStudio>;
@@ -15,6 +15,7 @@ export interface StudioContextValue {
   nextSlots: Date[];
   modelsData: any;
   memorySeedData: any;
+  isTopicMade: (topic: string) => boolean;   // done per the pipeline's memory, else an episode folder for it
   labRunsData: any[];
   statusBoardData: any;
   loading: boolean;
@@ -45,6 +46,7 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [nextSlots, setNextSlots] = useState<Date[]>([]);
   const [modelsData, setModelsData] = useState<any>(null);
   const [memorySeedData, setMemorySeedData] = useState<any>(null);
+  const [usedData, setUsedData] = useState<any>(null);
   const [labRunsData, setLabRunsData] = useState<any[]>([]);
   const [statusBoardData, setStatusBoardData] = useState<any>(null);
 
@@ -99,6 +101,8 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       return () => mq.removeEventListener('change', applyTheme);
     }
   }, [theme, currentPath]);
+
+  const isTopicMade = useCallback((t: string) => topicMade(t, films, usedData), [films, usedData]);
 
   // Load data
   const loadData = useCallback(async () => {
@@ -166,6 +170,7 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       }
       setModelsData(rModels);
       setMemorySeedData(rMem);
+      studio.usedMemory().then(setUsedData).catch(() => {});
       setLabRunsData(rLab);
       setStatusBoardData(rStatus);
     } catch (err: any) {
@@ -210,6 +215,7 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       nextSlots,
       modelsData,
       memorySeedData,
+      isTopicMade,
       labRunsData,
       statusBoardData,
       loading,
@@ -237,6 +243,7 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       nextSlots,
       modelsData,
       memorySeedData,
+      isTopicMade,
       labRunsData,
       statusBoardData,
       loading,
