@@ -1,0 +1,79 @@
+name: Story lab (blind test of story rules)
+
+# Milestone 2, experiment 1: the same topics written with the Milestone 1 rules (v1) and the emotion-led rules (v2),
+# same research for both, script only (no narration, pictures or video). Output: a pre-release "story-lab-<run>" with
+# scripts.md (blind pairs); the key is a separate artifact. Free, but it uses some of the day's free model quota, so
+# keep it to 2-3 topics.
+on:
+  workflow_dispatch:
+    inputs:
+      topics:
+        description: "Topics, separated by ';' (empty = the next 2 in the queue)"
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  lab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      GH_TOKEN: ${{ github.token }}
+      STORY_SCRIPT_ONLY: "1"
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      ACCOUNT_KEY_franklincopil3: ${{ secrets.GEMINI_API_KEY }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      AILAYER_STATE_URL: ${{ secrets.AILAYER_STATE_URL }}
+      AILAYER_STATE_TOKEN: ${{ secrets.AILAYER_STATE_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Get the brain
+        uses: actions/checkout@v4
+        with:
+          repository: FranklinMburu/AI-layer
+          ssh-key: ${{ secrets.AILAYER_DEPLOY_KEY }}
+          path: .brain
+          persist-credentials: false
+      - name: Install
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq libcairo2-dev pkg-config > /dev/null
+          pip install -q -r requirements.txt
+      - name: Pick the topics
+        env:
+          TOPICS_IN: ${{ github.event.inputs.topics }}
+        run: |
+          if [ -n "$TOPICS_IN" ]; then printf '%s' "$TOPICS_IN" | tr ';' '\n' | sed 's/^ *//;s/ *$//' | grep . > topics.txt
+          else
+            gh release download channel-memory -p used.json -D . 2>/dev/null || echo '{"episodes": []}' > used.json
+            python -m studio.story.topics list --memory used.json | head -2 > topics.txt
+          fi
+          cat topics.txt
+      - name: Write each topic with v1, then v2 (same research)
+        run: |
+          export PYTHONPATH="$GITHUB_WORKSPACE/.brain"
+          while IFS= read -r t; do
+            [ -z "$t" ] && continue
+            echo "::group::v1: $t"; STORY_RULES=v1 python -m studio.story write --topic "$t" || echo "v1 failed: $t"; echo "::endgroup::"
+            echo "::group::v2: $t"; STORY_RULES=v2 python -m studio.story write --topic "$t" || echo "v2 failed: $t"; echo "::endgroup::"
+          done < topics.txt
+      - name: Blind pairs
+        run: python tools/story_lab.py episodes/hidden_reasons/_drafts out
+      - name: Keep the key and the full drafts separate
+        uses: actions/upload-artifact@v4
+        with:
+          name: story-lab-key
+          path: |
+            out/blind_key.json
+            episodes/hidden_reasons/_drafts/**/script*.json
+      - name: Publish the blind scripts
+        run: |
+          tag="story-lab-${{ github.run_number }}"
+          gh release create "$tag" out/scripts.md --prerelease --title "Story lab ${{ github.run_number }}: blind scripts" \
+            --notes "Two versions of each script, in random order. Rate them blind (scripts.md); the key is this run's 'story-lab-key' artifact."
+          echo "Scripts: https://github.com/${{ github.repository }}/releases/tag/$tag" >> "$GITHUB_STEP_SUMMARY"
