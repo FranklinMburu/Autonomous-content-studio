@@ -69,7 +69,7 @@ export const UploadView: React.FC = () => {
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
                   ) : film?.contact?.url ? (
-                    <img src={film.contact.url} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <img src={film.contact} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   ) : (
                     <div style={{ width: '100%', height: '100%', display: 'grid', placeItems: 'center', color: 'var(--tx3)' }}>
                       <VideoCamera size={36} weight="duotone" />
@@ -86,7 +86,7 @@ export const UploadView: React.FC = () => {
 
                   <b style={{ fontSize: '18px', marginBottom: '8px' }}>{item.title}</b>
                   <p style={{ fontSize: '13px', color: 'var(--tx2)', lineHeight: 1.5, marginBottom: '16px', flex: 1 }}>
-                    Suggested description: {item.body ? item.body.slice(0, 160) + '...' : 'Short film with fact-checked sources.'}
+                    Suggested description: {(() => { const m = String(item.body || '').match(/Description[^\n]*\n```\n([\s\S]*?)```/); const d = (m ? m[1] : '').split('\n\nSources:')[0].trim(); return d ? (d.length > 180 ? d.slice(0, 180) + '…' : d) : 'Open the issue for the title and description to copy.'; })()}
                   </p>
 
                   <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>

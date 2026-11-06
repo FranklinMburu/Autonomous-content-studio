@@ -130,6 +130,13 @@ html { scroll-behavior: smooth; }   /* anchor links; the wheel glide writes with
 .sheet { position: relative; z-index: 10; background: var(--bg); border-radius: 36px 36px 0 0; overflow: hidden;
   box-shadow: 0 -30px 70px -20px rgba(0, 0, 0, .55); }
 body.light .sheet { box-shadow: 0 -18px 40px -24px rgba(15, 27, 51, .18); }
+/* the hero sinks and dims while the sheet (section 2) slides over it */
+.sheet.over-hero { margin-top: -100vh; }
+.hero-stage .hero-sink, .hero-stage .hero, .hero-stage .foot, .hero-stage .scroll {
+  transform-origin: 50% 0; }
+.hero-stage .hero-sink { transform: translateY(calc(var(--hp, 0) * 70px)) scale(calc(1 - var(--hp, 0) * .07)); opacity: calc(1 - var(--hp, 0) * .85); }
+.hero-stage .foot, .hero-stage .scroll { opacity: calc(1 - var(--hp, 0) * 4); }
+.lb { text-decoration: none; color: inherit; } .lnk { text-decoration: none; cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .intro { animation: none !important; }
@@ -180,7 +187,7 @@ body.light .sheet { box-shadow: 0 -18px 40px -24px rgba(15, 27, 51, .18); }
 .films-trust-sec{min-height:900px}
 .films-trust-inner{min-height:900px}
 
-.sec{position:absolute;top:70px;left:0;right:0;text-align:center}
+.fam-sec{position:absolute;top:70px;left:0;right:0;text-align:center}
 .sec h2{font-size:52px;letter-spacing:-.04em;font-weight:650;margin-top:16px}.sec h2 .serif{font-style:italic;font-weight:400;color:var(--amber2)}
 .fams{position:absolute;top:240px;left:clamp(20px, 6.6vw, 96px);right:clamp(20px, 6.6vw, 96px);display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
 .fcard{position:relative;z-index:2;padding:20px;border-radius:16px;background:linear-gradient(180deg,#121521,#0E1019);box-shadow:0 0 0 1px var(--line) inset;display:flex;flex-direction:column;gap:8px;font-size:15px}
@@ -275,7 +282,9 @@ body.light .sheet { box-shadow: 0 -18px 40px -24px rgba(15, 27, 51, .18); }
 .detail{width:420px;flex:none;border-radius:14px;background:var(--s1);box-shadow:0 0 0 1px var(--line) inset;padding:18px}
 .dtop{display:flex;justify-content:space-between;align-items:center;font-size:14.5px;gap:10px}
 .meta{display:flex;gap:16px;font-size:12px;color:var(--tx2);margin:12px 0 16px}.meta span{display:flex;align-items:center;gap:6px}
-.ds{display:grid;grid-template-columns:18px 86px 1fr 44px;align-items:center;height:38px;font-size:13px;border-top:1px solid var(--line)}
+.ds{display:grid;grid-template-columns:18px minmax(0,1fr) 64px 58px;gap:8px;align-items:center;min-height:38px;font-size:13px;border-top:1px solid var(--line)}
+.ds b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:550}.ds.bad .b{background:#F85149;box-shadow:none}.ds.bad .m{color:#F85149}
+.ds-empty{font-size:12.5px;color:var(--tx3);padding:10px 0}.dsl{max-height:560px;overflow-y:auto}
 .ds .b{width:9px;height:9px;border-radius:9px;background:var(--s3);box-shadow:0 0 0 1px var(--line2)}.ds.ok .b{background:#3FB950;box-shadow:none}.ds.now .b{background:var(--amber);box-shadow:0 0 0 4px rgba(245,165,36,.18)}
 .ds .m{color:var(--tx2);font-size:12.5px}.ds .t{text-align:right;color:var(--tx3);font-size:12px;font-variant-numeric:tabular-nums}.ds:not(.ok):not(.now) b{color:var(--tx3);font-weight:500}
 .logbox{margin-top:14px;padding:12px;border-radius:10px;background:#07080E;box-shadow:0 0 0 1px var(--line) inset;display:flex;flex-direction:column;gap:6px}
@@ -339,6 +348,7 @@ body.light .sheet { box-shadow: 0 -18px 40px -24px rgba(15, 27, 51, .18); }
 
   /* Section 2 Panel */
   .sheet{border-radius:24px 24px 0 0!important;min-height:auto!important}
+  .sheet.over-hero{margin-top:0!important}
   .frame{position:relative!important;top:auto!important;left:auto!important;transform:none!important;width:calc(100% - 32px)!important;margin:20px 16px 0!important;height:580px!important}
   .ptitle{position:relative!important;top:auto!important;padding:40px 20px 0!important}
   .ptitle h2{font-size:36px!important}
@@ -347,7 +357,7 @@ body.light .sheet { box-shadow: 0 -18px 40px -24px rgba(15, 27, 51, .18); }
 
   /* Section 3 Family */
   .family-sec{min-height:auto!important;padding:40px 0 50px!important}
-  .sec{position:relative!important;top:auto!important;left:auto!important;right:auto!important;padding:40px 20px 0!important;text-align:center!important}
+  .fam-sec{position:relative!important;top:auto!important;left:auto!important;right:auto!important;padding:40px 20px 0!important;text-align:center!important}
   .sec h2{font-size:36px!important;margin-top:10px!important}
   .fams{position:relative!important;top:auto!important;left:auto!important;right:auto!important;margin-top:24px!important;display:flex!important;flex-direction:row!important;overflow-x:auto!important;scroll-snap-type:x mandatory!important;padding:0 20px 24px!important;gap:14px!important;-webkit-overflow-scrolling:touch!important;scrollbar-width:none!important}
   .fams::-webkit-scrollbar{display:none}
@@ -404,7 +414,7 @@ body.light .sheet { box-shadow: 0 -18px 40px -24px rgba(15, 27, 51, .18); }
 @media(min-width:641px) and (max-width:1024px){
   .hw-left{width:340px!important}
   .stage{left:370px!important;right:20px!important;height:auto!important;min-height:600px!important}
-  .sec{position:relative!important;top:auto!important;padding:40px 20px 0!important}
+  .fam-sec{position:relative!important;top:auto!important;padding:40px 20px 0!important}
   .sec h2{font-size:42px!important}
   .fams{grid-template-columns:repeat(3,1fr)!important;position:relative!important;top:auto!important;margin-top:30px!important}
   .guards{grid-template-columns:repeat(2,1fr)!important;position:relative!important;top:auto!important;margin-top:30px!important}
@@ -415,3 +425,15 @@ body.light .sheet { box-shadow: 0 -18px 40px -24px rgba(15, 27, 51, .18); }
   .wtitle{width:300px!important}
   .nums{right:20px!important}
 }
+
+/* phone fixes (audit 6 Nov): nav button to the right, topbar on one line */
+@media(max-width:640px){
+  .nav .right{margin-left:auto!important}
+  .top .crumb-ch{display:none!important}
+  .top .crumb{white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
+  .top .btn{white-space:nowrap}
+}
+
+/* never let the page scroll sideways on phones (clip keeps position:sticky working) */
+html,body{overflow-x:clip}
+@media(max-width:640px){.wl{display:none!important}}

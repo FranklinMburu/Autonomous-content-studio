@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { CaretRight, FilmStrip } from '@phosphor-icons/react';
 import { Mark } from '../ui/Mark';
 import { Chip } from '../ui/Chip';
@@ -11,305 +11,234 @@ interface HeroProps {
   onSelectFilmForPanel?: (filmId: string) => void;
 }
 
+const CARD_W = 262;
+const SCROLL_ROOM = 800; // px of scroll over which the sun rises (BUILD_SPEC 4.1)
+
+// Scroll: 0-800 px the sun rises; then the hero stays pinned one more screen while section 2 (.sheet, pulled up
+// with margin-top: -100vh) slides over it like a sheet of glass, and the hero sinks and dims (--hp, portfolio pattern).
+// The globe draws 60 times a second. Cards, dashed lines and name tags follow it by writing their positions
+// straight to the DOM from earth.js's onPlace callback: no React state per frame (that made the page stutter).
 export const Hero: React.FC<HeroProps> = ({ onSelectFilmForPanel }) => {
   const { films, topics, navigate } = useStudio();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
-
-  const [earthInstance, setEarthInstance] = useState<any>(null);
-  const [placedStories, setPlacedStories] = useState<any[]>([]);
-  const [tags, setTags] = useState<any[]>([]);
+  const textRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const lineRefs = useRef<Record<string, SVGPathElement | null>>({});
+  const tagRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const earthRef = useRef<any>(null);
   const [globeLoaded, setGlobeLoaded] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Compute numbers for numbers row
-  const filmsMadeCount = films.filter(
-    f => f.status === 'ready' || f.status === 'uploaded' || f.status === 'finished' || f.status === 'review'
-  ).length;
-  const factsCheckedCount = films.reduce((acc, f) => {
-    return acc + (f.release?.sources?.length || 4);
-  }, 0);
-  const storiesQueuedCount = topics.length;
+  const globe = useMemo(() => (films.length || topics.length ? buildGlobe(films, topics, placesData) : { stories: [], arcs: [] }),
+    [films, topics]);
+  const cardStories = globe.stories.filter((s: any) => s.card);
+  const tagStories = globe.stories.filter((s: any) => !s.card);
 
-  // Newest finished film for "Watch a film"
-  const newestFilm = films.find(f => f.video?.url) || films[0];
+  // Numbers row: computed from real data only ("—" until loaded; never a default number)
+  const made = films.filter(f => ['ready', 'uploaded', 'finished', 'review'].includes(f.status));
+  const filmsMade = made.length;
+  const factsChecked = made.reduce((acc, f) => acc + (f.release?.sources?.length || 0), 0);
+  const storiesQueued = topics.length;
+  const newestFilm = made.find(f => f.video?.url);
 
   useEffect(() => {
+    let cancelled = false;
     let earth: any = null;
-    let isCancelled = false;
-
-    const initGlobe = async () => {
+    (async () => {
       try {
         const resp = await fetch('/earth.json');
         if (!resp.ok) return;
-        const earthData = await resp.json();
-        if (isCancelled || !canvasRef.current) return;
-
-        const { stories, arcs } = buildGlobe(films, topics, placesData);
-
-        earth = createEarth(canvasRef.current, earthData, stories, {
-          arcs,
+        const data = await resp.json();
+        if (cancelled || !canvasRef.current) return;
+        earth = createEarth(canvasRef.current, data, globe.stories, {
+          arcs: globe.arcs,
           onPlace: (places: any[]) => {
-            setPlacedStories(places);
-            // Block cards
-            const cardRects = places
-              .filter(p => p.card)
-              .map(p => {
-                const isLeft = p.card === 'left';
-                const left = isLeft ? p.x - 300 : p.x + 150;
-                const top = p.y - 150;
-                return { l: left, t: top, r: left + 262, b: top + 86, n: p.n };
-              });
-
-            const clientW = canvasRef.current?.clientWidth || window.innerWidth;
-            const isMob = clientW < 640;
-            const picked = isMob
-              ? pickTags(places.filter((p: any) => p.kind === 'made'), { width: clientW, maxY: 470 })
-              : pickTags(places, { blocked: cardRects, width: clientW });
-            setTags(picked);
+            const W = canvasRef.current?.clientWidth || window.innerWidth;
+            const phone = W < 640;
+            const rects: any[] = [];
+            for (const p of places) {
+              if (!p.card) continue;
+              const el = cardRefs.current[p.n];
+              const ln = lineRefs.current[p.n];
+              if (!el) continue;
+              if (phone) { el.style.display = 'none'; if (ln) ln.style.display = 'none'; continue; }
+              const left = p.card === 'left' ? p.x - 300 : p.x + 150;
+              const top = p.y - 150;
+              el.style.display = '';
+              el.style.transform = `translate3d(${left.toFixed(1)}px, ${top.toFixed(1)}px, 0)`;
+              const h = el.offsetHeight || 86;
+              rects.push({ l: left, t: top, r: left + CARD_W, b: top + h });
+              if (ln) {
+                ln.style.display = '';
+                const tx = p.card === 'left' ? left + CARD_W : left;
+                ln.setAttribute('d', `M${p.x.toFixed(1)} ${p.y.toFixed(1)} L${tx.toFixed(1)} ${(top + h - 10).toFixed(1)}`);
+              }
+            }
+            const shown = phone
+              ? pickTags(places.filter(p => p.kind === 'made'), { width: W, maxY: (canvasRef.current?.clientHeight || 800) - 40 })
+              : pickTags(places, { blocked: rects, width: W });
+            const on = new Set(shown.map((t: any) => t.n));
+            for (const s of tagStories) {
+              const el = tagRefs.current[s.n];
+              if (el && !on.has(s.n)) el.style.opacity = '0';
+            }
+            for (const t of shown) {
+              const el = tagRefs.current[t.n];
+              if (!el) continue;
+              el.style.opacity = '1';
+              el.style.transform = `translate3d(${t.left.toFixed(1)}px, ${t.top.toFixed(1)}px, 0)`;
+            }
           },
         });
-
-        setEarthInstance(earth);
+        earthRef.current = earth;
         setGlobeLoaded(true);
+        onScroll();
       } catch (err) {
-        console.warn('Globe data load fallback:', err);
+        console.warn('Globe could not load:', err);
       }
-    };
-
-    initGlobe();
-
+    })();
     return () => {
-      isCancelled = true;
+      cancelled = true;
       if (earth) earth.destroy();
+      earthRef.current = null;
     };
-  }, [films, topics]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [globe]);
 
-  // Scroll listener for sunrise progress & text parallax
+  // Scroll: sunrise progress, text parallax/fade, and the --hp sheet variable. Direct style writes, one per frame.
+  const onScroll = () => {
+    const wrap = wrapRef.current;
+    if (!wrap) return;
+    const wrapTop = wrap.getBoundingClientRect().top + window.scrollY;
+    const y = window.scrollY - wrapTop;
+    const p = Math.max(0, Math.min(1, y / SCROLL_ROOM));
+    earthRef.current?.setProgress(p);
+    if (textRef.current) {
+      const opacity = p < 0.55 ? 1 : Math.max(0, 1 - (p - 0.55) / 0.45);
+      textRef.current.style.transform = `translate3d(0, ${(-0.25 * Math.max(0, y)).toFixed(1)}px, 0)`;
+      textRef.current.style.opacity = opacity.toFixed(3);
+      textRef.current.style.pointerEvents = opacity < 0.05 ? 'none' : 'auto';
+    }
+    if (stageRef.current) {
+      const hp = Math.max(0, Math.min(1, (y - SCROLL_ROOM) / (window.innerHeight || 900)));
+      stageRef.current.style.setProperty('--hp', hp.toFixed(4));
+    }
+  };
+
   useEffect(() => {
-    const handleScroll = () => {
-      if (!wrapRef.current) return;
-      const rect = wrapRef.current.getBoundingClientRect();
-      const wrapTop = window.scrollY + rect.top;
-      const p = Math.max(0, Math.min(1, (window.scrollY - wrapTop) / 800));
-      setScrollProgress(p);
-
-      if (earthInstance) {
-        earthInstance.setProgress(p);
-      }
-
-      // Set CSS var --hp on stage for the sheet effect
-      if (stageRef.current) {
-        const hp = Math.max(0, (window.scrollY - 800) / (stageRef.current.offsetHeight || 900));
-        stageRef.current.style.setProperty('--hp', String(hp));
-      }
+    let frame = 0;
+    const request = () => { if (!frame) frame = requestAnimationFrame(() => { frame = 0; onScroll(); }); };
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', request);
+    onScroll();
+    // pause the globe when the hero is off-screen
+    const io = new IntersectionObserver(([e]) => earthRef.current?.setActive(e.isIntersecting), { threshold: 0 });
+    if (stageRef.current) io.observe(stageRef.current);
+    return () => {
+      window.removeEventListener('scroll', request);
+      window.removeEventListener('resize', request);
+      cancelAnimationFrame(frame);
+      io.disconnect();
     };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [earthInstance]);
-
-  // Card items: the two newest made films with places
-  const cardStories = placedStories.filter(p => p.card);
-
-  // Parallax calculations for the hero text
-  const textTranslateY = scrollProgress * -120; // 0.25x speed over 800px approx
-  const textOpacity = scrollProgress < 0.55 ? 1 : Math.max(0, 1 - (scrollProgress - 0.55) / 0.45);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
-    <section ref={wrapRef} className="hero-wrap" style={{ height: 'calc(100vh + 800px)', position: 'relative' }}>
-      <div
-        ref={stageRef}
-        className="hero-stage"
-        style={{
-          position: 'sticky',
-          top: 0,
-          height: '100vh',
-          overflow: 'hidden',
-          width: '100%',
-        }}
-      >
+    <section ref={wrapRef} className="hero-wrap" aria-label="Candela Studio" style={{ height: `calc(200vh + ${SCROLL_ROOM}px)`, position: 'relative' }}>
+      <div ref={stageRef} className="hero-stage" style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden', width: '100%' }}>
         <div className="grain" />
         <div className="topglow" />
 
-        {/* Hero Canvas */}
-        <canvas
-          ref={canvasRef}
-          className="earth"
-          style={{
-            position: 'absolute',
-            left: 0,
-            top: 0,
-            width: '100%',
-            height: '100%',
-            opacity: globeLoaded ? 1 : 0,
-            transition: 'opacity 600ms ease',
-          }}
-        />
+        <div className="hero-sink" style={{ position: 'absolute', inset: 0 }}>
+          <canvas
+            ref={canvasRef}
+            className="earth"
+            aria-hidden="true"
+            style={{ position: 'absolute', left: 0, top: 0, width: '100%', height: '100%', opacity: globeLoaded ? 1 : 0, transition: 'opacity 600ms ease' }}
+          />
 
-        {/* SVG connecting dashed lines for cards */}
-        <svg
-          className="lns"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}
-        >
-          {cardStories.map(story => {
-            const isLeft = story.card === 'left';
-            const cardLeft = isLeft ? story.x - 300 : story.x + 150;
-            const cardTop = story.y - 150;
-            const targetX = isLeft ? cardLeft + 262 : cardLeft;
-            const targetY = cardTop + 45;
-            return (
-              <path
-                key={story.n}
-                d={`M${story.x} ${story.y} L${targetX} ${targetY}`}
-                stroke="rgba(255,255,255,0.22)"
-                strokeWidth="1"
-                strokeDasharray="2 3"
-                fill="none"
-              />
-            );
-          })}
-        </svg>
+          <svg className="lns" aria-hidden="true" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}>
+            {cardStories.map((s: any) => (
+              <path key={s.n} ref={el => { lineRefs.current[s.n] = el; }} stroke="rgba(255,255,255,0.22)" strokeWidth="1" strokeDasharray="2 3" fill="none" style={{ display: 'none' }} />
+            ))}
+          </svg>
 
-        {/* Story Cards placed over globe */}
-        <div className="story-cards-layer" style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
-          {cardStories.map(story => {
-            const isLeft = story.card === 'left';
-            const cardLeft = isLeft ? story.x - 300 : story.x + 150;
-            const cardTop = story.y - 150;
-            const film = story.film;
-
-            return (
-              <div
-                key={story.n}
-                className="lb"
-                onClick={() => {
-                  if (film && onSelectFilmForPanel) onSelectFilmForPanel(film.id);
-                  else if (film) navigate(`/app/films/${film.id}`);
-                }}
-                style={{
-                  left: `${cardLeft}px`,
-                  top: `${cardTop}px`,
-                  pointerEvents: 'auto',
-                  cursor: 'pointer',
-                }}
-              >
-                {film?.video?.url ? (
-                  <video
-                    src={`${film.video.url}#t=0.5`}
-                    preload="metadata"
-                    muted
-                    playsInline
-                    style={{ width: '44px', height: '58px', borderRadius: '8px', objectFit: 'cover', flexShrink: 0 }}
-                  />
-                ) : film?.contact?.url ? (
-                  <img src={film.contact.url} alt={story.n} style={{ width: '44px', height: '58px', borderRadius: '8px', objectFit: 'cover', flexShrink: 0 }} />
-                ) : (
-                  <div className="noposter">
-                    <FilmStrip size={20} weight="duotone" />
+          <div className="story-cards-layer" style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
+            {cardStories.map((s: any) => {
+              const film = s.film;
+              return (
+                <a
+                  key={s.n}
+                  href={film ? `/films/${film.id}` : undefined}
+                  ref={el => { cardRefs.current[s.n] = el as unknown as HTMLDivElement; }}
+                  className="lb"
+                  onClick={e => {
+                    e.preventDefault();
+                    if (film && onSelectFilmForPanel) onSelectFilmForPanel(film.id);
+                    else if (film) navigate(`/films/${film.id}`);
+                  }}
+                  style={{ left: 0, top: 0, display: 'none', pointerEvents: 'auto', cursor: 'pointer', willChange: 'transform', textDecoration: 'none', color: 'inherit' }}
+                >
+                  {film?.video?.url ? (
+                    <video src={`${film.video.url}#t=0.5`} preload="metadata" muted playsInline style={{ width: 44, height: 58, borderRadius: 8, objectFit: 'cover', flexShrink: 0 }} />
+                  ) : (
+                    <div className="noposter"><FilmStrip size={20} weight="duotone" /></div>
+                  )}
+                  <div>
+                    <span className="pl">{s.n} · {s.y}</span>
+                    <b>{film?.title || s.n}</b>
+                    {film && <Chip status={film.status} />}
                   </div>
-                )}
-                <div>
-                  <span className="pl">
-                    {story.n} · {story.y}
-                  </span>
-                  <b>{film?.title || story.topic || story.n}</b>
-                  <Chip status={film?.status || 'review'} />
-                </div>
+                </a>
+              );
+            })}
+          </div>
+
+          <div className="tags-layer" aria-hidden="true" style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
+            {tagStories.map((s: any) => (
+              <div key={s.n} ref={el => { tagRefs.current[s.n] = el; }} className="tag2" style={{ left: 0, top: 0, opacity: 0, willChange: 'transform' }}>
+                {s.n} <span>{s.y}</span>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
 
-        {/* Name tags without collision */}
-        <div className="tags-layer" style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
-          {tags.map(t => (
-            <div
-              key={`${t.n}-${t.year}`}
-              className="tag2"
-              style={{
-                left: `${t.left}px`,
-                top: `${t.top}px`,
-              }}
-            >
-              {t.n} <span>{t.year}</span>
-            </div>
-          ))}
-        </div>
-
-        {/* Centered Hero Text Block */}
-        <div
-          className="hero"
-          style={{
-            transform: `translateY(${textTranslateY}px)`,
-            opacity: textOpacity,
-            pointerEvents: textOpacity <= 0.05 ? 'none' : 'auto',
-            transition: 'opacity 120ms ease-out',
-          }}
-        >
+        <div ref={textRef} className="hero" style={{ willChange: 'transform, opacity' }}>
           <div className="pname">
             <Mark size={30} />
             <span>Candela Studio</span>
           </div>
-
           <h1>
             History,<br className="mobile-break" /> <span className="serif">in motion.</span>
           </h1>
-
           <p>Short films about true stories. Researched, checked and painted for you.</p>
-
           <div className="ctas">
-            <button
-              onClick={() => navigate('/app')}
-              className="btn pri"
-              style={{ height: '44px', padding: '0 22px', fontSize: '15px', borderRadius: '999px', cursor: 'pointer' }}
-            >
+            <button onClick={() => navigate('/app')} className="btn pri" style={{ height: 44, padding: '0 22px', fontSize: 15, borderRadius: 999, cursor: 'pointer' }}>
               Make a film
             </button>
-            <span
-              onClick={() => {
-                if (newestFilm) navigate(`/films/${newestFilm.id}`);
-                else navigate('/films');
-              }}
+            <a
+              href={newestFilm ? `/films/${newestFilm.id}` : '/films'}
+              onClick={e => { e.preventDefault(); navigate(newestFilm ? `/films/${newestFilm.id}` : '/films'); }}
               className="lnk"
-              style={{ cursor: 'pointer' }}
             >
               <span>Watch a film</span>
               <CaretRight size={13} weight="bold" />
-            </span>
+            </a>
           </div>
         </div>
 
-        {/* Numbers Row */}
         <div className="foot">
-          <div>
-            <b>{filmsMadeCount || '—'}</b>
-            <span>films made</span>
-          </div>
+          <div><b>{filmsMade || '—'}</b><span>films made</span></div>
           <i />
-          <div>
-            <b>{factsCheckedCount || '—'}</b>
-            <span>facts checked</span>
-          </div>
+          <div><b>{filmsMade ? factsChecked : '—'}</b><span>facts checked</span></div>
           <i />
-          <div>
-            <b>{storiesQueuedCount || '—'}</b>
-            <span>stories queued</span>
-          </div>
+          <div><b>{storiesQueued || '—'}</b><span>stories queued</span></div>
           <i />
-          <div>
-            <b>$0</b>
-            <span>to run</span>
-          </div>
+          <div><b>$0</b><span>to run</span></div>
         </div>
 
-        {/* Scroll Cue */}
-        <div className="scroll">
-          <span />
-          Scroll
-        </div>
+        <div className="scroll"><span />Scroll</div>
       </div>
     </section>
   );

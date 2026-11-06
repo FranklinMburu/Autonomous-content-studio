@@ -5,12 +5,17 @@ import { useStudio } from '../../context/StudioContext';
 export const BrainView: React.FC = () => {
   const { modelsData } = useStudio();
 
-  // Model list
-  const modelsList = modelsData?.story_script_models || [
-    { provider: 'Google', model: 'gemini-2.5-flash', role: 'writer', tier: 'free tier' },
-    { provider: 'Groq', model: 'llama-3.3-70b-versatile', role: 'writer', tier: 'free tier' },
-    { provider: 'Mistral', model: 'mistral-large-latest', role: 'writer', tier: 'free tier' },
-    { provider: 'Cerebras', model: 'llama-3.1-70b', role: 'checker', tier: 'free tier' },
+  // Real lists from pipeline/config.json ("provider:model" strings). Tried in order: when one free quota runs out,
+  // the next model takes over, so a film never stops for quota.
+  const PROV: Record<string, string> = { google: 'Google', groq: 'Groq', nvidia: 'NVIDIA', openrouter: 'OpenRouter' };
+  const rows = (list: any, role: string) => (Array.isArray(list) ? list : []).map((id: string, i: number) => {
+    const [prov, ...rest] = String(id).split(':');
+    return { provider: PROV[prov] || prov, model: rest.join(':'), role, order: i + 1 };
+  });
+  const modelsList = [
+    ...rows(modelsData?.story_script_models, 'Script writer'),
+    ...rows(modelsData?.story_storyboard_models, 'Storyboard'),
+    ...rows(modelsData?.draft_models, 'Explainer draft'),
   ];
 
   return (
@@ -19,7 +24,7 @@ export const BrainView: React.FC = () => {
         <div>
           <h1 className="pt">Candela Brain</h1>
           <p style={{ color: 'var(--tx3)', fontSize: '13px', marginTop: '4px' }}>
-            Four free models write each script; the best draft wins.
+            Free models write the scripts and storyboards. If one runs out of free quota, the next one in the list takes over.
           </p>
         </div>
       </div>
@@ -52,6 +57,9 @@ export const BrainView: React.FC = () => {
           <span style={{ textAlign: 'right' }}>Tier</span>
         </div>
 
+        {modelsList.length === 0 && (
+          <div style={{ padding: '18px 20px', fontSize: '13px', color: 'var(--tx3)' }}>Loading the model list from GitHub…</div>
+        )}
         {modelsList.map((m: any, i: number) => (
           <div
             key={i}
@@ -72,12 +80,12 @@ export const BrainView: React.FC = () => {
               {m.model}
             </code>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              {m.role === 'checker' ? (
+              {m.role === 'Storyboard' ? (
                 <ShieldCheck size={16} color="#3FB950" />
               ) : (
                 <Brain size={16} color="var(--amber2)" />
               )}
-              <span style={{ textTransform: 'capitalize', color: 'var(--tx)' }}>{m.role}</span>
+              <span style={{ color: 'var(--tx)' }}>{m.role} · #{m.order}</span>
             </div>
             <div style={{ textAlign: 'right' }}>
               <span className="chip ok" style={{ fontSize: '11px', height: '22px' }}>
@@ -101,8 +109,8 @@ export const BrainView: React.FC = () => {
           lineHeight: 1.5,
         }}
       >
-        <b style={{ color: 'var(--tx)', display: 'block', marginBottom: '4px' }}>Draft Arbitration</b>
-        Each writer model drafts a complete storyboard script citing exact claims from primary sources. The checker model audits each line: statements without verified source references are rejected, and the highest-scoring verified draft is scheduled for painting in the Lab.
+        <b style={{ color: 'var(--tx)', display: 'block', marginBottom: '4px' }}>How a script is checked</b>
+        The writer may use only facts from the saved sources. Every line is then checked against those sources; a script with unsupported lines is rewritten, or held as a polish ticket for you, Claude or Codex. The list comes from pipeline/config.json on GitHub.
       </div>
     </div>
   );

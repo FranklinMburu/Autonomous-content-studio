@@ -10,7 +10,7 @@ function world(canvas, opt){
   const R = Math.min(W,H)*o.r, cx = W/2, cy = H/2;
   let s = o.seed; const rnd = ()=> (s = (s*9301+49297)%233280)/233280;
   const pts=[]; const N=o.dots, ga=Math.PI*(3-Math.sqrt(5));
-  for(let i=0;i<N;i++){ const y=1-(i/(N-1))*2, rr=Math.sqrt(1-y*y), th=ga*i; pts.push([Math.cos(th)*rr, y, Math.sin(th)*rr, rnd()]); }
+  for(let i=0;i<N;i++){ const y=Math.max(-1,Math.min(1,1-(i/(N-1))*2+(rnd()-0.5)*0.004)), rr=Math.sqrt(1-y*y), th=ga*i+(rnd()-0.5)*0.05; pts.push([Math.cos(th)*rr, y, Math.sin(th)*rr, rnd()]); }  // tiny jitter: no ripple rings at the rim
   const rot=(p)=>{ let [x,y,z]=p; const a=o.spin, ca=Math.cos(a), sa=Math.sin(a); [x,z]=[x*ca+z*sa, -x*sa+z*ca];
     const b=o.tilt, cb=Math.cos(b), sb=Math.sin(b); [y,z]=[y*cb-z*sb, y*sb+z*cb]; return [x,y,z]; };
   // halo
@@ -38,7 +38,8 @@ function world(canvas, opt){
       const gg=c.createRadialGradient(c2[0],c2[1],0,c2[0],c2[1],18); gg.addColorStop(0,`rgba(${o.glow},.55)`); gg.addColorStop(1,`rgba(${o.glow},0)`); c.fillStyle=gg; c.beginPath(); c.arc(c2[0],c2[1],18,0,7); c.fill();
       c.fillStyle='rgba(255,226,170,1)'; c.beginPath(); c.arc(c2[0],c2[1],3,0,7); c.fill(); }
     for(let i=0;i<n-1;i++) pairs.push([lit[i],lit[i+1]]);
-    const host=canvas.parentElement, box=canvas.getBoundingClientRect();
+    // labels are placed in the canvas's own parent, relative to the canvas (works inside any positioned section)
+    const host=canvas.parentElement, box={left:canvas.offsetLeft, top:canvas.offsetTop};
     o.labels.forEach((t,i)=>{ const d=document.createElement('div'); d.className='wl'; d.innerHTML=t;
       d.style.left=(box.left+lit[i][0]+12)+'px'; d.style.top=(box.top+lit[i][1]-14)+'px'; host.appendChild(d); });
   } else { for(let k=0;k<Math.min(o.arcs, lit.length-1);k++) pairs.push([lit[k], lit[(k*3+2)%lit.length]]); }
@@ -56,6 +57,6 @@ function world(canvas, opt){
       c.beginPath(); c.arc(cx,cy,R,Math.PI*1.08,Math.PI*1.92); c.stroke(); c.restore(); }
   } else { c.strokeStyle=`rgba(255,255,255,${0.06*o.dim})`; c.lineWidth=1; c.beginPath(); c.arc(cx,cy,R,0,7); c.stroke(); }
 }
-document.querySelectorAll('canvas[data-world]').forEach(cv=>world(cv, JSON.parse(cv.dataset.world||'{}')));
+if (typeof document !== 'undefined') document.querySelectorAll('canvas[data-world]').forEach(cv=>world(cv, JSON.parse(cv.dataset.world||'{}')));
 
 export { world };

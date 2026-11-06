@@ -1,6 +1,7 @@
 import React from 'react';
 import { LightbulbFilament, ArrowSquareOut, MapPin } from '@phosphor-icons/react';
 import { useStudio } from '../../context/StudioContext';
+import { topicMade } from '../../lib/github-data.js';
 import placesData from '../../lib/places.json';
 
 export const TopicsView: React.FC = () => {
@@ -11,9 +12,7 @@ export const TopicsView: React.FC = () => {
     return p && p.name ? `${p.name} · ${p.year}` : null;
   };
 
-  const isMade = (topic: string) => {
-    return films.some(f => (f.title || '').toLowerCase().includes(topic.toLowerCase().split(' ').slice(1, 3).join(' ')));
-  };
+  const isMade = (topic: string) => topicMade(topic, films);
 
   return (
     <div className="content" style={{ overflowY: 'auto' }}>

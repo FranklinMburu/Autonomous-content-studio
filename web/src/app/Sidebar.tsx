@@ -25,6 +25,7 @@ import {
   MagnifyingGlass,
 } from '@phosphor-icons/react';
 import { Mark } from '../ui/Mark';
+import { topicMade } from '../lib/github-data.js';
 import { useStudio } from '../context/StudioContext';
 
 interface SidebarProps {
@@ -42,6 +43,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentRoute, onNavigate, onOp
     topics,
     alerts,
     nextSlots,
+    scheduleData,
+    films,
   } = useStudio();
 
   const growPages = [
@@ -64,7 +67,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentRoute, onNavigate, onOp
   const reviewCount = reviewItems.length;
   const polishCount = polishItems.length;
   const uploadCount = uploadItems.length;
-  const topicsCount = topics.length;
+  const topicsCount = topics.filter((t: string) => !topicMade(t, films)).length;   // still to make
   const hasAlerts = alerts.length > 0;
 
   // Next film calculation
@@ -72,11 +75,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentRoute, onNavigate, onOp
   const nextTime =
     rawNext instanceof Date
       ? rawNext.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })
-      : (rawNext ? String(rawNext) : '13:23');
+      : (rawNext ? String(rawNext) : '—');
   // Runs started today:
-  const todayStr = new Date().toISOString().slice(0, 10);
-  const startedToday = runs.filter(r => r.started && r.started.startsWith(todayStr)).length;
-  const startedFraction = Math.min(1, Math.max(0.2, startedToday / 5));
+  // films started today (your local day): runs of the "Make a story video" workflow
+  const todayStr = new Date().toDateString();
+  const startedToday = runs.filter(r => r.workflow === 'Make a story video' && r.started && new Date(r.started).toDateString() === todayStr).length;
+  const slotsPerDay = scheduleData?.utc?.length || 5;
+  const startedFraction = Math.min(1, startedToday / slotsPerDay);
 
   const isActive = (path: string) => {
     if (path === '/app/films') {
@@ -379,7 +384,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentRoute, onNavigate, onOp
             <i style={{ width: `${Math.round(startedFraction * 100)}%` }} />
           </div>
           <div className="qrow faint">
-            <span>{startedToday} of 5 started today · $0</span>
+            <span>{startedToday} of {slotsPerDay} started today · $0</span>
           </div>
         </div>
 

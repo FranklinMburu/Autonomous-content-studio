@@ -11,7 +11,7 @@ import {
 } from '@phosphor-icons/react';
 import { Chip } from '../../ui/Chip';
 import { useStudio } from '../../context/StudioContext';
-import { parseSources, sourceSummary } from '../../lib/github-data.js';
+import { sourceSummary } from '../../lib/github-data.js';
 
 interface FilmDetailViewProps {
   filmId: string;
@@ -49,13 +49,12 @@ export const FilmDetailView: React.FC<FilmDetailViewProps> = ({ filmId, onBack }
     };
   }, [film, studio]);
 
-  const sourcesList = episodeData?.sources
-    ? sourceSummary(parseSources(episodeData.sources))
-    : [];
+  // episode() already parses sources.md; else the sources in the film's release notes
+  const sourcesList = sourceSummary(episodeData?.sources?.length ? episodeData.sources : ((film as any).release?.sources || []));
+  const scriptLines: string[] = (episodeData?.script?.beats || []).flatMap((b: any) => b.lines || []);
 
-  const scriptBeats = episodeData?.script?.beats || [];
-  const castList = episodeData?.film?.cast || [];
-  const shotsCount = episodeData?.film?.shots?.length || 30;
+  const castList = Object.keys(episodeData?.film?.cast || {});   // film.json cast: { role: description }
+  const shotsCount = episodeData?.film?.shots?.length;
 
   return (
     <div className="content" style={{ overflowY: 'auto' }}>
@@ -101,9 +100,9 @@ export const FilmDetailView: React.FC<FilmDetailViewProps> = ({ filmId, onBack }
                 preload="metadata"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
-            ) : film.contact?.url ? (
+            ) : film.contact ? (
               <img
-                src={film.contact.url}
+                src={film.contact}
                 alt={film.title}
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
@@ -223,7 +222,7 @@ export const FilmDetailView: React.FC<FilmDetailViewProps> = ({ filmId, onBack }
             }}
           >
             <CheckCircle size={18} weight="duotone" color="#3FB950" />
-            <span>Passed fact checking against primary sources · {shotsCount} shots painted</span>
+            <span>{sourcesList.length ? `Script checked against ${sourcesList.length} saved ${sourcesList.length === 1 ? 'source' : 'sources'}` : 'Sources load from the repo…'}{shotsCount ? ` · ${shotsCount} shots planned` : ''}{(film as any).release?.problems ? ' · held: see the review' : ''}</span>
           </div>
 
           {/* Sources behind every line */}
@@ -242,7 +241,7 @@ export const FilmDetailView: React.FC<FilmDetailViewProps> = ({ filmId, onBack }
             </div>
             {sourcesList.length === 0 ? (
               <div style={{ color: 'var(--tx3)', fontSize: '12.5px' }}>
-                Primary sources validated during script compilation.
+                {loadingEpisode ? 'Loading sources…' : 'No sources file for this film.'}
               </div>
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -318,14 +317,14 @@ export const FilmDetailView: React.FC<FilmDetailViewProps> = ({ filmId, onBack }
                       color: 'var(--tx2)',
                     }}
                   >
-                    {c.name || c}
+                    {String(c).replace(/_/g, ' ')}
                   </span>
                 ))}
               </div>
             </div>
           )}
 
-          {scriptBeats.length > 0 && (
+          {scriptLines.length > 0 && (
             <div
               style={{
                 padding: '16px',
@@ -336,16 +335,11 @@ export const FilmDetailView: React.FC<FilmDetailViewProps> = ({ filmId, onBack }
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', fontWeight: 600, marginBottom: '12px' }}>
                 <FileText size={18} color="var(--amber2)" />
-                <span>Script excerpt</span>
+                <span>Script ({scriptLines.length} lines)</span>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                {scriptBeats.slice(0, 3).map((b: any, i: number) => (
-                  <div key={i} style={{ fontSize: '13px', lineHeight: 1.5, color: 'var(--tx2)' }}>
-                    <b style={{ color: 'var(--tx)', display: 'block', fontSize: '11.5px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                      Beat {i + 1}
-                    </b>
-                    {b.narrative || b.text || b.narration}
-                  </div>
+                {scriptLines.map((l, i) => (
+                  <div key={i} style={{ fontSize: '13px', lineHeight: 1.5, color: 'var(--tx2)' }}>{l}</div>
                 ))}
               </div>
             </div>

@@ -1,4 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useStudio } from '../context/StudioContext';
+import { sourceSummary } from '../lib/github-data.js';
+
+// The example in this section is the channel's real episode 002 (script and sources read from the repo).
+const EXAMPLE_EP = 'episodes/hidden_reasons/002-why-doctors-were-ordered-to-wash-their-h';
 import {
   LightbulbFilament,
   FileText,
@@ -17,6 +22,11 @@ interface HowItWorksProps {
 export const HowItWorks: React.FC<HowItWorksProps> = ({ standalone = false }) => {
   const wrapRef = useRef<HTMLElement>(null);
   const [activeStep, setActiveStep] = useState(2); // Step 3 (0-indexed: 2) as in reference
+  const { studio } = useStudio();
+  const [ep, setEp] = useState<any>(null);
+  useEffect(() => { studio.episode(EXAMPLE_EP).then(setEp).catch(() => setEp(null)); }, [studio]);
+  const exLines: string[] = ep?.script ? ep.script.beats.flatMap((b: any) => b.lines) : [];
+  const exSources = sourceSummary(ep?.sources || []);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -84,14 +94,14 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ standalone = false }) =>
                 marginTop: '16px',
               }}
             >
-              <span style={{ fontSize: '12px', color: 'var(--amber2)', textTransform: 'uppercase', fontWeight: 650 }}>
-                Selected Topic
+              <span style={{ fontSize: '12px', color: 'var(--tx3)', textTransform: 'uppercase', fontWeight: 650, letterSpacing: '.08em' }}>
+                Topic from the queue
               </span>
               <h3 style={{ fontSize: '22px', color: 'var(--tx)', marginTop: '8px', marginBottom: '14px' }}>
-                "Why did doctors refuse to wash their hands?"
+                {ep?.script?.title || '—'}
               </h3>
               <p style={{ fontSize: '13.5px', color: 'var(--tx2)', lineHeight: 1.6 }}>
-                Vienna, 1847. Ignaz Semmelweis discovers that doctors dissecting cadavers carry lethal infection to mothers giving birth in the First Clinic.
+                {exSources.length ? `Researched from ${exSources.length} sources: ${exSources.map((x: any) => x.host).join(', ')}.` : 'Sources load from the repo…'}
               </p>
             </div>
           </div>
@@ -100,28 +110,19 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ standalone = false }) =>
         return (
           <div>
             <div className="sh">
-              <b>Fact-Checked Script</b>
-              <span className="faint">4 models · 100% claims verified</span>
+              <b>Script</b>
+              <span className="faint">{ep?.sources?.length ? `${ep.sources.length} claims, each checked against its source` : ''}</span>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginTop: '16px' }}>
-              <div style={{ padding: '16px', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--line)' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
-                  <b style={{ fontSize: '13px', color: 'var(--amber2)' }}>BEAT 1 · HOOK</b>
-                  <span className="chip ok" style={{ height: '20px', fontSize: '11px' }}>supported</span>
+              {[['HOOK', exLines.slice(0, 1)], ['THE PROBLEM', exLines.slice(1, 4)]].map(([label, lines]: any) => (
+                <div key={label} style={{ padding: '16px', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--line)' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
+                    <b style={{ fontSize: '12px', color: 'var(--tx3)', letterSpacing: '.08em' }}>{label}</b>
+                    <span className="chip ok" style={{ height: '20px', fontSize: '11px' }}>checked</span>
+                  </div>
+                  <p style={{ fontSize: '13.5px', color: 'var(--tx)', lineHeight: 1.5 }}>{lines.length ? lines.join(' ') : '—'}</p>
                 </div>
-                <p style={{ fontSize: '13.5px', color: 'var(--tx)', lineHeight: 1.5 }}>
-                  "In 1847, women in Vienna begged on their knees not to be admitted to the First Maternity Clinic."
-                </p>
-              </div>
-              <div style={{ padding: '16px', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--line)' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
-                  <b style={{ fontSize: '13px', color: 'var(--amber2)' }}>BEAT 2 · REVELATION</b>
-                  <span className="chip ok" style={{ height: '20px', fontSize: '11px' }}>supported</span>
-                </div>
-                <p style={{ fontSize: '13.5px', color: 'var(--tx)', lineHeight: 1.5 }}>
-                  "Midwives had a 2% death rate. Doctors had 16%. The only difference? Doctors came straight from the morgue."
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         );
@@ -131,7 +132,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ standalone = false }) =>
           <div>
             <div className="sh">
               <b>{stepIdx === 3 ? 'Motion & Sound' : 'Painting shots'}</b>
-              <span className="faint">Lab · free GPU · 9 of 12 shown</span>
+              <span className="faint">Real shots from episode 002</span>
             </div>
 
             {/* 12 shot grid */}
@@ -231,7 +232,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ standalone = false }) =>
                 <b style={{ fontSize: '16px' }}>Ready to upload</b>
               </div>
               <p style={{ fontSize: '13.5px', color: 'var(--tx2)', lineHeight: 1.5, marginBottom: '20px' }}>
-                Film assembled with 1080x1920 vertical format, synchronized historic soundtrack, voice narration at -14 LUFS, and 100% verified primary sources.
+                Vertical 1080×1920 film, voice levelled to −14 LUFS, every claim checked against its saved sources. Nothing posts until you approve.
               </p>
               <div style={{ display: 'flex', gap: '12px' }}>
                 <span className="btn pri" style={{ height: '38px', padding: '0 18px', fontSize: '13px' }}>

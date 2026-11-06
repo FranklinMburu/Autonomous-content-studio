@@ -12,7 +12,7 @@ export interface StudioContextValue {
   uploadedItems: any[];
   alerts: any[];
   scheduleData: any;
-  nextSlots: string[];
+  nextSlots: Date[];
   modelsData: any;
   memorySeedData: any;
   labRunsData: any[];
@@ -42,7 +42,7 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [uploadedItems, setUploadedItems] = useState<any[]>([]);
   const [alerts, setAlerts] = useState<any[]>([]);
   const [scheduleData, setScheduleData] = useState<any>(null);
-  const [nextSlots, setNextSlots] = useState<string[]>([]);
+  const [nextSlots, setNextSlots] = useState<Date[]>([]);
   const [modelsData, setModelsData] = useState<any>(null);
   const [memorySeedData, setMemorySeedData] = useState<any>(null);
   const [labRunsData, setLabRunsData] = useState<any[]>([]);
@@ -52,7 +52,7 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [error, setError] = useState<{ kind: string; message: string } | null>(null);
   const [activeChannel, setActiveChannel] = useState<string>('HR');
   const [theme, setThemeState] = useState<'dark' | 'light' | 'system'>(() => {
-    return (localStorage.getItem('candela:theme') as 'dark' | 'light' | 'system') || 'dark';
+    try { return (localStorage.getItem('candela:theme') as 'dark' | 'light' | 'system') || 'dark'; } catch { return 'dark'; }
   });
 
   const [currentPath, setCurrentPath] = useState<string>(() => window.location.pathname || '/');
@@ -77,14 +77,14 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   // Theme application
   const setTheme = useCallback((t: 'dark' | 'light' | 'system') => {
     setThemeState(t);
-    localStorage.setItem('candela:theme', t);
+    try { localStorage.setItem('candela:theme', t); } catch { /* private mode: theme lasts this visit */ }
   }, []);
 
   useEffect(() => {
     const applyTheme = () => {
-      const isLight =
-        theme === 'light' ||
-        (theme === 'system' && window.matchMedia('(prefers-color-scheme: light)').matches);
+      // the light theme is for the studio app only; the website (landing, films, pricing) is always ink
+      const isLight = currentPath.startsWith('/app') && (theme === 'light' ||
+        (theme === 'system' && window.matchMedia('(prefers-color-scheme: light)').matches));
       if (isLight) {
         document.body.classList.add('light');
       } else {
@@ -98,7 +98,7 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       mq.addEventListener('change', applyTheme);
       return () => mq.removeEventListener('change', applyTheme);
     }
-  }, [theme]);
+  }, [theme, currentPath]);
 
   // Load data
   const loadData = useCallback(async () => {
@@ -162,14 +162,7 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       setAlerts(rAlerts);
       setScheduleData(rSched);
       if (rSched && rSched.utc) {
-        const rawSlots = studio.nextSlots(rSched.utc, 15);
-        const formatted = rawSlots.map((d: any) => {
-          if (d instanceof Date) {
-            return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
-          }
-          return String(d || '');
-        });
-        setNextSlots(formatted);
+        setNextSlots(studio.nextSlots(rSched.utc, 15));   // Date objects (pages format them in local time)
       }
       setModelsData(rModels);
       setMemorySeedData(rMem);

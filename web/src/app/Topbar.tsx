@@ -16,8 +16,8 @@ export const Topbar: React.FC<TopbarProps> = ({ pageName }) => {
     <header className="top">
       <div className="crumb">
         <Broadcast size={16} weight="duotone" className="ic" color="var(--amber2)" />
-        <span>Hidden Reasons</span>
-        <span className="faint">/</span>
+        <span className="crumb-ch">Hidden Reasons</span>
+        <span className="faint crumb-ch">/</span>
         <b>{pageName}</b>
       </div>
 

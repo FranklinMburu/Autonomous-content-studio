@@ -4,7 +4,7 @@ import { Nav } from '../landing/Nav';
 import { Footer } from '../landing/Footer';
 import { Chip } from '../ui/Chip';
 import { useStudio } from '../context/StudioContext';
-import { parseSources, sourceSummary } from '../lib/github-data.js';
+import { sourceSummary } from '../lib/github-data.js';
 
 interface FilmPublicPageProps {
   filmId: string;
@@ -28,9 +28,9 @@ export const FilmPublicPage: React.FC<FilmPublicPageProps> = ({ filmId }) => {
       .catch(() => {});
   }, [film, studio]);
 
-  const sourcesList = episodeData?.sources
-    ? sourceSummary(parseSources(episodeData.sources))
-    : [];
+  // episode() already parses sources.md; else the sources in the film's release notes
+  const sourcesList = sourceSummary(episodeData?.sources?.length ? episodeData.sources : ((film as any).release?.sources || []));
+  const scriptLines: string[] = (episodeData?.script?.beats || []).flatMap((b: any) => b.lines || []);
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--bg)' }}>
@@ -79,9 +79,9 @@ export const FilmPublicPage: React.FC<FilmPublicPageProps> = ({ filmId }) => {
                   preload="metadata"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
-              ) : film.contact?.url ? (
+              ) : film.contact ? (
                 <img
-                  src={film.contact.url}
+                  src={film.contact}
                   alt={film.title}
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
@@ -128,9 +128,7 @@ export const FilmPublicPage: React.FC<FilmPublicPageProps> = ({ filmId }) => {
 
             {/* Story in one paragraph (first two script lines) */}
             <p style={{ fontSize: '15.5px', lineHeight: 1.6, color: 'var(--tx2)', marginBottom: '20px' }}>
-              {(episodeData?.script?.lines?.slice(0, 2).join(' ')) ||
-                (episodeData?.script?.beats?.slice(0, 2).map((b: any) => b.line || b.narration || b.text).join(' ')) ||
-                'True history researched from primary sources, medical journals, and museum archives, brought to life through autonomous painting pipelines.'}
+              {scriptLines.slice(0, 2).join(' ') || ''}
             </p>
 
             {/* Made with Candela strip */}
@@ -191,7 +189,7 @@ export const FilmPublicPage: React.FC<FilmPublicPageProps> = ({ filmId }) => {
               }}
             >
               <CheckCircle size={18} color="#3FB950" weight="duotone" />
-              <span>Checked by autonomous verification pipelines prior to publishing</span>
+              <span>{sourcesList.length ? `Every line checked against ${sourcesList.length} saved ${sourcesList.length === 1 ? 'source' : 'sources'}` : 'Every line checked against its saved sources'}</span>
             </div>
 
             {/* Sources behind every line */}
@@ -210,7 +208,7 @@ export const FilmPublicPage: React.FC<FilmPublicPageProps> = ({ filmId }) => {
 
               {sourcesList.length === 0 ? (
                 <p style={{ color: 'var(--tx3)', fontSize: '13px' }}>
-                  Historic citations archived and fact-checked against university archives and medical journals.
+                  {episodeData ? 'No sources file for this film.' : 'Loading sources…'}
                 </p>
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>

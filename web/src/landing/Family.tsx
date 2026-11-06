@@ -97,7 +97,7 @@ export const Family: React.FC<FamilyProps> = ({ activeKey, onSelectFamily }) => 
       </svg>
 
       {/* Heading */}
-      <div className="sec">
+      <div className="sec fam-sec">
         <div className="eyebrow">One studio, five parts</div>
         <h2>
           Everything a film needs. <span className="serif">Nothing</span> it doesn't.

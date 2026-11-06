@@ -12,11 +12,17 @@
 export const DEFAULTS = {
   owner: "FranklinMburu",
   repo: "Autonomous-content-studio",
-  branch: "story-style",                  // episode files + topics live here until PR #10 is merged; then "main"
+  branch: "main",                         // episode files, topics and the schedule (PR #10 merged on 2 Nov)
   channels: [{ code: "HR", name: "Hidden Reasons", dir: "episodes/hidden_reasons",
                niche: "True stories behind history's strangest acts", perDay: 5,
                scheduleWorkflow: "story-schedule.yml", makeWorkflow: "make-story.yml" }],
   cacheSeconds: 120,                      // GitHub allows 60 unauthenticated API calls per hour per visitor
+  // The studio feed: one file with every API answer the site needs, rebuilt by the "Site feed" workflow every 30 min
+  // and after every pipeline run, on the branch "site-data". Served by raw.githubusercontent.com (no request limit),
+  // so visitors never hit GitHub's 60-calls-an-hour limit. If it is missing or older than feedMaxAgeHours, the site
+  // calls the API directly as before.
+  feedBranch: "site-data",
+  feedMaxAgeHours: 6,
 };
 
 const API = "https://api.github.com";
@@ -45,10 +51,30 @@ export function createStudio(opts = {}) {
   const cfg = { ...DEFAULTS, ...opts };
   const repoPath = `${cfg.owner}/${cfg.repo}`;
   const pending = new Map();
+  let feed = null, feedAt = 0;   // Promise<{ built, responses: { url: json } } | null>, reloaded every 5 minutes
 
-  async function get(url, { text = false, ttl = cfg.cacheSeconds } = {}) {
+  function loadFeed() {
+    if (feed && Date.now() - feedAt > 300000) feed = null;
+    if (!feed) feedAt = Date.now(), feed = (async () => {
+      if (!cfg.feedBranch || typeof fetch === "undefined") return null;
+      try {
+        const r = await fetch(`${RAW}/${repoPath}/${cfg.feedBranch}/feed.json`, { cache: "no-cache" });
+        if (!r.ok) return null;
+        const f = await r.json();
+        const age = (Date.now() - new Date(f.built).getTime()) / 3600000;
+        return f && f.responses && age < cfg.feedMaxAgeHours ? f : null;
+      } catch { return null; }
+    })();
+    return feed;
+  }
+
+  async function get(url, { text = false, ttl = cfg.cacheSeconds, live = false } = {}) {
     const key = "candela:" + url;
     const hit = cacheGet(key, ttl); if (hit !== undefined) return hit;
+    if (url.startsWith(API) && !live) {
+      const f = await loadFeed();
+      if (f && Object.prototype.hasOwnProperty.call(f.responses, url)) { cacheSet(key, f.responses[url]); return f.responses[url]; }
+    }
     if (pending.has(key)) return pending.get(key);
     const p = (async () => {
       let r;
@@ -105,6 +131,7 @@ export function createStudio(opts = {}) {
       contact: contact ? contact.browser_download_url : null,
       zip: (asset(/^episode-files\.zip$/) || {}).browser_download_url || null,
       checks: line("Checks"), problems: line("NEEDS REVIEW"),
+      seconds: Number((notes.match(/length\s+([\d.]+)\s*s\b/i) || [])[1]) || null,   // from the release notes, when given
       sources: parseSources(notes),
       assets: r.assets.map(a => ({ name: a.name, url: a.browser_download_url, bytes: a.size })),
     };
@@ -118,6 +145,10 @@ export function createStudio(opts = {}) {
       const fields = {};
       if (marker) for (const [, k, v] of marker[2].matchAll(/(\w+)=(\S*)/g)) fields[k] = v;
       const prompt = ((i.body || "").match(/`{3,}text\n([\s\S]*?)\n`{3,}/) || [])[1] || null;
+      // older issues have no <!-- review:… --> marker: read the release link and the failed-shot list from the text
+      if (!fields.tag) { const t = (i.body || "").match(/\/releases\/tag\/([A-Za-z0-9._-]+)/); if (t) fields.tag = t[1]; }
+      if (!fields.episode && fields.tag) { const e = fields.tag.match(/^(?:film|story|draft)-(.+)-run\d+$/); if (e) fields.episode = e[1]; }
+      if (!fields.failed) { const f = (i.body || "").match(/failed the picture check:\s*([^\n]+)/); if (f) fields.failed = f[1].replace(/\s+/g, ""); }
       return {
         number: i.number, title: i.title.replace(/^(Review needed|Polish needed|Ready to upload):\s*/i, ""),
         state: i.state, url: i.html_url, at: i.created_at, updated: i.updated_at, closedAt: i.closed_at,
@@ -178,7 +209,7 @@ export function createStudio(opts = {}) {
   // Every workflow except the code tests ("Pipeline tests") is a studio run.
   async function runs(limit = 30) {
     const d = await api(`/actions/runs?per_page=${limit}`, { ttl: 30 });
-    return d.workflow_runs.filter(r => r.name !== "Pipeline tests")
+    return d.workflow_runs.filter(r => r.name !== "Pipeline tests" && !/^Site feed/.test(r.name))   // housekeeping, not films
       .map(r => ({
         id: r.id, workflow: r.name, title: r.display_title, status: r.status, conclusion: r.conclusion,
         // state: "running" | "queued" | "success" | "failure" | "cancelled"
@@ -188,8 +219,8 @@ export function createStudio(opts = {}) {
         minutes: Math.round((new Date(r.status === "completed" ? r.updated_at : Date.now()) - new Date(r.run_started_at || r.created_at)) / 60000),
       }));
   }
-  async function runSteps(runId) {   // the timeline of one run (job steps with times)
-    const d = await api(`/actions/runs/${runId}/jobs`, { ttl: 20 });
+  async function runSteps(runId, live = false) {   // the timeline of one run (job steps); live = skip the feed (running)
+    const d = await api(`/actions/runs/${runId}/jobs`, { ttl: 20, live });
     return d.jobs.flatMap(j => j.steps.map(s => ({
       job: j.name, name: s.name, number: s.number,
       state: s.status !== "completed" ? (s.status === "in_progress" ? "running" : "waiting") : (s.conclusion === "skipped" ? "skipped" : s.conclusion === "success" ? "done" : "failed"),
@@ -206,8 +237,15 @@ export function createStudio(opts = {}) {
   async function schedule(channel = cfg.channels[0]) {   // the 5 daily start times, read from the workflow's cron
     const y = await raw(`.github/workflows/${channel.scheduleWorkflow}`);
     const cron = (y.match(/cron:\s*"([^"]+)"/) || [])[1];
+    // the slot list the schedule really uses (since 6 Nov it wakes hourly and starts a film only at these hours)
+    const slots = (y.match(/SLOTS="([0-9 ]+)"/) || [])[1];
+    if (slots) {
+      const min = cron ? cron.split(/\s+/)[0] : "23";
+      return { cron, utc: slots.trim().split(/\s+/).map(h => `${h.padStart(2, "0")}:${min.padStart(2, "0")}`) };
+    }
     if (!cron) return { cron: null, utc: [] };
     const [min, hours] = cron.split(/\s+/);
+    if (!/^[0-9,]+$/.test(hours)) return { cron, utc: [] };
     const utc = hours.split(",").map(h => `${h.padStart(2, "0")}:${min.padStart(2, "0")}`);
     return { cron, utc };   // show in the viewer's local time with nextSlots()
   }
@@ -246,7 +284,9 @@ export function createStudio(opts = {}) {
     release: tag => `https://github.com/${repoPath}/releases/tag/${tag}`,
   };
 
-  return { cfg, releases, films, runs, runSteps, reviewQueue, polishQueue, uploadQueue, uploaded, alerts, statusBoard,
+  const feedInfo = async () => { const f = await loadFeed(); return f ? { built: f.built } : null; };
+
+  return { cfg, feedInfo, releases, films, runs, runSteps, reviewQueue, polishQueue, uploadQueue, uploaded, alerts, statusBoard,
            topics, schedule, nextSlots, episode, memorySeed, models, labRuns, links };
 }
 
@@ -298,4 +338,12 @@ export function buildGlobe(films, topics, places) {
   if (newest) queued.filter(onGlobe).slice(0, 2)
     .forEach((q, i) => arcs.push([newest.n, q.n, 120 + 60 * i]));
   return { stories: [...made, ...queued], arcs };
+}
+
+// Is this queued topic already made? Episode folders are named NNN-<first 40 chars of the topic as a slug>,
+// so a topic is done when some film's id (without the number) starts its slug. Same rule as the pipeline's queue.
+export function slugify(t) { return String(t).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+/, ""); }
+export function topicMade(topic, films) {
+  const s = slugify(topic);
+  return (films || []).some(f => { const id = String(f.id || "").replace(/^\d+-/, "").replace(/-+$/, ""); return id.length > 8 && s.startsWith(id); });
 }

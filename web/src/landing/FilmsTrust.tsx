@@ -12,16 +12,12 @@ export const FilmsTrust: React.FC = () => {
   const { films, navigate } = useStudio();
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
-  // Take up to 5 finished or available films
-  const displayFilms = films.slice(0, 5);
-  // Fallbacks if not enough films loaded yet
-  const fallbackStills = [
-    { title: 'Why Doctors Were Ordered to Wash Their Hands', img: '/img/hook.jpg', dur: '0:58' },
-    { title: "Why a Surgeon Wrapped a Boy's Leg in Acid", img: '/img/lister2c.jpg', dur: '0:52' },
-    { title: 'Women begged on their knees', img: '/img/begging.jpg', dur: 'clip' },
-    { title: "Pasteur's germ theory", img: '/img/pasteur.jpg', dur: 'clip' },
-    { title: 'Born in the street', img: '/img/street.jpg', dur: 'clip' },
-  ];
+  // Real films only (DATA_CONTRACT §6): finished ones first, never invented stills.
+  // While data loads, empty skeleton cards; with fewer films, fewer cards.
+  const order = (f: any) => (f.video?.url ? 0 : 1);
+  const displayFilms = [...films].filter(f => !['draft'].includes(f.status)).sort((x, y) => order(x) - order(y)).slice(0, 5);
+  const loading = films.length === 0;
+  const fmtDur = (sec?: number) => (sec ? `${Math.floor(sec / 60)}:${String(Math.round(sec % 60)).padStart(2, '0')}` : '');
 
   return (
     <section
@@ -46,10 +42,10 @@ export const FilmsTrust: React.FC = () => {
 
         {/* 5 Film Cards Gallery */}
         <div className="fgal">
-          {(displayFilms.length >= 3 ? displayFilms : fallbackStills).map((item: any, idx) => {
+          {(loading ? [{}, {}, {}, {}, {}] : displayFilms).map((item: any, idx) => {
             const isHovered = hoveredIdx === idx;
             const isFirst = idx === 0;
-            const imgSrc = item.img || item.contact?.url || item.video?.poster || '/img/hook.jpg';
+            const imgSrc = item.contact || item.video?.poster || '';
             const videoUrl = item.video?.url;
             const title = item.title || item.name;
 
@@ -78,15 +74,19 @@ export const FilmsTrust: React.FC = () => {
                     playsInline
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
-                ) : (
+                ) : imgSrc ? (
                   <img src={imgSrc} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                ) : videoUrl ? (
+                  <video src={`${videoUrl}#t=0.5`} preload="metadata" muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                ) : (
+                  <div className="skel" style={{ width: '100%', height: '100%', background: 'rgba(255,255,255,0.04)' }} />
                 )}
 
                 <div className="fo">
-                  <b>{title}</b>
+                  <b>{title || ''}</b>
                   <span>
                     <PlayCircle size={15} weight="duotone" className="ic" />
-                    {item.dur || '0:58'}
+                    {fmtDur(item.release?.seconds) || (item.status ? item.status : '')}
                   </span>
                 </div>
               </div>

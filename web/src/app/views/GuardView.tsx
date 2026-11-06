@@ -34,9 +34,9 @@ export const GuardView: React.FC = () => {
             <b style={{ fontSize: '15px' }}>Fact Check Gate</b>
           </div>
           <span style={{ fontSize: '13px', color: 'var(--tx2)', lineHeight: 1.5 }}>
-            Every narrative line must cite primary literature (Wikipedia, PubMed, archives). Audited prior to shot planning.
+            Every line of the script is checked against the saved sources before any picture is painted.
           </span>
-          <span className="chip ok" style={{ alignSelf: 'flex-start', marginTop: '4px' }}>100% verified</span>
+          <span className="chip ok" style={{ alignSelf: 'flex-start', marginTop: '4px' }}>On every script</span>
         </div>
 
         <div
@@ -55,9 +55,9 @@ export const GuardView: React.FC = () => {
             <b style={{ fontSize: '15px' }}>Picture Checker</b>
           </div>
           <span style={{ fontSize: '13px', color: 'var(--tx2)', lineHeight: 1.5 }}>
-            Vision model interrogates each frame: correct pose, text leakage, anachronistic objects, face fidelity.
+            A vision model looks at every painted shot: right action, no text, nothing modern. Failed shots are repainted.
           </span>
-          <span className="chip rev" style={{ alignSelf: 'flex-start', marginTop: '4px' }}>Auto-repainting active</span>
+          <span className="chip rev" style={{ alignSelf: 'flex-start', marginTop: '4px' }}>On every shot</span>
         </div>
 
         <div
@@ -76,7 +76,7 @@ export const GuardView: React.FC = () => {
             <b style={{ fontSize: '15px' }}>Review Gate</b>
           </div>
           <span style={{ fontSize: '13px', color: 'var(--tx2)', lineHeight: 1.5 }}>
-            Films with any remaining uncertainty are held for human approval. Zero films post autonomously without sign-off.
+            Films with weak shots are held for your approval. Nothing is ever posted without you.
           </span>
           <span className="chip rev" style={{ alignSelf: 'flex-start', marginTop: '4px' }}>
             {reviewItems.length} held for review
@@ -98,7 +98,7 @@ export const GuardView: React.FC = () => {
       >
         {alerts.length === 0 ? (
           <div style={{ padding: '32px', textAlign: 'center', color: 'var(--tx3)', fontSize: '13px' }}>
-            No alerts open. All guards reporting normal operations.
+            No open alerts.
           </div>
         ) : (
           alerts.map((al, idx) => (
@@ -116,7 +116,7 @@ export const GuardView: React.FC = () => {
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <Warning size={18} color="#F85149" weight="duotone" />
                 <div>
-                  <b>{al.title || al.body}</b>
+                  <b>{(() => { const t = String(al.text || al.title || al.body || '').split('\n').map((l: string) => l.replace(/[#*_`>]/g, '').trim()).find((l: string) => l) || 'Pipeline alert'; return t.length > 140 ? t.slice(0, 140) + '…' : t; })()}</b>
                   <span style={{ fontSize: '12px', color: 'var(--tx3)', display: 'block', marginTop: '2px' }}>
                     {al.at ? new Date(al.at).toLocaleString() : 'Recent'}
                   </span>

@@ -1,0 +1,52 @@
+name: Site feed (data for the website)
+
+# Builds feed.json: every GitHub API answer the Candela website needs (films, runs, queues, alerts), in one public
+# file on the branch "site-data". The website reads that file from raw.githubusercontent.com, so visitors never hit
+# GitHub's limit of 60 API calls an hour (the site falls back to live calls if the feed is missing or > 6 h old).
+# Public data only; the token is used to read, never written into the file. Free: about 30 s per run.
+on:
+  schedule:
+    - cron: "7,37 * * * *"
+  workflow_run:
+    workflows: ["Make a story video", "Polish return (paste Claude's answer)", "Review reply (approve or repaint)",
+                "Story schedule", "Pipeline 3: produce", "Pipeline 1: draft"]
+    types: [completed]
+  issues:
+    types: [opened, closed, reopened, labeled, unlabeled]
+  workflow_dispatch:
+
+permissions:
+  contents: write   # to publish feed.json on the site-data branch
+  actions: read
+  issues: read
+
+concurrency:
+  group: site-feed
+  cancel-in-progress: true
+
+jobs:
+  feed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Build the feed
+        run: node web/scripts/build-feed.mjs feed.json
+      - name: Publish it on the site-data branch (one commit, replaced each time)
+        run: |
+          dir=$(mktemp -d)
+          cp feed.json "$dir/feed.json"
+          printf '# site-data\n\nBuilt automatically by the "Site feed" workflow for the website. Do not edit.\n' > "$dir/README.md"
+          cd "$dir"
+          git init -q -b site-data
+          git config user.name "content-studio-bot"; git config user.email "actions@users.noreply.github.com"
+          git add -A && git commit -qm "Site feed $(date -u +%FT%TZ)"
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" site-data
+          echo "published: $(du -h feed.json | cut -f1)"

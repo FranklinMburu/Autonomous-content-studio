@@ -5,9 +5,13 @@ import { useStudio } from '../../context/StudioContext';
 export const MemoryView: React.FC = () => {
   const { memorySeedData } = useStudio();
 
-  const cast = memorySeedData?.cast || ['Ignaz Semmelweis', 'Joseph Lister', 'John Snow', 'Louis Pasteur'];
-  const places = memorySeedData?.places || ['Vienna General Hospital', 'Glasgow Royal Infirmary', 'Soho Broad Street, London'];
-  const music = memorySeedData?.music || ['Melancholic cello', 'Tense string quartet', '19th century medical hall atmosphere'];
+  // Real data: episodes/hidden_reasons/memory_seed.json (what earlier films already used), never invented lists.
+  const eps: any[] = Array.isArray(memorySeedData?.episodes) ? memorySeedData.episodes : [];
+  const cast = eps.flatMap(e => Object.entries(e.cast || {}).map(([role, desc]) => ({ role, desc: String(desc), ep: e.episode })));
+  const places = eps.map(e => ({ topic: e.topic, shots: (e.places || []).length, ep: e.episode }));
+  const music = eps.filter(e => e.music).map(e => ({ track: String(e.music).replace(/\.mp3$/i, ''), ep: e.episode }));
+  const epNo = (ep: string) => (ep || '').slice(0, 3);
+  const empty = (txt: string) => <div style={{ fontSize: '13px', color: 'var(--tx3)' }}>{memorySeedData ? txt : 'Loading from GitHub…'}</div>;
 
   return (
     <div className="content" style={{ overflowY: 'auto' }}>
@@ -15,7 +19,7 @@ export const MemoryView: React.FC = () => {
         <div>
           <h1 className="pt">Channel Memory</h1>
           <p style={{ color: 'var(--tx3)', fontSize: '13px', marginTop: '4px' }}>
-            Prevents repeating the same faces, places and soundtrack across adjacent films.
+            What earlier films already used (faces, scenes, music), so the next film doesn't repeat them.
           </p>
         </div>
         <a
@@ -42,9 +46,10 @@ export const MemoryView: React.FC = () => {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
             <Users size={18} color="var(--amber2)" weight="duotone" />
-            <b style={{ fontSize: '15px' }}>Cast already featured</b>
+            <b style={{ fontSize: '15px' }}>Cast already used</b>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {cast.length === 0 && empty('No cast saved yet.')}
             {cast.map((item: any, i: number) => (
               <div
                 key={i}
@@ -57,7 +62,8 @@ export const MemoryView: React.FC = () => {
                   color: 'var(--tx)',
                 }}
               >
-                {typeof item === 'string' ? item : item.name || item.character || 'Cast member'}
+                <b style={{ textTransform: 'capitalize' }}>{item.role}</b> <span style={{ color: 'var(--tx3)' }}>· ep {epNo(item.ep)}</span>
+                <div style={{ color: 'var(--tx2)', fontSize: '12px', marginTop: '3px', lineHeight: 1.45 }}>{item.desc}</div>
               </div>
             ))}
           </div>
@@ -74,9 +80,10 @@ export const MemoryView: React.FC = () => {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
             <MapPin size={18} color="var(--amber2)" weight="duotone" />
-            <b style={{ fontSize: '15px' }}>Historical locations used</b>
+            <b style={{ fontSize: '15px' }}>Stories and painted shots</b>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {places.length === 0 && empty('No stories saved yet.')}
             {places.map((item: any, i: number) => (
               <div
                 key={i}
@@ -89,7 +96,8 @@ export const MemoryView: React.FC = () => {
                   color: 'var(--tx)',
                 }}
               >
-                {typeof item === 'string' ? item : item.place || item.name || 'Location'}
+                {item.topic}
+                <div style={{ color: 'var(--tx3)', fontSize: '12px', marginTop: '3px' }}>ep {epNo(item.ep)} · {item.shots} shot prompts saved</div>
               </div>
             ))}
           </div>
@@ -106,9 +114,10 @@ export const MemoryView: React.FC = () => {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
             <MusicNotes size={18} color="var(--amber2)" weight="duotone" />
-            <b style={{ fontSize: '15px' }}>Music tracks selected</b>
+            <b style={{ fontSize: '15px' }}>Music already used</b>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {music.length === 0 && empty('No music saved yet.')}
             {music.map((item: any, i: number) => (
               <div
                 key={i}
@@ -121,7 +130,7 @@ export const MemoryView: React.FC = () => {
                   color: 'var(--tx)',
                 }}
               >
-                {typeof item === 'string' ? item : item.title || item.mood || 'Theme'}
+                {item.track} <span style={{ color: 'var(--tx3)' }}>· ep {epNo(item.ep)}</span>
               </div>
             ))}
           </div>

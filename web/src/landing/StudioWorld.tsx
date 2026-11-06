@@ -4,16 +4,26 @@ import { world } from '../lib/studio-world.js';
 import { useStudio } from '../context/StudioContext';
 
 export const StudioWorld: React.FC = () => {
-  const { films } = useStudio();
+  const { films, studio } = useStudio();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   // Compute live numbers
   const sevenDaysAgo = new Date(Date.now() - 7 * 86400000);
-  const targetFilms = films.filter(f => f.at && new Date(f.at) >= sevenDaysAgo).length || 5;
-  const targetShots = targetFilms * 30;
-  const targetFacts = targetFilms * 14;
+  // real numbers only (DATA_CONTRACT §6): films made this week, their facts, and their painted shots (from film.json)
+  const weekFilms = films.filter(f => f.at && new Date(f.at) >= sevenDaysAgo && !['draft', 'polish'].includes(f.status));
+  const targetFilms = weekFilms.length;
+  const targetFacts = weekFilms.reduce((a, f) => a + (f.release?.sources?.length || 0), 0);
+  const [targetShots, setTargetShots] = useState(0);
+  useEffect(() => {
+    let cancelled = false;
+    Promise.all(weekFilms.filter(f => f.style === 'film').map(f =>
+      studio.episode(`episodes/hidden_reasons/${f.id}`).then((e: any) => e?.film?.shots?.length || 0).catch(() => 0)))
+      .then(n => { if (!cancelled) setTargetShots(n.reduce((a, b) => a + b, 0)); });
+    return () => { cancelled = true; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [films]);
 
   const [displayFilms, setDisplayFilms] = useState(0);
   const [displayShots, setDisplayShots] = useState(0);

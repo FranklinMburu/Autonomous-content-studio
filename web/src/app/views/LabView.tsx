@@ -11,7 +11,7 @@ export const LabView: React.FC = () => {
         <div>
           <h1 className="pt">Candela Lab</h1>
           <p style={{ color: 'var(--tx3)', fontSize: '13px', marginTop: '4px' }}>
-            Painting engine and GPU experiments on Kaggle T4 accelerators.
+            Painting and motion experiments on Kaggle's free weekly GPU hours. Each run is published as a GitHub pre-release.
           </p>
         </div>
       </div>
@@ -31,10 +31,10 @@ export const LabView: React.FC = () => {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <Cpu size={18} color="var(--amber2)" weight="duotone" />
-            <b style={{ fontSize: '15px' }}>Kaggle T4 × 2</b>
+            <b style={{ fontSize: '15px' }}>Kaggle free GPU</b>
           </div>
           <span style={{ fontSize: '13px', color: 'var(--tx2)', lineHeight: 1.5 }}>
-            30 GPU hours free per week. Runs headless worker kernels to paint each 30-shot film.
+            Kaggle's free weekly GPU hours. A GitHub workflow starts the notebook and collects what it made.
           </span>
         </div>
 
@@ -51,10 +51,10 @@ export const LabView: React.FC = () => {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <Flask size={18} color="var(--amber2)" weight="duotone" />
-            <b style={{ fontSize: '15px' }}>SDXL + Face Lock</b>
+            <b style={{ fontSize: '15px' }}>SDXL + IP-Adapter</b>
           </div>
           <span style={{ fontSize: '13px', color: 'var(--tx2)', lineHeight: 1.5 }}>
-            IP-Adapter and InstantID lock historical character faces across all 30 storyboard frames.
+            Stable Diffusion XL paints every shot; IP-Adapter keeps each character's face the same from shot to shot.
           </span>
         </div>
 
@@ -71,10 +71,10 @@ export const LabView: React.FC = () => {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <FilmReel size={18} color="var(--amber2)" weight="duotone" />
-            <b style={{ fontSize: '15px' }}>LTX-Video Clips</b>
+            <b style={{ fontSize: '15px' }}>LTX-Video clips</b>
           </div>
           <span style={{ fontSize: '13px', color: 'var(--tx2)', lineHeight: 1.5 }}>
-            Generates 5-second fluid motion and Ken Burns parallax camera moves for key climax shots.
+            Turns chosen 'clip' shots into short moving clips; the other shots get depth-based camera moves.
           </span>
         </div>
       </div>
@@ -96,7 +96,7 @@ export const LabView: React.FC = () => {
             No isolated lab releases recorded yet.
           </div>
         ) : (
-          labRunsData.map((lr, i) => (
+          [...labRunsData].sort((a: any, b: any) => (parseInt(String(b.tag).match(/(\d+)$/)?.[1] || '0') - parseInt(String(a.tag).match(/(\d+)$/)?.[1] || '0'))).map((lr, i) => (
             <div
               key={i}
               style={{

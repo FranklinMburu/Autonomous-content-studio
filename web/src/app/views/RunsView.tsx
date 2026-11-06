@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CaretRight, ArrowSquareOut, Clock, ArrowLeft } from '@phosphor-icons/react';
 import { Chip } from '../../ui/Chip';
 import { useStudio } from '../../context/StudioContext';
+import { topicMade } from '../../lib/github-data.js';
 
 export interface RunsViewProps {
   initialRunId?: string;
@@ -14,7 +15,7 @@ export const RunsView: React.FC<RunsViewProps> = ({
   onBack,
   onSelectRun,
 }) => {
-  const { runs, topics, nextSlots, studio } = useStudio();
+  const { runs, films, topics, nextSlots, studio } = useStudio();
   const [filter, setFilter] = useState<'all' | 'making' | 'needs_you' | 'failed'>('all');
   const [selectedRun, setSelectedRun] = useState<any>(null);
   const [timelineSteps, setTimelineSteps] = useState<any[]>([]);
@@ -34,19 +35,25 @@ export const RunsView: React.FC<RunsViewProps> = ({
 
   useEffect(() => {
     if (selectedRun && selectedRun.id) {
-      studio.runSteps(selectedRun.id).then(setTimelineSteps).catch(() => {
-        // Fallback realistic steps for mock display if API was rate-limited
-        setTimelineSteps([
-          { name: 'Set up job', state: 'completed', duration: 3 },
-          { name: 'Research sources', state: 'completed', duration: 18 },
-          { name: 'Script draft & check', state: 'completed', duration: 42 },
-          { name: 'Paint shots (GPU)', state: selectedRun.state === 'running' ? 'in_progress' : 'completed', duration: 320 },
-          { name: 'Picture check', state: selectedRun.state === 'running' ? 'queued' : 'completed', duration: 45 },
-          { name: 'Assemble film', state: selectedRun.state === 'running' ? 'queued' : 'completed', duration: 80 },
-        ]);
-      });
+      const live = selectedRun.state === 'running' || selectedRun.state === 'queued';
+      setTimelineSteps([]);
+      studio.runSteps(selectedRun.id, live).then(setTimelineSteps).catch(() => setTimelineSteps([]));
     }
   }, [selectedRun, studio]);
+
+  // step bars for the rows: real steps for the newest runs (they come from the feed, no extra GitHub calls)
+  const [rowSteps, setRowSteps] = useState<Record<string, any[]>>({});
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const out: Record<string, any[]> = {};
+      for (const r of runs.slice(0, 12)) {
+        try { out[r.id] = await studio.runSteps(r.id); } catch { /* not in the feed: the bar shows the state only */ }
+      }
+      if (!cancelled) setRowSteps(out);
+    })();
+    return () => { cancelled = true; };
+  }, [runs, studio]);
 
   const makingCount = runs.filter(r => r.state === 'running' || r.state === 'queued' || r.state === 'in_progress').length;
   const failedCount = runs.filter(r => r.state === 'failure' || r.state === 'cancelled').length;
@@ -57,7 +64,7 @@ export const RunsView: React.FC<RunsViewProps> = ({
     return true;
   });
 
-  const formatSlot = (slot: any, fallback = '13:23') => {
+  const formatSlot = (slot: any, fallback = '—') => {
     if (!slot) return fallback;
     if (slot instanceof Date) return slot.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
     return String(slot);
@@ -102,20 +109,9 @@ export const RunsView: React.FC<RunsViewProps> = ({
 
           <div style={{ marginTop: '16px' }}>
             <b style={{ fontSize: '13px', color: 'var(--tx)', display: 'block', marginBottom: '10px' }}>
-              Execution Timeline
+              Steps
             </b>
-            {timelineSteps.map((step, idx) => {
-              const isOk = step.state === 'completed' || step.conclusion === 'success';
-              const isNow = step.state === 'in_progress';
-              return (
-                <div key={idx} className={`ds ${isOk ? 'ok' : isNow ? 'now' : ''}`}>
-                  <span className="b" />
-                  <b>{step.name}</b>
-                  <span className="m">{isOk ? 'Completed' : isNow ? 'Running...' : 'Queued'}</span>
-                  <span className="t">{step.duration ? `${step.duration}s` : '—'}</span>
-                </div>
-              );
-            })}
+            <Timeline steps={timelineSteps} />
           </div>
 
           {selectedRun.url && (
@@ -181,15 +177,9 @@ export const RunsView: React.FC<RunsViewProps> = ({
                 >
                   <div className="rt">
                     <b>{run.title || run.workflow}</b>
-                    <span>Hidden Reasons · started {run.started ? new Date(run.started).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'recently'}</span>
+                    <span>{run.workflow} · {run.started ? new Date(run.started).toLocaleString([], { weekday: 'short', hour: '2-digit', minute: '2-digit' }) : '—'}</span>
                   </div>
-                  <div className="segs">
-                    <i className="s-ok" />
-                    <i className="s-ok" />
-                    <i className="s-ok" />
-                    <i className={isRunning ? 's-now' : 's-ok'} />
-                    <i className={run.state === 'failure' ? 's-bad' : ''} />
-                  </div>
+                  <Segs steps={rowSteps[run.id]} state={run.state} />
                   <Chip status={run.state} />
                   <span className="dur">{run.minutes ? `${run.minutes} min` : '—'}</span>
                   <CaretRight size={13} className="ic faint" />
@@ -199,7 +189,7 @@ export const RunsView: React.FC<RunsViewProps> = ({
           )}
 
           {/* Scheduled future slots */}
-          {topics.slice(0, 3).map((topic, idx) => (
+          {topics.filter((x: string) => !topicMade(x, films)).slice(0, 3).map((topic, idx) => (
             <div key={idx} className="runrow sched">
               <span className="slot">{formatSlot(nextSlots[idx])}</span>
               <div className="rt">
@@ -236,20 +226,9 @@ export const RunsView: React.FC<RunsViewProps> = ({
 
               <div style={{ marginTop: '16px' }}>
                 <b style={{ fontSize: '13px', color: 'var(--tx)', display: 'block', marginBottom: '10px' }}>
-                  Execution Timeline
+                  Steps
                 </b>
-                {timelineSteps.map((step, idx) => {
-                  const isOk = step.state === 'completed' || step.conclusion === 'success';
-                  const isNow = step.state === 'in_progress';
-                  return (
-                    <div key={idx} className={`ds ${isOk ? 'ok' : isNow ? 'now' : ''}`}>
-                      <span className="b" />
-                      <b>{step.name}</b>
-                      <span className="m">{isOk ? 'Completed' : isNow ? 'Running...' : 'Queued'}</span>
-                      <span className="t">{step.duration ? `${step.duration}s` : '—'}</span>
-                    </div>
-                  );
-                })}
+                <Timeline steps={timelineSteps} />
               </div>
 
               {selectedRun.url && (
@@ -276,4 +255,46 @@ export const RunsView: React.FC<RunsViewProps> = ({
       </div>
     </div>
   );
+};
+
+
+const STATE_LABEL: Record<string, string> = { done: 'Done', running: 'Running', waiting: 'Waiting', failed: 'Failed', skipped: 'Skipped' };
+
+const fmtSeconds = (s: number | null | undefined) =>
+  s == null ? '—' : s < 60 ? `${s}s` : `${Math.floor(s / 60)}m ${String(s % 60).padStart(2, '0')}s`;
+
+/** The real steps of one GitHub Actions run (DATA_CONTRACT: runSteps). */
+const Timeline: React.FC<{ steps: any[] }> = ({ steps }) => {
+  if (!steps.length) return <div className="ds-empty">Steps load from GitHub…</div>;
+  return (
+    <div className="dsl">
+      {steps.map((st, i) => (
+        <div key={i} className={`ds ${st.state === 'done' ? 'ok' : st.state === 'running' ? 'now' : st.state === 'failed' ? 'bad' : ''}`}>
+          <span className="b" />
+          <b title={st.name}>{st.name}</b>
+          <span className="m">{STATE_LABEL[st.state] || st.state}</span>
+          <span className="t">{fmtSeconds(st.seconds)}</span>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+/** Step bar of a run row: one segment per real step (up to 8), or the run's state when steps aren't loaded. */
+const Segs: React.FC<{ steps?: any[]; state: string }> = ({ steps, state }) => {
+  let cls: string[];
+  if (steps && steps.length) {
+    const s = steps.filter(x => x.state !== 'skipped');
+    const per = Math.max(1, Math.ceil(s.length / 8));
+    cls = [];
+    for (let i = 0; i < s.length; i += per) {
+      const g = s.slice(i, i + per);
+      cls.push(g.some(x => x.state === 'failed') ? 's-bad' : g.some(x => x.state === 'running') ? 's-now' : g.every(x => x.state === 'done') ? 's-ok' : '');
+    }
+  } else {
+    const n = 8;
+    cls = Array.from({ length: n }, (_, i) =>
+      state === 'success' ? 's-ok' : state === 'failure' ? (i === n - 1 ? 's-bad' : '') : state === 'running' ? (i === 0 ? 's-now' : '') : '');
+  }
+  return <div className="segs">{cls.map((c, i) => <i key={i} className={c} />)}</div>;
 };

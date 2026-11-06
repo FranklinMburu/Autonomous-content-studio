@@ -65,7 +65,7 @@ export const StudioPanel: React.FC<StudioPanelProps> = ({
     <section
       id="studio-panel-section"
       ref={containerRef}
-      className="sheet"
+      className="sheet over-hero"
       style={{
         position: 'relative',
         minHeight: '1080px',

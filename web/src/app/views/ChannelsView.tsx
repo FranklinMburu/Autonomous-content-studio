@@ -189,7 +189,7 @@ export const ChannelsView: React.FC<ChannelsViewProps> = ({ onSelectChannel }) =
           </div>
 
           <p style={{ fontSize: '13px', color: 'var(--tx2)', lineHeight: 1.5 }}>
-            Automated health science shorts using the visual explainer pipeline.
+            The older explainer style (icons and captions). Its live status board, rewritten after every run:
           </p>
 
           <div
@@ -200,18 +200,15 @@ export const ChannelsView: React.FC<ChannelsViewProps> = ({ onSelectChannel }) =
               border: '1px solid var(--line)',
             }}
           >
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '8px' }}>
-              <span style={{ color: 'var(--tx3)' }}>Draft check</span>
-              <span style={{ color: '#3FB950' }}>Passing</span>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '8px' }}>
-              <span style={{ color: 'var(--tx3)' }}>Allowed icons</span>
-              <span>12 verified</span>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px' }}>
-              <span style={{ color: 'var(--tx3)' }}>Delivered episodes</span>
-              <span>3 in archive</span>
-            </div>
+            {(statusBoardData?.rows || []).length === 0 && (
+              <div style={{ fontSize: '12px', color: 'var(--tx3)' }}>{statusBoardData === null ? 'No status board yet.' : 'Loading…'}</div>
+            )}
+            {(statusBoardData?.rows || []).map((r: any, i: number) => (
+              <div key={i} title={r.meaning} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginTop: i ? '8px' : 0 }}>
+                <span style={{ color: 'var(--tx3)' }}>{r.stage}</span>
+                <span>{r.count}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

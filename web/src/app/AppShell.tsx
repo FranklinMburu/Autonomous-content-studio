@@ -255,7 +255,7 @@ export const AppShell: React.FC<AppShellProps> = ({
         className="mobile-tab-bar"
         style={{
           display: 'none', // Controlled via media query in candela.css / inline style
-          position: 'fixed',
+          position: embedded ? 'absolute' : 'fixed',   // inside the landing preview it stays in its frame
           bottom: 0,
           left: 0,
           right: 0,

@@ -12,6 +12,7 @@ import {
 } from '@phosphor-icons/react';
 import { Chip } from '../../ui/Chip';
 import { useStudio } from '../../context/StudioContext';
+import { sourceSummary } from '../../lib/github-data.js';
 
 export interface ReviewViewProps {
   initialIssueId?: string;
@@ -40,11 +41,23 @@ export const ReviewView: React.FC<ReviewViewProps> = ({
   }, [reviewItems, initialIssueId]);
 
   const activeIssue = selectedIssue || reviewItems[0];
-  const relatedFilm = films.find(f => f.episode === activeIssue?.episode || f.title === activeIssue?.title);
-
-  const polishPrompt =
-    polishItems.find(p => p.episode === activeIssue?.episode)?.polishPrompt ||
-    `You are the polish step of a YouTube Shorts studio (channel: Hidden Reasons).\nEpisode: ${activeIssue?.title || 'Review'}\nPlease polish narration and pacing for maximum audience retention.`;
+  // the film this review issue is about: same release tag, else the same episode folder
+  const relatedFilm = films.find(f => (activeIssue?.tag && f.release?.tag === activeIssue.tag) ||
+    (activeIssue?.episode && String(activeIssue.episode).endsWith(f.id)));
+  // the polish box only appears when a real polish issue exists for this episode (no invented prompt)
+  const polishIssue = polishItems.find(p => p.episode && p.episode === activeIssue?.episode);
+  const polishPrompt: string = polishIssue?.polishPrompt || '';
+  // the exact release this issue points at (its run), else the newest run of the same film
+  const [rels, setRels] = useState<any[]>([]);
+  useEffect(() => { studio.releases().then(setRels).catch(() => {}); }, [studio]);
+  const rel: any = rels.find(r => r.tag === activeIssue?.tag) || relatedFilm?.release || null;
+  const sources = sourceSummary(rel?.sources || []);
+  const failed: string[] = activeIssue?.failedShots?.length ? activeIssue.failedShots
+    : ((rel?.problems || '').match(/picture check:\s*(.+)$/) || [, ''])[1].split(',').map((x: string) => x.trim()).filter(Boolean);
+  const len = ((rel?.checks || '').match(/length\s+([\d.]+)\s*s/) || [])[1];
+  const lufs = ((rel?.checks || '').match(/loudness\s+(-?[\d.]+)\s*LUFS/) || [])[1];
+  const videoUrl = rel?.video?.url || relatedFilm?.video?.url;
+  const contactUrl = rel?.contact || (typeof relatedFilm?.contact === 'string' ? relatedFilm.contact : null);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(polishPrompt);
@@ -83,16 +96,16 @@ export const ReviewView: React.FC<ReviewViewProps> = ({
       <div className="rv">
         {/* Left: Player */}
         <div className="player">
-          {relatedFilm?.video?.url ? (
+          {videoUrl ? (
             <video
-              src={relatedFilm.video.url}
+              src={videoUrl}
               controls
               playsInline
               preload="metadata"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
-          ) : relatedFilm?.contact?.url ? (
-            <img src={relatedFilm.contact.url} alt={activeIssue.title} />
+          ) : contactUrl ? (
+            <img src={contactUrl} alt={activeIssue.title} />
           ) : (
             <div
               style={{
@@ -107,10 +120,6 @@ export const ReviewView: React.FC<ReviewViewProps> = ({
               <Eye size={48} weight="duotone" />
             </div>
           )}
-          <div className="ctl">
-            <i />
-            <span>0:21 / 0:52</span>
-          </div>
         </div>
 
         {/* Right: Review details & Actions */}
@@ -124,48 +133,40 @@ export const ReviewView: React.FC<ReviewViewProps> = ({
             {activeIssue.title}
           </h1>
           <p className="muted" style={{ fontSize: '13.5px', marginBottom: '18px' }}>
-            26 of 28 shots passed every check. Two were repainted 3 times and are still weak.
+            {failed.length
+              ? `${failed.length} ${failed.length === 1 ? 'shot' : 'shots'} still failed the picture check after 3 tries. Everything else passed.`
+              : 'The film failed a final check and is held until you decide.'}
           </p>
 
           {/* Checks passed */}
           <div className="checks">
             <div>
               <CheckCircle size={16} weight="duotone" className="ic" />
-              <span>8 sources · every claim supported</span>
+              <span>{sources.length ? `${sources.length} ${sources.length === 1 ? 'source' : 'sources'} saved with the script` : 'Sources: see the release notes'}</span>
             </div>
             <div>
               <CheckCircle size={16} weight="duotone" className="ic" />
-              <span>Length 50.3 s · loudness −14.1 LUFS</span>
+              <span>{len ? `Length ${len} s` : 'Length —'}{lufs ? ` · loudness ${lufs.replace('-', '−')} LUFS` : ''}</span>
             </div>
             <div className="w">
               <Warning size={16} weight="duotone" className="ic" color="var(--amber2)" />
-              <span>2 weak shots</span>
+              <span>{failed.length} weak {failed.length === 1 ? 'shot' : 'shots'}</span>
             </div>
           </div>
 
-          {/* Weak shots */}
-          <div className="wks">
-            <div className="wk">
-              <div style={{ width: '62px', height: '96px', background: '#1C1618', borderRadius: '8px', display: 'grid', placeItems: 'center', color: 'var(--amber2)' }}>
-                <Warning size={20} />
-              </div>
-              <div>
-                <b>irritated</b>
-                <span>"Are there red hands?"</span>
-                <span className="ans">checker: no</span>
-              </div>
+          {/* Weak shots: the real names from the issue / release notes; the contact sheet shows the pictures */}
+          {failed.length > 0 && (
+            <div className="wks" style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+              {failed.map(n => (
+                <span key={n} className="chip rev" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+                  <Warning size={12} /> {n.replace(/_/g, ' ')}
+                </span>
+              ))}
+              {contactUrl && (
+                <a href={contactUrl} target="_blank" rel="noopener noreferrer" className="chip" style={{ textDecoration: 'none' }}>Contact sheet ↗</a>
+              )}
             </div>
-            <div className="wk">
-              <div style={{ width: '62px', height: '96px', background: '#1C1618', borderRadius: '8px', display: 'grid', placeItems: 'center', color: 'var(--amber2)' }}>
-                <Warning size={20} />
-              </div>
-              <div>
-                <b>hook</b>
-                <span>"Is a man wrapping a leg in towels?"</span>
-                <span className="ans">checker: no</span>
-              </div>
-            </div>
-          </div>
+          )}
 
           {/* Action buttons (Approve / Repaint) */}
           <div className="acts">
@@ -189,11 +190,12 @@ export const ReviewView: React.FC<ReviewViewProps> = ({
               title="Comment repaint on GitHub"
             >
               <MagicWand size={16} weight="duotone" />
-              <span>Repaint 2 shots · ~15 min ↗</span>
+              <span>{failed.length ? `Repaint ${failed.length} ${failed.length === 1 ? 'shot' : 'shots'} ↗` : 'Repaint ↗'}</span>
             </a>
           </div>
 
-          {/* Polish with Claude */}
+          {/* Polish with Claude: only when a real polish issue exists for this episode */}
+          {polishPrompt && (
           <div className="polish">
             <div className="ph2">
               <MagicWand size={16} weight="duotone" />
@@ -212,6 +214,7 @@ export const ReviewView: React.FC<ReviewViewProps> = ({
               </button>
             </div>
           </div>
+          )}
 
           {/* Sources behind every line */}
           <div className="srcs">
@@ -219,22 +222,18 @@ export const ReviewView: React.FC<ReviewViewProps> = ({
               <Books size={16} weight="duotone" />
               <b>Sources behind every line</b>
             </div>
-            <div className="src">
-              <span className="n">1</span>
-              <div>
-                <b>Phenol</b>
-                <span>en.wikipedia.org · 4 claims</span>
-              </div>
-              <span className="chip ok">supported</span>
-            </div>
-            <div className="src">
-              <span className="n">2</span>
-              <div>
-                <b>Joseph Lister</b>
-                <span>en.wikipedia.org · 3 claims</span>
-              </div>
-              <span className="chip ok">supported</span>
-            </div>
+            {sources.length === 0 ? (
+              <div className="src"><div><span>No sources listed in this film's release notes.</span></div></div>
+            ) : sources.map((src: any, i: number) => (
+              <a key={src.url} className="src" href={src.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <span className="n">{i + 1}</span>
+                <div>
+                  <b>{src.host}</b>
+                  <span>{src.claims} claim{src.claims === 1 ? '' : 's'} · {src.url.replace(/^https?:\/\/(www\.)?/, '').slice(0, 60)}</span>
+                </div>
+                <ArrowSquareOut size={13} className="ic faint" />
+              </a>
+            ))}
           </div>
         </div>
       </div>

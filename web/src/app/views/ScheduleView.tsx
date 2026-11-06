@@ -1,12 +1,28 @@
 import React from 'react';
 import { CalendarDots, Clock, ArrowSquareOut } from '@phosphor-icons/react';
 import { useStudio } from '../../context/StudioContext';
+import { topicMade } from '../../lib/github-data.js';
 
 export const ScheduleView: React.FC = () => {
-  const { nextSlots, topics, studio } = useStudio();
+  const { nextSlots, topics, films } = useStudio();
 
-  const days = ['Today', 'Tomorrow', 'Day after tomorrow'];
-  const slotsPerDay = 5;
+  // Real slots (Date objects in your local time) grouped by calendar day; each slot takes the next topic that is
+  // not made yet, in queue order (what the schedule workflow does).
+  const queue = topics.filter(t => !topicMade(t, films));
+  const dayKey = (d: Date) => d.toDateString();
+  const today = new Date();
+  const tomorrow = new Date(Date.now() + 86400000);
+  const groups: { label: string; slots: { at: Date; topic?: string; n: number }[] }[] = [];
+  nextSlots.slice(0, 15).forEach((at: Date, i: number) => {
+    const k = dayKey(at);
+    let g = groups.find(x => (x as any).k === k);
+    if (!g) {
+      const label = k === dayKey(today) ? 'Today' : k === dayKey(tomorrow) ? 'Tomorrow' : at.toLocaleDateString([], { weekday: 'long', day: 'numeric', month: 'short' });
+      g = { label, slots: [] }; (g as any).k = k; groups.push(g);
+    }
+    g.slots.push({ at, topic: queue[i], n: i + 1 });
+  });
+  const days = groups.slice(0, 3);
 
   return (
     <div className="content" style={{ overflowY: 'auto' }}>
@@ -30,7 +46,10 @@ export const ScheduleView: React.FC = () => {
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
-        {days.map((dayLabel, dIdx) => (
+        {days.length === 0 && (
+          <div style={{ color: 'var(--tx3)', fontSize: '13px' }}>Loading the schedule from GitHub…</div>
+        )}
+        {days.map((g, dIdx) => (
           <div
             key={dIdx}
             style={{
@@ -52,19 +71,14 @@ export const ScheduleView: React.FC = () => {
                 borderBottom: '1px solid var(--line)',
               }}
             >
-              <b style={{ fontSize: '14.5px', color: 'var(--tx)' }}>{dayLabel}</b>
-              <span style={{ fontSize: '11.5px', color: 'var(--tx3)' }}>5 films</span>
+              <b style={{ fontSize: '14.5px', color: 'var(--tx)' }}>{g.label}</b>
+              <span style={{ fontSize: '11.5px', color: 'var(--tx3)' }}>{g.slots.length} {g.slots.length === 1 ? 'film' : 'films'}</span>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              {Array.from({ length: slotsPerDay }, (_, sIdx) => {
-                const topicIndex = dIdx * slotsPerDay + sIdx;
-                const topic = topics[topicIndex] || `Queued story slot #${topicIndex + 1}`;
-                const rawSlot: any = nextSlots[dIdx * slotsPerDay + sIdx] || nextSlots[sIdx];
-                const timeSlot =
-                  rawSlot instanceof Date
-                    ? rawSlot.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })
-                    : (rawSlot ? String(rawSlot) : `${(8 + sIdx * 3).toString().padStart(2, '0')}:00`);
+              {g.slots.map((sl, sIdx) => {
+                const topic = sl.topic || 'A new topic (the AI suggests one when the queue runs low)';
+                const timeSlot = sl.at.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
                 return (
                   <div
                     key={sIdx}
@@ -100,7 +114,7 @@ export const ScheduleView: React.FC = () => {
                           textTransform: 'uppercase',
                         }}
                       >
-                        Slot {sIdx + 1}
+                        #{sl.n}
                       </span>
                     </div>
                     <span style={{ fontSize: '12.5px', color: 'var(--tx2)', lineHeight: 1.4 }}>

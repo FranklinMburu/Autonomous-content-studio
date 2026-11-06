@@ -92,7 +92,7 @@ export const PricingPage: React.FC = () => {
               <span className="chip" style={{ background: 'rgba(255,255,255,0.06)', color: 'var(--tx2)', marginBottom: '10px' }}>
                 PLANNED
               </span>
-              <h2 style={{ fontSize: '26px', fontWeight: 700 }}>Teams — Planned</h2>
+              <h2 style={{ fontSize: '26px', fontWeight: 700 }}>Teams</h2>
               <div style={{ fontSize: '36px', fontWeight: 800, marginTop: '8px', letterSpacing: '-0.03em', color: 'var(--tx3)' }}>
                 Planned <span style={{ fontSize: '14px', color: 'var(--tx3)', fontWeight: 500 }}>(no price)</span>
               </div>

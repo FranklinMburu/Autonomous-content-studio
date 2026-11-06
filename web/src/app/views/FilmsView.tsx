@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FilmStrip, Clock, ArrowRight, Play } from '@phosphor-icons/react';
 import { Chip } from '../../ui/Chip';
 import { useStudio } from '../../context/StudioContext';
+import { topicMade } from '../../lib/github-data.js';
 
 interface FilmsViewProps {
   onSelectFilm: (id: string) => void;
@@ -19,7 +20,7 @@ export const FilmsView: React.FC<FilmsViewProps> = ({ onSelectFilm, onNavigate }
     return String(slot);
   };
 
-  const nextSlotTime = formatSlot(nextSlots[0], '13:23');
+  const nextSlotTime = formatSlot(nextSlots[0]);
 
   // Compute stat counts
   const sevenDaysAgo = new Date(Date.now() - 7 * 86400000);
@@ -97,10 +98,13 @@ export const FilmsView: React.FC<FilmsViewProps> = ({ onSelectFilm, onNavigate }
               onClick={() => onSelectFilm(film.id)}
               style={{ cursor: 'pointer' }}
             >
-              <img
-                src={film.contact?.url || film.video?.poster || '/img/hook.jpg'}
-                alt={film.title}
-              />
+              {film.contact ? (
+                <img src={film.contact} alt={film.title} />
+              ) : film.video?.url ? (
+                <video src={`${film.video.url}#t=0.5`} preload="metadata" muted playsInline />
+              ) : (
+                <div style={{ background: 'rgba(255,255,255,0.04)' }} />
+              )}
               <div>
                 <b>{film.title}</b>
                 <Chip status={film.status} />
@@ -140,18 +144,18 @@ export const FilmsView: React.FC<FilmsViewProps> = ({ onSelectFilm, onNavigate }
         <div className="stats">
           <div className="st">
             <span>Films this week</span>
-            <b>{filmsThisWeek || '5'}</b>
+            <b>{films.length ? filmsThisWeek : '—'}</b>
             <i>releases last 7 days</i>
           </div>
           <div className="st">
             <span>Passed every check</span>
-            <b>{passedPct}%</b>
-            <i>{passedThisWeek} of {filmsThisWeek || '5'} passed first time</i>
+            <b>{filmsThisWeek ? `${passedPct}%` : '—'}</b>
+            <i>{filmsThisWeek ? `${passedThisWeek} of ${filmsThisWeek} passed first time` : 'no films this week yet'}</i>
           </div>
           <div className="st">
             <span>Next film</span>
             <b>{nextSlotTime}</b>
-            <i>in ~2 h</i>
+            <i>{nextSlots[0] instanceof Date ? (() => { const m = Math.max(0, Math.round((nextSlots[0].getTime() - Date.now()) / 60000)); return m < 60 ? `in ${m} min` : `in ~${Math.round(m / 60)} h`; })() : 'from the schedule'}</i>
           </div>
           <div className="st">
             <span>Cost</span>
@@ -196,8 +200,8 @@ export const FilmsView: React.FC<FilmsViewProps> = ({ onSelectFilm, onNavigate }
                         playsInline
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       />
-                    ) : film.contact && film.contact.url ? (
-                      <img src={film.contact.url} alt={film.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    ) : film.contact ? (
+                      <img src={film.contact} alt={film.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     ) : (
                       <div
                         style={{
@@ -213,7 +217,7 @@ export const FilmsView: React.FC<FilmsViewProps> = ({ onSelectFilm, onNavigate }
                       </div>
                     )}
                     <Chip status={film.status} className="chip" />
-                    <span className="dur">0:58</span>
+                    {film.release?.seconds ? <span className="dur">{`${Math.floor(film.release.seconds / 60)}:${String(Math.round(film.release.seconds % 60)).padStart(2, '0')}`}</span> : null}
                   </div>
                   <b>{film.title || film.id}</b>
                   <span>{film.at ? new Date(film.at).toLocaleDateString() : 'Recent'}</span>
@@ -299,7 +303,7 @@ export const FilmsView: React.FC<FilmsViewProps> = ({ onSelectFilm, onNavigate }
                 Schedule <ArrowRight size={11} />
               </span>
             </div>
-            {topics.slice(0, 3).map((t, idx) => (
+            {topics.filter((x: string) => !topicMade(x, films)).slice(0, 3).map((t, idx) => (
               <div className="sr" key={idx}>
                 <span className="t">{formatSlot(nextSlots[idx])}</span>
                 <span style={{ fontSize: '12.5px', color: 'var(--tx2)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
