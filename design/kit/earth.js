@@ -1,4 +1,4 @@
-// Candela hero globe v2 (6 Nov 2026): a dotted Earth lit by a sun rising over its rim. Canvas 2D only (no WebGL,
+// Candela hero globe v3 (6 Nov 2026: sub-pixel dots, a real sunrise; see dots() and the sun): a dotted Earth lit by a sun rising over its rim. Canvas 2D only (no WebGL,
 // no three.js). Approved look: design/mockups/02_landing_hero.png and 02b_landing_hero_scrolled.png.
 //
 // Why v2: v1 cached the dot layer and redrew it only every 0.5 degrees of turn, so while scrolling the continents moved
@@ -52,6 +52,7 @@ export function createEarth(canvas, data, stories = [], opts = {}) {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const t0 = performance.now();
 
+  let acc = null;   // the pixel buffer's bytes (r, g, b, a): dots are blended straight into it, see dots()
   function size() {
     W = canvas.clientWidth; H = canvas.clientHeight;
     canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
@@ -61,7 +62,7 @@ export function createEarth(canvas, data, stories = [], opts = {}) {
     const right = Math.min(canvas.width, Math.ceil((g.cx + g.R + 4) * dpr)), bottom = canvas.height;
     box = { x: left, y: top, w: Math.max(1, right - left), h: Math.max(1, bottom - top) };
     buf.width = box.w; buf.height = box.h;
-    img = buf.getContext("2d").createImageData(box.w, box.h); px = new Uint32Array(img.data.buffer);
+    img = buf.getContext("2d").createImageData(box.w, box.h); px = new Uint32Array(img.data.buffer); acc = img.data;
   }
 
   function rotation(lonDeg) {   // world -> view: turn by -lon around north, then tilt by LAT0
@@ -71,28 +72,43 @@ export function createEarth(canvas, data, stories = [], opts = {}) {
     return (x, y, z) => { const xr = x * cl + z * sl, z1 = -x * sl + z * cl; return [xr, y * ca - z1 * sa, y * sa + z1 * ca]; };
   }
 
+  // v3 (6 Nov): dots are drawn with SUB-PIXEL precision. v2 snapped every dot to whole pixels and switched between
+  // two dot sizes, so as the globe turned the dots jumped a pixel at a time and popped in size (a shimmer a
+  // perfectionist sees). Now each dot is a square of any size at any position; it covers each pixel by exactly the area
+  // it overlaps (box filter), so it glides smoothly. Sizes change continuously with depth.
   function dots(rot, sun, rise) {
     px.fill(0);
     const { R, cx, cy } = g, s = dpr, ox = box.x, oy = box.y, bw = box.w, bh = box.h;
-    const plot = (vx, vy, vz, size, r, gg, b, a) => {   // one square dot, keep the brighter one where dots overlap
-      const X = Math.round((cx + R * vx) * s - ox - size / 2), Y = Math.round((cy - R * vy) * s - oy - size / 2);
-      if (X < 0 || Y < 0 || X + size > bw || Y + size > bh) return;
-      const A = Math.round(a * 255), col = (A << 24) | (b << 16) | (gg << 8) | r;
-      for (let j = 0; j < size; j++) { let k = (Y + j) * bw + X; for (let i = 0; i < size; i++, k++) if ((px[k] >>> 24) < A) px[k] = col; }
+    const plot = (vx, vy, size, r, gg, b, a) => {
+      const fx = (cx + R * vx) * s - ox - size / 2, fy = (cy - R * vy) * s - oy - size / 2;
+      if (fx < 0 || fy < 0 || fx + size + 1 >= bw || fy + size + 1 >= bh) return;
+      const x0 = Math.floor(fx), y0 = Math.floor(fy), x1 = Math.floor(fx + size), y1 = Math.floor(fy + size);
+      for (let j = y0; j <= y1; j++) {
+        const cyv = Math.min(j + 1, fy + size) - Math.max(j, fy); if (cyv <= 0) continue;
+        let k = (j * bw + x0) * 4;
+        for (let i = x0; i <= x1; i++, k += 4) {
+          const cov = (Math.min(i + 1, fx + size) - Math.max(i, fx)) * cyv; if (cov <= 0) continue;
+          const w = a * cov, ea = acc[k + 3] / 255;   // "over" blend into the 8-bit pixel (only pixels a dot touches)
+          if (ea === 0) { acc[k] = r; acc[k + 1] = gg; acc[k + 2] = b; acc[k + 3] = w * 255; continue; }
+          const oa = w + ea * (1 - w), f = w / oa;
+          acc[k] += (r - acc[k]) * f; acc[k + 1] += (gg - acc[k + 1]) * f; acc[k + 2] += (b - acc[k + 2]) * f; acc[k + 3] = oa * 255;
+        }
+      }
     };
     // ocean: a few faint scattered dots, only on the face of the planet (none near the rim)
+    const os = 1.1 * s;
     for (let i = 0; i < ocean.length; i += 3) {
       const [x, y, z] = rot(ocean[i], ocean[i + 1], ocean[i + 2]); if (z < 0.35) continue;
-      plot(x, y, z, Math.max(1, Math.round(1.1 * s)), 190, 195, 210, 0.05 * smooth(0.35, 0.75, z));
+      plot(x, y, os, 190, 195, 210, 0.05 * smooth(0.35, 0.75, z));
     }
     // land: cool silver in the shade, warm white where the sun's light falls (real 3D lighting)
-    const big = Math.max(2, Math.round(1.55 * s)), small = Math.max(1, Math.round(1.15 * s));
+    const small = 1.1 * s, big = 1.6 * s;
     for (let i = 0; i < land.length; i += 3) {
       const [x, y, z] = rot(land[i], land[i + 1], land[i + 2]); if (z < 0.04) continue;
       const lit = Math.max(0, x * sun[0] + y * sun[1] + z * sun[2]) * rise;      // light from the sun's direction
       const glow = Math.min(1, lit * 1.25);
       const a = (0.30 + 0.62 * glow) * smooth(0.04, 0.42, z);                       // fade at the rim: no ripple rings
-      plot(x, y, z, z > 0.55 ? big : small, (200 + 55 * glow) | 0, (206 + 30 * glow) | 0, (222 - 22 * glow) | 0, a);
+      plot(x, y, small + (big - small) * smooth(0.25, 0.8, z), 200 + 55 * glow, 206 + 30 * glow, 222 - 22 * glow, a);
     }
     buf.getContext("2d").putImageData(img, 0, 0);
   }
@@ -106,7 +122,8 @@ export function createEarth(canvas, data, stories = [], opts = {}) {
     const sa = lerp(SUN_FROM, SUN_TO, t), rise = lerp(RISE_FROM, RISE_TO, t);
     const sway = reduce ? 0 : SWAY_DEG * Math.sin(((now - t0) / 1000) * (2 * Math.PI / SWAY_SECONDS));
     const lon0 = lerp(LON_FROM, LON_TO, t) + sway;
-    const { R, cx, cy } = g, sx = cx + R * Math.sin(sa), sy = cy - R * Math.cos(sa);
+    // the sun sits on the planet's limb and rises over it as you scroll (its centre goes from 6 px below to 9 px above)
+    const { R, cx, cy } = g, sd = R + lerp(-6, 9, t) * g.k, sx = cx + sd * Math.sin(sa), sy = cy - sd * Math.cos(sa);
     // the sun sits just behind the rim: its direction in view space (y up, z towards the viewer)
     const sv = [Math.sin(sa), Math.cos(sa), -0.18], sl = Math.hypot(...sv), sun = sv.map(v => v / sl);
     const rot = rotation(lon0);
@@ -134,18 +151,37 @@ export function createEarth(canvas, data, stories = [], opts = {}) {
       cg.addColorStop(1, `rgba(150,160,190,${al * 0.35})`);
       c.strokeStyle = cg; c.lineWidth = w; c.beginPath(); c.arc(cx, cy, R + w / 2 - 1, 0, 7); c.stroke();
     }
+    // the sun BEHIND the planet: corona and core first, so the planet's body hides the part below the limb (v2 drew it
+    // on top of the planet, with a hard horizontal streak through it: not how a real sunrise over a planet looks)
+    const k = g.k;
+    gr = c.createRadialGradient(sx, sy, 0, sx, sy, 150 * k);
+    gr.addColorStop(0, `rgba(255,252,242,${rise})`); gr.addColorStop(0.07, `rgba(255,236,196,${0.85 * rise})`);
+    gr.addColorStop(0.22, `rgba(255,190,110,${0.32 * rise})`); gr.addColorStop(0.55, `rgba(240,140,60,${0.08 * rise})`);
+    gr.addColorStop(1, "rgba(240,140,60,0)");
+    c.fillStyle = gr; c.beginPath(); c.arc(sx, sy, 150 * k, 0, 7); c.fill();
+    c.fillStyle = `rgba(255,253,247,${rise})`; c.beginPath(); c.arc(sx, sy, 7.5 * k, 0, 7); c.fill();   // the disc itself
     // planet body, warmer on the sun's side
     gr = c.createRadialGradient(sx, sy, R * 0.05, cx, cy, R * 1.1);
     gr.addColorStop(0, "#2A2420"); gr.addColorStop(0.35, "#15151A"); gr.addColorStop(1, "#0B0B0F");
     c.fillStyle = gr; c.beginPath(); c.arc(cx, cy, R, 0, 7); c.fill();
-    // the sun peeking over the rim + faint lens streak
-    gr = c.createRadialGradient(sx, sy, 0, sx, sy, 90);
-    gr.addColorStop(0, `rgba(255,250,235,${0.95 * rise})`); gr.addColorStop(0.12, `rgba(255,220,160,${0.7 * rise})`); gr.addColorStop(1, "rgba(245,165,36,0)");
-    c.fillStyle = gr; c.beginPath(); c.arc(sx, sy, 90, 0, 7); c.fill();
-    c.fillStyle = `rgba(255,236,200,${0.18 * rise})`; c.fillRect(sx - 260, sy - 0.6, 520, 1.2);
     // every dot, this frame
     dots(rot, sun, rise);
     c.setTransform(1, 0, 0, 1, 0, 0); c.drawImage(buf, box.x, box.y); c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    // sunlight scattered through the air along the limb: a thin bright arc, white at the sun, warm, then gone ~25 deg away
+    const limb = c.createConicGradient(-Math.PI / 2 + sa - 0.45, cx, cy);
+    limb.addColorStop(0, "rgba(255,170,90,0)"); limb.addColorStop(0.035, `rgba(255,190,120,${0.55 * rise})`);
+    limb.addColorStop(0.0716, `rgba(255,248,232,${rise})`); limb.addColorStop(0.11, `rgba(255,190,120,${0.55 * rise})`);
+    limb.addColorStop(0.143, "rgba(255,170,90,0)"); limb.addColorStop(1, "rgba(255,170,90,0)");
+    c.save(); c.globalCompositeOperation = "lighter";
+    for (const [w, al] of [[9 * k, 0.18], [3.2 * k, 0.45], [1.3 * k, 0.9]]) {
+      c.globalAlpha = al; c.strokeStyle = limb; c.lineWidth = w; c.beginPath(); c.arc(cx, cy, R, sa - Math.PI / 2 - 0.45, sa - Math.PI / 2 + 0.45); c.stroke();
+    }
+    // camera bloom: the sun is far brighter than anything else, so its glow spills softly over the limb
+    c.globalAlpha = 1;
+    gr = c.createRadialGradient(sx, sy, 0, sx, sy, 60 * k);
+    gr.addColorStop(0, `rgba(255,246,226,${0.55 * rise})`); gr.addColorStop(0.3, `rgba(255,214,160,${0.18 * rise})`); gr.addColorStop(1, "rgba(255,200,140,0)");
+    c.fillStyle = gr; c.beginPath(); c.arc(sx, sy, 60 * k, 0, 7); c.fill();
+    c.restore();
     // arcs between story places, with a light travelling along each (6 s loop)
     const by = n => stories.find(s => s.n === n);
     const travel = reduce ? 0.62 : ((now - t0) / 6000) % 1;
