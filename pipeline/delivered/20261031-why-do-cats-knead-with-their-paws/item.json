@@ -1,0 +1,60 @@
+{
+ "id": "20261031-why-do-cats-knead-with-their-paws",
+ "topic": "Why do cats knead with their paws?",
+ "lane": null,
+ "topic_key": "feee612edbeff3cf",
+ "stage": "delivered",
+ "created": "2026-10-31T05:37:42+00:00",
+ "attempts": 1,
+ "history": [
+  {
+   "at": "2026-10-31T05:37:42+00:00",
+   "to": "queue",
+   "why": "created"
+  },
+  {
+   "at": "2026-11-01T09:50:16+00:00",
+   "from": "queue",
+   "to": "ready",
+   "why": "polish accepted from PR #11 (score 4)"
+  },
+  {
+   "at": "2026-11-01T09:53:28+00:00",
+   "from": "ready",
+   "to": "delivered",
+   "why": "rendered; issue #12"
+  }
+ ],
+ "provenance": {
+  "research_plan": {
+   "questions": [
+    "Why do cats knead?",
+    "Is kneading a kitten behavior?",
+    "Do cats knead to show love?",
+    "Does kneading have a scent purpose?"
+   ],
+   "wikipedia": [
+    "Cat behavior",
+    "Cat communication",
+    "Domestic cat",
+    "Why do cats knead with their paws?"
+   ],
+   "scholar": [
+    "feline kneading behavior nursing",
+    "cat paw pressing scent marking"
+   ],
+   "model": "google:gemini-3.5-flash-lite"
+  },
+  "writer": "groq:openai/gpt-oss-120b",
+  "candidates": [
+   "groq:openai/gpt-oss-120b"
+  ],
+  "judge": {
+   "index": 0,
+   "scores": {},
+   "reason": "only one candidate",
+   "model": null
+  },
+  "rules": "studio/pipeline/draft.py TASK + POLISH.md"
+ }
+}

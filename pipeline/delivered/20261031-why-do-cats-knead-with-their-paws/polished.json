@@ -1,0 +1,156 @@
+{
+ "title": "Why your cat kneads you",
+ "topic": "Why do cats knead with their paws?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "id": "beat1",
+   "scene": "hero",
+   "icon": "cat",
+   "label": "kneading",
+   "reveal": {
+    "text": "first meals",
+    "at": "meals"
+   },
+   "lines": [
+    "Your cat kneading your lap is probably a leftover from its first meals."
+   ]
+  },
+  {
+   "id": "beat2",
+   "scene": "link",
+   "from": {
+    "icon": "paw",
+    "label": "front paws",
+    "at": "paws"
+   },
+   "to": {
+    "icon": "droplet",
+    "label": "milk flows",
+    "at": "milk"
+   },
+   "lines": [
+    "Kittens push their front paws, one at a time, against their mother's belly while nursing, to get her milk flowing."
+   ]
+  },
+  {
+   "id": "beat3",
+   "scene": "compare",
+   "title": "The habit stays",
+   "left": {
+    "icon": "baby-carriage",
+    "label": "kitten",
+    "value": "nursing",
+    "at": "baby"
+   },
+   "right": {
+    "icon": "cat",
+    "label": "adult",
+    "value": "blankets",
+    "at": "blankets"
+   },
+   "lines": [
+    "Cats carry that baby habit into adulthood. Some even suck on blankets or clothing while they knead."
+   ]
+  },
+  {
+   "id": "beat4",
+   "scene": "tags",
+   "title": "One knead",
+   "icon": "paw",
+   "items": [
+    {
+     "text": "firm press",
+     "at": "press",
+     "tone": "neutral"
+    },
+    {
+     "text": "claws out",
+     "at": "claws",
+     "tone": "bad"
+    },
+    {
+     "text": "curl and lift",
+     "at": "lifts",
+     "tone": "neutral"
+    }
+   ],
+   "lines": [
+    "Each press is firm: toes spread, claws out, then curl as the paw lifts."
+   ]
+  },
+  {
+   "id": "beat5",
+   "scene": "statement",
+   "text": "Scent glands under their paws",
+   "highlight": [
+    "Scent glands"
+   ],
+   "icon": "fingerprint",
+   "lines": [
+    "Here's the twist: the undersides of their paws hold scent glands, so kneading likely leaves their scent on you."
+   ]
+  },
+  {
+   "id": "beat6",
+   "scene": "link",
+   "from": {
+    "icon": "paw",
+    "label": "kneading",
+    "at": "Kneading"
+   },
+   "to": {
+    "icon": "heart",
+    "label": "feels good",
+    "at": "good"
+   },
+   "note": {
+    "text": "purring",
+    "at": "purr"
+   },
+   "lines": [
+    "Kneading may also feel good, like a stretch does for us, and many cats purr while doing it."
+   ]
+  },
+  {
+   "id": "beat7",
+   "scene": "bubble",
+   "icon": "cat",
+   "prop": "zzz",
+   "text": "Nap incoming",
+   "at": "nap",
+   "lines": [
+    "So when the slow paw-pressing starts, get comfy: a nap often comes next."
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Kittens knead the breast while suckling, alternating forelimbs, to stimulate milk let-down; adult kneading is presumably derived from this and some cats suck on clothing or bedding while kneading.",
+   "url": "https://en.wikipedia.org/wiki/Cat_communication"
+  },
+  {
+   "claim": "The cat presses firmly, spreading its toes to expose its claws, then curls its toes as it lifts the paw.",
+   "url": "https://en.wikipedia.org/wiki/Cat_communication"
+  },
+  {
+   "claim": "Cats have scent glands on the underside of their paws, and when they knead it is likely these pheromones are transferred to the person or object.",
+   "url": "https://en.wikipedia.org/wiki/Cat_communication"
+  },
+  {
+   "claim": "Kneading may stimulate the cat and make it feel good, like a human stretching; it is often a precursor to sleeping, and many cats purr while kneading.",
+   "url": "https://en.wikipedia.org/wiki/Cat_behavior"
+  }
+ ],
+ "youtube": {
+  "title": "Why your cat kneads you: a habit from its first meals 🐾",
+  "description": "Kneading starts with nursing kittens, and the scent glands in your cat's paws mean it likely leaves its scent on you.",
+  "tags": [
+   "cats",
+   "cat behavior",
+   "kneading",
+   "pet facts",
+   "animal behavior"
+  ]
+ }
+}

@@ -1,0 +1,116 @@
+{
+ "title": "Why John Snow Removed a London Pump Handle",
+ "channel": "Hidden Reasons",
+ "topic": "Why John Snow removed the handle of a water pump in London in 1854",
+ "voice": "am_michael",
+ "speed": 1.38,
+ "pace": {
+  "gap_line": 0.08,
+  "gap_beat": 0.2,
+  "lead_in": 0.05,
+  "tail": 0.7
+ },
+ "beats": [
+  {
+   "lines": [
+    "A doctor made Londoners rip off a pump handle as cholera spread."
+   ]
+  },
+  {
+   "lines": [
+    "The prevailing theory blamed foul air, not dirty water.",
+    "Even Snow's water test failed to prove the danger.",
+    "London's lead medical officer called Snow's germ theory strange."
+   ]
+  },
+  {
+   "lines": [
+    "Cholera killed 420 people in Soho.",
+    "Snow questioned residents with help from Reverend Henry Whitehead.",
+    "Deaths clustered around the Broad Street pump.",
+    "In September 1854, parish guardians pulled the handle off the pump."
+   ]
+  },
+  {
+   "lines": [
+    "You see, it's like everyone sick after a party drank the same punch."
+   ]
+  },
+  {
+   "lines": [
+    "The pump's well sat three feet from a leaking cesspit, a waste pit.",
+    "Waste water from a baby's washed nappy seeped into that pit.",
+    "So pump water carried sewage germs into people's stomachs.",
+    "Brewery workers drank boiled beer instead, and none caught cholera."
+   ]
+  },
+  {
+   "lines": [
+    "But Snow warned the outbreak was already shrinking.",
+    "Afterward, officials put the handle back and rejected his theory.",
+    "The citywide epidemic went on to kill nearly 3,000 people.",
+    "Yet a plaque there now shows the pump with no handle."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "John Snow identified the Broad Street public water pump as the source of the 1854 Soho cholera outbreak after talking to local residents with the help of Reverend Henry Whitehead.",
+   "url": "https://en.wikipedia.org/wiki/John_Snow"
+  },
+  {
+   "claim": "Snow's chemical and microscope examination of a Broad Street pump water sample did not conclusively prove its danger, but the patterns of illness and death persuaded St James parish authorities to disable the pump by removing its handle.",
+   "url": "https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak"
+  },
+  {
+   "claim": "The 1854 Broad Street cholera outbreak killed 420 people.",
+   "url": "https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak"
+  },
+  {
+   "claim": "John Simon, London's lead medical officer, called Snow's germ theory \"peculiar\".",
+   "url": "https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak"
+  },
+  {
+   "claim": "The Broad Street well had been dug only three feet from an old cesspit that had begun to leak faecal bacteria, and waste water from washing a baby's nappy drained into that cesspit.",
+   "url": "https://en.wikipedia.org/wiki/John_Snow"
+  },
+  {
+   "claim": "None of the workers in the nearby Broad Street brewery contracted cholera because they were given a daily allowance of beer and did not drink the pump water; boiling during brewing killed the cholera bacteria in the water used.",
+   "url": "https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak"
+  },
+  {
+   "claim": "Snow observed that the epidemic may have already been in rapid decline, with mortality diminished by the flight of the population, before the pump water was stopped.",
+   "url": "https://en.wikipedia.org/wiki/John_Snow"
+  },
+  {
+   "claim": "After the cholera epidemic subsided, government officials replaced the Broad Street pump handle and rejected Snow's theory.",
+   "url": "https://en.wikipedia.org/wiki/John_Snow"
+  },
+  {
+   "claim": "Deactivating the pump hardly made a dent in the citywide cholera epidemic, which went on to claim nearly 3,000 lives.",
+   "url": "https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak"
+  },
+  {
+   "claim": "A plaque commemorates Snow's 1854 study at the site of the water pump and shows a water pump with its handle removed.",
+   "url": "https://en.wikipedia.org/wiki/John_Snow"
+  },
+  {
+   "claim": "On September 8, 1854, community leaders removed the handle from the Broad Street pump upon John Snow's suggestion, so people could no longer use that water, and deaths from cholera were reduced.",
+   "url": "https://doi.org/10.4103/wsp.wsp_35_23"
+  }
+ ],
+ "key_words": [
+  "cholera",
+  "pump",
+  "handle",
+  "Snow",
+  "Soho",
+  "cesspit",
+  "sewage",
+  "germs",
+  "brewery",
+  "plaque",
+  "Whitehead",
+  "parish"
+ ]
+}

@@ -1,37 +1,55 @@
 name: Polish return (paste Claude's answer)
 
-# The copy-paste polish. When the free models can't finish a film-style episode, "Make a story video" opens an issue
-# labelled "polish" with one box to copy into Claude. The owner pastes Claude's answer as a comment on that issue;
-# this workflow reads it, checks it (shot list, script rules, fact check against the frozen sources), and either
-# replies with a new box listing what to fix, or makes the video and posts the link. Only the repository owner's
-# comments are read; the comment is treated as data (JSON), never run as code.
+# The polish step for film-style episodes, for ANY polisher. When the free models can't finish an episode,
+# "Make a story video" opens an issue labelled "polish" AND saves the draft in the repo as a ticket:
+# polish/film/<episode>/ (PROMPT.md, files/, ticket.json). An answer can come back three ways:
+#   1. the owner pastes Claude's answer as a comment on the issue (the copy-paste route, works from a phone);
+#   2. an agent (Claude Code, Codex CLI) writes polish/film/<episode>/answer.json and pushes it to main;
+#   3. an agent that can only open pull requests (Codex cloud) opens a PR from a branch of this repo with answer.json.
+# Every answer is treated as DATA (JSON), never run as code: PR files are read through the API, PR code is never
+# checked out. This workflow checks the answer (shot list, script rules, fact check against the frozen sources) and
+# either writes what to fix (issue comment + polish/film/<episode>/result.md) or makes the video and posts the link.
+# See AGENTS.md and polish/README.md.
 on:
   issue_comment:
     types: [created]
+  push:
+    branches: [main]
+    paths: ["polish/film/*/answer.json"]
+  pull_request_target:
+    types: [opened, reopened, synchronize, ready_for_review]
+    branches: [main]
+    paths: ["polish/film/*/answer.json"]
 
 permissions:
   contents: write
   issues: write
+  pull-requests: write
   actions: read
 
 concurrency:
-  group: polish-${{ github.event.issue.number }}
+  group: polish-return-${{ github.event.issue.number || github.event.pull_request.number || github.sha }}
   cancel-in-progress: false
 
 jobs:
   continue:
     if: >-
-      !github.event.issue.pull_request &&
-      contains(github.event.issue.labels.*.name, 'polish') &&
-      github.event.comment.user.login == github.repository_owner &&
-      contains(github.event.comment.body, '{')
+      (github.event_name == 'issue_comment' && !github.event.issue.pull_request &&
+       contains(github.event.issue.labels.*.name, 'polish') &&
+       github.event.comment.user.login == github.repository_owner &&
+       contains(github.event.comment.body, '{')) ||
+      github.event_name == 'push' ||
+      (github.event_name == 'pull_request_target' &&
+       github.event.pull_request.head.repo.full_name == github.repository)
     runs-on: ubuntu-latest
-    timeout-minutes: 240
+    timeout-minutes: 300
     env:
       GH_TOKEN: ${{ github.token }}
-      ISSUE: ${{ github.event.issue.number }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main          # trusted code only (also for pull requests)
+          fetch-depth: 2
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -46,7 +64,68 @@ jobs:
           path: .brain
           persist-credentials: false
 
+      - name: Collect the answers
+        id: collect
+        env:
+          EVENT: ${{ github.event_name }}
+          ISSUE: ${{ github.event.issue.number }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          COMMENT: ${{ github.event.comment.body }}
+          BEFORE: ${{ github.event.before }}
+          PR: ${{ github.event.pull_request.number }}
+          PR_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_USER: ${{ github.event.pull_request.user.login }}
+        run: |
+          mkdir -p answers
+          python - <<'PY'
+          import json, os, re, subprocess, base64, pathlib
+          ev, out = os.environ["EVENT"], []
+          ok_ep = lambda e: re.fullmatch(r"episodes/[a-z0-9_]+/[0-9]{3}-[a-z0-9-]+", e or "")
+          ok_tag = lambda t: re.fullmatch(r"[A-Za-z0-9._-]+", t or "")
+          def ticket_job(tdir, text, who):
+              t = json.loads(pathlib.Path(tdir, "ticket.json").read_text())
+              if not (ok_ep(t["episode"]) and ok_tag(t["draft"])):
+                  raise SystemExit(f"bad ticket {tdir}")
+              n = len(out) + 1
+              pathlib.Path(f"answers/{n}.txt").write_text(text, encoding="utf-8")
+              out.append([str(t["issue"]), t["episode"], t["draft"], f"answers/{n}.txt", tdir, who])
+          if ev == "issue_comment":
+              m = re.search(r"<!-- polish: episode=(\S+) draft=(\S+) -->", os.environ["ISSUE_BODY"])
+              if not m or not ok_ep(m.group(1)) or not ok_tag(m.group(2)):
+                  raise SystemExit("This issue has no valid polish marker.")
+              tdir = f"polish/film/{m.group(1).rsplit('/', 1)[1]}"
+              pathlib.Path("answers/1.txt").write_text(os.environ["COMMENT"], encoding="utf-8")
+              out.append([os.environ["ISSUE"], m.group(1), m.group(2), "answers/1.txt",
+                          tdir if pathlib.Path(tdir, "ticket.json").exists() else "", "the owner's pasted answer"])
+          elif ev == "push":
+              before = os.environ.get("BEFORE") or ""
+              rng = [before, "HEAD"] if before and not set(before) <= {"0"} else ["HEAD~1", "HEAD"]
+              changed = subprocess.run(["git", "diff", "--name-only", *rng], capture_output=True, text=True).stdout.split()
+              for f in changed:
+                  if re.fullmatch(r"polish/film/[0-9]{3}-[a-z0-9-]+/answer\.json", f) and pathlib.Path(f).exists():
+                      ticket_job(str(pathlib.Path(f).parent), pathlib.Path(f).read_text(encoding="utf-8"), "an answer pushed to main")
+          else:   # pull request: read answer.json files from the PR head as data, never check out PR code
+              repo, pr, sha = os.environ["GITHUB_REPOSITORY"], os.environ["PR"], os.environ["PR_SHA"]
+              files = json.loads(subprocess.run(["gh", "api", f"repos/{repo}/pulls/{pr}/files", "--paginate"],
+                                                capture_output=True, text=True, check=True).stdout)
+              for f in files:
+                  name = f["filename"]
+                  if f["status"] == "removed" or not re.fullmatch(r"polish/film/[0-9]{3}-[a-z0-9-]+/answer\.json", name):
+                      continue
+                  tdir = str(pathlib.Path(name).parent)
+                  if not pathlib.Path(tdir, "ticket.json").exists():
+                      print(f"skipped {name}: no ticket on main"); continue
+                  blob = json.loads(subprocess.run(["gh", "api", f"repos/{repo}/contents/{name}?ref={sha}"],
+                                                   capture_output=True, text=True, check=True).stdout)
+                  ticket_job(tdir, base64.b64decode(blob["content"]).decode("utf-8"), f"pull request #{pr} by {os.environ['PR_USER']}")
+          pathlib.Path("jobs.tsv").write_text("".join("\t".join(j) + "\n" for j in out))
+          print(f"{len(out)} answer(s) to check"); [print(" ", j[1], "by", j[5]) for j in out]
+          with open(os.environ["GITHUB_OUTPUT"], "a") as g:
+              g.write(f"count={len(out)}\n")
+          PY
+
       - name: Install tools
+        if: steps.collect.outputs.count != '0'
         run: |
           [ -f .brain/ailayer/__init__.py ] && echo "PYTHONPATH=$GITHUB_WORKSPACE/.brain" >> "$GITHUB_ENV" || true
           sudo apt-get update -qq
@@ -55,41 +134,19 @@ jobs:
           pip install -q -U kaggle six
 
       - name: Restore voice model and icons
+        if: steps.collect.outputs.count != '0'
         uses: actions/cache@v4
         with:
           path: cache
           key: assets-kokoro-v1.1-tabler-3.49.0
 
       - name: Setup check
+        if: steps.collect.outputs.count != '0'
         run: python -m studio setup
 
-      - name: Say it's being checked
-        run: gh issue comment "$ISSUE" --body "Got it. Checking Claude's answer now ([progress](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}))."
-
-      - name: Find the draft and read the answer
-        env:
-          ISSUE_BODY: ${{ github.event.issue.body }}
-          COMMENT: ${{ github.event.comment.body }}
-        run: |
-          printf '%s' "$COMMENT" > reply.txt
-          python - <<'PY'
-          import os, re
-          m = re.search(r"<!-- polish: episode=(\S+) draft=(\S+) -->", os.environ["ISSUE_BODY"])
-          if not m or not re.fullmatch(r"episodes/[a-z0-9_]+/[0-9]{3}-[a-z0-9-]+", m.group(1)) or not re.fullmatch(r"[A-Za-z0-9._-]+", m.group(2)):
-              raise SystemExit("This issue has no valid polish marker.")
-          with open(os.environ["GITHUB_ENV"], "a") as f:
-              f.write(f"EPISODE_DIR={m.group(1)}\nDRAFT_TAG={m.group(2)}\n")
-          PY
-
-      - name: Get the draft files
-        run: |
-          gh release download "$DRAFT_TAG" -p episode-files.zip -D draft --clobber
-          unzip -qo draft/episode-files.zip -d "$(dirname "$EPISODE_DIR")"
-          gh release download channel-memory -p used.json -D . 2>/dev/null || echo '{"episodes": []}' > used.json
-          ls "$EPISODE_DIR"
-
-      - name: Apply and check
-        id: check
+      - name: Check each answer, then make the video or ask for fixes
+        id: run
+        if: steps.collect.outputs.count != '0'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           ACCOUNT_KEY_franklincopil3: ${{ secrets.GEMINI_API_KEY }}
@@ -97,37 +154,40 @@ jobs:
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
           AILAYER_STATE_URL: ${{ secrets.AILAYER_STATE_URL }}
           AILAYER_STATE_TOKEN: ${{ secrets.AILAYER_STATE_TOKEN }}
-        run: |
-          set +e
-          python -m studio.story.filmkit apply "$EPISODE_DIR" reply.txt > apply.txt; rc=$?
-          cat apply.txt
-          if [ $rc -ne 0 ]; then cp apply.txt problems.txt; echo "ok=no" >> "$GITHUB_OUTPUT"; exit 0; fi
-          flag=""; grep -q "SCRIPT_CHANGED=yes" apply.txt && flag="--renarrate"
-          python -m studio.story.filmkit verify "$EPISODE_DIR" --memory used.json $flag | tee problems.txt
-          if grep -q "^PROBLEM:" problems.txt; then echo "ok=no" >> "$GITHUB_OUTPUT"; else echo "ok=yes" >> "$GITHUB_OUTPUT"; fi
-          rm -f "$EPISODE_DIR/NEEDS_POLISH.md"
-          # keep the latest version with the draft, so a second answer builds on it
-          (cd "$(dirname "$EPISODE_DIR")" && zip -qr "$GITHUB_WORKSPACE/episode-files.zip" "$(basename "$EPISODE_DIR")")
-          gh release upload "$DRAFT_TAG" episode-files.zip --clobber
-
-      - name: Ask for a fix
-        if: steps.check.outputs.ok == 'no'
-        run: |
-          python -m studio.story.filmkit issue "$EPISODE_DIR" --draft "$DRAFT_TAG" --memory used.json --problems problems.txt > again.md
-          gh issue comment "$ISSUE" --body-file again.md
-
-      - name: Make the video
-        if: steps.check.outputs.ok == 'yes'
-        env:
           KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
           KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
         run: |
-          gh issue comment "$ISSUE" --body "Accepted: every check passed. Making the video now (about 45 minutes). The link will appear here."
-          tools/film_produce.sh "$EPISODE_DIR"
-          gh issue comment "$ISSUE" --body "Your video is ready: $VIDEO_URL"
-          gh issue close "$ISSUE" --reason completed
+          chmod +x tools/polish_continue.sh tools/film_produce.sh
+          made=0; fix=0; failed=0
+          while IFS=$'\t' read -r issue ep draft reply ticket who; do
+            [ -z "$ep" ] && continue
+            echo "===== $ep ($who)"
+            tools/polish_continue.sh "$issue" "$ep" "$draft" "$reply" "$ticket" "$who"; rc=$?
+            case $rc in 0) made=$((made+1));; 2) fix=$((fix+1));; *) failed=$((failed+1));; esac
+          done < jobs.tsv
+          echo "made=$made fix=$fix failed=$failed"
+          { echo "made=$made"; echo "fix=$fix"; echo "failed=$failed"; } >> "$GITHUB_OUTPUT"
+          [ "$failed" -eq 0 ]
+
+      - name: Tell the pull request what happened
+        if: always() && github.event_name == 'pull_request_target' && steps.collect.outputs.count != '0'
+        env:
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          if [ "${{ steps.run.outputs.fix }}" = "0" ] && [ "${{ steps.run.outputs.failed }}" = "0" ]; then
+            gh pr comment "$PR" --body "Accepted and made into video(s): the answers are saved in the repo (polish/done/). Closing this pull request; nothing to merge."
+            gh pr close "$PR" || true
+          else
+            gh pr comment "$PR" --body "Checked. Some answers need fixes: see result.md in each polish/film/<episode>/ folder on main (and the polish issue). Update answer.json on this branch and push again; it is re-checked automatically."
+          fi
 
       - name: Report a failure
         if: failure()
+        env:
+          ISSUE: ${{ github.event.issue.number }}
         run: |
-          gh issue comment "$ISSUE" --body "Something went wrong while making this video. Details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} . Paste the same answer again to retry."
+          msg="Something went wrong while checking or making a polished video. Details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} . Send the same answer again to retry."
+          if [ -n "$ISSUE" ]; then gh issue comment "$ISSUE" --body "$msg"; fi
+          gh label create pipeline-alert --color B60205 --description "A video run failed" 2>/dev/null || true
+          n=$(gh issue list --label pipeline-alert --state open --json number --jq '.[0].number // empty')
+          if [ -n "$n" ]; then gh issue comment "$n" --body "$msg"; else gh issue create --label pipeline-alert --title "Pipeline alerts" --body "$msg"; fi

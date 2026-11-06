@@ -1,0 +1,129 @@
+{
+ "title": "Why a Yawn Spreads Like a Cold",
+ "topic": "Why do you yawn when someone else yawns?",
+ "voice": "af_neutral",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "brain",
+   "reveal": {
+    "text": "?",
+    "at": "yawn"
+   },
+   "lines": [
+    "Ever wonder why a single yawn can spark a chain reaction?"
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "link",
+   "from": {
+    "icon": "eye",
+    "label": "see yawn",
+    "at": "see"
+   },
+   "to": {
+    "icon": "brain",
+    "label": "mirror neurons",
+    "at": "mirror"
+   },
+   "note": {
+    "text": "activates yawning centre",
+    "at": "activates"
+   },
+   "lines": [
+    "Seeing someone yawn triggers a reflex in our brain that mirrors theirs.",
+    "The visual cue activates mirror neurons, sending a signal to the yawning centre."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "compare",
+   "left": {
+    "icon": "snowflake",
+    "label": "cold pack",
+    "value": "9 %",
+    "at": "cold"
+   },
+   "right": {
+    "icon": "sun",
+    "label": "warm pack",
+    "value": "41 %",
+    "at": "warm"
+   },
+   "verdict": {
+    "text": "cold cuts contagion",
+    "at": "cold"
+   },
+   "lines": [
+    "Scientists think the reflex helps cool the brain—cold packs cut contagion dramatically.",
+    "In experiments, cold forehead packs reduced contagious yawning to about nine percent."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "tags",
+   "title": "Social Bond Boosts Contagion",
+   "icon": "users",
+   "items": [
+    {
+     "text": "close friends",
+     "at": "close",
+     "tone": "good"
+    },
+    {
+     "text": "family",
+     "at": "family",
+     "tone": "good"
+    },
+    {
+     "text": "strangers",
+     "at": "strangers",
+     "tone": "neutral"
+    }
+   ],
+   "lines": [
+    "The more socially close you are, the faster you catch the yawn.",
+    "Studies on wolves and dogs show the same pattern—close bonds boost contagion."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "bubble",
+   "icon": "hand-finger",
+   "prop": "brain",
+   "text": "Try nasal breathing",
+   "at": "try",
+   "lines": [
+    "Try breathing through your nose next time and see if the yawn stops!"
+   ],
+   "id": "beat5"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Seeing someone yawning triggers a reflex in our brain that mirrors theirs and activates mirror neurons.",
+   "url": "https://en.wikipedia.org/wiki/Yawn"
+  },
+  {
+   "claim": "Cold forehead packs reduced contagious yawning to about nine percent, while warm packs kept it around forty‑one percent.",
+   "url": "https://doi.org/10.1177/147470490700500109"
+  },
+  {
+   "claim": "Social closeness increases contagious yawning in wolves and dogs, linking it to empathy.",
+   "url": "https://doi.org/10.1371/journal.pone.0105963"
+  }
+ ],
+ "youtube": {
+  "title": "Why a Yawn Spreads Like a Cold 🧊",
+  "description": "The brain‑mirror, cooling theory, and social bonding behind contagious yawning.",
+  "tags": [
+   "yawning",
+   "contagious yawning",
+   "brain cooling",
+   "empathy",
+   "animal behavior",
+   "science"
+  ]
+ }
+}

@@ -4,10 +4,13 @@ name: Story schedule
 # episodes/hidden_reasons/topics.txt (new ideas are suggested automatically when fewer than 5 are left).
 # Each start dispatches "Make a story video", which runs one at a time (its concurrency group), so the free
 # Kaggle GPU (30 h/week; one video uses ~35 min) is never asked for two videos at once.
-# Times (UTC): 00:23, 05:23, 10:23, 17:23, 21:23  =  03:23, 08:23, 13:23, 20:23, 00:23 Nairobi.
+# Slots (UTC): 00:23, 05:23, 10:23, 17:23, 21:23  =  03:23, 08:23, 13:23, 20:23, 00:23 Nairobi.
+# Self-healing (6 Nov fix): GitHub drops scheduled runs when it is busy (only ~2 of 5 fired on 3-5 Nov), so this
+# wakes every hour and starts a film only if fewer films have started today than slots have passed (catch-up),
+# never more than the 5 slots a day, never two waiting at once, never more than 36 a week.
 on:
   schedule:
-    - cron: "23 0,5,10,17,21 * * *"
+    - cron: "23 * * * *"
   workflow_dispatch:
     inputs:
       topic:
@@ -46,12 +49,18 @@ jobs:
       - name: Guardrails (don't pile up, stay inside the free GPU week)
         id: guard
         run: |
+          SLOTS="0 5 10 17 21"   # keep in step with the slot list at the top of this file
           busy=$(gh api "repos/${{ github.repository }}/actions/workflows/make-story.yml/runs?per_page=20" \
                  --jq '[.workflow_runs[] | select(.status=="queued" or .status=="in_progress")] | length')
+          today=$(date -u +%Y-%m-%d); hour=$((10#$(date -u +%H))); min=$((10#$(date -u +%M)))
+          due=0; for h in $SLOTS; do if [ "$h" -lt "$hour" ] || { [ "$h" -eq "$hour" ] && [ "$min" -ge 23 ]; }; then due=$((due+1)); fi; done
+          started=$(gh api "repos/${{ github.repository }}/actions/workflows/make-story.yml/runs?per_page=50&created=>=$today" \
+                 --jq '[.workflow_runs[] | select(.event=="workflow_dispatch")] | length')
           week=$(gh api "repos/${{ github.repository }}/actions/workflows/make-story.yml/runs?per_page=100&created=>$(date -u -d '7 days ago' +%Y-%m-%d)" \
                  --jq '[.workflow_runs[] | select(.conclusion=="success")] | length')
-          echo "running/queued: $busy; finished this week: $week"
-          if [ "$busy" -ge 2 ]; then echo "go=no" >> "$GITHUB_OUTPUT"; echo "Two videos already waiting: skipping this slot."
+          echo "running/queued: $busy; finished this week: $week; slots due today: $due; started today: $started"
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "$started" -ge "$due" ]; then echo "go=no" >> "$GITHUB_OUTPUT"; echo "On schedule: nothing to catch up."
+          elif [ "$busy" -ge 2 ]; then echo "go=no" >> "$GITHUB_OUTPUT"; echo "Two videos already waiting: skipping this slot."
           elif [ "$week" -ge 36 ]; then echo "go=no" >> "$GITHUB_OUTPUT"; echo "36 videos this week (5 a day): saving the free GPU hours."
           else echo "go=yes" >> "$GITHUB_OUTPUT"; fi
 
@@ -67,6 +76,8 @@ jobs:
           AILAYER_STATE_TOKEN: ${{ secrets.AILAYER_STATE_TOKEN }}
         run: |
           [ -f .brain/ailayer/__init__.py ] && export PYTHONPATH="$GITHUB_WORKSPACE/.brain"
+          # pycairo (in requirements.txt) needs the cairo library: without it every run failed on 3-6 Nov
+          sudo apt-get update -qq && sudo apt-get install -y -qq libcairo2-dev pkg-config > /dev/null
           pip install -q -r requirements.txt
           gh release download channel-memory -p used.json -D . 2>/dev/null || echo '{"episodes": []}' > used.json
           if [ -n "$TOPIC_IN" ]; then topic="$TOPIC_IN"; else topic=$(python -m studio.story.topics next --memory used.json); fi

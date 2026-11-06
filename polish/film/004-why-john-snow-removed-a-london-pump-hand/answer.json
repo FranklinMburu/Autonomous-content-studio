@@ -1,0 +1,423 @@
+{
+ "script": {
+  "title": "Why a Doctor Had a London Pump's Handle Pulled Off",
+  "beats": [
+   {
+    "lines": [
+     "Parish leaders pulled the handle off a London pump because one doctor asked."
+    ]
+   },
+   {
+    "lines": [
+     "It was 1854, in Soho.",
+     "In three days, one hundred and twenty-seven people near Broad Street died of cholera.",
+     "Most doctors blamed bad air, a poison smell called miasma.",
+     "London's top medical officer called John Snow's germ idea peculiar."
+    ]
+   },
+   {
+    "lines": [
+     "So Snow and Reverend Henry Whitehead questioned the families of the dead.",
+     "The deaths circled one pump on Broad Street.",
+     "Some families even fetched its water, though other pumps were nearer.",
+     "Snow's microscope couldn't prove the water was deadly. But the pattern was clear.",
+     "On the evening of September seventh, Snow met the parish leaders.",
+     "The next day, the handle came off."
+    ]
+   },
+   {
+    "lines": [
+     "You see, it's like a whole family getting sick after one meal.",
+     "You don't blame the air. You check what they all swallowed."
+    ]
+   },
+   {
+    "lines": [
+     "Later, they found the well was dug just three feet from an old cesspit.",
+     "Water from washing a sick baby's nappies drained into it.",
+     "And the workers at the brewery nearby? Not one caught cholera.",
+     "They drank their daily beer, not the pump water."
+    ]
+   },
+   {
+    "lines": [
+     "But when the outbreak faded, officials put the handle back and rejected his theory.",
+     "Today, a plaque on that street shows a pump with no handle."
+    ]
+   }
+  ],
+  "key_words": [
+   "handle",
+   "1854",
+   "cholera",
+   "miasma",
+   "peculiar",
+   "pump",
+   "microscope",
+   "cesspit",
+   "nappies",
+   "brewery",
+   "beer",
+   "plaque"
+  ],
+  "claims": [
+   {
+    "claim": "Over three days, 127 people on or near Broad Street died of cholera.",
+    "url": "https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak"
+   },
+   {
+    "claim": "Miasma theory blamed cholera on bad air from decaying matter.",
+    "url": "https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak"
+   },
+   {
+    "claim": "John Simon, London's lead medical officer, called Snow's germ theory peculiar.",
+    "url": "https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak"
+   },
+   {
+    "claim": "Snow, helped by Reverend Henry Whitehead, talked to local residents and traced the outbreak to the Broad Street pump.",
+    "url": "https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak"
+   },
+   {
+    "claim": "Some families sent to the Broad Street pump though other pumps were nearer, because they preferred its water.",
+    "url": "https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak"
+   },
+   {
+    "claim": "Snow's chemical and microscope examination of the water did not conclusively prove its danger; the pattern of deaths persuaded the parish authorities.",
+    "url": "https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak"
+   },
+   {
+    "claim": "Snow met the Board of Guardians of St James's parish on the evening of 7 September, and the handle was removed the next day.",
+    "url": "https://en.wikipedia.org/wiki/John_Snow"
+   },
+   {
+    "claim": "The well was dug 3 feet from an old cesspit, and waste water from washing a sick baby's nappies drained into it.",
+    "url": "https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak"
+   },
+   {
+    "claim": "None of the workers at the nearby brewery caught cholera; they had a daily beer allowance and did not drink the pump water.",
+    "url": "https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak"
+   },
+   {
+    "claim": "After the epidemic subsided, officials replaced the pump handle and rejected Snow's theory.",
+    "url": "https://en.wikipedia.org/wiki/John_Snow"
+   },
+   {
+    "claim": "A plaque where the pump stood shows a water pump with its handle removed.",
+    "url": "https://en.wikipedia.org/wiki/John_Snow"
+   }
+  ]
+ },
+ "film": {
+  "era": "1850s",
+  "cast": {
+   "snow": "a 41 year old English doctor with short dark wavy hair, a clean shaven narrow face, thin lips, deep-set grey eyes, a black frock coat, a grey waistcoat, a white high collar and a black necktie, 1850s",
+   "whitehead": "a 28 year old English vicar with fair curly hair, a round friendly face, rosy cheeks, a black clerical coat and a white clerical collar, 1850s",
+   "simon": "a 38 year old London health official with a neat full black beard, a high bald forehead, a brown overcoat with a fur collar and a grey top hat, 1850s",
+   "mother": "a 30 year old poor London woman with red hair tied under a white cotton cap, a faded blue cotton dress and a brown wool shawl, 1850s",
+   "brewer": "a burly 50 year old brewery worker with a thick ginger beard, a flat cloth cap, rolled-up shirt sleeves and a grey canvas apron, 1850s"
+  },
+  "key_words": [
+   "handle",
+   "1854",
+   "cholera",
+   "miasma",
+   "peculiar",
+   "pump",
+   "microscope",
+   "cesspit",
+   "nappies",
+   "brewery",
+   "beer",
+   "plaque"
+  ],
+  "music": "mysterious",
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "prompt": "medium shot, two men in black top hats pulling the long iron handle off a street water pump on a cobbled London street, grey morning light",
+    "check": "Is a man pulling a handle off a water pump?",
+    "clip": true,
+    "motion": "the men wrench the handle upward, slow camera push in"
+   },
+   {
+    "name": "doctor",
+    "at": "because#1",
+    "who": "snow",
+    "prompt": "medium close-up, a doctor pointing firmly at an iron street water pump, he is {snow}, narrow cobbled street, overcast light",
+    "check": "Is a man pointing?",
+    "clip": true,
+    "motion": "he points at the pump and nods once, slow camera push in",
+    "hit": "asked#1"
+   },
+   {
+    "name": "soho",
+    "at": "It#1",
+    "prompt": "wide shot of a crowded narrow 1850s London street with laundry hanging between old brick houses, people carrying wooden buckets, hazy daylight",
+    "check": "Is this a crowded old street?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "sick",
+    "at": "three#1",
+    "prompt": "close-up, a pale sweating man lying sick on a straw mattress in a dark attic room, a woman wiping his forehead with a cloth, candle light",
+    "check": "Is a man lying sick in bed?",
+    "clip": true,
+    "motion": "she wipes his forehead slowly, slow camera push in"
+   },
+   {
+    "name": "coffins",
+    "at": "people#1",
+    "prompt": "high angle, men carrying plain wooden coffins out of narrow brick houses onto a horse cart, a sad crowd watching, grey light",
+    "check": "Are there wooden coffins?",
+    "move": "down",
+    "hit": "died#1"
+   },
+   {
+    "name": "noses",
+    "at": "Most#1",
+    "prompt": "medium shot, three doctors in black coats pressing white handkerchiefs over their noses in a filthy street, disgusted faces",
+    "check": "Are men covering their noses?",
+    "clip": true,
+    "motion": "they press the cloths to their noses and frown, slow camera pull back"
+   },
+   {
+    "name": "fog",
+    "at": "poison#1",
+    "prompt": "wide shot, thick greenish yellow fog drifting over a rubbish-strewn muddy riverbank at dusk, rotting boats, old warehouses",
+    "check": "Is there fog over a riverbank?",
+    "move": "left"
+   },
+   {
+    "name": "simon",
+    "at": "London's#1",
+    "who": "simon",
+    "prompt": "medium shot, a bearded official shaking his head while reading a letter at a big wooden desk, he is {simon}, oil lamp light, grand office",
+    "check": "Is a bearded man reading a letter?",
+    "clip": true,
+    "motion": "he shakes his head and drops the letter on the desk, slow camera push in"
+   },
+   {
+    "name": "door",
+    "at": "So#1",
+    "prompt": "medium shot, {snow} and {whitehead} knocking on the wooden door of a narrow brick house, a dark alley, evening",
+    "check": "Are two men at a door?",
+    "clip": true,
+    "motion": "one man knocks on the door twice, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "mother",
+    "at": "families#1",
+    "who": "mother",
+    "prompt": "medium close-up, a crying woman in a doorway answering questions, she is {mother}, a man's hand writing in a notebook in the foreground, dim light",
+    "check": "Is a woman crying in a doorway?",
+    "clip": true,
+    "motion": "she wipes a tear and nods, slow camera push in"
+   },
+   {
+    "name": "dots",
+    "at": "deaths#1",
+    "prompt": "extreme close-up, a hand with a quill pen marking small black dots on a hand-drawn street plan without any writing, candle light on a wooden desk",
+    "check": "Is a hand drawing dots on a map?",
+    "clip": true,
+    "motion": "the quill adds one more dot, slow camera push in"
+   },
+   {
+    "name": "pump",
+    "at": "pump#2",
+    "prompt": "low angle, a black iron street water pump in a small cobbled square, a queue of women and children holding buckets, morning light",
+    "check": "Is there a street water pump?",
+    "move": "up"
+   },
+   {
+    "name": "girl",
+    "at": "Some#1",
+    "prompt": "medium shot, a girl in a patched brown dress carrying two heavy wooden buckets of water along a cobbled street, another pump behind her",
+    "check": "Is a girl carrying buckets?",
+    "clip": true,
+    "motion": "she lifts the buckets and shifts her grip, slow camera pan left"
+   },
+   {
+    "name": "nearer",
+    "at": "other#1",
+    "prompt": "close-up, an unused iron water pump standing alone in a quiet narrow lane, a few dry leaves around it, soft daylight",
+    "check": "Is there a water pump?",
+    "move": "push"
+   },
+   {
+    "name": "microscope",
+    "at": "Snow's#2",
+    "who": "snow",
+    "prompt": "close-up, a doctor peering into a brass microscope at a glass of cloudy water, he is {snow}, cluttered study, lamp light",
+    "check": "Is a man looking into a microscope?",
+    "clip": true,
+    "motion": "he turns the focus knob slowly, slow camera push in"
+   },
+   {
+    "name": "pattern",
+    "at": "But#1",
+    "prompt": "high angle, a street plan on a wooden desk covered in black dots crowded around one spot, a quill and a candle beside it, no writing",
+    "check": "Is there a map with many dots?",
+    "move": "push"
+   },
+   {
+    "name": "vestry",
+    "at": "evening#1",
+    "who": "snow",
+    "prompt": "medium shot, a doctor speaking firmly to men in black coats seated at a long table seen from behind, he is {snow}, candle lit wood-panelled room",
+    "check": "Is a man talking to men at a table?",
+    "clip": true,
+    "motion": "he taps the table firmly with two fingers, slow camera push in"
+   },
+   {
+    "name": "handle",
+    "at": "next#1",
+    "prompt": "close-up, a workman's rough hands lifting the long iron handle off a street water pump, early morning sunlight",
+    "check": "Is a hand removing a pump handle?",
+    "clip": true,
+    "motion": "the hands pull the handle free, slow camera push in",
+    "hit": "off#2"
+   },
+   {
+    "name": "table",
+    "at": "You#1",
+    "prompt": "medium shot, a poor family eating stew together from one cooking pot at a wooden kitchen table, candle light",
+    "check": "Are people eating at a table?",
+    "clip": true,
+    "motion": "they spoon stew from their bowls, slow camera pull back",
+    "xfade": true
+   },
+   {
+    "name": "ill",
+    "at": "sick#1",
+    "prompt": "medium close-up, a father and two children at a wooden kitchen table clutching their stomachs in pain, empty bowls, candle light",
+    "check": "Are people holding their stomachs?",
+    "clip": true,
+    "motion": "they clutch their stomachs and groan, slow camera push in"
+   },
+   {
+    "name": "window",
+    "at": "blame#1",
+    "prompt": "medium shot, a man in shirt sleeves pushing open a small wooden window and sniffing the air with a frown, a smoky street outside",
+    "check": "Is a man opening a window?",
+    "clip": true,
+    "motion": "he pushes the window open and sniffs, slow camera push in"
+   },
+   {
+    "name": "pot",
+    "at": "check#1",
+    "prompt": "close-up, a worried woman lifting the lid of an iron cooking pot and sniffing it suspiciously, dark cottage kitchen, firelight",
+    "check": "Is a woman lifting a pot lid?",
+    "clip": true,
+    "motion": "she lifts the lid and sniffs, slow camera push in"
+   },
+   {
+    "name": "dig",
+    "at": "Later#1",
+    "prompt": "wide shot, workmen with shovels digging a deep hole beside an old street pump, exposing the round brick wall of a well, grey daylight",
+    "check": "Are men digging a hole?",
+    "move": "down",
+    "xfade": true
+   },
+   {
+    "name": "gap",
+    "at": "feet#1",
+    "prompt": "close-up, a workman's boot standing on a narrow strip of mud between a round brick well and a dark old pit, grey light",
+    "check": "Is there a brick well?",
+    "move": "down"
+   },
+   {
+    "name": "cesspit",
+    "at": "cesspit#1",
+    "prompt": "close-up, cracked old bricks of an underground pit seeping dark dirty water into the soil next to a round brick well, dim light",
+    "check": "Is dirty water leaking through bricks?",
+    "move": "push",
+    "hit": "cesspit#1"
+   },
+   {
+    "name": "nappies",
+    "at": "washing#1",
+    "who": "mother",
+    "prompt": "medium shot, a woman washing cloth nappies in a wooden tub in a dark cellar, she is {mother}, a pail of grey water beside her, lamp light",
+    "check": "Is a woman washing cloth in a tub?",
+    "clip": true,
+    "motion": "she scrubs a cloth in the tub, slow camera push in"
+   },
+   {
+    "name": "drain",
+    "at": "drained#1",
+    "prompt": "extreme close-up, grey soapy water pouring from a wooden pail into a stone drain hole in a cellar floor, lamp light",
+    "check": "Is water pouring into a drain?",
+    "clip": true,
+    "motion": "the water pours down the drain, slow camera tilt down"
+   },
+   {
+    "name": "brewery",
+    "at": "workers#1",
+    "prompt": "wide shot inside an 1850s brewery, huge wooden vats and barrels, workers rolling a barrel across a stone floor, warm light through high windows",
+    "check": "Are there big wooden barrels?",
+    "move": "left"
+   },
+   {
+    "name": "beer",
+    "at": "Not#1",
+    "who": "brewer",
+    "prompt": "medium close-up, a cheerful brewery worker lifting a tin mug of beer, he is {brewer}, wooden barrels behind him, warm light",
+    "check": "Is a man holding a mug?",
+    "clip": true,
+    "motion": "he raises the mug and takes a sip, slow camera push in"
+   },
+   {
+    "name": "mugs",
+    "at": "drank#1",
+    "prompt": "close-up, brewery workers clinking tin mugs of beer together beside big wooden barrels, warm light",
+    "check": "Are men clinking mugs?",
+    "clip": true,
+    "motion": "they clink the mugs together, slow camera push in"
+   },
+   {
+    "name": "street",
+    "at": "But#2",
+    "prompt": "wide shot, a quiet cobbled London street at sunrise, a few people walking calmly past an iron water pump, soft golden light",
+    "check": "Is there a quiet street?",
+    "move": "pull",
+    "xfade": true
+   },
+   {
+    "name": "back",
+    "at": "officials#1",
+    "prompt": "medium shot, a workman in a cap fitting the iron handle back onto a street water pump while men in top hats watch, daylight",
+    "check": "Is a man fixing a pump?",
+    "clip": true,
+    "motion": "he slides the handle into place, slow camera push in"
+   },
+   {
+    "name": "rejected",
+    "at": "rejected#1",
+    "who": "simon",
+    "prompt": "close-up, a bearded official crumpling a letter in his fist at a wooden desk, he is {simon}, lamp light",
+    "check": "Is a man crumpling paper?",
+    "clip": true,
+    "motion": "he crumples the paper in his fist, slow camera push in"
+   },
+   {
+    "name": "plaque",
+    "at": "Today#1",
+    "prompt": "wide shot, a quiet old London street paved with red granite, a black iron water pump standing on the corner, soft daylight",
+    "check": "Is there a water pump?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "nohandle",
+    "at": "shows#1",
+    "prompt": "extreme close-up, the top of a black iron water pump with an empty hole where its handle used to be, red granite below, soft daylight",
+    "check": "Is this the top of an iron pump?",
+    "move": "pull",
+    "hit": "no#1"
+   }
+  ]
+ }
+}

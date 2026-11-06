@@ -1,0 +1,48 @@
+{
+ "id": "20261101-what-happens-to-your-body-when-you-hold-your-breat",
+ "topic": "What happens to your body when you hold your breath?",
+ "lane": null,
+ "topic_key": "f5c8b446ef5d099a",
+ "stage": "queue",
+ "created": "2026-11-01T06:15:55+00:00",
+ "attempts": 1,
+ "history": [
+  {
+   "at": "2026-11-01T06:15:55+00:00",
+   "to": "queue",
+   "why": "created"
+  }
+ ],
+ "provenance": {
+  "research_plan": {
+   "questions": [
+    "What physiological changes occur during breath-holding?",
+    "How does the body manage oxygen and carbon dioxide levels?",
+    "What are the risks of prolonged breath-hold?",
+    "Does breath-holding affect the brain?"
+   ],
+   "wikipedia": [
+    "Breath-hold diving",
+    "Hypoxia",
+    "Hypercapnia",
+    "What happens to your body when you hold your breath?"
+   ],
+   "scholar": [
+    "breath-hold physiology",
+    "effects of apnea on oxygen consumption"
+   ],
+   "model": "groq:openai/gpt-oss-20b"
+  },
+  "writer": "nvidia:minimaxai/minimax-m3.1-flash",
+  "candidates": [
+   "nvidia:minimaxai/minimax-m3.1-flash"
+  ],
+  "judge": {
+   "index": 0,
+   "scores": {},
+   "reason": "only one candidate",
+   "model": null
+  },
+  "rules": "studio/pipeline/draft.py TASK + POLISH.md"
+ }
+}

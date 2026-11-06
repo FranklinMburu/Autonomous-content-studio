@@ -1,0 +1,143 @@
+{
+ "title": "Your urge to breathe can lie to you",
+ "topic": "What happens to your body when you hold your breath?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "lungs",
+   "label": "breath hold",
+   "reveal": {
+    "text": "?",
+    "at": "breathe"
+   },
+   "lines": [
+    "Your urge to breathe can lie to you."
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "compare",
+   "title": "During a breath hold",
+   "left": {
+    "icon": "lungs",
+    "label": "oxygen falls",
+    "value": "falling",
+    "at": "falls"
+   },
+   "right": {
+    "icon": "flame",
+    "label": "CO₂ rises",
+    "value": "rising",
+    "at": "rises"
+   },
+   "lines": [
+    "When you hold your breath, oxygen reserves fall while carbon dioxide rises.",
+    "Your body keeps drawing on stored oxygen."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "link",
+   "kicker": "The twist",
+   "from": {
+    "icon": "flame",
+    "label": "CO₂ rises",
+    "at": "carbon"
+   },
+   "to": {
+    "icon": "brain",
+    "label": "breathing urge",
+    "at": "breathe"
+   },
+   "note": {
+    "text": "CO₂ is the trigger",
+    "at": "driven"
+   },
+   "lines": [
+    "Here’s the twist: the urge to breathe is driven mainly by rising carbon dioxide, not falling oxygen."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "timeline",
+   "title": "A breath-hold dive",
+   "events": [
+    {
+     "when": "Before dive",
+     "label": "warning delayed",
+     "at": "hyperventilating"
+    },
+    {
+     "when": "Ascent",
+     "label": "oxygen falls",
+     "at": "oxygen"
+    },
+    {
+     "when": "Seconds later",
+     "label": "blackout",
+     "at": "blackout"
+    }
+   ],
+   "lines": [
+    "On a breath-hold dive, hyperventilating can delay that warning.",
+    "During ascent, falling pressure can drop oxygen sharply, causing blackout within seconds."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "statement",
+   "text": "Low oxygen is hard to sense",
+   "highlight": [
+    "Low oxygen",
+    "sense"
+   ],
+   "sub": "Blackout can follow",
+   "icon": "brain",
+   "lines": [
+    "Underwater, blackout can lead to drowning.",
+    "Low oxygen is hard to sense, so consciousness can fade without an obvious urge to breathe.",
+    "Prolonged oxygen deprivation can also injure neurons."
+   ],
+   "id": "beat5"
+  },
+  {
+   "scene": "bubble",
+   "icon": "lungs",
+   "prop": "brain",
+   "text": "CO₂ alarm",
+   "at": "alarm",
+   "lines": [
+    "So the breath signal is more like a carbon-dioxide alarm than an oxygen gauge.",
+    "Don't hyperventilate before diving; stay within your limits and ascend slowly."
+   ],
+   "id": "beat6"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Breath-hold duration is limited by oxygen reserves and the response to rising carbon dioxide; the urge to breathe is driven mainly by rising carbon dioxide, and hyperventilation can delay warning signals.",
+   "url": "https://en.wikipedia.org/wiki/Freediving"
+  },
+  {
+   "claim": "During ascent, falling pressure can rapidly reduce available oxygen and cause blackout within seconds; blackout can lead to drowning, and safety guidance advises against pre-dive hyperventilation, staying within limits, and ascending slowly.",
+   "url": "https://en.wikipedia.org/wiki/Freediving"
+  },
+  {
+   "claim": "The body senses pure hypoxia poorly, so unconsciousness may occur without symptoms; prolonged hypoxia can cause neuronal cell death.",
+   "url": "https://en.wikipedia.org/wiki/Hypoxia_%28medicine%29"
+  }
+ ],
+ "youtube": {
+  "title": "Your urge to breathe can lie to you",
+  "description": "What happens to oxygen, carbon dioxide, and your brain when you hold your breath—and why hyperventilating before diving is risky.",
+  "tags": [
+   "breath holding",
+   "human body",
+   "oxygen",
+   "carbon dioxide",
+   "freediving",
+   "brain health"
+  ]
+ }
+}
