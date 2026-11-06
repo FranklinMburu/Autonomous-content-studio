@@ -51,8 +51,9 @@ SCRIPT_SHAPE = """Return JSON only:
 
 
 def rules_version():
-    """Which story rules to write with: "v1" (Milestone 1) unless STORY_RULES=v2 (the emotion-led experiment)."""
-    return "v2" if os.environ.get("STORY_RULES", "").strip().lower() == "v2" else "v1"
+    """Which story rules to write with. Default "v2" (emotion-led) since 6 Nov: it won the first blind story lab 2 of 2
+    (story-lab-1: Fleming and Jenner, judged before opening the key). STORY_RULES=v1 brings back the Milestone 1 rules."""
+    return "v1" if os.environ.get("STORY_RULES", "").strip().lower() == "v1" else "v2"
 
 
 def _cfg():
@@ -406,7 +407,7 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
     check = lambda d: script_problems(d, sources)  # noqa: E731
 
     # 2. Script: all draft models at the same time; the judge picks (saved once it passes facts + logic)
-    script_file = "script.json" if rules_version() == "v1" else "script_v2.json"
+    script_file = "script.json" if rules_version() == "v2" else "script_v1.json"   # the default keeps the usual name
     stage = saved(script_file)
     if stage:
         s, fc, info, logic = stage["script"], stage["fact_check"], stage["info"], stage["logic"]

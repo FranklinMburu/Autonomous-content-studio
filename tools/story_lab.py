@@ -3,7 +3,7 @@
 
     python tools/story_lab.py <drafts_dir> <out_dir>
 
-For every topic folder in <drafts_dir> that has both script.json (v1) and script_v2.json (v2), writes
+For every topic folder in <drafts_dir> that has both script_v1.json (v1) and script.json (v2, the default), writes
 <out_dir>/scripts.md (Script A / Script B per topic, order shuffled per topic) and <out_dir>/blind_key.json
 (which letter is which). Rate scripts.md before opening the key.
 """
@@ -30,7 +30,7 @@ def main(drafts, out):
                "For each topic, read Script A and Script B. Rate each 1-5 for: would you keep watching? "
                "did you feel something? is it clear? Then say which one you'd post.", ""], {}
     for d in sorted(p for p in drafts.iterdir() if p.is_dir()):
-        v1, v2 = d / "script.json", d / "script_v2.json"
+        v1, v2 = d / "script_v1.json", d / "script.json"
         if not (v1.exists() and v2.exists()):
             continue
         pair = [("v1", json.loads(v1.read_text(encoding="utf-8"))), ("v2", json.loads(v2.read_text(encoding="utf-8")))]
