@@ -91,6 +91,8 @@ jobs:
           gh release download "$TAG" -p episode-files.zip -D rel --clobber
           unzip -qo rel/episode-files.zip -d "$(dirname "$EP")"
           REPAINT_FROM="$TAG" REPAINT_SHOTS="$FAILED" tools/film_produce.sh "$EP"
+          # film_produce.sh writes VIDEO_URL to $GITHUB_ENV, which only reaches LATER steps: read it back here
+          VIDEO_URL=$(grep '^VIDEO_URL=' "$GITHUB_ENV" | tail -1 | cut -d= -f2-)
           gh issue comment "$ISSUE" --body "Repainted. New video: $VIDEO_URL (if it passed, a *Ready to upload* issue is open; if not, a new *Review needed* issue)."
           gh issue close "$ISSUE" --reason completed
 
