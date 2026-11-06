@@ -1,0 +1,160 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { Lightning } from '@phosphor-icons/react';
+import { world } from '../lib/studio-world.js';
+import { useStudio } from '../context/StudioContext';
+
+export const StudioWorld: React.FC = () => {
+  const { films, studio } = useStudio();
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Compute live numbers
+  const sevenDaysAgo = new Date(Date.now() - 7 * 86400000);
+  // real numbers only (DATA_CONTRACT §6): films made this week, their facts, and their painted shots (from film.json)
+  const weekFilms = films.filter(f => f.at && new Date(f.at) >= sevenDaysAgo && !['draft', 'polish'].includes(f.status));
+  const targetFilms = weekFilms.length;
+  const targetFacts = weekFilms.reduce((a, f) => a + (f.release?.sources?.length || 0), 0);
+  const [targetShots, setTargetShots] = useState(0);
+  useEffect(() => {
+    let cancelled = false;
+    Promise.all(weekFilms.filter(f => f.style === 'film').map(f =>
+      studio.episode(`episodes/hidden_reasons/${f.id}`).then((e: any) => e?.film?.shots?.length || 0).catch(() => 0)))
+      .then(n => { if (!cancelled) setTargetShots(n.reduce((a, b) => a + b, 0)); });
+    return () => { cancelled = true; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [films]);
+
+  const [displayFilms, setDisplayFilms] = useState(0);
+  const [displayShots, setDisplayShots] = useState(0);
+  const [displayFacts, setDisplayFacts] = useState(0);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    // Clean up previous .wl labels if any exist
+    canvas.parentElement?.querySelectorAll('.wl').forEach(el => el.remove());
+
+    // Run world initialization
+    world(canvas, {
+      dots: 3800,
+      r: 0.40,
+      spin: 2.1,
+      tilt: -0.3,
+      dim: 1.5,
+      dotScale: 1.3,
+      seed: 11,
+      labels: ['Research', 'Script', 'Fact check', 'Paint', 'Motion', 'Film'],
+    });
+
+    const observer = new IntersectionObserver(
+      entries => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    return () => {
+      observer.disconnect();
+      canvas.parentElement?.querySelectorAll('.wl').forEach(el => el.remove());
+    };
+  }, []);
+
+  // 800ms Count-up animation when visible
+  useEffect(() => {
+    if (!isVisible) return;
+    const duration = 800;
+    const startTime = performance.now();
+
+    const frame = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(1, elapsed / duration);
+      // easeOutExpo
+      const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+
+      setDisplayFilms(Math.round(ease * targetFilms));
+      setDisplayShots(Math.round(ease * targetShots));
+      setDisplayFacts(Math.round(ease * targetFacts));
+
+      if (progress < 1) {
+        requestAnimationFrame(frame);
+      }
+    };
+
+    requestAnimationFrame(frame);
+  }, [isVisible, targetFilms, targetShots, targetFacts]);
+
+  return (
+    <section
+      ref={sectionRef}
+      style={{
+        position: 'relative',
+        minHeight: '900px',
+        width: '100%',
+        overflow: 'hidden',
+        background: 'radial-gradient(800px 600px at 50% 50%, #131318, #0B0B0F 70%)',
+      }}
+    >
+      <div className="grain" />
+
+      {/* The 2D World Canvas */}
+      <canvas
+        ref={canvasRef}
+        style={{
+          position: 'absolute',
+          left: 'calc(50% - 450px)',
+          top: '0px',
+          width: '900px',
+          height: '900px',
+          display: 'block',
+        }}
+      />
+
+      <div style={{ maxWidth: '1440px', margin: '0 auto', height: '100%', minHeight: '900px', position: 'relative' }}>
+        {/* Left Headline */}
+        <div className="wtitle">
+          <div className="eyebrow">The Studio World</div>
+          <h2>
+            Watch films <span className="serif">being made.</span>
+          </h2>
+          <p className="muted">
+            Every light is a real step of a real film, right now.
+            <br />
+            No fake numbers.
+          </p>
+        </div>
+
+        {/* Right computed numbers with 800ms countUp */}
+        <div className="nums">
+          <div className="nm">
+            <b>{isVisible ? displayFilms : '—'}</b>
+            <span>films made this week</span>
+          </div>
+          <div className="nm">
+            <b>{isVisible ? displayShots : '—'}</b>
+            <span>shots painted</span>
+          </div>
+          <div className="nm">
+            <b>{isVisible ? displayFacts : '—'}</b>
+            <span>facts checked against sources</span>
+          </div>
+          <div className="nm">
+            <b>$0</b>
+            <span>spent</span>
+          </div>
+        </div>
+
+        {/* Perf Note */}
+        <div className="perf">
+          <Lightning size={14} className="ic" color="var(--amber2)" />
+          <span>5 KB globe · pauses off-screen · still image on slow phones</span>
+        </div>
+      </div>
+    </section>
+  );
+};
