@@ -49,7 +49,7 @@ jobs:
         run: |
           python -m venv /tmp/cb && . /tmp/cb/bin/activate
           pip install -q --extra-index-url https://download.pytorch.org/whl/cpu torch==2.6.0 torchaudio==2.6.0
-          pip install -q chatterbox-tts==0.1.7 soundfile
+          pip install -q chatterbox-tts==0.1.7 soundfile "setuptools<81"   # perth (its watermarker) needs pkg_resources
           time python tools/voice_lab.py chatterbox "$SCRIPT" out
 
       - name: VoxCPM2 (Apache-2.0, designed voice)
@@ -64,9 +64,9 @@ jobs:
       - name: Measure every voice (naturalness, clarity, liveliness)
         continue-on-error: true
         run: |
-          . /tmp/cb/bin/activate 2>/dev/null || { python -m venv /tmp/cb && . /tmp/cb/bin/activate && \
-            pip install -q --extra-index-url https://download.pytorch.org/whl/cpu torch==2.6.0 torchaudio==2.6.0 librosa soundfile; }
-          pip install -q faster-whisper
+          python -m venv /tmp/score && . /tmp/score/bin/activate   # its own env: Chatterbox pins an old "av"
+          pip install -q --extra-index-url https://download.pytorch.org/whl/cpu torch torchaudio
+          pip install -q librosa soundfile faster-whisper
           python tools/voice_lab.py score "$SCRIPT" out
           { echo "## Measured scores"; cat out/scores.md; } >> "$GITHUB_STEP_SUMMARY"
 
