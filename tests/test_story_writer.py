@@ -235,5 +235,13 @@ _t = writer.factual_text(_s)
 ok("family" not in _t and "cesspit" in _t and "doctor" in _t, "fact check: the comparison beat is skipped, the rest is checked")
 _s["beats"][1]["lines"] += ["Snow mapped 578 deaths in one night and won a Nobel prize for it, and everyone cheered loudly.", "Extra."]
 ok("Nobel" in writer.factual_text(_s), "fact check: a long 'You see' beat (could hide facts) is checked in full")
+# Milestone 2: emotion-led rules (v2) are opt-in, keep every v1 rule, and require a varied "feel" per beat
+import os as _os  # noqa: E402
+ok(writer.rules_version() == "v1" and writer.STORY_RULES in writer.STORY_RULES_V2, "story rules: v1 by default; v2 keeps all v1 rules")
+_os.environ["STORY_RULES"] = "v2"
+_v = {"beats": [{"lines": ["x"], "feel": "curiosity"}, {"lines": ["y"], "feel": "curiosity"}, {"lines": ["z"]}]}
+ok(writer.rules_version() == "v2" and any("feel" in x for x in writer.script_problems(_v, [])), "story rules v2: every beat needs a varied feel")
+del _os.environ["STORY_RULES"]
+ok(not any("feel" in x for x in writer.script_problems(_v, [])), "story rules v1: no feel needed")
 print(f"\n{'ALL PASSED' if not fails else str(fails) + ' FAILED'}")
 sys.exit(1 if fails else 0)
