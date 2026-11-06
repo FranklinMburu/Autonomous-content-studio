@@ -8,6 +8,7 @@ name: Story schedule
 # Self-healing (6 Nov fix): GitHub drops scheduled runs when it is busy (only ~2 of 5 fired on 3-5 Nov), so this
 # wakes every hour and starts a film only if fewer films have started today than slots have passed (catch-up),
 # never more than the 5 slots a day, never two waiting at once, never more than 36 a week.
+# GitHub still ran the hourly timer only ~2 times a day, so the "Story clock" workflow now wakes this on time.
 on:
   schedule:
     - cron: "23 * * * *"
@@ -17,6 +18,10 @@ on:
         description: "Optional: make this topic now instead of the next one in the queue"
         required: false
         default: ""
+      catchup:
+        description: "Used by the Story clock: start a film only if one is due (same guardrails as the timer)"
+        required: false
+        default: "false"
 
 permissions:
   contents: write   # the channel memory (a release asset)
@@ -59,7 +64,7 @@ jobs:
           week=$(gh api "repos/${{ github.repository }}/actions/workflows/make-story.yml/runs?per_page=100&created=>$(date -u -d '7 days ago' +%Y-%m-%d)" \
                  --jq '[.workflow_runs[] | select(.conclusion=="success")] | length')
           echo "running/queued: $busy; finished this week: $week; slots due today: $due; started today: $started"
-          if [ "${{ github.event_name }}" = "schedule" ] && [ "$started" -ge "$due" ]; then echo "go=no" >> "$GITHUB_OUTPUT"; echo "On schedule: nothing to catch up."
+          if { [ "${{ github.event_name }}" = "schedule" ] || [ "${{ github.event.inputs.catchup }}" = "true" ]; } && [ "$started" -ge "$due" ]; then echo "go=no" >> "$GITHUB_OUTPUT"; echo "On schedule: nothing to catch up."
           elif [ "$busy" -ge 2 ]; then echo "go=no" >> "$GITHUB_OUTPUT"; echo "Two videos already waiting: skipping this slot."
           elif [ "$week" -ge 36 ]; then echo "go=no" >> "$GITHUB_OUTPUT"; echo "36 videos this week (5 a day): saving the free GPU hours."
           else echo "go=yes" >> "$GITHUB_OUTPUT"; fi

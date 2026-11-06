@@ -465,6 +465,13 @@ def cmd_backup_polish():
             fb.append({"at": store.now(), "backup": True, "problems": report["offline"]})
             store.write_json(f / "feedback.json", fb)
             log(f"  not accepted: {'; '.join(report['offline'])[:300]}")
+            # a failed backup polish is an attempt too (6 Nov fix): before, it wasn't counted, so a topic whose
+            # sources can't support the script (the dogs one) stayed in the queue forever and kept "Polish stalled" open
+            it = store.update(i, attempts=store.read_json(f / "item.json")["attempts"] + 1)
+            if it["attempts"] >= polish.MAX_ATTEMPTS:
+                store.move(i, "attention", f"polish rejected {it['attempts']} times (last by the backup model): "
+                                           f"{report['offline'][:2]}")
+                log(f"  moved to attention after {it['attempts']} attempts")
         commit_and_push(f"Backup polish: {i}")
     if accepted:
         from . import github as gh

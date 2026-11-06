@@ -142,9 +142,9 @@ except Exception:
     log("long prompts: off (compel failed to load)", traceback.format_exc()[-300:])
 
 
-def gen(prompt, seed, w=IMG_W, h=IMG_H, neg=None, **kw):
+def gen(prompt, seed, w=IMG_W, h=IMG_H, neg=None, cfg=6.5, **kw):
     full, negp = f"{prompt}, {STYLE}", neg or NEG
-    args = dict(width=w, height=h, num_inference_steps=30, guidance_scale=6.5,
+    args = dict(width=w, height=h, num_inference_steps=30, guidance_scale=cfg,
                 generator=torch.Generator("cuda").manual_seed(seed), **kw)
     if COMPEL is not None:
         try:
@@ -184,6 +184,14 @@ img_times = []
 SHOTS = [s for s in FILM["shots"] if not ONLY or s["name"] in ONLY]
 
 
+def focus(s):
+    """The thing the shot's check asks for: "Is there a brick well?" -> "a brick well",
+    "Are men clinking mugs?" -> "men clinking mugs". Empty when the shot has no check."""
+    q = str(s.get("check", "")).strip().rstrip("?").strip()
+    m = re.match(r"(?i)^(?:is|are|does|do)\s+(?:there\s+)?(.+)$", q)
+    return m.group(1).strip() if m else ""
+
+
 def paint(s, attempt=0):
     """Paint one shot (attempt 0 = its own seed; retries use new seeds; the last retry drops the face lock, which
     can fight the pose). Saves shot + depth and queues its clip. Returns the picture."""
@@ -197,9 +205,15 @@ def paint(s, attempt=0):
         if step == start and scale:
             p_.set_ip_adapter_scale(scale)
         return kw
-    im = to916(gen(picture_prompt(s["prompt"], s), int(s.get("seed", 7)) + 1000 * attempt,
+    # Repaints (6 Nov fix): a new seed alone kept missing the same thing (John Snow run2: 11 shots failed 3 times,
+    # e.g. "a brick well" painted as boots). So a repaint puts the checked thing FIRST, weighted up (compel syntax),
+    # and follows the prompt more strictly (higher guidance).
+    prompt, f = s["prompt"], focus(s)
+    if attempt and f:
+        prompt = f"({f}){1.3 if attempt == 1 else 1.5}, {prompt}"
+    im = to916(gen(picture_prompt(prompt, s), int(s.get("seed", 7)) + 1000 * attempt,
                    neg=NEG_BASE if s.get("modern") else NEG, ip_adapter_image=refs.get(who, blank),
-                   callback_on_step_end=late_lock))
+                   callback_on_step_end=late_lock, cfg=6.5 if not attempt else 8.0))
     p = f"{OUT}/shot_{n}.png"; im.save(p); im.save(f"/kaggle/working/try{attempt}_{n}.png")
     depth(im)["depth"].save(f"{OUT}/depth_{n}.png")
     img_times.append(time.time() - t)
@@ -244,6 +258,10 @@ try:
         a, bad = {}, []
         if s.get("check"):
             a["check"] = ask(img, s["check"])
+            if not a["check"].startswith("yes") and focus(s):   # the small checker is unsure: ask it a 2nd way
+                a["check2"] = ask(img, f"Does this picture show {focus(s)}?")
+                if a["check2"].startswith("yes"):
+                    a["check"] = "yes (2nd question)"
             if not a["check"].startswith("yes"):
                 bad.append(f"no to: {s['check']}")
         a["text"] = ask(img, "Is there any text, letters or writing in this picture?")

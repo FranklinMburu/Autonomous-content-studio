@@ -1,0 +1,58 @@
+name: Story clock (wakes the schedule on time)
+
+# Why (6 Nov): GitHub's own timer is unreliable for this repo. "Story schedule" asks to wake every hour, but GitHub
+# ran it only twice a day (01:37 and 14:24 UTC on 6 Nov), so 3 of 5 films a day never started.
+# This clock doesn't depend on GitHub's timer: one run waits until the next slot (x:23 UTC), wakes the schedule
+# (which still decides with its guardrails), then starts the next clock run. Runs started with
+# "workflow_dispatch" always run. A run lasts at most ~5.5 h (GitHub's job limit is 6 h), then hands over.
+# Free: the repo is public, so Actions minutes cost nothing. Only one clock runs at a time.
+# The 6-hourly timer below only restarts the chain if it ever breaks (GitHub may still drop it; the chain doesn't).
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "41 */6 * * *"
+
+permissions:
+  actions: write   # to start "Story schedule" and the next clock run
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 345
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Only one clock at a time
+        id: one
+        run: |
+          # the oldest clock wins. The run that started this one is finishing right now: give it up to 3 min to end
+          for i in $(seq 1 12); do
+            n=$(gh api "repos/${{ github.repository }}/actions/workflows/story-clock.yml/runs?status=in_progress&per_page=10" \
+                --jq "[.workflow_runs[] | select(.id < ${{ github.run_id }})] | length")
+            [ "$n" -eq 0 ] && break; sleep 15
+          done
+          if [ "$n" -gt 0 ]; then echo "Another clock is already waiting: nothing to do."; echo "go=no" >> "$GITHUB_OUTPUT"
+          else echo "go=yes" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Wait for the next slot, then wake the schedule
+        if: steps.one.outputs.go == 'yes'
+        run: |
+          SLOTS="0 5 10 17 21"   # keep in step with story-schedule.yml
+          now=$(date -u +%s); next=""
+          for d in 0 1; do for h in $SLOTS; do
+            t=$(date -u -d "$(date -u -d "+$d day" +%F) $h:23:30" +%s)
+            if [ "$t" -gt "$now" ] && { [ -z "$next" ] || [ "$t" -lt "$next" ]; }; then next=$t; fi
+          done; done
+          wait=$((next - now)); max=19800   # 5.5 h
+          if [ "$wait" -gt "$max" ]; then
+            echo "Next slot $(date -u -d @$next +%H:%M) UTC is more than 5.5 h away: waiting 5.5 h, then handing over."
+            sleep "$max"
+          else
+            echo "Waiting $((wait / 60)) min for the $(date -u -d @$next +%H:%M) UTC slot."
+            sleep "$wait"
+            gh workflow run story-schedule.yml --ref main -f catchup=true && echo "Woke the schedule."
+          fi
+
+      - name: Start the next clock run
+        if: always() && steps.one.outputs.go == 'yes'
+        run: gh workflow run story-clock.yml --ref main

@@ -63,6 +63,17 @@ def test_schedule_slots_match():
     check('cron: "23 * * * *"' in s, "story-schedule: wakes hourly (catches up dropped runs)")
 
 
+def test_story_clock():
+    c = (WF / "story-clock.yml").read_text(encoding="utf-8")
+    s = (WF / "story-schedule.yml").read_text(encoding="utf-8")
+    import re as _re
+    sl = lambda t: _re.search(r'SLOTS="([0-9 ]+)"', t).group(1)
+    check(sl(c) == sl(s), "story-clock: same slots as story-schedule")
+    check("-f catchup=true" in c and "inputs.catchup" in s, "story-clock: wakes the schedule in catch-up mode (guardrails apply)")
+    check("gh workflow run story-clock.yml" in c and "if: always()" in c, "story-clock: always hands over to the next run")
+    check("select(.id <" in c, "story-clock: only the oldest clock keeps running")
+
+
 def test_shell_scripts():
     for sh in ["tools/polish_continue.sh", "tools/commit_to_main.sh", "tools/film_produce.sh", "tools/ready_issue.sh"]:
         p = ROOT / sh
