@@ -542,8 +542,8 @@ def verify(folder, memory=None, renarrate=False, fact_check=True, log=print):
                   if script.get("claims") or "list the claims" not in x]   # older episodes keep claims in sources.md
         if renarrate and fact_check:   # new wording: check every claim against the frozen sources again
             from ailayer import skills
-            from .writer import _words
-            fc = skills.fact_check(" ".join(_words(script)), sources)
+            from .writer import factual_text
+            fc = skills.fact_check(factual_text(script), sources)
             bad = [r for r in fc["results"] if r.get("verdict") == "unsupported"]
             probs += [f"script: not supported by the sources: {r['claim']}" for r in bad]
             log(f"fact check of the polished script: {fc['counts']}")

@@ -80,6 +80,21 @@ def _words(script):
     return [w for b in script.get("beats", []) for line in b.get("lines", []) for w in str(line).split()]
 
 
+def _is_comparison(beat):
+    """The "You see," beat is a comparison the rules REQUIRE ("it's like a cut you clean right away"), not a factual
+    claim, so the fact check must not judge it against the sources (it always failed it: 6 Nov). Only a short beat
+    (<= 3 lines, <= 40 words) whose first line starts with "You see" counts, so it can't hide facts."""
+    lines = [str(l) for l in beat.get("lines", [])]
+    return bool(lines) and re.match(r"\s*you see\b", lines[0], re.I) is not None and len(lines) <= 3 \
+        and sum(len(l.split()) for l in lines) <= 40
+
+
+def factual_text(script):
+    """The narration the fact check reads: every beat except the "You see," comparison beat."""
+    return " ".join(w for b in script.get("beats", []) if not _is_comparison(b)
+                    for line in b.get("lines", []) for w in str(line).split())
+
+
 def script_problems(s, sources):
     from ailayer.skills import new_numbers
     p = []
@@ -391,7 +406,7 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
             info = {"candidates": [], "failed": [], "judge": None, "by": "repair"}
         log(f"  script: {s.get('title')!r}, {len(_words(s))} words")
 
-        fc = patient(lambda: _timed(log, "fact check", lambda: fact_check(" ".join(_words(s)), sources, time_budget_s=300)), "fact check", log)
+        fc = patient(lambda: _timed(log, "fact check", lambda: fact_check(factual_text(s), sources, time_budget_s=300)), "fact check", log)
         log(f"  fact check: {fc['counts']}")
         for rnd in range(2):  # repair: round 1 correct or remove; round 2 delete the sentences outright
             bad = [r for r in fc["results"] if r.get("verdict") == "unsupported"]
@@ -407,7 +422,7 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
                                                                       max_tokens=3000, time_budget_s=480)).data
             except Exception:  # noqa: BLE001 - keep the current script; unsupported claims then go to the polish
                 break
-            fc = patient(lambda: _timed(log, "fact check", lambda: fact_check(" ".join(_words(s)), sources, time_budget_s=300)), "fact check", log)
+            fc = patient(lambda: _timed(log, "fact check", lambda: fact_check(factual_text(s), sources, time_budget_s=300)), "fact check", log)
             log(f"  fact check after repair {rnd + 1}: {fc['counts']}")
         if any(r.get("verdict") == "unsupported" for r in fc["results"]):
             import os as _os
@@ -425,7 +440,7 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
             try:
                 s2 = _timed(log, "logic repair", lambda: ask(fix, models=models, validate=check, temperature=0.4,
                                                              max_tokens=3000, time_budget_s=480)).data
-                fc2 = patient(lambda: _timed(log, "fact check", lambda: fact_check(" ".join(_words(s2)), sources, time_budget_s=300)), "fact check", log)
+                fc2 = patient(lambda: _timed(log, "fact check", lambda: fact_check(factual_text(s2), sources, time_budget_s=300)), "fact check", log)
                 if not any(r.get("verdict") == "unsupported" for r in fc2["results"]):
                     s, fc = s2, fc2
                     log(f"  after logic repair: {len(logic_check(s, sources, models))} issue(s), fact check {fc['counts']}")
