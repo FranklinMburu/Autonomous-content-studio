@@ -1,0 +1,91 @@
+{
+ "title": "Why Joseph Lister Sprayed Carbolic Acid on Patients",
+ "channel": "Hidden Reasons",
+ "topic": "Why Joseph Lister sprayed carbolic acid over his patients during surgery",
+ "voice": "am_michael",
+ "speed": 1.38,
+ "pace": {
+  "gap_line": 0.08,
+  "gap_beat": 0.2,
+  "lead_in": 0.05,
+  "tail": 0.7
+ },
+ "beats": [
+  {
+   "lines": [
+    "A surgeon soaked clean towels in harsh acid to save a boy.",
+    "Surgery in 1865 was a deadly gamble for every patient."
+   ]
+  },
+  {
+   "lines": [
+    "At one hospital, sixteen out of thirty-five patients died.",
+    "Open wounds filled with pus, forcing doctors to cut off limbs.",
+    "Then an eleven-year-old boy arrived with a broken leg.",
+    "His bone pierced the skin, which usually led to death."
+   ]
+  },
+  {
+   "lines": [
+    "Joseph Lister set the bone and used carbolic acid on the leg.",
+    "He wrapped the wound in tin foil for four days.",
+    "When Lister checked the skin, he saw no infection."
+   ]
+  },
+  {
+   "lines": [
+    "You see, it was like cleaning smelly sewage with strong chemicals."
+   ]
+  },
+  {
+   "lines": [
+    "Louis Pasteur showed that tiny invisible germs cause decay in open wounds.",
+    "Lister realized that destroying these micro-organisms would stop infections.",
+    "Carbolic acid wiped out the germs inside open cuts."
+   ]
+  },
+  {
+   "lines": [
+    "Deaths dropped from sixteen in thirty-five down to six in forty.",
+    "Burned skin from the acid later forced doctors to create germ-free surgery."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Before antiseptic operations were introduced at the hospital, there were sixteen deaths in thirty-five surgical cases.",
+   "url": "https://en.wikipedia.org/wiki/Phenol"
+  },
+  {
+   "claim": "On August 12, 1865, Lister treated an eleven-year-old boy with a tibia fracture piercing the skin by setting the bone, applying carbolic acid soaked towels and tin foil for four days, which prevented infection.",
+   "url": "https://en.wikipedia.org/wiki/Phenol"
+  },
+  {
+   "claim": "Officials in Carlisle experimented with sewage treatment using carbolic acid to reduce the smell, which inspired Lister to try it on wounds.",
+   "url": "https://en.wikipedia.org/wiki/Phenol"
+  },
+  {
+   "claim": "Lister recognized that putrefaction in wounds is caused by germs, connecting to Louis Pasteur's germ theory.",
+   "url": "https://en.wikipedia.org/wiki/Joseph_Lister"
+  },
+  {
+   "claim": "After antiseptic surgery was introduced, mortality dropped from sixteen deaths in thirty-five cases to six deaths in forty cases.",
+   "url": "https://en.wikipedia.org/wiki/Phenol"
+  },
+  {
+   "claim": "Skin irritation caused by continual exposure to phenol eventually led to the introduction of aseptic (germ-free) techniques in surgery.",
+   "url": "https://en.wikipedia.org/wiki/Phenol"
+  }
+ ],
+ "key_words": [
+  "soaked",
+  "acid",
+  "pus",
+  "limbs",
+  "infection",
+  "sewage",
+  "germs",
+  "decay",
+  "surgery"
+ ]
+}

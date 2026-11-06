@@ -202,6 +202,10 @@ jobs:
             title=$(python -c "import json,sys; print(json.load(open(sys.argv[1]))['title'])" "$EPISODE/script.json")
             url=$(gh issue create --title "Polish needed: $title" --label polish --body-file issue.md)
             { echo "Polish issue: $url"; } >> "$GITHUB_STEP_SUMMARY"
+            # keep the draft safe in the repo as a polish ticket, so Claude, Codex or a person can polish it from
+            # the repo alone (see AGENTS.md); an answer.json pushed there continues this video automatically
+            python -m studio.story.filmkit ticket "$EPISODE" --draft "$tag" --issue "${url##*/}" --memory used.json
+            tools/commit_to_main.sh "Polish ticket: $(basename "$EPISODE") (issue ${url##*/})" "polish/film/$(basename "$EPISODE")" || true
           fi
 
       - name: Tell the owner if this run failed
