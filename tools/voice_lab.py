@@ -5,6 +5,7 @@
     python tools/voice_lab.py chatterbox <script.json> <out_dir>   # Resemble AI Chatterbox (MIT)
     python tools/voice_lab.py voxcpm     <script.json> <out_dir>   # OpenBMB VoxCPM2 (Apache-2.0), designed voice
     python tools/voice_lab.py blind      <out_dir>                 # shuffle into sample_A.mp3 ... + blind_key.json
+    python tools/voice_lab.py score      <script.json> <out_dir>   # measured scores -> scores.json + scores.md
 
 Only engines whose model WEIGHTS allow commercial use are tested (a monetised channel is commercial use). OmniVoice
 (the default engine of "OmniVoice Studio") is CC-BY-NC, so it is not used. Models download from Hugging Face at run
@@ -101,10 +102,58 @@ def blind(out):
     print(f"blind samples: {', '.join(key)} (key saved separately; don't open it before rating)")
 
 
+def score(script_path, out):
+    """Measure each voice the way a listener would judge it, so an agent that can't listen can still choose:
+    - naturalness: UTMOS22 (predicted 1-5 listener score, the standard automatic MOS model);
+    - clarity: Whisper word error rate against the script (did every word come out right?);
+    - liveliness: pitch range (semitones, 10th-90th percentile) and how much it varies line to line; flat = boring;
+    - pace: words per second before any speed fitting."""
+    import re
+    import numpy as np
+    import librosa
+    import torch
+    from faster_whisper import WhisperModel
+    _, lines = lines_of(script_path)
+    ref = re.sub(r"[^a-z0-9' ]+", " ", " ".join(lines).lower()).split()
+    mos = torch.hub.load("tarepan/SpeechMOS:v1.2.0", "utmos22_strong", trust_repo=True)
+    asr = WhisperModel("small.en", device="cpu", compute_type="int8")
+    res = {}
+    for eng in ("kokoro", "chatterbox", "voxcpm"):
+        w = out / f"{eng}.wav"
+        if not w.exists():
+            continue
+        y16, _ = librosa.load(w, sr=16000)
+        with torch.no_grad():
+            m = float(mos(torch.from_numpy(y16).unsqueeze(0), 16000).mean())
+        segs, _ = asr.transcribe(str(w), beam_size=5, language="en")
+        hyp = re.sub(r"[^a-z0-9' ]+", " ", " ".join(x.text for x in segs).lower()).split()
+        d = list(range(len(hyp) + 1))   # word-level edit distance
+        for i, r in enumerate(ref, 1):
+            prev, d[0] = d[0], i
+            for j, h in enumerate(hyp, 1):
+                prev, d[j] = d[j], min(d[j] + 1, d[j - 1] + 1, prev + (r != h))
+        f0, _, _ = librosa.pyin(y16, fmin=60, fmax=400, sr=16000)
+        f0 = f0[~np.isnan(f0)]
+        st = 12 * np.log2(f0 / np.median(f0)) if len(f0) else np.array([0.0])
+        dur = len(y16) / 16000
+        res[eng] = {"naturalness_mos": round(m, 2), "word_error_rate": round(d[-1] / max(1, len(ref)), 3),
+                    "pitch_range_semitones": round(float(np.percentile(st, 90) - np.percentile(st, 10)), 1),
+                    "words_per_second": round(len(ref) / dur, 2), "seconds": round(dur, 1)}
+        print(eng, res[eng], flush=True)
+    (out / "scores.json").write_text(json.dumps(res, indent=1), encoding="utf-8")
+    rows = ["| Engine | Naturalness (MOS 1-5) | Word errors | Pitch range (semitones) | Words/s |", "|---|---|---|---|---|"]
+    rows += [f"| {e} | {r['naturalness_mos']} | {r['word_error_rate']:.1%} | {r['pitch_range_semitones']} | {r['words_per_second']} |"
+             for e, r in sorted(res.items(), key=lambda kv: -kv[1]["naturalness_mos"])]
+    (out / "scores.md").write_text("\n".join(rows) + "\n", encoding="utf-8")
+    print("\n".join(rows))
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1]
     if cmd == "blind":
         blind(Path(sys.argv[2]))
+    elif cmd == "score":
+        score(sys.argv[2], Path(sys.argv[3]))
     else:
         o = Path(sys.argv[3]); o.mkdir(parents=True, exist_ok=True)
         {"kokoro": kokoro, "chatterbox": chatterbox, "voxcpm": voxcpm}[cmd](sys.argv[2], o)

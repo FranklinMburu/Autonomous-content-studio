@@ -61,6 +61,15 @@ jobs:
           pip install -q voxcpm soundfile
           time python tools/voice_lab.py voxcpm "$SCRIPT" out
 
+      - name: Measure every voice (naturalness, clarity, liveliness)
+        continue-on-error: true
+        run: |
+          . /tmp/cb/bin/activate 2>/dev/null || { python -m venv /tmp/cb && . /tmp/cb/bin/activate && \
+            pip install -q --extra-index-url https://download.pytorch.org/whl/cpu torch==2.6.0 torchaudio==2.6.0 librosa soundfile; }
+          pip install -q faster-whisper
+          python tools/voice_lab.py score "$SCRIPT" out
+          { echo "## Measured scores"; cat out/scores.md; } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Make the blind samples
         run: |
           pip install -q soundfile numpy
@@ -71,7 +80,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: blind-key
-          path: out/blind_key.json
+          path: |
+            out/blind_key.json
+            out/scores.json
+            out/*.wav
 
       - name: Publish the samples
         run: |
