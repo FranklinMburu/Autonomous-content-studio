@@ -21,6 +21,7 @@ jobs:
     timeout-minutes: 345
     env:
       GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}   # no checkout here, so "gh workflow run" must be told the repo (6 Nov bug)
     steps:
       - name: Only one clock at a time
         id: one
