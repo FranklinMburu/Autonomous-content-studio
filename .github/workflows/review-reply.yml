@@ -90,6 +90,10 @@ jobs:
           python -m studio setup
           gh release download "$TAG" -p episode-files.zip -D rel --clobber
           unzip -qo rel/episode-files.zip -d "$(dirname "$EP")"
+          if ! gh release view "$TAG" --json assets --jq '.assets[].name' | grep -qx film-assets.zip; then
+            gh issue comment "$ISSUE" --body "This video was made before the pipeline kept each run's pictures, so its weak shots can't be repainted one by one. To remake the whole film from this version: Actions -> Make a story video -> episode = \`release:$TAG\`. Or reply **approve** to accept it as it is."
+            exit 0
+          fi
           REPAINT_FROM="$TAG" REPAINT_SHOTS="$FAILED" tools/film_produce.sh "$EP"
           gh issue comment "$ISSUE" --body "Repainted. New video: $VIDEO_URL (if it passed, a *Ready to upload* issue is open; if not, a new *Review needed* issue)."
           gh issue close "$ISSUE" --reason completed

@@ -72,6 +72,7 @@ def test_story_clock():
     check("-f catchup=true" in c and "inputs.catchup" in s, "story-clock: wakes the schedule in catch-up mode (guardrails apply)")
     check("gh workflow run story-clock.yml" in c and "if: always()" in c, "story-clock: always hands over to the next run")
     check("select(.id <" in c, "story-clock: only the oldest clock keeps running")
+    check("GH_REPO:" in c or "actions/checkout" in c, "story-clock: gh knows the repo (it has no checkout)")
 
 
 def test_shell_scripts():
