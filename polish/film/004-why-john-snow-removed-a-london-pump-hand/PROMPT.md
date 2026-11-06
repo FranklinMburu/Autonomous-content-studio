@@ -74,197 +74,240 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: medium close-up, {lister} pressing white cloth towels into a glass dis | close-up, {boy} resting his head on a flat white pillow, looking scare | low angle medium shot, {patient} sitting nervously on a tall wooden op | wide shot of a large grey Victorian stone hospital building with tall  | medium close-up, {patient} lying weakly in an iron hospital bed under  | extreme close-up of an open inflamed wound on a pale forearm leaking t | medium shot, {lister} standing in a dim surgical theatre gripping a lo | medium shot, {boy} standing just inside a Victorian hospital doorway,  | extreme close-up of two surgeon's hands holding a boy's broken lower l | medium shot, carefully adjusting the broken leg of {boy} on a wooden c | close-up of hands pouring clear carbolic liquid from a glass bottle on | medium shot, wrapping a shiny sheet of tin foil over a bound leg, {lis
 
 PROBLEMS FOUND BY THE CHECKS
-- script: not supported by the sources, fix or remove: London's lead medical officer called Snow's germ theory strange.
-- script: not supported by the sources, fix or remove: Cholera killed 420 people in Soho.
-- script: not supported by the sources, fix or remove: The situation is like everyone falling sick after a party drank the same punch.
-- film.json is missing: write it
+- shot simon: 3.7 s on screen (max 3.2; split it)
+- shot gap: only 0.52 s on screen (min 0.7)
+- script: numbers not in the sources: ['twenty']; remove them or use the sources' numbers
+- script: title: a string of at most 8 words
+- script: not supported by the sources: You see, it's like a whole family getting sick after one meal.
+- script: not supported by the sources: You don't blame the air.
+- script: not supported by the sources: You check what they all swallowed.
 
 DRAFT SCRIPT
-{"title": "Why John Snow Removed a London Pump Handle", "beats": [{"lines": ["A doctor made Londoners rip off a pump handle as cholera spread."]}, {"lines": ["The prevailing theory blamed foul air, not dirty water.", "Even Snow's water test failed to prove the danger.", "London's lead medical officer called Snow's germ theory strange."]}, {"lines": ["Cholera killed 420 people in Soho.", "Snow questioned residents with help from Reverend Henry Whitehead.", "Deaths clustered around the Broad Street pump.", "In September 1854, parish guardians pulled the handle off the pump."]}, {"lines": ["You see, it's like everyone sick after a party drank the same punch."]}, {"lines": ["The pump's well sat three feet from a leaking cesspit, a waste pit.", "Waste water from a baby's washed nappy seeped into that pit.", "So pump water carried sewage germs into people's stomachs.", "Brewery workers drank boiled beer instead, and none caught cholera."]}, {"lines": ["But Snow warned the outbreak was already shrinking.", "Afterward, officials put the handle back and rejected his theory.", "The citywide epidemic went on to kill nearly 3,000 people.", "Yet a plaque there now shows the pump with no handle."]}]}
+{"title": "Why a Doctor Had a London Pump's Handle Pulled Off", "beats": [{"lines": ["Parish leaders pulled the handle off a London pump because one doctor asked."]}, {"lines": ["It was 1854, in Soho.", "In three days, one hundred and twenty-seven people near Broad Street died of cholera.", "Most doctors blamed bad air, a poison smell called miasma.", "London's top medical officer called John Snow's germ idea peculiar."]}, {"lines": ["So Snow and Reverend Henry Whitehead questioned the families of the dead.", "The deaths circled one pump on Broad Street.", "Some families even fetched its water, though other pumps were nearer.", "Snow's microscope couldn't prove the water was deadly. But the pattern was clear.", "On the evening of September seventh, Snow met the parish leaders.", "The next day, the handle came off."]}, {"lines": ["You see, it's like a whole family getting sick after one meal.", "You don't blame the air. You check what they all swallowed."]}, {"lines": ["Later, they found the well was dug just three feet from an old cesspit.", "Water from washing a sick baby's nappies drained into it.", "And the workers at the brewery nearby? Not one caught cholera.", "They drank their daily beer, not the pump water."]}, {"lines": ["But when the outbreak faded, officials put the handle back and rejected his theory.", "Today, a plaque on that street shows a pump with no handle."]}]}
 CLAIMS IN THE DRAFT
-- {'claim': 'John Snow identified the Broad Street public water pump as the source of the 1854 Soho cholera outbreak after talking to local residents with the help of Reverend Henry Whitehead.', 'url': 'https://en.wikipedia.org/wiki/John_Snow'}
-- {'claim': "Snow's chemical and microscope examination of a Broad Street pump water sample did not conclusively prove its danger, but the patterns of illness and death persuaded St James parish authorities to disable the pump by removing its handle.", 'url': 'https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak'}
-- {'claim': 'The 1854 Broad Street cholera outbreak killed 420 people.', 'url': 'https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak'}
-- {'claim': 'John Simon, London\'s lead medical officer, called Snow\'s germ theory "peculiar".', 'url': 'https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak'}
-- {'claim': "The Broad Street well had been dug only three feet from an old cesspit that had begun to leak faecal bacteria, and waste water from washing a baby's nappy drained into that cesspit.", 'url': 'https://en.wikipedia.org/wiki/John_Snow'}
-- {'claim': 'None of the workers in the nearby Broad Street brewery contracted cholera because they were given a daily allowance of beer and did not drink the pump water; boiling during brewing killed the cholera bacteria in the water used.', 'url': 'https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak'}
-- {'claim': 'Snow observed that the epidemic may have already been in rapid decline, with mortality diminished by the flight of the population, before the pump water was stopped.', 'url': 'https://en.wikipedia.org/wiki/John_Snow'}
-- {'claim': "After the cholera epidemic subsided, government officials replaced the Broad Street pump handle and rejected Snow's theory.", 'url': 'https://en.wikipedia.org/wiki/John_Snow'}
-- {'claim': 'Deactivating the pump hardly made a dent in the citywide cholera epidemic, which went on to claim nearly 3,000 lives.', 'url': 'https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak'}
-- {'claim': "A plaque commemorates Snow's 1854 study at the site of the water pump and shows a water pump with its handle removed.", 'url': 'https://en.wikipedia.org/wiki/John_Snow'}
-- {'claim': "On September 8, 1854, community leaders removed the handle from the Broad Street pump upon John Snow's suggestion, so people could no longer use that water, and deaths from cholera were reduced.", 'url': 'https://doi.org/10.4103/wsp.wsp_35_23'}
+- {'claim': 'Over three days, 127 people on or near Broad Street died of cholera.', 'url': 'https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak'}
+- {'claim': 'Miasma theory blamed cholera on bad air from decaying matter.', 'url': 'https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak'}
+- {'claim': "John Simon, London's lead medical officer, called Snow's germ theory peculiar.", 'url': 'https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak'}
+- {'claim': 'Snow, helped by Reverend Henry Whitehead, talked to local residents and traced the outbreak to the Broad Street pump.', 'url': 'https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak'}
+- {'claim': 'Some families sent to the Broad Street pump though other pumps were nearer, because they preferred its water.', 'url': 'https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak'}
+- {'claim': "Snow's chemical and microscope examination of the water did not conclusively prove its danger; the pattern of deaths persuaded the parish authorities.", 'url': 'https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak'}
+- {'claim': "Snow met the Board of Guardians of St James's parish on the evening of 7 September, and the handle was removed the next day.", 'url': 'https://en.wikipedia.org/wiki/John_Snow'}
+- {'claim': "The well was dug 3 feet from an old cesspit, and waste water from washing a sick baby's nappies drained into it.", 'url': 'https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak'}
+- {'claim': 'None of the workers at the nearby brewery caught cholera; they had a daily beer allowance and did not drink the pump water.', 'url': 'https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak'}
+- {'claim': "After the epidemic subsided, officials replaced the pump handle and rejected Snow's theory.", 'url': 'https://en.wikipedia.org/wiki/John_Snow'}
+- {'claim': 'A plaque where the pump stood shows a water pump with its handle removed.', 'url': 'https://en.wikipedia.org/wiki/John_Snow'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
-0.14s A#1
-0.19s doctor#1
-0.41s made#1
-0.59s Londoners#1
-0.99s rip#1
-1.11s off#1
-1.24s a#2
-1.31s pump#1
-1.49s handle#1
-1.86s as#1
-1.97s cholera#1
-2.27s spread#1
-3.07s The#1
-3.14s prevailing#1
-3.47s theory#1
-3.74s blamed#1
-4.02s foul#1
-4.29s air#1
-4.77s not#1
-4.94s dirty#1
-5.22s water#1
-5.86s Even#1
-6.06s Snow's#1
-6.36s water#2
-6.58s test#1
-7.01s failed#1
-7.24s to#1
-7.33s prove#1
-7.51s the#2
-7.61s danger#1
-8.44s London's#1
-8.71s lead#1
-8.87s medical#1
-9.12s officer#1
-9.59s called#1
-9.94s Snow's#2
-10.21s germ#1
-10.44s theory#2
-10.66s strange#1
-11.65s Cholera#2
-11.95s killed#1
-12.28s 420#1
-12.98s people#1
-13.23s in#1
-13.33s Soho#1
-14.13s Snow#1
-14.40s questioned#1
-14.80s residents#1
-15.20s with#1
-15.33s help#1
-15.55s from#1
-15.73s Reverend#1
-16.03s Henry#1
-16.30s Whitehead#1
-17.07s Deaths#1
-17.32s clustered#1
-17.67s around#1
-17.89s the#3
-17.99s Broad#1
-18.19s Street#1
-18.42s pump#2
-19.07s In#2
-19.19s September#1
-19.54s 1854#1
-20.69s parish#1
-21.02s guardians#1
-21.42s pulled#1
-21.57s the#4
-21.67s handle#2
-21.94s off#2
-22.07s the#5
-22.17s pump#3
-22.95s You#1
-23.10s see#1
-23.37s it's#1
-23.47s like#1
-23.67s everyone#1
-24.02s sick#1
-24.27s after#1
-24.45s a#3
-24.52s party#1
-24.85s drank#1
-25.05s the#6
-25.15s same#1
-25.35s punch#1
-26.16s The#7
-26.26s pump's#1
-26.44s well#1
-26.59s sat#1
-26.76s three#1
-26.94s feet#1
-27.09s from#2
-27.21s a#4
-27.26s leaking#1
-27.51s cesspit#1
-28.15s a#5
-28.23s waste#1
-28.50s pit#1
-29.09s Waste#2
-29.34s water#3
-29.57s from#3
-29.69s a#6
-29.74s baby's#1
-30.09s washed#1
-30.39s nappy#1
-30.89s seeped#1
-31.07s into#1
-31.22s that#1
-31.37s pit#2
-31.90s So#1
-32.05s pump#4
-32.27s water#4
-32.55s carried#1
-32.82s sewage#1
-33.07s germs#1
-33.37s into#2
-33.52s people's#1
-33.77s stomachs#1
-34.48s Brewery#1
-34.71s workers#1
-35.01s drank#2
-35.23s boiled#1
-35.51s beer#1
-35.68s instead#1
-36.42s and#1
-36.52s none#1
-36.75s caught#1
-36.95s cholera#3
-37.80s But#1
-37.95s Snow#2
-38.25s warned#1
-38.47s the#8
-38.57s outbreak#1
-38.87s was#1
-39.02s already#1
-39.32s shrinking#1
-40.15s Afterward#1
-40.67s officials#1
-41.00s put#1
-41.12s the#9
-41.22s handle#3
-41.50s back#1
-41.92s and#2
-42.02s rejected#1
-42.35s his#1
-42.50s theory#3
-43.19s The#10
-43.31s citywide#1
-43.74s epidemic#1
-44.11s went#1
-44.24s on#1
-44.36s to#2
-44.46s kill#1
-45.01s nearly#1
-45.29s 3,000#1
-45.84s people#2
-46.53s Yet#1
-46.66s a#7
-46.73s plaque#1
-46.96s there#1
-47.11s now#1
-47.38s shows#1
-47.56s the#11
-47.66s pump#5
-47.91s with#2
-48.03s no#1
-48.18s handle#4
+0.14s Parish#1
+0.44s leaders#1
+0.74s pulled#1
+0.89s the#1
+0.99s handle#1
+1.26s off#1
+1.41s a#1
+1.49s London#1
+1.74s pump#1
+2.09s because#1
+2.34s one#1
+2.49s doctor#1
+2.79s asked#1
+3.58s It#1
+3.66s was#1
+3.78s 1854#1
+4.77s in#1
+4.89s Soho#1
+5.67s In#2
+5.77s three#1
+5.94s days#1
+6.58s one#2
+6.73s hundred#1
+6.98s and#1
+7.11s twenty-seven#1
+7.53s people#1
+7.83s near#1
+7.98s Broad#1
+8.21s Street#1
+8.53s died#1
+8.71s of#1
+8.81s cholera#1
+9.57s Most#1
+9.74s doctors#1
+10.04s blamed#1
+10.29s bad#1
+10.49s air#1
+10.99s a#2
+11.07s poison#1
+11.45s smell#1
+11.67s called#1
+11.85s miasma#1
+12.73s London's#1
+13.01s top#1
+13.21s medical#1
+13.46s officer#1
+14.01s called#2
+14.36s John#1
+14.61s Snow's#1
+14.98s germ#1
+15.23s idea#1
+15.54s peculiar#1
+16.43s So#1
+16.61s Snow#1
+16.93s and#2
+17.05s Reverend#1
+17.38s Henry#1
+17.66s Whitehead#1
+18.20s questioned#1
+18.50s the#2
+18.61s families#1
+18.95s of#2
+19.00s the#3
+19.11s dead#1
+19.74s The#4
+19.84s deaths#1
+20.14s circled#1
+20.39s one#3
+20.54s pump#2
+20.72s on#1
+20.84s Broad#2
+21.04s Street#2
+21.70s Some#1
+21.85s families#2
+22.20s even#1
+22.43s fetched#1
+22.60s its#1
+22.73s water#1
+23.20s though#1
+23.35s other#1
+23.53s pumps#1
+23.70s were#1
+23.83s nearer#1
+24.53s Snow's#2
+24.81s microscope#1
+25.18s couldn't#1
+25.41s prove#1
+25.61s the#5
+25.71s water#2
+25.96s was#2
+26.11s deadly#1
+26.97s But#1
+27.09s the#6
+27.19s pattern#1
+27.52s was#3
+27.64s clear#1
+28.34s On#2
+28.42s the#7
+28.57s evening#1
+28.82s of#3
+28.92s September#1
+29.24s seventh#1
+29.82s Snow#2
+30.07s met#1
+30.19s the#8
+30.29s parish#2
+30.54s leaders#2
+31.29s The#9
+31.36s next#1
+31.54s day#1
+31.81s the#10
+31.91s handle#2
+32.14s came#1
+32.29s off#2
+33.04s You#1
+33.19s see#1
+33.44s it's#1
+33.54s like#1
+33.69s a#3
+33.77s whole#1
+33.99s family#1
+34.24s getting#1
+34.52s sick#1
+34.77s after#1
+34.94s one#4
+35.07s meal#1
+35.68s You#2
+35.78s don't#1
+35.98s blame#1
+36.18s the#11
+36.28s air#2
+36.80s You#3
+36.90s check#1
+37.05s what#1
+37.15s they#1
+37.28s all#1
+37.45s swallowed#1
+38.41s Later#1
+38.71s they#2
+38.84s found#1
+39.04s the#12
+39.14s well#1
+39.31s was#4
+39.49s dug#1
+39.89s just#1
+40.14s three#2
+40.36s feet#1
+40.51s from#1
+40.64s an#1
+40.71s old#1
+40.89s cesspit#1
+41.61s Water#3
+41.86s from#2
+42.01s washing#1
+42.31s a#4
+42.41s sick#2
+42.56s baby's#1
+42.86s nappies#1
+43.28s drained#1
+43.51s into#1
+43.76s it#2
+44.24s And#3
+44.34s the#13
+44.44s workers#1
+44.77s at#1
+44.84s the#14
+44.94s brewery#1
+45.17s nearby#1
+46.11s Not#1
+46.26s one#5
+46.46s caught#1
+46.66s cholera#2
+47.40s They#3
+47.52s drank#1
+47.73s their#1
+47.85s daily#1
+48.10s beer#1
+48.49s not#2
+48.65s the#15
+48.74s pump#3
+48.95s water#4
+49.69s But#2
+49.81s when#1
+49.91s the#16
+50.06s outbreak#1
+50.39s faded#1
+51.02s officials#1
+51.35s put#1
+51.47s the#17
+51.57s handle#3
+51.85s back#1
+52.10s and#4
+52.20s rejected#1
+52.52s his#1
+52.67s theory#1
+53.37s Today#1
+53.82s a#5
+53.90s plaque#1
+54.15s on#3
+54.25s that#1
+54.37s street#3
+54.60s shows#1
+54.75s a#6
+54.82s pump#4
+55.07s with#1
+55.20s no#1
+55.35s handle#4
 
 DRAFT film.json
-(none yet)
+{"era": "1850s", "cast": {"snow": "a 41 year old English doctor with short dark wavy hair, a clean shaven narrow face, thin lips, deep-set grey eyes, a black frock coat, a grey waistcoat, a white high collar and a black necktie, 1850s", "whitehead": "a 28 year old English vicar with fair curly hair, a round friendly face, rosy cheeks, a black clerical coat and a white clerical collar, 1850s", "simon": "a 38 year old London health official with a neat full black beard, a high bald forehead, a brown overcoat with a fur collar and a grey top hat, 1850s", "mother": "a 30 year old poor London woman with red hair tied under a white cotton cap, a faded blue cotton dress and a brown wool shawl, 1850s", "brewer": "a burly 50 year old brewery worker with a thick ginger beard, a flat cloth cap, rolled-up shirt sleeves and a grey canvas apron, 1850s"}, "key_words": ["handle", "1854", "cholera", "miasma", "peculiar", "pump", "microscope", "cesspit", "nappies", "brewery", "beer", "plaque"], "music": "mysterious", "shots": [{"name": "hook", "at": 0, "prompt": "medium shot, two men in black top hats pulling the long iron handle off a street water pump on a cobbled London street, grey morning light", "check": "Is a man pulling a handle off a water pump?", "clip": true, "motion": "the men wrench the handle upward, slow camera push in"}, {"name": "doctor", "at": "because#1", "who": "snow", "prompt": "medium close-up, a doctor pointing firmly at an iron street water pump, he is {snow}, narrow cobbled street, overcast light", "check": "Is a man pointing?", "clip": true, "motion": "he points at the pump and nods once, slow camera push in", "hit": "asked#1"}, {"name": "soho", "at": "It#1", "prompt": "wide shot of a crowded narrow 1850s London street with laundry hanging between old brick houses, people carrying wooden buckets, hazy daylight", "check": "Is this a crowded old street?", "move": "push", "xfade": true}, {"name": "sick", "at": "three#1", "prompt": "close-up, a pale sweating man lying sick on a straw mattress in a dark attic room, a woman wiping his forehead with a cloth, candle light", "check": "Is a man lying sick in bed?", "clip": true, "motion": "she wipes his forehead slowly, slow camera push in"}, {"name": "coffins", "at": "people#1", "prompt": "high angle, men carrying plain wooden coffins out of narrow brick houses onto a horse cart, a sad crowd watching, grey light", "check": "Are there wooden coffins?", "move": "down", "hit": "died#1"}, {"name": "noses", "at": "Most#1", "prompt": "medium shot, three doctors in black coats pressing white handkerchiefs over their noses in a filthy street, disgusted faces", "check": "Are men covering their noses?", "clip": true, "motion": "they press the cloths to their noses and frown, slow camera pull back"}, {"name": "fog", "at": "poison#1", "prompt": "wide shot, thick greenish yellow fog drifting over a rubbish-strewn muddy riverbank at dusk, rotting boats, old warehouses", "check": "Is there fog over a riverbank?", "move": "left"}, {"name": "simon", "at": "London's#1", "who": "simon", "prompt": "medium shot, a bearded official shaking his head while reading a letter at a big wooden desk, he is {simon}, oil lamp light, grand office", "check": "Is a bearded man reading a letter?", "clip": true, "motion": "he shakes his head and drops the letter on the desk, slow camera push in"}, {"name": "door", "at": "So#1", "prompt": "medium shot, {snow} and {whitehead} knocking on the wooden door of a narrow brick house, a dark alley, evening", "check": "Are two men at a door?", "clip": true, "motion": "one man knocks on the door twice, slow camera push in", "xfade": true}, {"name": "mother", "at": "families#1", "who": "mother", "prompt": "medium close-up, a crying woman in a doorway answering questions, she is {mother}, a man's hand writing in a notebook in the foreground, dim light", "check": "Is a woman crying in a doorway?", "clip": true, "motion": "she wipes a tear and nods, slow camera push in"}, {"name": "dots", "at": "deaths#1", "prompt": "extreme close-up, a hand with a quill pen marking small black dots on a hand-drawn street plan without any writing, candle light on a wooden desk", "check": "Is a hand drawing dots on a map?", "clip": true, "motion": "the quill adds one more dot, slow camera push in"}, {"name": "pump", "at": "pump#2", "prompt": "low angle, a black iron street water pump in a small cobbled square, a queue of women and children holding buckets, morning light", "check": "Is there a street water pump?", "move": "up"}, {"name": "girl", "at": "Some#1", "prompt": "medium shot, a girl in a patched brown dress carrying two heavy wooden buckets of water along a cobbled street, another pump behind her", "check": "Is a girl carrying buckets?", "clip": true, "motion": "she lifts the buckets and shifts her grip, slow camera pan left"}, {"name": "nearer", "at": "other#1", "prompt": "close-up, an unused iron water pump standing alone in a quiet narrow lane, a few dry leaves around it, soft daylight", "check": "Is there a water pump?", "move": "push"}, {"name": "microscope", "at": "Snow's#2", "who": "snow", "prompt": "close-up, a doctor peering into a brass microscope at a glass of cloudy water, he is {snow}, cluttered study, lamp light", "check": "Is a man looking into a microscope?", "clip": true, "motion": "he turns the focus knob slowly, slow camera push in"}, {"name": "pattern", "at": "But#1", "prompt": "high angle, a street plan on a wooden desk covered in black dots crowded around one spot, a quill and a candle beside it, no writing", "check": "Is there a map with many dots?", "move": "push"}, {"name": "vestry", "at": "evening#1", "who": "snow", "prompt": "medium shot, a doctor speaking firmly to men in black coats seated at a long table seen from behind, he is {snow}, candle lit wood-panelled room", "check": "Is a man talking to men at a table?", "clip": true, "motion": "he taps the table firmly with two fingers, slow camera push in"}, {"name": "handle", "at": "next#1", "prompt": "close-up, a workman's rough hands lifting the long iron handle off a street water pump, early morning sunlight", "check": "Is a hand removing a pump handle?", "clip": true, "motion": "the hands pull the handle free, slow camera push in", "hit": "off#2"}, {"name": "table", "at": "You#1", "prompt": "medium shot, a poor family eating stew together from one cooking pot at a wooden kitchen table, candle light", "check": "Are people eating at a table?", "clip": true, "motion": "they spoon stew from their bowls, slow camera pull back", "xfade": true}, {"name": "ill", "at": "sick#1", "prompt": "medium close-up, a father and two children at a wooden kitchen table clutching their stomachs in pain, empty bowls, candle light", "check": "Are people holding their stomachs?", "clip": true, "motion": "they clutch their stomachs and groan, slow camera push in"}, {"name": "window", "at": "blame#1", "prompt": "medium shot, a man in shirt sleeves pushing open a small wooden window and sniffing the air with a frown, a smoky street outside", "check": "Is a man opening a window?", "clip": true, "motion": "he pushes the window open and sniffs, slow camera push in"}, {"name": "pot", "at": "check#1", "prompt": "close-up, a worried woman lifting the lid of an iron cooking pot and sniffing it suspiciously, dark cottage kitchen, firelight", "check": "Is a woman lifting a pot lid?", "clip": true, "motion": "she lifts the lid and sniffs, slow camera push in"}, {"name": "dig", "at": "Later#1", "prompt": "wide shot, workmen with shovels digging a deep hole beside an old street pump, exposing the round brick wall of a well, grey daylight", "check": "Are men digging a hole?", "move": "down", "xfade": true}, {"name": "gap", "at": "feet#1", "prompt": "close-up, a workman's boot standing on a narrow strip of mud between a round brick well and a dark old pit, grey light", "check": "Is there a brick well?", "move": "down"}, {"name": "cesspit", "at": "cesspit#1", "prompt": "close-up, cracked old bricks of an underground pit seeping dark dirty water into the soil next to a round brick well, dim light", "check": "Is dirty water leaking through bricks?", "move": "push", "hit": "cesspit#1"}, {"name": "nappies", "at": "washing#1", "who": "mother", "prompt": "medium shot, a woman washing cloth nappies in a wooden tub in a dark cellar, she is {mother}, a pail of grey water beside her, lamp light", "check": "Is a woman washing cloth in a tub?", "clip": true, "motion": "she scrubs a cloth in the tub, slow camera push in"}, {"name": "drain", "at": "drained#1", "prompt": "extreme close-up, grey soapy water pouring from a wooden pail into a stone drain hole in a cellar floor, lamp light", "check": "Is water pouring into a drain?", "clip": true, "motion": "the water pours down the drain, slow camera tilt down"}, {"name": "brewery", "at": "workers#1", "prompt": "wide shot inside an 1850s brewery, huge wooden vats and barrels, workers rolling a barrel across a stone floor, warm light through high windows", "check": "Are there big wooden barrels?", "move": "left"}, {"name": "beer", "at": "Not#1", "who": "brewer", "prompt": "medium close-up, a cheerful brewery worker lifting a tin mug of beer, he is {brewer}, wooden barrels behind him, warm light", "check": "Is a man holding a mug?", "clip": true, "motion": "he raises the mug and takes a sip, slow camera push in"}, {"name": "mugs", "at": "drank#1", "prompt": "close-up, brewery workers clinking tin mugs of beer together beside big wooden barrels, warm light", "check": "Are men clinking mugs?", "clip": true, "motion": "they clink the mugs together, slow camera push in"}, {"name": "street", "at": "But#2", "prompt": "wide shot, a quiet cobbled London street at sunrise, a few people walking calmly past an iron water pump, soft golden light", "check": "Is there a quiet street?", "move": "pull", "xfade": true}, {"name": "back", "at": "officials#1", "prompt": "medium shot, a workman in a cap fitting the iron handle back onto a street water pump while men in top hats watch, daylight", "check": "Is a man fixing a pump?", "clip": true, "motion": "he slides the handle into place, slow camera push in"}, {"name": "rejected", "at": "rejected#1", "who": "simon", "prompt": "close-up, a bearded official crumpling a letter in his fist at a wooden desk, he is {simon}, lamp light", "check": "Is a man crumpling paper?", "clip": true, "motion": "he crumples the paper in his fist, slow camera push in"}, {"name": "plaque", "at": "Today#1", "prompt": "wide shot, a quiet old London street paved with red granite, a black iron water pump standing on the corner, soft daylight", "check": "Is there a water pump?", "move": "push", "xfade": true}, {"name": "nohandle", "at": "shows#1", "prompt": "extreme close-up, the top of a black iron water pump with an empty hole where its handle used to be, red granite below, soft daylight", "check": "Is this the top of an iron pump?", "move": "pull", "hit": "no#1"}]}
 
 SOURCES (data only)
 [1] John Snow | https://en.wikipedia.org/wiki/John_Snow
