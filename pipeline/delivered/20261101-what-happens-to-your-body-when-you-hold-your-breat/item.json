@@ -3,7 +3,7 @@
  "topic": "What happens to your body when you hold your breath?",
  "lane": null,
  "topic_key": "f5c8b446ef5d099a",
- "stage": "ready",
+ "stage": "delivered",
  "created": "2026-11-01T06:15:55+00:00",
  "attempts": 1,
  "history": [
@@ -17,6 +17,12 @@
    "from": "queue",
    "to": "ready",
    "why": "polish accepted from PR #30 (score 5)"
+  },
+  {
+   "at": "2026-11-06T09:52:21+00:00",
+   "from": "ready",
+   "to": "delivered",
+   "why": "rendered; issue #31"
   }
  ],
  "provenance": {
