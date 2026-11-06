@@ -77,7 +77,10 @@ fi
 echo "RELEASE_TAG=$TAG" >> "${GITHUB_ENV:-/dev/null}"
 echo "VIDEO_URL=https://github.com/$GITHUB_REPOSITORY/releases/tag/$TAG" >> "${GITHUB_ENV:-/dev/null}"
 
-# remember this episode's cast, places and music so later stories look and sound different
+# remember this episode's cast, places and music so later stories look and sound different.
+# Download the memory AGAIN first (6 Nov fix): the copy from the start of this run is ~45 min old, and uploading it
+# erased what "Story schedule" recorded meanwhile (topic tries), so the same topic (Lister) was picked again and again.
+gh release download channel-memory -p used.json -D . --clobber 2>/dev/null || true
 python -m studio.story.filmkit remember "$EP" used.json --music "$(cat film_out/music.txt 2>/dev/null)"
 gh release view channel-memory >/dev/null 2>&1 || gh release create channel-memory --prerelease --title "Channel memory" \
   --notes "What earlier videos used (cast, places, music), so new stories don't repeat them. Updated by the pipeline."

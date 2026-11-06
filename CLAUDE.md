@@ -39,7 +39,7 @@ Rules:
   `polish/README.md` (also for Codex via `AGENTS.md`). Deliver only `answer.json`; the pipeline checks and continues.
 
 ## Where things are
-- How the pipeline works: `docs/PIPELINE.md`. Polishing: `POLISH.md`. Handoff notes: `HANDOFF.md`.
+- Start of every session: `python tools/sync_check.py` (live state) and `docs/AGENT_HANDBOOK.md` (whole system, decisions). How the pipeline works: `docs/PIPELINE.md`. Polishing: `POLISH.md`. Handoff notes: `HANDOFF.md`.
 - Engine experiments (Manim vs MoneyPrinterTurbo): branch `experiment-engines`, folder `experiments/engines/`.
 - Story style: `studio/story/` (engine), `episodes/` (one folder per video), `docs/STYLES.md` (how to run, on GitHub or locally).
 - Benchmark research raw notes: branch `experiment-engines`, folder `experiments/hidden_reasons/`.
