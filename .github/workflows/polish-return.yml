@@ -162,7 +162,7 @@ jobs:
           while IFS=$'\t' read -r issue ep draft reply ticket who; do
             [ -z "$ep" ] && continue
             echo "===== $ep ($who)"
-            tools/polish_continue.sh "$issue" "$ep" "$draft" "$reply" "$ticket" "$who"; rc=$?
+            rc=0; tools/polish_continue.sh "$issue" "$ep" "$draft" "$reply" "$ticket" "$who" || rc=$?   # 2 = needs fixes (not a crash)
             case $rc in 0) made=$((made+1));; 2) fix=$((fix+1));; *) failed=$((failed+1));; esac
           done < jobs.tsv
           echo "made=$made fix=$fix failed=$failed"

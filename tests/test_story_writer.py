@@ -226,5 +226,14 @@ ok(first == T.queue("hidden_reasons")[1], "schedule: a topic already made is ski
 mem["topics"] = {T.key(first): {"topic": first, "tries": 2}}
 ok(T.pending("hidden_reasons", mem)[0] == T.queue("hidden_reasons")[2], "schedule: a topic that failed twice is skipped")
 shutil.rmtree(tmp, ignore_errors=True)
+# 6 Nov: the required "You see," comparison was always marked unsupported by the fact check. It is skipped now,
+# but only a short beat that starts with "You see" (so it can't hide facts).
+_s = {"beats": [{"lines": ["A doctor pulled a handle."]},
+                {"lines": ["You see, it's like a family getting sick after one meal.", "You check what they all ate."]},
+                {"lines": ["The well sat three feet from a cesspit."]}]}
+_t = writer.factual_text(_s)
+ok("family" not in _t and "cesspit" in _t and "doctor" in _t, "fact check: the comparison beat is skipped, the rest is checked")
+_s["beats"][1]["lines"] += ["Snow mapped 578 deaths in one night and won a Nobel prize for it, and everyone cheered loudly.", "Extra."]
+ok("Nobel" in writer.factual_text(_s), "fact check: a long 'You see' beat (could hide facts) is checked in full")
 print(f"\n{'ALL PASSED' if not fails else str(fails) + ' FAILED'}")
 sys.exit(1 if fails else 0)
