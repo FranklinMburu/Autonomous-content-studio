@@ -1,22 +1,46 @@
 {
  "era": "1796",
  "cast": {
-  "jenner": "a 47 year old English country doctor with wavy grey-brown hair tied back, a high bald forehead, kind deep-set hazel eyes, a clean shaven face, a dark brown wool frock coat, a cream waistcoat, a white cravat and dark breeches, 1790s",
-  "james": "an eight year old English boy with short sandy hair, a round freckled pale face, wide blue eyes, a rough grey linen shirt, brown wool breeches and bare feet, 1790s",
-  "sarah": "a 24 year old English milkmaid with long reddish blonde hair under a white linen mob cap, a rosy round face, a faded green cotton gown, a white apron and rolled-up sleeves, 1790s",
-  "blossom": "a large red-brown dairy cow with a white patch on her forehead and a brass bell on a leather collar, 1790s",
-  "parish": "a stern 55 year old English parish official with a powdered grey wig, a long thin nose, a black coat, a white lace cravat and black shoes with silver buckles, 1790s"
+  "jenner": "a 47 year old English country doctor with receding grey-brown hair, a long thin nose, a clean shaven lined face, kind tired eyes, a dark green wool frock coat, a cream waistcoat, a white cravat and brown breeches, 1790s",
+  "james": "an eight year old English boy with short light brown hair, round cheeks, a small gap-toothed face, a loose grey linen shirt, brown wool breeches and bare feet, 1790s",
+  "sarah": "a 24 year old English milkmaid with fair skin, reddish blond hair tied in a loose bun under a white linen cap, a faded blue cotton dress, a cream apron and rolled sleeves, 1790s",
+  "neighbour": "a stout 40 year old English farmer with a ruddy round face, a thick dark brown beard, a brown felt hat, a rough grey wool coat and muddy boots, 1790s",
+  "official": "a 50 year old English government man with powdered grey hair, a long pale face, a dark blue tailcoat with brass buttons, a white silk waistcoat, a black tricorn hat and white stockings, 1790s"
  },
  "music": "curious",
  "key_words": [
   "cow pus",
   "eight-year-old boy",
+  "James Phipps",
+  "Edward Jenner",
+  "1796",
   "smallpox",
+  "one in ten",
+  "one in five",
+  "inoculated",
+  "smallpox pus",
+  "milder case",
+  "died",
+  "fighting fire with fire",
+  "safer",
+  "milkmaids",
   "cowpox",
-  "milkmaid",
-  "vaccination",
+  "May fourteenth",
+  "Sarah Nelmes",
   "Blossom",
-  "first vaccine"
+  "scratched that pus",
+  "mildly sick",
+  "recovered",
+  "bolder",
+  "actual smallpox",
+  "did not get sick",
+  "vaccination",
+  "Latin for cow",
+  "1798",
+  "banned",
+  "free",
+  "first vaccine",
+  "gardener's son"
  ],
  "shots": [
   {
@@ -24,17 +48,25 @@
    "at": 0,
    "who": "jenner",
    "clip": true,
-   "prompt": "extreme close-up of a doctor's hand holding a small sharp quill scratching a boy's pale forearm, a tiny drop of blood, he is {jenner}, dark 1790s cottage room, candle light",
-   "motion": "the quill scratches the skin and a drop of blood forms, slow camera push in",
-   "check": "Is a hand scratching a boy's arm with a sharp object?"
+   "prompt": "close-up, a doctor holding a small sharp quill lancet over a boy's bare upper arm, he is {jenner}, a dim 1790s English cottage room, warm candle light",
+   "motion": "his hand presses the lancet toward the arm, candle flickers, slow camera push in",
+   "check": "Is a man holding a sharp tool over a boy's arm?"
+  },
+  {
+   "name": "pus",
+   "at": "pus#1",
+   "clip": true,
+   "prompt": "extreme close-up of a quill tip scooping thick yellowish pus from a small blister on a milkmaid's hand, {sarah}, a wooden milking stool and straw behind, soft daylight",
+   "motion": "the quill tip scoops the pus from the blister, slow camera push in",
+   "check": "Is a quill scooping pus from a hand?"
   },
   {
    "name": "boy",
    "at": "boy#1",
    "who": "james",
    "clip": true,
-   "prompt": "medium close-up, a frightened eight year old boy sitting on a wooden stool with his sleeve rolled up, looking at his arm, he is {james}, dark 1790s cottage room, candle light",
-   "motion": "he looks down at his arm and bites his lip, slow camera push in",
+   "prompt": "close-up, a young boy sitting on a wooden stool with his sleeve rolled up, looking nervous, he is {james}, a rustic 1790s English cottage kitchen, warm firelight",
+   "motion": "he bites his lip and looks at his arm, firelight flickers, slow camera push in",
    "check": "Is a boy sitting with his sleeve rolled up?"
   },
   {
@@ -42,8 +74,8 @@
    "at": "Edward#1",
    "who": "jenner",
    "clip": true,
-   "prompt": "medium shot, a country doctor kneeling beside a boy and gently holding his arm, he is {jenner}, a small 1790s English cottage with a window, soft daylight",
-   "motion": "he holds the boy's arm and looks at him kindly, slow camera push in",
+   "prompt": "medium shot, a country doctor kneeling beside a boy on a wooden stool, gently holding the boy's arm, he is {jenner}, a 1790s English cottage with a stone fireplace, warm light",
+   "motion": "he holds the boy's arm steady and speaks kindly, slow camera push in",
    "check": "Is a man kneeling beside a boy?"
   },
   {
@@ -51,295 +83,313 @@
    "at": "Jenner#2",
    "who": "jenner",
    "clip": true,
-   "prompt": "medium shot, {jenner} stepping out of a wooden cottage door into a green English village lane, holding a black leather doctor's bag, morning light, 1796",
+   "prompt": "medium shot, a country doctor stepping out of a small stone cottage door into a green English village lane, he is {jenner}, a thatched roof and a wooden fence behind him, soft morning light, 1796",
    "motion": "he steps out and looks down the lane, slow camera push in",
-   "check": "Is a man with a bag standing at a door?"
+   "check": "Is a man stepping out of a cottage?"
   },
   {
-   "name": "sick",
+   "name": "smallpox",
    "at": "Smallpox#1",
-   "who": "james",
-   "clip": true,
-   "prompt": "close-up, a boy lying on a straw mattress covered in small red spots, sweating and weak, he is {james}, a dim cottage room, candle light",
-   "motion": "he breathes weakly and turns his head, the candle flickers, slow camera push in",
+   "move": "push",
+   "prompt": "close-up of a pale sick child's face covered in red smallpox spots lying on a white pillow, dim candle light, dark room, 1790s",
    "hit": "Smallpox#1",
-   "check": "Is a boy lying covered in spots?"
+   "check": "Is there a child's face with red spots?"
   },
   {
-   "name": "crowd",
+   "name": "crowded",
    "at": "In#4",
-   "move": "down",
-   "prompt": "wide shot of a crowded narrow 1790s London street packed with people, tall brick houses, laundry, a cart, grey foggy daylight",
-   "check": "Is this a crowded street full of people?"
+   "move": "left",
+   "prompt": "wide shot of a crowded narrow 1790s English town street, many people packed close together between tall dark brick houses, grey overcast light",
+   "check": "Is this a crowded narrow street?"
   },
   {
-   "name": "boyjenner",
+   "name": "inoculated",
    "at": "Jenner#3",
    "who": "jenner",
    "clip": true,
-   "prompt": "close-up, a pale sick young man lying in an old wooden bed with a blanket to his chin, sweating, eyes tired, he is {jenner}, a dim 1750s cottage room, weak candle light",
-   "motion": "he breathes weakly and closes his eyes, slow camera push in",
-   "hit": "wrecked#1",
-   "check": "Is a sick man lying in a bed?"
+   "prompt": "close-up, a doctor looking down at a small old scar on his own forearm, he is {jenner}, rolled white shirt sleeve, dim candle light in a study, 1796",
+   "motion": "he turns his forearm slowly and looks at the scar, slow camera push in",
+   "check": "Is a man looking at his own arm?"
   },
   {
-   "name": "boyjenner2",
-   "at": "health#1",
+   "name": "sickly",
+   "at": "wrecked#1",
    "who": "jenner",
    "clip": true,
-   "prompt": "close-up, the same pale young man turning his head on the pillow and opening his tired eyes, he is {jenner}, a dim 1750s cottage room, weak candle light",
-   "motion": "he turns his head and opens his eyes slowly, slow camera push in",
-   "check": "Is a sick man lying in a bed?"
+   "prompt": "medium shot, a pale tired doctor lying back in a wooden chair with a hand on his forehead, eyes closed, he is {jenner}, a dim study with books and a candle, 1796",
+   "motion": "he breathes slowly and lowers his hand, the candle flickers, slow camera push in",
+   "hit": "wrecked#1",
+   "check": "Is a man sitting back with his hand on his forehead?"
   },
   {
    "name": "doctors",
    "at": "Doctors#1",
-   "who": "jenner",
    "clip": true,
-   "prompt": "medium shot, a doctor in a dark brown coat carefully scratching a boy's arm with a small lancet, they are {jenner} and {james}, a dim 1790s wooden cottage surgery, candle light",
-   "motion": "his hand makes small scratching strokes on the arm, the candle flickers, slow camera push in",
-   "check": "Is a man scratching a boy's arm?"
-  },
-  {
-   "name": "smallpox",
-   "at": "smallpox#3",
-   "move": "push",
-   "prompt": "close-up of a glass vial of cloudy pus on a wooden table beside a lancet, dim 1790s surgery, candle light",
-   "check": "Is there a glass vial on a table?"
+   "prompt": "medium shot, three old doctors in dark coats leaning over a wooden table with a glass dish, one pointing at it, a candle lit 1790s apothecary room, warm light",
+   "motion": "the pointing doctor nods and gestures at the dish, candle flames flicker, slow camera push in",
+   "check": "Are doctors standing around a table?"
   },
   {
    "name": "scratch",
    "at": "They#1",
-   "who": "jenner",
    "clip": true,
-   "prompt": "extreme close-up of a lancet scratching pus into a pale forearm, a drop of cloudy liquid on the skin, a brown coat sleeve, candle light",
-   "motion": "the lancet scratches the pus into the skin, slow camera push in",
-   "check": "Is a lancet scratching an arm?"
+   "prompt": "extreme close-up of a lancet blade scratching a small line on a pale forearm, a drop of blood, a hand holding the blade, candle light, dark background",
+   "motion": "the blade scratches the skin and a drop of blood forms, slow camera push in",
+   "hit": "scratched#2",
+   "check": "Is a blade scratching an arm?"
   },
   {
-   "name": "milder",
-   "at": "That#1",
+   "name": "pus_11",
+   "at": "pus#2",
+   "clip": true,
+   "prompt": "extreme close-up of a fingertip dabbing thick yellow pus from a small glass dish onto a scratched forearm, candle light, dark background",
+   "motion": "the finger dabs the pus into the scratch, slow camera push in",
+   "check": "Is pus being put on an arm?"
+  },
+  {
+   "name": "mild",
+   "at": "usually#1",
    "who": "james",
    "clip": true,
-   "prompt": "close-up, a boy lying in a wooden bed with a few red spots on his face, looking tired but awake, he is {james}, a dim 1790s cottage bedroom, soft window light",
-   "motion": "he blinks slowly and breathes, slow camera push in",
-   "check": "Is a boy lying in a bed with spots?"
+   "prompt": "close-up, a boy lying in a wooden bed with a flushed face and a few small spots on his cheek, eyes tired, he is {james}, dim 1790s cottage bedroom, candle light",
+   "motion": "he breathes slowly and turns his head, candle flickers, slow camera push in",
+   "check": "Is a boy lying in a bed with spots on his face?"
   },
   {
    "name": "survived",
    "at": "survived#1",
    "who": "james",
    "clip": true,
-   "prompt": "medium shot, a boy sitting up in a wooden bed smiling weakly, a bowl of soup on a small table, he is {james}, a 1790s cottage bedroom, warm morning light",
-   "motion": "he smiles and lifts a spoon, slow camera push in",
-   "check": "Is a boy sitting up in bed?"
+   "prompt": "medium shot, a boy sitting up in a wooden bed smiling weakly while a woman in an apron holds a bowl of soup, he is {james}, 1790s cottage, warm morning light",
+   "motion": "he smiles and takes the bowl, slow camera push in",
+   "check": "Is a boy sitting up in a bed?"
   },
   {
-   "name": "full",
-   "at": "full#1",
-   "who": "james",
-   "clip": true,
-   "prompt": "close-up, a boy lying in a wooden bed covered in red spots, eyes closed, sweating, he is {james}, a dim 1790s cottage bedroom, cold grey light",
-   "motion": "he shivers and turns his head weakly, slow camera push in",
-   "check": "Is a boy lying in bed covered in spots?"
+   "name": "died",
+   "at": "died#1",
+   "move": "push",
+   "prompt": "a wooden bed with a white sheet pulled over a still shape, a single candle on a stool beside it, dark 1790s cottage room at night",
+   "hit": "died#1",
+   "check": "Is there a bed covered with a white sheet?"
   },
   {
    "name": "spread",
    "at": "spread#1",
-   "move": "pull",
-   "prompt": "wide shot of a crowded 1790s English village street with people coughing and holding cloths to their faces, a wooden cart, grey cloudy light",
+   "clip": true,
+   "prompt": "wide shot, a crowded 1790s English village street with people coughing and covering their faces, a sick man leaning on a wall, grey fog, dim light",
+   "motion": "the sick man coughs and people step back, fog drifts, slow camera move right",
+   "xfade": true,
    "check": "Are there many people in a street?"
   },
   {
-   "name": "firefire",
+   "name": "fire",
    "at": "You#1",
-   "move": "push",
-   "prompt": "close-up of a small fire burning inside a stone fireplace, a hand holding a burning stick toward it, dark 1790s cottage room, warm orange light",
-   "check": "Is there a fire in a fireplace?"
+   "clip": true,
+   "prompt": "close-up of a hand holding a burning stick touching a small pile of dry straw on a stone hearth, flames catching, dark 1790s cottage, warm firelight",
+   "motion": "the flames catch and grow, slow camera push in",
+   "check": "Is there a burning fire?"
   },
   {
    "name": "house",
-   "at": "fire#2",
-   "move": "pull",
-   "prompt": "wide shot of a small English thatched cottage at dusk, smoke rising from the chimney, a warm fire glow in one window, 1790s countryside",
-   "check": "Is this a small cottage with smoke?"
+   "at": "burn#1",
+   "move": "push",
+   "prompt": "wide shot of a small thatched cottage at night with flames rising from its roof, dark sky, orange firelight, 1790s English village",
+   "check": "Is a house on fire?"
   },
   {
-   "name": "jenner_16",
+   "name": "jenner_18",
    "at": "Jenner#4",
    "who": "jenner",
    "clip": true,
-   "prompt": "medium shot, {jenner} sitting at a wooden desk at night writing in a notebook by candlelight, frowning thoughtfully, 1790s study with books",
-   "motion": "he writes slowly and frowns, candle flickers, slow camera push in",
+   "prompt": "medium shot, a thoughtful country doctor sitting at a wooden desk writing in a notebook by candlelight, he is {jenner}, a small 1790s parlour, books and papers",
+   "motion": "he writes slowly and pauses to think, the candle flickers, slow camera push in",
+   "xfade": true,
    "check": "Is a man writing at a desk?"
   },
   {
-   "name": "milkmaid",
-   "at": "milkmaids#1",
-   "who": "sarah",
+   "name": "heard",
+   "at": "heard#1",
+   "who": "jenner",
    "clip": true,
-   "prompt": "medium shot, {sarah} sitting on a wooden stool in a cowshed milking a red-brown cow, smiling, morning light through a small window, 1790s",
-   "motion": "she pulls the cow's udder gently and smiles, slow camera push in",
-   "check": "Is a woman milking a cow?"
+   "prompt": "medium close-up, a country doctor listening closely to a stout farmer talking beside a wooden fence, the doctor is {jenner}, a green 1790s English field, soft daylight",
+   "motion": "the doctor nods and leans closer, slow camera push in",
+   "check": "Is a man listening to another man?"
   },
   {
-   "name": "cowpox",
+   "name": "blisters",
    "at": "cowpox#1",
    "clip": true,
-   "prompt": "extreme close-up of a milkmaid's hand with small round blisters on the fingers, resting on a wooden pail, warm cowshed light, 1790s",
-   "motion": "the hand turns slowly showing the blisters, slow camera push in",
-   "check": "Is there a hand with blisters?"
-  },
-  {
-   "name": "cow",
-   "at": "cows#1",
-   "move": "push",
-   "prompt": "close-up of a large red-brown dairy cow with a white patch on her forehead and a brass bell, standing in a sunny green meadow, 1790s",
-   "check": "Is there a cow with a bell?"
+   "prompt": "extreme close-up of a milkmaid's hands with small red blisters on the fingers, resting on a wooden bucket rim, barn light",
+   "motion": "the fingers turn slowly to show the blisters, slow camera push in",
+   "check": "Are there blisters on hands?"
   },
   {
    "name": "date",
    "at": "On#1",
    "move": "push",
-   "prompt": "close-up of a quill pen writing the date on a page in a leather diary on a wooden desk, a candle beside it, 1796 English cottage, warm light",
+   "prompt": "close-up of a quill pen writing the date May 14 1796 in a leather bound notebook on a wooden desk, a candle beside it, 1790s, warm light",
    "check": "Is a quill writing in a book?"
   },
   {
-   "name": "blisters",
-   "at": "blisters#1",
+   "name": "blisters_22",
+   "at": "scraped#1",
    "who": "sarah",
    "clip": true,
-   "prompt": "close-up, a milkmaid's hands covered in small red cowpox blisters, she is {sarah}, rolled-up white sleeves, a wooden milking stool and pail below, dim barn light",
-   "motion": "her blistered hands tremble slightly, slow camera push in",
-   "check": "Are there hands with red blisters?"
+   "prompt": "extreme close-up of a young woman's hand with small round cowpox blisters on the fingers, a lancet blade gently scraping one blister, she is {sarah}, 1790s farm kitchen, warm window light",
+   "motion": "the blade scrapes the blister slowly, slow camera push in",
+   "check": "Is a blade scraping a hand with blisters?"
   },
   {
-   "name": "cow_22",
-   "at": "called#1",
-   "move": "left",
-   "prompt": "wide shot of a large red-brown dairy cow with a white patch on her forehead standing in a wooden barn stall, straw on the floor, morning light through a small window",
-   "check": "Is there a large cow in a barn?"
+   "name": "milkmaid",
+   "at": "Sarah#1",
+   "who": "sarah",
+   "clip": true,
+   "prompt": "medium shot, a young milkmaid sitting on a wooden stool holding up her blistered hand, she is {sarah}, a rustic 1790s cowshed, straw and a wooden pail, soft daylight",
+   "motion": "she turns her hand and looks at the blisters, slow camera push in",
+   "check": "Is a woman sitting with a pail?"
   },
   {
-   "name": "scratch_23",
+   "name": "cow",
+   "at": "cow#2",
+   "move": "push",
+   "prompt": "wide shot of a gentle brown and white cow standing in a straw filled cowshed, a wooden milking pail beside it, 1790s farm, soft daylight through a small window",
+   "check": "Is there a cow in a shed?"
+  },
+  {
+   "name": "scratch_25",
    "at": "scratched#3",
-   "who": "jenner",
-   "clip": true,
-   "prompt": "close-up, a doctor scratching a boy's bare arm with a small lancet, a tiny drop of blood, he is {jenner}, the boy's arm held still, 1796 cottage, candle light",
-   "motion": "the lancet scratches the arm and a drop of blood appears, slow camera push in",
-   "check": "Is a man scratching a boy's arm with a blade?"
-  },
-  {
-   "name": "arm",
-   "at": "arm#2",
    "who": "james",
    "clip": true,
-   "prompt": "medium close-up, a young boy sitting on a wooden stool holding his bare arm and looking at it, he is {james}, a doctor's hand steadying his shoulder, 1796 cottage, warm candle light",
-   "motion": "the boy looks at his arm and blinks, slow camera push in",
-   "check": "Is a boy looking at his arm?"
+   "prompt": "close-up, a doctor holding a boy's bare arm and scratching the skin with a small lancet, the boy is {james}, a wooden table, 1790s cottage, warm candle light",
+   "motion": "the lancet scratches the arm slowly, slow camera push in",
+   "check": "Is a blade scratching a boy's arm?"
   },
   {
-   "name": "sick_25",
-   "at": "sick#1",
+   "name": "sick",
+   "at": "mildly#1",
    "who": "james",
    "clip": true,
-   "prompt": "close-up, a pale boy lying in a wooden bed with a flushed face and half-closed eyes, a damp cloth on his forehead, he is {james}, dim 1796 cottage bedroom, candle light",
-   "motion": "he breathes slowly and turns his head, the candle flickers, slow camera push in",
-   "hit": "sick#1",
+   "prompt": "medium shot, a young boy lying in a wooden bed with a flushed face and a damp cloth on his forehead, he is {james}, a 1790s cottage bedroom, soft window light",
+   "motion": "he breathes and turns his head on the pillow, slow camera push in",
    "check": "Is a boy lying in a bed?"
+  },
+  {
+   "name": "recovered",
+   "at": "recovered#1",
+   "who": "james",
+   "clip": true,
+   "prompt": "medium shot, a healthy smiling boy sitting up in a wooden bed eating bread, he is {james}, a bright 1790s cottage bedroom, morning sunlight",
+   "motion": "he bites the bread and smiles, slow camera push in",
+   "check": "Is a boy sitting up in bed?"
   },
   {
    "name": "bolder",
    "at": "Then#2",
    "who": "jenner",
    "clip": true,
-   "prompt": "medium close-up, a country doctor rolling up his coat sleeve with a determined frown, he is {jenner}, a candle lit 1796 wooden surgery room with glass bottles on shelves",
-   "motion": "he rolls up his sleeve firmly and frowns, candle flames flicker, slow camera push in",
-   "check": "Is a man rolling up his sleeve?"
+   "prompt": "close-up, {jenner} holding a small glass vial of dark pus up to candlelight, his eyes determined, 1790s wooden surgery room, warm candle light",
+   "motion": "he lifts the vial and looks at it closely, the candle flickers, slow camera push in",
+   "check": "Is a man holding a small glass vial?"
   },
   {
-   "name": "scratch_27",
+   "name": "scratch_29",
    "at": "He#2",
    "who": "james",
    "clip": true,
-   "prompt": "close-up, a boy sitting on a wooden stool holding out his bare arm, a thin scratch line on the skin, he is {james}, a candle lit 1796 surgery room, warm light",
-   "motion": "the boy holds his arm out and looks away nervously, slow camera push in",
-   "check": "Is a boy holding out his bare arm?"
+   "prompt": "extreme close-up of a sharp quill scratching a small cut on a boy's pale upper arm, a drop of blood, {james} gripping the chair, 1790s surgery, candle light",
+   "motion": "the quill scratches the skin and a drop of blood appears, slow camera push in",
+   "hit": "scratched#4",
+   "check": "Is a quill scratching a boy's arm?"
+  },
+  {
+   "name": "sick_30",
+   "at": "James#3",
+   "who": "james",
+   "clip": true,
+   "prompt": "medium shot, {james} sitting up in a wooden bed looking healthy and smiling, a blanket over his legs, 1790s cottage bedroom, morning light through a small window",
+   "motion": "he smiles and sits up, sunlight shifts, slow camera push in",
+   "check": "Is a boy sitting up in bed looking healthy?"
   },
   {
    "name": "protected",
    "at": "The#10",
-   "who": "james",
+   "who": "jenner",
    "clip": true,
-   "prompt": "medium shot, a healthy smiling boy standing up from a wooden stool with both arms raised, he is {james}, a bright 1796 cottage room with a window, morning sunlight",
-   "motion": "he stands up and raises his arms smiling, sunlight shimmers, slow camera push in",
+   "prompt": "medium close-up, {jenner} smiling with relief and pointing at the healthy boy beside him, 1790s cottage, warm daylight",
+   "motion": "he smiles and points at the boy, slow camera push in",
    "xfade": true,
-   "check": "Is a boy standing with his arms raised?"
+   "check": "Is a man smiling and pointing at a boy?"
   },
   {
    "name": "naming",
    "at": "Jenner#8",
    "who": "jenner",
    "clip": true,
-   "prompt": "close-up, a doctor writing the word vaccination with a quill pen in a leather notebook at a wooden desk, he is {jenner}, candle light, 1796 study",
+   "prompt": "close-up, a doctor writing the word vaccination with a quill on a paper at a wooden desk, he is {jenner}, candle light, books behind him",
    "motion": "his hand writes the word slowly, candle flickers, slow camera push in",
-   "check": "Is a man writing in a notebook?"
+   "check": "Is a man writing with a quill?"
+  },
+  {
+   "name": "cowword",
+   "at": "from#4",
+   "move": "push",
+   "prompt": "close-up of an open old Latin dictionary page with the word vacca, a quill resting on it, candle light on a wooden desk",
+   "check": "Is there an open book on a desk?"
   },
   {
    "name": "morecases",
    "at": "He#3",
    "who": "jenner",
    "clip": true,
-   "prompt": "medium shot, a doctor scratching a boy's arm with a small lancet in a cottage room, the boy sitting on a stool, he is {jenner}, warm window light, 1798",
-   "motion": "his hand scratches the boy's arm gently, slow camera push in",
-   "check": "Is a man scratching a boy's arm?"
+   "prompt": "medium shot, a doctor holding up a stack of handwritten case papers beside a window, he is {jenner}, 1798 study, morning light",
+   "motion": "he lifts the papers and nods, slow camera push in",
+   "check": "Is a man holding up papers?"
+  },
+  {
+   "name": "book1798",
+   "at": "1798#1",
+   "move": "push",
+   "prompt": "close-up of a small old leather bound book lying on a wooden table beside a quill and an ink pot, candle light, 1798",
+   "check": "Is there an old book on a table?"
   },
   {
    "name": "banned",
    "at": "banned#1",
-   "who": "parish",
+   "who": "official",
    "clip": true,
-   "prompt": "medium shot, a stern official in a powdered wig stamping a wax seal on a document at a wooden desk, he is {parish}, a grand 1840 office, cold daylight",
-   "motion": "he presses the seal firmly on the paper, slow camera push in",
+   "prompt": "medium shot, a government man in a dark blue tailcoat stamping a large wax seal onto an official paper at a desk, he is {official}, 1840 office, tall window",
+   "motion": "he presses the stamp down firmly, slow camera push in",
    "xfade": true,
-   "check": "Is a man stamping a document?"
+   "hit": "banned#1",
+   "check": "Is a man stamping a paper?"
   },
   {
-   "name": "free",
+   "name": "freevial",
    "at": "gave#1",
    "clip": true,
-   "prompt": "medium shot, a doctor handing a small glass vial to a poor mother at a wooden clinic door, a line of people behind, 1840, grey daylight",
-   "motion": "he hands the vial to the woman, slow camera push in",
-   "check": "Is a man handing a small bottle to a woman?"
+   "prompt": "close-up of hands handing a small glass vial of cloudy liquid to a poor woman at a wooden door, 1840 street, daylight",
+   "motion": "the vial passes into her hands, slow camera push in",
+   "check": "Is a vial being handed over?"
   },
   {
-   "name": "milkmaid_33",
-   "at": "world's#1",
+   "name": "milkmaid_38",
+   "at": "milkmaid#2",
    "who": "sarah",
    "clip": true,
-   "prompt": "medium shot, a milkmaid sitting on a wooden stool milking a large red-brown cow in a sunny barn, she is {sarah}, straw on the floor, warm light, 1796",
-   "motion": "her hands pull the udder rhythmically, the cow's tail flicks, slow camera push in",
+   "prompt": "medium shot, a milkmaid smiling as she milks a brown cow in a wooden barn, she is {sarah}, straw floor, warm morning light",
+   "motion": "her hands pull the udder gently, the cow's tail flicks, slow camera push in",
    "xfade": true,
    "check": "Is a woman milking a cow?"
   },
   {
-   "name": "milkmaid_33b",
-   "at": "milkmaid#2",
-   "who": "sarah",
-   "clip": true,
-   "prompt": "close-up, a milkmaid smiling as she pours milk from a pail into a churn in a sunny barn, she is {sarah}, straw on the floor, warm light, 1796",
-   "motion": "the milk pours from the pail into the churn, slow camera push in",
-   "check": "Is a woman pouring milk?"
-  },
-  {
-   "name": "end",
-   "at": "son#2",
+   "name": "blossom",
+   "at": "Blossom#2",
    "who": "james",
    "clip": true,
-   "prompt": "medium shot, a barefoot boy standing in a sunny cottage garden holding a small wooden bucket, smiling, he is {james}, green plants and a stone wall behind him, 1796",
-   "motion": "he lifts the bucket and smiles, slow camera push in",
-   "hit": "son#2",
-   "check": "Is a boy standing in a garden holding a bucket?"
+   "prompt": "medium shot, a boy standing beside a brown cow in a sunny green meadow, one hand on her back, he is {james}, 1796 English countryside, soft light",
+   "motion": "he strokes the cow's back gently, she turns her head, slow camera push in",
+   "hit": "Blossom#2",
+   "check": "Is a boy standing beside a cow?"
   }
  ]
 }
