@@ -1,0 +1,86 @@
+{
+ "title": "Your Urge to Breathe Isn't About Oxygen",
+ "topic": "What happens to your body when you hold your breath?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "lungs",
+   "label": "hold your breath",
+   "reveal": {"text": "not oxygen?", "at": "oxygen"},
+   "lines": [
+    "Your urge to breathe mostly isn't about oxygen."
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "compare",
+   "title": "While you hold it",
+   "left": {"icon": "arrow-down", "label": "oxygen", "value": "falls", "at": "stores"},
+   "right": {"icon": "arrow-up", "label": "carbon dioxide", "value": "rises", "at": "rising"},
+   "verdict": {"text": "CO2 sets the alarm", "at": "falling"},
+   "lines": [
+    "Hold your breath, and your oxygen stores start running down.",
+    "But the urge to breathe is driven mainly by rising carbon dioxide, not falling oxygen."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "link",
+   "kicker": "The dangerous trick",
+   "from": {"icon": "wind", "label": "fast deep breaths", "at": "breathing"},
+   "to": {"icon": "brain", "label": "false calm", "at": "comfortable"},
+   "cut": {"at": "delays", "label": "warning"},
+   "lines": [
+    "That's why fast, deep breathing before a dive is so dangerous.",
+    "It lowers carbon dioxide, delays the warning, and can fool your brain into feeling comfortable while oxygen sinks."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "timeline",
+   "title": "The trip up",
+   "events": [
+    {"when": "ascent", "label": "lung pressure drops", "at": "rises"},
+    {"when": "seconds", "label": "oxygen crashes", "at": "fall"},
+    {"when": "then", "label": "blackout", "at": "blackout"}
+   ],
+   "lines": [
+    "The riskiest moment is the way up. As a diver rises, oxygen pressure in the lungs drops, and oxygen can fall so fast that blackout comes within seconds."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "statement",
+   "text": "Fit, strong, experienced divers",
+   "highlight": ["experienced"],
+   "icon": "exclamation-mark",
+   "lines": [
+    "And the victims are often fit, strong swimmers who have done many dives before."
+   ],
+   "id": "beat5"
+  },
+  {
+   "scene": "bubble",
+   "icon": "user",
+   "prop": "lungs",
+   "text": "easy? don't trust it",
+   "at": "trust",
+   "lines": [
+    "So if a breath hold feels easy, don't trust it: stay within your limits and come up slowly."
+   ],
+   "id": "beat6"
+  }
+ ],
+ "sources": [
+  {"claim": "Breath-hold duration is limited by oxygen reserves and the response to raised carbon dioxide; the urge to breathe is primarily driven by rising carbon dioxide rather than falling oxygen.", "url": "https://en.wikipedia.org/wiki/Freediving"},
+  {"claim": "Hyperventilation before a dive reduces carbon dioxide, delays the body's warning signals and can mislead the brain into feeling comfortable as oxygen drops to dangerous levels.", "url": "https://en.wikipedia.org/wiki/Freediving"},
+  {"claim": "Blackouts are more likely on ascent, when partial pressure in the lungs drops and oxygen can fall so blackout occurs within seconds; victims are often fit, strong, experienced divers.", "url": "https://en.wikipedia.org/wiki/Freediving"},
+  {"claim": "Safety guidelines advise divers to keep within their limits, be aware of their body signals, and ascend slowly.", "url": "https://en.wikipedia.org/wiki/Freediving"}
+ ],
+ "youtube": {
+  "title": "Your Urge to Breathe Isn't About Oxygen 🫁",
+  "description": "Why holding your breath can feel fine right up until it isn't, and what freedivers do about it.",
+  "tags": ["breath holding", "freediving", "human body", "carbon dioxide", "safety", "science"]
+ }
+}

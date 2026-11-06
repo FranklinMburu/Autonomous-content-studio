@@ -1,0 +1,91 @@
+{
+ "title": "What a Dog Smells in Another Dog's Scent",
+ "topic": "Why do dogs sniff each other's butts?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "dog",
+   "label": "the nose knows",
+   "reveal": {"text": "40× stronger", "at": "forty"},
+   "lines": [
+    "Your dog's nose is forty times more sensitive than yours."
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "link",
+   "kicker": "How dogs talk",
+   "from": {"icon": "dog", "label": "scent", "at": "scents"},
+   "to": {"icon": "paw", "label": "message", "at": "communication"},
+   "note": {"text": "pheromones", "at": "pheromones"},
+   "lines": [
+    "Dogs talk with smell.",
+    "The special scents they use for communication are called pheromones."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "compare",
+   "title": "A chemical signature",
+   "left": {"icon": "fingerprint", "label": "anal gland", "value": "who", "at": "gland"},
+   "right": {"icon": "map-pin", "label": "droppings", "value": "where", "at": "where"},
+   "verdict": {"text": "name + place", "at": "left"},
+   "lines": [
+    "Here's the twist: a dog's anal gland gives its droppings a particular signature.",
+    "It identifies which dog it was, and where the dung was left."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "tags",
+   "title": "What scent reveals",
+   "icon": "search",
+   "items": [
+    {"text": "sex", "at": "sex", "tone": "neutral"},
+    {"text": "age", "at": "age", "tone": "neutral"},
+    {"text": "pregnant", "at": "pregnant", "tone": "neutral"},
+    {"text": "new mother", "at": "birth", "tone": "neutral"}
+   ],
+   "verdict": {"text": "angry, fearful, confident", "sub": "different hormones", "at": "confident"},
+   "lines": [
+    "Some chemical signatures reveal a dog's sex and age, and whether a female is pregnant or recently gave birth.",
+    "Different hormones are even released when a dog is angry, fearful or confident."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "link",
+   "kicker": "Pee mail",
+   "from": {"icon": "droplet", "label": "urine", "at": "urine"},
+   "to": {"icon": "dog", "label": "info", "at": "deal"},
+   "lines": [
+    "Many of those chemicals dissolve in urine.",
+    "So sniffing where another dog has peed tells a dog a great deal about that dog."
+   ],
+   "id": "beat5"
+  },
+  {
+   "scene": "bubble",
+   "icon": "dog",
+   "prop": "tree",
+   "text": "who passed by?",
+   "at": "sniff",
+   "lines": [
+    "So on your next walk, let your dog sniff a little longer: it's learning who passed by."
+   ],
+   "id": "beat6"
+  }
+ ],
+ "sources": [
+  {"claim": "Dogs have an olfactory sense 40 times more sensitive than a human's; the special scents dogs use for communication are called pheromones.", "url": "https://en.wikipedia.org/wiki/Dog_behavior"},
+  {"claim": "The anal gland of canines gives a particular signature to fecal deposits and identifies the marker as well as the place where the dung is left.", "url": "https://en.wikipedia.org/wiki/Dog_behavior"},
+  {"claim": "Different hormones are secreted when a dog is angry, fearful or confident; chemical signatures identify sex, age, and whether a female is in estrus, pregnant or recently gave birth.", "url": "https://en.wikipedia.org/wiki/Dog_behavior"},
+  {"claim": "Many pheromone chemicals are dissolved in urine, and sniffing where another dog has urinated gives a dog a great deal of information about that dog.", "url": "https://en.wikipedia.org/wiki/Dog_behavior"}
+ ],
+ "youtube": {
+  "title": "What Your Dog Learns From One Sniff 🐶",
+  "description": "A dog's nose is forty times more sensitive than yours, and scent carries a surprising amount of information about other dogs.",
+  "tags": ["dogs", "dog behavior", "sense of smell", "pheromones", "animal science"]
+ }
+}

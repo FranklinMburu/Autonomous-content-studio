@@ -1,0 +1,89 @@
+{
+ "title": "Why You Can't Tickle Yourself",
+ "topic": "Why can't you tickle yourself?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "brain",
+   "label": "self-tickle",
+   "reveal": {"text": "turned down", "at": "down"},
+   "lines": [
+    "Your brain quietly turns down your own tickles."
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "compare",
+   "title": "Who's tickling?",
+   "left": {"icon": "users", "label": "someone else", "value": "unknown spot", "at": "know"},
+   "right": {"icon": "hand-finger", "label": "you", "value": "known spot", "at": "always"},
+   "lines": [
+    "Darwin noticed that a tickle only works when you don't know exactly where it will land.",
+    "With your own hand, you always know."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "statement",
+   "text": "A tickling robot. Still no laugh.",
+   "highlight": ["robot", "no"],
+   "icon": "settings",
+   "lines": [
+    "In 1998, researchers used MRI scans while people steered a tickling robot with a joystick.",
+    "They still couldn't make themselves laugh."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "link",
+   "kicker": "The brain's forecast",
+   "from": {"icon": "brain", "label": "cerebellum", "at": "cerebellum"},
+   "to": {"icon": "hand-stop", "label": "touch area", "at": "touch"},
+   "cut": {"at": "dims", "label": "tickle"},
+   "note": {"text": "mechanism unknown", "at": "pinned"},
+   "lines": [
+    "It seems your cerebellum tells the brain's touch area exactly where the contact will be, and what to expect.",
+    "Then a mechanism nobody has pinned down dims the tickle."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "tags",
+   "title": "Two kinds of tickle",
+   "icon": "feather",
+   "items": [
+    {"text": "laughing tickle", "at": "laughing", "tone": "bad"},
+    {"text": "light itchy tickle", "at": "itchy", "tone": "good"}
+   ],
+   "verdict": {"text": "no surprise needed", "at": "surprise"},
+   "lines": [
+    "But only the laughing kind gets cancelled.",
+    "The light, itchy kind, like a crawling insect, doesn't depend on surprise."
+   ],
+   "id": "beat5"
+  },
+  {
+   "scene": "bubble",
+   "icon": "user",
+   "prop": "feather",
+   "text": "this one works",
+   "at": "give",
+   "lines": [
+    "So lightly brush a fingertip over your skin: that's the one tickle you can give yourself."
+   ],
+   "id": "beat6"
+  }
+ ],
+ "sources": [
+  {"claim": "Darwin noticed that for tickling to be effective the ticklee must not know the precise point of stimulation in advance, and reasoned this is why most people cannot tickle themselves.", "url": "https://en.wikipedia.org/wiki/Tickling"},
+  {"claim": "In 1998, Blakemore and colleagues used MRI; when subjects used a joystick to control a tickling robot, they could not make themselves laugh.", "url": "https://en.wikipedia.org/wiki/Tickling"},
+  {"claim": "The cerebellum sends the somatosensory cortex precise information on the position of the tickling target and what sensation to expect; an unknown cortical mechanism then decreases or inhibits the tickling sensation.", "url": "https://en.wikipedia.org/wiki/Tickling"},
+  {"claim": "Knismesis, light movement on the skin such as from a crawling insect, is not dependent on surprise, and it is possible to induce self-knismesis by light touching; laughter-provoking gargalesis is not felt when touching one's own ticklish parts.", "url": "https://en.wikipedia.org/wiki/Tickling"}
+ ],
+ "youtube": {
+  "title": "Why Can't You Tickle Yourself? 🤔",
+  "description": "Your brain predicts your own touch and dims the tickle, except for one kind you can give yourself.",
+  "tags": ["tickling", "brain", "human body", "psychology", "science"]
+ }
+}
