@@ -437,3 +437,16 @@ body.light .sheet { box-shadow: 0 -18px 40px -24px rgba(15, 27, 51, .18); }
 /* never let the page scroll sideways on phones (clip keeps position:sticky working) */
 html,body{overflow-x:clip}
 @media(max-width:640px){.wl{display:none!important}}
+
+/* Scrollbars (6 Nov): no white system bars. Everywhere: a thin, see-through bar with no arrows that only shows its
+   thumb; the sidebar, menus and the website page itself scroll with no visible bar at all. */
+*{scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.14) transparent}
+*::-webkit-scrollbar{width:8px;height:8px;background:transparent}
+*::-webkit-scrollbar-track,*::-webkit-scrollbar-corner{background:transparent}
+*::-webkit-scrollbar-button{display:none;width:0;height:0}
+*::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:8px;border:2px solid transparent;background-clip:padding-box}
+*::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.24);background-clip:padding-box}
+.light *{scrollbar-color:rgba(0,0,0,.18) transparent}
+.light *::-webkit-scrollbar-thumb{background:rgba(0,0,0,.16);background-clip:padding-box}
+html,body,.side,.side *,.cmdk,.cmdk *{scrollbar-width:none}
+html::-webkit-scrollbar,body::-webkit-scrollbar,.side::-webkit-scrollbar,.side *::-webkit-scrollbar,.cmdk::-webkit-scrollbar,.cmdk *::-webkit-scrollbar{display:none;width:0;height:0}
