@@ -57,20 +57,24 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     try { return (localStorage.getItem('candela:theme') as 'dark' | 'light' | 'system') || 'dark'; } catch { return 'dark'; }
   });
 
-  const [currentPath, setCurrentPath] = useState<string>(() => window.location.pathname || '/');
+  // The site may live under a folder (GitHub Pages: /Autonomous-content-studio/). Routes inside the app are always
+  // written from "/" ("/app/films"); BASE is added to the address bar and removed when reading it.
+  const BASE = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+  const routeOf = (pathname: string) => (BASE && pathname.startsWith(BASE) ? pathname.slice(BASE.length) : pathname) || '/';
+  const [currentPath, setCurrentPath] = useState<string>(() => routeOf(window.location.pathname));
 
   // Handle URL history navigation
   useEffect(() => {
     const handlePopState = () => {
-      setCurrentPath(window.location.pathname || '/');
+      setCurrentPath(routeOf(window.location.pathname));
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
   const navigate = useCallback((path: string) => {
-    if (window.location.pathname !== path) {
-      window.history.pushState({}, '', path);
+    if (routeOf(window.location.pathname) !== path) {
+      window.history.pushState({}, '', BASE + path);
       setCurrentPath(path);
       window.scrollTo(0, 0);
     }

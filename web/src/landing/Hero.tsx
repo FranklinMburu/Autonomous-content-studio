@@ -47,7 +47,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectFilmForPanel }) => {
     let earth: any = null;
     (async () => {
       try {
-        const resp = await fetch('/earth.json');
+        const resp = await fetch(`${import.meta.env.BASE_URL}earth.json`);
         if (!resp.ok) return;
         const data = await resp.json();
         if (cancelled || !canvasRef.current) return;
