@@ -1,0 +1,120 @@
+{
+ "title": "Why He Scratched Cow Pus Into a Boy",
+ "channel": "Hidden Reasons",
+ "topic": "Why Edward Jenner scratched cowpox into a boy's arm in 1796",
+ "voice": "am_michael",
+ "speed": 1.38,
+ "pace": {
+  "gap_line": 0.08,
+  "gap_beat": 0.2,
+  "lead_in": 0.05,
+  "tail": 0.7
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A doctor scratched cow pus into an eight-year-old boy's arm.",
+    "The boy was James Phipps, the gardener's son.",
+    "The doctor was Edward Jenner, in England, 1796."
+   ]
+  },
+  {
+   "feel": "sympathy",
+   "lines": [
+    "Jenner was a country doctor in Berkeley.",
+    "Smallpox killed one in ten people around the world.",
+    "In crowded towns, it killed one in five.",
+    "Jenner had been inoculated for smallpox himself as a boy, and it wrecked his health for life."
+   ]
+  },
+  {
+   "feel": "tension",
+   "lines": [
+    "Doctors at the time used smallpox itself to protect people.",
+    "They scratched smallpox pus into a healthy person's skin.",
+    "That person usually got a milder case and survived.",
+    "But sometimes they got full smallpox and died.",
+    "And they could spread smallpox to everyone around them."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it's like fighting fire with fire, hoping the fire doesn't burn down your house.",
+    "Jenner wanted something safer.",
+    "He had heard that milkmaids who caught cowpox never seemed to get smallpox.",
+    "Cowpox was a mild disease you caught from cows."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "On May fourteenth, 1796, Jenner scraped pus from cowpox blisters on the hands of Sarah Nelmes, a milkmaid.",
+    "She had caught cowpox from a cow called Blossom.",
+    "Jenner scratched that pus into James Phipps's arm.",
+    "The boy got mildly sick, then recovered."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "Then Jenner did something bolder.",
+    "He scratched actual smallpox into the boy.",
+    "James Phipps did not get sick.",
+    "The cowpox had protected him."
+   ]
+  },
+  {
+   "feel": "wonder",
+   "lines": [
+    "Jenner called his method vaccination, from the Latin for cow.",
+    "He proved it with more cases in 1798.",
+    "The British government banned the old risky method in 1840 and gave out cowpox vaccine for free.",
+    "The world's first vaccine was born from a milkmaid, a cow named Blossom, and a gardener's son."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "In 1796, Jenner scratched cowpox pus into James Phipps, the eight-year-old son of his gardener.",
+   "url": "https://en.wikipedia.org/wiki/Edward_Jenner"
+  },
+  {
+   "claim": "Jenner scraped pus from cowpox blisters on the hands of Sarah Nelmes, a milkmaid who caught cowpox from a cow called Blossom.",
+   "url": "https://en.wikipedia.org/wiki/Edward_Jenner"
+  },
+  {
+   "claim": "In Jenner's time, smallpox killed around 10% of the global population, up to 20% in towns and cities.",
+   "url": "https://en.wikipedia.org/wiki/Edward_Jenner"
+  },
+  {
+   "claim": "Jenner was inoculated for smallpox as a boy, which had a lifelong effect on his health.",
+   "url": "https://en.wikipedia.org/wiki/Edward_Jenner"
+  },
+  {
+   "claim": "Variolation used smallpox itself, scratched into the skin, and usually caused a milder infection but could spread smallpox to others.",
+   "url": "https://en.wikipedia.org/wiki/Variolation"
+  },
+  {
+   "claim": "In 1840, the British government banned variolation and provided cowpox vaccination free of charge.",
+   "url": "https://en.wikipedia.org/wiki/Edward_Jenner"
+  },
+  {
+   "claim": "Jenner's 1798 work showed the vaccine maintained effectiveness through at least four serial arm-to-arm transfers.",
+   "url": "https://doi.org/10.1017/s0025727300064747"
+  }
+ ],
+ "key_words": [
+  "scratched",
+  "cowpox",
+  "smallpox",
+  "milkmaid",
+  "Blossom",
+  "vaccination",
+  "James Phipps",
+  "protected",
+  "1796",
+  "immune"
+ ]
+}
