@@ -5,6 +5,7 @@ sources. Your job: turn each draft into a script a viewer watches to the end (4/
 in its frozen sources**. Code checks everything you produce; anything that fails comes back with the reason.
 
 This file is the only instruction set. Follow it exactly; it is versioned so the polish can't drift.
+Any capable agent can do this (Claude, Codex): see `AGENTS.md`. Film episodes use `polish/README.md` instead.
 
 ## Steps
 
@@ -16,7 +17,7 @@ This file is the only instruction set. Follow it exactly; it is versioned so the
    3. Write the polished script to `pipeline/queue/<id>/polished.json` (rules below).
    4. Run `python -m studio.pipeline.polish check <id>`. Fix every problem it reports and run it again, up to
       4 times. If it still fails, delete that `polished.json` and leave the item for the next run.
-3. Create a branch named `claude/polish-<YYYYMMDD-HHMM>` (UTC), commit **only** the `polished.json` files that
+3. Create a branch named `claude/polish-<YYYYMMDD-HHMM>` (UTC; Codex: `codex/polish-<YYYYMMDD-HHMM>`), commit **only** the `polished.json` files that
    passed, push it, and open a pull request into `main` titled `Polish: <n> script(s)`. List the item ids in the
    description.
 4. Do not merge the pull request, change any other file, or run any other workflow. A GitHub workflow runs the

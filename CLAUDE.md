@@ -31,7 +31,12 @@ Rules:
 ## Safety (Franklin's rules)
 - Never open, print or copy `.env` or any secret. Keys live only in GitHub secrets.
 - $0 only. Explain and ask before anything that could cost money, expose secrets, push to main, or publish.
-- Commits use the no-reply email `184284364+FranklinMburu@users.noreply.github.com`.
+- Commits use the no-reply email `184284364+FranklinMburu@users.noreply.github.com` as author (in Claude's sandbox the
+  committer is `noreply@anthropic.com` so GitHub can verify the signature).
+
+## Polish (any agent)
+- Every unfinished film draft is a ticket in `polish/film/<episode>/`; the method, examples and commands are in
+  `polish/README.md` (also for Codex via `AGENTS.md`). Deliver only `answer.json`; the pipeline checks and continues.
 
 ## Where things are
 - How the pipeline works: `docs/PIPELINE.md`. Polishing: `POLISH.md`. Handoff notes: `HANDOFF.md`.

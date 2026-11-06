@@ -578,15 +578,97 @@ def issue_body(folder, draft_tag, memory=None, problems=None, retry=False):
             f"`````text\n{prompt.strip()}\n`````\n")
 
 
+# ---------- polish tickets: the draft lives in the repo, so ANY agent (Claude, Codex) or a person can polish it ----------
+# polish/film/<episode>/  ticket.json (issue, draft tag, episode path, status) · PROMPT.md (the full job) · files/ (the
+# draft episode, text only) · answer.json (written by the polisher) · result.md (written by the pipeline after checking)
+TICKET_ROOT = Path("polish") / "film"
+_BINARY = {".wav", ".mp3", ".mp4", ".png", ".jpg", ".jpeg", ".zip", ".webm"}
+
+
+def make_ticket(folder, draft_tag, issue, memory=None, root=TICKET_ROOT):
+    """Save a draft that needs polish into the repo (text files only) with its prompt and ticket."""
+    import shutil, datetime
+    folder = Path(folder)
+    t = Path(root) / folder.name
+    (t / "files").mkdir(parents=True, exist_ok=True)
+    for f in folder.iterdir():
+        if f.is_file() and f.suffix.lower() not in _BINARY:
+            shutil.copy2(f, t / "files" / f.name)
+    (t / "PROMPT.md").write_text(polish_prompt(folder, memory), encoding="utf-8")
+    ticket = {"issue": int(issue) if str(issue).isdigit() else issue, "draft": draft_tag, "episode": folder.as_posix(),
+              "opened": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"), "status": "waiting"}
+    (t / "ticket.json").write_text(json.dumps(ticket, indent=1), encoding="utf-8")
+    return t
+
+
+def estimate_timing(script, words_per_second=3.37):
+    """Word timing for a changed script without the voice model (offline check). Word order and WORD#N counting are
+    exact (the narration splits each line on spaces); only the seconds are estimates (~3.4 words/s, as narrated)."""
+    words, t = [], 0.15
+    for bi, b in enumerate(script["beats"]):
+        for li, line in enumerate(b["lines"]):
+            for w in str(line).split():
+                d = max(0.12, len(w) * 0.055)
+                words.append({"w": w, "start": round(t, 3), "end": round(t + d, 3), "line": li, "beat": bi})
+                t += 1 / words_per_second
+            t += 0.25
+    return {"duration": round(t + 0.3, 3), "words": words, "estimated": True}
+
+
+def check_answer(ticket_dir, memory=None, log=print):
+    """Offline check of an answer.json BEFORE pushing it: apply it to a copy of the draft and run the same film checks
+    as the pipeline (shot list, word triggers, cast, era, rules) plus the script rules that need no internet.
+    The pipeline re-checks everything (with the real narration and the fact check) after the push."""
+    import shutil, tempfile
+    t = Path(ticket_dir)
+    ans = t / "answer.json"
+    if not ans.exists():
+        return [f"{ans} is missing: write your answer there"]
+    with tempfile.TemporaryDirectory() as tmp:
+        ep = Path(tmp) / json.loads((t / "ticket.json").read_text(encoding="utf-8"))["episode"].rsplit("/", 1)[-1]
+        shutil.copytree(t / "files", ep)
+        changed, probs = apply_reply(ep, ans.read_text(encoding="utf-8"))
+        if probs:
+            return probs
+        script = json.loads((ep / "script.json").read_text(encoding="utf-8"))
+        film = json.loads((ep / "film.json").read_text(encoding="utf-8"))
+        timing = estimate_timing(script) if changed else json.loads((ep / "timing.json").read_text(encoding="utf-8"))
+        if changed:
+            log("script changed: word triggers checked against your new narration (seconds estimated)")
+        out = film_problems(film, timing, memory, ep.name)
+        if changed:   # seconds are estimates: lengths are re-checked exactly after the push, so warn only
+            soft = [x for x in out if " s on screen (" in x or "(a new shot every ~1.9 s)" in x]
+            for x in soft:
+                log(f"WARNING (estimated timing, re-checked after the push): {x}")
+            out = [x for x in out if x not in soft]
+        n = sum(len(str(l).split()) for b in script["beats"] for l in b["lines"])
+        if not 150 <= n <= 210:
+            out.append(f"script: narration is {n} words; it must be 150-210")
+        urls = {s.get("url") for s in json.loads((ep / "sources.json").read_text(encoding="utf-8"))} \
+            if (ep / "sources.json").exists() else set()
+        for c in script.get("claims", []):
+            if isinstance(c, dict) and urls and c.get("url") not in urls:
+                out.append(f"script: claim cites a URL that is not in the sources: {c.get('url')}")
+        try:
+            from ailayer.skills import Source
+            from .writer import script_problems
+            srcs = json.loads((ep / "sources.json").read_text(encoding="utf-8"))
+            out += [f"script: {x}" for x in script_problems(script, [Source(x["url"], x["text"], x.get("title", "")) for x in srcs])]
+        except ImportError:
+            log("(the brain is not installed here: the pipeline runs the remaining script checks and the fact check)")
+        return out
+
+
 def main(argv=None):
     import argparse
     ap = argparse.ArgumentParser(prog="python -m studio.story.filmkit")
-    ap.add_argument("cmd", choices=["prompt", "apply", "check", "verify", "remember", "issue"])
+    ap.add_argument("cmd", choices=["prompt", "apply", "check", "verify", "remember", "issue", "ticket", "check-answer"])
     ap.add_argument("folder"); ap.add_argument("extra", nargs="?")
     ap.add_argument("--memory"); ap.add_argument("--music", help="remember: the music file the video used")
     ap.add_argument("--renarrate", action="store_true", help="verify: the script changed, narrate it again first")
     ap.add_argument("--problems", help="prompt/issue: a file of problems to fix (PROBLEM: lines), e.g. from verify")
-    ap.add_argument("--draft", help="issue: the draft release tag holding the episode files")
+    ap.add_argument("--draft", help="issue/ticket: the draft release tag holding the episode files")
+    ap.add_argument("--issue", help="ticket: the GitHub issue number of this polish")
     a = ap.parse_args(argv)
     folder = Path(a.folder)
     mem = load_memory(a.memory or (a.extra if a.cmd == "remember" else None))
@@ -594,6 +676,14 @@ def main(argv=None):
              if x.startswith("PROBLEM:")] if a.problems else None
     if a.cmd == "prompt":
         sys.stdout.write(polish_prompt(folder, mem, extra)); return 0
+    if a.cmd == "ticket":
+        print(make_ticket(folder, a.draft or "", a.issue or "", mem)); return 0
+    if a.cmd == "check-answer":   # folder = polish/film/<episode>
+        probs = check_answer(folder, mem)
+        for x in probs:
+            print("PROBLEM:", x)
+        print("OK: push it" if not probs else f"{len(probs)} problem(s): fix them and run this again")
+        return 1 if probs else 0
     if a.cmd == "issue":
         sys.stdout.write(issue_body(folder, a.draft or "", mem, extra, retry=bool(extra))); return 0
     if a.cmd == "verify":
