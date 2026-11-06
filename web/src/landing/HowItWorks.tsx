@@ -62,18 +62,18 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ standalone = false }) =>
   ];
 
   const shotImages = [
-    '/img/hook.jpg',
-    '/img/bleach.jpg',
-    '/img/mother.jpg',
-    '/img/offended.jpg',
-    '/img/gentlemen.jpg',
-    '/img/clinic.jpg',
-    '/img/three.jpg',
-    '/img/begging.jpg',
-    '/img/street.jpg',
-    '/img/friend.jpg',
-    '/img/scalpel.jpg',
-    '/img/morning.jpg',
+    `${import.meta.env.BASE_URL}img/hook.jpg`,
+    `${import.meta.env.BASE_URL}img/bleach.jpg`,
+    `${import.meta.env.BASE_URL}img/mother.jpg`,
+    `${import.meta.env.BASE_URL}img/offended.jpg`,
+    `${import.meta.env.BASE_URL}img/gentlemen.jpg`,
+    `${import.meta.env.BASE_URL}img/clinic.jpg`,
+    `${import.meta.env.BASE_URL}img/three.jpg`,
+    `${import.meta.env.BASE_URL}img/begging.jpg`,
+    `${import.meta.env.BASE_URL}img/street.jpg`,
+    `${import.meta.env.BASE_URL}img/friend.jpg`,
+    `${import.meta.env.BASE_URL}img/scalpel.jpg`,
+    `${import.meta.env.BASE_URL}img/morning.jpg`,
   ];
 
   const renderStepContent = (stepIdx: number) => {
@@ -158,19 +158,19 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ standalone = false }) =>
                 Same cast in every shot
               </span>
               <div className="cm">
-                <img src="/img/hook.jpg" alt="Semmelweis" />
+                <img src={`${import.meta.env.BASE_URL}img/hook.jpg`} alt="Semmelweis" />
                 <span>Semmelweis</span>
               </div>
               <div className="cm">
-                <img src="/img/mother.jpg" alt="Mother" />
+                <img src={`${import.meta.env.BASE_URL}img/mother.jpg`} alt="Mother" />
                 <span>Mother</span>
               </div>
               <div className="cm">
-                <img src="/img/friend.jpg" alt="Kolletschka" />
+                <img src={`${import.meta.env.BASE_URL}img/friend.jpg`} alt="Kolletschka" />
                 <span>Kolletschka</span>
               </div>
               <div className="cm">
-                <img src="/img/pasteur.jpg" alt="Pasteur" />
+                <img src={`${import.meta.env.BASE_URL}img/pasteur.jpg`} alt="Pasteur" />
                 <span>Pasteur</span>
               </div>
             </div>
