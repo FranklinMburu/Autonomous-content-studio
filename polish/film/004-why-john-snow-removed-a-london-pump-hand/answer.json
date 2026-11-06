@@ -1,6 +1,6 @@
 {
  "script": {
-  "title": "Why a Doctor Had a London Pump's Handle Pulled Off",
+  "title": "Why a Doctor Had a Pump's Handle Removed",
   "beats": [
    {
     "lines": [
@@ -10,7 +10,7 @@
    {
     "lines": [
      "It was 1854, in Soho.",
-     "In three days, one hundred and twenty-seven people near Broad Street died of cholera.",
+     "In three days, 127 people near Broad Street died of cholera.",
      "Most doctors blamed bad air, a poison smell called miasma.",
      "London's top medical officer called John Snow's germ idea peculiar."
     ]
@@ -199,6 +199,15 @@
     "motion": "he shakes his head and drops the letter on the desk, slow camera push in"
    },
    {
+    "name": "frown",
+    "at": "John#1",
+    "who": "snow",
+    "prompt": "close-up, a doctor frowning as he reads a letter by a rainy window, he is {snow}, grey light",
+    "check": "Is a man reading a letter?",
+    "clip": true,
+    "motion": "he lowers the letter and frowns, slow camera push in"
+   },
+   {
     "name": "door",
     "at": "So#1",
     "prompt": "medium shot, {snow} and {whitehead} knocking on the wooden door of a narrow brick house, a dark alley, evening",
@@ -323,7 +332,7 @@
    },
    {
     "name": "gap",
-    "at": "feet#1",
+    "at": "just#1",
     "prompt": "close-up, a workman's boot standing on a narrow strip of mud between a round brick well and a dark old pit, grey light",
     "check": "Is there a brick well?",
     "move": "down"
