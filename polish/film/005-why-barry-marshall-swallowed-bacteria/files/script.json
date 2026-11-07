@@ -1,0 +1,78 @@
+{
+ "title": "Why Barry Marshall Swallowed Bacteria",
+ "channel": "Hidden Reasons",
+ "topic": "Why Barry Marshall drank a cup of bacteria in 1984",
+ "voice": "am_michael",
+ "speed": 1.6,
+ "pace": {
+  "gap_line": 0.08,
+  "gap_beat": 0.2,
+  "lead_in": 0.05,
+  "tail": 0.7
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A determined doctor gulped a cup of living bacteria."
+   ]
+  },
+  {
+   "feel": "skepticism",
+   "lines": [
+    "Colleagues scoffed, saying no germ could survive the stomach’s acid."
+   ]
+  },
+  {
+   "feel": "dread",
+   "lines": [
+    "Marshall drinks the broth in 1984.",
+    "Three days later nausea and terrible breath appear.",
+    "By day eight his stomach vomits without acid."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it feels like swallowing a spoonful of fire and waiting for the burn."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "The real reason: H. pylori’s urease neutralizes stomach acid, letting it colonise and cause acute gastritis."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "His self‑infection proved Koch’s postulates and forced medicine to admit ulcers are infections, not just stress."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Marshall drank a broth containing cultured H. pylori in 1984 and soon developed nausea, bad breath, achlorhydric vomiting and gastritis.",
+   "url": "https://en.wikipedia.org/wiki/Barry_Marshall"
+  },
+  {
+   "claim": "H. pylori produces urease, which breaks down urea into ammonia and bicarbonate, raising pH and allowing the bacteria to survive in the stomach.",
+   "url": "https://en.wikipedia.org/wiki/Helicobacter_pylori"
+  },
+  {
+   "claim": "Marshall’s experiment fulfilled Koch’s postulates for H. pylori causing gastritis, overturning the belief that ulcers were caused by stress or acid alone.",
+   "url": "https://en.wikipedia.org/wiki/Barry_Marshall"
+  }
+ ],
+ "key_words": [
+  "doctor",
+  "bacteria",
+  "acid",
+  "nausea",
+  "breath",
+  "urease",
+  "gastritis",
+  "Koch’s",
+  "ulcers"
+ ]
+}
