@@ -7,4 +7,4 @@ Topic: Why Alexander Fleming's messy laboratory led to penicillin
 - Logic check issues found: 6
 - Words: 186, length 54.4s, 205 words/min, 13 words in first 3 s
 - Fact check: {'partial': 3, 'unsupported': 6, 'supported': 7}
-- Film shot list: 28 shots, 8 problem(s) left for the polish step (NEEDS_POLISH.md)
+- Film shot list: none yet: made in the polish step
