@@ -1,0 +1,282 @@
+{
+ "era": "late 1920s",
+ "cast": {
+  "fleming": "a 49 year old Scottish bacteriologist with a lean pale face, thinning sandy brown hair parted to one side, a neat sandy moustache, deep set blue eyes, wearing a charcoal tweed suit with waistcoat, white shirt and dark bow tie, 1920s",
+  "colleague": "a 36 year old London bacteriologist with a round face, short black hair slicked flat, small round wire spectacles, clean shaven, wearing a crisp white lab coat over a dark waistcoat and stiff white collar, 1920s",
+  "elder": "a 62 year old senior physician with a broad ruddy face, thick white moustache, bushy white eyebrows, thinning white hair, wearing a dark pinstripe three piece suit with a pocket watch chain, 1920s",
+  "assistant": "a 24 year old lab technician with dark curly hair pinned back, freckles, a slim build, wearing a white lab coat over a plain grey blouse, 1920s"
+ },
+ "music": "curious",
+ "key_words": [
+  "Fleming#1",
+  "petri#1",
+  "pocket#1",
+  "lab#1",
+  "experiment#1",
+  "colleagues#1",
+  "mess#1",
+  "quit#1",
+  "bench#1",
+  "holiday#1",
+  "mold#1",
+  "bacteria#1",
+  "floor#1",
+  "Penicillium#1",
+  "penicillin#1",
+  "1929#1",
+  "antibiotics#1",
+  "miracle#1"
+ ],
+ "shots": [
+  {
+   "name": "stash_dish",
+   "at": 0,
+   "who": "fleming",
+   "xfade": true,
+   "clip": true,
+   "prompt": "medium close-up, a man shoving a greasy glass petri dish into his coat pocket, he is {fleming}, a cluttered 1920s laboratory bench, warm lamp light",
+   "motion": "he pushes the dish into his pocket, slow camera push in",
+   "hit": "greasy#1",
+   "check": "Is a man pushing a petri dish into his pocket?"
+  },
+  {
+   "name": "greasy_plate",
+   "at": "petri#1",
+   "clip": true,
+   "prompt": "extreme close-up, a hand holding a greasy glass petri dish smeared with cloudy yellow bacterial culture, charcoal tweed sleeve, dim 1920s laboratory, lamp light",
+   "motion": "the hand tilts the dish slightly, slow camera push in",
+   "check": "Is there a greasy petri dish in a hand?"
+  },
+  {
+   "name": "hoping",
+   "at": "hoping#1",
+   "who": "fleming",
+   "clip": true,
+   "prompt": "close-up, a man pressing his hand over his coat pocket and looking down hopefully, he is {fleming}, a cluttered 1920s laboratory, warm lamp light",
+   "motion": "he pats his pocket gently and glances down, slow camera push in",
+   "check": "Is a man pressing his hand over his pocket?"
+  },
+  {
+   "name": "clean_lab",
+   "at": "He#1",
+   "clip": true,
+   "prompt": "close-up, a hand wiping a gleaming spotless laboratory bench with a white cloth, empty clean glass dishes, bright 1920s lab window light",
+   "motion": "the cloth wipes slowly across the bench, slow camera move right",
+   "check": "Is a hand wiping a clean bench?"
+  },
+  {
+   "name": "snort",
+   "at": "His#3",
+   "who": "colleague",
+   "clip": true,
+   "prompt": "medium close-up, a bacteriologist in a white lab coat snorting with folded arms and laughing mockingly, he is {colleague}, a cluttered 1920s laboratory with greasy glass dishes behind him, cool window light",
+   "motion": "he snorts and waves one hand dismissively, slow camera push in",
+   "xfade": true,
+   "check": "Is a man in a white lab coat laughing?"
+  },
+  {
+   "name": "sloppy",
+   "at": "sloppy#1",
+   "who": "fleming",
+   "clip": true,
+   "prompt": "close-up, a bacteriologist holding a greasy petri dish and looking down ashamed while a colleague's pointing hand enters the frame, he is {fleming}, cluttered 1920s laboratory bench, cool window light",
+   "motion": "he lowers his eyes and tilts the dish slightly, slow camera push in",
+   "hit": "sloppy#1",
+   "check": "Is a man holding a greasy petri dish?"
+  },
+  {
+   "name": "mess",
+   "at": "They#1",
+   "move": "push",
+   "prompt": "wide shot, a cluttered laboratory bench covered with stacked petri dishes, dusty bottles and stained glassware, 1920s laboratory, cool grey window light, dust in the air",
+   "check": "Is a laboratory bench covered with dishes and bottles?"
+  },
+  {
+   "name": "quit",
+   "at": "Some#1",
+   "who": "elder",
+   "clip": true,
+   "prompt": "medium shot, a senior physician shrugging and waving one hand toward a closed laboratory door as if dismissing someone, he is {elder}, cluttered 1920s laboratory, cool grey light",
+   "motion": "he shrugs and opens one hand toward the door, slow camera push in",
+   "check": "Is an older man gesturing toward a door?"
+  },
+  {
+   "name": "leave",
+   "at": "He#3",
+   "who": "fleming",
+   "clip": true,
+   "prompt": "medium shot, a man in a charcoal tweed suit turning away from a laboratory bench crowded with petri dishes and stepping toward a door, he is {fleming}, 1920s London laboratory, soft grey window light",
+   "motion": "he turns his back and steps away from the bench, slow camera pull back",
+   "check": "Is a man walking away from a laboratory bench?"
+  },
+  {
+   "name": "dust",
+   "at": "dusty#1",
+   "move": "left",
+   "prompt": "wide shot of a neglected laboratory corner, a dusty wooden bench with stacked glass petri dishes, cobwebs and a shuttered window, dim grey daylight, 1920s",
+   "check": "Is there a dusty bench with petri dishes?"
+  },
+  {
+   "name": "return",
+   "at": "When#1",
+   "who": "fleming",
+   "clip": true,
+   "xfade": true,
+   "prompt": "medium shot, a man in a charcoal tweed suit pushing open a wooden door into a hospital corridor and looking toward the laboratory, he is {fleming}, 1920s London hospital, morning light",
+   "motion": "he pushes the door open and pauses, slow camera push in",
+   "check": "Is a man opening a door?"
+  },
+  {
+   "name": "mold",
+   "at": "mold#1",
+   "xfade": true,
+   "move": "push",
+   "prompt": "extreme close-up of a round glass petri dish with fuzzy blue-green mold spreading across pale agar, on a dusty wooden bench, soft window light, 1920s",
+   "hit": "mold#1",
+   "check": "Is there blue-green mold in a petri dish?"
+  },
+  {
+   "name": "zone",
+   "at": "bacteria#1",
+   "clip": true,
+   "prompt": "close-up, a hand holding a round glass petri dish up to window light, a clear empty ring around blue-green mold with pale bacterial specks only near the rim, 1920s laboratory",
+   "motion": "the hand tilts the dish slightly in the light, slow camera push in",
+   "check": "Is there a clear ring around mold in a petri dish?"
+  },
+  {
+   "name": "stare",
+   "at": "stared#1",
+   "who": "fleming",
+   "clip": true,
+   "prompt": "close-up, a man leaning over a bench and staring down at a petri dish with a deep frown, he is {fleming}, 1920s laboratory, cool window light",
+   "motion": "he leans closer and frowns, slow camera push in",
+   "check": "Is a man looking down at a petri dish?"
+  },
+  {
+   "name": "experiment",
+   "at": "He#5",
+   "who": "fleming",
+   "clip": true,
+   "xfade": true,
+   "prompt": "medium shot, a man in a charcoal tweed suit arranging several fresh glass petri dishes in a row on a wooden laboratory bench, he is {fleming}, 1920s, bright morning light",
+   "motion": "he slides one dish into place, slow camera push in",
+   "check": "Is a man arranging petri dishes on a bench?"
+  },
+  {
+   "name": "dirty_floor",
+   "at": "You#1",
+   "modern": true,
+   "xfade": true,
+   "move": "push",
+   "prompt": "wide shot, a grimy kitchen floor covered in grease stains and crumbs with one pale clean patch of tile, modern kitchen, daylight through a window",
+   "check": "Is there a grimy kitchen floor?"
+  },
+  {
+   "name": "clean_patch",
+   "at": "clean#2",
+   "modern": true,
+   "move": "right",
+   "prompt": "high angle close-up, a clean pale square patch of tile surrounded by greasy brown kitchen tiles, modern kitchen floor, soft daylight",
+   "check": "Is there a clean pale square patch of tile?"
+  },
+  {
+   "name": "stands_out",
+   "at": "area#1",
+   "modern": true,
+   "clip": true,
+   "motion": "the finger points at the clean patch, slow camera push in",
+   "prompt": "close-up, a hand pointing down at a clean pale patch on a dirty kitchen floor, modern kitchen, daylight",
+   "check": "Is a hand pointing at a clean patch?"
+  },
+  {
+   "name": "mold_dish",
+   "at": "The#6",
+   "move": "push",
+   "xfade": true,
+   "prompt": "extreme close-up of a glass petri dish filled with fuzzy blue-green mold on a dusty wooden laboratory bench, 1920s, cool window light",
+   "check": "Is there blue-green mold in a petri dish?"
+  },
+  {
+   "name": "drop",
+   "at": "released#1",
+   "clip": true,
+   "prompt": "close-up of a glass pipette dripping a clear drop onto blue-green mold in a petri dish, 1920s laboratory bench, warm lamp light",
+   "motion": "the clear drop falls and spreads, slow camera push in",
+   "check": "Is a glass pipette dripping liquid?"
+  },
+  {
+   "name": "clear_zone",
+   "at": "kills#1",
+   "move": "push",
+   "hit": "kills#1",
+   "prompt": "close-up of a petri dish with a fuzzy blue-green mold colony in the center, a clear empty ring around it, pale yellow bacterial colonies only at the outer edge, 1920s laboratory, cool light",
+   "check": "Is there a clear ring around blue-green mold in a petri dish?"
+  },
+  {
+   "name": "vial",
+   "at": "penicillin#1",
+   "who": "fleming",
+   "clip": true,
+   "xfade": true,
+   "prompt": "medium close-up, a man holding up a small glass vial of clear liquid and inspecting it, he is {fleming}, 1920s laboratory, warm lamp light",
+   "motion": "he turns the vial slowly and studies it, slow camera push in",
+   "check": "Is a man holding up a glass vial?"
+  },
+  {
+   "name": "published",
+   "at": "published#1",
+   "who": "fleming",
+   "clip": true,
+   "xfade": true,
+   "prompt": "medium shot, a man writing with a fountain pen at a wooden desk beside a black typewriter and stacked papers, he is {fleming}, 1920s study, warm lamp light",
+   "motion": "his hand writes on the paper, slow camera push in",
+   "check": "Is a man writing at a desk?"
+  },
+  {
+   "name": "wound",
+   "at": "antiseptic#1",
+   "clip": true,
+   "prompt": "close-up of a doctor's hands dabbing clear liquid from a glass vial onto a fresh white bandage on a patient's forearm, 1920s hospital ward, soft daylight",
+   "motion": "the hands dab the liquid onto the bandage, slow camera push in",
+   "check": "Are hands applying liquid to a bandage?"
+  },
+  {
+   "name": "mess_kept",
+   "at": "Ironically#1",
+   "who": "fleming",
+   "xfade": true,
+   "clip": true,
+   "prompt": "medium close-up, a bacteriologist placing a round glass petri dish onto a cluttered dusty wooden bench, he is {fleming}, 1920s hospital laboratory, cool window light",
+   "motion": "he sets the dish down carefully, slow camera push in",
+   "check": "Is a man placing a petri dish on a bench?"
+  },
+  {
+   "name": "mold_alive",
+   "at": "alive#1",
+   "move": "push",
+   "prompt": "extreme close-up of a round glass petri dish holding a fuzzy blue-green mold colony on a dusty wooden bench, 1920s laboratory, soft window light",
+   "hit": "discover#1",
+   "check": "Is there blue-green mold in a petri dish?"
+  },
+  {
+   "name": "antibiotic",
+   "at": "antibiotics#1",
+   "who": "colleague",
+   "clip": true,
+   "prompt": "medium shot, a bacteriologist holding up a small amber glass medicine bottle, he is {colleague}, a bright 1920s hospital ward with patients in beds behind him, warm sunlight",
+   "motion": "he raises the bottle slightly and smiles, slow camera push in",
+   "hit": "antibiotics#1",
+   "check": "Is a man holding up a medicine bottle?"
+  },
+  {
+   "name": "miracle",
+   "at": "saved#1",
+   "who": "elder",
+   "clip": true,
+   "prompt": "medium close-up, a senior physician placing a small amber medicine bottle into the hand of a patient sitting up in a bed, he is {elder}, a busy 1920s hospital ward behind, warm sunlight",
+   "motion": "he places the bottle in the patient's hand, slow camera push in",
+   "hit": "millions#1",
+   "check": "Is a doctor handing a bottle to a patient?"
+  }
+ ]
+}

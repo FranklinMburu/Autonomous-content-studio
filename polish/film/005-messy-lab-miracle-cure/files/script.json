@@ -1,0 +1,88 @@
+{
+ "title": "Messy Lab, Miracle Cure",
+ "channel": "Hidden Reasons",
+ "topic": "Why Alexander Fleming's messy laboratory led to penicillin",
+ "voice": "am_michael",
+ "speed": 1.38,
+ "pace": {
+  "gap_line": 0.08,
+  "gap_beat": 0.2,
+  "lead_in": 0.05,
+  "tail": 0.7
+ },
+ "beats": [
+  {
+   "lines": [
+    "Fleming shoved a greasy petri dish into his pocket, hoping to keep it safe.",
+    "He feared a clean lab would wash away his accidental experiment."
+   ],
+   "feel": "curiosity"
+  },
+  {
+   "lines": [
+    "His colleagues snorted, calling him a sloppy scientist.",
+    "They warned his mess would ruin any real discovery.",
+    "Some even suggested he quit research altogether."
+   ],
+   "feel": "sympathy"
+  },
+  {
+   "lines": [
+    "He left the dishes on a dusty bench while on holiday.",
+    "When he returned, a blue‑green mold had taken over one plate.",
+    "The bacteria right around the mold vanished like magic.",
+    "Fleming stared, thinking it was just a strange contamination.",
+    "He quickly set up a new experiment to test the zone."
+   ],
+   "feel": "dread"
+  },
+  {
+   "lines": [
+    "You see, it’s like finding a clean spot on a dirty kitchen floor – the clean area stands out instantly."
+   ],
+   "feel": "recognition"
+  },
+  {
+   "lines": [
+    "The mold was Penicillium rubens, which released a substance that kills bacteria.",
+    "That substance, penicillin, proved powerful and barely toxic to humans.",
+    "Fleming published the finding in 1929, coining the name penicillin.",
+    "He imagined it could be a safe antiseptic for wounds."
+   ],
+   "feel": "awe"
+  },
+  {
+   "lines": [
+    "Ironically, his untidy habit kept the mold alive long enough for the world to discover antibiotics.",
+    "That mess became the miracle that saved millions."
+   ],
+   "feel": "surprise"
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Fleming left staphylococci cultures on a bench; a contaminating Penicillium killed the bacteria around it.",
+   "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+  },
+  {
+   "claim": "The contaminating fungus was identified as Penicillium rubens (originally misidentified as P. rubrum).",
+   "url": "https://doi.org/10.5598/imafungus.2011.02.01.12"
+  },
+  {
+   "claim": "Fleming named the antibacterial substance penicillin and noted its high potency and low toxicity.",
+   "url": "https://en.wikipedia.org/wiki/Penicillin"
+  }
+ ],
+ "key_words": [
+  "petri",
+  "messy",
+  "mold",
+  "Penicillium",
+  "rubens",
+  "bacteria",
+  "penicillin",
+  "toxic",
+  "discovery",
+  "miracle"
+ ]
+}
