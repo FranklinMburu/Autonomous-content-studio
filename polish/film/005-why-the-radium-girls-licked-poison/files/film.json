@@ -1,0 +1,262 @@
+{
+ "era": "1920s",
+ "cast": {
+  "grace": "a 24 year old woman with wavy dark brown hair pinned up, a pale oval face, tired hazel eyes, wearing a faded blue cotton work dress with a white collar and a small apron, 1920s",
+  "boss": "a 50 year old man with slicked-back grey hair, a red face, a thick black mustache, wearing a brown suit, a white shirt and a dark tie, 1920s",
+  "doctor": "a 45 year old doctor with thin greying hair, a long pale face, small round glasses, a white coat over a grey suit, 1920s",
+  "worker": "a 20 year old woman with blonde curly hair in a red bandana, a round freckled face, wearing a green work dress with rolled sleeves, 1920s",
+  "inventor": "a 55 year old man with a bald head, a short grey beard, sunken cheeks, wearing a black suit and a stiff white collar, 1920s"
+ },
+ "music": "sad",
+ "key_words": [
+  "Grace",
+  "radium",
+  "teeth",
+  "jaw",
+  "bones",
+  "infection",
+  "safe",
+  "poison",
+  "medicine",
+  "died"
+ ],
+ "shots": [
+  {
+   "name": "lick",
+   "at": 0,
+   "who": "grace",
+   "clip": true,
+   "prompt": "extreme close-up, a young woman's lips touching the fine tip of a small paintbrush, her eyes lowered in concentration, she is {grace}, a dim 1920s factory room, warm lamp light",
+   "motion": "her lips touch the brush tip and pull away slowly, slow camera push in",
+   "check": "Is a woman's mouth touching a paintbrush tip?",
+   "hit": "licks#1"
+  },
+  {
+   "name": "dip",
+   "at": "Then#1",
+   "who": "grace",
+   "clip": true,
+   "prompt": "close-up, a woman dipping a small paintbrush into a tiny dish of glowing pale green paint, her hand steady, she is {grace}, a dark 1920s factory workbench, warm lamp light",
+   "motion": "the brush dips into the glowing paint and lifts, slow camera push in",
+   "check": "Is a brush dipping into glowing paint?"
+  },
+  {
+   "name": "dial",
+   "at": "paints#1",
+   "who": "grace",
+   "clip": true,
+   "prompt": "close-up, a woman painting tiny glowing numbers on a small round watch dial with a fine brush, she is {grace}, a dim 1920s factory bench, warm lamp light",
+   "motion": "the brush paints a small glowing number on the dial, slow camera push in",
+   "check": "Is a woman painting a watch dial?",
+   "hit": "watch#1"
+  },
+  {
+   "name": "rows",
+   "at": "all#1",
+   "move": "right",
+   "prompt": "wide shot of a long 1920s factory room with rows of young women in work dresses painting small watch dials at wooden benches, glowing paint dishes, dim warm light",
+   "check": "Are women sitting at benches painting dials?"
+  },
+  {
+   "name": "grace_name",
+   "at": "Her#2",
+   "who": "grace",
+   "clip": true,
+   "prompt": "close-up, a young woman sitting at a factory workbench looking up, tired eyes, she is {grace}, dim 1920s watch factory with rows of young women behind her, warm lamp light",
+   "motion": "she looks up slowly and blinks, slow camera push in",
+   "check": "Is a young woman sitting at a workbench?",
+   "xfade": true
+  },
+  {
+   "name": "paints_dials",
+   "at": "She#3",
+   "who": "grace",
+   "clip": true,
+   "prompt": "close-up, a young woman painting a small round watch dial with a fine brush, her tongue touching the brush tip, she is {grace}, 1920s factory bench, warm lamp light",
+   "motion": "she dips the brush and paints the dial carefully, slow camera push in",
+   "check": "Is a woman painting a small round dial?"
+  },
+  {
+   "name": "boss_safe",
+   "at": "Her#3",
+   "who": "boss",
+   "clip": true,
+   "prompt": "medium shot, a red-faced man in a brown suit waving his hand dismissively beside a row of seated young women at workbenches, he is {boss}, 1920s factory floor, warm light",
+   "motion": "he waves his hand and nods confidently, slow camera push in",
+   "check": "Is a man in a suit standing beside seated women?"
+  },
+  {
+   "name": "penny_dial",
+   "at": "She#4",
+   "clip": true,
+   "prompt": "extreme close-up of a young woman's hand dropping a small coin into a row of tiny round watch dials on a wooden bench, 1920s factory, warm lamp light",
+   "motion": "the coin drops onto the dials, slow camera push in",
+   "check": "Is a hand dropping a coin onto small dials?"
+  },
+  {
+   "name": "toothache",
+   "at": "Her#5",
+   "who": "grace",
+   "clip": true,
+   "prompt": "close-up, a young woman pressing her hand against her cheek in pain, wincing, she is {grace}, a dim 1920s factory room with a row of small paint pots behind her, warm lamp light",
+   "motion": "she presses her hand to her cheek and winces, slow camera push in",
+   "check": "Is a woman holding her cheek in pain?",
+   "xfade": true
+  },
+  {
+   "name": "jawbreak",
+   "at": "Her#6",
+   "who": "grace",
+   "clip": true,
+   "prompt": "medium close-up, a pale young woman sitting on a wooden chair holding her jaw with both hands, mouth open in pain, she is {grace}, a bare 1920s clinic room, cold window light",
+   "motion": "she holds her jaw and rocks slightly, slow camera push in",
+   "check": "Is a woman holding her jaw?"
+  },
+  {
+   "name": "ulcers",
+   "at": "Doctors#1",
+   "who": "doctor",
+   "clip": true,
+   "prompt": "medium shot, a doctor in a white coat gently examining the open mouth of a young woman seated before him, she is {grace}, a 1920s clinic room with a glass cabinet, cold daylight",
+   "motion": "the doctor leans in and gently tilts her chin, slow camera push in",
+   "check": "Is a doctor examining a woman's mouth?"
+  },
+  {
+   "name": "ulcers2",
+   "at": "and#3",
+   "who": "grace",
+   "clip": true,
+   "prompt": "close-up, a pale young woman with her mouth slightly open showing a red sore on her gum, she is {grace}, a 1920s clinic room, cold window light",
+   "motion": "she opens her mouth wider and winces, slow camera push in",
+   "check": "Is a woman's open mouth showing a red sore?"
+  },
+  {
+   "name": "infection",
+   "at": "infection#1",
+   "who": "doctor",
+   "clip": true,
+   "prompt": "close-up, a doctor in a white coat pointing at a red sore on a young woman's jaw, she is {grace}, a 1920s factory clinic room, cold window light",
+   "motion": "he points at her jaw and frowns, slow camera push in",
+   "check": "Is a doctor pointing at a woman's face?",
+   "xfade": true
+  },
+  {
+   "name": "safe",
+   "at": "safe#2",
+   "who": "boss",
+   "clip": true,
+   "prompt": "medium shot, a man in a brown suit holding up a small glass jar of glowing green paint, smiling, he is {boss}, a 1920s factory office, warm lamp light",
+   "motion": "he holds up the jar and smiles, slow camera push in",
+   "check": "Is a man holding a jar of glowing paint?"
+  },
+  {
+   "name": "hot",
+   "at": "You#1",
+   "clip": false,
+   "prompt": "extreme close-up of a woman's hand reaching toward a glowing hot iron stove door, fingers hesitating near the metal, she is {grace}, a dim 1920s kitchen, warm orange firelight on her hand",
+   "motion": "her fingers hover and tremble near the hot stove, slow camera push in",
+   "check": "Is a hand reaching toward a hot stove?",
+   "xfade": true,
+   "move": "push"
+  },
+  {
+   "name": "fine",
+   "at": "But#1",
+   "who": "boss",
+   "clip": true,
+   "prompt": "medium shot, a red-faced man in a brown suit smiling and waving his hand dismissively, he is {boss}, a 1920s watch factory office with wooden desks, warm lamp light",
+   "motion": "he waves his hand dismissively and smiles, slow camera push in",
+   "check": "Is a man in a suit waving his hand?"
+  },
+  {
+   "name": "again",
+   "at": "So#1",
+   "who": "grace",
+   "clip": true,
+   "prompt": "close-up, a tired young woman licking the tip of a thin paintbrush and dipping it into a small pot of glowing green paint, she is {grace}, a 1920s watch factory workbench, dim light",
+   "motion": "she licks the brush tip and dips it in the glowing paint, slow camera push in",
+   "hit": "again#1",
+   "check": "Is a woman licking a paintbrush?"
+  },
+  {
+   "name": "paint",
+   "at": "The#7",
+   "who": "grace",
+   "clip": true,
+   "prompt": "close-up, a young woman holding up a small glass jar of glowing green paint beside her face, she is {grace}, a dim 1920s watch factory, warm lamp light",
+   "motion": "she turns the jar slowly and the green glow shimmers, slow camera push in",
+   "hit": "paint#3",
+   "check": "Is a woman holding a jar of glowing green paint?",
+   "xfade": true
+  },
+  {
+   "name": "powder",
+   "at": "powdered#1",
+   "move": "push",
+   "prompt": "extreme close-up of a small mound of fine white powder glowing faintly green on a dark metal tray, a small spoon beside it, dim factory light",
+   "check": "Is there a mound of glowing powder?"
+  },
+  {
+   "name": "metal",
+   "at": "radioactive#1",
+   "move": "push",
+   "prompt": "close-up of a heavy grey metal ingot glowing faintly green on a dark wooden table, a small glass jar of green paint beside it, dim 1920s laboratory, lamp light",
+   "check": "Is there a glowing metal bar?"
+  },
+  {
+   "name": "bones",
+   "at": "break#1",
+   "who": "grace",
+   "clip": true,
+   "prompt": "close-up, a young woman grimacing and clutching her own jaw with both hands in pain, she is {grace}, a dim 1920s factory room, cold light",
+   "motion": "she clutches her jaw and winces, slow camera push in",
+   "hit": "bones#2",
+   "check": "Is a woman holding her jaw in pain?"
+  },
+  {
+   "name": "lick_20",
+   "at": "swallowed#1",
+   "who": "grace",
+   "clip": true,
+   "prompt": "extreme close-up, a young woman licking the tip of a fine paintbrush with her tongue, her lips faintly glowing green, she is {grace}, dim 1920s factory, warm lamp light",
+   "motion": "her tongue touches the brush tip and pulls away, slow camera push in",
+   "hit": "lick#1",
+   "check": "Is a woman licking a paintbrush?"
+  },
+  {
+   "name": "inventor",
+   "at": "The#10",
+   "who": "inventor",
+   "clip": true,
+   "prompt": "close-up, a gaunt bald man with a short grey beard lying sick in a hospital bed, head on a white pillow, he is {inventor}, 1920s hospital room, dim light",
+   "motion": "he breathes weakly and his eyes close, slow camera push in",
+   "hit": "died#1",
+   "check": "Is a sick man lying in a bed?",
+   "xfade": true
+  },
+  {
+   "name": "cure",
+   "at": "Radium#4",
+   "move": "push",
+   "prompt": "medium shot of a 1920s pharmacy shelf with a glass bottle of glowing green liquid and a small box, warm lamp light, wooden counter",
+   "check": "Is there a glass bottle on a shelf?"
+  },
+  {
+   "name": "medicine",
+   "at": "The#12",
+   "move": "right",
+   "prompt": "close-up of a 1920s pharmacy counter with a glowing green glass bottle beside a small white box and a spoon, warm lamp light, wooden shelf behind",
+   "check": "Is there a glowing bottle on a counter?"
+  },
+  {
+   "name": "end",
+   "at": "medicine#1",
+   "who": "grace",
+   "clip": true,
+   "prompt": "close-up, a pale young woman with dark wavy hair looking down sadly at her glowing hands, she is {grace}, a dark 1920s factory room, faint green glow",
+   "motion": "she slowly turns her glowing hands over, the green glow shimmers, slow camera push in",
+   "hit": "medicine#1",
+   "check": "Is a woman looking at her hands?"
+  }
+ ]
+}

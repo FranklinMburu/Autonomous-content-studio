@@ -1,0 +1,121 @@
+{
+ "title": "Why the Radium Girls Licked Poison",
+ "channel": "Hidden Reasons",
+ "topic": "Why the radium girls licked their paintbrushes",
+ "voice": "am_michael",
+ "speed": 1.38,
+ "pace": {
+  "gap_line": 0.08,
+  "gap_beat": 0.2,
+  "lead_in": 0.05,
+  "tail": 0.7
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A young woman licks the tip of her paintbrush at work.",
+    "Then she dips it in glowing paint and paints a watch dial.",
+    "She does this all day, every day."
+   ]
+  },
+  {
+   "feel": "sympathy",
+   "lines": [
+    "Her name is Grace Fryer. She paints watch faces for the army.",
+    "Her boss tells her the paint is safe.",
+    "She earns about a penny and a half per dial."
+   ]
+  },
+  {
+   "feel": "dread",
+   "lines": [
+    "Her teeth start to ache. Then they fall out.",
+    "Her jaw breaks. Her bones snap.",
+    "Doctors see women with loose teeth and ulcers that won't heal."
+   ]
+  },
+  {
+   "feel": "frustration",
+   "lines": [
+    "The company says the women are showing signs of infection.",
+    "They tell the women radium is safe."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it's like when you're told not to touch something hot.",
+    "But everyone around you says it's fine.",
+    "So you touch it. Again and again."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "The real reason is the paint.",
+    "It's made from powdered radium, a radioactive metal.",
+    "Radium shoots out tiny particles that break your bones from inside.",
+    "The women swallowed it with every lick."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "The man who invented the paint died from it too.",
+    "Radium was sold as a health cure for years.",
+    "The same poison that killed them was advertised as medicine."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Supervisors encouraged workers to shape brushes with their lips (\"lip, dip, paint\") to save time and material.",
+   "url": "https://en.wikipedia.org/wiki/Radium_Girls"
+  },
+  {
+   "claim": "Grace Fryer was a plant worker who decided to sue, but it took two years to find a lawyer willing to take on USRC.",
+   "url": "https://en.wikipedia.org/wiki/Radium_Girls"
+  },
+  {
+   "claim": "Workers were paid about a penny and a half per dial, earning $3.75 for 250 dials per shift.",
+   "url": "https://en.wikipedia.org/wiki/Radium_Girls"
+  },
+  {
+   "claim": "Women developed dental pain, loose teeth, lesions, ulcers, anemia, bone fractures, and necrosis of the jaw (radium jaw).",
+   "url": "https://en.wikipedia.org/wiki/Radium_Girls"
+  },
+  {
+   "claim": "When word of the New Jersey suits appeared in newspapers, women were told the radium was safe and that New Jersey employees were showing signs of viral infections.",
+   "url": "https://en.wikipedia.org/wiki/Radium_Girls"
+  },
+  {
+   "claim": "The paint was made from powdered radium, zinc sulfide, gum arabic, and water.",
+   "url": "https://en.wikipedia.org/wiki/Radium_Girls"
+  },
+  {
+   "claim": "Radium emits gamma rays that can penetrate a glass watch dial and into human tissue.",
+   "url": "https://en.wikipedia.org/wiki/Luminous_paint"
+  },
+  {
+   "claim": "Dr. Sabin Arnold von Sochocky invented radium dial paint and died in November 1928 from radiation exposure.",
+   "url": "https://en.wikipedia.org/wiki/Radium_Girls"
+  },
+  {
+   "claim": "Radium was advertised as a cure-all and used in cosmetic products promising regenerative anti-aging properties.",
+   "url": "https://en.wikipedia.org/wiki/Radium_Girls"
+  }
+ ],
+ "key_words": [
+  "licked",
+  "glowing",
+  "safe",
+  "radium",
+  "bones",
+  "swallowed",
+  "poison",
+  "medicine",
+  "died",
+  "paint"
+ ]
+}
