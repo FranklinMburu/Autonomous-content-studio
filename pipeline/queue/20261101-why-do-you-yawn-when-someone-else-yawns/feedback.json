@@ -12,5 +12,12 @@
   "problems": [
    "backup polish failed: no model in tier 'standard' could answer (groq:openai/gpt-oss-120b: invalid output; groq:openai/gpt-oss-120b: invalid output; google:gemini-3.6-flash: circuit open after 3 failures in a row (HTTP 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"Thi); nvidia:minimaxai/minimax-m3.1-flash: HTTP 0)"
   ]
+ },
+ {
+  "at": "2026-11-08T06:13:13+00:00",
+  "backup": true,
+  "problems": [
+   "fact check: 1 unsupported, 0 partial claims: That signal activates the yawning centre and prompts the stretch."
+  ]
  }
 ]
