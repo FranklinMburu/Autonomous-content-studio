@@ -1,0 +1,255 @@
+{
+ "era": "14th century",
+ "cast": {
+  "captain": "a 42 year old sea captain with a weathered face, dark eyes, short greying black hair, a trimmed dark beard, wearing a crimson wool tunic with gold trim and a leather belt, 14th century",
+  "senator": "a 60 year old Venetian nobleman with a stern face, white hair under a dark red velvet cap, a long white beard, wearing a black velvet robe with a gold chain, 15th century",
+  "sailor": "a 25 year old pale sick sailor with messy auburn hair, sweat on his brow, clean shaven, wearing a worn beige linen shirt and brown trousers, 14th century",
+  "physician": "a 48 year old medieval physician with sharp dark eyes, grey-ing dark hair under a brown wool hood, clean shaven, wearing a long brown wool robe, 14th century"
+ },
+ "music": "tense",
+ "key_words": [
+  "anchored#1",
+  "Death#1",
+  "thirty#1",
+  "forty#1",
+  "quarantena#1",
+  "worked#1"
+ ],
+ "shots": [
+  {
+   "name": "captain_anchored",
+   "at": 0,
+   "who": "captain",
+   "clip": true,
+   "prompt": "medium close-up, gripping a wooden ship railing with focused eyes, looking across sea, he is {captain}, deck of a 14th century wooden vessel, golden dusk light",
+   "motion": "he grips the railing firmly and squints into the distance, slow camera push in",
+   "check": "Is a man gripping a ship railing?"
+  },
+  {
+   "name": "venice_distant",
+   "at": "Venice#1",
+   "move": "push",
+   "prompt": "wide shot of Venice skyline with medieval stone towers across calm blue water, a tall wooden ship anchored in the foreground ocean, sunset light",
+   "check": "Is there a city across the water?"
+  },
+  {
+   "name": "crew_stuck",
+   "at": "crew#1",
+   "who": "sailor",
+   "clip": true,
+   "prompt": "medium shot, leaning against wooden ship rigging while gazing longingly at distant land, he is {sailor}, wooden ship deck, evening dusk light",
+   "motion": "he rests his arm on the rope rigging and sighs, slow camera push in",
+   "check": "Is a sailor leaning against ship rigging?"
+  },
+  {
+   "name": "hourglass",
+   "at": "Between#1",
+   "clip": true,
+   "prompt": "close-up of a hand turning a wooden hourglass over on an oak desk, dim candle light, medieval room background",
+   "motion": "the hand flips the hourglass over as sand falls, slow camera push in",
+   "check": "Is a hand turning an hourglass?"
+  },
+  {
+   "name": "black_death",
+   "at": "Black#1",
+   "hit": "Black#1",
+   "who": "sailor",
+   "clip": true,
+   "prompt": "close-up of a pale feverish man lying in a bed with eyes closed, he is {sailor}, gloomy medieval bedroom, candle light",
+   "motion": "he breathes weakly and shivers slightly, slow camera push in",
+   "check": "Is a man lying sick in a bed?"
+  },
+  {
+   "name": "deserted_street",
+   "at": "30%#1",
+   "move": "push",
+   "prompt": "wide shot of an empty deserted medieval stone street with shuttered windows, grey misty dusk light",
+   "check": "Is this an empty medieval street?"
+  },
+  {
+   "name": "merchant_trade",
+   "at": "Venice's#1",
+   "clip": true,
+   "prompt": "medium shot, a burly worker lifting a wooden crate on a stone harbor pier, warm golden sunset light, sea in background",
+   "motion": "he lifts the wooden crate slowly, slow camera move right",
+   "check": "Is a man lifting a wooden crate?"
+  },
+  {
+   "name": "fleets",
+   "at": "fleets#1",
+   "move": "right",
+   "prompt": "wide shot of many medieval wooden galleys floating on calm waters near Venice, tall fabric sails, early morning sun",
+   "check": "Are there wooden ships on water?"
+  },
+  {
+   "name": "ragusa",
+   "at": "In#1",
+   "prompt": "wide shot of the medieval stone walls of Ragusa along the blue sea coast, wooden merchant ships anchored offshore, bright sunlight, 14th century",
+   "move": "push",
+   "xfade": true,
+   "check": "Are there stone walls along a sea coast?"
+  },
+  {
+   "name": "island_wait",
+   "at": "wait#1",
+   "clip": true,
+   "prompt": "medium shot, travel-worn sailors sitting on a rocky island shore beside small tents, looking across water at a distant coast, 14th century",
+   "motion": "a sailor looks across the water, slow camera move right",
+   "check": "Are men sitting on a rocky shore?"
+  },
+  {
+   "name": "captain_watching",
+   "at": "captain#2",
+   "who": "captain",
+   "clip": true,
+   "prompt": "medium close-up, a sea captain standing on a wooden ship deck peering through a brass spyglass, he is {captain}, bright sunny ocean",
+   "motion": "he holds the spyglass to his eye carefully, slow camera push in",
+   "check": "Is a man looking through a spyglass?"
+  },
+  {
+   "name": "plague_check",
+   "at": "plague#1",
+   "who": "sailor",
+   "clip": true,
+   "prompt": "close-up, a pale sweating man lying on a wooden deck while a doctor checks his neck, the man is {sailor}, harsh sunlight",
+   "motion": "the sick man turns his head weakly, slow camera push in",
+   "hit": "plague#1",
+   "check": "Is a sick man lying on a deck?"
+  },
+  {
+   "name": "senate",
+   "at": "In#2",
+   "who": "senator",
+   "clip": true,
+   "prompt": "medium shot, an elegant nobleman standing in a grand Venetian council chamber unrolling a thick parchment decree, he is {senator}, tall arched windows, warm daylight",
+   "motion": "he unrolls the parchment slowly, slow camera push in",
+   "check": "Is a man unrolling a parchment?"
+  },
+  {
+   "name": "hourglass_13",
+   "at": "forty#1",
+   "clip": true,
+   "prompt": "close-up of golden sand dripping steadily inside a tall ornate brass hourglass on a dark wooden desk, warm window light",
+   "motion": "the sand falls continuously inside the glass, slow camera push in",
+   "check": "Is there an hourglass with dripping sand?"
+  },
+  {
+   "name": "lazzarettos",
+   "at": "Dubrovnik#1",
+   "move": "push",
+   "prompt": "wide shot of stone quarantine buildings with red tiled roofs built along a rocky island coastline, sea waves crashing, bright afternoon sun",
+   "xfade": true,
+   "check": "Are there stone buildings on a rocky coast?"
+  },
+  {
+   "name": "quarantine_site",
+   "at": "quarantine#1",
+   "who": "physician",
+   "clip": true,
+   "prompt": "medium shot, a physician in a brown robe standing under stone arches and pointing firm instructions to arriving sailors, he is {physician}, sunlight",
+   "motion": "he points his arm toward the inner courtyard, slow camera push in",
+   "check": "Is a man pointing?"
+  },
+  {
+   "name": "quarantena_lock",
+   "at": "quarantena:#1",
+   "clip": true,
+   "prompt": "extreme close-up of two hands turning a large heavy iron key inside a rustic lock on a thick wooden gate, warm sunlight",
+   "motion": "the key turns slowly inside the keyhole, slow camera push in",
+   "hit": "quarantena:#1",
+   "check": "Is a key turning in a lock?"
+  },
+  {
+   "name": "cough_wait",
+   "at": "You#1",
+   "clip": true,
+   "xfade": true,
+   "prompt": "close-up, a man in a beige linen tunic coughing into a coarse woven cloth, standing outside a medieval stone cottage, soft daylight",
+   "motion": "he coughs into the cloth and rests against the stone wall, slow camera push in",
+   "check": "Is a man coughing into a cloth?"
+  },
+  {
+   "name": "hug_family",
+   "at": "hugging#1",
+   "clip": true,
+   "prompt": "medium shot, a smiling man embracing a small child tightly outside a wooden doorway, a woman in a medieval dress smiling beside them, sunny afternoon light",
+   "motion": "he hugs the child tightly while smiling, slow camera push in",
+   "check": "Is a man hugging a child?"
+  },
+  {
+   "name": "estimates",
+   "at": "Current#1",
+   "who": "physician",
+   "clip": true,
+   "prompt": "medium close-up, a man dipping a quill pen into ink and writing on parchment, he is {physician}, dark wooden study room, candlelight",
+   "motion": "he writes on the parchment slowly, candle light flickers, slow camera push in",
+   "check": "Is a man writing on parchment?"
+  },
+  {
+   "name": "sickness",
+   "at": "infection#1",
+   "who": "sailor",
+   "clip": true,
+   "hit": "death#2",
+   "prompt": "close-up, a pale sick man lying in a wooden bunk with sweat on his forehead, eyes half-closed, he is {sailor}, dim candle lit ship interior",
+   "motion": "he breathes weakly and turns his head, slow camera push in",
+   "check": "Is a man lying in a bunk?"
+  },
+  {
+   "name": "forty_days",
+   "at": "Forty#3",
+   "clip": true,
+   "prompt": "close-up of hands carving notches into a wooden beam with a small knife near a sunlit window, stone room",
+   "motion": "the knife carves a notch into the wooden beam, slow camera push in",
+   "check": "Are hands carving notches into wood?"
+  },
+  {
+   "name": "worked",
+   "at": "quarantine#2",
+   "move": "right",
+   "prompt": "wide shot of several medieval wooden sailing ships anchored peacefully in calm blue waters near a sunny coastline, clear sky, morning light",
+   "check": "Are there wooden ships anchored in water?"
+  },
+  {
+   "name": "scholars",
+   "at": "Scholars#1",
+   "who": "physician",
+   "clip": true,
+   "xfade": true,
+   "prompt": "medium shot, a scholar in a brown wool robe turning the page of a large ancient book on a heavy desk, he is {physician}, sunbeams streaming through a stone arch window",
+   "motion": "he turns a parchment page of the large book slowly, slow camera push in",
+   "check": "Is a man turning the page of a book?"
+  },
+  {
+   "name": "alchemy",
+   "at": "alchemy's#1",
+   "move": "push",
+   "prompt": "close-up of clear glass flasks and an hourglass filled with sand on a dark wooden alchemy table, soft golden light",
+   "check": "Is there an hourglass on a table?"
+  },
+  {
+   "name": "venice_word",
+   "at": "Venice#2",
+   "move": "push",
+   "prompt": "wide shot of a golden lion statue on a tall column beside a stone quay in Venice, a sailing ship anchored offshore in the blue lagoon, morning light",
+   "check": "Is there a golden lion statue on a column?"
+  },
+  {
+   "name": "quarantine_word",
+   "at": "quarantine#3",
+   "clip": true,
+   "prompt": "close-up of a quill pen writing the word quarantena on old parchment, a hand in a black velvet sleeve, candle light, 15th century desk",
+   "motion": "the quill finishes the last letter, slow camera push in",
+   "check": "Is a quill writing on parchment?"
+  },
+  {
+   "name": "ragusa_first",
+   "at": "But#2",
+   "who": "senator",
+   "clip": true,
+   "prompt": "medium shot, {senator} standing on stone harbour steps pointing firmly at a distant island, a sailing ship anchored beyond, Adriatic sea, golden afternoon light",
+   "motion": "he points firmly at the island and speaks, slow camera push in",
+   "check": "Is a man pointing at an island?"
+  }
+ ]
+}

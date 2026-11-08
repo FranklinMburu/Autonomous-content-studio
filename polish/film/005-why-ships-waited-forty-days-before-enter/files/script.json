@@ -1,0 +1,109 @@
+{
+ "title": "Why Ships Waited Forty Days Before Entering Venice",
+ "channel": "Hidden Reasons",
+ "topic": "Why ships waited forty days before entering Venice and Ragusa (the origin of quarantine)",
+ "voice": "am_michael",
+ "speed": 1.57,
+ "pace": {
+  "gap_line": 0.08,
+  "gap_beat": 0.2,
+  "lead_in": 0.05,
+  "tail": 0.7
+ },
+ "beats": [
+  {
+   "lines": [
+    "A captain kept his ship anchored offshore, desperate to reach the city.",
+    "Venice was close, but his crew could not step ashore."
+   ],
+   "feel": "dread"
+  },
+  {
+   "lines": [
+    "Between 1348 and 1359, the Black Death wiped out an estimated 30% of Europe's population.",
+    "Venice's trade depended on fleets of three thousand three hundred ships."
+   ],
+   "feel": "frustration"
+  },
+  {
+   "lines": [
+    "In 1377, Ragusa made every newcomer wait thirty days on nearby islands.",
+    "The captain watched for signs of the plague before anyone could land."
+   ],
+   "feel": "tense hope"
+  },
+  {
+   "lines": [
+    "In 1448, the Venetian Senate stretched that wait to forty days.",
+    "Dubrovnik built the Lazzarettos, Europe's first quarantine sites.",
+    "The word for that wait was quarantena: forty days."
+   ],
+   "feel": "pressure"
+  },
+  {
+   "lines": [
+    "You see, the wait was like waiting out a cough before hugging your family."
+   ],
+   "feel": "recognition"
+  },
+  {
+   "lines": [
+    "Current estimates put the bubonic plague at thirty-seven days from infection to death.",
+    "Forty days outlasted the sickness, so the quarantine worked.",
+    "Scholars also linked the forty days to Hippocrates, Lent, and alchemy's philosophical month."
+   ],
+   "feel": "awe"
+  },
+  {
+   "lines": [
+    "Venice gave the world the word quarantine.",
+    "But Ragusa began the practice first, with thirty days."
+   ],
+   "feel": "surprise"
+  }
+ ],
+ "claims": [
+  {
+   "claim": "In 1377, newcomers to the city-state of Ragusa had to spend thirty days in a restricted place, originally nearby islands, to see whether Black Death symptoms developed.",
+   "url": "https://en.wikipedia.org/wiki/Quarantine"
+  },
+  {
+   "claim": "In 1448 the Venetian Senate prolonged the waiting period to forty days, giving birth to the term \"quarantine\" from the Venetian quarantena, meaning forty days.",
+   "url": "https://en.wikipedia.org/wiki/Quarantine"
+  },
+  {
+   "claim": "Current estimates put the bubonic plague's period from infection to death at thirty-seven days, making European forty-day quarantines highly successful at determining crew health.",
+   "url": "https://en.wikipedia.org/wiki/Quarantine"
+  },
+  {
+   "claim": "Dubrovnik was the first city in Europe to set up quarantine sites, the Lazzarettos of Dubrovnik, where arriving ship personnel were held for up to forty days.",
+   "url": "https://en.wikipedia.org/wiki/Quarantine"
+  },
+  {
+   "claim": "Between 1348 and 1359, the Black Death wiped out an estimated 30% of Europe's population, leading governments to establish containment measures.",
+   "url": "https://en.wikipedia.org/wiki/Quarantine"
+  },
+  {
+   "claim": "At the peak of its power and wealth, Venice had 36,000 sailors operating 3,300 ships, dominating Mediterranean commerce.",
+   "url": "https://en.wikipedia.org/wiki/Venice"
+  },
+  {
+   "claim": "The original forty-day period was associated with the medical theory of Hippocrates, the Lenten Season of the Christian tradition, and the philosophical month in ancient western alchemy.",
+   "url": "https://openalex.org/W2307565012"
+  }
+ ],
+ "key_words": [
+  "captain",
+  "ships",
+  "quarantine",
+  "quarantena",
+  "Ragusa",
+  "Venetian",
+  "Dubrovnik",
+  "Lazzarettos",
+  "plague",
+  "thirty-seven",
+  "Hippocrates",
+  "forty"
+ ]
+}
