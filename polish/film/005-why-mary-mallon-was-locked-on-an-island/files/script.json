@@ -1,0 +1,91 @@
+{
+ "title": "Why Mary Mallon was locked on an island",
+ "channel": "Hidden Reasons",
+ "topic": "Why Mary Mallon was kept on an island for decades",
+ "voice": "am_michael",
+ "speed": 1.38,
+ "pace": {
+  "gap_line": 0.08,
+  "gap_beat": 0.2,
+  "lead_in": 0.05,
+  "tail": 0.7
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "Mary brandished a kitchen fork like a sword, refusing anyone entry."
+   ]
+  },
+  {
+   "feel": "sympathy",
+   "lines": [
+    "Neighbors laughed, calling her a stubborn cook who feared losing work.",
+    "They dismissed the doctor's warnings as mere gossip."
+   ]
+  },
+  {
+   "feel": "dread",
+   "lines": [
+    "Police dragged her to Willard Parker Hospital.",
+    "Scientists tested her stool three times each week.",
+    "The bacteria hid in her gallbladder, impossible to cure."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it’s like a broken spoon.",
+    "It keeps poisoning every bowl of soup."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "She kept cooking, spreading typhoid to dozens and causing three deaths.",
+    "The city locked her on North Brother Island to stop more outbreaks."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "Other carriers were released, given jobs, and paid rent.",
+    "Mary alone stayed thirty‑six years.",
+    "She became a scapegoat because she was a woman cook."
+   ]
+  },
+  {
+   "feel": "frustration",
+   "lines": [
+    "When she tried to work again in 1914, another outbreak erupted.",
+    "Investigators matched her handwriting and sent her back to the island.",
+    "She spent the rest of her life baking cakes for fellow patients."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Mallon was forcibly quarantined on North Brother Island after being identified as a typhoid carrier and remained there until her death in 1938.",
+   "url": "https://en.wikipedia.org/wiki/Mary_Mallon"
+  },
+  {
+   "claim": "Her long confinement was unique; other asymptomatic carriers were not held for decades, reflecting gender and occupational bias.",
+   "url": "https://doi.org/10.53032/tcl.2026.11.4.14"
+  },
+  {
+   "claim": "After a 1915 outbreak at Sloane Maternity Hospital, investigators linked the illness to Mallon and returned her to the island.",
+   "url": "https://en.wikipedia.org/wiki/Mary_Mallon"
+  }
+ ],
+ "key_words": [
+  "fork",
+  "hospital",
+  "stool",
+  "gallbladder",
+  "typhoid",
+  "North Brother Island",
+  "carrier",
+  "gender",
+  "scapegoat"
+ ]
+}
