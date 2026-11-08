@@ -40,5 +40,12 @@
   "problems": [
    "the judge preferred the draft over the polish: Candidate 1 hooks the reader immediately on the specific topic with a strong 10-word opening, maintains a direct focus on rear-end greetings throughout, and integrates source details smoothly with well-aligned visual cues."
   ]
+ },
+ {
+  "at": "2026-11-08T06:09:06+00:00",
+  "backup": true,
+  "problems": [
+   "backup polish failed: no model in tier 'standard' could answer (groq:openai/gpt-oss-120b: invalid output; groq:openai/gpt-oss-120b: HTTP 413; google:gemini-3.6-flash: HTTP 429; nvidia:minimaxai/minimax-m3.1-flash: HTTP 0)"
+  ]
  }
 ]
