@@ -1,0 +1,119 @@
+{
+ "title": "How London's Great Stink Built Its Sewers",
+ "channel": "Hidden Reasons",
+ "topic": "Why the Great Stink of 1858 forced London to build sewers",
+ "voice": "am_michael",
+ "speed": 1.38,
+ "pace": {
+  "gap_line": 0.08,
+  "gap_beat": 0.2,
+  "lead_in": 0.05,
+  "tail": 0.7
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A worker spread lime across Thames mud while London choked on sewage.",
+    "The river had become London's open drain."
+   ]
+  },
+  {
+   "feel": "frustration",
+   "lines": [
+    "The lime worker returned at low tide, day after day.",
+    "Earlier sewer plans had been ignored because the costs were too high.",
+    "Now the stink could no longer be ignored."
+   ]
+  },
+  {
+   "feel": "horror",
+   "lines": [
+    "Queen Victoria and Prince Albert tried a pleasure cruise on the Thames.",
+    "Queen Victoria and Prince Albert returned to shore within minutes.",
+    "The press named it the Great Stink.",
+    "Members of Parliament fled the Commons chamber."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it was like a hot, full rubbish bin in a sealed room.",
+    "The worker could hide the smell, but not the waste.",
+    "Londoners feared the stench would spread cholera."
+   ]
+  },
+  {
+   "feel": "dread",
+   "lines": [
+    "London's old sewers emptied straight into the Thames.",
+    "More people and flushing toilets sent more waste into broken pipes.",
+    "Hot, dry weather dropped the river level and left raw sewage on the banks."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "Joseph Bazalgette built sloping sewers that carried waste east, beyond the city.",
+    "Pumping stations lifted sewage into higher pipes."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "But bad air wasn't the killer. Contaminated water was.",
+    "The stench simply forced Parliament to act.",
+    "Those sewers still carry waste for over nine million Londoners."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Men were employed spreading lime onto the Thames foreshore at low tide to fight the smell, at a cost of £1,500 per week.",
+   "url": "https://en.wikipedia.org/wiki/Great_Stink"
+  },
+  {
+   "claim": "Queen Victoria and Prince Albert attempted a pleasure cruise on the Thames but returned to shore within a few minutes because the smell was so terrible.",
+   "url": "https://en.wikipedia.org/wiki/Great_Stink"
+  },
+  {
+   "claim": "The press called the event the Great Stink, and Parliament was compelled to legislate by the force of the stench.",
+   "url": "https://en.wikipedia.org/wiki/Great_Stink"
+  },
+  {
+   "claim": "The stink drove Members of Parliament from the House of Commons chamber.",
+   "url": "https://openalex.org/W1977698978"
+  },
+  {
+   "claim": "London's ageing, inadequate sewers emptied directly into the Thames, and hot, dry weather in 1858 lowered the river level so raw effluent remained on the banks.",
+   "url": "https://en.wikipedia.org/wiki/Great_Stink"
+  },
+  {
+   "claim": "Joseph Bazalgette's accepted plan moved effluent eastwards along interconnecting sewers sloped toward outfalls beyond the metropolitan area, with pumping stations lifting sewage into higher pipes.",
+   "url": "https://en.wikipedia.org/wiki/Great_Stink"
+  },
+  {
+   "claim": "Earlier proposals to modernise London's sewers were neglected because of their costs, and after the Great Stink Parliament gave Bazalgette responsibility for a modern system.",
+   "url": "https://en.wikipedia.org/wiki/London_sewer_system"
+  },
+  {
+   "claim": "Dr John Snow correctly diagnosed contaminated water as the way cholera spread in 1849, but bad air was blamed until the 1866 outbreak.",
+   "url": "https://en.wikipedia.org/wiki/London_sewer_system"
+  },
+  {
+   "claim": "Bazalgette's sewer system still operates in the 21st century, serving a city grown to over nine million people.",
+   "url": "https://en.wikipedia.org/wiki/Great_Stink"
+  }
+ ],
+ "key_words": [
+  "lime",
+  "sewers",
+  "Thames",
+  "Stink",
+  "cholera",
+  "Bazalgette",
+  "Parliament",
+  "waste",
+  "banks"
+ ]
+}

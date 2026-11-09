@@ -1,0 +1,302 @@
+{
+ "era": "1850s-1870s",
+ "cast": {
+  "worker": "a 40 year old London lime labourer with a weathered tan face, short black hair under a worn flat cloth cap, heavy stubble, a threadbare brown waistcoat over a rolled-sleeve white shirt and mud-stained trousers, 1850s",
+  "bazalgette": "a 48 year old English civil engineer with a broad ruddy face, a receding hairline of dark hair greying at the temples, a full bushy dark beard and moustache, wearing a black frock coat, grey waistcoat and black cravat, 1858-1870s",
+  "queen": "a 39 year old Queen Victoria with a round pale face, centre-parted dark brown hair in a low bun, a small blue jewelled crown, wearing a black silk gown with white lace sleeves and a blue sash, 1858",
+  "prince": "a 39 year old Prince Albert with a tall lean build, a long angular face, short dark hair, a neat moustache and sideburns, wearing a dark green frock coat with gold braid and a red sash, 1858",
+  "mp": "a 55 year old Member of Parliament with a heavy build, a jowly clean-shaven face, thin grey hair, wearing a black parliamentary coat, white waistcoat and grey trousers, 1858",
+  "citizen": "a 32 year old London milliner with a long oval face, glossy black hair in a thick low bun, a small black hat with a teal ribbon, wearing a deep plum wool dress with a teal silk neck scarf, 1858"
+ },
+ "music": "tense",
+ "key_words": [
+  0,
+  "sewage#1",
+  "drain#1",
+  "worker#2",
+  "tide#1",
+  "plans#1",
+  "costs#1",
+  "stink#1",
+  "Queen#1",
+  "Prince#1",
+  "Thames#2",
+  "Queen#2",
+  "press#1",
+  "Members#1",
+  "rubbish#1",
+  "worker#3",
+  "waste#1",
+  "Londoners#1",
+  "cholera#1",
+  "sewers#1",
+  "people#1",
+  "toilets#1",
+  "pipes#1",
+  "Hot#2",
+  "banks#1",
+  "Joseph#1",
+  "sewers#2",
+  "Pumping#1",
+  "bad#1",
+  "water#1",
+  "stench#2",
+  "sewers#3",
+  "million#1"
+ ],
+ "shots": [
+  {
+   "name": "lime_worker",
+   "at": 0,
+   "who": "worker",
+   "clip": true,
+   "prompt": "medium shot, a labourer scattering white lime powder from a wooden bucket onto dark river mud, he is {worker}, foggy 1850s Thames riverbank, gloomy daylight",
+   "motion": "he scatters white powder over the dark mud, fog drifts, slow camera push in",
+   "check": "Is a man scattering white powder from a bucket?"
+  },
+  {
+   "name": "london_choking",
+   "at": "choked#1",
+   "who": "citizen",
+   "clip": true,
+   "prompt": "close-up, a worried woman in a deep plum dress pressing a cloth over her nose and mouth while coughing, she is {citizen}, crowded murky 1850s London street, hazy yellow air",
+   "motion": "she presses the cloth tight to her face and coughs, slow camera push in",
+   "check": "Is a woman pressing a cloth to her face?"
+  },
+  {
+   "name": "open_drain",
+   "at": "river#1",
+   "move": "push",
+   "prompt": "wide shot of the murky brown Thames river overflowing with dark waste and debris, foggy Victorian London skyline in background, gloomy overcast sky",
+   "check": "Is this a wide shot of a river in a city?"
+  },
+  {
+   "name": "tide",
+   "at": "The#2",
+   "who": "worker",
+   "clip": true,
+   "prompt": "medium shot, a man shoveling white powder over dark river mud, he is {worker}, foggy 1850s Thames shoreline with old wooden boats at low tide, grey daylight",
+   "motion": "he shovels the white powder rhythmically, slow camera push in",
+   "check": "Is a man shoveling powder?"
+  },
+  {
+   "name": "plans",
+   "at": "Earlier#1",
+   "move": "push",
+   "prompt": "close-up of rolled paper architectural sewer maps lying under thick dust on a dark mahogany table, oil lamp light",
+   "check": "Are there paper maps on a table?"
+  },
+  {
+   "name": "costs",
+   "at": "because#1",
+   "who": "mp",
+   "clip": true,
+   "prompt": "medium shot, a stern heavy official in a black frock coat shaking his head while counting gold coins on a leather ledger, he is {mp}, dim 1850s office",
+   "motion": "he shakes his head slowly while stacking a gold coin, slow camera push in",
+   "check": "Is a man counting coins?"
+  },
+  {
+   "name": "stink",
+   "at": "stink#1",
+   "who": "citizen",
+   "clip": true,
+   "prompt": "close-up, a woman in a deep plum dress pressing a white cloth handkerchief over her nose and mouth, grimacing, she is {citizen}, foggy 1850s London bridge, gloom",
+   "motion": "she presses the cloth tighter to her nose and squints, slow camera push in",
+   "check": "Is a woman covering her nose with a cloth?"
+  },
+  {
+   "name": "cruise",
+   "at": "Queen#1",
+   "who": "queen",
+   "clip": true,
+   "prompt": "medium shot, a royal woman wearing a small crown and black silk gown standing on the wooden deck of a 1858 Victorian river steamboat, she is {queen}, river Thames with grey water, sunny day",
+   "motion": "she looks out across the river water, slow camera push in",
+   "check": "Is a royal woman standing on a steamboat deck?"
+  },
+  {
+   "name": "smell",
+   "at": "cruise#1",
+   "who": "prince",
+   "clip": true,
+   "prompt": "medium close-up, a tall gentleman turning his head away in disgust, covering his face with a white handkerchief, he is {prince}, standing on a steamboat deck, foggy river background",
+   "motion": "he turns away and presses the handkerchief to his face, slow camera push in",
+   "check": "Is a man covering his face with a handkerchief?"
+  },
+  {
+   "name": "shore",
+   "at": "returned#2",
+   "who": "queen",
+   "clip": true,
+   "prompt": "medium shot, {queen} stepping quickly off a boat ramp onto stone river stairs, escorted by royal guards, looking distressed, 1858 London shore, cloudy sky",
+   "motion": "she steps quickly off the boat ramp, slow camera push in",
+   "check": "Is a woman stepping off a boat ramp?"
+  },
+  {
+   "name": "press",
+   "at": "press#1",
+   "clip": true,
+   "xfade": true,
+   "prompt": "close-up of a 1858 printing press machine rolling black ink onto fresh newspaper pages, warm workshop light",
+   "motion": "the printing press roller moves over paper, slow camera push in",
+   "check": "Is there a newspaper printing press?"
+  },
+  {
+   "name": "fled",
+   "at": "fled#1",
+   "who": "mp",
+   "clip": true,
+   "hit": "fled#1",
+   "prompt": "medium shot, an older politician holding a scented cloth to his nose while hurrying through a heavy wooden door, he is {mp}, high arched stone doorway of Parliament, 1858",
+   "motion": "he turns and steps hastily through the doorway, slow camera move back",
+   "check": "Is a man holding a cloth to his nose while walking through a doorway?"
+  },
+  {
+   "name": "bin",
+   "at": "You#1",
+   "move": "push",
+   "prompt": "close-up of an overflowing wooden bin spilling rotting vegetable scraps on a dark wooden floor, dim 1850s room, warm sunbeams",
+   "check": "Is there an overflowing wooden bin?"
+  },
+  {
+   "name": "lime_worker_13",
+   "at": "worker#3",
+   "who": "worker",
+   "clip": true,
+   "prompt": "medium close-up, a labourer pouring white lime powder from a hessian sack onto dark river mud, he is {worker}, gloomy Thames riverbank, 1850s",
+   "motion": "he pours the white lime powder slowly, slow camera push in",
+   "check": "Is a man pouring white powder?"
+  },
+  {
+   "name": "fear",
+   "at": "Londoners#1",
+   "who": "citizen",
+   "clip": true,
+   "prompt": "medium close-up, a woman in a deep plum dress pressing a dirty white handkerchief firmly over her nose and mouth, looking scared, she is {citizen}, foggy 1850s London street",
+   "motion": "she covers her face tightly and looks around nervously, slow camera push in",
+   "check": "Is a woman covering her nose with a handkerchief?"
+  },
+  {
+   "name": "cholera",
+   "at": "cholera#1",
+   "clip": true,
+   "prompt": "close-up of a pale sick man lying in bed with a wet cloth on his sweaty forehead, eyes closed, dim 1850s bedroom, candle light",
+   "motion": "he breathes weakly and shivers slightly, candle flame flickers, slow camera push in",
+   "hit": "cholera#1",
+   "check": "Is a sick man lying in bed?"
+  },
+  {
+   "name": "outfall",
+   "at": "London's#2",
+   "xfade": true,
+   "move": "push",
+   "prompt": "medium shot, dark sewage gushing from an arched brick sewer mouth into the muddy brown Thames, wet stone embankment, overcast daylight",
+   "check": "Is sewage pouring from a brick sewer into the river?"
+  },
+  {
+   "name": "thames",
+   "at": "Thames#3",
+   "move": "right",
+   "prompt": "wide shot, the brown Thames covered with floating rubbish and oily scum between old London wharves, dull hazy summer daylight",
+   "check": "Is the river covered with floating rubbish?"
+  },
+  {
+   "name": "flush",
+   "at": "flushing#1",
+   "clip": true,
+   "prompt": "close-up of a hand pulling a chain on a white ceramic flushing cistern, dirty Victorian London washroom, dim lamp light",
+   "motion": "the hand pulls the chain down and the handle drops, slow camera push in",
+   "check": "Is a hand pulling a chain on a cistern?"
+  },
+  {
+   "name": "broken",
+   "at": "pipes#1",
+   "who": "worker",
+   "clip": true,
+   "prompt": "medium shot, a lime labourer kneeling in a flooded brick cellar lifting a cracked sewer pipe, he is {worker}, dim lamp light",
+   "motion": "he lifts the cracked pipe slightly and water drips from it, slow camera push in",
+   "check": "Is a man kneeling and lifting a broken pipe?"
+  },
+  {
+   "name": "sewage",
+   "at": "sewage#2",
+   "move": "pull",
+   "prompt": "wide shot, an exposed cracked mud bank beside a low Thames river, raw sewage and dark sludge coating the shore, hot dry summer sun, hazy skyline",
+   "check": "Is raw sewage on an exposed riverbank?",
+   "hit": "sewage#2"
+  },
+  {
+   "name": "bazalgette_digs",
+   "at": "Joseph#1",
+   "who": "bazalgette",
+   "clip": true,
+   "xfade": true,
+   "prompt": "medium shot, {bazalgette} pointing down into a deep brick sewer trench while masons lay bricks below, he is {bazalgette}, a London sewer worksite in 1858, grey overcast daylight",
+   "motion": "he points down and motions to the masons, slow camera push in",
+   "check": "Is a man pointing down into a brick sewer trench?"
+  },
+  {
+   "name": "sloping_tunnel",
+   "at": "east#1",
+   "move": "down",
+   "prompt": "wide shot, a long sloping brick sewer tunnel descending underground with dark water rushing downhill, London 1858, dim glow from a distant wall lamp",
+   "check": "Is there a sloping brick sewer tunnel with water flowing?"
+  },
+  {
+   "name": "pumping_station",
+   "at": "Pumping#1",
+   "who": "worker",
+   "clip": true,
+   "hit": "Pumping#1",
+   "prompt": "medium shot, {worker} turning a large iron wheel beside thick riveted pipes in a Victorian brick pumping station, steam drifting, warm gaslight",
+   "motion": "he turns the heavy wheel slowly, steam drifts, slow camera push in",
+   "check": "Is a man turning a large iron wheel?"
+  },
+  {
+   "name": "sickbed",
+   "at": "But#2",
+   "who": "citizen",
+   "clip": true,
+   "prompt": "close-up, a woman in a deep plum dress lying in a narrow bed covering her nose with a cloth, a glass of murky brown water on the bedside table, she is {citizen}, dim London lodging, cold grey light",
+   "motion": "she shifts weakly and presses the cloth to her nose, slow camera push in",
+   "hit": "killer#1",
+   "xfade": true,
+   "check": "Is a woman lying in a bed?"
+  },
+  {
+   "name": "dirtywater",
+   "at": "Contaminated#1",
+   "clip": true,
+   "prompt": "extreme close-up, a hand dipping a glass into a bucket of dark sewage water, grey scum and floating debris on the surface, stone yard, cold daylight",
+   "motion": "the water ripples and swirls as the glass sinks, slow camera push in",
+   "hit": "Contaminated#1",
+   "check": "Is a glass dipping into dirty water?"
+  },
+  {
+   "name": "commons",
+   "at": "The#18",
+   "who": "mp",
+   "clip": true,
+   "prompt": "medium shot, a stout Member of Parliament standing among green benches raising his hand while nearby men cover their noses, he is {mp}, crowded Commons chamber, gaslight",
+   "motion": "he rises and lifts his hand while men turn away, slow camera push in",
+   "hit": "Parliament#2",
+   "check": "Is a man raising his hand in a chamber?"
+  },
+  {
+   "name": "sewertunnel",
+   "at": "Those#1",
+   "move": "push",
+   "prompt": "wide shot of a Victorian brick sewer tunnel with dark water running along the channel under an arched vault, dim lantern light",
+   "check": "Is there a brick sewer with water running?"
+  },
+  {
+   "name": "modernsewer",
+   "at": "Londoners#2",
+   "modern": true,
+   "move": "push",
+   "prompt": "wide shot of a modern concrete sewer tunnel with clear water flowing between the walls, cool daylight from above, city pipes overhead",
+   "hit": "Londoners#2",
+   "xfade": true,
+   "check": "Is there a sewer tunnel with flowing water?"
+  }
+ ]
+}
