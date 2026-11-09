@@ -1,0 +1,84 @@
+{
+ "title": "Why Miners Took Canaries Underground",
+ "channel": "Hidden Reasons",
+ "topic": "Why coal miners carried canaries underground",
+ "voice": "am_michael",
+ "speed": 1.38,
+ "pace": {
+  "gap_line": 0.08,
+  "gap_beat": 0.2,
+  "lead_in": 0.05,
+  "tail": 0.7
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A coal miner carried a small bird deep underground.",
+    "The bird rode in a cage, breathing faster than any man.",
+    "The miner trusted this tiny creature with his life."
+   ]
+  },
+  {
+   "feel": "dread",
+   "lines": [
+    "The mine air could hide carbon monoxide, a gas with no smell.",
+    "Miners could not see it, smell it, or feel it.",
+    "It killed without warning.",
+    "One breath of enough gas could stop a man's heart."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it's like a smoke detector beeping before you see flames."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "Canaries breathe faster and have a higher metabolism than miners.",
+    "Their small bodies absorbed the poison first.",
+    "The bird would collapse while the miners still felt fine.",
+    "That collapse gave miners time to escape.",
+    "The bird's distress was the alarm."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "John Scott Haldane proposed this idea in 1895.",
+    "Canaries were used in mines as early as 1896.",
+    "Modern sensors have replaced the birds.",
+    "But the phrase 'canary in a coal mine' still warns us of hidden danger."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Canaries were used as early-warning signals for toxic gases, primarily carbon monoxide, because their rapid breathing rate, small size, and high metabolism caused them to succumb before miners.",
+   "url": "https://en.wikipedia.org/wiki/Sentinel_species"
+  },
+  {
+   "claim": "The idea of placing a warm-blooded animal in a mine to detect carbon monoxide was first proposed by John Scott Haldane in 1895, and canaries were used as early as 1896.",
+   "url": "https://en.wikipedia.org/wiki/Sentinel_species"
+  },
+  {
+   "claim": "Canaries would express signs of distress or collapse much earlier than other species, allowing coal workers to evacuate before the toxic gas reached a hazardous concentration.",
+   "url": "https://doi.org/10.14361/9783839467664-006"
+  },
+  {
+   "claim": "Modern sensing equipment has replaced the use of small animals such as canaries in mines.",
+   "url": "https://en.wikipedia.org/wiki/Coal_mining"
+  }
+ ],
+ "key_words": [
+  "canary",
+  "miner",
+  "carbon monoxide",
+  "collapse",
+  "escape",
+  "Haldane",
+  "sensors"
+ ]
+}

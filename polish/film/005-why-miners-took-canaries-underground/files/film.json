@@ -1,0 +1,202 @@
+{
+ "era": "1890s",
+ "cast": {
+  "miner": "a 34 year old coal miner with a soot-blackened face, a thick dark brown beard, tired grey eyes, a flat leather cap with a small lamp, a rough brown wool jacket, dark trousers and heavy black boots, 1890s",
+  "boy": "a 12 year old mine trapper boy with a pale thin face, messy black hair, a ragged grey shirt, brown shorts held by one strap and bare feet, 1890s",
+  "haldane": "a 43 year old Scottish scientist with a long narrow clean-shaven face, short dark hair, wire-rimmed spectacles, a grey tweed suit, a white shirt and a dark bow tie, 1890s",
+  "canary": "a small bright yellow canary with a black cap and black wing tips, a tiny orange beak and thin pink legs"
+ },
+ "music": "tense",
+ "key_words": [
+  "canary",
+  "gas",
+  "collapse",
+  "escape",
+  "sensors",
+  "warning"
+ ],
+ "shots": [
+  {
+   "name": "hook",
+   "at": 0,
+   "who": "miner",
+   "clip": true,
+   "prompt": "medium shot, a soot-faced miner walking forward through a dark mine tunnel, holding a small wooden cage with a yellow canary inside, he is {miner}, a dim oil lamp on his cap, rough timber props, warm orange light",
+   "motion": "he walks forward slowly, the lamp flickers, slow camera push in",
+   "check": "Is a man carrying a small cage with a bird?"
+  },
+  {
+   "name": "deep",
+   "at": "deep#1",
+   "move": "down",
+   "prompt": "wide shot looking down a deep dark mine shaft with a wooden lift cage descending, a single lamp glowing far below, black rock walls, 1890s",
+   "check": "Is this a deep dark mine shaft?"
+  },
+  {
+   "name": "cage",
+   "at": "cage#1",
+   "who": "canary",
+   "clip": true,
+   "prompt": "extreme close-up of a small bright yellow canary sitting inside a tiny wooden cage with thin wire bars, its beak slightly open, dark mine background, warm lamp light",
+   "motion": "the canary breathes fast and turns its head, slow camera push in",
+   "check": "Is a yellow bird inside a small cage?"
+  },
+  {
+   "name": "trusted",
+   "at": "trusted#1",
+   "who": "miner",
+   "clip": true,
+   "prompt": "close-up, a soot-blackened miner holding a small wooden cage up near his face, looking at the yellow canary inside with a serious trusting look, he is {miner}, dark mine tunnel, warm lamp light",
+   "motion": "he lifts the cage slightly and gazes at the bird, the lamp flickers, slow camera push in",
+   "check": "Is a man holding a cage with a bird up to his face?"
+  },
+  {
+   "name": "gas",
+   "at": "The#3",
+   "move": "push",
+   "prompt": "close-up of a rusty iron pipe in a dark mine tunnel with a faint haze of gas drifting from it, dim lantern light, 1890s coal mine",
+   "check": "Is there a pipe in a dark tunnel?",
+   "xfade": true
+  },
+  {
+   "name": "invisible",
+   "at": "Miners#1",
+   "who": "miner",
+   "clip": true,
+   "prompt": "medium shot, {miner} standing in a dark mine tunnel squinting and sniffing the air, holding a lantern, soot-blackened face, 1890s coal mine",
+   "motion": "he sniffs the air and frowns, lantern flickers, slow camera push in",
+   "check": "Is a miner sniffing the air?"
+  },
+  {
+   "name": "deadly",
+   "at": "It#4",
+   "move": "down",
+   "prompt": "a dead canary lying on its back on the dirty floor of a dark mine tunnel, tiny yellow body, dim lantern light, 1890s",
+   "check": "Is there a dead bird on the ground?"
+  },
+  {
+   "name": "heart",
+   "at": "One#1",
+   "who": "miner",
+   "clip": true,
+   "prompt": "close-up, {miner} clutching his chest in pain, gasping, soot-blackened face, dark mine tunnel, lantern light, 1890s",
+   "motion": "he clutches his chest and gasps, slow camera push in",
+   "hit": "heart#1",
+   "check": "Is a man clutching his chest?"
+  },
+  {
+   "name": "collapse",
+   "at": "could#3",
+   "who": "miner",
+   "clip": true,
+   "prompt": "medium shot, {miner} collapsing to his knees on the mine floor, one hand on the ground, dark tunnel, lantern light, 1890s",
+   "motion": "he falls to his knees and slumps forward, slow camera push in",
+   "check": "Is a man falling to his knees?"
+  },
+  {
+   "name": "smoke_detector",
+   "at": "You#1",
+   "clip": true,
+   "prompt": "close-up of a hand pressing the round white button on a ceiling smoke detector in a bright modern hallway, soft daylight",
+   "motion": "the finger presses the button and the detector blinks, slow camera push in",
+   "check": "Is a hand pressing a ceiling smoke detector?",
+   "xfade": true
+  },
+  {
+   "name": "flames",
+   "at": "before#1",
+   "move": "push",
+   "prompt": "close-up of orange flames rising from a burning wooden chair in a dark room, thick black smoke curling upward, warm firelight",
+   "check": "Are there flames and smoke?"
+  },
+  {
+   "name": "breathing",
+   "at": "Canaries#1",
+   "clip": true,
+   "prompt": "extreme close-up of a small yellow canary's chest feathers rising and falling rapidly as it breathes, perched on a wooden dowel inside a wire cage, dim mine tunnel light",
+   "motion": "the canary's chest moves quickly as it breathes, slow camera push in",
+   "check": "Is a small yellow bird breathing?",
+   "xfade": true
+  },
+  {
+   "name": "metabolism",
+   "at": "metabolism#1",
+   "move": "push",
+   "prompt": "close-up of a canary perched on a miner's soot-stained finger, its tiny body pulsing with rapid breath, dark coal mine background, warm lamp light",
+   "check": "Is a small bird sitting on a finger?"
+  },
+  {
+   "name": "absorb",
+   "at": "absorbed#1",
+   "clip": true,
+   "prompt": "close-up of a canary lying on its side at the bottom of a wire cage, eyes closing, feathers ruffled, dim mine tunnel, a miner's boot nearby",
+   "motion": "the canary's head droops slowly, slow camera push in",
+   "check": "Is a small bird lying at the bottom of a cage?"
+  },
+  {
+   "name": "minersfine",
+   "at": "while#1",
+   "who": "miner",
+   "clip": true,
+   "prompt": "medium shot, a coal miner standing upright and looking healthy, holding a pickaxe over his shoulder, he is {miner}, dark mine tunnel, lamp light on his face",
+   "motion": "he shifts his weight and looks around, slow camera push in",
+   "check": "Is a miner standing with a pickaxe?"
+  },
+  {
+   "name": "escape",
+   "at": "escape#1",
+   "who": "miner",
+   "clip": true,
+   "prompt": "medium shot, a coal miner running toward a bright mine exit with a canary cage in his hand, he is {miner}, dark tunnel, light ahead",
+   "motion": "he runs toward the light, slow camera move back",
+   "check": "Is a miner running toward light?"
+  },
+  {
+   "name": "alarm",
+   "at": "alarm#1",
+   "move": "push",
+   "prompt": "close-up of a canary lying still at the bottom of a wire cage, a miner's hand reaching toward it, dark mine tunnel, warm lamp light",
+   "check": "Is a small bird lying in a cage?"
+  },
+  {
+   "name": "haldane",
+   "at": "John#1",
+   "who": "haldane",
+   "clip": true,
+   "prompt": "medium shot, {haldane} standing at a wooden desk holding up a small yellow canary in a wire cage, an 1890s study with books and a lamp, warm light",
+   "motion": "he lifts the cage gently and studies the bird, slow camera push in",
+   "check": "Is a man holding a bird cage?",
+   "xfade": true
+  },
+  {
+   "name": "mines",
+   "at": "Canaries#2",
+   "move": "push",
+   "prompt": "wide shot of the dark entrance of a coal mine with a wooden headframe and a line of miners with lamps walking in, grey morning light, 1890s",
+   "check": "Is this a mine entrance with men?"
+  },
+  {
+   "name": "sensor",
+   "at": "Modern#1",
+   "move": "push",
+   "prompt": "close-up of a modern black gas sensor device clipped to a miner's belt in a dark tunnel, a small green light glowing, 1890s mine setting",
+   "check": "Is there a small device on a belt?"
+  },
+  {
+   "name": "phrase",
+   "at": "But#1",
+   "who": "haldane",
+   "clip": true,
+   "prompt": "medium shot, {haldane} writing with a quill pen at a wooden desk by a window, a small empty bird cage beside his papers, soft daylight, 1890s",
+   "motion": "his hand moves the pen across the paper, slow camera push in",
+   "check": "Is a man writing at a desk?"
+  },
+  {
+   "name": "end",
+   "at": "still#2",
+   "move": "pull",
+   "prompt": "a small yellow canary perched on a wooden beam inside a dark coal mine tunnel, a faint warm lamp glow far behind, dust in the air",
+   "check": "Is a yellow bird perched in a dark tunnel?"
+  }
+ ]
+}
