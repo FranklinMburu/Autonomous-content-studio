@@ -4,4 +4,3 @@ Problems left by the free models (the copy-paste polish fixes them):
 - script: not supported by the sources, fix or remove: They warned him he’d ruin his career.
 - script: not supported by the sources, fix or remove: His daring act finally silenced critics.
 - script: narration has 91 words; it must be 150-210
-- shot refusal: 3.5 s on screen (max 3.2; split it)
