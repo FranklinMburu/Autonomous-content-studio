@@ -3,14 +3,20 @@
  "topic": "Why can't you tickle yourself?",
  "lane": null,
  "topic_key": "730f73e48269a66e",
- "stage": "queue",
+ "stage": "attention",
  "created": "2026-11-01T06:22:58+00:00",
- "attempts": 2,
+ "attempts": 3,
  "history": [
   {
    "at": "2026-11-01T06:22:58+00:00",
    "to": "queue",
    "why": "created"
+  },
+  {
+   "at": "2026-11-09T06:22:45+00:00",
+   "from": "queue",
+   "to": "attention",
+   "why": "polish rejected 3 times (last by the backup model): ['fact check: 1 unsupported, 1 partial claims: One proposed hypothesis says light‑touch acts as a non‑self detector, helps guard foreign objects and protects vulnerable spots.; Try closing your eyes and touching your nose, then let a friend tickle you—the surprise makes all the difference.']"
   }
  ],
  "provenance": {
