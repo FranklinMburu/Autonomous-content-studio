@@ -1,0 +1,76 @@
+{
+ "title": "Why Goldberger Swallowed Scabs",
+ "channel": "Hidden Reasons",
+ "topic": "Why Joseph Goldberger swallowed scabs from sick patients to prove pellagra was not contagious",
+ "voice": "am_michael",
+ "speed": 1.56,
+ "pace": {
+  "gap_line": 0.08,
+  "gap_beat": 0.2,
+  "lead_in": 0.05,
+  "tail": 0.7
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A physician lifted a sick patient’s scab and popped it into his mouth."
+   ]
+  },
+  {
+   "feel": "skepticism",
+   "lines": [
+    "Colleagues laughed, insisting pellagra spread like any germ.",
+    "They warned him he’d ruin his career."
+   ]
+  },
+  {
+   "feel": "determination",
+   "lines": [
+    "Goldberger refuses to back down.",
+    "He gathers volunteers for a “filth party”.",
+    "He injects pellagric blood and even swallows the scabs himself."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it’s like tasting a mystery flavor to prove it isn’t poison."
+   ]
+  },
+  {
+   "feel": "clarity",
+   "lines": [
+    "His self‑experiment shows the disease comes from a poor diet, not an infectious germ."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "The irony? His daring act finally silenced critics, yet the cure—niacin—was discovered years later."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Goldberger ran “filth parties” where he and volunteers injected pellagric blood and swallowed scabs to prove pellagra was not contagious.",
+   "url": "https://en.wikipedia.org/wiki/Joseph_Goldberger"
+  },
+  {
+   "claim": "Critics believed pellagra was an infectious disease, while Goldberger suspected diet was the true cause.",
+   "url": "https://en.wikipedia.org/wiki/Joseph_Goldberger"
+  },
+  {
+   "claim": "Pellagra is caused by a lack of niacin (vitamin B3) and tryptophan, not by germs.",
+   "url": "https://en.wikipedia.org/wiki/Pellagra"
+  }
+ ],
+ "key_words": [
+  "physician",
+  "scab",
+  "filth",
+  "diet",
+  "niacin",
+  "infectious"
+ ]
+}

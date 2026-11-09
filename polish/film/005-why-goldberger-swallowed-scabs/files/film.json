@@ -1,0 +1,164 @@
+{
+ "era": "1910s",
+ "cast": {
+  "goldberger": "a 40 year old doctor with short parted dark hair, sharp intense dark eyes, a thin dark mustache, wearing a high-collared white shirt, a dark brown vest, and a grey wool suit jacket, 1910s",
+  "colleague": "a 50 year old arrogant doctor with slicked silver hair, a heavy rounded jaw, wearing a dark navy three-piece suit with a pocket watch chain, 1910s",
+  "volunteer": "a 30 year old pale thin man with messy brown hair, hollow cheeks, wearing a worn beige linen shirt and dark suspenders, 1910s",
+  "patient": "a 35 year old sickly woman with thin dull hair, red peeling scaly skin patches on her neck and cheeks, wearing a plain grey cotton gown, 1910s"
+ },
+ "music": "tense",
+ "key_words": [
+  "physician",
+  "scab",
+  "mouth",
+  "laughed",
+  "germ",
+  "ruin",
+  "volunteers",
+  "filth",
+  "injects",
+  "blood",
+  "swallows",
+  "poison",
+  "diet",
+  "cure",
+  "silenced"
+ ],
+ "shots": [
+  {
+   "name": "lift_scab",
+   "at": 0,
+   "clip": false,
+   "prompt": "extreme close-up of a doctor's hand lifting a crusted scab from a sick woman's neck with steel tweezers, her red peeling skin fills the frame, dim 1910s hospital ward, lamp light",
+   "motion": "the tweezers lift the crusted scab slowly, slow camera push in",
+   "check": "Is a hand lifting a scab with tweezers?",
+   "move": "push"
+  },
+  {
+   "name": "popped",
+   "at": "popped#1",
+   "who": "goldberger",
+   "clip": true,
+   "prompt": "close-up, a doctor popping a crusted scab into his own open mouth with his fingers, he is {goldberger}, dark 1910s hospital ward, warm lamp light",
+   "motion": "he opens his mouth and drops the scab in, slow camera push in",
+   "hit": "popped#1",
+   "check": "Is a man putting a scab into his mouth?"
+  },
+  {
+   "name": "laughed",
+   "at": "Colleagues#1",
+   "who": "colleague",
+   "clip": true,
+   "hit": "laughed#1",
+   "prompt": "medium shot, an arrogant doctor laughing mockingly while sitting at a mahogany table, he is {colleague}, dark-suited doctors nearby, 1910s hall, lamp light",
+   "motion": "he laughs mockingly and leans back, slow camera push in",
+   "check": "Is a man laughing?"
+  },
+  {
+   "name": "warned",
+   "at": "They#1",
+   "who": "colleague",
+   "clip": true,
+   "hit": "ruin#1",
+   "prompt": "close-up, a strict doctor frowning and shaking his index finger firmly in warning, he is {colleague}, dim 1910s wood-paneled room, warm lamp light",
+   "motion": "he shakes his finger sternly in warning, slow camera push in",
+   "check": "Is a man shaking his finger?"
+  },
+  {
+   "name": "refusal",
+   "at": "Goldberger#1",
+   "who": "goldberger",
+   "clip": true,
+   "prompt": "medium close-up, a doctor standing firm with arms crossed and chin raised, refusing, he is {goldberger}, a 1910s hospital corridor with tall windows, cold daylight",
+   "motion": "he tightens his crossed arms and lifts his chin, slow camera push in",
+   "xfade": true,
+   "hit": "refuses#1",
+   "check": "Is a man standing with his arms crossed?"
+  },
+  {
+   "name": "injection",
+   "at": "He#2",
+   "who": "volunteer",
+   "clip": true,
+   "prompt": "close-up, a glass syringe injecting dark blood into the forearm of a thin man in a beige linen shirt, he is {volunteer}, a 1910s hospital dining room with a long wooden table, warm lamp light",
+   "motion": "the plunger pushes slowly and dark liquid enters the arm, slow camera push in",
+   "hit": "blood#1",
+   "check": "Is a syringe injecting into a man's arm?"
+  },
+  {
+   "name": "swallow",
+   "at": "swallows#1",
+   "who": "goldberger",
+   "clip": true,
+   "prompt": "extreme close-up, a doctor placing a small crusted scab into his mouth and swallowing, he is {goldberger}, a 1910s hospital ward, warm lamp light",
+   "motion": "he puts the scab in his mouth and swallows, slow camera push in",
+   "hit": "swallows#1",
+   "check": "Is a man putting a scab in his mouth?"
+  },
+  {
+   "name": "taste",
+   "at": "You#1",
+   "who": "goldberger",
+   "clip": true,
+   "xfade": true,
+   "prompt": "close-up, a doctor placing a small dark crusted scab into his mouth with his fingertips and tasting it, he is {goldberger}, a 1910s hospital ward, warm lamp light",
+   "motion": "he puts the scab in his mouth and swallows, slow camera push in",
+   "check": "Is a man putting a scab in his mouth?"
+  },
+  {
+   "name": "proof",
+   "at": "prove#1",
+   "who": "goldberger",
+   "clip": true,
+   "prompt": "medium shot, a doctor standing tall and raising his chin with one hand on his chest, he is {goldberger}, a bright 1910s hospital ward, morning sunlight through tall windows",
+   "motion": "he raises his chin and smiles, slow camera pull back",
+   "check": "Is a man standing with a hand on his chest?"
+  },
+  {
+   "name": "healthy",
+   "at": "His#3",
+   "who": "goldberger",
+   "clip": true,
+   "xfade": true,
+   "prompt": "medium shot, a healthy doctor standing beside a hospital bed with a sick woman under a blanket, smiling and nodding calmly, he is {goldberger}, 1910s hospital ward, bright daylight",
+   "motion": "he nods and smiles, the blanket shifts slightly, slow camera push in",
+   "check": "Is a man standing beside a hospital bed?"
+  },
+  {
+   "name": "poorfood",
+   "at": "diet#1",
+   "who": "patient",
+   "clip": true,
+   "hit": "diet#1",
+   "prompt": "medium close-up, a sick woman with red peeling scaly patches on her neck sitting at a rough wooden table, pushing away a plain bowl of cornmeal, she is {patient}, 1910s poor kitchen, dim grey window light",
+   "motion": "she pushes the bowl away slightly and looks down, slow camera push in",
+   "check": "Is a sick woman sitting at a table with a bowl of food?"
+  },
+  {
+   "name": "silenced",
+   "at": "The#3",
+   "xfade": true,
+   "hit": "irony#1",
+   "clip": true,
+   "prompt": "medium close-up, a silver-haired doctor lowering his raised hand and pressing his lips shut, he is {colleague}, other doctors seated behind him in a wooden 1910s lecture hall, warm lamp light",
+   "motion": "he lowers his hand and presses his lips shut, slow camera push in",
+   "check": "Is a silver-haired doctor lowering his hand?"
+  },
+  {
+   "name": "niacin",
+   "at": "cure—niacin—was#1",
+   "hit": "cure—niacin—was#1",
+   "move": "push",
+   "prompt": "close-up of a small glass dish of fine white powder on a wooden laboratory bench beside a brass microscope, warm lamp light",
+   "check": "Is there a glass dish of white powder?"
+  },
+  {
+   "name": "legacy",
+   "at": "discovered#1",
+   "xfade": true,
+   "move": "up",
+   "prompt": "medium shot, a white marble bust of a mustached doctor on a stone pedestal in a grand medical hall, warm sunlight, flowers at the base",
+   "check": "Is there a marble bust of a man?"
+  }
+ ]
+}
