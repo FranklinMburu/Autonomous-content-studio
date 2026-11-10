@@ -20,7 +20,7 @@ def log(*a):
 
 
 t0 = time.time()
-W, H, N = int(os.environ.get("EF_W", 1920)), int(os.environ.get("EF_H", 1200)), int(os.environ.get("EF_N", 72))
+W, H, N = int(os.environ.get("EF_W", 2560)), int(os.environ.get("EF_H", 1600)), int(os.environ.get("EF_N", 72))   # render 7: sharper on retina screens
 SAMPLES = int(os.environ.get("EF_SAMPLES", 96))
 WORK = "/kaggle/working/ef"; os.makedirs(f"{WORK}/frames", exist_ok=True); os.makedirs(f"{WORK}/tex", exist_ok=True)
 
@@ -173,7 +173,7 @@ pw = nt.nodes.new("ShaderNodeMath"); pw.operation = "POWER"; pw.inputs[1].defaul
 d, lit = sun_factor(nt, -0.25, 0.3); SUNDOTS.append(d)
 ramp = nt.nodes.new("ShaderNodeValToRGB"); cr = ramp.color_ramp
 cr.elements[0].position, cr.elements[0].color = 0.0, (0.02, 0.06, 0.22, 1)    # far from the sun: faint deep blue
-cr.elements[1].position, cr.elements[1].color = 1.0, (0.35, 0.62, 1.0, 1)     # at the sun: pale blue (a thin real atmosphere, not a white band)
+cr.elements[1].position, cr.elements[1].color = 1.0, (0.35, 0.62, 1.0, 1)     # pale blue; the warm sunrise near the sun is drawn by the site on top (approved look)
 e = cr.elements.new(0.55); e.color = (0.16, 0.4, 1.0, 1)                       # sky blue
 e = cr.elements.new(0.85); e.color = (0.55, 0.68, 1.0, 1)                        # only a hint of warmth: render 4 read white
 nt.links.new(lit, ramp.inputs[0])
@@ -254,7 +254,7 @@ for i in range(N):
     lamp.rotation_euler = (-sun_w).to_track_quat("-Z", "Y").to_euler(); lamp.data.energy = 4.0 * rise
     sd = 1.0 + lerp(-6, 9, t) / R_PX
     disc.location = js_to_bl(Mt @ Vector((sd * math.sin(sa), sd * math.cos(sa), -0.02)))
-    disc.active_material.node_tree.nodes["Emission"].inputs["Strength"].default_value = 160 * rise
+    disc.active_material.node_tree.nodes["Emission"].inputs["Strength"].default_value = 0.0   # render 7: the site draws the approved sun (corona, limb arc, bloom) on top
     stars.matrix_world = cam.matrix_world.copy(); stars.location = up * shift - back * 30
     for dn in SUNDOTS:
         dn.inputs[1].default_value = sun_w
@@ -282,8 +282,8 @@ if frames:
         r = subprocess.run([ff, "-y", "-hide_banner", "-loglevel", "error", "-framerate", "24", "-i", f"{WORK}/frames/f%04d.png", *a],
                            capture_output=True, text=True)
         if r.returncode: log("ffmpeg:", r.stderr[-500:])
-    enc("-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "21", "-preset", "slow", "-g", "4", "-movflags", "+faststart", f"{OUT}/earth.mp4")
-    enc("-c:v", "libvpx-vp9", "-pix_fmt", "yuv420p", "-crf", "34", "-b:v", "0", "-g", "4", "-row-mt", "1", f"{OUT}/earth.webm")
+    enc("-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "17", "-preset", "slow", "-g", "4", "-movflags", "+faststart", f"{OUT}/earth.mp4")
+    enc("-c:v", "libvpx-vp9", "-pix_fmt", "yuv420p", "-crf", "28", "-b:v", "0", "-g", "4", "-row-mt", "1", f"{OUT}/earth.webm")
     subprocess.run([ff, "-y", "-loglevel", "error", "-i", f"{WORK}/frames/{frames[0]}", "-q:v", "3", f"{OUT}/poster.jpg"])
     subprocess.run([ff, "-y", "-loglevel", "error", "-i", f"{WORK}/frames/{frames[-1]}", "-q:v", "3", f"{OUT}/end.jpg"])
     for f in ("earth.mp4", "earth.webm", "poster.jpg"):
