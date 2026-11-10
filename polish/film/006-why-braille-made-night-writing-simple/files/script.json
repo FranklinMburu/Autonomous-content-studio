@@ -1,0 +1,87 @@
+{
+ "title": "Why Braille Made Night Writing Simple",
+ "channel": "Hidden Reasons",
+ "topic": "Why Louis Braille turned army night writing into raised dots",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A soldier punches twelve tiny dots into paper in the dead of night."
+   ]
+  },
+  {
+   "feel": "skepticism",
+   "lines": [
+    "His comrades laugh, saying the code is useless and too slow."
+   ]
+  },
+  {
+   "feel": "determination",
+   "lines": [
+    "Blind teen Louis Braille watches the demo at his school.",
+    "He grabs the same slate and stylus.",
+    "He spends months feeling each pattern.",
+    "Then he halves the grid to three high and two wide."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it’s like turning a bulky novel into a pocket‑size cheat sheet you can feel with one fingertip."
+   ]
+  },
+  {
+   "feel": "understanding",
+   "lines": [
+    "Barbier’s army night‑writing used twelve raised points to spell sounds, but soldiers could not master it.",
+    "Braille cut the pattern in half, using only six dots to stand for letters, numbers and punctuation.",
+    "Six dots sit comfortably under a single finger.",
+    "A reader can feel a whole character in one quick touch.",
+    "Writers can punch the dots faster than they could trace letters."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "Ironically, the system meant for soldiers became the world’s universal language for the blind."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Charles Barbier, a retired artillery captain, invented night writing with twelve raised dots for soldiers to communicate in the dark.",
+   "url": "https://en.wikipedia.org/wiki/Night_writing"
+  },
+  {
+   "claim": "Soldiers found Barbier’s twelve‑dot code too hard and it was never accepted.",
+   "url": "https://en.wikipedia.org/wiki/Night_writing"
+  },
+  {
+   "claim": "Louis Braille reduced the code to six dots (three high, two wide) and simplified it to represent letters rather than sounds.",
+   "url": "https://doi.org/10.4103/ijo.ijo_3048_21"
+  },
+  {
+   "claim": "The six‑dot cell fits in a fingertip, allowing reading with a single touch.",
+   "url": "https://doi.org/10.4103/ijo.ijo_3048_21"
+  }
+ ],
+ "key_words": [
+  "soldier",
+  "twelve",
+  "dots",
+  "night‑writing",
+  "six",
+  "fingertip",
+  "blind",
+  "Braille"
+ ]
+}
