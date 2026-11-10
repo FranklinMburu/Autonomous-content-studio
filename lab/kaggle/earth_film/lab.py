@@ -162,7 +162,10 @@ if img("clouds"):
     cl.data.materials.append(m)
 
 # Atmosphere: a thin glowing shell, brightest at the limb (fresnel) and on the sunlit side: blue, warm near the sun
-at = sphere("air", 1.022)   # wider than the planet so the glow shows OUTSIDE the edge, like TradingView; m = bpy.data.materials.new("air"); m.use_nodes = True; nt = m.node_tree
+# wider than the planet so the glow shows OUTSIDE the edge, like TradingView
+# (render 5 had this comment on the same line and so commented out the new material: the air shader replaced the
+#  clouds material, which gave the double ring and no clouds)
+at = sphere("air", 1.022); m = bpy.data.materials.new("air"); m.use_nodes = True; nt = m.node_tree
 for n in list(nt.nodes):
     if n.type != "OUTPUT_MATERIAL": nt.nodes.remove(n)
 lw = nt.nodes.new("ShaderNodeLayerWeight"); lw.inputs["Blend"].default_value = 0.35
