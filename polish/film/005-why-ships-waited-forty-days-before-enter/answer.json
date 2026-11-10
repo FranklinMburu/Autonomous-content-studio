@@ -196,6 +196,13 @@
     "xfade": true
    },
    {
+    "name": "ragusa_b",
+    "at": "of#4",
+    "prompt": "close-up of stone city walls and a tower above the sea with waves breaking below, sunny, 1300s",
+    "check": "Are there stone walls by the sea?",
+    "move": "push"
+   },
+   {
     "name": "boat",
     "at": "newcomers#1",
     "prompt": "medium shot, travellers in medieval cloaks stepping off a small rowing boat onto a rocky island shore, daylight",

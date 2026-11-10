@@ -208,6 +208,13 @@
     "move": "pull"
    },
    {
+    "name": "graves_b",
+    "at": "year#1",
+    "prompt": "close-up of a miner's dusty cap and oil lamp resting on a wooden bench, dim light, 1900s",
+    "check": "Is there a cap and a lamp?",
+    "move": "push"
+   },
+   {
     "name": "haldane",
     "at": "scientist#1",
     "who": "haldane",
@@ -314,6 +321,14 @@
     "clip": true,
     "motion": "one scientist leans closer, slow camera push in",
     "xfade": true
+   },
+   {
+    "name": "lab_b",
+    "at": "small#2",
+    "prompt": "close-up of a scientist's hand writing notes beside a small glass box with a canary, 1910s laboratory",
+    "check": "Is a hand writing notes?",
+    "clip": true,
+    "motion": "the hand writes steadily, slow camera push in"
    },
    {
     "name": "cages",

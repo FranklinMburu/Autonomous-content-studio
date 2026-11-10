@@ -297,6 +297,13 @@
     "hit": "died#1"
    },
    {
+    "name": "bed_b",
+    "at": "fell#1",
+    "prompt": "close-up of a white enamel bowl and a folded cloth on a bedside table in a dim 1920s hospital room",
+    "check": "Is there a bowl on a table?",
+    "move": "push"
+   },
+   {
     "name": "powder",
     "at": "The#7",
     "prompt": "extreme close-up of a small porcelain bowl of glowing green powder on a dark table",

@@ -167,6 +167,13 @@
     "motion": "he sets the suitcase down and looks around, slow camera push in"
    },
    {
+    "name": "suitcase_b",
+    "at": "his#2",
+    "prompt": "close-up of a dusty laboratory bench with stacked glass petri dishes and a coat hanging on a hook, morning light, 1920s",
+    "check": "Are there stacked glass dishes?",
+    "move": "push"
+   },
+   {
     "name": "streak",
     "at": "Before#1",
     "prompt": "close-up, a hand streaking a thin wire loop across yellow jelly in a petri dish, 1920s laboratory, lamp light",
@@ -355,6 +362,13 @@
     "check": "Are three men in tailcoats on a stage?",
     "clip": true,
     "motion": "they raise the medals and smile, slow camera push in"
+   },
+   {
+    "name": "nobel_b",
+    "at": "shared#1",
+    "prompt": "close-up of a gold medal in an open blue velvet box under soft light",
+    "check": "Is there a gold medal?",
+    "move": "push"
    }
   ]
  }
