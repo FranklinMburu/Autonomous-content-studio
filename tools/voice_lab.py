@@ -49,9 +49,10 @@ def join(chunks, sr, out_wav):
 
 def kokoro(script_path, out):
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-    from studio.voice import narrate
+    from studio.story.__main__ import narrate   # the current story voice (STORY_VOICE), the one to beat
     s, _ = lines_of(script_path)
-    narrate(s, str(out / "kokoro.wav"), str(out / "kokoro_timing.json"))
+    narrate(s, out)
+    (out / "narration.wav").replace(out / "kokoro.wav"); (out / "timing.json").replace(out / "kokoro_timing.json")
 
 
 def chatterbox(script_path, out):
@@ -125,7 +126,7 @@ def score(script_path, out):
         y16, _ = librosa.load(w, sr=16000)
         with torch.no_grad():
             m = float(mos(torch.from_numpy(y16).unsqueeze(0), 16000).mean())
-        segs, _ = asr.transcribe(str(w), beam_size=5, language="en")
+        segs, _ = asr.transcribe(y16, beam_size=5, language="en")   # array, not a path: the old "av" can't decode
         hyp = re.sub(r"[^a-z0-9' ]+", " ", " ".join(x.text for x in segs).lower()).split()
         d = list(range(len(hyp) + 1))   # word-level edit distance
         for i, r in enumerate(ref, 1):
