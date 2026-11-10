@@ -37,7 +37,14 @@ for name in names:
         "is_private": True, "enable_gpu": True, "enable_internet": True, "dataset_sources": [],
         "competition_sources": [], "kernel_sources": []}, indent=1))
     if not fetch_only:
-        print(name, "->", run("kernels", "push", "-p", str(work), "--accelerator", "NvidiaTeslaT4"), flush=True)
+        # Kaggle runs at most 2 GPU sessions per account; wait for a free slot instead of failing (same as main)
+        for attempt in range(int(os.environ.get("KAGGLE_SLOT_WAIT_MIN", 90)) // 3 + 1):
+            out = run("kernels", "push", "-p", str(work), "--accelerator", "NvidiaTeslaT4")
+            print(name, "->", out, flush=True)
+            if "session count" not in out.lower():
+                break
+            print(f"{name}: both Kaggle GPU slots are busy; trying again in 3 minutes", flush=True)
+            time.sleep(180)
     slugs[name] = slug
 
 t0, done = time.time(), ({n: "fetch only" for n in names} if fetch_only else {})
