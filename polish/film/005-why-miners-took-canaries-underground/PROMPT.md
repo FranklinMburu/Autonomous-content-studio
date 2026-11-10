@@ -80,182 +80,228 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: medium close-up, {lister} pressing white cloth towels into a glass dis | close-up, {boy} resting his head on a flat white pillow, looking scare | low angle medium shot, {patient} sitting nervously on a tall wooden op | wide shot of a large grey Victorian stone hospital building with tall  | medium close-up, {patient} lying weakly in an iron hospital bed under  | extreme close-up of an open inflamed wound on a pale forearm leaking t | medium shot, {lister} standing in a dim surgical theatre gripping a lo | medium shot, {boy} standing just inside a Victorian hospital doorway,  | extreme close-up of two surgeon's hands holding a boy's broken lower l | medium shot, carefully adjusting the broken leg of {boy} on a wooden c | close-up of hands pouring clear carbolic liquid from a glass bottle on | medium shot, wrapping a shiny sheet of tin foil over a bound leg, {lis
 - 004-why-john-snow-removed-a-london-pump-hand: cast snow = a 41 year old English doctor with short dark wavy hair, a clean shaven narrow face, thin lips, deep-set grey eyes, a black frock coat, a grey waistcoat, a white high collar and a black necktie, 1850s; whitehead = a 28 year old English vicar with fair curly hair, a round friendly face, rosy cheeks, a black clerical coat and a white clerical collar, 1850s; simon = a 38 year old London health official with a neat full black beard, a high bald forehead, a brown overcoat with a fur collar and a grey top hat, 1850s; mother = a 30 year old poor London woman with red hair tied under a white cotton cap, a faded blue cotton dress and a brown wool shawl, 1850s; brewer = a burly 50 year old brewery worker with a thick ginger beard, a flat cloth cap, rolled-up shirt sleeves and a grey canvas apron, 1850s
   scenes: medium shot, two men in black top hats pulling the long iron handle of | medium close-up, a doctor pointing firmly at an iron street water pump | wide shot of a crowded narrow 1850s London street with laundry hanging | close-up, a pale sweating man lying sick on a straw mattress in a dark | high angle, men carrying plain wooden coffins out of narrow brick hous | medium shot, three doctors in black coats pressing white handkerchiefs | wide shot, thick greenish yellow fog drifting over a rubbish-strewn mu | medium shot, a bearded official shaking his head while reading a lette | close-up, a doctor frowning as he reads a letter by a rainy window, he | medium shot, {snow} and {whitehead} knocking on the wooden door of a n | medium close-up, a crying woman in a doorway answering questions, she  | extreme close-up, a hand with a quill pen marking small black dots on 
+- 005-why-barry-marshall-swallowed-bacteria: cast marshall = a 33 year old Australian doctor, lean build, curly dark brown hair, a full dark brown beard, brown eyes, thin wire-rimmed glasses, a white short-sleeved shirt under a pale blue lab coat and khaki trousers, 1980s; warren = a 46 year old Australian pathologist with short receding grey hair, a clean-shaven square face, heavy black-framed glasses, a white lab coat over a brown checked shirt, 1980s; skeptic = a 48 year old British gastroenterologist, stocky build, balding with short grey hair at the sides, heavy dark eyebrows, clean shaven, a charcoal grey suit jacket, a burgundy patterned tie and white shirt, 1980s; nurse = a 35 year old nurse, sturdy build, dark brown hair in a ponytail, teal scrubs, 1980s; wife = a 32 year old woman with shoulder-length wavy blond hair, a sun-tanned face and a yellow sleeveless summer dress, 1980s
+  scenes: close-up, a bearded doctor drinking cloudy brown liquid from a glass b | medium close-up, a doctor wincing and pressing a hand on his stomach,  | medium shot, a stressed businessman in a brown suit clutching his stom | close-up of a plate of bright red chilli peppers next to a bowl of spi | wide shot of a sunny 1980s Australian city hospital with palm trees in | medium shot, a pathologist looking into a microscope, he is {warren},  | medium shot, a balding doctor laughing and shaking his head at a meeti | extreme close-up of clear liquid bubbling in a glass beaker on a lab b | close-up, a hand dropping a stapled paper into a metal wastebasket, 19 | medium close-up, a doctor reading a letter and slumping back in his ch | medium shot, pink piglets sniffing around a clean straw pen, bright da | close-up, a doctor rolling up his sleeves with a determined face, he i
 
 PROBLEMS FOUND BY THE CHECKS
-- script: not supported by the sources, fix or remove: A coal miner carried a small bird deep underground.
-- script: not supported by the sources, fix or remove: The bird rode in a cage, breathing faster than any man.
-- script: not supported by the sources, fix or remove: The miner trusted this tiny creature with his life.
-- script: not supported by the sources, fix or remove: The mine air could hide carbon monoxide, a gas with no smell.
-- script: not supported by the sources, fix or remove: Miners could not see it, smell it, or feel it.
-- script: not supported by the sources, fix or remove: It killed without warning.
-- script: not supported by the sources, fix or remove: One breath of enough gas could stop a man's heart.
+- shot graves: 3.7 s on screen (max 3.2; split it)
+- shot lab: 4.2 s on screen (max 3.2; split it)
 
 DRAFT SCRIPT
-{"title": "Why Miners Took Canaries Underground", "beats": [{"feel": "curiosity", "lines": ["A coal miner carried a small bird deep underground.", "The bird rode in a cage, breathing faster than any man.", "The miner trusted this tiny creature with his life."]}, {"feel": "dread", "lines": ["The mine air could hide carbon monoxide, a gas with no smell.", "Miners could not see it, smell it, or feel it.", "It killed without warning.", "One breath of enough gas could stop a man's heart."]}, {"feel": "recognition", "lines": ["You see, it's like a smoke detector beeping before you see flames."]}, {"feel": "awe", "lines": ["Canaries breathe faster and have a higher metabolism than miners.", "Their small bodies absorbed the poison first.", "The bird would collapse while the miners still felt fine.", "That collapse gave miners time to escape.", "The bird's distress was the alarm."]}, {"feel": "surprise", "lines": ["John Scott Haldane proposed this idea in 1895.", "Canaries were used in mines as early as 1896.", "Modern sensors have replaced the birds.", "But the phrase 'canary in a coal mine' still warns us of hidden danger."]}]}
+{"title": "Why Miners Took Canaries Underground", "beats": [{"feel": "curiosity", "lines": ["A coal miner brought a canary down into the mine.", "If poison gas came, the bird would collapse first."]}, {"feel": "dread", "lines": ["Deadly gas could build up in coal mines. Miners called it damp.", "White damp was air with carbon monoxide, toxic even at low levels.", "After damp, left by explosions, carried carbon monoxide too.", "In 1907, 3,242 American coal miners died. It was the worst year ever."]}, {"feel": "hope", "lines": ["In 1895, a scientist named John Scott Haldane had an idea.", "Put a warm-blooded animal in the mine to detect carbon monoxide.", "By 1896, canaries were going underground."]}, {"feel": "realization", "lines": ["A canary breathes fast, it's small, and it burns energy quickly.", "So the poison hit the bird before it hit the men.", "When the canary showed distress or collapsed, the miners got out."]}, {"feel": "recognition", "lines": ["You see, it's like a smoke alarm with feathers.", "It goes off before you notice anything."]}, {"feel": "surprise", "lines": ["In 1914, American experts tested small animals with carbon monoxide.", "Canaries were the best for the job.", "And unlike mice or guinea pigs, canaries recovered quickly in fresh air."]}, {"feel": "awe", "lines": ["Britain, the United States and Canada all used them, well into the twentieth century.", "Today, a canary in the coal mine means anyone who warns us of danger first."]}]}
 CLAIMS IN THE DRAFT
-- {'claim': 'Canaries were used as early-warning signals for toxic gases, primarily carbon monoxide, because their rapid breathing rate, small size, and high metabolism caused them to succumb before miners.', 'url': 'https://en.wikipedia.org/wiki/Sentinel_species'}
-- {'claim': 'The idea of placing a warm-blooded animal in a mine to detect carbon monoxide was first proposed by John Scott Haldane in 1895, and canaries were used as early as 1896.', 'url': 'https://en.wikipedia.org/wiki/Sentinel_species'}
-- {'claim': 'Canaries would express signs of distress or collapse much earlier than other species, allowing coal workers to evacuate before the toxic gas reached a hazardous concentration.', 'url': 'https://doi.org/10.14361/9783839467664-006'}
-- {'claim': 'Modern sensing equipment has replaced the use of small animals such as canaries in mines.', 'url': 'https://en.wikipedia.org/wiki/Coal_mining'}
+- {'claim': 'Coal miners brought canaries into coal mines as an early-warning signal for toxic gases, primarily carbon monoxide.', 'url': 'https://en.wikipedia.org/wiki/Sentinel_species'}
+- {'claim': 'Build-ups of hazardous gas in mines are known as damps; white damp is air containing carbon monoxide, toxic even at low concentrations; after damp forms after an explosion and contains carbon monoxide.', 'url': 'https://en.wikipedia.org/wiki/Coal_mining'}
+- {'claim': '3,242 U.S. coal miners died in 1907, the worst year ever.', 'url': 'https://en.wikipedia.org/wiki/Coal_mining'}
+- {'claim': 'John Scott Haldane proposed placing a warm-blooded animal in a mine to detect carbon monoxide in 1895; canaries were used as early as 1896.', 'url': 'https://en.wikipedia.org/wiki/Sentinel_species'}
+- {'claim': "The bird's rapid breathing, small size and high metabolism made it succumb before the miners, giving them time to act.", 'url': 'https://en.wikipedia.org/wiki/Sentinel_species'}
+- {'claim': 'Canaries in distress or collapsing let coal workers evacuate; a 1914 report found canaries best adapted and, unlike mice or guinea pigs, they recover quickly in fresh air.', 'url': 'https://doi.org/10.14361/9783839467664-006'}
+- {'claim': "Britain, the United States and Canada used canaries well into the 20th century; 'canary in the coal mine' is now an idiom for a warning of danger.", 'url': 'https://en.wikipedia.org/wiki/Sentinel_species'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 0.12s A#1
-0.19s coal#1
-0.37s miner#1
-0.64s carried#1
-0.82s a#2
-0.89s small#1
-1.22s bird#1
-1.49s deep#1
-1.64s underground#1
-2.52s The#1
-2.62s bird#2
-2.90s rode#1
-3.10s in#1
-3.17s a#3
-3.25s cage#1
-3.87s breathing#1
-4.15s faster#1
-4.45s than#1
-4.55s any#1
-4.70s man#1
-5.30s The#2
-5.40s miner#2
-5.68s trusted#1
-5.98s this#1
-6.13s tiny#1
-6.43s creature#1
-6.80s with#1
-6.90s his#1
-7.03s life#1
-7.81s The#3
-7.88s mine#1
-8.13s air#1
-8.28s could#1
-8.38s hide#1
-8.61s carbon#1
-8.83s monoxide#1
-9.63s a#4
-9.71s gas#1
-9.98s with#2
-10.08s no#1
-10.26s smell#1
-10.96s Miners#1
-11.21s could#2
-11.31s not#1
-11.51s see#1
-11.66s it#1
-12.03s smell#2
-12.23s it#2
-12.33s or#1
-12.48s feel#1
-12.68s it#3
-13.18s It#4
-13.28s killed#1
-13.55s without#1
-13.78s warning#1
-14.46s One#1
-14.63s breath#1
-14.83s of#1
-14.90s enough#1
-15.11s gas#2
-15.43s could#3
-15.53s stop#1
-15.73s a#5
-15.78s man's#1
-16.08s heart#1
-16.76s You#1
-16.91s see#2
-17.19s it's#1
-17.29s like#1
-17.44s a#6
-17.54s smoke#1
-17.74s detector#1
-18.16s beeping#1
-18.39s before#1
-18.61s you#2
-18.74s see#3
-18.89s flames#1
-19.80s Canaries#1
-20.17s breathe#1
-20.40s faster#2
-20.97s and#1
-21.07s have#1
-21.17s a#7
-21.25s higher#1
-21.47s metabolism#1
-21.97s than#2
-22.07s miners#2
-22.80s Their#1
-22.92s small#2
-23.12s bodies#1
-23.52s absorbed#1
-23.87s the#4
-23.95s poison#1
-24.30s first#1
-24.95s The#5
-25.05s bird#3
-25.25s would#1
-25.37s collapse#1
-25.80s while#1
-25.95s the#6
-26.05s miners#3
-26.35s still#1
-26.52s felt#1
-26.70s fine#1
-27.40s That#1
-27.52s collapse#2
-27.80s gave#1
-28.00s miners#4
-28.27s time#1
-28.50s to#1
-28.57s escape#1
-29.31s The#7
-29.41s bird's#1
-29.63s distress#1
-30.03s was#1
-30.12s the#8
-30.23s alarm#1
-31.09s John#1
-31.32s Scott#1
-31.54s Haldane#1
-31.92s proposed#1
-32.29s this#2
-32.44s idea#1
-32.97s in#2
-33.07s 1895#1
-34.26s Canaries#2
-34.61s were#1
-34.74s used#1
-34.94s in#3
-35.01s mines#1
-35.51s as#1
-35.66s early#1
-35.91s as#2
-36.04s 1896#1
-37.23s Modern#1
-37.50s sensors#1
-37.90s have#2
-38.00s replaced#1
-38.30s the#9
-38.40s birds#1
-39.13s But#1
-39.26s the#10
-39.36s phrase#1
-39.63s 'canary#1
-39.98s in#4
-40.06s a#8
-40.13s coal#2
-40.33s mine'#1
-40.73s still#2
-41.03s warns#1
-41.28s us#1
-41.43s of#2
-41.53s hidden#1
-41.78s danger#1
+0.22s coal#1
+0.52s miner#1
+0.84s brought#1
+1.02s a#2
+1.07s canary#1
+1.47s down#1
+1.64s into#1
+1.79s the#1
+1.87s mine#1
+2.52s If#1
+2.65s poison#1
+2.92s gas#1
+3.15s came#1
+3.55s the#2
+3.65s bird#1
+3.87s would#1
+3.97s collapse#1
+4.25s first#1
+5.06s Deadly#1
+5.34s gas#2
+5.59s could#1
+5.71s build#1
+5.86s up#1
+5.96s in#1
+6.06s coal#2
+6.24s mines#1
+7.09s Miners#1
+7.39s called#1
+7.57s it#1
+7.67s damp#1
+8.32s White#1
+8.49s damp#2
+8.69s was#1
+8.87s air#1
+9.07s with#1
+9.19s carbon#1
+9.42s monoxide#1
+10.27s toxic#1
+10.64s even#1
+10.82s at#1
+10.92s low#1
+11.12s levels#1
+11.84s After#1
+12.04s damp#3
+12.33s left#1
+12.48s by#1
+12.60s explosions#1
+13.38s carried#1
+13.60s carbon#2
+13.83s monoxide#2
+14.30s too#1
+14.97s In#2
+15.05s 1907#1
+16.07s 3,242#1
+16.97s American#1
+17.25s coal#3
+17.50s miners#2
+17.82s died#1
+18.05s It#2
+18.35s was#2
+19.02s the#3
+19.10s worst#1
+19.55s year#1
+19.75s ever#1
+20.47s In#3
+20.57s 1895#1
+21.69s a#3
+21.79s scientist#1
+22.24s named#1
+22.44s John#1
+22.67s Scott#1
+22.89s Haldane#1
+23.27s had#1
+23.39s an#1
+23.49s idea#1
+24.23s Put#1
+24.35s a#4
+24.48s warm-blooded#1
+24.95s animal#1
+25.18s in#4
+25.23s the#4
+25.30s mine#2
+25.88s to#1
+25.95s detect#1
+26.25s carbon#3
+26.50s monoxide#3
+27.39s By#2
+27.51s 1896#1
+28.54s canaries#1
+28.91s were#1
+29.01s going#1
+29.23s underground#1
+30.28s A#5
+30.33s canary#2
+30.65s breathes#1
+30.88s fast#1
+31.32s it's#1
+31.44s small#1
+32.12s and#1
+32.22s it#3
+32.32s burns#1
+32.64s energy#1
+32.97s quickly#1
+33.66s So#1
+33.79s the#5
+33.89s poison#2
+34.29s hit#1
+34.41s the#6
+34.51s bird#2
+34.76s before#1
+35.01s it#4
+35.09s hit#2
+35.21s the#7
+35.29s men#1
+35.87s When#1
+36.00s the#8
+36.07s canary#3
+36.42s showed#1
+36.57s distress#1
+36.95s or#1
+37.07s collapsed#1
+37.72s the#9
+37.82s miners#3
+38.15s got#1
+38.32s out#1
+39.09s You#1
+39.21s see#1
+39.44s it's#2
+39.54s like#1
+39.69s a#6
+39.79s smoke#1
+40.04s alarm#1
+40.31s with#2
+40.44s feathers#1
+41.15s It#5
+41.23s goes#1
+41.42s off#1
+41.65s before#2
+41.88s you#2
+41.98s notice#1
+42.23s anything#1
+43.08s In#5
+43.15s 1914#1
+44.32s American#2
+44.62s experts#1
+44.99s tested#1
+45.27s small#2
+45.59s animals#1
+45.92s with#3
+46.04s carbon#4
+46.34s monoxide#4
+47.23s Canaries#2
+47.61s were#2
+47.71s the#10
+47.81s best#1
+47.98s for#1
+48.13s the#11
+48.31s job#1
+48.92s And#2
+49.04s unlike#1
+49.34s mice#1
+49.62s or#2
+49.74s guinea#1
+49.97s pigs#1
+50.54s canaries#3
+50.92s recovered#1
+51.22s quickly#2
+51.54s in#6
+51.64s fresh#1
+51.87s air#2
+52.55s Britain#1
+52.95s the#12
+53.03s United#1
+53.30s States#1
+53.50s and#3
+53.63s Canada#1
+54.03s all#1
+54.25s used#1
+54.48s them#1
+54.95s well#1
+55.13s into#2
+55.28s the#13
+55.38s twentieth#1
+55.70s century#1
+56.39s Today#1
+56.90s a#7
+56.98s canary#4
+57.33s in#7
+57.38s the#14
+57.48s coal#4
+57.65s mine#3
+58.20s means#1
+58.43s anyone#1
+58.70s who#1
+58.85s warns#1
+59.10s us#1
+59.20s of#1
+59.30s danger#1
+59.63s first#2
 
 DRAFT film.json
-{"era": "1890s", "cast": {"miner": "a 34 year old coal miner with a soot-blackened face, a thick dark brown beard, tired grey eyes, a flat leather cap with a small lamp, a rough brown wool jacket, dark trousers and heavy black boots, 1890s", "boy": "a 12 year old mine trapper boy with a pale thin face, messy black hair, a ragged grey shirt, brown shorts held by one strap and bare feet, 1890s", "haldane": "a 43 year old Scottish scientist with a long narrow clean-shaven face, short dark hair, wire-rimmed spectacles, a grey tweed suit, a white shirt and a dark bow tie, 1890s", "canary": "a small bright yellow canary with a black cap and black wing tips, a tiny orange beak and thin pink legs"}, "music": "tense", "key_words": ["canary", "gas", "collapse", "escape", "sensors", "warning"], "shots": [{"name": "hook", "at": 0, "who": "miner", "clip": true, "prompt": "medium shot, a soot-faced miner walking forward through a dark mine tunnel, holding a small wooden cage with a yellow canary inside, he is {miner}, a dim oil lamp on his cap, rough timber props, warm orange light", "motion": "he walks forward slowly, the lamp flickers, slow camera push in", "check": "Is a man carrying a small cage with a bird?"}, {"name": "deep", "at": "deep#1", "move": "down", "prompt": "wide shot looking down a deep dark mine shaft with a wooden lift cage descending, a single lamp glowing far below, black rock walls, 1890s", "check": "Is this a deep dark mine shaft?"}, {"name": "cage", "at": "cage#1", "who": "canary", "clip": true, "prompt": "extreme close-up of a small bright yellow canary sitting inside a tiny wooden cage with thin wire bars, its beak slightly open, dark mine background, warm lamp light", "motion": "the canary breathes fast and turns its head, slow camera push in", "check": "Is a yellow bird inside a small cage?"}, {"name": "trusted", "at": "trusted#1", "who": "miner", "clip": true, "prompt": "close-up, a soot-blackened miner holding a small wooden cage up near his face, looking at the yellow canary inside with a serious trusting look, he is {miner}, dark mine tunnel, warm lamp light", "motion": "he lifts the cage slightly and gazes at the bird, the lamp flickers, slow camera push in", "check": "Is a man holding a cage with a bird up to his face?"}, {"name": "gas", "at": "The#3", "move": "push", "prompt": "close-up of a rusty iron pipe in a dark mine tunnel with a faint haze of gas drifting from it, dim lantern light, 1890s coal mine", "check": "Is there a pipe in a dark tunnel?", "xfade": true}, {"name": "invisible", "at": "Miners#1", "who": "miner", "clip": true, "prompt": "medium shot, {miner} standing in a dark mine tunnel squinting and sniffing the air, holding a lantern, soot-blackened face, 1890s coal mine", "motion": "he sniffs the air and frowns, lantern flickers, slow camera push in", "check": "Is a miner sniffing the air?"}, {"name": "deadly", "at": "It#4", "move": "down", "prompt": "a dead canary lying on its back on the dirty floor of a dark mine tunnel, tiny yellow body, dim lantern light, 1890s", "check": "Is there a dead bird on the ground?"}, {"name": "heart", "at": "One#1", "who": "miner", "clip": true, "prompt": "close-up, {miner} clutching his chest in pain, gasping, soot-blackened face, dark mine tunnel, lantern light, 1890s", "motion": "he clutches his chest and gasps, slow camera push in", "hit": "heart#1", "check": "Is a man clutching his chest?"}, {"name": "collapse", "at": "could#3", "who": "miner", "clip": true, "prompt": "medium shot, {miner} collapsing to his knees on the mine floor, one hand on the ground, dark tunnel, lantern light, 1890s", "motion": "he falls to his knees and slumps forward, slow camera push in", "check": "Is a man falling to his knees?"}, {"name": "smoke_detector", "at": "You#1", "clip": true, "prompt": "close-up of a hand pressing the round white button on a ceiling smoke detector in a bright modern hallway, soft daylight", "motion": "the finger presses the button and the detector blinks, slow camera push in", "check": "Is a hand pressing a ceiling smoke detector?", "xfade": true}, {"name": "flames", "at": "before#1", "move": "push", "prompt": "close-up of orange flames rising from a burning wooden chair in a dark room, thick black smoke curling upward, warm firelight", "check": "Are there flames and smoke?"}, {"name": "breathing", "at": "Canaries#1", "clip": true, "prompt": "extreme close-up of a small yellow canary's chest feathers rising and falling rapidly as it breathes, perched on a wooden dowel inside a wire cage, dim mine tunnel light", "motion": "the canary's chest moves quickly as it breathes, slow camera push in", "check": "Is a small yellow bird breathing?", "xfade": true}, {"name": "metabolism", "at": "metabolism#1", "move": "push", "prompt": "close-up of a canary perched on a miner's soot-stained finger, its tiny body pulsing with rapid breath, dark coal mine background, warm lamp light", "check": "Is a small bird sitting on a finger?"}, {"name": "absorb", "at": "absorbed#1", "clip": true, "prompt": "close-up of a canary lying on its side at the bottom of a wire cage, eyes closing, feathers ruffled, dim mine tunnel, a miner's boot nearby", "motion": "the canary's head droops slowly, slow camera push in", "check": "Is a small bird lying at the bottom of a cage?"}, {"name": "minersfine", "at": "while#1", "who": "miner", "clip": true, "prompt": "medium shot, a coal miner standing upright and looking healthy, holding a pickaxe over his shoulder, he is {miner}, dark mine tunnel, lamp light on his face", "motion": "he shifts his weight and looks around, slow camera push in", "check": "Is a miner standing with a pickaxe?"}, {"name": "escape", "at": "escape#1", "who": "miner", "clip": true, "prompt": "medium shot, a coal miner running toward a bright mine exit with a canary cage in his hand, he is {miner}, dark tunnel, light ahead", "motion": "he runs toward the light, slow camera move back", "check": "Is a miner running toward light?"}, {"name": "alarm", "at": "alarm#1", "move": "push", "prompt": "close-up of a canary lying still at the bottom of a wire cage, a miner's hand reaching toward it, dark mine tunnel, warm lamp light", "check": "Is a small bird lying in a cage?"}, {"name": "haldane", "at": "John#1", "who": "haldane", "clip": true, "prompt": "medium shot, {haldane} standing at a wooden desk holding up a small yellow canary in a wire cage, an 1890s study with books and a lamp, warm light", "motion": "he lifts the cage gently and studies the bird, slow camera push in", "check": "Is a man holding a bird cage?", "xfade": true}, {"name": "mines", "at": "Canaries#2", "move": "push", "prompt": "wide shot of the dark entrance of a coal mine with a wooden headframe and a line of miners with lamps walking in, grey morning light, 1890s", "check": "Is this a mine entrance with men?"}, {"name": "sensor", "at": "Modern#1", "move": "push", "prompt": "close-up of a modern black gas sensor device clipped to a miner's belt in a dark tunnel, a small green light glowing, 1890s mine setting", "check": "Is there a small device on a belt?"}, {"name": "phrase", "at": "But#1", "who": "haldane", "clip": true, "prompt": "medium shot, {haldane} writing with a quill pen at a wooden desk by a window, a small empty bird cage beside his papers, soft daylight, 1890s", "motion": "his hand moves the pen across the paper, slow camera push in", "check": "Is a man writing at a desk?"}, {"name": "end", "at": "still#2", "move": "pull", "prompt": "a small yellow canary perched on a wooden beam inside a dark coal mine tunnel, a faint warm lamp glow far behind, dust in the air", "check": "Is a yellow bird perched in a dark tunnel?"}]}
+{"era": "1900s", "cast": {"miner": "a 34 year old Welsh coal miner with a soot-blackened face, a short dark beard, a flat cloth cap, a grey wool jacket and a red neck scarf, 1900s", "haldane": "a 35 year old Scottish scientist with a thick dark moustache, neat side-parted dark hair, a brown tweed jacket and a white wing collar, 1890s"}, "key_words": ["canary", "coal mine", "collapse", "damp", "carbon monoxide", "explosions", "1907", "3,242", "John Scott Haldane", "1895", "warm-blooded", "breathes fast", "distress", "smoke alarm", "1914", "fresh air", "warns"], "music": "mysterious", "shots": [{"name": "hook", "at": 0, "who": "miner", "prompt": "medium shot, a coal miner carrying a small brass birdcage with a yellow canary through a dark mine tunnel, he is {miner}, oil lamp light, 1900s", "check": "Is a man carrying a birdcage?", "clip": true, "motion": "he lifts the cage and looks at the bird, slow camera push in"}, {"name": "cage", "at": "If#1", "prompt": "close-up of a yellow canary on a perch inside a small brass cage, dark mine tunnel behind, warm lamp light", "check": "Is there a yellow bird in a cage?", "clip": true, "motion": "the bird hops and turns its head, slow camera push in"}, {"name": "tunnel", "at": "Deadly#1", "prompt": "wide shot of a long dark coal mine tunnel with wooden beams and a faint haze in the air, dim lamp light", "check": "Is this a dark tunnel with wooden beams?", "move": "push", "xfade": true}, {"name": "sniff", "at": "Miners#1", "prompt": "medium shot, two coal miners with blackened faces holding up an oil lamp in a tunnel, 1900s, lamp light", "check": "Are men holding up a lamp?", "clip": true, "motion": "they raise the lamp and look around, slow camera push in"}, {"name": "haze", "at": "White#1", "prompt": "close-up of pale grey haze drifting across a black coal wall, lamp light", "check": "Is there haze in a dark place?", "move": "left"}, {"name": "cough", "at": "toxic#1", "who": "miner", "prompt": "close-up, a coal miner coughing and holding his chest in a dark tunnel, he is {miner}, lamp light", "check": "Is a man coughing?", "clip": true, "motion": "he coughs and bends forward, slow camera push in"}, {"name": "smoke", "at": "After#1", "prompt": "wide shot of thick black smoke pouring out of a coal mine entrance under a grey sky, 1900s", "check": "Is smoke coming out of a mine entrance?", "move": "push", "hit": "explosions#1"}, {"name": "wait", "at": "In#2", "prompt": "medium shot, women in dark shawls waiting anxiously at a coal mine gate, 1900s mining town, grey sky", "check": "Are women waiting at a gate?", "clip": true, "motion": "they hold each other and stare ahead, slow camera push in", "hit": "died#1"}, {"name": "graves", "at": "It#2", "prompt": "wide shot of a mining town churchyard with many fresh graves and a grey sky, 1900s", "check": "Are there many graves?", "move": "pull"}, {"name": "haldane", "at": "scientist#1", "who": "haldane", "prompt": "medium shot, a scientist holding a glass flask up to the light, he is {haldane}, 1890s laboratory, window light", "check": "Is a man holding up a glass flask?", "clip": true, "motion": "he tilts the flask and studies it, slow camera push in", "xfade": true}, {"name": "place", "at": "Put#1", "prompt": "close-up, hands placing a small brass birdcage with a canary on a wooden ledge in a mine tunnel, lamp light", "check": "Are hands holding a birdcage?", "clip": true, "motion": "the hands set the cage down gently, slow camera push in"}, {"name": "watch", "at": "mine#2", "who": "miner", "prompt": "close-up, a miner holding his lamp close to a birdcage and watching the canary, he is {miner}, dark tunnel", "check": "Is a man looking at a birdcage?", "clip": true, "motion": "he leans in and watches the bird, slow camera push in"}, {"name": "walkin", "at": "By#2", "prompt": "wide shot of coal miners walking into a mine entrance at dawn, one carrying a birdcage, 1890s", "check": "Are miners walking into a mine?", "move": "left"}, {"name": "breath", "at": "A#5", "prompt": "extreme close-up of a yellow canary breathing fast, its small chest pumping, warm light", "check": "Is there a yellow bird?", "clip": true, "motion": "its chest rises and falls quickly, slow camera push in"}, {"name": "palm", "at": "small#1", "prompt": "close-up of a tiny yellow canary sitting in a man's big rough sooty palm, lamp light", "check": "Is a bird sitting in a hand?", "clip": true, "motion": "the bird shifts its feet, slow camera push in"}, {"name": "sway", "at": "So#1", "prompt": "close-up of a canary swaying on its perch with half-closed eyes inside a brass cage, dim mine light", "check": "Is a bird on a perch?", "clip": true, "motion": "the bird sways and blinks slowly, slow camera push in"}, {"name": "unaware", "at": "before#1", "prompt": "medium shot of two coal miners swinging pickaxes at a coal wall, calm faces, dark tunnel, lamp light", "check": "Are men swinging pickaxes?", "move": "push"}, {"name": "collapse", "at": "When#1", "prompt": "close-up of a yellow canary lying on the floor of its brass cage, dim mine lamp light", "check": "Is there a bird lying in a cage?", "move": "push", "hit": "collapsed#1"}, {"name": "escape", "at": "miners#3", "prompt": "medium shot, coal miners hurrying along a tunnel toward daylight, one carrying a birdcage, 1900s", "check": "Are miners walking in a tunnel?", "clip": true, "motion": "they hurry forward toward the light, slow camera push in"}, {"name": "flap", "at": "You#1", "prompt": "close-up of a yellow canary flapping its wings inside a brass cage, warm light", "check": "Is a yellow bird flapping?", "clip": true, "motion": "the bird flaps its wings, slow camera push in", "xfade": true}, {"name": "alert", "at": "It#5", "who": "miner", "prompt": "close-up, a miner's face lit by lamp light turning sharply toward a sound, he is {miner}, dark tunnel", "check": "Is a man turning his head?", "clip": true, "motion": "he turns his head quickly, slow camera push in"}, {"name": "lab", "at": "In#5", "prompt": "medium shot, two scientists in white coats watching small animals in glass boxes on a table, 1910s laboratory, window light", "check": "Are there animals in glass boxes?", "clip": true, "motion": "one scientist leans closer, slow camera push in", "xfade": true}, {"name": "cages", "at": "Canaries#2", "prompt": "close-up of a row of small brass cages with yellow canaries on a laboratory shelf, 1910s, window light", "check": "Are there birds in cages?", "move": "right"}, {"name": "mice", "at": "And#2", "prompt": "close-up of a white mouse and a brown guinea pig in a straw-filled wooden box, soft light", "check": "Is there a mouse?", "move": "push"}, {"name": "revive", "at": "canaries#3", "prompt": "close-up, a man holding a limp canary up in fresh open air outside a mine, the bird lifting its head, daylight", "check": "Is a man holding a bird?", "clip": true, "motion": "the bird lifts its head and opens its eyes, slow camera push in", "hit": "recovered#1"}, {"name": "pithead", "at": "Britain#1", "prompt": "wide shot of a coal mine with a tall iron winding tower and smoke, miners in the yard, 1920s, grey daylight", "check": "Is there a tall mine tower?", "move": "right"}, {"name": "whistle", "at": "used#1", "who": "miner", "prompt": "medium shot, a smiling miner whistling to a canary in a brass cage in a mine tunnel, he is {miner}, lamp light", "check": "Is a man smiling at a bird?", "clip": true, "motion": "he whistles and smiles, slow camera push in"}, {"name": "sing", "at": "Today#1", "prompt": "close-up of a yellow canary singing on a perch in warm golden light", "check": "Is there a yellow bird singing?", "clip": true, "motion": "the bird opens its beak and sings, slow camera push in", "xfade": true}, {"name": "warn", "at": "warns#1", "prompt": "medium shot, a coal miner raising his hand in warning to other miners in a tunnel, lamp light, 1900s", "check": "Is a man raising his hand?", "clip": true, "motion": "he raises his hand firmly, slow camera push in"}]}
 
 SOURCES (data only)
 [1] Sentinel species | https://en.wikipedia.org/wiki/Sentinel_species
