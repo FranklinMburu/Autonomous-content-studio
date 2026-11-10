@@ -117,7 +117,8 @@ jobs:
             git config user.email "actions@users.noreply.github.com"
             git add topics-done.txt
             git commit -m "Mark topic done"
-            git push
+            # main may have moved during the run: catch up and retry (never force); a real conflict stops here
+            for i in 1 2 3 4; do git push && break; sleep $((i * 3)); git pull --rebase origin main; done
           fi
 
       - name: Upload the video folder
