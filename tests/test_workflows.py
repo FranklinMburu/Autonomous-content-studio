@@ -91,6 +91,24 @@ def test_polish_return_triggers():
     check("ref: main" in s, "polish-return: runs trusted code from main (never PR code)")
     check("head.repo.full_name == github.repository" in s, "polish-return: ignores pull requests from forks")
     check("repository_owner" in s, "polish-return: comments are read only from the owner")
+    # 10 Nov: after a video was made, ffmpeg read jobs.tsv from stdin and the next job ran with shifted fields.
+    # Run the workflow's own loop with a stand-in job that swallows stdin, plus an empty field, and check every job.
+    loop = re.search(r"\n( *)made=0; fix=0; failed=0\n(.*?done < jobs\.tsv)", s, re.S)
+    check(loop is not None, "polish-return: job loop found")
+    if loop:
+        body = "\n".join(l[len(loop.group(1)):] for l in loop.group(2).splitlines())
+        body = body.replace("tools/polish_continue.sh", "fake")
+        with tempfile.TemporaryDirectory() as d:
+            Path(d, "jobs.tsv").write_text("1\tepisodes/x/001-a\tdraft-a\tanswers/1.txt\t-\tpr\n"
+                                           "2\tepisodes/x/002-b\tdraft-b\tanswers/2.txt\tpolish/film/002-b\tpr\n"
+                                           "3\tepisodes/x/003-c\tdraft-c\tanswers/3.txt\t-\towner\n")
+            script = ('fake() { cat > /dev/null; echo "JOB $1|$2|$5|$6" >> seen.txt; }\n'
+                      "made=0; fix=0; failed=0\n" + body + "\n")
+            subprocess.run(["bash", "-c", script], cwd=d, capture_output=True, text=True)
+            seen = Path(d, "seen.txt").read_text().splitlines() if Path(d, "seen.txt").exists() else []
+        check(seen == ["JOB 1|episodes/x/001-a||pr", "JOB 2|episodes/x/002-b|polish/film/002-b|pr",
+                       "JOB 3|episodes/x/003-c||owner"],
+              f"polish-return: every job keeps its own fields even if a step reads stdin ({seen})")
 
 
 def test_ticket_and_offline_check():
