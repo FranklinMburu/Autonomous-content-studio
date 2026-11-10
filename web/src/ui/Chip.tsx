@@ -34,6 +34,10 @@ export const Chip: React.FC<ChipProps> = ({ status, label, className = '', style
       chipClass += ' rev';
       chipLabel = chipLabel || 'Needs your polish';
       break;
+    case 'polished':
+      chipClass += ' run';
+      chipLabel = chipLabel || 'Polished · making video';
+      break;
     case 'draft':
       chipLabel = chipLabel || 'Draft';
       break;

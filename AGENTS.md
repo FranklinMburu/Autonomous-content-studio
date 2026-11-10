@@ -33,8 +33,14 @@ When Franklin says "check my work", "get in sync", "catch up" or similar, do exa
   `python tests/test_story.py`, `python tests/test_story_writer.py`, `python tests/test_workflows.py`,
   `python tests/test_pipeline.py`, `python tests/test_pipeline_fixes.py`, `python tests/test_git_identity.py`; for the website:
   `cd web && npm ci && npx tsc --noEmit && npx vite build`.
-- **Deliver as a pull request** into `main` from a new branch, with a description that says: the cause (with
-  evidence), the fix, the checks you ran, and anything Franklin must click after merging. Franklin merges.
+- **Always finish with a pull request. No exceptions, no reminders needed.** Work is not done while it only
+  exists in your session: commit it on a new branch, push the branch, open a pull request into `main` and put its
+  link in your final reply. Never leave changes uncommitted, never stop at a diff or a plan "for review". The
+  description says: the cause (with evidence), the fix, the checks you ran (with results), what you did NOT fix,
+  and anything Franklin must click after merging. Franklin (or Claude, reviewing for him) merges; you never do.
+- **Don't wait to be told the obvious next step.** If your fix needs a test, a handbook line or a matching change
+  elsewhere in this repo, do it in the same pull request. If it belongs in another repo (e.g. the AI layer), open a
+  second pull request there. Ask Franklin only for real decisions or things only the owner can do.
 - **Explain to Franklin like this:** plain language, short numbered steps, exact buttons to click. Do the work
   yourself; only hand him what truly needs him (merging, watching a video, settings only the owner can change).
 

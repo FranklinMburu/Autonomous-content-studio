@@ -12,7 +12,7 @@ export const StudioWorld: React.FC = () => {
   // Compute live numbers
   const sevenDaysAgo = new Date(Date.now() - 7 * 86400000);
   // real numbers only (DATA_CONTRACT §6): films made this week, their facts, and their painted shots (from film.json)
-  const weekFilms = films.filter(f => f.at && new Date(f.at) >= sevenDaysAgo && !['draft', 'polish'].includes(f.status));
+  const weekFilms = films.filter(f => f.at && new Date(f.at) >= sevenDaysAgo && !['draft', 'polish', 'polished'].includes(f.status));
   const targetFilms = weekFilms.length;
   const targetFacts = weekFilms.reduce((a, f) => a + (f.release?.sources?.length || 0), 0);
   const [targetShots, setTargetShots] = useState(0);
