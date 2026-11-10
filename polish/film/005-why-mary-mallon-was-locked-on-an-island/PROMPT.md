@@ -80,172 +80,237 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: medium close-up, {lister} pressing white cloth towels into a glass dis | close-up, {boy} resting his head on a flat white pillow, looking scare | low angle medium shot, {patient} sitting nervously on a tall wooden op | wide shot of a large grey Victorian stone hospital building with tall  | medium close-up, {patient} lying weakly in an iron hospital bed under  | extreme close-up of an open inflamed wound on a pale forearm leaking t | medium shot, {lister} standing in a dim surgical theatre gripping a lo | medium shot, {boy} standing just inside a Victorian hospital doorway,  | extreme close-up of two surgeon's hands holding a boy's broken lower l | medium shot, carefully adjusting the broken leg of {boy} on a wooden c | close-up of hands pouring clear carbolic liquid from a glass bottle on | medium shot, wrapping a shiny sheet of tin foil over a bound leg, {lis
 - 004-why-john-snow-removed-a-london-pump-hand: cast snow = a 41 year old English doctor with short dark wavy hair, a clean shaven narrow face, thin lips, deep-set grey eyes, a black frock coat, a grey waistcoat, a white high collar and a black necktie, 1850s; whitehead = a 28 year old English vicar with fair curly hair, a round friendly face, rosy cheeks, a black clerical coat and a white clerical collar, 1850s; simon = a 38 year old London health official with a neat full black beard, a high bald forehead, a brown overcoat with a fur collar and a grey top hat, 1850s; mother = a 30 year old poor London woman with red hair tied under a white cotton cap, a faded blue cotton dress and a brown wool shawl, 1850s; brewer = a burly 50 year old brewery worker with a thick ginger beard, a flat cloth cap, rolled-up shirt sleeves and a grey canvas apron, 1850s
   scenes: medium shot, two men in black top hats pulling the long iron handle of | medium close-up, a doctor pointing firmly at an iron street water pump | wide shot of a crowded narrow 1850s London street with laundry hanging | close-up, a pale sweating man lying sick on a straw mattress in a dark | high angle, men carrying plain wooden coffins out of narrow brick hous | medium shot, three doctors in black coats pressing white handkerchiefs | wide shot, thick greenish yellow fog drifting over a rubbish-strewn mu | medium shot, a bearded official shaking his head while reading a lette | close-up, a doctor frowning as he reads a letter by a rainy window, he | medium shot, {snow} and {whitehead} knocking on the wooden door of a n | medium close-up, a crying woman in a doorway answering questions, she  | extreme close-up, a hand with a quill pen marking small black dots on 
+- 005-why-barry-marshall-swallowed-bacteria: cast marshall = a 33 year old Australian doctor, lean build, curly dark brown hair, a full dark brown beard, brown eyes, thin wire-rimmed glasses, a white short-sleeved shirt under a pale blue lab coat and khaki trousers, 1980s; warren = a 46 year old Australian pathologist with short receding grey hair, a clean-shaven square face, heavy black-framed glasses, a white lab coat over a brown checked shirt, 1980s; skeptic = a 48 year old British gastroenterologist, stocky build, balding with short grey hair at the sides, heavy dark eyebrows, clean shaven, a charcoal grey suit jacket, a burgundy patterned tie and white shirt, 1980s; nurse = a 35 year old nurse, sturdy build, dark brown hair in a ponytail, teal scrubs, 1980s; wife = a 32 year old woman with shoulder-length wavy blond hair, a sun-tanned face and a yellow sleeveless summer dress, 1980s
+  scenes: close-up, a bearded doctor drinking cloudy brown liquid from a glass b | medium close-up, a doctor wincing and pressing a hand on his stomach,  | medium shot, a stressed businessman in a brown suit clutching his stom | close-up of a plate of bright red chilli peppers next to a bowl of spi | wide shot of a sunny 1980s Australian city hospital with palm trees in | medium shot, a pathologist looking into a microscope, he is {warren},  | medium shot, a balding doctor laughing and shaking his head at a meeti | extreme close-up of clear liquid bubbling in a glass beaker on a lab b | close-up, a hand dropping a stapled paper into a metal wastebasket, 19 | medium close-up, a doctor reading a letter and slumping back in his ch | medium shot, pink piglets sniffing around a clean straw pen, bright da | close-up, a doctor rolling up his sleeves with a determined face, he i
 
 PROBLEMS FOUND BY THE CHECKS
-- script: not supported by the sources, fix or remove: Neighbors laughed, calling her a stubborn cook who feared losing work.
-- script: not supported by the sources, fix or remove: They dismissed the doctor's warnings as mere gossip.
-- script: not supported by the sources, fix or remove: Mary alone stayed thirty‑six years.
+- shot ward: 3.7 s on screen (max 3.2; split it)
+- script: not supported by the sources: Soper ran.
+- script: not supported by the sources: She came out fighting and swearing.
+- script: not supported by the sources: Baker had to sit on her chest in the ambulance.
 
 DRAFT SCRIPT
-{"title": "Why Mary Mallon was locked on an island", "beats": [{"feel": "curiosity", "lines": ["Mary brandished a kitchen fork like a sword, refusing anyone entry."]}, {"feel": "sympathy", "lines": ["Neighbors laughed, calling her a stubborn cook who feared losing work.", "They dismissed the doctor's warnings as mere gossip."]}, {"feel": "dread", "lines": ["Police dragged her to Willard Parker Hospital.", "Scientists tested her stool three times each week.", "The bacteria hid in her gallbladder, impossible to cure."]}, {"feel": "recognition", "lines": ["You see, it’s like a broken spoon.", "It keeps poisoning every bowl of soup."]}, {"feel": "awe", "lines": ["She kept cooking, spreading typhoid to dozens and causing three deaths.", "The city locked her on North Brother Island to stop more outbreaks."]}, {"feel": "surprise", "lines": ["Other carriers were released, given jobs, and paid rent.", "Mary alone stayed thirty‑six years.", "She became a scapegoat because she was a woman cook."]}, {"feel": "frustration", "lines": ["When she tried to work again in 1914, another outbreak erupted.", "Investigators matched her handwriting and sent her back to the island.", "She spent the rest of her life baking cakes for fellow patients."]}]}
+{"title": "Why Mary Mallon was locked on an island", "beats": [{"feel": "shock", "lines": ["A cook lunged at health officials with a long kitchen fork."]}, {"feel": "curiosity", "lines": ["Her name was Mary Mallon, and she cooked for rich New York families.", "An investigator, George Soper, checked eight families she had cooked for.", "Seven of them had caught typhoid fever."]}, {"feel": "tension", "lines": ["But Mary felt perfectly healthy.", "When Soper asked for samples, she grabbed a carving fork.", "Soper ran."]}, {"feel": "dread", "lines": ["In 1907, Doctor Sara Josephine Baker came back with the police.", "Mary hid in a garden shed.", "She came out fighting and swearing.", "Baker had to sit on her chest in the ambulance."]}, {"feel": "realization", "lines": ["Tests found typhoid bacteria in Mary's stool.", "She was a healthy carrier: never sick herself, but spreading the disease."]}, {"feel": "recognition", "lines": ["You see, it's like glitter on your hands.", "You can't feel it, but everything you touch ends up sparkling."]}, {"feel": "betrayal", "lines": ["Officials locked her on North Brother Island.", "In 1910, they freed her when she promised never to cook again.", "But in 1915, a maternity hospital had twenty-five typhoid cases. Two people died.", "The new cook called herself Mary Brown.", "Soper matched the handwriting. It was Mary."]}, {"feel": "irony", "lines": ["Four hundred other healthy carriers were found, but none was confined as long.", "Mary stayed on the island for the rest of her life, baking cakes for the patients."]}]}
 CLAIMS IN THE DRAFT
-- {'claim': 'Mallon was forcibly quarantined on North Brother Island after being identified as a typhoid carrier and remained there until her death in 1938.', 'url': 'https://en.wikipedia.org/wiki/Mary_Mallon'}
-- {'claim': 'Her long confinement was unique; other asymptomatic carriers were not held for decades, reflecting gender and occupational bias.', 'url': 'https://doi.org/10.53032/tcl.2026.11.4.14'}
-- {'claim': 'After a 1915 outbreak at Sloane Maternity Hospital, investigators linked the illness to Mallon and returned her to the island.', 'url': 'https://en.wikipedia.org/wiki/Mary_Mallon'}
+- {'claim': 'Mallon came at officials with a long kitchen fork when they tried to take her for testing.', 'url': 'https://en.wikipedia.org/wiki/Mary_Mallon'}
+- {'claim': 'Mary Mallon was a cook for wealthy New York families; George Soper found she had worked for eight families, seven of whom suffered typhoid outbreaks.', 'url': 'https://en.wikipedia.org/wiki/Mary_Mallon'}
+- {'claim': 'When Soper asked for samples, Mallon seized a carving fork and he escaped; she believed she was not infected.', 'url': 'https://en.wikipedia.org/wiki/Mary_Mallon'}
+- {'claim': 'On March 20, 1907, Sara Josephine Baker returned with police; Mallon hid in a garden shed, came out fighting and swearing, and Baker sat on her chest in the ambulance.', 'url': 'https://en.wikipedia.org/wiki/Mary_Mallon'}
+- {'claim': 'Her stools showed typhoid bacteria; she was the first person in the U.S. identified as an asymptomatic carrier.', 'url': 'https://en.wikipedia.org/wiki/Mary_Mallon'}
+- {'claim': 'She was quarantined on North Brother Island and released in 1910 after promising not to return to cooking.', 'url': 'https://en.wikipedia.org/wiki/Mary_Mallon'}
+- {'claim': 'In 1915 an outbreak at Sloane Maternity Hospital, where she worked as Mary Brown, had twenty-five cases and two deaths; Soper compared the handwriting.', 'url': 'https://en.wikipedia.org/wiki/Mary_Mallon'}
+- {'claim': 'She was treated differently from four hundred other asymptomatic carriers; none were confined as long.', 'url': 'https://en.wikipedia.org/wiki/Mary_Mallon'}
+- {'claim': 'She remained on the island until her death in 1938, baking cakes she sold to patients and staff.', 'url': 'https://en.wikipedia.org/wiki/Mary_Mallon'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
-0.14s Mary#1
-0.42s brandished#1
-0.72s a#1
-0.79s kitchen#1
-1.07s fork#1
-1.27s like#1
-1.42s a#2
-1.52s sword#1
-2.12s refusing#1
-2.57s anyone#1
-2.87s entry#1
-3.71s Neighbors#1
-3.99s laughed#1
-4.51s calling#1
-4.74s her#1
-4.87s a#3
-4.94s stubborn#1
-5.19s cook#1
-5.37s who#1
-5.54s feared#1
-5.79s losing#1
-6.07s work#1
-6.69s They#1
-6.79s dismissed#1
-7.12s the#1
-7.19s doctor's#1
-7.52s warnings#1
-7.99s as#1
-8.12s mere#1
-8.27s gossip#1
-9.09s Police#1
-9.46s dragged#1
-9.76s her#2
-9.96s to#1
-10.09s Willard#1
-10.34s Parker#1
-10.59s Hospital#1
-11.39s Scientists#1
-11.79s tested#1
-11.99s her#3
-12.12s stool#1
-12.42s three#1
-12.59s times#1
-12.87s each#1
-13.02s week#1
-13.58s The#2
-13.65s bacteria#1
-14.08s hid#1
-14.23s in#1
-14.30s her#4
-14.43s gallbladder#1
-15.10s impossible#1
-15.55s to#2
-15.65s cure#1
-16.45s You#1
-16.60s see#1
-16.82s it’s#1
-16.92s like#2
-17.07s a#4
-17.15s broken#1
-17.45s spoon#1
-18.15s It#1
-18.22s keeps#1
-18.42s poisoning#1
-18.85s every#1
-19.05s bowl#1
-19.25s of#1
-19.37s soup#1
-20.05s She#1
-20.16s kept#1
-20.33s cooking#1
-20.93s spreading#1
-21.20s typhoid#1
-21.58s to#3
-21.68s dozens#1
-22.03s and#1
-22.16s causing#1
-22.43s three#2
-22.61s deaths#1
-23.32s The#3
-23.45s city#1
-23.67s locked#1
-23.87s her#5
-24.05s on#1
-24.17s North#1
-24.35s Brother#1
-24.57s Island#1
-24.97s to#4
-25.07s stop#1
-25.30s more#1
-25.47s outbreaks#1
-26.41s Other#1
-26.59s carriers#1
-26.89s were#1
-26.99s released#1
-27.59s given#1
-27.79s jobs#1
-28.24s and#2
-28.36s paid#1
-28.59s rent#1
-29.23s Mary#2
-29.43s alone#1
-29.65s stayed#1
-29.85s thirty‑six#1
-30.23s years#1
-30.94s She#2
-31.04s became#1
-31.27s a#5
-31.34s scapegoat#1
-31.82s because#1
-32.02s she#3
-32.12s was#1
-32.19s a#6
-32.29s woman#1
-32.52s cook#2
-33.23s When#1
-33.35s she#4
-33.45s tried#1
-33.66s to#5
-33.73s work#2
-33.88s again#1
-34.13s in#2
-34.20s 1914#1
-35.30s another#1
-35.57s outbreak#1
-35.90s erupted#1
-36.70s Investigators#1
-37.30s matched#1
-37.53s her#6
-37.66s handwriting#1
-38.38s and#3
-38.51s sent#1
-38.66s her#7
-38.76s back#1
-38.93s to#6
-39.01s the#4
-39.10s island#2
-39.81s She#5
-39.91s spent#1
-40.11s the#5
-40.21s rest#1
-40.36s of#2
-40.44s her#8
-40.56s life#1
-40.81s baking#1
-41.06s cakes#1
-41.31s for#1
-41.46s fellow#1
-41.69s patients#1
+0.12s A#1
+0.22s cook#1
+0.47s lunged#1
+0.69s at#1
+0.77s health#1
+0.94s officials#1
+1.44s with#1
+1.54s a#2
+1.64s long#1
+1.94s kitchen#1
+2.19s fork#1
+2.92s Her#1
+3.02s name#1
+3.25s was#1
+3.37s Mary#1
+3.62s Mallon#1
+4.25s and#1
+4.35s she#1
+4.47s cooked#1
+4.62s for#1
+4.77s rich#1
+4.97s New#1
+5.10s York#1
+5.30s families#1
+6.09s An#1
+6.17s investigator#1
+6.69s George#1
+6.94s Soper#1
+7.57s checked#1
+7.79s eight#1
+7.94s families#2
+8.27s she#2
+8.37s had#1
+8.47s cooked#2
+8.64s for#2
+9.26s Seven#1
+9.43s of#1
+9.51s them#1
+9.66s had#2
+9.76s caught#1
+9.96s typhoid#1
+10.28s fever#1
+11.07s But#1
+11.20s Mary#2
+11.45s felt#1
+11.62s perfectly#1
+11.90s healthy#1
+12.60s When#1
+12.75s Soper#2
+13.00s asked#1
+13.20s for#3
+13.35s samples#1
+13.93s she#3
+14.03s grabbed#1
+14.25s a#3
+14.33s carving#1
+14.68s fork#2
+15.39s Soper#3
+15.64s ran#1
+16.48s In#1
+16.55s 1907#1
+17.63s Doctor#1
+17.86s Sara#1
+18.05s Josephine#1
+18.45s Baker#1
+18.73s came#1
+18.88s back#1
+19.08s with#2
+19.16s the#1
+19.25s police#1
+20.03s Mary#3
+20.26s hid#1
+20.43s in#2
+20.51s a#4
+20.56s garden#1
+20.86s shed#1
+21.52s She#4
+21.62s came#2
+21.77s out#1
+21.95s fighting#1
+22.20s and#2
+22.35s swearing#1
+23.08s Baker#2
+23.43s had#3
+23.51s to#1
+23.68s sit#1
+23.80s on#1
+23.90s her#2
+24.03s chest#1
+24.38s in#3
+24.43s the#2
+24.53s ambulance#1
+25.47s Tests#1
+25.67s found#1
+25.90s typhoid#2
+26.25s bacteria#1
+26.67s in#4
+26.75s Mary's#1
+27.00s stool#1
+27.71s She#5
+27.81s was#2
+27.87s a#5
+27.96s healthy#2
+28.24s carrier:#1
+28.99s never#1
+29.19s sick#1
+29.32s herself#1
+29.76s but#2
+29.91s spreading#1
+30.18s the#3
+30.26s disease#1
+31.26s You#1
+31.41s see#1
+31.63s it's#1
+31.73s like#1
+31.91s glitter#1
+32.13s on#2
+32.23s your#1
+32.36s hands#1
+33.12s You#2
+33.22s can't#1
+33.42s feel#1
+33.59s it#1
+33.95s but#3
+34.15s everything#1
+34.43s you#3
+34.55s touch#1
+34.85s ends#1
+35.00s up#1
+35.13s sparkling#1
+36.09s Officials#2
+36.49s locked#1
+36.69s her#3
+36.94s on#3
+37.06s North#1
+37.29s Brother#1
+37.51s Island#1
+38.26s In#5
+38.34s 1910#1
+39.34s they#1
+39.49s freed#1
+39.69s her#4
+39.79s when#2
+39.89s she#6
+40.02s promised#1
+40.39s never#2
+40.57s to#2
+40.64s cook#2
+40.77s again#1
+41.42s But#4
+41.55s in#6
+41.62s 1915#1
+42.52s a#6
+42.57s maternity#1
+42.95s hospital#1
+43.30s had#4
+43.45s twenty-five#1
+44.00s typhoid#3
+44.37s cases#1
+45.10s Two#1
+45.22s people#1
+45.45s died#1
+46.11s The#4
+46.18s new#2
+46.33s cook#3
+46.53s called#1
+46.71s herself#2
+47.06s Mary#4
+47.28s Brown#1
+48.03s Soper#4
+48.31s matched#1
+48.51s the#5
+48.58s handwriting#1
+49.36s It#2
+49.43s was#3
+49.56s Mary#5
+50.40s Four#1
+50.58s hundred#1
+50.80s other#1
+50.95s healthy#3
+51.23s carriers#1
+51.58s were#1
+51.70s found#2
+52.34s but#5
+52.49s none#1
+52.69s was#4
+52.79s confined#1
+53.24s as#1
+53.34s long#2
+54.00s Mary#6
+54.27s stayed#1
+54.52s on#4
+54.59s the#6
+54.72s island#2
+55.05s for#4
+55.17s the#7
+55.22s rest#1
+55.32s of#2
+55.40s her#5
+55.52s life#1
+56.15s baking#1
+56.47s cakes#1
+56.77s for#5
+56.92s the#8
+57.05s patients#1
 
 DRAFT film.json
-{"era": "1900s-1930s", "cast": {"mary": "a 39 year old Irish American cook with a broad round face, strong square jaw, dark brown hair pulled into a tight bun, wearing a plain white cotton cook's blouse with rolled sleeves, a long dark blue wool skirt and a white apron, 1900s", "doctor": "a 45 year old New York health department physician with a short grey beard, thinning dark hair and round wire rim glasses, wearing a dark brown three piece suit under a black frock coat, 1900s", "nurse": "a 32 year old hospital nurse with auburn hair in a neat bun and a round freckled face, wearing a starched white uniform dress with long sleeves, a white cap and a white apron, 1900s", "neighbor": "a 55 year old Italian American neighbor woman with a ruddy round face, grey hair under a black headscarf, wearing a dark green cotton dress with a red apron, 1900s", "guard": "a 36 year old New York city policeman with a square jaw, short black hair and a thin dark mustache, wearing a navy blue uniform with a brass badge and a peaked cap, 1900s", "scientist": "a 29 year old bacteriologist with short curly black hair, a narrow face and dark eyes behind small round glasses, wearing a white laboratory coat over a dark suit, 1900s"}, "music": "tense", "key_words": ["Mary#1", "Mary#2", "brandished#1", "a#1", "a#2", "a#3", "a#4", "a#5", "a#6", "kitchen#1", "fork#1", "like#1", "like#2", "sword#1", "refusing#1", "anyone#1", "entry#1", "Neighbors#1", "laughed#1", "calling#1", "her#1", "her#2", "her#3", "her#4", "her#5", "her#6", "her#7", "her#8", "stubborn#1", "cook#1", "cook#2", "who#1", "feared#1", "losing#1", "work#1", "work#2", "They#1", "dismissed#1", "the#1", "the#4", "the#5", "The#2", "The#3", "doctor's#1", "warnings#1", "as#1", "mere#1", "gossip#1", "Police#1", "dragged#1", "to#1", "to#2", "to#3", "to#4", "to#5", "to#6", "Willard#1", "Parker#1", "Hospital#1", "Scientists#1", "tested#1", "stool#1", "three#1", "three#2", "times#1", "each#1", "week#1", "bacteria#1", "hid#1", "in#1", "in#2", "gallbladder#1", "impossible#1", "cure#1", "You#1", "see#1", "it’s#1", "broken#1", "spoon#1", "It#1", "keeps#1", "poisoning#1", "every#1", "bowl#1", "of#1", "of#2", "soup#1", "She#1", "She#2", "she#3", "she#4", "She#5", "kept#1", "cooking#1", "spreading#1", "typhoid#1", "dozens#1", "and#1", "and#2", "and#3", "causing#1", "deaths#1", "city#1", "locked#1", "on#1", "North#1", "Brother#1", "Island#1", "island#1", "stop#1", "more#1", "outbreaks#1", "outbreak#1", "Other#1", "carriers#1", "were#1", "released#1", "given#1", "jobs#1", "paid#1", "rent#1", "alone#1", "stayed#1", "thirty‑six#1", "years#1", "became#1", "scapegoat#1", "because#1", "was#1", "woman#1", "When#1", "tried#1", "again#1", "1914#1", "another#1", "erupted#1", "Investigators#1", "matched#1", "handwriting#1", "sent#1", "back#1", "spent#1", "rest#1", "life#1", "baking#1", "cakes#1", "for#1", "fellow#1", "patients#1"], "shots": [{"name": "fork_sword", "at": 0, "who": "mary", "clip": true, "prompt": "medium close-up, a woman brandishing a kitchen fork like a sword, arm raised and thrust forward, she is {mary}, a 1900s New York tenement kitchen doorway, warm gaslight", "motion": "she raises the fork and jabs it forward, slow camera push in", "hit": "sword#1", "check": "Is a woman holding up a kitchen fork?"}, {"name": "blocked_door", "at": "refusing#1", "who": "mary", "clip": true, "prompt": "low angle, a woman standing firm in a doorway blocking the entrance, holding a kitchen fork across her body, she is {mary}, a 1900s New York tenement hallway, dim daylight from a window", "motion": "she shifts her weight and lifts the fork higher, slow camera pull back", "check": "Is a woman blocking a doorway with a fork?"}, {"name": "mockery", "at": "Neighbors#1", "who": "neighbor", "clip": true, "motion": "she laughs and jabs her finger forward, slow camera push in", "prompt": "medium shot, a woman laughing and pointing mockingly at a closed wooden kitchen doorway, she is {neighbor}, 1900s New York tenement street, warm afternoon light", "xfade": true, "check": "Is a woman laughing and pointing?"}, {"name": "stubborn", "at": "cook#1", "who": "mary", "clip": true, "motion": "she stirs the pot and shakes her head, slow camera push in", "prompt": "medium close-up, a cook stirring a steaming pot with a wooden spoon and shaking her head stubbornly, she is {mary}, cramped 1900s tenement kitchen, warm stove light", "check": "Is a woman stirring a pot with a wooden spoon?"}, {"name": "gossip", "at": "dismissed#1", "clip": true, "motion": "she shrugs and waves her hand dismissively, slow camera push in", "prompt": "medium shot, a woman in a dark green dress with a red apron shrugging her shoulders and waving one hand dismissively at a grey-bearded doctor holding papers, 1900s New York street, cool morning light", "check": "Is a woman shrugging her shoulders?"}, {"name": "dragged", "at": "Police#1", "who": "mary", "clip": true, "xfade": true, "prompt": "medium shot, a woman being dragged by the arm by a policeman in a navy uniform, she is {mary}, a 1909 New York street of brick tenements, cold morning light", "motion": "she twists and struggles as he pulls her along, slow camera push in", "hit": "dragged#1", "check": "Is a woman being dragged by a policeman?"}, {"name": "willard_parker", "at": "Hospital#1", "move": "push", "prompt": "wide shot, a large grey stone hospital building with tall arched windows on a New York street, a horse-drawn police wagon waiting at the gate, 1909, overcast morning light", "check": "Is there a large stone hospital building?"}, {"name": "stool_test", "at": "stool#1", "who": "scientist", "clip": true, "prompt": "close-up, a bacteriologist holding up a glass jar containing a small brown sample, he is {scientist}, a 1909 hospital laboratory with glass bottles, bright window light", "motion": "he slowly turns the jar and studies it, slow camera push in", "check": "Is a man holding up a glass jar with a brown sample?"}, {"name": "gallbladder", "at": "gallbladder#1", "who": "doctor", "clip": true, "prompt": "close-up, a doctor pointing at a small green gallbladder on a painted anatomical torso model, he is {doctor}, a 1909 hospital office, warm lamp light", "motion": "he points at the gallbladder and nods, slow camera push in", "hit": "impossible#1", "check": "Is a man pointing at an anatomical torso model?"}, {"name": "broken_spoon", "at": "You#1", "xfade": true, "move": "push", "prompt": "close-up, a bent broken spoon stirring slowly through steaming soup in a large black pot on a wooden kitchen table, warm gaslight and window light, 1900s", "check": "Is there a broken spoon in a pot of soup?"}, {"name": "poisoned_bowl", "at": "It#1", "hit": "poisoning#1", "clip": true, "prompt": "close-up, a woman's hand holding a cracked spoon above a white ceramic bowl of soup, dark murky liquid dripping into the bowl, 1900s kitchen counter, warm lamplight", "motion": "the dark liquid drips slowly from the cracked spoon into the soup, slow camera push in", "check": "Is dark liquid dripping into a bowl of soup?"}, {"name": "cooking", "at": "She#1", "who": "mary", "clip": true, "xfade": true, "prompt": "medium shot, a woman ladling steaming soup from a big pot into bowls on a wooden table, she is {mary}, a busy 1900s New York kitchen, warm stove light", "motion": "she stirs the pot and ladles soup, steam rises, slow camera push in", "check": "Is a woman cooking soup?"}, {"name": "deaths", "at": "deaths#1", "move": "push", "prompt": "wide shot, three iron hospital beds in a row, each holding a still patient under a white sheet, cold grey light in a 1900s New York hospital ward", "hit": "deaths#1", "check": "Are there three beds with patients under white sheets?"}, {"name": "island", "at": "locked#1", "who": "mary", "clip": true, "prompt": "medium shot, a woman gripping the bars of a locked iron gate on a rocky island shore, she is {mary}, North Brother Island, cold grey dawn light", "motion": "she grips the iron bars and looks back, wind moves her skirt, slow camera push in", "hit": "locked#1", "check": "Is a woman gripping the bars of a locked gate?"}, {"name": "released", "at": "Other#1", "clip": true, "prompt": "medium shot, a woman in a plain grey cotton dress stepping out through an open iron hospital gate into bright morning light, brick hospital wall behind her", "motion": "she steps through the gate and lifts her chin, slow camera push in", "xfade": true, "check": "Is a woman stepping through an open gate?"}, {"name": "jobs", "at": "jobs#1", "clip": true, "prompt": "medium shot, a woman in a plain grey dress lifting a wicker basket of clean white laundry in a bright hospital laundry room, tall windows, morning light", "motion": "she lifts the basket and steps forward, slow camera push in", "check": "Is a woman lifting a basket of laundry?"}, {"name": "alone", "at": "Mary#2", "who": "mary", "move": "push", "prompt": "medium shot, {mary} standing alone at a barred window in a small stone island hospital room, looking out at a grey choppy sea, cold overcast light", "xfade": true, "hit": "thirty‑six#1", "check": "Is a woman standing alone at a barred window?"}, {"name": "scapegoat", "at": "scapegoat#1", "who": "mary", "clip": true, "prompt": "close-up, {mary} holding a wooden spoon and looking downcast in a plain kitchen while blurred hands point at her from the foreground, cold window light", "motion": "she lowers her head as the pointing hands shift, slow camera push in", "hit": "scapegoat#1", "check": "Is a woman holding a wooden spoon and looking downcast?"}, {"name": "work_again", "at": "When#1", "who": "mary", "clip": true, "prompt": "medium shot, a woman in a white cook's blouse and apron stirring a large pot on a cast iron stove, she is {mary}, a busy 1914 restaurant kitchen, steam and warm light", "motion": "she stirs the pot slowly, steam rises, slow camera push in", "xfade": true, "check": "Is a woman stirring a pot on a stove?"}, {"name": "outbreak", "at": "outbreak#1", "who": "nurse", "clip": true, "prompt": "medium shot, a nurse in a starched white uniform leaning over a feverish patient lying in an iron hospital bed, wiping his forehead with a cloth, she is {nurse}, a crowded 1914 hospital ward, grey daylight", "motion": "she wipes his forehead gently, the blanket shivers, slow camera push in", "hit": "outbreak#1", "check": "Is a nurse wiping a patient's forehead?"}, {"name": "handwriting", "at": "matched#1", "who": "scientist", "clip": true, "prompt": "medium close-up, a bacteriologist holding a magnifying glass over a handwritten page on a wooden desk, he is {scientist}, a 1910s laboratory, warm lamp light", "motion": "he slides the magnifying glass across the handwriting, slow camera push in", "hit": "matched#1", "check": "Is a man examining handwriting with a magnifying glass?"}, {"name": "sent_back", "at": "sent#1", "clip": false, "prompt": "medium shot, a policeman in a navy blue uniform gripping the arm of a woman in a white cook's blouse and dark blue skirt, leading her toward a small ferry boat, grey river morning light", "motion": "the policeman leads her forward, her skirt sways, slow camera push in", "hit": "sent#1", "check": "Is a policeman leading a woman toward a ferry?", "move": "push"}, {"name": "cakes", "at": "baking#1", "who": "mary", "clip": true, "prompt": "medium close-up, a woman in a white cook's blouse and apron setting a golden cake onto a white plate, she is {mary}, a small island hospital kitchen, warm morning light", "motion": "she sets the cake down carefully, slow camera push in", "check": "Is a woman putting a cake on a plate?"}]}
+{"era": "1900s", "cast": {"mary": "a 39 year old Irish American cook with a broad round face, a strong square jaw, dark brown hair pulled into a tight bun, a plain white cotton cook's blouse with rolled sleeves, a long dark blue wool skirt and a white apron, 1900s", "soper": "a 37 year old American sanitation engineer with a thick dark brown walrus moustache, a lean face, a brown bowler hat and a grey three-piece suit, 1900s", "baker": "a 34 year old woman doctor with short-cropped brown hair parted at the side, a high white shirt collar, a dark necktie and a dark tailored jacket, 1900s"}, "key_words": ["kitchen fork", "Mary Mallon", "George Soper", "eight families", "typhoid", "carving fork", "police", "garden shed", "healthy carrier", "glitter", "North Brother Island", "1910", "twenty-five", "Mary Brown", "handwriting", "four hundred", "baking cakes"], "music": "mysterious", "shots": [{"name": "hook", "at": 0, "who": "mary", "prompt": "medium shot, a cook lunging forward with a long two-pronged kitchen fork raised, she is {mary}, a narrow 1900s townhouse hallway, gaslight", "check": "Is a woman holding a long fork?", "clip": true, "motion": "she jabs the fork forward, slow camera push in"}, {"name": "prongs", "at": "long#1", "prompt": "extreme close-up of the sharp prongs of a long iron kitchen fork pointing at the camera, gaslight, dark hallway", "check": "Is there a sharp fork?", "move": "push"}, {"name": "cook", "at": "Her#1", "who": "mary", "prompt": "medium shot, a cook stirring a big copper pot on an iron stove, she is {mary}, a grand 1900s New York kitchen, window light", "check": "Is a woman stirring a pot?", "clip": true, "motion": "she stirs and tastes from the spoon, slow camera push in"}, {"name": "mansions", "at": "rich#1", "prompt": "wide shot of a street of grand 1900s New York brownstone houses with horse carriages, soft daylight", "check": "Is this a street of tall houses?", "move": "right"}, {"name": "soper", "at": "An#1", "who": "soper", "prompt": "medium close-up, a man studying a list in a small notebook, he is {soper}, 1900s office, lamp light", "check": "Is a man reading a notebook?", "clip": true, "motion": "he runs a finger down the page, slow camera push in"}, {"name": "map", "at": "eight#1", "prompt": "close-up of a hand pushing small red pins into a cork board on a wooden wall, lamp light, 1900s office", "check": "Is a hand pushing a pin into a board?", "move": "push"}, {"name": "sick", "at": "Seven#1", "prompt": "close-up, a feverish young woman lying in a white bed with a wet cloth on her forehead, 1900s bedroom, dim light", "check": "Is a woman lying in a bed?", "clip": true, "motion": "she turns her head weakly, slow camera push in", "hit": "typhoid#1"}, {"name": "healthy", "at": "But#1", "who": "mary", "prompt": "medium shot, a strong cook laughing while kneading dough at a kitchen table, she is {mary}, 1900s kitchen, warm light", "check": "Is a woman kneading dough?", "clip": true, "motion": "she pushes the dough and laughs, slow camera push in"}, {"name": "jar", "at": "When#1", "who": "soper", "prompt": "medium shot, a man holding out a small glass jar in a kitchen doorway, he is {soper}, 1900s townhouse, gaslight", "check": "Is a man holding a small jar?", "clip": true, "motion": "he holds the jar out carefully, slow camera push in"}, {"name": "fork", "at": "grabbed#1", "who": "mary", "prompt": "close-up, a furious cook gripping a long carving fork, she is {mary}, 1900s kitchen, gaslight", "check": "Is a woman gripping a fork?", "clip": true, "motion": "she raises the fork and glares, slow camera push in", "hit": "fork#2"}, {"name": "ran", "at": "Soper#3", "prompt": "medium shot, a man in a bowler hat hurrying out through a tall iron gate onto a city sidewalk, 1900s New York, grey daylight", "check": "Is a man going through an iron gate?", "clip": true, "motion": "he pushes the gate and hurries out, slow camera push in"}, {"name": "baker", "at": "Doctor#1", "who": "baker", "prompt": "medium close-up, a determined woman knocking hard on a wooden front door, she is {baker}, 1900s New York stoop, grey daylight", "check": "Is a woman knocking on a door?", "clip": true, "motion": "she knocks firmly on the door, slow camera push in", "xfade": true}, {"name": "shed", "at": "Mary#3", "who": "mary", "prompt": "medium shot, a woman peeking out of a wooden garden shed door with a long fork in her hand, she is {mary}, back garden, grey daylight", "check": "Is a woman looking out of a shed?", "clip": true, "motion": "she peers out and pulls back, slow camera push in"}, {"name": "fight", "at": "She#4", "prompt": "medium shot, two policemen in blue uniforms holding the arms of a struggling woman in a garden, 1900s, grey daylight", "check": "Are policemen holding a woman?", "clip": true, "motion": "the woman twists and pulls, slow camera push in", "hit": "fighting#1"}, {"name": "ambulance", "at": "Baker#2", "prompt": "wide shot of a horse-drawn 1900s ambulance wagon on a cobblestone street, grey daylight", "check": "Is there a horse-drawn wagon?", "move": "push"}, {"name": "scope", "at": "Tests#1", "prompt": "close-up, a lab worker looking into a brass microscope with glass slides beside it, 1900s hospital lab, window light", "check": "Is a person looking into a microscope?", "clip": true, "motion": "he adjusts the microscope slowly, slow camera push in"}, {"name": "carrier", "at": "She#5", "who": "mary", "prompt": "close-up, a healthy rosy-cheeked cook washing her hands in a white basin, she is {mary}, 1900s hospital room, window light", "check": "Is a woman washing her hands?", "clip": true, "motion": "she rubs her hands in the water, slow camera push in"}, {"name": "icecream", "at": "but#2", "prompt": "close-up of a glass bowl of peach ice cream on a silver tray, warm light", "check": "Is there a bowl of ice cream?", "move": "push"}, {"name": "glitter", "at": "You#1", "prompt": "extreme close-up of a pair of hands covered in sparkling gold glitter, warm light, dark background", "check": "Are there hands covered in glitter?", "clip": true, "motion": "the hands turn and the glitter sparkles, slow camera push in", "xfade": true}, {"name": "touch", "at": "You#2", "prompt": "close-up, glittery hands pressing on a white tablecloth beside a teacup, warm light", "check": "Are hands touching a tablecloth?", "clip": true, "motion": "the hands press down and lift, slow camera push in"}, {"name": "sparkles", "at": "touch#1", "prompt": "close-up of a white teacup and tablecloth covered with tiny gold sparkles, warm light", "check": "Is there a teacup?", "move": "push"}, {"name": "island", "at": "Officials#2", "prompt": "wide shot of a small green island with red brick hospital buildings in a grey river, misty morning, 1900s", "check": "Is there an island with buildings?", "move": "right", "xfade": true}, {"name": "sign", "at": "In#5", "who": "mary", "prompt": "medium shot, a woman signing a paper at a wooden desk, she is {mary}, 1910 office, window light", "check": "Is a woman signing a paper?", "clip": true, "motion": "she signs slowly, slow camera push in"}, {"name": "apron", "at": "promised#1", "prompt": "close-up, a woman's hands hanging a white cook's apron on a wooden peg, 1910 boarding house, soft light", "check": "Is an apron being hung on a peg?", "clip": true, "motion": "the hands hang the apron and let go, slow camera push in"}, {"name": "ward", "at": "But#4", "prompt": "wide shot of a 1910s hospital ward with rows of white beds and mothers holding newborn babies, soft daylight", "check": "Is there a ward with many beds?", "move": "push"}, {"name": "empty", "at": "Two#1", "prompt": "close-up of an empty hospital bed with a folded white sheet and a single flower on the pillow, cold light", "check": "Is there an empty bed?", "move": "push", "hit": "died#1"}, {"name": "brown", "at": "The#4", "who": "mary", "prompt": "medium shot, a cook in a hospital kitchen glancing over her shoulder, she is {mary}, 1910s, cold light", "check": "Is a woman looking over her shoulder?", "clip": true, "motion": "she glances back nervously, slow camera push in"}, {"name": "compare", "at": "Soper#4", "who": "soper", "prompt": "close-up, a man peering through a magnifying glass at two sheets of paper on a desk, he is {soper}, 1910s office, lamp light", "check": "Is a man holding a magnifying glass?", "clip": true, "motion": "he moves the magnifying glass slowly, slow camera push in", "hit": "matched#1"}, {"name": "bakery", "at": "Four#1", "prompt": "wide shot of a busy 1910s bakery with many workers in white aprons shaping bread, warm light", "check": "Are there many workers in white aprons?", "move": "left"}, {"name": "free", "at": "none#1", "prompt": "medium shot, a man in a white apron walking out of an open iron gate carrying a small bag, 1910s city street, sunny", "check": "Is a man walking out of a gate?", "clip": true, "motion": "he steps through the gate, slow camera push in"}, {"name": "window", "at": "Mary#6", "who": "mary", "prompt": "medium shot, an older cook looking out of a small cottage window at a grey river, she is {mary}, 1920s, soft light", "check": "Is a woman looking out of a window?", "clip": true, "motion": "she sighs and leans on the sill, slow camera push in", "xfade": true}, {"name": "cakes", "at": "baking#1", "prompt": "close-up, an older woman lifting a round golden cake out of an iron oven and smiling, small 1920s cottage kitchen, warm light", "check": "Is a woman holding a cake?", "clip": true, "motion": "she lifts the cake and smiles, slow camera push in", "hit": "cakes#1"}]}
 
 SOURCES (data only)
 [1] Mary Mallon | https://en.wikipedia.org/wiki/Mary_Mallon
