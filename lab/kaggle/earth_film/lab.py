@@ -159,20 +159,20 @@ if img("clouds"):
     cl.data.materials.append(m)
 
 # Atmosphere: a thin glowing shell, brightest at the limb (fresnel) and on the sunlit side: blue, warm near the sun
-at = sphere("air", 1.012); m = bpy.data.materials.new("air"); m.use_nodes = True; nt = m.node_tree
+at = sphere("air", 1.006); m = bpy.data.materials.new("air"); m.use_nodes = True; nt = m.node_tree
 for n in list(nt.nodes):
     if n.type != "OUTPUT_MATERIAL": nt.nodes.remove(n)
 lw = nt.nodes.new("ShaderNodeLayerWeight"); lw.inputs["Blend"].default_value = 0.35
-pw = nt.nodes.new("ShaderNodeMath"); pw.operation = "POWER"; pw.inputs[1].default_value = 3.0; nt.links.new(lw.outputs["Facing"], pw.inputs[0])
+pw = nt.nodes.new("ShaderNodeMath"); pw.operation = "POWER"; pw.inputs[1].default_value = 6.0; nt.links.new(lw.outputs["Facing"], pw.inputs[0])
 d, lit = sun_factor(nt, -0.25, 0.3); SUNDOTS.append(d)
 ramp = nt.nodes.new("ShaderNodeValToRGB"); cr = ramp.color_ramp
 cr.elements[0].position, cr.elements[0].color = 0.0, (0.03, 0.08, 0.25, 1)    # far from the sun: faint deep blue
-cr.elements[1].position, cr.elements[1].color = 1.0, (1.0, 0.97, 0.9, 1)      # at the sun: white
+cr.elements[1].position, cr.elements[1].color = 1.0, (0.62, 0.82, 1.0, 1)     # at the sun: pale blue (a thin real atmosphere, not a white band)
 e = cr.elements.new(0.55); e.color = (0.25, 0.5, 1.0, 1)                       # sky blue
-e = cr.elements.new(0.85); e.color = (1.0, 0.6, 0.3, 1)                        # warm where sunlight grazes the air
+e = cr.elements.new(0.85); e.color = (1.0, 0.72, 0.45, 1)                        # warm where sunlight grazes the air
 nt.links.new(lit, ramp.inputs[0])
 k = nt.nodes.new("ShaderNodeMath"); k.operation = "MULTIPLY"; nt.links.new(pw.outputs[0], k.inputs[0])
-k2 = nt.nodes.new("ShaderNodeMath"); k2.operation = "MULTIPLY_ADD"; k2.inputs[1].default_value = 6.0; k2.inputs[2].default_value = 0.06
+k2 = nt.nodes.new("ShaderNodeMath"); k2.operation = "MULTIPLY_ADD"; k2.inputs[1].default_value = 3.0; k2.inputs[2].default_value = 0.04
 nt.links.new(lit, k2.inputs[0]); nt.links.new(k2.outputs[0], k.inputs[1])
 em = nt.nodes.new("ShaderNodeEmission"); nt.links.new(ramp.outputs[0], em.inputs["Color"]); nt.links.new(k.outputs[0], em.inputs["Strength"])
 tr = nt.nodes.new("ShaderNodeBsdfTransparent"); add = nt.nodes.new("ShaderNodeAddShader")
@@ -200,11 +200,11 @@ nt.links.new(em.outputs[0], nt.nodes["Material Output"].inputs["Surface"]); star
 # The sun: a lamp for the lighting + a small, very bright disc on the limb for the camera (it makes the glare)
 lamp = bpy.data.objects.new("sun", bpy.data.lights.new("sun", "SUN")); sc.collection.objects.link(lamp)
 lamp.data.energy = 6.0; lamp.data.angle = math.radians(0.6)
-bpy.ops.mesh.primitive_uv_sphere_add(segments=32, ring_count=16, radius=0.011); disc = bpy.context.object; disc.name = "disc"
+bpy.ops.mesh.primitive_uv_sphere_add(segments=32, ring_count=16, radius=0.018); disc = bpy.context.object; disc.name = "disc"
 m = bpy.data.materials.new("disc"); m.use_nodes = True; nt = m.node_tree
 for n in list(nt.nodes):
     if n.type != "OUTPUT_MATERIAL": nt.nodes.remove(n)
-em = nt.nodes.new("ShaderNodeEmission"); em.inputs["Color"].default_value = (1.0, 0.93, 0.82, 1); em.inputs["Strength"].default_value = 400
+em = nt.nodes.new("ShaderNodeEmission"); em.inputs["Color"].default_value = (1.0, 0.93, 0.82, 1); em.inputs["Strength"].default_value = 160
 nt.links.new(em.outputs[0], nt.nodes["Material Output"].inputs["Surface"]); disc.data.materials.append(m)
 for o in (disc,):
     o.visible_shadow = False
@@ -217,11 +217,9 @@ cam.data.clip_start, cam.data.clip_end = 0.01, 100
 sc.use_nodes = True; ct = sc.node_tree
 for n in list(ct.nodes): ct.nodes.remove(n)
 rl = ct.nodes.new("CompositorNodeRLayers"); comp = ct.nodes.new("CompositorNodeComposite")
-g1 = ct.nodes.new("CompositorNodeGlare"); g1.glare_type = "FOG_GLOW"; g1.quality = "HIGH"; g1.threshold = 1.0; g1.size = 9; g1.mix = -0.25
-g2 = ct.nodes.new("CompositorNodeGlare"); g2.glare_type = "STREAKS"; g2.quality = "HIGH"; g2.threshold = 3.0; g2.streaks = 8
-g2.angle_offset = math.radians(12); g2.fade = 0.93; g2.mix = -0.55
-ct.links.new(rl.outputs["Image"], g1.inputs["Image"]); ct.links.new(g1.outputs["Image"], g2.inputs["Image"])
-ct.links.new(g2.outputs["Image"], comp.inputs["Image"])
+g1 = ct.nodes.new("CompositorNodeGlare"); g1.glare_type = "FOG_GLOW"; g1.quality = "HIGH"; g1.threshold = 1.5; g1.size = 9; g1.mix = 0.0   # soft round glow around the sun only
+# no STREAKS: the 8-point star read as a cheap sprite; a real sunrise over the limb is a soft bloom
+ct.links.new(rl.outputs["Image"], g1.inputs["Image"]); ct.links.new(g1.outputs["Image"], comp.inputs["Image"])
 
 def js_to_bl(v):   # earth.js world (x east-ish, y north, z towards lon 0) -> Blender (X towards lon 0, Y east, Z north)
     return Vector((v[2], v[0], v[1]))
@@ -247,7 +245,7 @@ for i in range(N):
     lamp.rotation_euler = (-sun_w).to_track_quat("-Z", "Y").to_euler(); lamp.data.energy = 6.0 * rise
     sd = 1.0 + lerp(-6, 9, t) / R_PX
     disc.location = js_to_bl(Mt @ Vector((sd * math.sin(sa), sd * math.cos(sa), -0.02)))
-    disc.active_material.node_tree.nodes["Emission"].inputs["Strength"].default_value = 400 * rise
+    disc.active_material.node_tree.nodes["Emission"].inputs["Strength"].default_value = 160 * rise
     stars.matrix_world = cam.matrix_world.copy(); stars.location = up * shift - back * 30
     for dn in SUNDOTS:
         dn.inputs[1].default_value = sun_w
