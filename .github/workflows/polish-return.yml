@@ -118,7 +118,8 @@ jobs:
                   blob = json.loads(subprocess.run(["gh", "api", f"repos/{repo}/contents/{name}?ref={sha}"],
                                                    capture_output=True, text=True, check=True).stdout)
                   ticket_job(tdir, base64.b64decode(blob["content"]).decode("utf-8"), f"pull request #{pr} by {os.environ['PR_USER']}")
-          pathlib.Path("jobs.tsv").write_text("".join("\t".join(j) + "\n" for j in out))
+          # "-" for an empty field: tabs are whitespace to bash's read, so an empty field would shift the rest
+          pathlib.Path("jobs.tsv").write_text("".join("\t".join(x or "-" for x in j) + "\n" for j in out))
           print(f"{len(out)} answer(s) to check"); [print(" ", j[1], "by", j[5]) for j in out]
           with open(os.environ["GITHUB_OUTPUT"], "a") as g:
               g.write(f"count={len(out)}\n")
@@ -162,7 +163,9 @@ jobs:
           while IFS=$'\t' read -r issue ep draft reply ticket who; do
             [ -z "$ep" ] && continue
             echo "===== $ep ($who)"
-            rc=0; tools/polish_continue.sh "$issue" "$ep" "$draft" "$reply" "$ticket" "$who" || rc=$?   # 2 = needs fixes (not a crash)
+            [ "$ticket" = "-" ] && ticket=""
+            # </dev/null: ffmpeg and gh read stdin, which here is jobs.tsv; they swallowed the next job's line
+            rc=0; tools/polish_continue.sh "$issue" "$ep" "$draft" "$reply" "$ticket" "$who" < /dev/null || rc=$?   # 2 = needs fixes (not a crash)
             case $rc in 0) made=$((made+1));; 2) fix=$((fix+1));; *) failed=$((failed+1));; esac
           done < jobs.tsv
           echo "made=$made fix=$fix failed=$failed"
