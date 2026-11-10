@@ -281,4 +281,7 @@ if frames:
     subprocess.run([ff, "-y", "-loglevel", "error", "-i", f"{WORK}/frames/{frames[-1]}", "-q:v", "3", f"{OUT}/end.jpg"])
     for f in ("earth.mp4", "earth.webm", "poster.jpg"):
         if os.path.exists(f"{OUT}/{f}"): log(f"{f}: {os.path.getsize(f'{OUT}/{f}') // 1024} KB")
+# keep Kaggle's output small: only out/ (Blender and the frames are ~2 GB)
+for junk in ("/kaggle/working/blender", "/kaggle/working/bl.tar.xz", WORK):
+    shutil.rmtree(junk, ignore_errors=True) if os.path.isdir(junk) else (os.path.exists(junk) and os.remove(junk))
 log(f"total {time.time() - t0:.0f}s")

@@ -56,9 +56,16 @@ for name, slug in slugs.items():
 # one flat folder with unique names, ready to publish (lab name + original file name)
 flat = Path("lab_publish"); flat.mkdir(exist_ok=True)
 for name in slugs:
-    for f in (Path("lab_out") / name).rglob("*"):
+    root = Path("lab_out") / name
+    # a lab that writes an out/ folder publishes only that (earth_film's Blender install is full of .txt/.json files)
+    outs = [p for p in root.rglob("out") if p.is_dir()]
+    for f in (outs[0] if outs else root).rglob("*"):
         if f.is_file() and f.suffix in (".mp4", ".webm", ".png", ".jpg", ".txt", ".wav", ".log", ".json") and f.parent.name != "jobs":
-            shutil.copy(f, flat / f"{name}__{f.name}")
+            dest = flat / f"{name}__{f.name}"
+            if dest.exists():   # two files with the same name: keep both (GitHub refuses duplicate asset names)
+                dest = flat / f"{name}__{f.parent.name}__{f.name}"
+            if not dest.exists():
+                shutil.copy(f, dest)
 print("FINAL:", done)
 # a script that crashed still "completes" on Kaggle: fail the run (after publishing, so the logs stay readable)
 # (every lab ends by logging "total <seconds>s"; no such line = it died part-way)
