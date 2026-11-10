@@ -3,5 +3,7 @@
  "draft": "draft-005-why-goldberger-swallowed-scabs-run38",
  "episode": "episodes/hidden_reasons/005-why-goldberger-swallowed-scabs",
  "opened": "2026-11-09T17:57:03+00:00",
- "status": "waiting"
+ "status": "video-failed",
+ "checked": "2026-11-10T11:22:39+00:00",
+ "last_answer_by": "pull request #63 by FranklinMburu"
 }
