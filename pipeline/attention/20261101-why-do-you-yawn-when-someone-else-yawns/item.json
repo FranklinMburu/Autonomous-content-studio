@@ -3,14 +3,20 @@
  "topic": "Why do you yawn when someone else yawns?",
  "lane": null,
  "topic_key": "e16ef00e3b87ac0a",
- "stage": "queue",
+ "stage": "attention",
  "created": "2026-11-01T05:59:10+00:00",
- "attempts": 2,
+ "attempts": 3,
  "history": [
   {
    "at": "2026-11-01T05:59:10+00:00",
    "to": "queue",
    "why": "created"
+  },
+  {
+   "at": "2026-11-10T07:16:02+00:00",
+   "from": "queue",
+   "to": "attention",
+   "why": "polish rejected 3 times (last by the backup model): ['fact check: 2 unsupported, 0 partial claims: When you see a yawn, your brain mirrors it, and mirror neurons activate the yawning centre.; Cooling the brain may improve alertness after a yawn.']"
   }
  ],
  "provenance": {
