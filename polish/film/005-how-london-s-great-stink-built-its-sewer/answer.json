@@ -1,0 +1,348 @@
+{
+ "script": {
+  "title": "How London's Great Stink Built Its Sewers",
+  "beats": [
+   {
+    "feel": "shock",
+    "lines": [
+     "A politician fled a meeting with a handkerchief pressed to his nose.",
+     "It was Benjamin Disraeli, in London, in June 1858."
+    ]
+   },
+   {
+    "feel": "dread",
+    "lines": [
+     "For years, London's old sewers had emptied straight into the River Thames.",
+     "Flushing toilets and a growing city poured in even more waste.",
+     "Then came a heatwave. The river dropped, and raw sewage sat on its banks."
+    ]
+   },
+   {
+    "feel": "disgust",
+    "lines": [
+     "Queen Victoria and Prince Albert tried a pleasure cruise. They turned back within minutes.",
+     "Newspapers called it the Great Stink.",
+     "Parliament soaked its curtains in lime chloride. It didn't work.",
+     "Politicians even talked about moving the government out of London."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like a bin nobody empties.",
+     "Spray all the perfume you want. Only taking out the rubbish fixes it."
+    ]
+   },
+   {
+    "feel": "determination",
+    "lines": [
+     "So Disraeli pushed a new law through Parliament in weeks.",
+     "It backed engineer Joseph Bazalgette's giant sewer plan.",
+     "Sloping sewers carried the waste east, beyond the city.",
+     "Pumping stations lifted sewage into higher pipes."
+    ]
+   },
+   {
+    "feel": "irony",
+    "lines": [
+     "Londoners blamed the smell for spreading cholera.",
+     "But doctor John Snow argued cholera spread through dirty water.",
+     "Bazalgette's sewers ended the cholera outbreaks anyway, and they still serve over nine million people."
+    ]
+   }
+  ],
+  "key_words": [
+   "handkerchief",
+   "Disraeli",
+   "1858",
+   "sewers",
+   "Thames",
+   "heatwave",
+   "raw sewage",
+   "Queen Victoria",
+   "Great Stink",
+   "lime chloride",
+   "perfume",
+   "new law",
+   "Bazalgette",
+   "pumping stations",
+   "cholera",
+   "dirty water",
+   "nine million"
+  ],
+  "claims": [
+   {
+    "claim": "Disraeli left a committee room with a handkerchief applied to his nose because the smell was so bad, in June 1858.",
+    "url": "https://en.wikipedia.org/wiki/Great_Stink"
+   },
+   {
+    "claim": "London's ageing sewer system emptied directly into the Thames; flushing toilets and a rising population sent more water and effluent into the sewers.",
+    "url": "https://en.wikipedia.org/wiki/Great_Stink"
+   },
+   {
+    "claim": "In June 1858 hot, dry weather lowered the Thames and raw effluent remained on the banks.",
+    "url": "https://en.wikipedia.org/wiki/Great_Stink"
+   },
+   {
+    "claim": "Queen Victoria and Prince Albert attempted a pleasure cruise but returned to shore within a few minutes; the press called it the Great Stink.",
+    "url": "https://en.wikipedia.org/wiki/Great_Stink"
+   },
+   {
+    "claim": "Parliament's river-side curtains were soaked in lime chloride without success; moving government to Oxford or St Albans was discussed.",
+    "url": "https://en.wikipedia.org/wiki/Great_Stink"
+   },
+   {
+    "claim": "Disraeli tabled a bill on 15 June that passed on 2 August, favouring Bazalgette's plan.",
+    "url": "https://en.wikipedia.org/wiki/Great_Stink"
+   },
+   {
+    "claim": "Bazalgette's sewers sloped east to outfalls beyond the metropolitan area; pumping stations lifted sewage into higher pipes.",
+    "url": "https://en.wikipedia.org/wiki/Great_Stink"
+   },
+   {
+    "claim": "Cholera was believed to spread by miasma; John Snow posited water-borne transmission.",
+    "url": "https://en.wikipedia.org/wiki/Great_Stink"
+   },
+   {
+    "claim": "Bazalgette's work brought an end to the cholera outbreaks; his system serves a city of over nine million.",
+    "url": "https://en.wikipedia.org/wiki/Great_Stink"
+   }
+  ]
+ },
+ "film": {
+  "era": "1850s",
+  "cast": {
+   "disraeli": "a 53 year old British politician with a pale face, a small black goatee, a single black curl on his forehead, a black frock coat and a bright patterned waistcoat, 1850s",
+   "bazalgette": "a 39 year old Victorian engineer with thick dark mutton-chop sideburns, a long nose, a dark grey frock coat and a black cravat, 1850s"
+  },
+  "key_words": [
+   "handkerchief",
+   "Disraeli",
+   "1858",
+   "sewers",
+   "Thames",
+   "heatwave",
+   "raw sewage",
+   "Queen Victoria",
+   "Great Stink",
+   "lime chloride",
+   "perfume",
+   "new law",
+   "Bazalgette",
+   "pumping stations",
+   "cholera",
+   "dirty water",
+   "nine million"
+  ],
+  "music": "tense",
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "who": "disraeli",
+    "prompt": "medium shot, a politician hurrying out of a wood-panelled room with a handkerchief pressed to his nose and papers in his hand, he is {disraeli}, 1858",
+    "check": "Is a man holding a handkerchief to his nose?",
+    "clip": true,
+    "motion": "he hurries forward pressing the handkerchief, slow camera push in"
+   },
+   {
+    "name": "hanky",
+    "at": "handkerchief#1",
+    "prompt": "extreme close-up of a white linen handkerchief pressed hard against a man's nose, dim smoky light, 1850s",
+    "check": "Is a handkerchief pressed to a nose?",
+    "move": "push"
+   },
+   {
+    "name": "grimace",
+    "at": "It#1",
+    "who": "disraeli",
+    "prompt": "close-up, a politician grimacing behind a white handkerchief, he is {disraeli}, a smoky 1850s committee room",
+    "check": "Is a man covering his nose?",
+    "clip": true,
+    "motion": "he squeezes his eyes shut in disgust, slow camera push in"
+   },
+   {
+    "name": "outlet",
+    "at": "For#1",
+    "prompt": "wide shot of a brick sewer outlet pouring dark water into a wide brown river, 1850s London, hazy light",
+    "check": "Is a pipe pouring water into a river?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "gush",
+    "at": "emptied#1",
+    "prompt": "close-up of dark filthy water gushing from a round brick pipe into a river, hazy light",
+    "check": "Is dirty water pouring from a pipe?",
+    "clip": true,
+    "motion": "the dark water gushes and splashes, slow camera push in"
+   },
+   {
+    "name": "street",
+    "at": "Flushing#1",
+    "prompt": "wide shot of a crowded 1850s London street with tall soot-black houses and many people",
+    "check": "Is this a crowded street?",
+    "move": "left"
+   },
+   {
+    "name": "bucket",
+    "at": "poured#1",
+    "prompt": "close-up, a woman emptying a bucket of dirty water into a street drain, 1850s London, grey light",
+    "check": "Is a woman pouring out a bucket?",
+    "clip": true,
+    "motion": "she tips the bucket and the water splashes, slow camera push in"
+   },
+   {
+    "name": "sun",
+    "at": "Then#1",
+    "prompt": "wide shot of a blazing sun over a wide river with heat haze and cracked dry mud on the bank, 1850s London",
+    "check": "Is there a blazing sun over a river?",
+    "clip": true,
+    "motion": "heat haze shimmers over the water, slow camera push in"
+   },
+   {
+    "name": "banks",
+    "at": "The#2",
+    "prompt": "wide shot of a low brown river with thick black sludge and rubbish on its muddy banks, hazy hot day, 1850s London",
+    "check": "Is there sludge on a riverbank?",
+    "move": "push",
+    "hit": "sewage#1"
+   },
+   {
+    "name": "queen",
+    "at": "Queen#1",
+    "prompt": "medium shot, a young queen in a white summer dress and her husband in a dark coat covering their noses on a small royal boat, 1850s river",
+    "check": "Are two people on a boat covering their noses?",
+    "clip": true,
+    "motion": "they lift their hands to their noses, slow camera push in"
+   },
+   {
+    "name": "turn",
+    "at": "They#1",
+    "prompt": "wide shot of a small decorated royal boat turning back toward a river pier, hazy 1850s London",
+    "check": "Is there a small boat on a river?",
+    "move": "left"
+   },
+   {
+    "name": "newsboy",
+    "at": "Newspapers#1",
+    "prompt": "close-up, a newspaper boy in a flat cap shouting on a London street corner with a bundle under his arm, 1850s",
+    "check": "Is a boy shouting?",
+    "clip": true,
+    "motion": "he shouts and waves his arm, slow camera push in"
+   },
+   {
+    "name": "curtains",
+    "at": "Parliament#1",
+    "prompt": "medium shot, workers soaking long heavy curtains in buckets in a grand Gothic stone hall, 1850s",
+    "check": "Are men soaking curtains in buckets?",
+    "clip": true,
+    "motion": "they push the curtains into the buckets, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "library",
+    "at": "It#3",
+    "prompt": "medium shot, Victorian gentlemen in black coats covering their noses in a grand library, 1850s",
+    "check": "Are men covering their noses?",
+    "clip": true,
+    "motion": "they wave their hands in front of their faces, slow camera push in"
+   },
+   {
+    "name": "argue",
+    "at": "Politicians#1",
+    "prompt": "medium shot, politicians in black frock coats arguing around a long table, 1850s Parliament committee room",
+    "check": "Are men arguing at a table?",
+    "clip": true,
+    "motion": "one man slaps the table, slow camera push in"
+   },
+   {
+    "name": "bin",
+    "at": "You#1",
+    "prompt": "close-up of an overflowing metal rubbish bin with flies buzzing over it in a hot kitchen",
+    "check": "Is there an overflowing bin?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "spray",
+    "at": "Spray#1",
+    "prompt": "close-up, a hand spraying perfume from a glass bottle over a smelly rubbish bin",
+    "check": "Is a hand spraying a bottle?",
+    "clip": true,
+    "motion": "the perfume mist sprays out, slow camera push in"
+   },
+   {
+    "name": "takeout",
+    "at": "Only#1",
+    "prompt": "medium shot, a man carrying a full rubbish sack out of a back door into daylight",
+    "check": "Is a man carrying a sack?",
+    "clip": true,
+    "motion": "he steps out with the sack, slow camera push in"
+   },
+   {
+    "name": "law",
+    "at": "So#1",
+    "who": "disraeli",
+    "prompt": "medium shot, a politician standing and speaking with a raised hand in a crowded debating chamber, he is {disraeli}, 1858",
+    "check": "Is a man speaking with a raised hand?",
+    "clip": true,
+    "motion": "he raises his hand as he speaks, slow camera push in"
+   },
+   {
+    "name": "engineer",
+    "at": "It#5",
+    "who": "bazalgette",
+    "prompt": "medium shot, an engineer leaning over a desk covered with large rolled papers and pointing, he is {bazalgette}, 1850s office, window light",
+    "check": "Is a man pointing at a desk?",
+    "clip": true,
+    "motion": "he points and taps the desk, slow camera push in"
+   },
+   {
+    "name": "tunnel",
+    "at": "Sloping#1",
+    "prompt": "wide shot inside a huge new brick sewer tunnel curving away, workers holding lanterns, 1860s",
+    "check": "Is this a brick tunnel?",
+    "move": "push"
+   },
+   {
+    "name": "pumps",
+    "at": "Pumping#1",
+    "prompt": "wide shot inside a grand Victorian pumping station with giant green and red iron engines and ornate columns",
+    "check": "Are there giant iron engines?",
+    "move": "up"
+   },
+   {
+    "name": "fear",
+    "at": "Londoners#1",
+    "prompt": "medium shot, Victorian Londoners covering their faces with handkerchiefs beside a foul river, 1850s",
+    "check": "Are people covering their faces?",
+    "clip": true,
+    "motion": "they turn away from the river, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "water",
+    "at": "But#1",
+    "prompt": "close-up, a doctor holding up a glass of cloudy water to the light, 1850s study, window light",
+    "check": "Is a man holding up a glass of water?",
+    "clip": true,
+    "motion": "he turns the glass in the light, slow camera push in"
+   },
+   {
+    "name": "embankment",
+    "at": "Bazalgette's#2",
+    "prompt": "wide shot of a clean river embankment with trees and gas lamps along a wide river, sunny, 1870s London",
+    "check": "Is there a riverside path with lamps?",
+    "move": "right"
+   },
+   {
+    "name": "flow",
+    "at": "still#1",
+    "prompt": "close-up of a huge old brick sewer tunnel with water flowing steadily, lantern light",
+    "check": "Is there water flowing in a tunnel?",
+    "move": "pull"
+   }
+  ]
+ }
+}

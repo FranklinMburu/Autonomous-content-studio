@@ -1,0 +1,369 @@
+{
+ "script": {
+  "title": "Why Ships Waited Forty Days Before Entering Venice",
+  "beats": [
+   {
+    "feel": "dread",
+    "lines": [
+     "A ship full of sailors had to wait forty days before going ashore.",
+     "The reason was the Black Death."
+    ]
+   },
+   {
+    "feel": "fear",
+    "lines": [
+     "Between 1348 and 1359, the plague killed an estimated 30% of Europe's people.",
+     "Venice acted first. In 1348, it named three guardians of public health."
+    ]
+   },
+   {
+    "feel": "tension",
+    "lines": [
+     "In 1377, the city of Ragusa, today's Dubrovnik, made newcomers wait thirty days.",
+     "They waited on nearby islands, to see if plague symptoms appeared.",
+     "Then in 1403, Venice opened a plague hospital on a small island beside the city."
+    ]
+   },
+   {
+    "feel": "determination",
+    "lines": [
+     "In 1448, the Venetian Senate stretched the wait to forty days.",
+     "In Venetian, that period was called quarantena.",
+     "It's where our word quarantine comes from."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like bumping your knee.",
+     "You wait a day to see if a bruise shows up."
+    ]
+   },
+   {
+    "feel": "realization",
+    "lines": [
+     "Today's estimates say plague took 37 days from infection to death.",
+     "So forty days was long enough to show who carried it.",
+     "The forty-day rule proved an effective way to handle outbreaks."
+    ]
+   },
+   {
+    "feel": "surprise",
+    "lines": [
+     "But the number forty may not have come from doctors counting days.",
+     "Scholars link it to the medicine of Hippocrates and the forty days of Lent."
+    ]
+   }
+  ],
+  "key_words": [
+   "forty days",
+   "Black Death",
+   "30%",
+   "three guardians",
+   "Ragusa",
+   "thirty days",
+   "islands",
+   "1403",
+   "1448",
+   "quarantena",
+   "quarantine",
+   "bruise",
+   "37 days",
+   "Hippocrates",
+   "Lent"
+  ],
+  "claims": [
+   {
+    "claim": "Ships were required to be isolated before passengers and crew could go ashore during the Black Death; quarantena means forty days.",
+    "url": "https://en.wikipedia.org/wiki/Quarantine"
+   },
+   {
+    "claim": "Between 1348 and 1359 the Black Death wiped out an estimated 30% of Europe's population.",
+    "url": "https://en.wikipedia.org/wiki/Quarantine"
+   },
+   {
+    "claim": "Venice appointed three guardians of public health in the first years of the Black Death (1348).",
+    "url": "https://en.wikipedia.org/wiki/Quarantine"
+   },
+   {
+    "claim": "In 1377 Ragusa (modern Dubrovnik) made newcomers spend 30 days, originally on nearby islands, to see whether Black Death symptoms developed.",
+    "url": "https://en.wikipedia.org/wiki/Quarantine"
+   },
+   {
+    "claim": "Venice founded the first lazaret, on a small island adjoining the city, in 1403.",
+    "url": "https://en.wikipedia.org/wiki/Quarantine"
+   },
+   {
+    "claim": "In 1448 the Venetian Senate prolonged the waiting period to 40 days, giving birth to the term quarantine.",
+    "url": "https://en.wikipedia.org/wiki/Quarantine"
+   },
+   {
+    "claim": "Current estimates give bubonic plague a 37-day period from infection to death; the forty-day quarantine proved an effective formula for handling outbreaks.",
+    "url": "https://en.wikipedia.org/wiki/Quarantine"
+   },
+   {
+    "claim": "The 40 days has a strong association with the medical theory of Hippocrates and the Lenten season.",
+    "url": "https://openalex.org/W2307565012"
+   }
+  ]
+ },
+ "film": {
+  "era": "1400s",
+  "cast": {
+   "sailor": "a 30 year old Venetian sailor with a sunburnt face, curly black hair, a red wool cap and a loose white linen shirt, 1400s",
+   "doctor": "a 55 year old medieval physician with a long grey beard, a long dark brown robe and a round black cap, 1400s"
+  },
+  "key_words": [
+   "forty days",
+   "Black Death",
+   "30%",
+   "three guardians",
+   "Ragusa",
+   "thirty days",
+   "islands",
+   "1403",
+   "1448",
+   "quarantena",
+   "quarantine",
+   "bruise",
+   "37 days",
+   "Hippocrates",
+   "Lent"
+  ],
+  "music": "mysterious",
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "prompt": "medium shot, sailors leaning on the rail of a wooden sailing ship and staring at a distant city, 1400s, golden evening light",
+    "check": "Are sailors leaning on a ship's rail?",
+    "clip": true,
+    "motion": "they lean on the rail and stare ahead, slow camera push in"
+   },
+   {
+    "name": "rail",
+    "at": "forty#1",
+    "who": "sailor",
+    "prompt": "close-up, a sailor gripping a ship's wooden rail and gazing at land, he is {sailor}, 1400s, golden evening light",
+    "check": "Is a man gripping a ship's rail?",
+    "clip": true,
+    "motion": "his hands tighten on the rail, slow camera push in"
+   },
+   {
+    "name": "sick",
+    "at": "The#1",
+    "prompt": "close-up of a pale sick man lying on straw with dark swollen marks on his neck, candle light, 1300s",
+    "check": "Is a sick man lying on straw?",
+    "move": "push"
+   },
+   {
+    "name": "town",
+    "at": "Between#1",
+    "prompt": "wide shot of a medieval town street with closed shutters and a cart covered with grey cloth, grey morning, 1300s",
+    "check": "Is there a cart in a street?",
+    "move": "left"
+   },
+   {
+    "name": "grief",
+    "at": "killed#1",
+    "prompt": "close-up, a weeping woman in a medieval hood kneeling beside a bed, candle light, 1300s",
+    "check": "Is a woman kneeling by a bed?",
+    "clip": true,
+    "motion": "she lowers her head and sobs, slow camera push in"
+   },
+   {
+    "name": "venice",
+    "at": "Venice#1",
+    "prompt": "wide shot of medieval Venice with canals, gondolas and stone palaces, soft morning light, 1300s",
+    "check": "Is there a city with canals?",
+    "move": "right",
+    "xfade": true
+   },
+   {
+    "name": "guardians",
+    "at": "three#1",
+    "prompt": "medium shot, three Venetian officials in long red robes and black caps standing on a stone harbour, looking out to sea, 1300s",
+    "check": "Are three men in red robes standing?",
+    "clip": true,
+    "motion": "they turn and look out to sea, slow camera push in"
+   },
+   {
+    "name": "ragusa",
+    "at": "In#2",
+    "prompt": "wide shot of a walled stone harbour city on the Adriatic coast with red roofs and sailing ships, sunny, 1300s",
+    "check": "Is there a walled city by the sea?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "boat",
+    "at": "newcomers#1",
+    "prompt": "medium shot, travellers in medieval cloaks stepping off a small rowing boat onto a rocky island shore, daylight",
+    "check": "Are people stepping out of a boat?",
+    "clip": true,
+    "motion": "a traveller steps onto the rocks, slow camera push in"
+   },
+   {
+    "name": "island",
+    "at": "They#1",
+    "prompt": "wide shot of a small rocky island with a few stone huts in a blue sea, sailing ships anchored nearby",
+    "check": "Is there a small island with huts?",
+    "move": "right"
+   },
+   {
+    "name": "neck",
+    "at": "to#2",
+    "prompt": "close-up, a worried traveller pulling down his collar to look at his neck, inside a stone hut, daylight, 1300s",
+    "check": "Is a man touching his neck?",
+    "clip": true,
+    "motion": "he pulls his collar down and looks, slow camera push in"
+   },
+   {
+    "name": "lazaret",
+    "at": "Then#1",
+    "prompt": "wide shot of a long stone hospital building on a small island in a lagoon, boats in the water, 1400s",
+    "check": "Is there a building on an island?",
+    "move": "push"
+   },
+   {
+    "name": "stretcher",
+    "at": "hospital#1",
+    "prompt": "medium shot, monks in brown robes carrying a sick man on a stretcher into a stone building, 1400s, daylight",
+    "check": "Are monks carrying a stretcher?",
+    "clip": true,
+    "motion": "they carry the stretcher through the doorway, slow camera push in"
+   },
+   {
+    "name": "senate",
+    "at": "In#4",
+    "prompt": "medium shot, Venetian senators in red robes raising their hands to vote in a grand painted hall, 1400s",
+    "check": "Are men in red robes raising their hands?",
+    "clip": true,
+    "motion": "they raise their hands together, slow camera push in",
+    "xfade": true,
+    "hit": "forty#2"
+   },
+   {
+    "name": "vote",
+    "at": "stretched#1",
+    "prompt": "close-up, an old senator in a red robe raising his hand firmly, a grand painted hall behind him, 1400s",
+    "check": "Is an old man raising his hand?",
+    "clip": true,
+    "motion": "he raises his hand high, slow camera push in"
+   },
+   {
+    "name": "scribe",
+    "at": "In#5",
+    "prompt": "close-up, a scribe writing with a quill in a large leather book by candlelight, 1400s",
+    "check": "Is a man writing with a quill?",
+    "clip": true,
+    "motion": "the quill moves across the page, slow camera push in"
+   },
+   {
+    "name": "anchor",
+    "at": "It's#1",
+    "prompt": "wide shot of a quiet harbour with many ships waiting at anchor in a row, misty morning, 1400s",
+    "check": "Are there ships at anchor?",
+    "clip": true,
+    "motion": "the ships rock gently on the water, slow camera push in"
+   },
+   {
+    "name": "knee",
+    "at": "You#1",
+    "prompt": "close-up, a child rubbing a bumped knee while sitting on a wooden step, sunny day",
+    "check": "Is a child rubbing a knee?",
+    "clip": true,
+    "motion": "the child rubs the knee and winces, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "bruise",
+    "at": "wait#4",
+    "prompt": "extreme close-up of a small purple bruise on a child's knee, soft daylight",
+    "check": "Is there a bruise on a knee?",
+    "move": "push"
+   },
+   {
+    "name": "fever",
+    "at": "Today's#2",
+    "prompt": "close-up, a feverish sailor sweating in a ship's hammock, dim lantern light, 1400s",
+    "check": "Is a man lying in a hammock?",
+    "clip": true,
+    "motion": "he breathes hard and turns his head, slow camera push in"
+   },
+   {
+    "name": "sunset",
+    "at": "37#1",
+    "prompt": "wide shot of a sunset over a calm sea with a lone ship at anchor",
+    "check": "Is there a ship at sunset?",
+    "move": "left"
+   },
+   {
+    "name": "check",
+    "at": "So#1",
+    "who": "doctor",
+    "prompt": "medium shot, a physician in a long dark robe checking a sailor's neck on a ship deck, he is {doctor}, 1400s, morning light",
+    "check": "Is a man checking another man's neck?",
+    "clip": true,
+    "motion": "he tilts the sailor's head gently, slow camera push in"
+   },
+   {
+    "name": "ashore",
+    "at": "show#1",
+    "who": "sailor",
+    "prompt": "medium shot, a smiling sailor stepping off a gangplank onto a stone quay, he is {sailor}, Venice harbour, 1400s, morning",
+    "check": "Is a man stepping onto a quay?",
+    "clip": true,
+    "motion": "he steps down and smiles, slow camera push in"
+   },
+   {
+    "name": "busy",
+    "at": "The#8",
+    "prompt": "wide shot of a busy Venice harbour with workers unloading barrels from ships onto the quay, sunny, 1400s",
+    "check": "Is there a busy harbour?",
+    "clip": true,
+    "motion": "workers roll barrels along the quay, slow camera push in"
+   },
+   {
+    "name": "hourglass",
+    "at": "But#1",
+    "prompt": "close-up of an old hourglass with sand running on a wooden table, candle light",
+    "check": "Is there an hourglass?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "count",
+    "at": "doctors#1",
+    "who": "doctor",
+    "prompt": "medium shot, a medieval physician counting on his fingers beside a sickbed, he is {doctor}, candle light",
+    "check": "Is a man counting on his fingers?",
+    "clip": true,
+    "motion": "he counts on his fingers slowly, slow camera push in"
+   },
+   {
+    "name": "scholar",
+    "at": "Scholars#1",
+    "prompt": "close-up, an old scholar turning the pages of an ancient book by candlelight, 1400s study",
+    "check": "Is a man turning the pages of a book?",
+    "clip": true,
+    "motion": "he turns a page carefully, slow camera push in"
+   },
+   {
+    "name": "bust",
+    "at": "Hippocrates#1",
+    "prompt": "close-up of a marble bust of a bearded ancient Greek man in a stone hall, soft light",
+    "check": "Is there a marble bust?",
+    "move": "push"
+   },
+   {
+    "name": "lent",
+    "at": "forty#5",
+    "prompt": "medium shot, people kneeling in prayer in a candlelit medieval church, 1400s",
+    "check": "Are people kneeling in a church?",
+    "clip": true,
+    "motion": "candle flames flicker as they pray, slow camera push in"
+   }
+  ]
+ }
+}

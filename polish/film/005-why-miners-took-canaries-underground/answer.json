@@ -1,0 +1,376 @@
+{
+ "script": {
+  "title": "Why Miners Took Canaries Underground",
+  "beats": [
+   {
+    "feel": "curiosity",
+    "lines": [
+     "A coal miner brought a canary down into the mine.",
+     "If poison gas came, the bird would collapse first."
+    ]
+   },
+   {
+    "feel": "dread",
+    "lines": [
+     "Deadly gas could build up in coal mines. Miners called it damp.",
+     "White damp was air with carbon monoxide, toxic even at low levels.",
+     "After damp, left by explosions, carried carbon monoxide too.",
+     "In 1907, 3,242 American coal miners died. It was the worst year ever."
+    ]
+   },
+   {
+    "feel": "hope",
+    "lines": [
+     "In 1895, a scientist named John Scott Haldane had an idea.",
+     "Put a warm-blooded animal in the mine to detect carbon monoxide.",
+     "By 1896, canaries were going underground."
+    ]
+   },
+   {
+    "feel": "realization",
+    "lines": [
+     "A canary breathes fast, it's small, and it burns energy quickly.",
+     "So the poison hit the bird before it hit the men.",
+     "When the canary showed distress or collapsed, the miners got out."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like a smoke alarm with feathers.",
+     "It goes off before you notice anything."
+    ]
+   },
+   {
+    "feel": "surprise",
+    "lines": [
+     "In 1914, American experts tested small animals with carbon monoxide.",
+     "Canaries were the best for the job.",
+     "And unlike mice or guinea pigs, canaries recovered quickly in fresh air."
+    ]
+   },
+   {
+    "feel": "awe",
+    "lines": [
+     "Britain, the United States and Canada all used them, well into the twentieth century.",
+     "Today, a canary in the coal mine means anyone who warns us of danger first."
+    ]
+   }
+  ],
+  "key_words": [
+   "canary",
+   "coal mine",
+   "collapse",
+   "damp",
+   "carbon monoxide",
+   "explosions",
+   "1907",
+   "3,242",
+   "John Scott Haldane",
+   "1895",
+   "warm-blooded",
+   "breathes fast",
+   "distress",
+   "smoke alarm",
+   "1914",
+   "fresh air",
+   "warns"
+  ],
+  "claims": [
+   {
+    "claim": "Coal miners brought canaries into coal mines as an early-warning signal for toxic gases, primarily carbon monoxide.",
+    "url": "https://en.wikipedia.org/wiki/Sentinel_species"
+   },
+   {
+    "claim": "Build-ups of hazardous gas in mines are known as damps; white damp is air containing carbon monoxide, toxic even at low concentrations; after damp forms after an explosion and contains carbon monoxide.",
+    "url": "https://en.wikipedia.org/wiki/Coal_mining"
+   },
+   {
+    "claim": "3,242 U.S. coal miners died in 1907, the worst year ever.",
+    "url": "https://en.wikipedia.org/wiki/Coal_mining"
+   },
+   {
+    "claim": "John Scott Haldane proposed placing a warm-blooded animal in a mine to detect carbon monoxide in 1895; canaries were used as early as 1896.",
+    "url": "https://en.wikipedia.org/wiki/Sentinel_species"
+   },
+   {
+    "claim": "The bird's rapid breathing, small size and high metabolism made it succumb before the miners, giving them time to act.",
+    "url": "https://en.wikipedia.org/wiki/Sentinel_species"
+   },
+   {
+    "claim": "Canaries in distress or collapsing let coal workers evacuate; a 1914 report found canaries best adapted and, unlike mice or guinea pigs, they recover quickly in fresh air.",
+    "url": "https://doi.org/10.14361/9783839467664-006"
+   },
+   {
+    "claim": "Britain, the United States and Canada used canaries well into the 20th century; 'canary in the coal mine' is now an idiom for a warning of danger.",
+    "url": "https://en.wikipedia.org/wiki/Sentinel_species"
+   }
+  ]
+ },
+ "film": {
+  "era": "1900s",
+  "cast": {
+   "miner": "a 34 year old Welsh coal miner with a soot-blackened face, a short dark beard, a flat cloth cap, a grey wool jacket and a red neck scarf, 1900s",
+   "haldane": "a 35 year old Scottish scientist with a thick dark moustache, neat side-parted dark hair, a brown tweed jacket and a white wing collar, 1890s"
+  },
+  "key_words": [
+   "canary",
+   "coal mine",
+   "collapse",
+   "damp",
+   "carbon monoxide",
+   "explosions",
+   "1907",
+   "3,242",
+   "John Scott Haldane",
+   "1895",
+   "warm-blooded",
+   "breathes fast",
+   "distress",
+   "smoke alarm",
+   "1914",
+   "fresh air",
+   "warns"
+  ],
+  "music": "mysterious",
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "who": "miner",
+    "prompt": "medium shot, a coal miner carrying a small brass birdcage with a yellow canary through a dark mine tunnel, he is {miner}, oil lamp light, 1900s",
+    "check": "Is a man carrying a birdcage?",
+    "clip": true,
+    "motion": "he lifts the cage and looks at the bird, slow camera push in"
+   },
+   {
+    "name": "cage",
+    "at": "If#1",
+    "prompt": "close-up of a yellow canary on a perch inside a small brass cage, dark mine tunnel behind, warm lamp light",
+    "check": "Is there a yellow bird in a cage?",
+    "clip": true,
+    "motion": "the bird hops and turns its head, slow camera push in"
+   },
+   {
+    "name": "tunnel",
+    "at": "Deadly#1",
+    "prompt": "wide shot of a long dark coal mine tunnel with wooden beams and a faint haze in the air, dim lamp light",
+    "check": "Is this a dark tunnel with wooden beams?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "sniff",
+    "at": "Miners#1",
+    "prompt": "medium shot, two coal miners with blackened faces holding up an oil lamp in a tunnel, 1900s, lamp light",
+    "check": "Are men holding up a lamp?",
+    "clip": true,
+    "motion": "they raise the lamp and look around, slow camera push in"
+   },
+   {
+    "name": "haze",
+    "at": "White#1",
+    "prompt": "close-up of pale grey haze drifting across a black coal wall, lamp light",
+    "check": "Is there haze in a dark place?",
+    "move": "left"
+   },
+   {
+    "name": "cough",
+    "at": "toxic#1",
+    "who": "miner",
+    "prompt": "close-up, a coal miner coughing and holding his chest in a dark tunnel, he is {miner}, lamp light",
+    "check": "Is a man coughing?",
+    "clip": true,
+    "motion": "he coughs and bends forward, slow camera push in"
+   },
+   {
+    "name": "smoke",
+    "at": "After#1",
+    "prompt": "wide shot of thick black smoke pouring out of a coal mine entrance under a grey sky, 1900s",
+    "check": "Is smoke coming out of a mine entrance?",
+    "move": "push",
+    "hit": "explosions#1"
+   },
+   {
+    "name": "wait",
+    "at": "In#2",
+    "prompt": "medium shot, women in dark shawls waiting anxiously at a coal mine gate, 1900s mining town, grey sky",
+    "check": "Are women waiting at a gate?",
+    "clip": true,
+    "motion": "they hold each other and stare ahead, slow camera push in",
+    "hit": "died#1"
+   },
+   {
+    "name": "graves",
+    "at": "It#2",
+    "prompt": "wide shot of a mining town churchyard with many fresh graves and a grey sky, 1900s",
+    "check": "Are there many graves?",
+    "move": "pull"
+   },
+   {
+    "name": "haldane",
+    "at": "scientist#1",
+    "who": "haldane",
+    "prompt": "medium shot, a scientist holding a glass flask up to the light, he is {haldane}, 1890s laboratory, window light",
+    "check": "Is a man holding up a glass flask?",
+    "clip": true,
+    "motion": "he tilts the flask and studies it, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "place",
+    "at": "Put#1",
+    "prompt": "close-up, hands placing a small brass birdcage with a canary on a wooden ledge in a mine tunnel, lamp light",
+    "check": "Are hands holding a birdcage?",
+    "clip": true,
+    "motion": "the hands set the cage down gently, slow camera push in"
+   },
+   {
+    "name": "watch",
+    "at": "mine#2",
+    "who": "miner",
+    "prompt": "close-up, a miner holding his lamp close to a birdcage and watching the canary, he is {miner}, dark tunnel",
+    "check": "Is a man looking at a birdcage?",
+    "clip": true,
+    "motion": "he leans in and watches the bird, slow camera push in"
+   },
+   {
+    "name": "walkin",
+    "at": "By#2",
+    "prompt": "wide shot of coal miners walking into a mine entrance at dawn, one carrying a birdcage, 1890s",
+    "check": "Are miners walking into a mine?",
+    "move": "left"
+   },
+   {
+    "name": "breath",
+    "at": "A#5",
+    "prompt": "extreme close-up of a yellow canary breathing fast, its small chest pumping, warm light",
+    "check": "Is there a yellow bird?",
+    "clip": true,
+    "motion": "its chest rises and falls quickly, slow camera push in"
+   },
+   {
+    "name": "palm",
+    "at": "small#1",
+    "prompt": "close-up of a tiny yellow canary sitting in a man's big rough sooty palm, lamp light",
+    "check": "Is a bird sitting in a hand?",
+    "clip": true,
+    "motion": "the bird shifts its feet, slow camera push in"
+   },
+   {
+    "name": "sway",
+    "at": "So#1",
+    "prompt": "close-up of a canary swaying on its perch with half-closed eyes inside a brass cage, dim mine light",
+    "check": "Is a bird on a perch?",
+    "clip": true,
+    "motion": "the bird sways and blinks slowly, slow camera push in"
+   },
+   {
+    "name": "unaware",
+    "at": "before#1",
+    "prompt": "medium shot of two coal miners swinging pickaxes at a coal wall, calm faces, dark tunnel, lamp light",
+    "check": "Are men swinging pickaxes?",
+    "move": "push"
+   },
+   {
+    "name": "collapse",
+    "at": "When#1",
+    "prompt": "close-up of a yellow canary lying on the floor of its brass cage, dim mine lamp light",
+    "check": "Is there a bird lying in a cage?",
+    "move": "push",
+    "hit": "collapsed#1"
+   },
+   {
+    "name": "escape",
+    "at": "miners#3",
+    "prompt": "medium shot, coal miners hurrying along a tunnel toward daylight, one carrying a birdcage, 1900s",
+    "check": "Are miners walking in a tunnel?",
+    "clip": true,
+    "motion": "they hurry forward toward the light, slow camera push in"
+   },
+   {
+    "name": "flap",
+    "at": "You#1",
+    "prompt": "close-up of a yellow canary flapping its wings inside a brass cage, warm light",
+    "check": "Is a yellow bird flapping?",
+    "clip": true,
+    "motion": "the bird flaps its wings, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "alert",
+    "at": "It#5",
+    "who": "miner",
+    "prompt": "close-up, a miner's face lit by lamp light turning sharply toward a sound, he is {miner}, dark tunnel",
+    "check": "Is a man turning his head?",
+    "clip": true,
+    "motion": "he turns his head quickly, slow camera push in"
+   },
+   {
+    "name": "lab",
+    "at": "In#5",
+    "prompt": "medium shot, two scientists in white coats watching small animals in glass boxes on a table, 1910s laboratory, window light",
+    "check": "Are there animals in glass boxes?",
+    "clip": true,
+    "motion": "one scientist leans closer, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "cages",
+    "at": "Canaries#2",
+    "prompt": "close-up of a row of small brass cages with yellow canaries on a laboratory shelf, 1910s, window light",
+    "check": "Are there birds in cages?",
+    "move": "right"
+   },
+   {
+    "name": "mice",
+    "at": "And#2",
+    "prompt": "close-up of a white mouse and a brown guinea pig in a straw-filled wooden box, soft light",
+    "check": "Is there a mouse?",
+    "move": "push"
+   },
+   {
+    "name": "revive",
+    "at": "canaries#3",
+    "prompt": "close-up, a man holding a limp canary up in fresh open air outside a mine, the bird lifting its head, daylight",
+    "check": "Is a man holding a bird?",
+    "clip": true,
+    "motion": "the bird lifts its head and opens its eyes, slow camera push in",
+    "hit": "recovered#1"
+   },
+   {
+    "name": "pithead",
+    "at": "Britain#1",
+    "prompt": "wide shot of a coal mine with a tall iron winding tower and smoke, miners in the yard, 1920s, grey daylight",
+    "check": "Is there a tall mine tower?",
+    "move": "right"
+   },
+   {
+    "name": "whistle",
+    "at": "used#1",
+    "who": "miner",
+    "prompt": "medium shot, a smiling miner whistling to a canary in a brass cage in a mine tunnel, he is {miner}, lamp light",
+    "check": "Is a man smiling at a bird?",
+    "clip": true,
+    "motion": "he whistles and smiles, slow camera push in"
+   },
+   {
+    "name": "sing",
+    "at": "Today#1",
+    "prompt": "close-up of a yellow canary singing on a perch in warm golden light",
+    "check": "Is there a yellow bird singing?",
+    "clip": true,
+    "motion": "the bird opens its beak and sings, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "warn",
+    "at": "warns#1",
+    "prompt": "medium shot, a coal miner raising his hand in warning to other miners in a tunnel, lamp light, 1900s",
+    "check": "Is a man raising his hand?",
+    "clip": true,
+    "motion": "he raises his hand firmly, slow camera push in"
+   }
+  ]
+ }
+}
