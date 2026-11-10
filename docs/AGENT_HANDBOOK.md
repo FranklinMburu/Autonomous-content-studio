@@ -68,6 +68,16 @@ Story clock ──(at each slot)──> Story schedule ──(guardrails ok)─�
   its sources; it will go to "needs attention" after its next rejection.
 - Website: live on GitHub Pages since 6 Nov. Feed working.
 
+### Update 10 Nov 2026
+- **9 polished films** (Jenner, Goldberger, Barry Marshall, Mary Mallon, Great Stink, Fleming, canaries, Radium
+  Girls, Venice) were polished by Claude via PRs #63 and #69. Videos made: Jenner, Barry Marshall (old voice),
+  Mary Mallon, Great Stink, Goldberger; the rest were in progress at 20:30 Nairobi time.
+- **Story voice changed** (PR #71): `STORY_VOICE` in `studio/story/__main__.py` = Kokoro `af_heart` at 1.15x, gaps
+  0.22/0.42 s, line-end silence trimmed (Franklin's pick "E"). The old voice (`am_michael` at 1.38-1.6x) rated 5/10.
+- Issues: a passed polish is renamed **"Polished, making the video: …"** with label `polished` (PR #66); duplicate
+  polish issues are closed automatically.
+- Reference videos and the per-style gap report: Notion "Reference videos: gap report (10 Nov 2026)".
+
 ## 5. Decisions and incidents (why things are the way they are)
 
 | Date | What happened | Cause (evidence) | Fix |
@@ -80,6 +90,12 @@ Story clock ──(at each slot)──> Story schedule ──(guardrails ok)─�
 | 6 Nov | Lister made 7 times | `film_produce.sh` uploaded a 45-min-old `used.json`, erasing the schedule's topic tries | re-download the memory right before `remember` |
 | 6 Nov | "Polish stalled" never closed | failed backup polishes weren't counted as attempts | counted in `studio/pipeline/run.py`; 3 → attention |
 | 6 Nov | Website showed invented data, white scrollbars, stutter | AI Studio build | rewritten to real data only; `earth.js` v2 globe; see PR #27 |
+| 10 Nov | Goldberger video failed at once | Kaggle allows **2 GPU sessions**; two Earth-film renders held both | `lab/kaggle/run.py` waits up to 90 min for a free slot (#64) |
+| 10 Nov | A made video lost the next answer in the batch | ffmpeg/gh read stdin = `jobs.tsv` in the polish loop | `< /dev/null` + `-` for empty fields (#70), loop test in `test_workflows.py` |
+| 10 Nov | True facts flagged "not supported" | the fact check saw only 6,000 chars per source, picked for the whole script | AI-layer #3: `claim_excerpt()` gives each claim its passage |
+| 10 Nov | Pipeline save crashed: `Committer identity unknown` | the rebase retry had no git identity (found by Codex) | identity for commit and rebase (#65) + `tests/test_git_identity.py` |
+| 10 Nov | Tests hung 10 min | apt mirror stall in the test workflow, tests twice per push | apt 3-min timeout + retry, man-db/needrestart off, push runs only on main (#65) |
+| 10 Nov | Films sounded rushed | voice forced to 1.38-1.6x with 0.08/0.2 s gaps | `STORY_VOICE` (#71); voice lab re-baselined (#76) |
 
 ## 6. Known issues and open questions (verify before acting)
 
@@ -90,3 +106,9 @@ Story clock ──(at each slot)──> Story schedule ──(guardrails ok)─�
 - The 6-hourly fallback timer of the clock depends on GitHub's unreliable timer; the chain itself doesn't.
 - Kaggle GPU: 30 h/week. One film ≈ 45 min of GPU; the schedule caps at 36 films/week.
 - YouTube upload (Pipeline 6) is off until Google's audit (`docs/YOUTUBE_SETUP.md`). Franklin uploads by hand.
+- Kaggle runs at most **2 GPU sessions** at once: films and labs share them; runs wait for a slot (#64).
+- Kokoro says some phrases fast ("at health officials") even at 1.0x: the model's rhythm. Idea for later: detect words
+  spoken much faster than their neighbours and re-read that line.
+- AI-layer #2 logs the start of every rejected model answer: read it before blaming a provider for "invalid output".
+- Speech-to-text model downloads (Hugging Face) are blocked in Claude's sandbox and on Franklin's linked computer; run
+  transcription on GitHub Actions.
