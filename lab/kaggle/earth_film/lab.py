@@ -151,31 +151,31 @@ earth.data.materials.append(m)
 # Clouds: white, lit by the sun, transparent elsewhere
 if img("clouds"):
     cl = sphere("clouds", 1.006); m = bpy.data.materials.new("clouds"); m.use_nodes = True; nt = m.node_tree
-    bsdf = nt.nodes["Principled BSDF"]; bsdf.inputs["Base Color"].default_value = (1, 1, 1, 1); bsdf.inputs["Roughness"].default_value = 0.9
+    bsdf = nt.nodes["Principled BSDF"]; bsdf.inputs["Base Color"].default_value = (0.6, 0.62, 0.66, 1); bsdf.inputs["Roughness"].default_value = 0.9   # grey-white clouds: a white crescent in render 4
     tc = nt.nodes.new("ShaderNodeTexImage"); tc.image = img("clouds"); tc.image.colorspace_settings.name = "Non-Color"
     nt.links.new(latlon_uv(nt), tc.inputs[0])
     tr = nt.nodes.new("ShaderNodeBsdfTransparent"); mix = nt.nodes.new("ShaderNodeMixShader")
-    pw = nt.nodes.new("ShaderNodeMath"); pw.operation = "MULTIPLY"; pw.inputs[1].default_value = 0.9
+    pw = nt.nodes.new("ShaderNodeMath"); pw.operation = "MULTIPLY"; pw.inputs[1].default_value = 0.75
     nt.links.new(tc.outputs[0], pw.inputs[0]); nt.links.new(pw.outputs[0], mix.inputs[0])
     nt.links.new(tr.outputs[0], mix.inputs[1]); nt.links.new(bsdf.outputs[0], mix.inputs[2])
     nt.links.new(mix.outputs[0], nt.nodes["Material Output"].inputs["Surface"])
     cl.data.materials.append(m)
 
 # Atmosphere: a thin glowing shell, brightest at the limb (fresnel) and on the sunlit side: blue, warm near the sun
-at = sphere("air", 1.006); m = bpy.data.materials.new("air"); m.use_nodes = True; nt = m.node_tree
+at = sphere("air", 1.022)   # wider than the planet so the glow shows OUTSIDE the edge, like TradingView; m = bpy.data.materials.new("air"); m.use_nodes = True; nt = m.node_tree
 for n in list(nt.nodes):
     if n.type != "OUTPUT_MATERIAL": nt.nodes.remove(n)
 lw = nt.nodes.new("ShaderNodeLayerWeight"); lw.inputs["Blend"].default_value = 0.35
-pw = nt.nodes.new("ShaderNodeMath"); pw.operation = "POWER"; pw.inputs[1].default_value = 6.0; nt.links.new(lw.outputs["Facing"], pw.inputs[0])
+pw = nt.nodes.new("ShaderNodeMath"); pw.operation = "POWER"; pw.inputs[1].default_value = 3.0; nt.links.new(lw.outputs["Facing"], pw.inputs[0])
 d, lit = sun_factor(nt, -0.25, 0.3); SUNDOTS.append(d)
 ramp = nt.nodes.new("ShaderNodeValToRGB"); cr = ramp.color_ramp
-cr.elements[0].position, cr.elements[0].color = 0.0, (0.03, 0.08, 0.25, 1)    # far from the sun: faint deep blue
-cr.elements[1].position, cr.elements[1].color = 1.0, (0.62, 0.82, 1.0, 1)     # at the sun: pale blue (a thin real atmosphere, not a white band)
-e = cr.elements.new(0.55); e.color = (0.25, 0.5, 1.0, 1)                       # sky blue
-e = cr.elements.new(0.85); e.color = (1.0, 0.72, 0.45, 1)                        # warm where sunlight grazes the air
+cr.elements[0].position, cr.elements[0].color = 0.0, (0.02, 0.06, 0.22, 1)    # far from the sun: faint deep blue
+cr.elements[1].position, cr.elements[1].color = 1.0, (0.35, 0.62, 1.0, 1)     # at the sun: pale blue (a thin real atmosphere, not a white band)
+e = cr.elements.new(0.55); e.color = (0.16, 0.4, 1.0, 1)                       # sky blue
+e = cr.elements.new(0.85); e.color = (0.55, 0.68, 1.0, 1)                        # only a hint of warmth: render 4 read white
 nt.links.new(lit, ramp.inputs[0])
 k = nt.nodes.new("ShaderNodeMath"); k.operation = "MULTIPLY"; nt.links.new(pw.outputs[0], k.inputs[0])
-k2 = nt.nodes.new("ShaderNodeMath"); k2.operation = "MULTIPLY_ADD"; k2.inputs[1].default_value = 3.0; k2.inputs[2].default_value = 0.04
+k2 = nt.nodes.new("ShaderNodeMath"); k2.operation = "MULTIPLY_ADD"; k2.inputs[1].default_value = 4.0; k2.inputs[2].default_value = 0.06
 nt.links.new(lit, k2.inputs[0]); nt.links.new(k2.outputs[0], k.inputs[1])
 em = nt.nodes.new("ShaderNodeEmission"); nt.links.new(ramp.outputs[0], em.inputs["Color"]); nt.links.new(k.outputs[0], em.inputs["Strength"])
 tr = nt.nodes.new("ShaderNodeBsdfTransparent"); add = nt.nodes.new("ShaderNodeAddShader")
@@ -205,7 +205,7 @@ stars.visible_diffuse = stars.visible_glossy = stars.visible_shadow = False
 
 # The sun: a lamp for the lighting + a small, very bright disc on the limb for the camera (it makes the glare)
 lamp = bpy.data.objects.new("sun", bpy.data.lights.new("sun", "SUN")); sc.collection.objects.link(lamp)
-lamp.data.energy = 6.0; lamp.data.angle = math.radians(0.6)
+lamp.data.energy = 4.0; lamp.data.angle = math.radians(0.6)
 bpy.ops.mesh.primitive_uv_sphere_add(segments=32, ring_count=16, radius=0.018); disc = bpy.context.object; disc.name = "disc"
 m = bpy.data.materials.new("disc"); m.use_nodes = True; nt = m.node_tree
 for n in list(nt.nodes):
@@ -248,7 +248,7 @@ for i in range(N):
     # only a thin crescent along the limb near the sun is in daylight
     sv = Vector((0.32 * math.sin(sa), 0.32 * math.cos(sa), -1.0)).normalized()
     sun_w = js_to_bl(Mt @ sv)
-    lamp.rotation_euler = (-sun_w).to_track_quat("-Z", "Y").to_euler(); lamp.data.energy = 6.0 * rise
+    lamp.rotation_euler = (-sun_w).to_track_quat("-Z", "Y").to_euler(); lamp.data.energy = 4.0 * rise
     sd = 1.0 + lerp(-6, 9, t) / R_PX
     disc.location = js_to_bl(Mt @ Vector((sd * math.sin(sa), sd * math.cos(sa), -0.02)))
     disc.active_material.node_tree.nodes["Emission"].inputs["Strength"].default_value = 160 * rise
