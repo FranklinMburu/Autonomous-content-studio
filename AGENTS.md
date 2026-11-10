@@ -31,7 +31,7 @@ When Franklin says "check my work", "get in sync", "catch up" or similar, do exa
   If data is missing, show "—" or an honest empty state.
 - **Run the tests** after any change; all must pass:
   `python tests/test_story.py`, `python tests/test_story_writer.py`, `python tests/test_workflows.py`,
-  `python tests/test_pipeline.py`, `python tests/test_pipeline_fixes.py`, `python tests/test_git_identity.py`; for the website:
+  `python tests/test_pipeline.py`, `python tests/test_pipeline_fixes.py`, `python tests/test_git_identity.py`, `python tests/test_film_queue.py`; for the website:
   `cd web && npm ci && npx tsc --noEmit && npx vite build`.
 - **Always finish with a pull request. No exceptions, no reminders needed.** Work is not done while it only
   exists in your session: commit it on a new branch, push the branch, open a pull request into `main` and put its
