@@ -3,7 +3,8 @@
  "draft": "draft-005-messy-lab-miracle-cure-run26",
  "episode": "episodes/hidden_reasons/005-messy-lab-miracle-cure",
  "opened": "2026-11-07T06:05:34+00:00",
- "status": "video-failed",
- "checked": "2026-11-10T16:36:15+00:00",
- "last_answer_by": "pull request #69 by FranklinMburu"
+ "status": "accepted",
+ "checked": "2026-11-10T21:12:02+00:00",
+ "last_answer_by": "pull request #69 by FranklinMburu",
+ "tries": 0
 }
