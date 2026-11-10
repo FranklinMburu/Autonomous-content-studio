@@ -140,9 +140,12 @@ if img("day"):
 if img("night"):
     tn = nt.nodes.new("ShaderNodeTexImage"); tn.image = img("night"); tn.interpolation = "Cubic"; nt.links.new(uv, tn.inputs[0])
     d, night = sun_factor(nt, -0.25, 0.08, invert=True); SUNDOTS.append(d)   # 1 on the night side, 0 in daylight
-    mul = nt.nodes.new("ShaderNodeMath"); mul.operation = "MULTIPLY"; mul.inputs[1].default_value = 1.6
+    mul = nt.nodes.new("ShaderNodeMath"); mul.operation = "MULTIPLY"; mul.inputs[1].default_value = 2.6
     nt.links.new(night, mul.inputs[0])
-    nt.links.new(tn.outputs[0], bsdf.inputs["Emission Color"]); nt.links.new(mul.outputs[0], bsdf.inputs["Emission Strength"])
+    # the night map has faint moonlit land in it: crush it so only the city lights glow (it made the night face
+    # look like daytime with lights switched on)
+    gam = nt.nodes.new("ShaderNodeGamma"); gam.inputs["Gamma"].default_value = 2.6; nt.links.new(tn.outputs[0], gam.inputs["Color"])
+    nt.links.new(gam.outputs[0], bsdf.inputs["Emission Color"]); nt.links.new(mul.outputs[0], bsdf.inputs["Emission Strength"])
 earth.data.materials.append(m)
 
 # Clouds: white, lit by the sun, transparent elsewhere
@@ -179,6 +182,8 @@ tr = nt.nodes.new("ShaderNodeBsdfTransparent"); add = nt.nodes.new("ShaderNodeAd
 nt.links.new(em.outputs[0], add.inputs[0]); nt.links.new(tr.outputs[0], add.inputs[1])
 nt.links.new(add.outputs[0], nt.nodes["Material Output"].inputs["Surface"])
 at.data.materials.append(m)
+# the glowing air must not LIGHT the planet (Cycles treats emission as a lamp): it lit the whole night face
+at.visible_diffuse = at.visible_glossy = at.visible_shadow = False
 
 # Stars: a plane far behind the Earth (an orthographic camera can't see the world background as a sky)
 bpy.ops.mesh.primitive_plane_add(size=12); stars = bpy.context.object; stars.name = "stars"
@@ -196,6 +201,7 @@ mu = nt.nodes.new("ShaderNodeMath"); mu.operation = "MULTIPLY"; nt.links.new(mr.
 mu2 = nt.nodes.new("ShaderNodeMath"); mu2.operation = "MULTIPLY"; mu2.inputs[1].default_value = 1.6; nt.links.new(mu.outputs[0], mu2.inputs[0])
 em = nt.nodes.new("ShaderNodeEmission"); nt.links.new(mu2.outputs[0], em.inputs["Strength"])
 nt.links.new(em.outputs[0], nt.nodes["Material Output"].inputs["Surface"]); stars.data.materials.append(m)
+stars.visible_diffuse = stars.visible_glossy = stars.visible_shadow = False
 
 # The sun: a lamp for the lighting + a small, very bright disc on the limb for the camera (it makes the glare)
 lamp = bpy.data.objects.new("sun", bpy.data.lights.new("sun", "SUN")); sc.collection.objects.link(lamp)
