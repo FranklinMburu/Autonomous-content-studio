@@ -7,4 +7,4 @@ Topic: Why Louis Braille turned army night writing into raised dots
 - Logic check issues found: 1
 - Words: 154, length 50.0s, 185 words/min, 10 words in first 3 s
 - Fact check: {'partial': 1, 'supported': 7, 'unsupported': 4}
-- Film shot list: none yet: made in the polish step
+- Film shot list: 26 shots, 5 problem(s) left for the polish step (NEEDS_POLISH.md)
