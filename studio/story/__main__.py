@@ -33,17 +33,25 @@ def import_scenes(folder):
     return mod.SHOTS, getattr(mod, "KEY", set())
 
 
+# The story-style voice, one place for every episode (new, polished or re-made). Chosen by Franklin on 10 Nov
+# (sample "E"): Kokoro's best voice at 1.15x with real but short pauses. The old film voice (am_michael at 1.38x,
+# 0.08/0.2 s gaps) rated 5/10: rushed, no breathing room. A script's own voice/speed/pace is ignored on purpose.
+STORY_VOICE = {"voice": "af_heart", "speed": 1.15,
+               "pace": {"gap_line": 0.22, "gap_beat": 0.42, "lead_in": 0.08, "tail": 0.7, "trim_tail": 0.06}}
+
+
 def narrate(script, out_dir):
-    """Kokoro narration with this episode's pace; restores the explainer defaults afterwards."""
+    """Kokoro narration in the story voice (STORY_VOICE); restores the explainer defaults afterwards."""
     from .. import voice
-    keep = (voice.GAP_LINE, voice.GAP_BEAT, voice.LEAD_IN, voice.TAIL)
-    pace = script.get("pace", {})
+    keep = (voice.GAP_LINE, voice.GAP_BEAT, voice.LEAD_IN, voice.TAIL, voice.TRIM_TAIL)
+    script["voice"], script["speed"] = STORY_VOICE["voice"], STORY_VOICE["speed"]
+    pace = script["pace"] = dict(STORY_VOICE["pace"])
     try:
-        voice.GAP_LINE = pace.get("gap_line", 0.08); voice.GAP_BEAT = pace.get("gap_beat", 0.2)
-        voice.LEAD_IN = pace.get("lead_in", 0.05); voice.TAIL = pace.get("tail", 0.7)
+        voice.GAP_LINE, voice.GAP_BEAT = pace["gap_line"], pace["gap_beat"]
+        voice.LEAD_IN, voice.TAIL, voice.TRIM_TAIL = pace["lead_in"], pace["tail"], pace["trim_tail"]
         return voice.narrate(script, out_dir / "narration.wav", out_dir / "timing.json")
     finally:
-        voice.GAP_LINE, voice.GAP_BEAT, voice.LEAD_IN, voice.TAIL = keep
+        voice.GAP_LINE, voice.GAP_BEAT, voice.LEAD_IN, voice.TAIL, voice.TRIM_TAIL = keep
 
 
 def cmd_make(a):

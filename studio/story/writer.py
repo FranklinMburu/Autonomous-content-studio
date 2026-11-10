@@ -10,7 +10,7 @@ from pathlib import Path
 from ..paths import ROOT
 from . import board, lib
 
-TARGET_WPM = (195, 235)
+TARGET_WPM = (165, 200)   # informational: the story voice (STORY_VOICE) reads about 180 words a minute
 STORY_RULES = """FORMAT ("Hidden Reasons" style, proven: median 6.5M views per Short for a channel using it)
 1. HOOK (first line, at most 13 words): a PERSON doing a strange PHYSICAL ACTION we can picture, with stakes.
    Not a question, not a fact, not a date. Good: "A doctor scrubbed his hands until they bled."
@@ -364,7 +364,7 @@ def _broken_shots(b, problems):
     return sorted(hit - {""}) or None
 
 
-def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
+def write(topic, channel_dir, voice="af_heart", speed=1.15, log=print):   # narrate() applies STORY_VOICE anyway
     """Topic -> finished episode folder. Every stage is saved in episodes/<channel>/_drafts/<topic>/ as it completes,
     so a failed or timed-out run resumes where it stopped (same topic) instead of starting again."""
     import time
@@ -504,15 +504,13 @@ def write(topic, channel_dir, voice="am_michael", speed=1.38, log=print):
         save("folder.json", folder.name)
     folder.mkdir(parents=True, exist_ok=True)
     script = {"title": s["title"], "channel": "Hidden Reasons", "topic": topic, "voice": voice, "speed": speed,
-              "pace": {"gap_line": 0.08, "gap_beat": 0.2, "lead_in": 0.05, "tail": 0.7}, "beats": s["beats"],
+              "pace": {}, "beats": s["beats"],
               "claims": s.get("claims", []), "key_words": s.get("key_words", [])}
     t0 = time.time()
     timing = narrate(script, folder)
     wpm = len(timing["words"]) / timing["duration"] * 60
-    if not TARGET_WPM[0] <= wpm <= TARGET_WPM[1]:
-        script["speed"] = round(min(1.6, max(1.0, speed * 215 / wpm)), 2)
-        timing = narrate(script, folder)
-        wpm = len(timing["words"]) / timing["duration"] * 60
+    # (no speed-up to a words-per-minute target any more: forcing 1.38-1.6x made the voice rushed; length comes
+    #  from the 150-210 word rule instead)
     (folder / "script.json").write_text(json.dumps(script, indent=1, ensure_ascii=False), encoding="utf-8")
     log(f"  narration {timing['duration']:.1f}s at {wpm:.0f} wpm ({time.time() - t0:.0f}s)")
 

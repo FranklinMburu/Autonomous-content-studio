@@ -9,6 +9,7 @@ from kokoro_onnx import Kokoro
 from .paths import models_dir
 
 GAP_LINE, GAP_BEAT, LEAD_IN, TAIL = 0.22, 0.45, 0.15, 0.4
+TRIM_TAIL = None   # seconds of each line's trailing silence to keep (None = keep all; the story style trims it)
 _ONES = "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen " \
         "sixteen seventeen eighteen nineteen".split()
 _TENS = "_ _ twenty thirty forty fifty sixty seventy eighty ninety".split()
@@ -135,6 +136,10 @@ def narrate(script, wav_path, timing_path):
         for li, line in enumerate(beat["lines"]):
             say = " ".join(spoken(w) for w in line.split())
             audio, sr, timings = k.create_timed(say, voice=voice, speed=speed, lang="en-us")
+            if TRIM_TAIL is not None:   # the engine leaves ~0.27 s of silence after every line: pauses come from GAP_* only
+                loud = np.where(np.abs(audio) > 0.01)[0]
+                if len(loud):
+                    audio = audio[:min(len(audio), loud[-1] + int(TRIM_TAIL * sr))]
             dur = len(audio) / sr
             wt, exact = _word_times(k, line.split(), timings, t, dur)
             exact_all &= exact
