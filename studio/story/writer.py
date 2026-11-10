@@ -40,7 +40,10 @@ B. One character. Follow the person from the hook from start to end. Show what i
    their job, losing patients) and what they want. The viewer must be on their side by the third line.
 C. Open a loop in the hook that only THE REAL REASON closes. Every line must make the viewer need the next one.
 D. A fact goes in ONLY if it pushes the story forward (raises the stakes, causes the next event, or pays off the loop).
-   Cut "interesting" facts that don't. Use concrete, sensory details from the sources (what they saw, smelled, did).
+   Cut "interesting" facts that don't. Concrete details make it vivid, but ONLY details the sources state. Never add
+   what someone felt, saw, trusted or feared, or how fast, quiet or deadly something was, unless a source says it:
+   the fact check rejects every such line (after 6 Nov it sent all 9 new topics to polish). Feeling comes from the ORDER and
+   the stakes of true events, not from made-up details. Stay inside 150-210 words.
 E. The twist changes how we see the whole story, in one or two short lines. Leave the viewer with a feeling, not a summary."""
 
 SCRIPT_SHAPE = """Return JSON only:
