@@ -1,0 +1,361 @@
+{
+ "script": {
+  "title": "Messy Lab, Miracle Cure",
+  "beats": [
+   {
+    "feel": "curiosity",
+    "lines": [
+     "A scientist came back from holiday to find mould on his germs.",
+     "It was September 1928, and his name was Alexander Fleming."
+    ]
+   },
+   {
+    "feel": "intrigue",
+    "lines": [
+     "Before leaving, he had spread germs called staphylococci on culture plates.",
+     "He left them on a bench in a corner of his lab."
+    ]
+   },
+   {
+    "feel": "surprise",
+    "lines": [
+     "On one plate, a mould had moved in.",
+     "Right around the mould, the germs were destroyed.",
+     "Farther away, they grew as normal."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like the dry ring under an umbrella in the rain.",
+     "Something was keeping the germs away."
+    ]
+   },
+   {
+    "feel": "wonder",
+    "lines": [
+     "The mould was making its own germ killer.",
+     "For months, Fleming called it mould juice.",
+     "Then he named it penicillin."
+    ]
+   },
+   {
+    "feel": "frustration",
+    "lines": [
+     "In 1929, he presented it to fellow scientists.",
+     "His talk got no particular attention."
+    ]
+   },
+   {
+    "feel": "hope",
+    "lines": [
+     "Years later, Ernst Chain and Howard Florey's team in Oxford turned it into a drug.",
+     "By D-Day in 1944, there was enough penicillin to treat all the wounded Allied troops."
+    ]
+   },
+   {
+    "feel": "irony",
+    "lines": [
+     "When Chain heard Fleming was coming to visit, he was stunned.",
+     "He had thought Fleming was dead.",
+     "In 1945, all three shared the Nobel Prize."
+    ]
+   }
+  ],
+  "key_words": [
+   "holiday",
+   "mould",
+   "1928",
+   "Alexander Fleming",
+   "staphylococci",
+   "bench",
+   "destroyed",
+   "umbrella",
+   "germ killer",
+   "mould juice",
+   "penicillin",
+   "no attention",
+   "Oxford",
+   "D-Day",
+   "dead",
+   "Nobel Prize"
+  ],
+  "claims": [
+   {
+    "claim": "On 3 September 1928 Fleming returned from a holiday and found one culture contaminated with a fungus.",
+    "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+   },
+   {
+    "claim": "Before his holiday he inoculated staphylococci on culture plates and left them on a bench in a corner of his laboratory.",
+    "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+   },
+   {
+    "claim": "Colonies immediately around the fungus were destroyed, while colonies farther away were normal.",
+    "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+   },
+   {
+    "claim": "For some months he called it mould juice, then named it penicillin in 1929.",
+    "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+   },
+   {
+    "claim": "He presented the discovery on 13 February 1929 to the Medical Research Club; the talk received no particular attention.",
+    "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+   },
+   {
+    "claim": "Ernst Chain and Howard Florey's Oxford team developed penicillin; by D-Day in 1944 enough had been produced to treat all the wounded Allied troops.",
+    "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+   },
+   {
+    "claim": "When Chain heard Fleming was coming he remarked that he thought Fleming was dead.",
+    "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+   },
+   {
+    "claim": "Fleming shared the 1945 Nobel Prize with Howard Florey and Ernst Chain.",
+    "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+   }
+  ]
+ },
+ "film": {
+  "era": "1920s",
+  "cast": {
+   "fleming": "a 47 year old Scottish scientist with short grey-brown hair, pale blue eyes, a slightly flattened nose, a grey tweed suit and a dark blue bow tie, 1920s",
+   "chain": "a 34 year old scientist with a thick black moustache, wild dark wavy hair and a white lab coat over a dark waistcoat, 1940s"
+  },
+  "key_words": [
+   "holiday",
+   "mould",
+   "1928",
+   "Alexander Fleming",
+   "staphylococci",
+   "bench",
+   "destroyed",
+   "umbrella",
+   "germ killer",
+   "mould juice",
+   "penicillin",
+   "no attention",
+   "Oxford",
+   "D-Day",
+   "dead",
+   "Nobel Prize"
+  ],
+  "music": "curious",
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "who": "fleming",
+    "prompt": "close-up, a scientist holding up a glass petri dish and peering at a patch of mould on it, he is {fleming}, cluttered 1920s laboratory, window light",
+    "check": "Is a man holding up a petri dish?",
+    "clip": true,
+    "motion": "he tilts the dish and frowns, slow camera push in"
+   },
+   {
+    "name": "spot",
+    "at": "mould#1",
+    "prompt": "extreme close-up of a glass petri dish with a fuzzy blue-green mould spot among small golden dots, window light",
+    "check": "Is there mould in a petri dish?",
+    "move": "push"
+   },
+   {
+    "name": "suitcase",
+    "at": "It#1",
+    "who": "fleming",
+    "prompt": "medium shot, a man setting down a leather suitcase in a laboratory doorway, he is {fleming}, 1920s, morning light",
+    "check": "Is a man putting down a suitcase?",
+    "clip": true,
+    "motion": "he sets the suitcase down and looks around, slow camera push in"
+   },
+   {
+    "name": "streak",
+    "at": "Before#1",
+    "prompt": "close-up, a hand streaking a thin wire loop across yellow jelly in a petri dish, 1920s laboratory, lamp light",
+    "check": "Is a hand moving a wire over a dish?",
+    "clip": true,
+    "motion": "the wire loop glides across the jelly, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "dots",
+    "at": "staphylococci#1",
+    "prompt": "extreme close-up of tiny golden dots of bacteria growing on yellow jelly in a petri dish",
+    "check": "Are there golden dots on jelly?",
+    "move": "push"
+   },
+   {
+    "name": "bench",
+    "at": "He#2",
+    "prompt": "wide shot of a cluttered laboratory corner bench stacked with glass dishes and bottles, dusty window light, 1920s",
+    "check": "Is there a cluttered bench?",
+    "move": "left"
+   },
+   {
+    "name": "leave",
+    "at": "corner#1",
+    "who": "fleming",
+    "prompt": "medium shot, a scientist in a tweed suit closing a laboratory door behind him, he is {fleming}, 1920s, evening light",
+    "check": "Is a man closing a door?",
+    "clip": true,
+    "motion": "he pulls the door shut, slow camera push in"
+   },
+   {
+    "name": "mould",
+    "at": "On#4",
+    "prompt": "extreme close-up of a petri dish with a large blue-green mould patch on yellow jelly",
+    "check": "Is there a large mould patch?",
+    "move": "push"
+   },
+   {
+    "name": "ring",
+    "at": "Right#1",
+    "prompt": "extreme close-up of a petri dish with a clear empty ring around a blue-green mould patch and golden dots farther out",
+    "check": "Is there mould in a petri dish?",
+    "move": "push",
+    "hit": "destroyed#1"
+   },
+   {
+    "name": "lens",
+    "at": "Farther#1",
+    "who": "fleming",
+    "prompt": "close-up, a scientist leaning in with a magnifying glass over a petri dish, he is {fleming}, 1920s laboratory, window light",
+    "check": "Is a man holding a magnifying glass?",
+    "clip": true,
+    "motion": "he moves the magnifying glass slowly, slow camera push in"
+   },
+   {
+    "name": "umbrella",
+    "at": "You#1",
+    "prompt": "wide shot, a person under a black umbrella in heavy rain on a 1920s London pavement",
+    "check": "Is a person holding an umbrella in the rain?",
+    "clip": true,
+    "motion": "rain pours around the umbrella, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "dry",
+    "at": "dry#1",
+    "prompt": "close-up of a dry patch of pavement under the edge of a black umbrella with raindrops splashing all around",
+    "check": "Is there rain falling around an umbrella?",
+    "move": "push"
+   },
+   {
+    "name": "eyes",
+    "at": "Something#1",
+    "who": "fleming",
+    "prompt": "close-up, a scientist's eyes widening as he stares at a petri dish, he is {fleming}, 1920s laboratory",
+    "check": "Is a man staring at a dish?",
+    "clip": true,
+    "motion": "his eyes widen slowly, slow camera push in"
+   },
+   {
+    "name": "pipette",
+    "at": "The#6",
+    "prompt": "close-up, a hand dripping liquid from a glass pipette onto a petri dish, 1920s laboratory, window light",
+    "check": "Is a pipette dripping onto a dish?",
+    "clip": true,
+    "motion": "a drop falls from the pipette, slow camera push in"
+   },
+   {
+    "name": "flask",
+    "at": "For#1",
+    "who": "fleming",
+    "prompt": "medium shot, a scientist pouring yellow liquid from a glass flask into test tubes, he is {fleming}, 1920s laboratory",
+    "check": "Is a man pouring from a flask?",
+    "clip": true,
+    "motion": "the yellow liquid pours into a tube, slow camera push in"
+   },
+   {
+    "name": "bottle",
+    "at": "Then#1",
+    "prompt": "close-up of a small glass bottle of clear yellow liquid on a lab bench by a window",
+    "check": "Is there a small glass bottle?",
+    "move": "push"
+   },
+   {
+    "name": "talk",
+    "at": "In#4",
+    "who": "fleming",
+    "prompt": "medium shot, a scientist speaking at a wooden lectern to a small room of seated men in suits, he is {fleming}, 1920s",
+    "check": "Is a man speaking at a lectern?",
+    "clip": true,
+    "motion": "he gestures as he speaks, slow camera push in"
+   },
+   {
+    "name": "bored",
+    "at": "His#4",
+    "prompt": "medium shot, men in suits yawning and looking away in rows of wooden chairs, 1920s lecture room",
+    "check": "Are men sitting in rows of chairs?",
+    "clip": true,
+    "motion": "one man yawns and another looks away, slow camera push in",
+    "hit": "no#1"
+   },
+   {
+    "name": "oxford",
+    "at": "Years#1",
+    "prompt": "wide shot of old stone college buildings with spires, soft morning light, 1940s England",
+    "check": "Are there old stone buildings with spires?",
+    "move": "right",
+    "xfade": true
+   },
+   {
+    "name": "team",
+    "at": "team#1",
+    "prompt": "medium shot, scientists in white coats working with glass bottles and tubes in a busy laboratory, 1940s",
+    "check": "Are scientists working in a lab?",
+    "clip": true,
+    "motion": "they lift bottles and check tubes, slow camera push in"
+   },
+   {
+    "name": "dday",
+    "at": "By#1",
+    "prompt": "wide shot of landing boats on a grey beach with soldiers wading ashore, grey sky, 1944",
+    "check": "Are there boats on a beach?",
+    "move": "push"
+   },
+   {
+    "name": "treat",
+    "at": "enough#1",
+    "prompt": "medium shot, a nurse giving an injection to a wounded soldier in a field hospital tent, 1944",
+    "check": "Is a nurse giving an injection?",
+    "clip": true,
+    "motion": "she presses the syringe gently, slow camera push in"
+   },
+   {
+    "name": "chain",
+    "at": "When#1",
+    "who": "chain",
+    "prompt": "close-up, a scientist looking up in shock from a laboratory bench, he is {chain}, 1940s laboratory",
+    "check": "Is a man looking up in surprise?",
+    "clip": true,
+    "motion": "his eyebrows shoot up, slow camera push in"
+   },
+   {
+    "name": "visit",
+    "at": "visit#1",
+    "who": "fleming",
+    "prompt": "medium shot, an older man in a grey suit and bow tie walking through a laboratory door, he is {fleming}, 1940s",
+    "check": "Is a man walking through a door?",
+    "clip": true,
+    "motion": "he steps in and smiles, slow camera push in"
+   },
+   {
+    "name": "laugh",
+    "at": "He#6",
+    "who": "chain",
+    "prompt": "close-up, a scientist with a black moustache laughing in surprise, he is {chain}, 1940s laboratory",
+    "check": "Is a man laughing?",
+    "clip": true,
+    "motion": "he laughs and shakes his head, slow camera push in",
+    "hit": "dead#1"
+   },
+   {
+    "name": "nobel",
+    "at": "In#7",
+    "prompt": "medium shot, three men in black tailcoats holding gold medals on a grand stage decorated with flowers, 1945",
+    "check": "Are three men in tailcoats on a stage?",
+    "clip": true,
+    "motion": "they raise the medals and smile, slow camera push in"
+   }
+  ]
+ }
+}
