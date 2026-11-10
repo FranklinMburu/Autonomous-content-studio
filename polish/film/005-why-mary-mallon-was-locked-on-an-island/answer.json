@@ -20,8 +20,7 @@
     "feel": "tension",
     "lines": [
      "But Mary felt perfectly healthy.",
-     "When Soper asked for samples, she grabbed a carving fork.",
-     "Soper ran."
+     "When Soper asked for samples, she grabbed a carving fork."
     ]
    },
    {
@@ -29,8 +28,8 @@
     "lines": [
      "In 1907, Doctor Sara Josephine Baker came back with the police.",
      "Mary hid in a garden shed.",
-     "She came out fighting and swearing.",
-     "Baker had to sit on her chest in the ambulance."
+     "They found her, and she resisted again.",
+     "She was taken away in an ambulance."
     ]
    },
    {
@@ -237,14 +236,6 @@
     "hit": "fork#2"
    },
    {
-    "name": "ran",
-    "at": "Soper#3",
-    "prompt": "medium shot, a man in a bowler hat hurrying out through a tall iron gate onto a city sidewalk, 1900s New York, grey daylight",
-    "check": "Is a man going through an iron gate?",
-    "clip": true,
-    "motion": "he pushes the gate and hurries out, slow camera push in"
-   },
-   {
     "name": "baker",
     "at": "Doctor#1",
     "who": "baker",
@@ -265,16 +256,15 @@
    },
    {
     "name": "fight",
-    "at": "She#4",
+    "at": "found#1",
     "prompt": "medium shot, two policemen in blue uniforms holding the arms of a struggling woman in a garden, 1900s, grey daylight",
     "check": "Are policemen holding a woman?",
     "clip": true,
-    "motion": "the woman twists and pulls, slow camera push in",
-    "hit": "fighting#1"
+    "motion": "the woman twists and pulls, slow camera push in"
    },
    {
     "name": "ambulance",
-    "at": "Baker#2",
+    "at": "taken#1",
     "prompt": "wide shot of a horse-drawn 1900s ambulance wagon on a cobblestone street, grey daylight",
     "check": "Is there a horse-drawn wagon?",
     "move": "push"
@@ -289,7 +279,7 @@
    },
    {
     "name": "carrier",
-    "at": "She#5",
+    "at": "She#6",
     "who": "mary",
     "prompt": "close-up, a healthy rosy-cheeked cook washing her hands in a white basin, she is {mary}, 1900s hospital room, window light",
     "check": "Is a woman washing her hands?",
@@ -360,6 +350,13 @@
     "move": "push"
    },
    {
+    "name": "cribs",
+    "at": "twenty-five#1",
+    "prompt": "close-up of a row of small white hospital cribs in a quiet ward, soft daylight, 1910s",
+    "check": "Are there hospital cribs?",
+    "move": "left"
+   },
+   {
     "name": "empty",
     "at": "Two#1",
     "prompt": "close-up of an empty hospital bed with a folded white sheet and a single flower on the pillow, cold light",
@@ -369,7 +366,7 @@
    },
    {
     "name": "brown",
-    "at": "The#4",
+    "at": "The#3",
     "who": "mary",
     "prompt": "medium shot, a cook in a hospital kitchen glancing over her shoulder, she is {mary}, 1910s, cold light",
     "check": "Is a woman looking over her shoulder?",
@@ -378,7 +375,7 @@
    },
    {
     "name": "compare",
-    "at": "Soper#4",
+    "at": "Soper#3",
     "who": "soper",
     "prompt": "close-up, a man peering through a magnifying glass at two sheets of paper on a desk, he is {soper}, 1910s office, lamp light",
     "check": "Is a man holding a magnifying glass?",

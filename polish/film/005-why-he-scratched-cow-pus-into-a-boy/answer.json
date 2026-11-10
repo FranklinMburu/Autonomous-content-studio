@@ -12,7 +12,7 @@
    {
     "feel": "dread",
     "lines": [
-     "In towns and cities, smallpox killed up to 20% of people.",
+     "Smallpox spread most easily in crowded towns and cities.",
      "Doctors already had a risky shield.",
      "They rubbed real smallpox into scratches on healthy skin.",
      "Most people got a milder case. Some died."
@@ -87,7 +87,7 @@
   ],
   "claims": [
    {
-    "claim": "Smallpox killed as many as 20% of people in towns and cities in Jenner's time.",
+    "claim": "Smallpox infection spread more easily in towns and cities.",
     "url": "https://en.wikipedia.org/wiki/Edward_Jenner"
    },
    {
@@ -170,19 +170,19 @@
     "move": "push"
    },
    {
-    "name": "towns",
-    "at": "In#1",
-    "prompt": "wide shot of a crowded narrow 1790s English town street packed with people between dark brick houses, grey light",
-    "check": "Is this a crowded street?",
-    "move": "left"
-   },
-   {
     "name": "smallpox",
-    "at": "killed#1",
+    "at": "Smallpox#1",
     "prompt": "close-up of a pale sick child covered in red spots lying on a white pillow, dim candle light, dark room, 1790s",
     "check": "Is there a child with red spots?",
     "move": "push",
-    "hit": "killed#1"
+    "hit": "Smallpox#1"
+   },
+   {
+    "name": "towns",
+    "at": "crowded#1",
+    "prompt": "wide shot of a crowded narrow 1790s English town street packed with people between dark brick houses, grey light",
+    "check": "Is this a crowded street?",
+    "move": "left"
    },
    {
     "name": "doctors",
@@ -202,7 +202,7 @@
    },
    {
     "name": "milder",
-    "at": "Most#1",
+    "at": "Most#2",
     "prompt": "close-up, a young woman resting in a wooden bed with a few red spots on her cheek, tired but calm, 1790s cottage, soft window light",
     "check": "Is a woman lying in a bed?",
     "clip": true,
