@@ -80,217 +80,214 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: medium close-up, {lister} pressing white cloth towels into a glass dis | close-up, {boy} resting his head on a flat white pillow, looking scare | low angle medium shot, {patient} sitting nervously on a tall wooden op | wide shot of a large grey Victorian stone hospital building with tall  | medium close-up, {patient} lying weakly in an iron hospital bed under  | extreme close-up of an open inflamed wound on a pale forearm leaking t | medium shot, {lister} standing in a dim surgical theatre gripping a lo | medium shot, {boy} standing just inside a Victorian hospital doorway,  | extreme close-up of two surgeon's hands holding a boy's broken lower l | medium shot, carefully adjusting the broken leg of {boy} on a wooden c | close-up of hands pouring clear carbolic liquid from a glass bottle on | medium shot, wrapping a shiny sheet of tin foil over a bound leg, {lis
 - 004-why-john-snow-removed-a-london-pump-hand: cast snow = a 41 year old English doctor with short dark wavy hair, a clean shaven narrow face, thin lips, deep-set grey eyes, a black frock coat, a grey waistcoat, a white high collar and a black necktie, 1850s; whitehead = a 28 year old English vicar with fair curly hair, a round friendly face, rosy cheeks, a black clerical coat and a white clerical collar, 1850s; simon = a 38 year old London health official with a neat full black beard, a high bald forehead, a brown overcoat with a fur collar and a grey top hat, 1850s; mother = a 30 year old poor London woman with red hair tied under a white cotton cap, a faded blue cotton dress and a brown wool shawl, 1850s; brewer = a burly 50 year old brewery worker with a thick ginger beard, a flat cloth cap, rolled-up shirt sleeves and a grey canvas apron, 1850s
   scenes: medium shot, two men in black top hats pulling the long iron handle of | medium close-up, a doctor pointing firmly at an iron street water pump | wide shot of a crowded narrow 1850s London street with laundry hanging | close-up, a pale sweating man lying sick on a straw mattress in a dark | high angle, men carrying plain wooden coffins out of narrow brick hous | medium shot, three doctors in black coats pressing white handkerchiefs | wide shot, thick greenish yellow fog drifting over a rubbish-strewn mu | medium shot, a bearded official shaking his head while reading a lette | close-up, a doctor frowning as he reads a letter by a rainy window, he | medium shot, {snow} and {whitehead} knocking on the wooden door of a n | medium close-up, a crying woman in a doorway answering questions, she  | extreme close-up, a hand with a quill pen marking small black dots on 
+- 005-why-barry-marshall-swallowed-bacteria: cast marshall = a 33 year old Australian doctor, lean build, curly dark brown hair, a full dark brown beard, brown eyes, thin wire-rimmed glasses, a white short-sleeved shirt under a pale blue lab coat and khaki trousers, 1980s; warren = a 46 year old Australian pathologist with short receding grey hair, a clean-shaven square face, heavy black-framed glasses, a white lab coat over a brown checked shirt, 1980s; skeptic = a 48 year old British gastroenterologist, stocky build, balding with short grey hair at the sides, heavy dark eyebrows, clean shaven, a charcoal grey suit jacket, a burgundy patterned tie and white shirt, 1980s; nurse = a 35 year old nurse, sturdy build, dark brown hair in a ponytail, teal scrubs, 1980s; wife = a 32 year old woman with shoulder-length wavy blond hair, a sun-tanned face and a yellow sleeveless summer dress, 1980s
+  scenes: close-up, a bearded doctor drinking cloudy brown liquid from a glass b | medium close-up, a doctor wincing and pressing a hand on his stomach,  | medium shot, a stressed businessman in a brown suit clutching his stom | close-up of a plate of bright red chilli peppers next to a bowl of spi | wide shot of a sunny 1980s Australian city hospital with palm trees in | medium shot, a pathologist looking into a microscope, he is {warren},  | medium shot, a balding doctor laughing and shaking his head at a meeti | extreme close-up of clear liquid bubbling in a glass beaker on a lab b | close-up, a hand dropping a stapled paper into a metal wastebasket, 19 | medium close-up, a doctor reading a letter and slumping back in his ch | medium shot, pink piglets sniffing around a clean straw pen, bright da | close-up, a doctor rolling up his sleeves with a determined face, he i
 
 PROBLEMS FOUND BY THE CHECKS
-- script: not supported by the sources, fix or remove: She does this all day, every day.
+- shot bed: 3.5 s on screen (max 3.2; split it)
 
 DRAFT SCRIPT
-{"title": "Why the Radium Girls Licked Poison", "beats": [{"feel": "curiosity", "lines": ["A young woman licks the tip of her paintbrush at work.", "Then she dips it in glowing paint and paints a watch dial.", "She does this all day, every day."]}, {"feel": "sympathy", "lines": ["Her name is Grace Fryer. She paints watch faces for the army.", "Her boss tells her the paint is safe.", "She earns about a penny and a half per dial."]}, {"feel": "dread", "lines": ["Her teeth start to ache. Then they fall out.", "Her jaw breaks. Her bones snap.", "Doctors see women with loose teeth and ulcers that won't heal."]}, {"feel": "frustration", "lines": ["The company says the women are showing signs of infection.", "They tell the women radium is safe."]}, {"feel": "recognition", "lines": ["You see, it's like when you're told not to touch something hot.", "But everyone around you says it's fine.", "So you touch it. Again and again."]}, {"feel": "awe", "lines": ["The real reason is the paint.", "It's made from powdered radium, a radioactive metal.", "Radium shoots out tiny particles that break your bones from inside.", "The women swallowed it with every lick."]}, {"feel": "surprise", "lines": ["The man who invented the paint died from it too.", "Radium was sold as a health cure for years.", "The same poison that killed them was advertised as medicine."]}]}
+{"title": "Why the Radium Girls Licked Poison", "beats": [{"feel": "curiosity", "lines": ["A young woman licked a brush dipped in glowing paint.", "She painted up to 250 dials a shift."]}, {"feel": "sympathy", "lines": ["From 1917, in Orange, New Jersey, young women painted watch faces that glowed in the dark.", "They earned about a penny and a half per dial.", "The tiny brushes kept losing their point.", "So supervisors told them: lip, dip, paint."]}, {"feel": "unease", "lines": ["The women were told the paint was harmless.", "Some even painted their nails and teeth with it, for fun.", "Meanwhile, the company's chemists handled radium with lead screens, tongs and masks."]}, {"feel": "dread", "lines": ["Then the painters' teeth came loose.", "Their bones broke. Their jaws rotted.", "In 1923, one painter's jaw fell away before she died."]}, {"feel": "realization", "lines": ["The glow came from radium, a radioactive material.", "Every lick put a little inside their bodies."]}, {"feel": "recognition", "lines": ["You see, it's like a dripping tap filling a bucket.", "One drop is nothing. Thousands flood the floor."]}, {"feel": "anger", "lines": ["The company blamed the deaths on other causes.", "By 1927, more than 50 of the painters had died."]}, {"feel": "irony", "lines": ["The women's lawsuits changed safety laws for workers.", "And the man who invented the glowing paint died from it too."]}]}
 CLAIMS IN THE DRAFT
-- {'claim': 'Supervisors encouraged workers to shape brushes with their lips ("lip, dip, paint") to save time and material.', 'url': 'https://en.wikipedia.org/wiki/Radium_Girls'}
-- {'claim': 'Grace Fryer was a plant worker who decided to sue, but it took two years to find a lawyer willing to take on USRC.', 'url': 'https://en.wikipedia.org/wiki/Radium_Girls'}
-- {'claim': 'Workers were paid about a penny and a half per dial, earning $3.75 for 250 dials per shift.', 'url': 'https://en.wikipedia.org/wiki/Radium_Girls'}
-- {'claim': 'Women developed dental pain, loose teeth, lesions, ulcers, anemia, bone fractures, and necrosis of the jaw (radium jaw).', 'url': 'https://en.wikipedia.org/wiki/Radium_Girls'}
-- {'claim': 'When word of the New Jersey suits appeared in newspapers, women were told the radium was safe and that New Jersey employees were showing signs of viral infections.', 'url': 'https://en.wikipedia.org/wiki/Radium_Girls'}
-- {'claim': 'The paint was made from powdered radium, zinc sulfide, gum arabic, and water.', 'url': 'https://en.wikipedia.org/wiki/Radium_Girls'}
-- {'claim': 'Radium emits gamma rays that can penetrate a glass watch dial and into human tissue.', 'url': 'https://en.wikipedia.org/wiki/Luminous_paint'}
-- {'claim': 'Dr. Sabin Arnold von Sochocky invented radium dial paint and died in November 1928 from radiation exposure.', 'url': 'https://en.wikipedia.org/wiki/Radium_Girls'}
-- {'claim': 'Radium was advertised as a cure-all and used in cosmetic products promising regenerative anti-aging properties.', 'url': 'https://en.wikipedia.org/wiki/Radium_Girls'}
+- {'claim': 'The women pointed their brushes on their lips; the paint was self-luminous radium paint used on watch dials.', 'url': 'https://en.wikipedia.org/wiki/Radium_Girls'}
+- {'claim': 'Around 1917 the factory in Orange, New Jersey, employed women to paint radium-lit watch faces.', 'url': 'https://en.wikipedia.org/wiki/Radium_Girls'}
+- {'claim': 'The pay was about a penny and a half per dial.', 'url': 'https://en.wikipedia.org/wiki/Radium_Girls'}
+- {'claim': "The brushes lost shape, so supervisors encouraged workers to shape the point with their lips ('lip, dip, paint').", 'url': 'https://en.wikipedia.org/wiki/Radium_Girls'}
+- {'claim': 'The women were told the paint was harmless; some painted their nails and teeth for fun.', 'url': 'https://en.wikipedia.org/wiki/Radium_Girls'}
+- {'claim': 'Chemists at the plant used lead screens, tongs and masks.', 'url': 'https://en.wikipedia.org/wiki/Radium_Girls'}
+- {'claim': 'Workers had loose teeth, bone fractures and necrosis of the jaw; in 1923 the first dial painter died after her jaw fell away.', 'url': 'https://en.wikipedia.org/wiki/Radium_Girls'}
+- {'claim': 'The paint was made from powdered radium; radium-contaminated dust was radioactive material; the women ingested radium.', 'url': 'https://en.wikipedia.org/wiki/Radium_Girls'}
+- {'claim': "At the company's urging, medical professionals attributed worker deaths to other causes.", 'url': 'https://en.wikipedia.org/wiki/Radium_Girls'}
+- {'claim': 'By 1927 more than 50 of the female factory workers had died from radium poisoning.', 'url': 'https://en.wikipedia.org/wiki/Radium_Girls'}
+- {'claim': 'Lawsuits by the women had lasting effects on labor laws; the inventor of radium dial paint died in 1928 of radium poisoning.', 'url': 'https://en.wikipedia.org/wiki/Radium_Girls'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
-0.12s A#1
+0.14s A#1
 0.19s young#1
-0.42s woman#1
-0.77s licks#1
-0.92s the#1
-1.02s tip#1
-1.14s of#1
-1.22s her#1
-1.34s paintbrush#1
-1.74s at#1
-1.84s work#1
-2.50s Then#1
-2.65s she#1
-2.78s dips#1
-2.95s it#1
-3.05s in#1
-3.15s glowing#1
-3.45s paint#1
-3.90s and#1
-4.00s paints#1
-4.20s a#2
-4.28s watch#1
-4.48s dial#1
-5.16s She#2
-5.26s does#1
-5.39s this#1
-5.54s all#1
-5.66s day#1
-6.05s every#1
-6.28s day#2
-7.05s Her#2
-7.15s name#1
-7.40s is#1
-7.50s Grace#1
-7.77s Fryer#1
-8.42s She#3
-8.52s paints#2
-8.75s watch#2
-8.97s faces#1
-9.25s for#1
-9.42s the#2
-9.57s army#1
-10.09s Her#3
-10.21s boss#1
-10.44s tells#1
-10.59s her#4
-10.69s the#3
-10.79s paint#2
-10.96s is#2
-11.09s safe#1
-11.81s She#4
-11.93s earns#1
-12.21s about#1
-12.38s a#3
-12.46s penny#1
-12.66s and#2
-12.76s a#4
-12.81s half#1
-12.98s per#1
-13.08s dial#2
-13.92s Her#5
-14.05s teeth#1
-14.20s start#1
-14.40s to#1
-14.50s ache#1
-15.21s Then#2
-15.34s they#1
-15.46s fall#1
-15.64s out#1
-16.25s Her#6
-16.35s jaw#1
-16.52s breaks#1
-16.92s Her#7
-17.02s bones#1
-17.32s snap#1
-17.97s Doctors#1
-18.30s see#1
-18.45s women#1
-18.64s with#1
-18.77s loose#1
-18.97s teeth#2
-19.50s and#3
-19.59s ulcers#1
-19.92s that#1
-20.02s won't#1
-20.20s heal#1
-20.90s The#4
-20.97s company#1
-21.27s says#1
-21.45s the#5
-21.55s women#2
-21.90s are#1
-22.05s showing#1
-22.32s signs#1
-22.62s of#2
-22.70s infection#1
-23.54s They#2
-23.66s tell#1
-23.79s the#6
-23.86s women#3
-24.06s radium#1
-24.41s is#3
-24.54s safe#2
-25.33s You#1
-25.48s see#2
-25.89s it's#1
-25.99s like#1
-26.16s when#1
-26.27s you're#1
-26.39s told#1
-26.57s not#1
-26.74s to#2
-26.84s touch#1
-26.99s something#1
-27.24s hot#1
-27.88s But#1
-28.03s everyone#1
-28.30s around#1
-28.55s you#2
-28.68s says#2
-28.80s it's#2
-28.93s fine#1
-29.67s So#1
-29.79s you#3
-29.92s touch#2
-30.12s it#2
-30.54s Again#1
-30.76s and#4
-30.86s again#2
-31.68s The#7
-31.78s real#1
-32.01s reason#1
-32.38s is#4
-32.45s the#8
-32.55s paint#3
-33.23s It's#3
-33.33s made#1
-33.50s from#1
-33.65s powdered#1
-33.98s radium#2
-34.58s a#5
-34.66s radioactive#1
-35.23s metal#1
-35.84s Radium#3
-36.21s shoots#1
-36.39s out#2
-36.56s tiny#1
-36.86s particles#1
-37.29s that#2
-37.41s break#1
-37.59s your#1
-37.71s bones#2
-38.01s from#2
-38.16s inside#1
-39.01s The#9
-39.08s women#4
-39.31s swallowed#1
-39.63s it#3
-39.71s with#2
-39.86s every#2
-40.08s lick#1
-40.81s The#10
-40.89s man#1
-41.09s who#1
-41.24s invented#1
-41.56s the#11
-41.66s paint#4
-41.94s died#1
-42.16s from#3
-42.29s it#4
-42.39s too#1
-43.08s Radium#4
-43.40s was#1
-43.53s sold#1
-43.80s as#1
-43.88s a#6
-43.93s health#1
-44.13s cure#1
-44.28s for#2
-44.43s years#1
-45.12s The#12
-45.22s same#1
-45.42s poison#1
-45.77s that#3
-45.90s killed#1
-46.10s them#1
-46.55s was#2
-46.72s advertised#1
-47.25s as#2
-47.35s medicine#1
+0.36s woman#1
+0.54s licked#1
+0.69s a#2
+0.77s brush#1
+1.09s dipped#1
+1.29s in#1
+1.39s glowing#1
+1.67s paint#1
+2.38s She#1
+2.48s painted#1
+2.70s up#1
+2.85s to#1
+3.00s 250#1
+3.67s dials#1
+3.95s a#3
+4.05s shift#1
+4.83s From#1
+4.95s 1917#1
+5.90s in#2
+6.05s Orange#1
+6.40s New#1
+6.53s Jersey#1
+7.22s young#2
+7.45s women#1
+7.70s painted#2
+7.95s watch#1
+8.20s faces#1
+8.53s that#1
+8.65s glowed#1
+8.95s in#3
+9.00s the#1
+9.10s dark#1
+9.78s They#1
+9.90s earned#1
+10.10s about#1
+10.28s a#4
+10.35s penny#1
+10.55s and#1
+10.65s a#5
+10.70s half#1
+10.85s per#1
+10.95s dial#1
+11.65s The#2
+11.75s tiny#1
+12.02s brushes#1
+12.35s kept#1
+12.52s losing#1
+12.75s their#1
+12.87s point#1
+13.54s So#1
+13.69s supervisors#1
+14.17s told#1
+14.34s them:#1
+14.82s lip#1
+15.10s dip#1
+15.33s paint#2
+16.06s The#3
+16.16s women#2
+16.44s were#1
+16.54s told#2
+16.71s the#4
+16.81s paint#3
+17.04s was#1
+17.16s harmless#1
+18.03s Some#1
+18.16s even#1
+18.36s painted#3
+18.58s their#2
+18.71s nails#1
+19.01s and#2
+19.13s teeth#1
+19.33s with#1
+19.46s it#1
+19.73s for#1
+19.91s fun#1
+20.59s Meanwhile#1
+21.09s the#5
+21.16s company's#1
+21.49s chemists#1
+21.79s handled#1
+22.06s radium#1
+22.34s with#2
+22.44s lead#1
+22.61s screens#1
+23.33s tongs#1
+23.68s and#3
+23.80s masks#1
+24.73s Then#1
+24.85s the#6
+24.93s painters'#1
+25.25s teeth#2
+25.40s came#1
+25.58s loose#1
+26.27s Their#3
+26.39s bones#1
+26.69s broke#1
+27.27s Their#4
+27.39s jaws#1
+27.74s rotted#1
+28.40s In#4
+28.48s 1923#1
+29.62s one#1
+29.79s painter's#1
+30.12s jaw#1
+30.37s fell#1
+30.49s away#1
+30.72s before#1
+30.97s she#2
+31.09s died#1
+31.86s The#7
+31.96s glow#1
+32.21s came#2
+32.36s from#2
+32.51s radium#2
+33.14s a#6
+33.24s radioactive#1
+33.79s material#1
+34.66s Every#1
+34.94s lick#1
+35.11s put#1
+35.24s a#7
+35.29s little#1
+35.51s inside#1
+35.81s their#5
+35.91s bodies#1
+36.76s You#1
+36.91s see#1
+37.16s it's#1
+37.26s like#1
+37.41s a#8
+37.48s dripping#1
+37.76s tap#1
+38.01s filling#1
+38.21s a#9
+38.28s bucket#1
+39.00s One#2
+39.15s drop#1
+39.35s is#1
+39.45s nothing#1
+40.04s Thousands#1
+40.44s flood#1
+40.59s the#8
+40.69s floor#1
+41.47s The#9
+41.55s company#1
+41.85s blamed#1
+42.10s the#10
+42.20s deaths#1
+42.47s on#1
+42.57s other#1
+42.72s causes#1
+43.49s By#1
+43.64s 1927#1
+44.87s more#1
+45.02s than#1
+45.17s 50#1
+45.39s of#1
+45.44s the#11
+45.54s painters#1
+45.84s had#1
+45.97s died#2
+46.75s The#12
+46.82s women's#1
+47.07s lawsuits#1
+47.50s changed#1
+47.77s safety#1
+48.02s laws#1
+48.22s for#2
+48.35s workers#1
+49.16s And#4
+49.26s the#13
+49.33s man#1
+49.56s who#1
+49.68s invented#1
+50.01s the#14
+50.11s glowing#2
+50.41s paint#4
+50.76s died#3
+50.98s from#3
+51.11s it#2
+51.23s too#1
 
 DRAFT film.json
-{"era": "1920s", "cast": {"grace": "a 24 year old woman with wavy dark brown hair pinned up, a pale oval face, tired hazel eyes, wearing a faded blue cotton work dress with a white collar and a small apron, 1920s", "boss": "a 50 year old man with slicked-back grey hair, a red face, a thick black mustache, wearing a brown suit, a white shirt and a dark tie, 1920s", "doctor": "a 45 year old doctor with thin greying hair, a long pale face, small round glasses, a white coat over a grey suit, 1920s", "worker": "a 20 year old woman with blonde curly hair in a red bandana, a round freckled face, wearing a green work dress with rolled sleeves, 1920s", "inventor": "a 55 year old man with a bald head, a short grey beard, sunken cheeks, wearing a black suit and a stiff white collar, 1920s"}, "music": "sad", "key_words": ["Grace", "radium", "teeth", "jaw", "bones", "infection", "safe", "poison", "medicine", "died"], "shots": [{"name": "lick", "at": 0, "who": "grace", "clip": true, "prompt": "extreme close-up, a young woman's lips touching the fine tip of a small paintbrush, her eyes lowered in concentration, she is {grace}, a dim 1920s factory room, warm lamp light", "motion": "her lips touch the brush tip and pull away slowly, slow camera push in", "check": "Is a woman's mouth touching a paintbrush tip?", "hit": "licks#1"}, {"name": "dip", "at": "Then#1", "who": "grace", "clip": true, "prompt": "close-up, a woman dipping a small paintbrush into a tiny dish of glowing pale green paint, her hand steady, she is {grace}, a dark 1920s factory workbench, warm lamp light", "motion": "the brush dips into the glowing paint and lifts, slow camera push in", "check": "Is a brush dipping into glowing paint?"}, {"name": "dial", "at": "paints#1", "who": "grace", "clip": true, "prompt": "close-up, a woman painting tiny glowing numbers on a small round watch dial with a fine brush, she is {grace}, a dim 1920s factory bench, warm lamp light", "motion": "the brush paints a small glowing number on the dial, slow camera push in", "check": "Is a woman painting a watch dial?", "hit": "watch#1"}, {"name": "rows", "at": "all#1", "move": "right", "prompt": "wide shot of a long 1920s factory room with rows of young women in work dresses painting small watch dials at wooden benches, glowing paint dishes, dim warm light", "check": "Are women sitting at benches painting dials?"}, {"name": "grace_name", "at": "Her#2", "who": "grace", "clip": true, "prompt": "close-up, a young woman sitting at a factory workbench looking up, tired eyes, she is {grace}, dim 1920s watch factory with rows of young women behind her, warm lamp light", "motion": "she looks up slowly and blinks, slow camera push in", "check": "Is a young woman sitting at a workbench?", "xfade": true}, {"name": "paints_dials", "at": "She#3", "who": "grace", "clip": true, "prompt": "close-up, a young woman painting a small round watch dial with a fine brush, her tongue touching the brush tip, she is {grace}, 1920s factory bench, warm lamp light", "motion": "she dips the brush and paints the dial carefully, slow camera push in", "check": "Is a woman painting a small round dial?"}, {"name": "boss_safe", "at": "Her#3", "who": "boss", "clip": true, "prompt": "medium shot, a red-faced man in a brown suit waving his hand dismissively beside a row of seated young women at workbenches, he is {boss}, 1920s factory floor, warm light", "motion": "he waves his hand and nods confidently, slow camera push in", "check": "Is a man in a suit standing beside seated women?"}, {"name": "penny_dial", "at": "She#4", "clip": true, "prompt": "extreme close-up of a young woman's hand dropping a small coin into a row of tiny round watch dials on a wooden bench, 1920s factory, warm lamp light", "motion": "the coin drops onto the dials, slow camera push in", "check": "Is a hand dropping a coin onto small dials?"}, {"name": "toothache", "at": "Her#5", "who": "grace", "clip": true, "prompt": "close-up, a young woman pressing her hand against her cheek in pain, wincing, she is {grace}, a dim 1920s factory room with a row of small paint pots behind her, warm lamp light", "motion": "she presses her hand to her cheek and winces, slow camera push in", "check": "Is a woman holding her cheek in pain?", "xfade": true}, {"name": "jawbreak", "at": "Her#6", "who": "grace", "clip": true, "prompt": "medium close-up, a pale young woman sitting on a wooden chair holding her jaw with both hands, mouth open in pain, she is {grace}, a bare 1920s clinic room, cold window light", "motion": "she holds her jaw and rocks slightly, slow camera push in", "check": "Is a woman holding her jaw?"}, {"name": "ulcers", "at": "Doctors#1", "who": "doctor", "clip": true, "prompt": "medium shot, a doctor in a white coat gently examining the open mouth of a young woman seated before him, she is {grace}, a 1920s clinic room with a glass cabinet, cold daylight", "motion": "the doctor leans in and gently tilts her chin, slow camera push in", "check": "Is a doctor examining a woman's mouth?"}, {"name": "ulcers2", "at": "and#3", "who": "grace", "clip": true, "prompt": "close-up, a pale young woman with her mouth slightly open showing a red sore on her gum, she is {grace}, a 1920s clinic room, cold window light", "motion": "she opens her mouth wider and winces, slow camera push in", "check": "Is a woman's open mouth showing a red sore?"}, {"name": "infection", "at": "infection#1", "who": "doctor", "clip": true, "prompt": "close-up, a doctor in a white coat pointing at a red sore on a young woman's jaw, she is {grace}, a 1920s factory clinic room, cold window light", "motion": "he points at her jaw and frowns, slow camera push in", "check": "Is a doctor pointing at a woman's face?", "xfade": true}, {"name": "safe", "at": "safe#2", "who": "boss", "clip": true, "prompt": "medium shot, a man in a brown suit holding up a small glass jar of glowing green paint, smiling, he is {boss}, a 1920s factory office, warm lamp light", "motion": "he holds up the jar and smiles, slow camera push in", "check": "Is a man holding a jar of glowing paint?"}, {"name": "hot", "at": "You#1", "clip": false, "prompt": "extreme close-up of a woman's hand reaching toward a glowing hot iron stove door, fingers hesitating near the metal, she is {grace}, a dim 1920s kitchen, warm orange firelight on her hand", "motion": "her fingers hover and tremble near the hot stove, slow camera push in", "check": "Is a hand reaching toward a hot stove?", "xfade": true, "move": "push"}, {"name": "fine", "at": "But#1", "who": "boss", "clip": true, "prompt": "medium shot, a red-faced man in a brown suit smiling and waving his hand dismissively, he is {boss}, a 1920s watch factory office with wooden desks, warm lamp light", "motion": "he waves his hand dismissively and smiles, slow camera push in", "check": "Is a man in a suit waving his hand?"}, {"name": "again", "at": "So#1", "who": "grace", "clip": true, "prompt": "close-up, a tired young woman licking the tip of a thin paintbrush and dipping it into a small pot of glowing green paint, she is {grace}, a 1920s watch factory workbench, dim light", "motion": "she licks the brush tip and dips it in the glowing paint, slow camera push in", "hit": "again#1", "check": "Is a woman licking a paintbrush?"}, {"name": "paint", "at": "The#7", "who": "grace", "clip": true, "prompt": "close-up, a young woman holding up a small glass jar of glowing green paint beside her face, she is {grace}, a dim 1920s watch factory, warm lamp light", "motion": "she turns the jar slowly and the green glow shimmers, slow camera push in", "hit": "paint#3", "check": "Is a woman holding a jar of glowing green paint?", "xfade": true}, {"name": "powder", "at": "powdered#1", "move": "push", "prompt": "extreme close-up of a small mound of fine white powder glowing faintly green on a dark metal tray, a small spoon beside it, dim factory light", "check": "Is there a mound of glowing powder?"}, {"name": "metal", "at": "radioactive#1", "move": "push", "prompt": "close-up of a heavy grey metal ingot glowing faintly green on a dark wooden table, a small glass jar of green paint beside it, dim 1920s laboratory, lamp light", "check": "Is there a glowing metal bar?"}, {"name": "bones", "at": "break#1", "who": "grace", "clip": true, "prompt": "close-up, a young woman grimacing and clutching her own jaw with both hands in pain, she is {grace}, a dim 1920s factory room, cold light", "motion": "she clutches her jaw and winces, slow camera push in", "hit": "bones#2", "check": "Is a woman holding her jaw in pain?"}, {"name": "lick_20", "at": "swallowed#1", "who": "grace", "clip": true, "prompt": "extreme close-up, a young woman licking the tip of a fine paintbrush with her tongue, her lips faintly glowing green, she is {grace}, dim 1920s factory, warm lamp light", "motion": "her tongue touches the brush tip and pulls away, slow camera push in", "hit": "lick#1", "check": "Is a woman licking a paintbrush?"}, {"name": "inventor", "at": "The#10", "who": "inventor", "clip": true, "prompt": "close-up, a gaunt bald man with a short grey beard lying sick in a hospital bed, head on a white pillow, he is {inventor}, 1920s hospital room, dim light", "motion": "he breathes weakly and his eyes close, slow camera push in", "hit": "died#1", "check": "Is a sick man lying in a bed?", "xfade": true}, {"name": "cure", "at": "Radium#4", "move": "push", "prompt": "medium shot of a 1920s pharmacy shelf with a glass bottle of glowing green liquid and a small box, warm lamp light, wooden counter", "check": "Is there a glass bottle on a shelf?"}, {"name": "medicine", "at": "The#12", "move": "right", "prompt": "close-up of a 1920s pharmacy counter with a glowing green glass bottle beside a small white box and a spoon, warm lamp light, wooden shelf behind", "check": "Is there a glowing bottle on a counter?"}, {"name": "end", "at": "medicine#1", "who": "grace", "clip": true, "prompt": "close-up, a pale young woman with dark wavy hair looking down sadly at her glowing hands, she is {grace}, a dark 1920s factory room, faint green glow", "motion": "she slowly turns her glowing hands over, the green glow shimmers, slow camera push in", "hit": "medicine#1", "check": "Is a woman looking at her hands?"}]}
+{"era": "1910s", "cast": {"painter": "a 19 year old woman with dark brown bobbed hair, freckles, bright hazel eyes, a white cotton work smock over a navy blouse, 1910s", "supervisor": "a 45 year old factory supervisor with slicked grey hair, a thin moustache, a brown three-piece suit and a gold watch chain, 1910s", "president": "a 50 year old company president with a bald head, round gold spectacles, a heavy jaw and a dark grey double-breasted suit, 1920s", "inventor": "a 45 year old scientist with a high forehead, swept-back black hair, a short pointed black beard and a black suit with a white collar, 1920s"}, "key_words": ["licked", "glowing paint", "watch dial", "Orange, New Jersey", "penny and a half", "lip, dip, paint", "harmless", "nails and teeth", "lead screens", "jaw", "1923", "radium", "dripping tap", "other causes", "more than 50", "lawsuits", "inventor"], "music": "sad", "shots": [{"name": "hook", "at": 0, "who": "painter", "prompt": "close-up, a young woman touching a thin paintbrush tip to her lips, a tiny pot of glowing green paint on the table, 1910s factory, window light", "check": "Is a woman holding a brush to her lips?", "clip": true, "motion": "she twirls the brush tip on her lips, slow camera push in"}, {"name": "pot", "at": "dipped#1", "prompt": "extreme close-up of a thin brush dipping into a tiny pot of glowing green paint, dark background", "check": "Is a brush dipping into glowing paint?", "move": "push"}, {"name": "dial", "at": "painted#1", "prompt": "extreme close-up of a thin brush painting glowing green lines on a small round watch dial, dark background", "check": "Is a brush painting a small watch dial?", "clip": true, "motion": "the brush draws a glowing line, slow camera push in"}, {"name": "factory", "at": "From#1", "prompt": "wide shot of a big 1910s brick factory with tall windows and a smokestack, morning light", "check": "Is this a brick factory?", "move": "right", "xfade": true}, {"name": "room", "at": "young#2", "prompt": "wide shot, rows of young women in white smocks bent over long tables painting tiny watch dials, bright 1910s factory room", "check": "Are many women working at long tables?", "clip": true, "motion": "the women dip and paint, slow camera push in"}, {"name": "glow", "at": "glowed#1", "prompt": "close-up of a row of small watch faces glowing green in a dark room", "check": "Are there glowing watch faces?", "move": "push"}, {"name": "pay", "at": "They#1", "prompt": "close-up, a young woman's open hand receiving a few copper coins at a wooden pay window, 1910s factory, warm light", "check": "Are coins being placed in a hand?", "clip": true, "motion": "the coins drop into her palm, slow camera push in"}, {"name": "brush", "at": "The#2", "prompt": "extreme close-up of a camel hair paintbrush with a frayed splayed tip, warm light", "check": "Is there a paintbrush?", "move": "push"}, {"name": "boss", "at": "So#1", "who": "supervisor", "prompt": "medium shot, a stern man in a suit pointing at a worker's paint table, he is {supervisor}, 1910s factory, window light", "check": "Is a man pointing at a table?", "clip": true, "motion": "he jabs his finger at the table, slow camera push in", "hit": "lip#1"}, {"name": "again", "at": "The#3", "who": "painter", "prompt": "medium close-up, a smiling young woman putting a paintbrush to her lips again, she is {painter}, 1910s factory, window light", "check": "Is a woman holding a brush to her lips?", "clip": true, "motion": "she smiles and touches the brush to her lips, slow camera push in"}, {"name": "nails", "at": "Some#1", "prompt": "close-up, young women laughing and holding up fingernails painted glowing green, dark room", "check": "Are there glowing fingernails?", "clip": true, "motion": "they wiggle their glowing fingers, slow camera push in"}, {"name": "smile", "at": "teeth#1", "prompt": "close-up, a laughing young woman with a faint green glow on her teeth in a dark room", "check": "Is a woman smiling in the dark?", "clip": true, "motion": "she laughs and covers her mouth, slow camera push in"}, {"name": "chemist", "at": "Meanwhile#1", "prompt": "medium shot, a chemist holding a tiny vial with long metal tongs behind a thick grey screen, 1910s laboratory, cold light", "check": "Is a man holding long tongs?", "clip": true, "motion": "he lifts the vial slowly with the tongs, slow camera push in", "xfade": true}, {"name": "mask", "at": "screens#1", "prompt": "close-up, a man pulling a heavy rubber gas mask over his face, 1910s laboratory, cold light", "check": "Is a man putting on a mask?", "clip": true, "motion": "he pulls the mask down over his face, slow camera push in"}, {"name": "jaw", "at": "Then#1", "prompt": "close-up, a pale young woman holding her jaw in pain in a dentist's chair, 1920s dental office, harsh light", "check": "Is a woman holding her jaw?", "clip": true, "motion": "she winces and presses her jaw, slow camera push in", "hit": "loose#1"}, {"name": "cast", "at": "Their#3", "prompt": "close-up of a young woman's arm in a white plaster cast resting on a hospital blanket, cold window light", "check": "Is there an arm in a plaster cast?", "move": "push"}, {"name": "bed", "at": "In#4", "prompt": "a hospital bed with a white sheet over a still shape, one small lamp beside it, dark 1920s ward", "check": "Is there a bed covered with a white sheet?", "move": "push", "hit": "died#1"}, {"name": "powder", "at": "The#7", "prompt": "extreme close-up of a small porcelain bowl of glowing green powder on a dark table", "check": "Is there glowing green powder?", "move": "push", "xfade": true}, {"name": "lick", "at": "Every#1", "prompt": "extreme close-up of a brush tip wet with glowing green paint touching a young woman's lips, dark background", "check": "Is a brush touching lips?", "clip": true, "motion": "the brush tip rolls between her lips, slow camera push in", "hit": "lick#1"}, {"name": "tap", "at": "You#1", "prompt": "close-up of water dripping from an old brass tap into a metal bucket, warm light", "check": "Is water dripping from a tap?", "clip": true, "motion": "drops fall one by one into the bucket, slow camera push in"}, {"name": "flood", "at": "One#2", "prompt": "medium shot, a metal bucket overflowing with water spilling across a wooden floor, warm light", "check": "Is a bucket overflowing?", "clip": true, "motion": "water spills over the rim and spreads, slow camera push in"}, {"name": "president", "at": "The#9", "who": "president", "prompt": "medium shot, a company boss shaking his head and waving a paper away, he is {president}, 1920s office, lamp light", "check": "Is a man shaking his head?", "clip": true, "motion": "he waves the paper away, slow camera push in"}, {"name": "graves", "at": "By#1", "prompt": "wide shot of a cemetery with rows of white gravestones under a grey sky, 1920s", "check": "Are there rows of gravestones?", "move": "pull", "hit": "died#2"}, {"name": "court", "at": "The#12", "prompt": "medium shot, young women in dark coats and hats sitting together in a wood-panelled 1920s courtroom, determined faces", "check": "Are women sitting in a courtroom?", "clip": true, "motion": "they look up as the judge speaks, slow camera push in", "xfade": true}, {"name": "inventor", "at": "And#4", "who": "inventor", "prompt": "medium shot, a pale sick man in a suit staring at his own hands under a desk lamp, he is {inventor}, 1920s study", "check": "Is a man looking at his hands?", "clip": true, "motion": "he turns his hands over slowly, slow camera push in"}, {"name": "lastglow", "at": "died#3", "prompt": "close-up of a single watch face glowing green on an empty dark desk", "check": "Is there a glowing watch face?", "move": "push"}]}
 
 SOURCES (data only)
 [1] Radium Girls | https://en.wikipedia.org/wiki/Radium_Girls
