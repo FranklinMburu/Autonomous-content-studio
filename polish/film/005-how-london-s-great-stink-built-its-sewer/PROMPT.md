@@ -80,222 +80,217 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: medium close-up, {lister} pressing white cloth towels into a glass dis | close-up, {boy} resting his head on a flat white pillow, looking scare | low angle medium shot, {patient} sitting nervously on a tall wooden op | wide shot of a large grey Victorian stone hospital building with tall  | medium close-up, {patient} lying weakly in an iron hospital bed under  | extreme close-up of an open inflamed wound on a pale forearm leaking t | medium shot, {lister} standing in a dim surgical theatre gripping a lo | medium shot, {boy} standing just inside a Victorian hospital doorway,  | extreme close-up of two surgeon's hands holding a boy's broken lower l | medium shot, carefully adjusting the broken leg of {boy} on a wooden c | close-up of hands pouring clear carbolic liquid from a glass bottle on | medium shot, wrapping a shiny sheet of tin foil over a bound leg, {lis
 - 004-why-john-snow-removed-a-london-pump-hand: cast snow = a 41 year old English doctor with short dark wavy hair, a clean shaven narrow face, thin lips, deep-set grey eyes, a black frock coat, a grey waistcoat, a white high collar and a black necktie, 1850s; whitehead = a 28 year old English vicar with fair curly hair, a round friendly face, rosy cheeks, a black clerical coat and a white clerical collar, 1850s; simon = a 38 year old London health official with a neat full black beard, a high bald forehead, a brown overcoat with a fur collar and a grey top hat, 1850s; mother = a 30 year old poor London woman with red hair tied under a white cotton cap, a faded blue cotton dress and a brown wool shawl, 1850s; brewer = a burly 50 year old brewery worker with a thick ginger beard, a flat cloth cap, rolled-up shirt sleeves and a grey canvas apron, 1850s
   scenes: medium shot, two men in black top hats pulling the long iron handle of | medium close-up, a doctor pointing firmly at an iron street water pump | wide shot of a crowded narrow 1850s London street with laundry hanging | close-up, a pale sweating man lying sick on a straw mattress in a dark | high angle, men carrying plain wooden coffins out of narrow brick hous | medium shot, three doctors in black coats pressing white handkerchiefs | wide shot, thick greenish yellow fog drifting over a rubbish-strewn mu | medium shot, a bearded official shaking his head while reading a lette | close-up, a doctor frowning as he reads a letter by a rainy window, he | medium shot, {snow} and {whitehead} knocking on the wooden door of a n | medium close-up, a crying woman in a doorway answering questions, she  | extreme close-up, a hand with a quill pen marking small black dots on 
+- 005-why-barry-marshall-swallowed-bacteria: cast marshall = a 33 year old Australian doctor, lean build, curly dark brown hair, a full dark brown beard, brown eyes, thin wire-rimmed glasses, a white short-sleeved shirt under a pale blue lab coat and khaki trousers, 1980s; warren = a 46 year old Australian pathologist with short receding grey hair, a clean-shaven square face, heavy black-framed glasses, a white lab coat over a brown checked shirt, 1980s; skeptic = a 48 year old British gastroenterologist, stocky build, balding with short grey hair at the sides, heavy dark eyebrows, clean shaven, a charcoal grey suit jacket, a burgundy patterned tie and white shirt, 1980s; nurse = a 35 year old nurse, sturdy build, dark brown hair in a ponytail, teal scrubs, 1980s; wife = a 32 year old woman with shoulder-length wavy blond hair, a sun-tanned face and a yellow sleeveless summer dress, 1980s
+  scenes: close-up, a bearded doctor drinking cloudy brown liquid from a glass b | medium close-up, a doctor wincing and pressing a hand on his stomach,  | medium shot, a stressed businessman in a brown suit clutching his stom | close-up of a plate of bright red chilli peppers next to a bowl of spi | wide shot of a sunny 1980s Australian city hospital with palm trees in | medium shot, a pathologist looking into a microscope, he is {warren},  | medium shot, a balding doctor laughing and shaking his head at a meeti | extreme close-up of clear liquid bubbling in a glass beaker on a lab b | close-up, a hand dropping a stapled paper into a metal wastebasket, 19 | medium close-up, a doctor reading a letter and slumping back in his ch | medium shot, pink piglets sniffing around a clean straw pen, bright da | close-up, a doctor rolling up his sleeves with a determined face, he i
 
 PROBLEMS FOUND BY THE CHECKS
-- script: not supported by the sources, fix or remove: A worker spread lime across Thames mud while London choked on sewage.
-- script: not supported by the sources, fix or remove: The lime worker returned at low tide, day after day.
+- script: not supported by the sources: A politician fled a meeting with a handkerchief pressed to his nose.
+- script: not supported by the sources: It was Benjamin Disraeli, in London, in June 1858.
+- script: not supported by the sources: Politicians even talked about moving the government out of London.
+- script: not supported by the sources: So Disraeli pushed a new law through Parliament in weeks.
 
 DRAFT SCRIPT
-{"title": "How London's Great Stink Built Its Sewers", "beats": [{"feel": "curiosity", "lines": ["A worker spread lime across Thames mud while London choked on sewage.", "The river had become London's open drain."]}, {"feel": "frustration", "lines": ["The lime worker returned at low tide, day after day.", "Earlier sewer plans had been ignored because the costs were too high.", "Now the stink could no longer be ignored."]}, {"feel": "horror", "lines": ["Queen Victoria and Prince Albert tried a pleasure cruise on the Thames.", "Queen Victoria and Prince Albert returned to shore within minutes.", "The press named it the Great Stink.", "Members of Parliament fled the Commons chamber."]}, {"feel": "recognition", "lines": ["You see, it was like a hot, full rubbish bin in a sealed room.", "The worker could hide the smell, but not the waste.", "Londoners feared the stench would spread cholera."]}, {"feel": "dread", "lines": ["London's old sewers emptied straight into the Thames.", "More people and flushing toilets sent more waste into broken pipes.", "Hot, dry weather dropped the river level and left raw sewage on the banks."]}, {"feel": "awe", "lines": ["Joseph Bazalgette built sloping sewers that carried waste east, beyond the city.", "Pumping stations lifted sewage into higher pipes."]}, {"feel": "surprise", "lines": ["But bad air wasn't the killer. Contaminated water was.", "The stench simply forced Parliament to act.", "Those sewers still carry waste for over nine million Londoners."]}]}
+{"title": "How London's Great Stink Built Its Sewers", "beats": [{"feel": "shock", "lines": ["A politician fled a meeting with a handkerchief pressed to his nose.", "It was Benjamin Disraeli, in London, in June 1858."]}, {"feel": "dread", "lines": ["For years, London's old sewers had emptied straight into the River Thames.", "Flushing toilets and a growing city poured in even more waste.", "Then came a heatwave. The river dropped, and raw sewage sat on its banks."]}, {"feel": "disgust", "lines": ["Queen Victoria and Prince Albert tried a pleasure cruise. They turned back within minutes.", "Newspapers called it the Great Stink.", "Parliament soaked its curtains in lime chloride. It didn't work.", "Politicians even talked about moving the government out of London."]}, {"feel": "recognition", "lines": ["You see, it's like a bin nobody empties.", "Spray all the perfume you want. Only taking out the rubbish fixes it."]}, {"feel": "determination", "lines": ["So Disraeli pushed a new law through Parliament in weeks.", "It backed engineer Joseph Bazalgette's giant sewer plan.", "Sloping sewers carried the waste east, beyond the city.", "Pumping stations lifted sewage into higher pipes."]}, {"feel": "irony", "lines": ["Londoners blamed the smell for spreading cholera.", "But doctor John Snow argued cholera spread through dirty water.", "Bazalgette's sewers ended the cholera outbreaks anyway, and they still serve over nine million people."]}]}
 CLAIMS IN THE DRAFT
-- {'claim': 'Men were employed spreading lime onto the Thames foreshore at low tide to fight the smell, at a cost of £1,500 per week.', 'url': 'https://en.wikipedia.org/wiki/Great_Stink'}
-- {'claim': 'Queen Victoria and Prince Albert attempted a pleasure cruise on the Thames but returned to shore within a few minutes because the smell was so terrible.', 'url': 'https://en.wikipedia.org/wiki/Great_Stink'}
-- {'claim': 'The press called the event the Great Stink, and Parliament was compelled to legislate by the force of the stench.', 'url': 'https://en.wikipedia.org/wiki/Great_Stink'}
-- {'claim': 'The stink drove Members of Parliament from the House of Commons chamber.', 'url': 'https://openalex.org/W1977698978'}
-- {'claim': "London's ageing, inadequate sewers emptied directly into the Thames, and hot, dry weather in 1858 lowered the river level so raw effluent remained on the banks.", 'url': 'https://en.wikipedia.org/wiki/Great_Stink'}
-- {'claim': "Joseph Bazalgette's accepted plan moved effluent eastwards along interconnecting sewers sloped toward outfalls beyond the metropolitan area, with pumping stations lifting sewage into higher pipes.", 'url': 'https://en.wikipedia.org/wiki/Great_Stink'}
-- {'claim': "Earlier proposals to modernise London's sewers were neglected because of their costs, and after the Great Stink Parliament gave Bazalgette responsibility for a modern system.", 'url': 'https://en.wikipedia.org/wiki/London_sewer_system'}
-- {'claim': 'Dr John Snow correctly diagnosed contaminated water as the way cholera spread in 1849, but bad air was blamed until the 1866 outbreak.', 'url': 'https://en.wikipedia.org/wiki/London_sewer_system'}
-- {'claim': "Bazalgette's sewer system still operates in the 21st century, serving a city grown to over nine million people.", 'url': 'https://en.wikipedia.org/wiki/Great_Stink'}
+- {'claim': 'Disraeli left a committee room with a handkerchief applied to his nose because the smell was so bad, in June 1858.', 'url': 'https://en.wikipedia.org/wiki/Great_Stink'}
+- {'claim': "London's ageing sewer system emptied directly into the Thames; flushing toilets and a rising population sent more water and effluent into the sewers.", 'url': 'https://en.wikipedia.org/wiki/Great_Stink'}
+- {'claim': 'In June 1858 hot, dry weather lowered the Thames and raw effluent remained on the banks.', 'url': 'https://en.wikipedia.org/wiki/Great_Stink'}
+- {'claim': 'Queen Victoria and Prince Albert attempted a pleasure cruise but returned to shore within a few minutes; the press called it the Great Stink.', 'url': 'https://en.wikipedia.org/wiki/Great_Stink'}
+- {'claim': "Parliament's river-side curtains were soaked in lime chloride without success; moving government to Oxford or St Albans was discussed.", 'url': 'https://en.wikipedia.org/wiki/Great_Stink'}
+- {'claim': "Disraeli tabled a bill on 15 June that passed on 2 August, favouring Bazalgette's plan.", 'url': 'https://en.wikipedia.org/wiki/Great_Stink'}
+- {'claim': "Bazalgette's sewers sloped east to outfalls beyond the metropolitan area; pumping stations lifted sewage into higher pipes.", 'url': 'https://en.wikipedia.org/wiki/Great_Stink'}
+- {'claim': 'Cholera was believed to spread by miasma; John Snow posited water-borne transmission.', 'url': 'https://en.wikipedia.org/wiki/Great_Stink'}
+- {'claim': "Bazalgette's work brought an end to the cholera outbreaks; his system serves a city of over nine million.", 'url': 'https://en.wikipedia.org/wiki/Great_Stink'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
-0.14s A#1
-0.21s worker#1
-0.49s spread#1
-0.71s lime#1
-0.94s across#1
-1.17s Thames#1
-1.42s mud#1
-1.89s while#1
-2.04s London#1
-2.27s choked#1
-2.49s on#1
-2.64s sewage#1
-3.41s The#1
-3.48s river#1
-3.68s had#1
-3.78s become#1
-4.16s London's#1
-4.46s open#1
-4.73s drain#1
-5.61s The#2
-5.71s lime#2
-5.96s worker#2
-6.21s returned#1
-6.51s at#1
-6.61s low#1
-6.81s tide#1
-7.36s day#1
-7.49s after#1
-7.64s day#2
-8.23s Earlier#1
-8.56s sewer#1
-8.78s plans#1
-9.18s had#2
-9.27s been#1
-9.38s ignored#1
-9.83s because#1
-10.03s the#3
-10.13s costs#1
-10.41s were#1
-10.53s too#1
-10.68s high#1
-11.35s Now#1
-11.52s the#4
-11.62s stink#1
-11.82s could#1
-11.92s no#1
-12.04s longer#1
-12.27s be#1
-12.37s ignored#2
-13.27s Queen#1
-13.44s Victoria#1
-13.96s and#1
-14.06s Prince#1
-14.29s Albert#1
-14.66s tried#1
-14.87s a#2
-14.94s pleasure#1
-15.16s cruise#1
-15.44s on#2
-15.49s the#5
-15.59s Thames#2
-16.33s Queen#2
-16.50s Victoria#2
-17.10s and#2
-17.20s Prince#2
-17.45s Albert#2
-17.75s returned#2
-18.05s to#1
-18.18s shore#1
-18.43s within#1
-18.60s minutes#1
-19.29s The#6
-19.39s press#1
-19.66s named#1
-19.84s it#1
-19.91s the#7
-20.01s Great#1
-20.21s Stink#2
-20.89s Members#1
-21.14s of#1
-21.23s Parliament#1
-21.68s fled#1
-21.84s the#8
-21.93s Commons#1
-22.21s chamber#1
-23.04s You#1
-23.16s see#1
-23.39s it#2
-23.46s was#1
-23.56s like#1
-23.71s a#3
-23.81s hot#1
-24.29s full#1
-24.51s rubbish#1
-24.79s bin#1
-24.96s in#1
-25.04s a#4
-25.11s sealed#1
-25.31s room#1
-25.91s The#9
-25.98s worker#3
-26.21s could#2
-26.31s hide#1
-26.48s the#10
-26.58s smell#1
-26.91s but#1
-27.03s not#1
-27.21s the#11
-27.31s waste#1
-28.06s Londoners#1
-28.41s feared#1
-28.61s the#12
-28.71s stench#1
-28.94s would#1
-29.04s spread#2
-29.26s cholera#1
-30.20s London's#2
-30.45s old#1
-30.65s sewers#1
-31.10s emptied#1
-31.38s straight#1
-31.63s into#1
-31.78s the#13
-31.88s Thames#3
-32.66s More#1
-32.84s people#1
-33.19s and#3
-33.34s flushing#1
-33.66s toilets#1
-34.26s sent#1
-34.44s more#2
-34.61s waste#2
-34.89s into#2
-35.06s broken#1
-35.36s pipes#1
-36.09s Hot#2
-36.53s dry#1
-36.85s weather#1
-37.05s dropped#1
-37.28s the#14
-37.35s river#2
-37.53s level#1
-37.95s and#4
-38.05s left#1
-38.23s raw#1
-38.43s sewage#2
-38.75s on#3
-38.80s the#15
-38.90s banks#1
-39.74s Joseph#1
-40.04s Bazalgette#1
-40.47s built#1
-40.64s sloping#1
-40.99s sewers#2
-41.29s that#1
-41.39s carried#1
-41.62s waste#3
-41.92s east#1
-42.51s beyond#1
-42.81s the#16
-42.93s city#1
-43.53s Pumping#1
-43.78s stations#1
-44.20s lifted#1
-44.48s sewage#3
-44.78s into#3
-44.95s higher#1
-45.20s pipes#2
-46.01s But#2
-46.16s bad#1
-46.41s air#1
-46.59s wasn't#1
-46.78s the#17
-46.88s killer#1
-47.65s Contaminated#1
-48.20s water#1
-48.47s was#2
-49.13s The#18
-49.23s stench#2
-49.53s simply#1
-49.78s forced#1
-50.03s Parliament#2
-50.36s to#2
-50.51s act#1
-51.18s Those#1
-51.38s sewers#3
-51.60s still#1
-51.80s carry#1
-52.05s waste#4
-52.33s for#1
-52.45s over#1
-52.70s nine#1
-52.95s million#1
-53.20s Londoners#2
+0.12s A#1
+0.19s politician#1
+0.67s fled#1
+0.82s a#2
+0.89s meeting#1
+1.47s with#1
+1.57s a#3
+1.64s handkerchief#1
+2.17s pressed#1
+2.34s to#1
+2.42s his#1
+2.54s nose#1
+3.30s It#1
+3.38s was#1
+3.50s Benjamin#1
+3.80s Disraeli#1
+4.44s in#1
+4.52s London#1
+5.12s in#2
+5.22s June#1
+5.47s 1858#1
+6.66s For#1
+6.81s years#1
+7.36s London's#1
+7.64s old#1
+7.84s sewers#1
+8.16s had#1
+8.31s emptied#1
+8.61s straight#1
+8.86s into#1
+9.04s the#1
+9.11s River#1
+9.31s Thames#1
+10.04s Flushing#1
+10.31s toilets#1
+10.91s and#1
+11.01s a#4
+11.09s growing#1
+11.34s city#1
+11.54s poured#1
+11.81s in#3
+11.91s even#1
+12.09s more#1
+12.26s waste#1
+12.98s Then#1
+13.11s came#1
+13.26s a#5
+13.33s heatwave#1
+14.08s The#2
+14.18s river#2
+14.41s dropped#1
+14.88s and#2
+15.00s raw#1
+15.20s sewage#1
+15.50s sat#1
+15.65s on#1
+15.75s its#1
+15.88s banks#1
+16.68s Queen#1
+16.90s Victoria#1
+17.38s and#3
+17.48s Prince#1
+17.73s Albert#1
+18.00s tried#1
+18.20s a#6
+18.28s pleasure#1
+18.50s cruise#1
+19.18s They#1
+19.30s turned#1
+19.48s back#1
+19.65s within#1
+19.83s minutes#1
+20.57s Newspapers#1
+21.07s called#1
+21.24s it#2
+21.32s the#3
+21.39s Great#1
+21.59s Stink#1
+22.27s Parliament#1
+22.59s soaked#1
+22.77s its#2
+22.89s curtains#1
+23.19s in#4
+23.29s lime#1
+23.57s chloride#1
+24.29s It#3
+24.37s didn't#1
+24.57s work#1
+25.18s Politicians#1
+25.73s even#2
+25.93s talked#1
+26.25s about#1
+26.48s moving#1
+26.70s the#4
+26.80s government#1
+27.12s out#1
+27.21s of#1
+27.32s London#2
+28.13s You#1
+28.26s see#1
+28.48s it's#1
+28.58s like#1
+28.73s a#7
+28.83s bin#1
+29.11s nobody#1
+29.48s empties#1
+30.26s Spray#1
+30.53s all#1
+30.68s the#5
+30.78s perfume#1
+31.08s you#2
+31.21s want#1
+31.94s Only#1
+32.14s taking#1
+32.36s out#2
+32.49s the#6
+32.59s rubbish#1
+32.86s fixes#1
+33.16s it#4
+33.73s So#1
+33.85s Disraeli#2
+34.28s pushed#1
+34.45s a#8
+34.53s new#1
+34.68s law#1
+34.93s through#1
+35.08s Parliament#2
+35.43s in#5
+35.53s weeks#1
+36.23s It#5
+36.33s backed#1
+36.53s engineer#1
+36.83s Joseph#1
+37.26s Bazalgette's#1
+37.73s giant#1
+38.01s sewer#1
+38.23s plan#1
+38.91s Sloping#1
+39.26s sewers#2
+39.53s carried#1
+39.73s the#7
+39.80s waste#2
+40.05s east#1
+40.57s beyond#1
+40.87s the#8
+40.97s city#2
+41.58s Pumping#1
+41.83s stations#1
+42.25s lifted#1
+42.53s sewage#2
+42.83s into#2
+43.00s higher#1
+43.25s pipes#1
+44.11s Londoners#1
+44.49s blamed#1
+44.71s the#9
+44.81s smell#1
+45.04s for#2
+45.16s spreading#1
+45.46s cholera#1
+46.25s But#1
+46.38s doctor#1
+46.58s John#1
+46.83s Snow#1
+47.30s argued#1
+47.63s cholera#2
+47.98s spread#1
+48.23s through#2
+48.38s dirty#1
+48.65s water#1
+49.32s Bazalgette's#2
+49.85s sewers#3
+50.25s ended#1
+50.42s the#10
+50.52s cholera#3
+50.82s outbreaks#1
+51.15s anyway#1
+51.88s and#4
+51.98s they#2
+52.11s still#1
+52.33s serve#1
+52.53s over#1
+52.78s nine#1
+53.08s million#1
+53.36s people#1
 
 DRAFT film.json
-{"era": "1850s-1870s", "cast": {"worker": "a 40 year old London lime labourer with a weathered tan face, short black hair under a worn flat cloth cap, heavy stubble, a threadbare brown waistcoat over a rolled-sleeve white shirt and mud-stained trousers, 1850s", "bazalgette": "a 48 year old English civil engineer with a broad ruddy face, a receding hairline of dark hair greying at the temples, a full bushy dark beard and moustache, wearing a black frock coat, grey waistcoat and black cravat, 1858-1870s", "queen": "a 39 year old Queen Victoria with a round pale face, centre-parted dark brown hair in a low bun, a small blue jewelled crown, wearing a black silk gown with white lace sleeves and a blue sash, 1858", "prince": "a 39 year old Prince Albert with a tall lean build, a long angular face, short dark hair, a neat moustache and sideburns, wearing a dark green frock coat with gold braid and a red sash, 1858", "mp": "a 55 year old Member of Parliament with a heavy build, a jowly clean-shaven face, thin grey hair, wearing a black parliamentary coat, white waistcoat and grey trousers, 1858", "citizen": "a 32 year old London milliner with a long oval face, glossy black hair in a thick low bun, a small black hat with a teal ribbon, wearing a deep plum wool dress with a teal silk neck scarf, 1858"}, "music": "tense", "key_words": [0, "sewage#1", "drain#1", "worker#2", "tide#1", "plans#1", "costs#1", "stink#1", "Queen#1", "Prince#1", "Thames#2", "Queen#2", "press#1", "Members#1", "rubbish#1", "worker#3", "waste#1", "Londoners#1", "cholera#1", "sewers#1", "people#1", "toilets#1", "pipes#1", "Hot#2", "banks#1", "Joseph#1", "sewers#2", "Pumping#1", "bad#1", "water#1", "stench#2", "sewers#3", "million#1"], "shots": [{"name": "lime_worker", "at": 0, "who": "worker", "clip": true, "prompt": "medium shot, a labourer scattering white lime powder from a wooden bucket onto dark river mud, he is {worker}, foggy 1850s Thames riverbank, gloomy daylight", "motion": "he scatters white powder over the dark mud, fog drifts, slow camera push in", "check": "Is a man scattering white powder from a bucket?"}, {"name": "london_choking", "at": "choked#1", "who": "citizen", "clip": true, "prompt": "close-up, a worried woman in a deep plum dress pressing a cloth over her nose and mouth while coughing, she is {citizen}, crowded murky 1850s London street, hazy yellow air", "motion": "she presses the cloth tight to her face and coughs, slow camera push in", "check": "Is a woman pressing a cloth to her face?"}, {"name": "open_drain", "at": "river#1", "move": "push", "prompt": "wide shot of the murky brown Thames river overflowing with dark waste and debris, foggy Victorian London skyline in background, gloomy overcast sky", "check": "Is this a wide shot of a river in a city?"}, {"name": "tide", "at": "The#2", "who": "worker", "clip": true, "prompt": "medium shot, a man shoveling white powder over dark river mud, he is {worker}, foggy 1850s Thames shoreline with old wooden boats at low tide, grey daylight", "motion": "he shovels the white powder rhythmically, slow camera push in", "check": "Is a man shoveling powder?"}, {"name": "plans", "at": "Earlier#1", "move": "push", "prompt": "close-up of rolled paper architectural sewer maps lying under thick dust on a dark mahogany table, oil lamp light", "check": "Are there paper maps on a table?"}, {"name": "costs", "at": "because#1", "who": "mp", "clip": true, "prompt": "medium shot, a stern heavy official in a black frock coat shaking his head while counting gold coins on a leather ledger, he is {mp}, dim 1850s office", "motion": "he shakes his head slowly while stacking a gold coin, slow camera push in", "check": "Is a man counting coins?"}, {"name": "stink", "at": "stink#1", "who": "citizen", "clip": true, "prompt": "close-up, a woman in a deep plum dress pressing a white cloth handkerchief over her nose and mouth, grimacing, she is {citizen}, foggy 1850s London bridge, gloom", "motion": "she presses the cloth tighter to her nose and squints, slow camera push in", "check": "Is a woman covering her nose with a cloth?"}, {"name": "cruise", "at": "Queen#1", "who": "queen", "clip": true, "prompt": "medium shot, a royal woman wearing a small crown and black silk gown standing on the wooden deck of a 1858 Victorian river steamboat, she is {queen}, river Thames with grey water, sunny day", "motion": "she looks out across the river water, slow camera push in", "check": "Is a royal woman standing on a steamboat deck?"}, {"name": "smell", "at": "cruise#1", "who": "prince", "clip": true, "prompt": "medium close-up, a tall gentleman turning his head away in disgust, covering his face with a white handkerchief, he is {prince}, standing on a steamboat deck, foggy river background", "motion": "he turns away and presses the handkerchief to his face, slow camera push in", "check": "Is a man covering his face with a handkerchief?"}, {"name": "shore", "at": "returned#2", "who": "queen", "clip": true, "prompt": "medium shot, {queen} stepping quickly off a boat ramp onto stone river stairs, escorted by royal guards, looking distressed, 1858 London shore, cloudy sky", "motion": "she steps quickly off the boat ramp, slow camera push in", "check": "Is a woman stepping off a boat ramp?"}, {"name": "press", "at": "press#1", "clip": true, "xfade": true, "prompt": "close-up of a 1858 printing press machine rolling black ink onto fresh newspaper pages, warm workshop light", "motion": "the printing press roller moves over paper, slow camera push in", "check": "Is there a newspaper printing press?"}, {"name": "fled", "at": "fled#1", "who": "mp", "clip": true, "hit": "fled#1", "prompt": "medium shot, an older politician holding a scented cloth to his nose while hurrying through a heavy wooden door, he is {mp}, high arched stone doorway of Parliament, 1858", "motion": "he turns and steps hastily through the doorway, slow camera move back", "check": "Is a man holding a cloth to his nose while walking through a doorway?"}, {"name": "bin", "at": "You#1", "move": "push", "prompt": "close-up of an overflowing wooden bin spilling rotting vegetable scraps on a dark wooden floor, dim 1850s room, warm sunbeams", "check": "Is there an overflowing wooden bin?"}, {"name": "lime_worker_13", "at": "worker#3", "who": "worker", "clip": true, "prompt": "medium close-up, a labourer pouring white lime powder from a hessian sack onto dark river mud, he is {worker}, gloomy Thames riverbank, 1850s", "motion": "he pours the white lime powder slowly, slow camera push in", "check": "Is a man pouring white powder?"}, {"name": "fear", "at": "Londoners#1", "who": "citizen", "clip": true, "prompt": "medium close-up, a woman in a deep plum dress pressing a dirty white handkerchief firmly over her nose and mouth, looking scared, she is {citizen}, foggy 1850s London street", "motion": "she covers her face tightly and looks around nervously, slow camera push in", "check": "Is a woman covering her nose with a handkerchief?"}, {"name": "cholera", "at": "cholera#1", "clip": true, "prompt": "close-up of a pale sick man lying in bed with a wet cloth on his sweaty forehead, eyes closed, dim 1850s bedroom, candle light", "motion": "he breathes weakly and shivers slightly, candle flame flickers, slow camera push in", "hit": "cholera#1", "check": "Is a sick man lying in bed?"}, {"name": "outfall", "at": "London's#2", "xfade": true, "move": "push", "prompt": "medium shot, dark sewage gushing from an arched brick sewer mouth into the muddy brown Thames, wet stone embankment, overcast daylight", "check": "Is sewage pouring from a brick sewer into the river?"}, {"name": "thames", "at": "Thames#3", "move": "right", "prompt": "wide shot, the brown Thames covered with floating rubbish and oily scum between old London wharves, dull hazy summer daylight", "check": "Is the river covered with floating rubbish?"}, {"name": "flush", "at": "flushing#1", "clip": true, "prompt": "close-up of a hand pulling a chain on a white ceramic flushing cistern, dirty Victorian London washroom, dim lamp light", "motion": "the hand pulls the chain down and the handle drops, slow camera push in", "check": "Is a hand pulling a chain on a cistern?"}, {"name": "broken", "at": "pipes#1", "who": "worker", "clip": true, "prompt": "medium shot, a lime labourer kneeling in a flooded brick cellar lifting a cracked sewer pipe, he is {worker}, dim lamp light", "motion": "he lifts the cracked pipe slightly and water drips from it, slow camera push in", "check": "Is a man kneeling and lifting a broken pipe?"}, {"name": "sewage", "at": "sewage#2", "move": "pull", "prompt": "wide shot, an exposed cracked mud bank beside a low Thames river, raw sewage and dark sludge coating the shore, hot dry summer sun, hazy skyline", "check": "Is raw sewage on an exposed riverbank?", "hit": "sewage#2"}, {"name": "bazalgette_digs", "at": "Joseph#1", "who": "bazalgette", "clip": true, "xfade": true, "prompt": "medium shot, {bazalgette} pointing down into a deep brick sewer trench while masons lay bricks below, he is {bazalgette}, a London sewer worksite in 1858, grey overcast daylight", "motion": "he points down and motions to the masons, slow camera push in", "check": "Is a man pointing down into a brick sewer trench?"}, {"name": "sloping_tunnel", "at": "east#1", "move": "down", "prompt": "wide shot, a long sloping brick sewer tunnel descending underground with dark water rushing downhill, London 1858, dim glow from a distant wall lamp", "check": "Is there a sloping brick sewer tunnel with water flowing?"}, {"name": "pumping_station", "at": "Pumping#1", "who": "worker", "clip": true, "hit": "Pumping#1", "prompt": "medium shot, {worker} turning a large iron wheel beside thick riveted pipes in a Victorian brick pumping station, steam drifting, warm gaslight", "motion": "he turns the heavy wheel slowly, steam drifts, slow camera push in", "check": "Is a man turning a large iron wheel?"}, {"name": "sickbed", "at": "But#2", "who": "citizen", "clip": true, "prompt": "close-up, a woman in a deep plum dress lying in a narrow bed covering her nose with a cloth, a glass of murky brown water on the bedside table, she is {citizen}, dim London lodging, cold grey light", "motion": "she shifts weakly and presses the cloth to her nose, slow camera push in", "hit": "killer#1", "xfade": true, "check": "Is a woman lying in a bed?"}, {"name": "dirtywater", "at": "Contaminated#1", "clip": true, "prompt": "extreme close-up, a hand dipping a glass into a bucket of dark sewage water, grey scum and floating debris on the surface, stone yard, cold daylight", "motion": "the water ripples and swirls as the glass sinks, slow camera push in", "hit": "Contaminated#1", "check": "Is a glass dipping into dirty water?"}, {"name": "commons", "at": "The#18", "who": "mp", "clip": true, "prompt": "medium shot, a stout Member of Parliament standing among green benches raising his hand while nearby men cover their noses, he is {mp}, crowded Commons chamber, gaslight", "motion": "he rises and lifts his hand while men turn away, slow camera push in", "hit": "Parliament#2", "check": "Is a man raising his hand in a chamber?"}, {"name": "sewertunnel", "at": "Those#1", "move": "push", "prompt": "wide shot of a Victorian brick sewer tunnel with dark water running along the channel under an arched vault, dim lantern light", "check": "Is there a brick sewer with water running?"}, {"name": "modernsewer", "at": "Londoners#2", "modern": true, "move": "push", "prompt": "wide shot of a modern concrete sewer tunnel with clear water flowing between the walls, cool daylight from above, city pipes overhead", "hit": "Londoners#2", "xfade": true, "check": "Is there a sewer tunnel with flowing water?"}]}
+{"era": "1850s", "cast": {"disraeli": "a 53 year old British politician with a pale face, a small black goatee, a single black curl on his forehead, a black frock coat and a bright patterned waistcoat, 1850s", "bazalgette": "a 39 year old Victorian engineer with thick dark mutton-chop sideburns, a long nose, a dark grey frock coat and a black cravat, 1850s"}, "key_words": ["handkerchief", "Disraeli", "1858", "sewers", "Thames", "heatwave", "raw sewage", "Queen Victoria", "Great Stink", "lime chloride", "perfume", "new law", "Bazalgette", "pumping stations", "cholera", "dirty water", "nine million"], "music": "tense", "shots": [{"name": "hook", "at": 0, "who": "disraeli", "prompt": "medium shot, a politician hurrying out of a wood-panelled room with a handkerchief pressed to his nose and papers in his hand, he is {disraeli}, 1858", "check": "Is a man holding a handkerchief to his nose?", "clip": true, "motion": "he hurries forward pressing the handkerchief, slow camera push in"}, {"name": "hanky", "at": "handkerchief#1", "prompt": "extreme close-up of a white linen handkerchief pressed hard against a man's nose, dim smoky light, 1850s", "check": "Is a handkerchief pressed to a nose?", "move": "push"}, {"name": "grimace", "at": "It#1", "who": "disraeli", "prompt": "close-up, a politician grimacing behind a white handkerchief, he is {disraeli}, a smoky 1850s committee room", "check": "Is a man covering his nose?", "clip": true, "motion": "he squeezes his eyes shut in disgust, slow camera push in"}, {"name": "outlet", "at": "For#1", "prompt": "wide shot of a brick sewer outlet pouring dark water into a wide brown river, 1850s London, hazy light", "check": "Is a pipe pouring water into a river?", "move": "push", "xfade": true}, {"name": "gush", "at": "emptied#1", "prompt": "close-up of dark filthy water gushing from a round brick pipe into a river, hazy light", "check": "Is dirty water pouring from a pipe?", "clip": true, "motion": "the dark water gushes and splashes, slow camera push in"}, {"name": "street", "at": "Flushing#1", "prompt": "wide shot of a crowded 1850s London street with tall soot-black houses and many people", "check": "Is this a crowded street?", "move": "left"}, {"name": "bucket", "at": "poured#1", "prompt": "close-up, a woman emptying a bucket of dirty water into a street drain, 1850s London, grey light", "check": "Is a woman pouring out a bucket?", "clip": true, "motion": "she tips the bucket and the water splashes, slow camera push in"}, {"name": "sun", "at": "Then#1", "prompt": "wide shot of a blazing sun over a wide river with heat haze and cracked dry mud on the bank, 1850s London", "check": "Is there a blazing sun over a river?", "clip": true, "motion": "heat haze shimmers over the water, slow camera push in"}, {"name": "banks", "at": "The#2", "prompt": "wide shot of a low brown river with thick black sludge and rubbish on its muddy banks, hazy hot day, 1850s London", "check": "Is there sludge on a riverbank?", "move": "push", "hit": "sewage#1"}, {"name": "queen", "at": "Queen#1", "prompt": "medium shot, a young queen in a white summer dress and her husband in a dark coat covering their noses on a small royal boat, 1850s river", "check": "Are two people on a boat covering their noses?", "clip": true, "motion": "they lift their hands to their noses, slow camera push in"}, {"name": "turn", "at": "They#1", "prompt": "wide shot of a small decorated royal boat turning back toward a river pier, hazy 1850s London", "check": "Is there a small boat on a river?", "move": "left"}, {"name": "newsboy", "at": "Newspapers#1", "prompt": "close-up, a newspaper boy in a flat cap shouting on a London street corner with a bundle under his arm, 1850s", "check": "Is a boy shouting?", "clip": true, "motion": "he shouts and waves his arm, slow camera push in"}, {"name": "curtains", "at": "Parliament#1", "prompt": "medium shot, workers soaking long heavy curtains in buckets in a grand Gothic stone hall, 1850s", "check": "Are men soaking curtains in buckets?", "clip": true, "motion": "they push the curtains into the buckets, slow camera push in", "xfade": true}, {"name": "library", "at": "It#3", "prompt": "medium shot, Victorian gentlemen in black coats covering their noses in a grand library, 1850s", "check": "Are men covering their noses?", "clip": true, "motion": "they wave their hands in front of their faces, slow camera push in"}, {"name": "argue", "at": "Politicians#1", "prompt": "medium shot, politicians in black frock coats arguing around a long table, 1850s Parliament committee room", "check": "Are men arguing at a table?", "clip": true, "motion": "one man slaps the table, slow camera push in"}, {"name": "bin", "at": "You#1", "prompt": "close-up of an overflowing metal rubbish bin with flies buzzing over it in a hot kitchen", "check": "Is there an overflowing bin?", "move": "push", "xfade": true}, {"name": "spray", "at": "Spray#1", "prompt": "close-up, a hand spraying perfume from a glass bottle over a smelly rubbish bin", "check": "Is a hand spraying a bottle?", "clip": true, "motion": "the perfume mist sprays out, slow camera push in"}, {"name": "takeout", "at": "Only#1", "prompt": "medium shot, a man carrying a full rubbish sack out of a back door into daylight", "check": "Is a man carrying a sack?", "clip": true, "motion": "he steps out with the sack, slow camera push in"}, {"name": "law", "at": "So#1", "who": "disraeli", "prompt": "medium shot, a politician standing and speaking with a raised hand in a crowded debating chamber, he is {disraeli}, 1858", "check": "Is a man speaking with a raised hand?", "clip": true, "motion": "he raises his hand as he speaks, slow camera push in"}, {"name": "engineer", "at": "It#5", "who": "bazalgette", "prompt": "medium shot, an engineer leaning over a desk covered with large rolled papers and pointing, he is {bazalgette}, 1850s office, window light", "check": "Is a man pointing at a desk?", "clip": true, "motion": "he points and taps the desk, slow camera push in"}, {"name": "tunnel", "at": "Sloping#1", "prompt": "wide shot inside a huge new brick sewer tunnel curving away, workers holding lanterns, 1860s", "check": "Is this a brick tunnel?", "move": "push"}, {"name": "pumps", "at": "Pumping#1", "prompt": "wide shot inside a grand Victorian pumping station with giant green and red iron engines and ornate columns", "check": "Are there giant iron engines?", "move": "up"}, {"name": "fear", "at": "Londoners#1", "prompt": "medium shot, Victorian Londoners covering their faces with handkerchiefs beside a foul river, 1850s", "check": "Are people covering their faces?", "clip": true, "motion": "they turn away from the river, slow camera push in", "xfade": true}, {"name": "water", "at": "But#1", "prompt": "close-up, a doctor holding up a glass of cloudy water to the light, 1850s study, window light", "check": "Is a man holding up a glass of water?", "clip": true, "motion": "he turns the glass in the light, slow camera push in"}, {"name": "embankment", "at": "Bazalgette's#2", "prompt": "wide shot of a clean river embankment with trees and gas lamps along a wide river, sunny, 1870s London", "check": "Is there a riverside path with lamps?", "move": "right"}, {"name": "flow", "at": "still#1", "prompt": "close-up of a huge old brick sewer tunnel with water flowing steadily, lantern light", "check": "Is there water flowing in a tunnel?", "move": "pull"}]}
 
 SOURCES (data only)
 [1] Great Stink | https://en.wikipedia.org/wiki/Great_Stink
