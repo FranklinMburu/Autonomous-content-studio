@@ -1,0 +1,64 @@
+name: Film queue (make accepted polishes into videos)
+
+# One video per run, so no run can hit GitHub's time limit with other films still waiting behind it (10 Nov:
+# a 5-film batch was cut off after 5 hours and two films were lost). The polish check marks a ticket "accepted"
+# and starts this; each run makes the oldest accepted film, saves the outcome in its ticket and starts the next run.
+# Failed videos are retried automatically (3 tries, 20 minutes apart); a run that dies is picked up again.
+# The hourly timer is only a fallback for retries and for a chain that GitHub did not start.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "47 * * * *"
+
+permissions:
+  contents: write
+  issues: write
+  actions: write     # to start the next run
+
+concurrency:
+  group: film-queue          # one film at a time: the story schedule may use the second Kaggle GPU slot
+  cancel-in-progress: false
+
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330     # Kaggle (up to 150 min) + waiting for a free GPU slot (up to 90 min) + editing
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Anything to make?
+        id: q
+        run: |
+          t=$(python3 tools/film_queue.py next)
+          echo "ticket=$t" >> "$GITHUB_OUTPUT"
+          echo "${t:-Film queue is empty.}"
+      - uses: actions/setup-python@v5
+        if: steps.q.outputs.ticket != ''
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Restore voice model and icons
+        if: steps.q.outputs.ticket != ''
+        uses: actions/cache@v4
+        with:
+          path: cache
+          key: assets-kokoro-v1.1-tabler-3.49.0
+      - name: Install tools
+        if: steps.q.outputs.ticket != ''
+        run: |
+          sudo rm -f /var/lib/man-db/auto-update
+          for i in 1 2; do timeout 240 sh -c 'sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg libcairo2-dev pkg-config fontconfig zip > /dev/null' && break; echo "apt try $i was slow, retrying"; done
+          pip install -q -r requirements.txt
+          pip install -q -U kaggle six
+          python -m studio setup
+      - name: Make the video
+        if: steps.q.outputs.ticket != ''
+        env:
+          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+        run: |
+          chmod +x tools/film_queue.sh tools/film_produce.sh tools/commit_to_main.sh
+          tools/film_queue.sh

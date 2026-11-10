@@ -29,6 +29,7 @@ p = pathlib.Path(sys.argv[1]); t = json.loads(p.read_text()) if p.exists() else 
 t.update({"status": sys.argv[2], "checked": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
           "last_answer_by": sys.argv[4]})
 if sys.argv[3]: t["video"] = sys.argv[3]
+if sys.argv[2] == "accepted": t["tries"] = 0   # a fresh acceptance gets fresh video tries (tools/film_queue.py)
 p.write_text(json.dumps(t, indent=1))
 PY
   if [ "$status" = "done" ]; then   # finished tickets move to polish/done/ (kept forever: the polished script)
@@ -100,8 +101,15 @@ if [ "$ok" = no ]; then
   exit 2
 fi
 
-gh issue comment "$ISSUE" --body "Accepted: every check passed. Making the video now (about 45 minutes). The link will appear here." || true
 mark polished
+if [ -n "$TICKET" ]; then   # the film queue makes the video in its own run (one per run, retried automatically)
+  { echo "# Accepted (checked $(date -u +%FT%TZ), answer by ${WHO})"; echo; echo "Every check passed. The video is queued: the Film queue makes it automatically."; } > result.md
+  save_ticket accepted result.md
+  gh issue comment "$ISSUE" --body "Accepted: every check passed. The video is queued and will be made automatically (about 45 minutes once a GPU is free). The link will appear here." || true
+  gh workflow run film-queue.yml --ref main || echo "(the film queue's hourly timer will start it)"
+  exit 0
+fi
+gh issue comment "$ISSUE" --body "Accepted: every check passed. Making the video now (about 45 minutes). The link will appear here." || true
 tools/film_produce.sh "$EPISODE_DIR" || { mark polish; echo "# Video failed" > result.md; echo "Log: $RUN_URL" >> result.md; save_ticket video-failed result.md; exit 1; }
 url=$(grep -h '^VIDEO_URL=' "${GITHUB_ENV:-/dev/null}" 2>/dev/null | tail -1 | cut -d= -f2-)
 gh issue comment "$ISSUE" --body "Your video is ready: ${url:-see Releases}" || true

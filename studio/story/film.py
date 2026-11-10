@@ -64,13 +64,22 @@ def _surface(rgb):
 
 
 def read_clip(mp4, max_frames=None):
-    """Frames of a clip as cairo surfaces (native size)."""
-    probe = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height",
-                            "-of", "csv=p=0", str(mp4)], capture_output=True, text=True, check=True).stdout
-    w, h = (int(v) for v in probe.strip().split(",")[:2])
-    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(mp4), "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
-                         capture_output=True, check=True).stdout
-    fr = np.frombuffer(raw, np.uint8).reshape(-1, h, w, 3)
+    """Frames of a clip as cairo surfaces (native size). None if the clip is missing, empty or broken: the shot then
+    uses its still picture with depth motion instead of crashing the whole video (10 Nov, Fleming: Kaggle returned
+    41 pictures but 0 usable clips, and one unreadable clip stopped the edit)."""
+    try:
+        probe = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
+                                "stream=width,height", "-of", "csv=p=0", str(mp4)],
+                               capture_output=True, text=True, check=True).stdout
+        w, h = (int(v) for v in probe.strip().split(",")[:2])
+        raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(mp4), "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
+                             capture_output=True, check=True).stdout
+        fr = np.frombuffer(raw, np.uint8).reshape(-1, h, w, 3)
+    except (subprocess.CalledProcessError, ValueError, OSError) as e:
+        print(f"clip {Path(mp4).name} unreadable ({type(e).__name__}): using the still picture", flush=True)
+        return None
+    if not len(fr):
+        return None
     if max_frames:
         fr = fr[:max_frames]
     fr = fr[:good_frames(fr)]

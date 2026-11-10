@@ -27,6 +27,7 @@ jobs:
           pip install -q pycairo numpy pyflakes
           python tests/test_story.py
           python tests/test_story_writer.py
+          python tests/test_film_queue.py
       - name: Workflow and polish-ticket checks (would have caught the 3-6 Nov schedule failure)
         run: |
           pip install -q pyyaml

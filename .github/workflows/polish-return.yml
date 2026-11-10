@@ -25,7 +25,7 @@ permissions:
   contents: write
   issues: write
   pull-requests: write
-  actions: read
+  actions: write   # to start the Film queue
 
 concurrency:
   group: polish-return-${{ github.event.issue.number || github.event.pull_request.number || github.sha }}
@@ -178,7 +178,7 @@ jobs:
           PR: ${{ github.event.pull_request.number }}
         run: |
           if [ "${{ steps.run.outputs.fix }}" = "0" ] && [ "${{ steps.run.outputs.failed }}" = "0" ]; then
-            gh pr comment "$PR" --body "Accepted and made into video(s): the answers are saved in the repo (polish/done/). Closing this pull request; nothing to merge."
+            gh pr comment "$PR" --body "Accepted: every answer passed. The videos are queued; the Film queue makes them one by one and posts each link on its issue. Closing this pull request; nothing to merge."
             gh pr close "$PR" || true
           else
             gh pr comment "$PR" --body "Checked. Some answers need fixes: see result.md in each polish/film/<episode>/ folder on main (and the polish issue). Update answer.json on this branch and push again; it is re-checked automatically."
