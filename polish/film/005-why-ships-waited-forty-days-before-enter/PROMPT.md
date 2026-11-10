@@ -80,193 +80,212 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: medium close-up, {lister} pressing white cloth towels into a glass dis | close-up, {boy} resting his head on a flat white pillow, looking scare | low angle medium shot, {patient} sitting nervously on a tall wooden op | wide shot of a large grey Victorian stone hospital building with tall  | medium close-up, {patient} lying weakly in an iron hospital bed under  | extreme close-up of an open inflamed wound on a pale forearm leaking t | medium shot, {lister} standing in a dim surgical theatre gripping a lo | medium shot, {boy} standing just inside a Victorian hospital doorway,  | extreme close-up of two surgeon's hands holding a boy's broken lower l | medium shot, carefully adjusting the broken leg of {boy} on a wooden c | close-up of hands pouring clear carbolic liquid from a glass bottle on | medium shot, wrapping a shiny sheet of tin foil over a bound leg, {lis
 - 004-why-john-snow-removed-a-london-pump-hand: cast snow = a 41 year old English doctor with short dark wavy hair, a clean shaven narrow face, thin lips, deep-set grey eyes, a black frock coat, a grey waistcoat, a white high collar and a black necktie, 1850s; whitehead = a 28 year old English vicar with fair curly hair, a round friendly face, rosy cheeks, a black clerical coat and a white clerical collar, 1850s; simon = a 38 year old London health official with a neat full black beard, a high bald forehead, a brown overcoat with a fur collar and a grey top hat, 1850s; mother = a 30 year old poor London woman with red hair tied under a white cotton cap, a faded blue cotton dress and a brown wool shawl, 1850s; brewer = a burly 50 year old brewery worker with a thick ginger beard, a flat cloth cap, rolled-up shirt sleeves and a grey canvas apron, 1850s
   scenes: medium shot, two men in black top hats pulling the long iron handle of | medium close-up, a doctor pointing firmly at an iron street water pump | wide shot of a crowded narrow 1850s London street with laundry hanging | close-up, a pale sweating man lying sick on a straw mattress in a dark | high angle, men carrying plain wooden coffins out of narrow brick hous | medium shot, three doctors in black coats pressing white handkerchiefs | wide shot, thick greenish yellow fog drifting over a rubbish-strewn mu | medium shot, a bearded official shaking his head while reading a lette | close-up, a doctor frowning as he reads a letter by a rainy window, he | medium shot, {snow} and {whitehead} knocking on the wooden door of a n | medium close-up, a crying woman in a doorway answering questions, she  | extreme close-up, a hand with a quill pen marking small black dots on 
+- 005-why-barry-marshall-swallowed-bacteria: cast marshall = a 33 year old Australian doctor, lean build, curly dark brown hair, a full dark brown beard, brown eyes, thin wire-rimmed glasses, a white short-sleeved shirt under a pale blue lab coat and khaki trousers, 1980s; warren = a 46 year old Australian pathologist with short receding grey hair, a clean-shaven square face, heavy black-framed glasses, a white lab coat over a brown checked shirt, 1980s; skeptic = a 48 year old British gastroenterologist, stocky build, balding with short grey hair at the sides, heavy dark eyebrows, clean shaven, a charcoal grey suit jacket, a burgundy patterned tie and white shirt, 1980s; nurse = a 35 year old nurse, sturdy build, dark brown hair in a ponytail, teal scrubs, 1980s; wife = a 32 year old woman with shoulder-length wavy blond hair, a sun-tanned face and a yellow sleeveless summer dress, 1980s
+  scenes: close-up, a bearded doctor drinking cloudy brown liquid from a glass b | medium close-up, a doctor wincing and pressing a hand on his stomach,  | medium shot, a stressed businessman in a brown suit clutching his stom | close-up of a plate of bright red chilli peppers next to a bowl of spi | wide shot of a sunny 1980s Australian city hospital with palm trees in | medium shot, a pathologist looking into a microscope, he is {warren},  | medium shot, a balding doctor laughing and shaking his head at a meeti | extreme close-up of clear liquid bubbling in a glass beaker on a lab b | close-up, a hand dropping a stapled paper into a metal wastebasket, 19 | medium close-up, a doctor reading a letter and slumping back in his ch | medium shot, pink piglets sniffing around a clean straw pen, bright da | close-up, a doctor rolling up his sleeves with a determined face, he i
 
 PROBLEMS FOUND BY THE CHECKS
-- script: not supported by the sources, fix or remove: A captain kept his ship anchored offshore, desperate to reach the city.
-- script: not supported by the sources, fix or remove: Venice was close, but his crew could not step ashore.
-- script: not supported by the sources, fix or remove: Venice's trade depended on fleets of three thousand three hundred ships.
-- script: not supported by the sources, fix or remove: The captain watched for signs of the plague before anyone could land.
+- shot ragusa: 3.4 s on screen (max 3.2; split it)
 
 DRAFT SCRIPT
-{"title": "Why Ships Waited Forty Days Before Entering Venice", "beats": [{"lines": ["A captain kept his ship anchored offshore, desperate to reach the city.", "Venice was close, but his crew could not step ashore."], "feel": "dread"}, {"lines": ["Between 1348 and 1359, the Black Death wiped out an estimated 30% of Europe's population.", "Venice's trade depended on fleets of three thousand three hundred ships."], "feel": "frustration"}, {"lines": ["In 1377, Ragusa made every newcomer wait thirty days on nearby islands.", "The captain watched for signs of the plague before anyone could land."], "feel": "tense hope"}, {"lines": ["In 1448, the Venetian Senate stretched that wait to forty days.", "Dubrovnik built the Lazzarettos, Europe's first quarantine sites.", "The word for that wait was quarantena: forty days."], "feel": "pressure"}, {"lines": ["You see, the wait was like waiting out a cough before hugging your family."], "feel": "recognition"}, {"lines": ["Current estimates put the bubonic plague at thirty-seven days from infection to death.", "Forty days outlasted the sickness, so the quarantine worked.", "Scholars also linked the forty days to Hippocrates, Lent, and alchemy's philosophical month."], "feel": "awe"}, {"lines": ["Venice gave the world the word quarantine.", "But Ragusa began the practice first, with thirty days."], "feel": "surprise"}]}
+{"title": "Why Ships Waited Forty Days Before Entering Venice", "beats": [{"feel": "dread", "lines": ["A ship full of sailors had to wait forty days before going ashore.", "The reason was the Black Death."]}, {"feel": "fear", "lines": ["Between 1348 and 1359, the plague killed an estimated 30% of Europe's people.", "Venice acted first. In 1348, it named three guardians of public health."]}, {"feel": "tension", "lines": ["In 1377, the city of Ragusa, today's Dubrovnik, made newcomers wait thirty days.", "They waited on nearby islands, to see if plague symptoms appeared.", "Then in 1403, Venice opened a plague hospital on a small island beside the city."]}, {"feel": "determination", "lines": ["In 1448, the Venetian Senate stretched the wait to forty days.", "In Venetian, that period was called quarantena.", "It's where our word quarantine comes from."]}, {"feel": "recognition", "lines": ["You see, it's like bumping your knee.", "You wait a day to see if a bruise shows up."]}, {"feel": "realization", "lines": ["Today's estimates say plague took 37 days from infection to death.", "So forty days was long enough to show who carried it.", "The forty-day rule proved an effective way to handle outbreaks."]}, {"feel": "surprise", "lines": ["But the number forty may not have come from doctors counting days.", "Scholars link it to the medicine of Hippocrates and the forty days of Lent."]}]}
 CLAIMS IN THE DRAFT
-- {'claim': 'In 1377, newcomers to the city-state of Ragusa had to spend thirty days in a restricted place, originally nearby islands, to see whether Black Death symptoms developed.', 'url': 'https://en.wikipedia.org/wiki/Quarantine'}
-- {'claim': 'In 1448 the Venetian Senate prolonged the waiting period to forty days, giving birth to the term "quarantine" from the Venetian quarantena, meaning forty days.', 'url': 'https://en.wikipedia.org/wiki/Quarantine'}
-- {'claim': "Current estimates put the bubonic plague's period from infection to death at thirty-seven days, making European forty-day quarantines highly successful at determining crew health.", 'url': 'https://en.wikipedia.org/wiki/Quarantine'}
-- {'claim': 'Dubrovnik was the first city in Europe to set up quarantine sites, the Lazzarettos of Dubrovnik, where arriving ship personnel were held for up to forty days.', 'url': 'https://en.wikipedia.org/wiki/Quarantine'}
-- {'claim': "Between 1348 and 1359, the Black Death wiped out an estimated 30% of Europe's population, leading governments to establish containment measures.", 'url': 'https://en.wikipedia.org/wiki/Quarantine'}
-- {'claim': 'At the peak of its power and wealth, Venice had 36,000 sailors operating 3,300 ships, dominating Mediterranean commerce.', 'url': 'https://en.wikipedia.org/wiki/Venice'}
-- {'claim': 'The original forty-day period was associated with the medical theory of Hippocrates, the Lenten Season of the Christian tradition, and the philosophical month in ancient western alchemy.', 'url': 'https://openalex.org/W2307565012'}
+- {'claim': 'Ships were required to be isolated before passengers and crew could go ashore during the Black Death; quarantena means forty days.', 'url': 'https://en.wikipedia.org/wiki/Quarantine'}
+- {'claim': "Between 1348 and 1359 the Black Death wiped out an estimated 30% of Europe's population.", 'url': 'https://en.wikipedia.org/wiki/Quarantine'}
+- {'claim': 'Venice appointed three guardians of public health in the first years of the Black Death (1348).', 'url': 'https://en.wikipedia.org/wiki/Quarantine'}
+- {'claim': 'In 1377 Ragusa (modern Dubrovnik) made newcomers spend 30 days, originally on nearby islands, to see whether Black Death symptoms developed.', 'url': 'https://en.wikipedia.org/wiki/Quarantine'}
+- {'claim': 'Venice founded the first lazaret, on a small island adjoining the city, in 1403.', 'url': 'https://en.wikipedia.org/wiki/Quarantine'}
+- {'claim': 'In 1448 the Venetian Senate prolonged the waiting period to 40 days, giving birth to the term quarantine.', 'url': 'https://en.wikipedia.org/wiki/Quarantine'}
+- {'claim': 'Current estimates give bubonic plague a 37-day period from infection to death; the forty-day quarantine proved an effective formula for handling outbreaks.', 'url': 'https://en.wikipedia.org/wiki/Quarantine'}
+- {'claim': 'The 40 days has a strong association with the medical theory of Hippocrates and the Lenten season.', 'url': 'https://openalex.org/W2307565012'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 0.09s A#1
-0.14s captain#1
-0.36s kept#1
-0.52s his#1
-0.64s ship#1
-0.79s anchored#1
-1.01s offshore#1
-1.71s desperate#1
-1.99s to#1
-2.06s reach#1
-2.23s the#1
-2.33s city#1
-2.90s Venice#1
-3.12s was#1
-3.25s close#1
-3.79s but#1
-3.92s his#2
-4.04s crew#1
-4.22s could#1
-4.32s not#1
-4.47s step#1
-4.62s ashore#1
-5.40s Between#1
-5.67s 1348#1
-6.50s and#1
-6.62s 1359#1
-7.74s the#2
-7.84s Black#1
-8.09s Death#1
-8.39s wiped#1
-8.56s out#1
-8.71s an#1
-8.86s estimated#1
-9.31s 30%#1
-9.84s of#1
-9.94s Europe's#1
-10.16s population#1
-10.99s Venice's#1
-11.31s trade#1
-11.81s depended#1
-12.11s on#1
-12.26s fleets#1
-12.46s of#2
-12.56s three#1
-12.71s thousand#1
-12.99s three#2
-13.14s hundred#1
-13.39s ships#1
-14.10s In#1
-14.20s 1377#1
-15.44s Ragusa#1
-15.76s made#1
-15.96s every#1
-16.16s newcomer#1
-16.49s wait#1
-16.66s thirty#1
-16.86s days#1
-17.14s on#2
-17.24s nearby#1
-17.54s islands#1
-18.26s The#3
-18.34s captain#2
-18.59s watched#1
-18.81s for#1
-18.96s signs#1
-19.18s of#3
-19.23s the#4
-19.34s plague#1
-19.79s before#1
-20.04s anyone#1
-20.29s could#2
-20.39s land#1
-21.16s In#2
-21.26s 1448#1
-22.33s the#5
-22.41s Venetian#1
-22.75s Senate#1
-22.95s stretched#1
-23.20s that#1
-23.36s wait#2
-23.50s to#2
-23.61s forty#1
-23.80s days#2
-24.45s Dubrovnik#1
-24.82s built#1
-24.98s the#6
-25.05s Lazzarettos#1
-25.75s Europe's#2
-26.02s first#1
-26.23s quarantine#1
-26.62s sites#1
-27.27s The#7
-27.34s word#1
-27.49s for#2
-27.61s that#2
-27.74s wait#3
-27.89s was#2
-28.02s quarantena:#1
-28.74s forty#2
-28.94s days#3
-29.72s You#1
-29.87s see#1
-30.12s the#8
-30.22s wait#4
-30.37s was#3
-30.47s like#1
-30.64s waiting#1
-30.84s out#2
-30.97s a#2
-31.04s cough#1
-31.39s before#2
-31.64s hugging#1
-31.84s your#1
-31.97s family#1
-32.73s Current#1
-32.98s estimates#1
-33.28s put#1
-33.40s the#9
-33.48s bubonic#1
-33.83s plague#2
-34.25s at#1
-34.35s thirty-seven#1
-34.73s days#4
-35.23s from#1
-35.35s infection#1
-35.73s to#3
-35.83s death#2
-36.38s Forty#3
-36.59s days#5
-36.88s outlasted#1
-37.28s the#10
-37.38s sickness#1
-37.91s so#1
-38.03s the#11
-38.11s quarantine#2
-38.51s worked#1
-39.14s Scholars#1
-39.49s also#1
-39.76s linked#1
-39.94s the#12
-40.04s forty#4
-40.24s days#6
-40.49s to#4
-40.56s Hippocrates#1
-41.49s Lent#1
-41.99s and#2
-42.11s alchemy's#1
-42.49s philosophical#1
-42.94s month#1
-43.59s Venice#2
-43.81s gave#1
-43.96s the#13
-44.04s world#1
-44.21s the#14
-44.29s word#2
-44.51s quarantine#3
-45.36s But#2
-45.51s Ragusa#2
-45.84s began#1
-46.06s the#15
-46.13s practice#1
-46.44s first#2
-46.88s with#1
-47.01s thirty#2
-47.21s days#7
+0.17s ship#1
+0.32s full#1
+0.44s of#1
+0.54s sailors#1
+0.92s had#1
+0.99s to#1
+1.09s wait#1
+1.27s forty#1
+1.47s days#1
+1.84s before#1
+2.07s going#1
+2.24s ashore#1
+2.93s The#1
+3.03s reason#1
+3.31s was#1
+3.40s the#2
+3.51s Black#1
+3.73s Death#1
+4.43s Between#1
+4.68s 1348#1
+5.50s and#1
+5.63s 1359#1
+6.72s the#3
+6.82s plague#1
+7.12s killed#1
+7.32s an#1
+7.47s estimated#1
+7.92s 30%#1
+8.45s of#2
+8.54s Europe's#1
+8.77s people#1
+9.39s Venice#1
+9.67s acted#1
+9.89s first#1
+10.49s In#1
+10.59s 1348#2
+11.45s it#1
+11.53s named#1
+11.75s three#1
+11.95s guardians#1
+12.30s of#3
+12.40s public#1
+12.60s health#1
+13.23s In#2
+13.33s 1377#1
+14.41s the#4
+14.51s city#1
+14.68s of#4
+14.78s Ragusa#1
+15.39s today's#1
+15.74s Dubrovnik#1
+16.51s made#1
+16.68s newcomers#1
+17.08s wait#2
+17.26s thirty#1
+17.46s days#2
+18.09s They#1
+18.22s waited#1
+18.42s on#1
+18.52s nearby#1
+18.82s islands#1
+19.37s to#2
+19.47s see#1
+19.59s if#1
+19.70s plague#2
+19.95s symptoms#1
+20.20s appeared#1
+20.89s Then#1
+21.06s in#3
+21.16s 1403#1
+22.16s Venice#2
+22.44s opened#1
+22.66s a#2
+22.74s plague#3
+23.01s hospital#1
+23.41s on#2
+23.51s a#3
+23.61s small#1
+23.91s island#1
+24.21s beside#1
+24.46s the#5
+24.56s city#2
+25.20s In#4
+25.30s 1448#1
+26.33s the#6
+26.40s Venetian#1
+26.75s Senate#1
+26.93s stretched#1
+27.15s the#7
+27.25s wait#3
+27.40s to#3
+27.50s forty#2
+27.70s days#3
+28.38s In#5
+28.46s Venetian#2
+29.00s that#1
+29.12s period#1
+29.35s was#2
+29.45s called#1
+29.65s quarantena#1
+30.60s It's#1
+30.70s where#1
+30.83s our#1
+30.98s word#1
+31.20s quarantine#1
+31.63s comes#1
+31.80s from#1
+32.42s You#1
+32.55s see#2
+32.77s it's#2
+32.87s like#1
+33.05s bumping#1
+33.30s your#1
+33.40s knee#1
+33.98s You#2
+34.08s wait#4
+34.23s a#4
+34.28s day#1
+34.41s to#4
+34.51s see#3
+34.63s if#2
+34.71s a#5
+34.78s bruise#1
+35.06s shows#1
+35.23s up#1
+35.78s Today's#2
+36.08s estimates#1
+36.45s say#1
+36.60s plague#4
+36.85s took#1
+37.01s 37#1
+37.38s days#4
+37.60s from#2
+37.73s infection#1
+38.13s to#5
+38.23s death#2
+38.76s So#1
+38.91s forty#3
+39.11s days#5
+39.41s was#3
+39.56s long#1
+39.71s enough#1
+39.86s to#6
+39.96s show#1
+40.14s who#1
+40.29s carried#1
+40.54s it#2
+40.95s The#8
+41.05s forty-day#1
+41.43s rule#1
+41.75s proved#1
+41.95s an#2
+42.03s effective#1
+42.30s way#1
+42.48s to#7
+42.55s handle#1
+42.80s outbreaks#1
+43.66s But#1
+43.79s the#9
+43.86s number#1
+44.11s forty#4
+44.54s may#1
+44.66s not#1
+44.76s have#1
+44.86s come#1
+44.99s from#3
+45.11s doctors#1
+45.44s counting#1
+45.69s days#6
+46.38s Scholars#1
+46.73s link#1
+46.88s it#3
+46.98s to#8
+47.05s the#10
+47.15s medicine#1
+47.43s of#5
+47.50s Hippocrates#1
+48.38s and#2
+48.48s the#11
+48.60s forty#5
+48.80s days#7
+49.03s of#6
+49.13s Lent#1
 
 DRAFT film.json
-{"era": "14th century", "cast": {"captain": "a 42 year old sea captain with a weathered face, dark eyes, short greying black hair, a trimmed dark beard, wearing a crimson wool tunic with gold trim and a leather belt, 14th century", "senator": "a 60 year old Venetian nobleman with a stern face, white hair under a dark red velvet cap, a long white beard, wearing a black velvet robe with a gold chain, 15th century", "sailor": "a 25 year old pale sick sailor with messy auburn hair, sweat on his brow, clean shaven, wearing a worn beige linen shirt and brown trousers, 14th century", "physician": "a 48 year old medieval physician with sharp dark eyes, grey-ing dark hair under a brown wool hood, clean shaven, wearing a long brown wool robe, 14th century"}, "music": "tense", "key_words": ["anchored#1", "Death#1", "thirty#1", "forty#1", "quarantena#1", "worked#1"], "shots": [{"name": "captain_anchored", "at": 0, "who": "captain", "clip": true, "prompt": "medium close-up, gripping a wooden ship railing with focused eyes, looking across sea, he is {captain}, deck of a 14th century wooden vessel, golden dusk light", "motion": "he grips the railing firmly and squints into the distance, slow camera push in", "check": "Is a man gripping a ship railing?"}, {"name": "venice_distant", "at": "Venice#1", "move": "push", "prompt": "wide shot of Venice skyline with medieval stone towers across calm blue water, a tall wooden ship anchored in the foreground ocean, sunset light", "check": "Is there a city across the water?"}, {"name": "crew_stuck", "at": "crew#1", "who": "sailor", "clip": true, "prompt": "medium shot, leaning against wooden ship rigging while gazing longingly at distant land, he is {sailor}, wooden ship deck, evening dusk light", "motion": "he rests his arm on the rope rigging and sighs, slow camera push in", "check": "Is a sailor leaning against ship rigging?"}, {"name": "hourglass", "at": "Between#1", "clip": true, "prompt": "close-up of a hand turning a wooden hourglass over on an oak desk, dim candle light, medieval room background", "motion": "the hand flips the hourglass over as sand falls, slow camera push in", "check": "Is a hand turning an hourglass?"}, {"name": "black_death", "at": "Black#1", "hit": "Black#1", "who": "sailor", "clip": true, "prompt": "close-up of a pale feverish man lying in a bed with eyes closed, he is {sailor}, gloomy medieval bedroom, candle light", "motion": "he breathes weakly and shivers slightly, slow camera push in", "check": "Is a man lying sick in a bed?"}, {"name": "deserted_street", "at": "30%#1", "move": "push", "prompt": "wide shot of an empty deserted medieval stone street with shuttered windows, grey misty dusk light", "check": "Is this an empty medieval street?"}, {"name": "merchant_trade", "at": "Venice's#1", "clip": true, "prompt": "medium shot, a burly worker lifting a wooden crate on a stone harbor pier, warm golden sunset light, sea in background", "motion": "he lifts the wooden crate slowly, slow camera move right", "check": "Is a man lifting a wooden crate?"}, {"name": "fleets", "at": "fleets#1", "move": "right", "prompt": "wide shot of many medieval wooden galleys floating on calm waters near Venice, tall fabric sails, early morning sun", "check": "Are there wooden ships on water?"}, {"name": "ragusa", "at": "In#1", "prompt": "wide shot of the medieval stone walls of Ragusa along the blue sea coast, wooden merchant ships anchored offshore, bright sunlight, 14th century", "move": "push", "xfade": true, "check": "Are there stone walls along a sea coast?"}, {"name": "island_wait", "at": "wait#1", "clip": true, "prompt": "medium shot, travel-worn sailors sitting on a rocky island shore beside small tents, looking across water at a distant coast, 14th century", "motion": "a sailor looks across the water, slow camera move right", "check": "Are men sitting on a rocky shore?"}, {"name": "captain_watching", "at": "captain#2", "who": "captain", "clip": true, "prompt": "medium close-up, a sea captain standing on a wooden ship deck peering through a brass spyglass, he is {captain}, bright sunny ocean", "motion": "he holds the spyglass to his eye carefully, slow camera push in", "check": "Is a man looking through a spyglass?"}, {"name": "plague_check", "at": "plague#1", "who": "sailor", "clip": true, "prompt": "close-up, a pale sweating man lying on a wooden deck while a doctor checks his neck, the man is {sailor}, harsh sunlight", "motion": "the sick man turns his head weakly, slow camera push in", "hit": "plague#1", "check": "Is a sick man lying on a deck?"}, {"name": "senate", "at": "In#2", "who": "senator", "clip": true, "prompt": "medium shot, an elegant nobleman standing in a grand Venetian council chamber unrolling a thick parchment decree, he is {senator}, tall arched windows, warm daylight", "motion": "he unrolls the parchment slowly, slow camera push in", "check": "Is a man unrolling a parchment?"}, {"name": "hourglass_13", "at": "forty#1", "clip": true, "prompt": "close-up of golden sand dripping steadily inside a tall ornate brass hourglass on a dark wooden desk, warm window light", "motion": "the sand falls continuously inside the glass, slow camera push in", "check": "Is there an hourglass with dripping sand?"}, {"name": "lazzarettos", "at": "Dubrovnik#1", "move": "push", "prompt": "wide shot of stone quarantine buildings with red tiled roofs built along a rocky island coastline, sea waves crashing, bright afternoon sun", "xfade": true, "check": "Are there stone buildings on a rocky coast?"}, {"name": "quarantine_site", "at": "quarantine#1", "who": "physician", "clip": true, "prompt": "medium shot, a physician in a brown robe standing under stone arches and pointing firm instructions to arriving sailors, he is {physician}, sunlight", "motion": "he points his arm toward the inner courtyard, slow camera push in", "check": "Is a man pointing?"}, {"name": "quarantena_lock", "at": "quarantena:#1", "clip": true, "prompt": "extreme close-up of two hands turning a large heavy iron key inside a rustic lock on a thick wooden gate, warm sunlight", "motion": "the key turns slowly inside the keyhole, slow camera push in", "hit": "quarantena:#1", "check": "Is a key turning in a lock?"}, {"name": "cough_wait", "at": "You#1", "clip": true, "xfade": true, "prompt": "close-up, a man in a beige linen tunic coughing into a coarse woven cloth, standing outside a medieval stone cottage, soft daylight", "motion": "he coughs into the cloth and rests against the stone wall, slow camera push in", "check": "Is a man coughing into a cloth?"}, {"name": "hug_family", "at": "hugging#1", "clip": true, "prompt": "medium shot, a smiling man embracing a small child tightly outside a wooden doorway, a woman in a medieval dress smiling beside them, sunny afternoon light", "motion": "he hugs the child tightly while smiling, slow camera push in", "check": "Is a man hugging a child?"}, {"name": "estimates", "at": "Current#1", "who": "physician", "clip": true, "prompt": "medium close-up, a man dipping a quill pen into ink and writing on parchment, he is {physician}, dark wooden study room, candlelight", "motion": "he writes on the parchment slowly, candle light flickers, slow camera push in", "check": "Is a man writing on parchment?"}, {"name": "sickness", "at": "infection#1", "who": "sailor", "clip": true, "hit": "death#2", "prompt": "close-up, a pale sick man lying in a wooden bunk with sweat on his forehead, eyes half-closed, he is {sailor}, dim candle lit ship interior", "motion": "he breathes weakly and turns his head, slow camera push in", "check": "Is a man lying in a bunk?"}, {"name": "forty_days", "at": "Forty#3", "clip": true, "prompt": "close-up of hands carving notches into a wooden beam with a small knife near a sunlit window, stone room", "motion": "the knife carves a notch into the wooden beam, slow camera push in", "check": "Are hands carving notches into wood?"}, {"name": "worked", "at": "quarantine#2", "move": "right", "prompt": "wide shot of several medieval wooden sailing ships anchored peacefully in calm blue waters near a sunny coastline, clear sky, morning light", "check": "Are there wooden ships anchored in water?"}, {"name": "scholars", "at": "Scholars#1", "who": "physician", "clip": true, "xfade": true, "prompt": "medium shot, a scholar in a brown wool robe turning the page of a large ancient book on a heavy desk, he is {physician}, sunbeams streaming through a stone arch window", "motion": "he turns a parchment page of the large book slowly, slow camera push in", "check": "Is a man turning the page of a book?"}, {"name": "alchemy", "at": "alchemy's#1", "move": "push", "prompt": "close-up of clear glass flasks and an hourglass filled with sand on a dark wooden alchemy table, soft golden light", "check": "Is there an hourglass on a table?"}, {"name": "venice_word", "at": "Venice#2", "move": "push", "prompt": "wide shot of a golden lion statue on a tall column beside a stone quay in Venice, a sailing ship anchored offshore in the blue lagoon, morning light", "check": "Is there a golden lion statue on a column?"}, {"name": "quarantine_word", "at": "quarantine#3", "clip": true, "prompt": "close-up of a quill pen writing the word quarantena on old parchment, a hand in a black velvet sleeve, candle light, 15th century desk", "motion": "the quill finishes the last letter, slow camera push in", "check": "Is a quill writing on parchment?"}, {"name": "ragusa_first", "at": "But#2", "who": "senator", "clip": true, "prompt": "medium shot, {senator} standing on stone harbour steps pointing firmly at a distant island, a sailing ship anchored beyond, Adriatic sea, golden afternoon light", "motion": "he points firmly at the island and speaks, slow camera push in", "check": "Is a man pointing at an island?"}]}
+{"era": "1400s", "cast": {"sailor": "a 30 year old Venetian sailor with a sunburnt face, curly black hair, a red wool cap and a loose white linen shirt, 1400s", "doctor": "a 55 year old medieval physician with a long grey beard, a long dark brown robe and a round black cap, 1400s"}, "key_words": ["forty days", "Black Death", "30%", "three guardians", "Ragusa", "thirty days", "islands", "1403", "1448", "quarantena", "quarantine", "bruise", "37 days", "Hippocrates", "Lent"], "music": "mysterious", "shots": [{"name": "hook", "at": 0, "prompt": "medium shot, sailors leaning on the rail of a wooden sailing ship and staring at a distant city, 1400s, golden evening light", "check": "Are sailors leaning on a ship's rail?", "clip": true, "motion": "they lean on the rail and stare ahead, slow camera push in"}, {"name": "rail", "at": "forty#1", "who": "sailor", "prompt": "close-up, a sailor gripping a ship's wooden rail and gazing at land, he is {sailor}, 1400s, golden evening light", "check": "Is a man gripping a ship's rail?", "clip": true, "motion": "his hands tighten on the rail, slow camera push in"}, {"name": "sick", "at": "The#1", "prompt": "close-up of a pale sick man lying on straw with dark swollen marks on his neck, candle light, 1300s", "check": "Is a sick man lying on straw?", "move": "push"}, {"name": "town", "at": "Between#1", "prompt": "wide shot of a medieval town street with closed shutters and a cart covered with grey cloth, grey morning, 1300s", "check": "Is there a cart in a street?", "move": "left"}, {"name": "grief", "at": "killed#1", "prompt": "close-up, a weeping woman in a medieval hood kneeling beside a bed, candle light, 1300s", "check": "Is a woman kneeling by a bed?", "clip": true, "motion": "she lowers her head and sobs, slow camera push in"}, {"name": "venice", "at": "Venice#1", "prompt": "wide shot of medieval Venice with canals, gondolas and stone palaces, soft morning light, 1300s", "check": "Is there a city with canals?", "move": "right", "xfade": true}, {"name": "guardians", "at": "three#1", "prompt": "medium shot, three Venetian officials in long red robes and black caps standing on a stone harbour, looking out to sea, 1300s", "check": "Are three men in red robes standing?", "clip": true, "motion": "they turn and look out to sea, slow camera push in"}, {"name": "ragusa", "at": "In#2", "prompt": "wide shot of a walled stone harbour city on the Adriatic coast with red roofs and sailing ships, sunny, 1300s", "check": "Is there a walled city by the sea?", "move": "push", "xfade": true}, {"name": "boat", "at": "newcomers#1", "prompt": "medium shot, travellers in medieval cloaks stepping off a small rowing boat onto a rocky island shore, daylight", "check": "Are people stepping out of a boat?", "clip": true, "motion": "a traveller steps onto the rocks, slow camera push in"}, {"name": "island", "at": "They#1", "prompt": "wide shot of a small rocky island with a few stone huts in a blue sea, sailing ships anchored nearby", "check": "Is there a small island with huts?", "move": "right"}, {"name": "neck", "at": "to#2", "prompt": "close-up, a worried traveller pulling down his collar to look at his neck, inside a stone hut, daylight, 1300s", "check": "Is a man touching his neck?", "clip": true, "motion": "he pulls his collar down and looks, slow camera push in"}, {"name": "lazaret", "at": "Then#1", "prompt": "wide shot of a long stone hospital building on a small island in a lagoon, boats in the water, 1400s", "check": "Is there a building on an island?", "move": "push"}, {"name": "stretcher", "at": "hospital#1", "prompt": "medium shot, monks in brown robes carrying a sick man on a stretcher into a stone building, 1400s, daylight", "check": "Are monks carrying a stretcher?", "clip": true, "motion": "they carry the stretcher through the doorway, slow camera push in"}, {"name": "senate", "at": "In#4", "prompt": "medium shot, Venetian senators in red robes raising their hands to vote in a grand painted hall, 1400s", "check": "Are men in red robes raising their hands?", "clip": true, "motion": "they raise their hands together, slow camera push in", "xfade": true, "hit": "forty#2"}, {"name": "vote", "at": "stretched#1", "prompt": "close-up, an old senator in a red robe raising his hand firmly, a grand painted hall behind him, 1400s", "check": "Is an old man raising his hand?", "clip": true, "motion": "he raises his hand high, slow camera push in"}, {"name": "scribe", "at": "In#5", "prompt": "close-up, a scribe writing with a quill in a large leather book by candlelight, 1400s", "check": "Is a man writing with a quill?", "clip": true, "motion": "the quill moves across the page, slow camera push in"}, {"name": "anchor", "at": "It's#1", "prompt": "wide shot of a quiet harbour with many ships waiting at anchor in a row, misty morning, 1400s", "check": "Are there ships at anchor?", "clip": true, "motion": "the ships rock gently on the water, slow camera push in"}, {"name": "knee", "at": "You#1", "prompt": "close-up, a child rubbing a bumped knee while sitting on a wooden step, sunny day", "check": "Is a child rubbing a knee?", "clip": true, "motion": "the child rubs the knee and winces, slow camera push in", "xfade": true}, {"name": "bruise", "at": "wait#4", "prompt": "extreme close-up of a small purple bruise on a child's knee, soft daylight", "check": "Is there a bruise on a knee?", "move": "push"}, {"name": "fever", "at": "Today's#2", "prompt": "close-up, a feverish sailor sweating in a ship's hammock, dim lantern light, 1400s", "check": "Is a man lying in a hammock?", "clip": true, "motion": "he breathes hard and turns his head, slow camera push in"}, {"name": "sunset", "at": "37#1", "prompt": "wide shot of a sunset over a calm sea with a lone ship at anchor", "check": "Is there a ship at sunset?", "move": "left"}, {"name": "check", "at": "So#1", "who": "doctor", "prompt": "medium shot, a physician in a long dark robe checking a sailor's neck on a ship deck, he is {doctor}, 1400s, morning light", "check": "Is a man checking another man's neck?", "clip": true, "motion": "he tilts the sailor's head gently, slow camera push in"}, {"name": "ashore", "at": "show#1", "who": "sailor", "prompt": "medium shot, a smiling sailor stepping off a gangplank onto a stone quay, he is {sailor}, Venice harbour, 1400s, morning", "check": "Is a man stepping onto a quay?", "clip": true, "motion": "he steps down and smiles, slow camera push in"}, {"name": "busy", "at": "The#8", "prompt": "wide shot of a busy Venice harbour with workers unloading barrels from ships onto the quay, sunny, 1400s", "check": "Is there a busy harbour?", "clip": true, "motion": "workers roll barrels along the quay, slow camera push in"}, {"name": "hourglass", "at": "But#1", "prompt": "close-up of an old hourglass with sand running on a wooden table, candle light", "check": "Is there an hourglass?", "move": "push", "xfade": true}, {"name": "count", "at": "doctors#1", "who": "doctor", "prompt": "medium shot, a medieval physician counting on his fingers beside a sickbed, he is {doctor}, candle light", "check": "Is a man counting on his fingers?", "clip": true, "motion": "he counts on his fingers slowly, slow camera push in"}, {"name": "scholar", "at": "Scholars#1", "prompt": "close-up, an old scholar turning the pages of an ancient book by candlelight, 1400s study", "check": "Is a man turning the pages of a book?", "clip": true, "motion": "he turns a page carefully, slow camera push in"}, {"name": "bust", "at": "Hippocrates#1", "prompt": "close-up of a marble bust of a bearded ancient Greek man in a stone hall, soft light", "check": "Is there a marble bust?", "move": "push"}, {"name": "lent", "at": "forty#5", "prompt": "medium shot, people kneeling in prayer in a candlelit medieval church, 1400s", "check": "Are people kneeling in a church?", "clip": true, "motion": "candle flames flicker as they pray, slow camera push in"}]}
 
 SOURCES (data only)
 [1] Quarantine | https://en.wikipedia.org/wiki/Quarantine
