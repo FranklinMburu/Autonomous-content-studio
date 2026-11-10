@@ -41,6 +41,24 @@ PY
 
 gh issue comment "$ISSUE" --body "Got ${WHO}. Checking it now ([progress]($RUN_URL))." || true
 
+mark() {   # mark polished|polish: show on GitHub (title + label) and on the website whether the polish is done
+  gh label create polished --color 0E8A16 --description "Polish accepted; the video is being made" 2>/dev/null || true
+  local t; t=$(gh issue view "$ISSUE" --json title --jq .title 2>/dev/null | sed -E 's/^(Polish needed|Polished, making the video): *//')
+  [ -n "$t" ] || return 0
+  if [ "$1" = polished ]; then
+    gh issue edit "$ISSUE" --add-label polished --remove-label polish --title "Polished, making the video: $t" >/dev/null || true
+    # an episode retried by the schedule can have older "Polish needed" issues for the same title: point them here
+    gh issue list --label polish --state open --json number,title --jq '.[] | "\(.number)\t\(.title)"' 2>/dev/null |
+      while IFS=$'\t' read -r n title; do
+        [ "$n" != "$ISSUE" ] && [ "${title#Polish needed: }" = "$t" ] || continue
+        gh issue comment "$n" --body "Same video as #$ISSUE, where the polish was accepted. Closing this copy." >/dev/null || true
+        gh issue close "$n" --reason "not planned" >/dev/null || true
+      done
+  else
+    gh issue edit "$ISSUE" --add-label polish --remove-label polished --title "Polish needed: $t" >/dev/null || true
+  fi
+}
+
 echo "::group::Draft files"
 rm -rf draft film_assets film_out lab_out prev "$EPISODE_DIR"
 gh release download "$DRAFT_TAG" -p episode-files.zip -D draft --clobber || exit 1
@@ -71,6 +89,7 @@ if [ "$ok" = no ]; then
     echo "run \`python -m studio.story.filmkit check-answer $TICKET\`, then push again."; echo; echo '```'; cat problems.txt; echo '```'; } > result.md
   # the next prompt (with these problems) replaces PROMPT.md, so the next polisher starts from it
   [ -n "$TICKET" ] && python -m studio.story.filmkit prompt "$EPISODE_DIR" --memory used.json --problems problems.txt > next_prompt.md || true
+  mark polish
   save_ticket needs-fix result.md
   if [ -n "$TICKET" ] && [ -s next_prompt.md ]; then   # update PROMPT.md and files/ too
     dir=$(mktemp -d); git clone -q --depth 1 --branch main "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$dir" \
@@ -82,7 +101,8 @@ if [ "$ok" = no ]; then
 fi
 
 gh issue comment "$ISSUE" --body "Accepted: every check passed. Making the video now (about 45 minutes). The link will appear here." || true
-tools/film_produce.sh "$EPISODE_DIR" || { echo "# Video failed" > result.md; echo "Log: $RUN_URL" >> result.md; save_ticket video-failed result.md; exit 1; }
+mark polished
+tools/film_produce.sh "$EPISODE_DIR" || { mark polish; echo "# Video failed" > result.md; echo "Log: $RUN_URL" >> result.md; save_ticket video-failed result.md; exit 1; }
 url=$(grep -h '^VIDEO_URL=' "${GITHUB_ENV:-/dev/null}" 2>/dev/null | tail -1 | cut -d= -f2-)
 gh issue comment "$ISSUE" --body "Your video is ready: ${url:-see Releases}" || true
 gh issue close "$ISSUE" --reason completed || true

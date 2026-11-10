@@ -150,16 +150,17 @@ export function createStudio(opts = {}) {
       if (!fields.episode && fields.tag) { const e = fields.tag.match(/^(?:film|story|draft)-(.+)-run\d+$/); if (e) fields.episode = e[1]; }
       if (!fields.failed) { const f = (i.body || "").match(/failed the picture check:\s*([^\n]+)/); if (f) fields.failed = f[1].replace(/\s+/g, ""); }
       return {
-        number: i.number, title: i.title.replace(/^(Review needed|Polish needed|Ready to upload):\s*/i, ""),
+        number: i.number, title: i.title.replace(/^(Review needed|Polish needed|Polished, making the video|Ready to upload):\s*/i, ""),
         state: i.state, url: i.html_url, at: i.created_at, updated: i.updated_at, closedAt: i.closed_at,
         comments: i.comments, body: i.body || "", tag: fields.tag || fields.draft || null,
         episode: fields.episode || null, failedShots: fields.failed ? fields.failed.split(",").filter(Boolean) : [],
-        polishPrompt: prompt,
+        polishPrompt: prompt, labels: (i.labels || []).map(l => (typeof l === "string" ? l : l.name)),
       };
     });
   }
   const reviewQueue = () => issues("review");
   const polishQueue = () => issues("polish");
+  const polishedQueue = () => issues("polished");   // polish accepted, the video is being made
   const uploadQueue = () => issues("ready-to-upload");
   const uploaded = () => issues("ready-to-upload", "closed");   // closed = the owner uploaded it
   async function alerts() {
@@ -178,9 +179,9 @@ export function createStudio(opts = {}) {
 
   // ---------- films: one row per episode, newest run wins ----------
   // status: "ready" (finished, ready-to-upload issue open) | "uploaded" (that issue closed) | "finished" (no issue)
-  //         "review" (held) | "polish" (draft + open polish issue) | "draft"
+  //         "review" (held) | "polish" (draft + open polish issue) | "polished" (polish accepted, video being made) | "draft"
   async function films() {
-    const [rels, ready, done, review, polish] = await Promise.all([releases(), uploadQueue(), uploaded(), reviewQueue(), polishQueue()]);
+    const [rels, ready, done, review, polish, polished] = await Promise.all([releases(), uploadQueue(), uploaded(), reviewQueue(), polishQueue(), polishedQueue()]);
     const byEp = new Map();
     for (const r of rels) {
       if (!["film", "story", "draft", "video"].includes(r.kind)) continue;
@@ -191,13 +192,14 @@ export function createStudio(opts = {}) {
     const sameTitle = (a, b) => a && b && a.toLowerCase().replace(/[^a-z0-9]/g, "") === b.toLowerCase().replace(/[^a-z0-9]/g, "");
     return [...byEp.values()].map(r => {
       let status;
-      if (r.kind === "draft") status = polish.some(p => p.tag === r.tag || (p.episode || "").endsWith(r.episode)) ? "polish" : "draft";
+      const forDraft = p => p.tag === r.tag || (p.episode || "").endsWith(r.episode);
+      if (r.kind === "draft") status = polished.some(forDraft) ? "polished" : polish.some(forDraft) ? "polish" : "draft";
       else if (r.held) status = "review";
       else if (ready.some(i => sameTitle(i.title, r.title))) status = "ready";
       else if (done.some(i => sameTitle(i.title, r.title))) status = "uploaded";
       else status = "finished";
       const rev = review.find(i => i.tag === r.tag);
-      const pol = polish.find(p => p.tag === r.tag);
+      const pol = polish.find(p => p.tag === r.tag) || polished.find(p => p.tag === r.tag);
       const style = r.kind === "film" ? "film" : r.kind === "story" ? "storyboard" : r.kind === "video" ? "explainer" : "draft";
       const title = r.kind === "draft" ? (pol ? pol.title : humanize(r.episode)) : r.title;
       return { id: r.episode, title, status, style, at: r.at, run: r.run, release: r, video: r.video, contact: r.contact,
