@@ -3,5 +3,7 @@
  "draft": "draft-005-why-the-radium-girls-licked-poison-run30",
  "episode": "episodes/hidden_reasons/005-why-the-radium-girls-licked-poison",
  "opened": "2026-11-08T00:25:29+00:00",
- "status": "waiting"
+ "status": "needs-fix",
+ "checked": "2026-11-10T12:31:27+00:00",
+ "last_answer_by": "pull request #69 by FranklinMburu"
 }
