@@ -3,8 +3,9 @@
  "draft": "draft-005-why-ships-waited-forty-days-before-enter-run34",
  "episode": "episodes/hidden_reasons/005-why-ships-waited-forty-days-before-enter",
  "opened": "2026-11-08T21:25:53+00:00",
- "status": "accepted",
- "checked": "2026-11-10T21:12:13+00:00",
+ "status": "making",
+ "checked": "2026-11-10T21:50:13+00:00",
  "last_answer_by": "pull request #69 by FranklinMburu",
- "tries": 0
+ "tries": 1,
+ "started": "2026-11-10T21:50:13+00:00"
 }
