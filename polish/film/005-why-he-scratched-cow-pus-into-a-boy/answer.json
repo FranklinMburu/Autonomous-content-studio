@@ -12,7 +12,7 @@
    {
     "feel": "dread",
     "lines": [
-     "In towns, smallpox killed one person in five.",
+     "In towns and cities, smallpox killed up to 20% of people.",
      "Doctors already had a risky shield.",
      "They rubbed real smallpox into scratches on healthy skin.",
      "Most people got a milder case. Some died."
@@ -21,8 +21,8 @@
    {
     "feel": "sympathy",
     "lines": [
-     "Edward Jenner knew that risk.",
-     "As a boy, he got that treatment, and it hurt his health for life."
+     "As a boy, Edward Jenner got that treatment too.",
+     "It had a lifelong effect on his health."
     ]
    },
    {
@@ -217,26 +217,26 @@
     "hit": "died#1"
    },
    {
-    "name": "jenner",
-    "at": "knew#1",
-    "who": "jenner",
-    "prompt": "medium shot, a doctor writing in a notebook at a wooden desk by candlelight, he is {jenner}, a small 1790s study lined with books",
-    "check": "Is a man writing at a desk?",
-    "clip": true,
-    "motion": "he writes and pauses to think, the candle flickers, slow camera push in",
-    "xfade": true
-   },
-   {
     "name": "boyhood",
     "at": "As#1",
     "prompt": "medium shot, a small boy lying sick in a narrow bed with a wet cloth on his forehead, a bare 1750s school dormitory, dim grey light",
     "check": "Is a boy lying sick in a bed?",
     "clip": true,
-    "motion": "he turns his head weakly on the pillow, slow camera push in"
+    "motion": "he turns his head weakly on the pillow, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "scar",
+    "at": "Edward#1",
+    "who": "jenner",
+    "prompt": "close-up, a doctor rolling up his sleeve and looking at an old scar on his forearm, he is {jenner}, 1790s study, candle light",
+    "check": "Is a man looking at his arm?",
+    "clip": true,
+    "motion": "he turns his forearm slowly, slow camera push in"
    },
    {
     "name": "health",
-    "at": "hurt#1",
+    "at": "lifelong#1",
     "who": "jenner",
     "prompt": "medium shot, a tired doctor pressing one hand to his chest and leaning on a chair back, he is {jenner}, 1790s study, grey window light",
     "check": "Is a man pressing a hand to his chest?",
@@ -415,7 +415,7 @@
    },
    {
     "name": "britain",
-    "at": "In#5",
+    "at": "In#4",
     "prompt": "wide shot of a grand stone government building in London with horse carriages outside, grey daylight, 1840",
     "check": "Is this a large stone building?",
     "move": "up"

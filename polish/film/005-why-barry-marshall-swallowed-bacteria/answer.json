@@ -1,0 +1,381 @@
+{
+ "script": {
+  "title": "Why Barry Marshall Swallowed Bacteria",
+  "beats": [
+   {
+    "feel": "shock",
+    "lines": [
+     "A doctor drank a broth full of living stomach bacteria.",
+     "He was trying to make himself sick."
+    ]
+   },
+   {
+    "feel": "curiosity",
+    "lines": [
+     "For decades, doctors blamed stomach ulcers on stress, spicy food and too much acid.",
+     "But in Perth, Australia, Barry Marshall and Robin Warren suspected a spiral-shaped bacterium."
+    ]
+   },
+   {
+    "feel": "frustration",
+    "lines": [
+     "Many doctors ridiculed the idea.",
+     "No bacteria could live in stomach acid, they said.",
+     "Reviewers ranked the pair's paper among the worst they got that year."
+    ]
+   },
+   {
+    "feel": "determination",
+    "lines": [
+     "Marshall tried to infect piglets. It failed.",
+     "So in 1984, he made himself the test."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like tasting milk to check if it's gone sour.",
+     "Sometimes the only proof is your own stomach."
+    ]
+   },
+   {
+    "feel": "dread",
+    "lines": [
+     "First, doctors checked his healthy stomach with a camera.",
+     "Then Marshall drank the broth.",
+     "He expected an ulcer, years later.",
+     "In just three days, he felt sick.",
+     "His wife noticed his terrible breath.",
+     "Then the vomiting started."
+    ]
+   },
+   {
+    "feel": "tension",
+    "lines": [
+     "On day eight, the camera went back in.",
+     "His stomach was badly inflamed, and the bacteria had moved in."
+    ]
+   },
+   {
+    "feel": "triumph",
+    "lines": [
+     "Marshall took antibiotics and recovered.",
+     "In 2005, the idea doctors had ridiculed won Marshall and Warren the Nobel Prize."
+    ]
+   }
+  ],
+  "key_words": [
+   "living bacteria",
+   "stress",
+   "spicy food",
+   "acid",
+   "Perth",
+   "ridiculed",
+   "piglets",
+   "1984",
+   "sour milk",
+   "camera",
+   "broth",
+   "three days",
+   "terrible breath",
+   "vomiting",
+   "day eight",
+   "inflamed",
+   "antibiotics",
+   "Nobel Prize"
+  ],
+  "claims": [
+   {
+    "claim": "Marshall drank a broth containing cultured H. pylori, expecting to develop an ulcer years later.",
+    "url": "https://en.wikipedia.org/wiki/Barry_Marshall"
+   },
+   {
+    "claim": "Medical doctrine held that ulcers were caused primarily by stress, spicy foods and too much acid.",
+    "url": "https://en.wikipedia.org/wiki/Barry_Marshall"
+   },
+   {
+    "claim": "Marshall and Robin Warren at Royal Perth Hospital studied spiral bacteria in association with gastritis and proposed a bacterial cause of peptic ulcers.",
+    "url": "https://en.wikipedia.org/wiki/Barry_Marshall"
+   },
+   {
+    "claim": "The theory was ridiculed by doctors who did not believe bacteria could live in the acidic stomach; reviewers rated their paper in the bottom 10%.",
+    "url": "https://en.wikipedia.org/wiki/Barry_Marshall"
+   },
+   {
+    "claim": "After failed attempts to infect piglets in 1984, Marshall had a baseline endoscopy, then drank the broth.",
+    "url": "https://en.wikipedia.org/wiki/Barry_Marshall"
+   },
+   {
+    "claim": "In three days he had nausea and bad breath, noticed by his wife; on days 5-8 he vomited.",
+    "url": "https://en.wikipedia.org/wiki/Barry_Marshall"
+   },
+   {
+    "claim": "On day eight an endoscopy showed massive inflammation and H. pylori had colonised his stomach; he then took antibiotics.",
+    "url": "https://en.wikipedia.org/wiki/Barry_Marshall"
+   },
+   {
+    "claim": "In 2005 Marshall and Robin Warren were awarded the Nobel Prize in Physiology or Medicine.",
+    "url": "https://en.wikipedia.org/wiki/Barry_Marshall"
+   }
+  ]
+ },
+ "film": {
+  "era": "1980s",
+  "cast": {
+   "marshall": "a 33 year old Australian doctor, lean build, curly dark brown hair, a full dark brown beard, brown eyes, thin wire-rimmed glasses, a white short-sleeved shirt under a pale blue lab coat and khaki trousers, 1980s",
+   "warren": "a 46 year old Australian pathologist with short receding grey hair, a clean-shaven square face, heavy black-framed glasses, a white lab coat over a brown checked shirt, 1980s",
+   "skeptic": "a 48 year old British gastroenterologist, stocky build, balding with short grey hair at the sides, heavy dark eyebrows, clean shaven, a charcoal grey suit jacket, a burgundy patterned tie and white shirt, 1980s",
+   "nurse": "a 35 year old nurse, sturdy build, dark brown hair in a ponytail, teal scrubs, 1980s",
+   "wife": "a 32 year old woman with shoulder-length wavy blond hair, a sun-tanned face and a yellow sleeveless summer dress, 1980s"
+  },
+  "key_words": [
+   "living bacteria",
+   "stress",
+   "spicy food",
+   "acid",
+   "Perth",
+   "ridiculed",
+   "piglets",
+   "1984",
+   "sour milk",
+   "camera",
+   "broth",
+   "three days",
+   "terrible breath",
+   "vomiting",
+   "day eight",
+   "inflamed",
+   "antibiotics",
+   "Nobel Prize"
+  ],
+  "music": "curious",
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "who": "marshall",
+    "prompt": "close-up, a bearded doctor drinking cloudy brown liquid from a glass beaker, he is {marshall}, 1980s hospital lab, cool light",
+    "check": "Is a man drinking from a glass?",
+    "clip": true,
+    "motion": "he tips the beaker and swallows, slow camera push in"
+   },
+   {
+    "name": "sick",
+    "at": "He#1",
+    "who": "marshall",
+    "prompt": "medium close-up, a doctor wincing and pressing a hand on his stomach, he is {marshall}, 1980s hospital corridor, cool light",
+    "check": "Is a man holding his stomach?",
+    "clip": true,
+    "motion": "he winces and bends forward a little, slow camera push in"
+   },
+   {
+    "name": "stress",
+    "at": "For#1",
+    "prompt": "medium shot, a stressed businessman in a brown suit clutching his stomach at a cluttered office desk, 1970s office, grey light",
+    "check": "Is a man holding his stomach at a desk?",
+    "clip": true,
+    "motion": "he grimaces and rubs his stomach, slow camera push in"
+   },
+   {
+    "name": "spicy",
+    "at": "spicy#1",
+    "prompt": "close-up of a plate of bright red chilli peppers next to a bowl of spicy curry on a wooden table, warm light",
+    "check": "Is there a plate of red chilli peppers?",
+    "move": "push"
+   },
+   {
+    "name": "perth",
+    "at": "But#1",
+    "prompt": "wide shot of a sunny 1980s Australian city hospital with palm trees in front and a bright blue sky",
+    "check": "Is this a hospital building?",
+    "move": "right",
+    "xfade": true
+   },
+   {
+    "name": "warren",
+    "at": "suspected#1",
+    "who": "warren",
+    "prompt": "medium shot, a pathologist looking into a microscope, he is {warren}, 1980s hospital lab, bright window light",
+    "check": "Is a man looking into a microscope?",
+    "clip": true,
+    "motion": "he turns the focus knob slowly, slow camera push in"
+   },
+   {
+    "name": "laugh",
+    "at": "Many#1",
+    "who": "skeptic",
+    "prompt": "medium shot, a balding doctor laughing and shaking his head at a meeting table, he is {skeptic}, 1980s conference room",
+    "check": "Is a man laughing?",
+    "clip": true,
+    "motion": "he laughs and shakes his head, slow camera push in"
+   },
+   {
+    "name": "acid",
+    "at": "No#1",
+    "prompt": "extreme close-up of clear liquid bubbling in a glass beaker on a lab bench, dark background, cool light",
+    "check": "Is there a glass beaker of bubbling liquid?",
+    "move": "push"
+   },
+   {
+    "name": "bin",
+    "at": "Reviewers#1",
+    "prompt": "close-up, a hand dropping a stapled paper into a metal wastebasket, 1980s office, grey light",
+    "check": "Is a paper falling into a wastebasket?",
+    "clip": true,
+    "motion": "the paper drops into the bin, slow camera push in"
+   },
+   {
+    "name": "slump",
+    "at": "worst#1",
+    "who": "marshall",
+    "prompt": "medium close-up, a doctor reading a letter and slumping back in his chair, he is {marshall}, 1980s office, grey light",
+    "check": "Is a man reading a letter?",
+    "clip": true,
+    "motion": "he lowers the letter and sighs, slow camera push in"
+   },
+   {
+    "name": "piglets",
+    "at": "Marshall#2",
+    "prompt": "medium shot, pink piglets sniffing around a clean straw pen, bright daylight",
+    "check": "Are there piglets?",
+    "clip": true,
+    "motion": "the piglets sniff and wander, slow camera push in"
+   },
+   {
+    "name": "test",
+    "at": "So#1",
+    "who": "marshall",
+    "prompt": "close-up, a doctor rolling up his sleeves with a determined face, he is {marshall}, 1980s lab, cool light",
+    "check": "Is a man rolling up his sleeves?",
+    "clip": true,
+    "motion": "he rolls up a sleeve and looks ahead, slow camera push in"
+   },
+   {
+    "name": "milk",
+    "at": "You#1",
+    "prompt": "close-up of a glass bottle of milk on a kitchen table, warm morning light",
+    "check": "Is there a bottle of milk?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "sniff",
+    "at": "tasting#1",
+    "prompt": "close-up, a woman sniffing an open bottle of milk and wrinkling her nose, home kitchen, warm morning light",
+    "check": "Is a woman smelling a bottle of milk?",
+    "clip": true,
+    "motion": "she sniffs and pulls her face back, slow camera push in"
+   },
+   {
+    "name": "pour",
+    "at": "Sometimes#1",
+    "prompt": "close-up of milk being poured from a bottle into a kitchen sink, warm light",
+    "check": "Is milk pouring into a sink?",
+    "clip": true,
+    "motion": "the milk pours out in a stream, slow camera push in"
+   },
+   {
+    "name": "scope",
+    "at": "First#1",
+    "who": "nurse",
+    "prompt": "medium shot, a nurse preparing a thin black flexible camera tube beside a hospital bed, she is {nurse}, 1980s procedure room, cool light",
+    "check": "Is a woman holding a black tube?",
+    "clip": true,
+    "motion": "she checks the tube in her hands, slow camera push in"
+   },
+   {
+    "name": "drink",
+    "at": "Then#1",
+    "who": "marshall",
+    "prompt": "close-up, a doctor lifting a glass beaker of cloudy brown broth to his lips, he is {marshall}, 1980s lab, cool light",
+    "check": "Is a man holding a glass to his lips?",
+    "clip": true,
+    "motion": "he lifts the beaker and drinks, slow camera push in",
+    "hit": "drank#2"
+   },
+   {
+    "name": "wait",
+    "at": "He#3",
+    "who": "marshall",
+    "prompt": "medium close-up, a doctor writing calmly in a notebook at a desk, he is {marshall}, 1980s office, warm lamp light",
+    "check": "Is a man writing in a notebook?",
+    "clip": true,
+    "motion": "he writes and glances up, slow camera push in"
+   },
+   {
+    "name": "ill",
+    "at": "In#4",
+    "prompt": "medium shot, a pale sweating man bent over a kitchen table holding his stomach, 1980s home kitchen, dim light",
+    "check": "Is a man bent over a table?",
+    "clip": true,
+    "motion": "he breathes hard and grips the table, slow camera push in"
+   },
+   {
+    "name": "wife",
+    "at": "wife#1",
+    "who": "wife",
+    "prompt": "medium close-up, a woman wrinkling her nose and leaning away, she is {wife}, 1980s home kitchen, warm light",
+    "check": "Is a woman wrinkling her nose?",
+    "clip": true,
+    "motion": "she leans back and covers her nose, slow camera push in"
+   },
+   {
+    "name": "vomit",
+    "at": "Then#2",
+    "prompt": "medium shot, a man in a shirt bending over a white bathroom sink holding his stomach, 1980s bathroom, harsh light",
+    "check": "Is a man bending over a sink?",
+    "clip": true,
+    "motion": "he heaves over the sink, slow camera push in"
+   },
+   {
+    "name": "day8",
+    "at": "On#2",
+    "prompt": "medium shot, a man lying on his side on a hospital bed while a doctor in a gown holds a thin black tube, 1980s procedure room",
+    "check": "Is a man lying on a hospital bed?",
+    "clip": true,
+    "motion": "the doctor feeds the tube forward slowly, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "inflamed",
+    "at": "His#4",
+    "prompt": "extreme close-up of red swollen wet tissue lit by a small bright light, dark edges",
+    "check": "Is there red swollen tissue?",
+    "move": "push",
+    "hit": "inflamed#1"
+   },
+   {
+    "name": "dish",
+    "at": "bacteria#3",
+    "prompt": "extreme close-up of a glass petri dish with small grey bacteria spots on red jelly, lab light",
+    "check": "Is there a petri dish?",
+    "move": "push"
+   },
+   {
+    "name": "pill",
+    "at": "Marshall#4",
+    "who": "marshall",
+    "prompt": "close-up, a doctor swallowing a white pill with a glass of water and smiling, he is {marshall}, 1980s kitchen, morning light",
+    "check": "Is a man taking a pill?",
+    "clip": true,
+    "motion": "he swallows and smiles, slow camera push in"
+   },
+   {
+    "name": "medal",
+    "at": "In#7",
+    "prompt": "close-up of a gold medal resting in an open blue velvet box, soft spotlight",
+    "check": "Is there a gold medal?",
+    "move": "push"
+   },
+   {
+    "name": "nobel",
+    "at": "won#1",
+    "prompt": "medium shot, two men in black tuxedos holding gold medals on a grand stage decorated with flowers, bright stage light",
+    "check": "Are two men in tuxedos on a stage?",
+    "clip": true,
+    "motion": "they raise the medals and smile, slow camera push in",
+    "hit": "Nobel#1"
+   }
+  ]
+ }
+}
