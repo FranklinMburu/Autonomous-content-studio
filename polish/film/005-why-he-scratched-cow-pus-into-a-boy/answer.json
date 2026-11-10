@@ -1,0 +1,449 @@
+{
+ "script": {
+  "title": "Why He Scratched Cow Pus Into a Boy",
+  "beats": [
+   {
+    "feel": "shock",
+    "lines": [
+     "A doctor scratched cow pus into a healthy boy's arm.",
+     "It was England, 1796."
+    ]
+   },
+   {
+    "feel": "dread",
+    "lines": [
+     "In towns, smallpox killed one person in five.",
+     "Doctors already had a risky shield.",
+     "They rubbed real smallpox into scratches on healthy skin.",
+     "Most people got a milder case. Some died."
+    ]
+   },
+   {
+    "feel": "sympathy",
+    "lines": [
+     "Edward Jenner knew that risk.",
+     "As a boy, he got that treatment, and it hurt his health for life."
+    ]
+   },
+   {
+    "feel": "curiosity",
+    "lines": [
+     "Jenner believed cowpox, a mild disease from cows, could protect people.",
+     "In May 1796, he scraped pus from the blisters of a milkmaid, Sarah Nelmes.",
+     "She had caught cowpox from a cow called Blossom."
+    ]
+   },
+   {
+    "feel": "tension",
+    "lines": [
+     "Then Jenner made two small cuts in the arm of James Phipps, his gardener's eight-year-old son.",
+     "He rubbed the cowpox pus inside.",
+     "James got a fever and felt uneasy. Then he was fine."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like a fire drill.",
+     "The body practices on a small fire, so it's ready for the real one."
+    ]
+   },
+   {
+    "feel": "fear",
+    "lines": [
+     "Next, Jenner did the frightening part.",
+     "He put real smallpox into the boy.",
+     "James did not get sick."
+    ]
+   },
+   {
+    "feel": "awe",
+    "lines": [
+     "Jenner's Latin name for cowpox gave the world a new word: vaccine.",
+     "In 1840, Britain banned the old method and made vaccination free.",
+     "And Blossom's hide still hangs on a wall in a London medical school library."
+    ]
+   }
+  ],
+  "key_words": [
+   "cow pus",
+   "smallpox",
+   "one person in five",
+   "risky shield",
+   "Edward Jenner",
+   "cowpox",
+   "Sarah Nelmes",
+   "Blossom",
+   "James Phipps",
+   "eight-year-old",
+   "fever",
+   "fire drill",
+   "real smallpox",
+   "did not get sick",
+   "vaccine",
+   "1840",
+   "free",
+   "Blossom's hide"
+  ],
+  "claims": [
+   {
+    "claim": "Smallpox killed as many as 20% of people in towns and cities in Jenner's time.",
+    "url": "https://en.wikipedia.org/wiki/Edward_Jenner"
+   },
+   {
+    "claim": "Variolation scratched smallpox material into the skin; it usually caused a milder infection, but some died.",
+    "url": "https://en.wikipedia.org/wiki/Variolation"
+   },
+   {
+    "claim": "Jenner was inoculated by variolation as a boy, which had a lifelong effect on his health.",
+    "url": "https://en.wikipedia.org/wiki/Edward_Jenner"
+   },
+   {
+    "claim": "On 14 May 1796 Jenner scraped pus from cowpox blisters on the hands of milkmaid Sarah Nelmes, who caught cowpox from a cow called Blossom.",
+    "url": "https://en.wikipedia.org/wiki/Edward_Jenner"
+   },
+   {
+    "claim": "Jenner inoculated James Phipps, his gardener's eight-year-old son, through two small cuts; it caused a fever and some uneasiness.",
+    "url": "https://en.wikipedia.org/wiki/Edward_Jenner"
+   },
+   {
+    "claim": "Jenner later injected Phipps with smallpox material and no disease followed.",
+    "url": "https://en.wikipedia.org/wiki/Edward_Jenner"
+   },
+   {
+    "claim": "The word vaccine comes from Variolae vaccinae, Jenner's term for cowpox.",
+    "url": "https://en.wikipedia.org/wiki/Edward_Jenner"
+   },
+   {
+    "claim": "In 1840 the British government banned variolation and provided cowpox vaccination free of charge.",
+    "url": "https://en.wikipedia.org/wiki/Edward_Jenner"
+   },
+   {
+    "claim": "Blossom's hide hangs on the wall of the St George's Medical School library in London.",
+    "url": "https://en.wikipedia.org/wiki/Edward_Jenner"
+   }
+  ]
+ },
+ "film": {
+  "era": "1790s",
+  "cast": {
+   "jenner": "a 47 year old English country doctor with receding grey-brown hair tied back, a long thin nose, a clean shaven lined face, kind tired eyes, a dark green wool frock coat, a cream waistcoat, a white cravat and brown breeches, 1790s",
+   "james": "an eight year old English boy with short light brown hair, round rosy cheeks, a gap-toothed grin, a loose grey linen shirt and brown wool breeches, 1790s",
+   "sarah": "a 24 year old English milkmaid with fair skin, reddish blond hair in a loose bun under a white linen cap, a faded blue cotton dress, a cream apron and rolled sleeves, 1790s"
+  },
+  "key_words": [
+   "cow pus",
+   "smallpox",
+   "one person in five",
+   "risky shield",
+   "Edward Jenner",
+   "cowpox",
+   "Sarah Nelmes",
+   "Blossom",
+   "James Phipps",
+   "eight-year-old",
+   "fever",
+   "fire drill",
+   "real smallpox",
+   "did not get sick",
+   "vaccine",
+   "1840",
+   "free",
+   "Blossom's hide"
+  ],
+  "music": "curious",
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "who": "jenner",
+    "prompt": "close-up, a doctor pressing a small silver lancet to a boy's bare upper arm, he is {jenner}, 1790s English cottage room, warm candle light",
+    "check": "Is a man holding a blade to a boy's arm?",
+    "clip": true,
+    "motion": "the lancet presses lightly on the skin, slow camera push in"
+   },
+   {
+    "name": "england",
+    "at": "It#1",
+    "prompt": "wide shot of green rolling English hills with a small stone village and a church tower, soft morning mist, 1790s",
+    "check": "Is there a village in green hills?",
+    "move": "push"
+   },
+   {
+    "name": "towns",
+    "at": "In#1",
+    "prompt": "wide shot of a crowded narrow 1790s English town street packed with people between dark brick houses, grey light",
+    "check": "Is this a crowded street?",
+    "move": "left"
+   },
+   {
+    "name": "smallpox",
+    "at": "killed#1",
+    "prompt": "close-up of a pale sick child covered in red spots lying on a white pillow, dim candle light, dark room, 1790s",
+    "check": "Is there a child with red spots?",
+    "move": "push",
+    "hit": "killed#1"
+   },
+   {
+    "name": "doctors",
+    "at": "Doctors#1",
+    "prompt": "medium shot, an old doctor in a black coat opening a leather case of small blades on a wooden table, 1790s apothecary shop, candle light",
+    "check": "Is a man opening a leather case?",
+    "clip": true,
+    "motion": "he lifts the lid of the case, slow camera push in"
+   },
+   {
+    "name": "scratch",
+    "at": "rubbed#1",
+    "prompt": "extreme close-up of a small blade scratching a thin line on a pale forearm, a hand holding the arm, candle light, dark background",
+    "check": "Is a blade scratching an arm?",
+    "clip": true,
+    "motion": "the blade draws slowly across the skin, slow camera push in"
+   },
+   {
+    "name": "milder",
+    "at": "Most#1",
+    "prompt": "close-up, a young woman resting in a wooden bed with a few red spots on her cheek, tired but calm, 1790s cottage, soft window light",
+    "check": "Is a woman lying in a bed?",
+    "clip": true,
+    "motion": "she breathes slowly and blinks, slow camera push in"
+   },
+   {
+    "name": "died",
+    "at": "Some#1",
+    "prompt": "a wooden bed with a white sheet pulled over a still shape, one candle on a stool beside it, dark 1790s cottage at night",
+    "check": "Is there a bed covered with a white sheet?",
+    "move": "push",
+    "hit": "died#1"
+   },
+   {
+    "name": "jenner",
+    "at": "knew#1",
+    "who": "jenner",
+    "prompt": "medium shot, a doctor writing in a notebook at a wooden desk by candlelight, he is {jenner}, a small 1790s study lined with books",
+    "check": "Is a man writing at a desk?",
+    "clip": true,
+    "motion": "he writes and pauses to think, the candle flickers, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "boyhood",
+    "at": "As#1",
+    "prompt": "medium shot, a small boy lying sick in a narrow bed with a wet cloth on his forehead, a bare 1750s school dormitory, dim grey light",
+    "check": "Is a boy lying sick in a bed?",
+    "clip": true,
+    "motion": "he turns his head weakly on the pillow, slow camera push in"
+   },
+   {
+    "name": "health",
+    "at": "hurt#1",
+    "who": "jenner",
+    "prompt": "medium shot, a tired doctor pressing one hand to his chest and leaning on a chair back, he is {jenner}, 1790s study, grey window light",
+    "check": "Is a man pressing a hand to his chest?",
+    "clip": true,
+    "motion": "he closes his eyes and breathes slowly, slow camera push in"
+   },
+   {
+    "name": "farm",
+    "at": "believed#1",
+    "who": "jenner",
+    "prompt": "medium shot, a doctor leaning on a wooden fence and watching cows closely, he is {jenner}, a muddy 1790s English farmyard, morning light",
+    "check": "Is a man leaning on a fence?",
+    "clip": true,
+    "motion": "he narrows his eyes and leans forward, slow camera push in"
+   },
+   {
+    "name": "cows",
+    "at": "cows#1",
+    "prompt": "wide shot of brown and white cows grazing in a green English meadow beside a wooden fence, soft morning light",
+    "check": "Are there cows in a meadow?",
+    "move": "right"
+   },
+   {
+    "name": "may",
+    "at": "May#1",
+    "prompt": "close-up of a quill pen writing in an open leather notebook beside a candle on a wooden desk, 1790s, warm light",
+    "check": "Is a quill writing in a book?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "scrape",
+    "at": "scraped#1",
+    "prompt": "extreme close-up of a small silver blade scraping a round blister on a young woman's hand, warm window light, 1790s farm kitchen",
+    "check": "Is a blade touching a blister on a hand?",
+    "clip": true,
+    "motion": "the blade scrapes the blister gently, slow camera push in",
+    "hit": "scraped#1"
+   },
+   {
+    "name": "sarah",
+    "at": "milkmaid#1",
+    "who": "sarah",
+    "prompt": "medium shot, a young milkmaid holding up her hand to show small blisters, she is {sarah}, a straw cowshed with a wooden pail, soft daylight",
+    "check": "Is a woman holding up her hand?",
+    "clip": true,
+    "motion": "she turns her hand to the light, slow camera push in"
+   },
+   {
+    "name": "blossom",
+    "at": "cow#2",
+    "prompt": "close-up of a gentle brown and white cow's face in a straw cowshed, soft daylight through a small window",
+    "check": "Is there a cow's face?",
+    "move": "push"
+   },
+   {
+    "name": "cuts",
+    "at": "two#1",
+    "prompt": "extreme close-up of a small blade making a shallow scratch on a boy's pale upper arm, a hand holding the arm still, candle light",
+    "check": "Is a blade scratching an arm?",
+    "clip": true,
+    "motion": "the blade scratches the skin slowly, slow camera push in"
+   },
+   {
+    "name": "james",
+    "at": "James#1",
+    "who": "james",
+    "prompt": "close-up, a boy sitting on a wooden stool squeezing his eyes shut, he is {james}, 1790s cottage kitchen, warm firelight",
+    "check": "Is a boy squeezing his eyes shut?",
+    "clip": true,
+    "motion": "he winces and squeezes his eyes tighter, slow camera push in"
+   },
+   {
+    "name": "gardener",
+    "at": "gardener's#1",
+    "prompt": "medium shot, a gardener digging a vegetable bed with a spade beside a stone house, 1790s English garden, morning sun",
+    "check": "Is a man digging with a spade?",
+    "clip": true,
+    "motion": "he pushes the spade into the soil, slow camera push in"
+   },
+   {
+    "name": "pus",
+    "at": "rubbed#2",
+    "prompt": "extreme close-up of a fingertip dabbing yellow pus into a small scratch on a boy's arm, candle light, dark background",
+    "check": "Is a finger touching an arm?",
+    "clip": true,
+    "motion": "the fingertip presses gently on the scratch, slow camera push in"
+   },
+   {
+    "name": "fever",
+    "at": "fever#1",
+    "who": "james",
+    "prompt": "close-up, a boy lying in a wooden bed with a flushed sweaty face and a damp cloth on his forehead, he is {james}, 1790s cottage bedroom, candle light",
+    "check": "Is a boy lying in a bed?",
+    "clip": true,
+    "motion": "he breathes fast and turns his head, slow camera push in"
+   },
+   {
+    "name": "fine",
+    "at": "Then#2",
+    "who": "james",
+    "prompt": "medium shot, a smiling boy sitting up in bed and eating a piece of bread, he is {james}, bright 1790s cottage bedroom, morning sunlight",
+    "check": "Is a boy sitting up in a bed?",
+    "clip": true,
+    "motion": "he bites the bread and smiles, slow camera push in"
+   },
+   {
+    "name": "smallfire",
+    "at": "You#1",
+    "prompt": "close-up of a small flame catching on a little pile of straw on a stone floor, dark room, warm firelight",
+    "check": "Is there a small flame?",
+    "clip": true,
+    "motion": "the little flame flickers and grows, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "douse",
+    "at": "body#1",
+    "prompt": "medium shot, a man pouring a wooden bucket of water onto a small straw fire on a stone floor, steam rising, 1790s barn, firelight",
+    "check": "Is a man pouring water from a bucket?",
+    "clip": true,
+    "motion": "water pours from the bucket and steam rises, slow camera push in"
+   },
+   {
+    "name": "ready",
+    "at": "ready#1",
+    "prompt": "medium shot, a man standing by a barn door holding a full wooden bucket of water, alert face, 1790s farm, evening light",
+    "check": "Is a man holding a bucket?",
+    "clip": true,
+    "motion": "he grips the bucket handle tighter, slow camera push in"
+   },
+   {
+    "name": "vial",
+    "at": "Next#1",
+    "who": "jenner",
+    "prompt": "close-up, a doctor holding up a small glass vial with a serious face, he is {jenner}, dark 1790s study, candle light",
+    "check": "Is a man holding a small glass vial?",
+    "clip": true,
+    "motion": "he lifts the vial and stares at it, candle flickers, slow camera push in",
+    "xfade": true,
+    "hit": "frightening#1"
+   },
+   {
+    "name": "smallpox2",
+    "at": "real#3",
+    "prompt": "extreme close-up of a blade tip touching a boy's upper arm beside a small healed scar, candle light, dark background",
+    "check": "Is a blade touching an arm?",
+    "clip": true,
+    "motion": "the blade tip touches the skin, slow camera push in"
+   },
+   {
+    "name": "notsick",
+    "at": "James#3",
+    "who": "james",
+    "prompt": "medium shot, a healthy boy laughing and rolling a wooden hoop in a sunny cottage garden, he is {james}, 1790s, bright daylight",
+    "check": "Is a boy with a wooden hoop?",
+    "clip": true,
+    "motion": "he laughs and pushes the hoop with a stick, slow camera push in",
+    "hit": "not#1"
+   },
+   {
+    "name": "book",
+    "at": "Jenner's#1",
+    "who": "jenner",
+    "prompt": "medium shot, a doctor holding up a thin printed book proudly by a tall window, he is {jenner}, 1798 study, morning light",
+    "check": "Is a man holding up a book?",
+    "clip": true,
+    "motion": "he raises the book and smiles, slow camera push in"
+   },
+   {
+    "name": "vaccine",
+    "at": "new#1",
+    "prompt": "close-up of a row of small glass vials of clear liquid on a wooden shelf, soft window light, 1800s",
+    "check": "Are there small glass vials?",
+    "move": "push"
+   },
+   {
+    "name": "britain",
+    "at": "In#5",
+    "prompt": "wide shot of a grand stone government building in London with horse carriages outside, grey daylight, 1840",
+    "check": "Is this a large stone building?",
+    "move": "up"
+   },
+   {
+    "name": "free",
+    "at": "vaccination#1",
+    "prompt": "medium shot, a mother holding her baby while a doctor in a brown coat gently scratches the baby's arm, a busy 1840 clinic, daylight",
+    "check": "Is a woman holding a baby?",
+    "clip": true,
+    "motion": "the mother rocks the baby gently, slow camera push in"
+   },
+   {
+    "name": "hide",
+    "at": "Blossom's#1",
+    "prompt": "close-up of a brown and white cowhide hanging flat on a wood-panelled wall, soft daylight",
+    "check": "Is there a cowhide on a wall?",
+    "move": "pull",
+    "hit": "hide#1"
+   },
+   {
+    "name": "library",
+    "at": "wall#1",
+    "prompt": "wide shot of a quiet library with tall wooden bookshelves and a brown and white cowhide on the far wall, soft daylight",
+    "check": "Is this a library with bookshelves?",
+    "move": "pull",
+    "xfade": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,403 @@
+{
+ "script": {
+  "title": "Why a Doctor Injected Himself With Sick Blood",
+  "beats": [
+   {
+    "feel": "shock",
+    "lines": [
+     "A doctor injected himself with blood from pellagra patients.",
+     "His wife and his assistant did it too."
+    ]
+   },
+   {
+    "feel": "dread",
+    "lines": [
+     "Pellagra was a painful skin disease sweeping the American South.",
+     "By 1912, South Carolina alone had 30,000 cases.",
+     "Most doctors blamed a germ."
+    ]
+   },
+   {
+    "feel": "curiosity",
+    "lines": [
+     "But Joseph Goldberger noticed something strange.",
+     "Hospital staff worked beside pellagra patients every day, and they never got sick.",
+     "The sick were poor Southerners who lived mostly on cheap corn."
+    ]
+   },
+   {
+    "feel": "hope",
+    "lines": [
+     "At two orphanages, Goldberger added fresh meat, milk, vegetables and eggs.",
+     "Almost all the sick orphans recovered.",
+     "Then he fed eleven healthy prisoners mostly corn.",
+     "After six months, five of the eleven had pellagra."
+    ]
+   },
+   {
+    "feel": "frustration",
+    "lines": [
+     "Still, the critics refused to believe him."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like feeling dizzy when you skip lunch.",
+     "No germ did that. An empty plate did."
+    ]
+   },
+   {
+    "feel": "tension",
+    "lines": [
+     "So in 1916, Goldberger tried to catch pellagra on purpose.",
+     "At his so-called filth parties, 16 volunteers took pellagra blood into their bodies.",
+     "They felt sick to their stomachs.",
+     "But not one of them caught pellagra."
+    ]
+   },
+   {
+    "feel": "irony",
+    "lines": [
+     "Critics brushed it off anyway, because almost all the volunteers were men.",
+     "Goldberger died in 1929, never knowing the missing piece.",
+     "In 1937, another scientist found it: a vitamin called niacin."
+    ]
+   }
+  ],
+  "key_words": [
+   "pellagra",
+   "blood",
+   "his wife",
+   "30,000 cases",
+   "germ",
+   "hospital staff",
+   "corn",
+   "orphanages",
+   "fresh meat, milk",
+   "eleven prisoners",
+   "empty plate",
+   "filth parties",
+   "16 volunteers",
+   "not one",
+   "men",
+   "1929",
+   "niacin"
+  ],
+  "claims": [
+   {
+    "claim": "In 1916 Goldberger injected 16 volunteers, including himself, his wife and his assistant, with pellagric blood; they had diarrhea and nausea but did not get pellagra.",
+    "url": "https://en.wikipedia.org/wiki/Joseph_Goldberger"
+   },
+   {
+    "claim": "By 1912 South Carolina alone had 30,000 pellagra cases; the epidemic was primarily in the South.",
+    "url": "https://en.wikipedia.org/wiki/Joseph_Goldberger"
+   },
+   {
+    "claim": "The accepted medical opinion was that pellagra was an infectious disease.",
+    "url": "https://en.wikipedia.org/wiki/Joseph_Goldberger"
+   },
+   {
+    "claim": "Goldberger noticed hospital staff who worked closely with pellagra patients did not fall sick; cases were overwhelmingly poor Southerners eating corn-based food.",
+    "url": "https://en.wikipedia.org/wiki/Joseph_Goldberger"
+   },
+   {
+    "claim": "At two orphanages a varied diet with fresh meat, vegetables, milk and eggs led almost all afflicted orphans to recover.",
+    "url": "https://en.wikipedia.org/wiki/Joseph_Goldberger"
+   },
+   {
+    "claim": "On a corn-based diet, five of eleven healthy prison volunteers got pellagra after six months.",
+    "url": "https://en.wikipedia.org/wiki/Joseph_Goldberger"
+   },
+   {
+    "claim": "Critics rejected the filth parties for using almost entirely male subjects.",
+    "url": "https://en.wikipedia.org/wiki/Joseph_Goldberger"
+   },
+   {
+    "claim": "Goldberger died in 1929 and never found the specific nutrient; in 1937 Conrad Elvehjem found pellagra is caused by a lack of niacin.",
+    "url": "https://en.wikipedia.org/wiki/Joseph_Goldberger"
+   },
+   {
+    "claim": "Pellagra is a disease caused by a lack of the vitamin niacin, with inflamed skin among its symptoms.",
+    "url": "https://en.wikipedia.org/wiki/Pellagra"
+   }
+  ]
+ },
+ "film": {
+  "era": "1910s",
+  "cast": {
+   "goldberger": "a 42 year old lean American physician with short wavy dark brown hair, a neat small moustache, deep-set brown eyes and a long serious face, wearing a charcoal three-piece suit, a white wing-collar shirt and a dark tie, 1910s",
+   "wife": "a 38 year old woman with dark auburn hair pinned up high, a narrow freckled face, a high-collared cream lace blouse and a long navy blue skirt, 1910s",
+   "orphan": "a 9 year old thin girl with long blond braids, big grey eyes and a faded pink cotton dress with a white collar, 1910s",
+   "prisoner": "a 27 year old lean prisoner with a tanned face, short dark hair and stubble on his chin, wearing a blue and white striped prison shirt with rolled sleeves, 1910s",
+   "critic": "a 60 year old stout doctor with a bald head, bushy white side whiskers, small gold pince-nez and a black frock coat with a watch chain, 1910s",
+   "chemist": "a 36 year old laboratory chemist with thinning blond hair, round black spectacles and a clean-shaven round face, wearing a white lab coat over a dark tie, 1930s"
+  },
+  "key_words": [
+   "pellagra",
+   "blood",
+   "his wife",
+   "30,000 cases",
+   "germ",
+   "hospital staff",
+   "corn",
+   "orphanages",
+   "fresh meat, milk",
+   "eleven prisoners",
+   "empty plate",
+   "filth parties",
+   "16 volunteers",
+   "not one",
+   "men",
+   "1929",
+   "niacin"
+  ],
+  "music": "tense",
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "who": "goldberger",
+    "prompt": "close-up, a doctor pushing a glass syringe needle into his own forearm, he is {goldberger}, a plain 1910s clinic room, cold window light",
+    "check": "Is a man putting a needle into his own arm?",
+    "clip": true,
+    "motion": "he presses the plunger slowly, slow camera push in"
+   },
+   {
+    "name": "wife",
+    "at": "wife#1",
+    "who": "wife",
+    "prompt": "medium shot, a woman rolling up her blouse sleeve beside a table with a glass syringe, she is {wife}, 1910s clinic room, cold window light",
+    "check": "Is a woman rolling up her sleeve?",
+    "clip": true,
+    "motion": "she rolls the sleeve above her elbow, slow camera push in"
+   },
+   {
+    "name": "rash",
+    "at": "Pellagra#2",
+    "prompt": "extreme close-up of a man's forearm covered in a dark red peeling rash, his other hand rubbing it, dim warm light, 1910s",
+    "check": "Is there a red rash on an arm?",
+    "clip": true,
+    "motion": "his fingers rub the sore skin, slow camera push in"
+   },
+   {
+    "name": "south",
+    "at": "American#1",
+    "prompt": "wide shot of a dusty 1910s Southern farm with a small wooden shack and dry fields under a hot sun",
+    "check": "Is there a wooden shack by a field?",
+    "move": "right"
+   },
+   {
+    "name": "cases",
+    "at": "1912#1",
+    "prompt": "wide shot of a long 1910s hospital ward full of iron beds with sick patients, hot afternoon light through tall windows",
+    "check": "Is there a long ward with many beds?",
+    "move": "push",
+    "hit": "cases#1"
+   },
+   {
+    "name": "germ",
+    "at": "Most#1",
+    "prompt": "medium shot, three doctors in dark suits peering into microscopes on a long laboratory bench, 1910s lab, bright window light",
+    "check": "Are men looking into microscopes?",
+    "clip": true,
+    "motion": "one doctor turns the microscope knob, slow camera push in"
+   },
+   {
+    "name": "noticed",
+    "at": "Joseph#1",
+    "who": "goldberger",
+    "prompt": "medium close-up, a doctor standing with folded arms and watching a hospital ward closely, he is {goldberger}, 1910s Southern hospital, hot light",
+    "check": "Is a man standing with folded arms?",
+    "clip": true,
+    "motion": "he narrows his eyes and tilts his head, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "staff",
+    "at": "Hospital#1",
+    "prompt": "medium shot, a healthy smiling nurse in a white apron carrying a tray of bowls between hospital beds, 1910s ward, warm light",
+    "check": "Is a nurse carrying a tray?",
+    "clip": true,
+    "motion": "she walks a step and smiles at a patient, slow camera push in"
+   },
+   {
+    "name": "orderly",
+    "at": "never#1",
+    "prompt": "medium shot, a strong healthy orderly in a white jacket mopping a hospital floor and whistling, 1910s ward, warm light",
+    "check": "Is a man mopping a floor?",
+    "clip": true,
+    "motion": "he pushes the mop across the floor, slow camera push in"
+   },
+   {
+    "name": "corn",
+    "at": "poor#1",
+    "prompt": "close-up, a thin woman stirring a pot of yellow cornmeal mush over an open fire, inside a 1910s wooden shack, smoky light",
+    "check": "Is a woman stirring a pot?",
+    "clip": true,
+    "motion": "she stirs the thick mush slowly, slow camera push in"
+   },
+   {
+    "name": "orphanage",
+    "at": "two#1",
+    "prompt": "wide shot of a big white wooden orphanage with a long porch and children playing in the yard, 1910s, sunny day",
+    "check": "Is this a large wooden house?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "food",
+    "at": "fresh#1",
+    "prompt": "close-up, hands setting plates of meat, eggs and green vegetables on a long wooden table beside a jug of milk, 1910s dining hall, bright light",
+    "check": "Are there plates of food on a table?",
+    "clip": true,
+    "motion": "the hands set down a plate of eggs, slow camera push in"
+   },
+   {
+    "name": "orphan",
+    "at": "orphans#1",
+    "who": "orphan",
+    "prompt": "medium shot, a smiling girl drinking from a glass of milk at a long wooden table, she is {orphan}, 1910s orphanage dining hall, sunny window",
+    "check": "Is a girl drinking milk?",
+    "clip": true,
+    "motion": "she drinks and smiles, slow camera push in"
+   },
+   {
+    "name": "prison",
+    "at": "fed#1",
+    "who": "prisoner",
+    "prompt": "medium shot, a prisoner eating plain yellow corn mush from a tin bowl, he is {prisoner}, a bare 1910s prison farm mess hall, harsh light",
+    "check": "Is a man eating from a bowl?",
+    "clip": true,
+    "motion": "he lifts the spoon slowly to his mouth, slow camera push in"
+   },
+   {
+    "name": "weak",
+    "at": "six#1",
+    "who": "prisoner",
+    "prompt": "close-up, a weak man lying on a prison cot with a red rash on his hands, he is {prisoner}, 1910s prison barracks, dim light",
+    "check": "Is a man lying on a cot?",
+    "clip": true,
+    "motion": "he breathes slowly and lifts a shaking hand, slow camera push in",
+    "hit": "pellagra#4"
+   },
+   {
+    "name": "critic",
+    "at": "critics#1",
+    "who": "critic",
+    "prompt": "medium shot, a stout old doctor shaking his head and pushing a report back across a desk, he is {critic}, 1910s office, lamp light",
+    "check": "Is a man shaking his head?",
+    "clip": true,
+    "motion": "he shakes his head and pushes the paper away, slow camera push in"
+   },
+   {
+    "name": "dizzy",
+    "at": "You#1",
+    "prompt": "medium shot, a tired farm worker holding his head and leaning on a wooden fence at noon, hot sun, 1910s",
+    "check": "Is a man holding his head?",
+    "clip": true,
+    "motion": "he sways slightly and closes his eyes, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "scope",
+    "at": "No#1",
+    "prompt": "close-up of a brass microscope standing alone on an empty laboratory table, soft window light",
+    "check": "Is there a microscope?",
+    "move": "push"
+   },
+   {
+    "name": "plate",
+    "at": "empty#1",
+    "prompt": "close-up of an empty white enamel plate and a spoon on a rough wooden table, warm light",
+    "check": "Is there an empty plate?",
+    "move": "pull",
+    "hit": "plate#1"
+   },
+   {
+    "name": "syringe",
+    "at": "So#1",
+    "who": "goldberger",
+    "prompt": "close-up, a doctor holding up a glass syringe filled with dark red blood and staring at it, he is {goldberger}, 1910s clinic, cold light",
+    "check": "Is a man holding up a syringe?",
+    "clip": true,
+    "motion": "he tilts the syringe toward the light, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "party",
+    "at": "At#2",
+    "prompt": "medium shot, a row of men in white shirts rolling up their sleeves in a plain 1910s clinic room, cold window light",
+    "check": "Are men rolling up their sleeves?",
+    "clip": true,
+    "motion": "they roll their sleeves up, slow camera push in",
+    "hit": "filth#1"
+   },
+   {
+    "name": "inject",
+    "at": "volunteers#1",
+    "prompt": "extreme close-up of a glass syringe needle going into a man's forearm, a thumb pressing the plunger, cold light",
+    "check": "Is a needle going into an arm?",
+    "clip": true,
+    "motion": "the thumb presses the plunger down, slow camera push in"
+   },
+   {
+    "name": "stomach",
+    "at": "They#2",
+    "prompt": "medium shot, a pale man in a white shirt clutching his stomach and bending over a basin, 1910s clinic washroom, cold light",
+    "check": "Is a man holding his stomach?",
+    "clip": true,
+    "motion": "he bends forward and breathes hard, slow camera push in"
+   },
+   {
+    "name": "relief",
+    "at": "not#1",
+    "who": "goldberger",
+    "prompt": "medium close-up, a doctor smiling with relief while reading a paper chart, he is {goldberger}, 1910s office, warm lamp light",
+    "check": "Is a man smiling while reading?",
+    "clip": true,
+    "motion": "he lowers the chart and smiles, slow camera push in",
+    "hit": "not#1"
+   },
+   {
+    "name": "laugh",
+    "at": "Critics#2",
+    "prompt": "medium shot, stern older doctors in dark suits laughing and waving a paper away, a smoky 1910s meeting room",
+    "check": "Are men in suits laughing?",
+    "clip": true,
+    "motion": "they laugh and one waves the paper, slow camera push in"
+   },
+   {
+    "name": "men",
+    "at": "almost#2",
+    "prompt": "medium shot, a line of men in white shirts standing against a clinic wall with their sleeves rolled up, 1910s, cold light",
+    "check": "Are men standing in a line?",
+    "move": "left"
+   },
+   {
+    "name": "empty",
+    "at": "Goldberger#4",
+    "prompt": "close-up of an empty leather chair at a wooden desk with a closed notebook and round glasses on it, 1920s office, fading evening light",
+    "check": "Is there an empty chair at a desk?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "lab",
+    "at": "1937#1",
+    "who": "chemist",
+    "prompt": "medium shot, a scientist in a white lab coat holding up a small glass bottle of white powder, he is {chemist}, 1930s laboratory, bright window light",
+    "check": "Is a man holding up a small bottle?",
+    "clip": true,
+    "motion": "he raises the bottle to the light, slow camera push in"
+   },
+   {
+    "name": "niacin",
+    "at": "vitamin#1",
+    "prompt": "close-up of a small glass bottle of white powder beside a bowl of eggs and green vegetables on a lab bench, bright light",
+    "check": "Is there a small glass bottle?",
+    "move": "push"
+   }
+  ]
+ }
+}
