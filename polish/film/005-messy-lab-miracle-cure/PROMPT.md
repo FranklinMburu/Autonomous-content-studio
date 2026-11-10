@@ -80,213 +80,206 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: medium close-up, {lister} pressing white cloth towels into a glass dis | close-up, {boy} resting his head on a flat white pillow, looking scare | low angle medium shot, {patient} sitting nervously on a tall wooden op | wide shot of a large grey Victorian stone hospital building with tall  | medium close-up, {patient} lying weakly in an iron hospital bed under  | extreme close-up of an open inflamed wound on a pale forearm leaking t | medium shot, {lister} standing in a dim surgical theatre gripping a lo | medium shot, {boy} standing just inside a Victorian hospital doorway,  | extreme close-up of two surgeon's hands holding a boy's broken lower l | medium shot, carefully adjusting the broken leg of {boy} on a wooden c | close-up of hands pouring clear carbolic liquid from a glass bottle on | medium shot, wrapping a shiny sheet of tin foil over a bound leg, {lis
 - 004-why-john-snow-removed-a-london-pump-hand: cast snow = a 41 year old English doctor with short dark wavy hair, a clean shaven narrow face, thin lips, deep-set grey eyes, a black frock coat, a grey waistcoat, a white high collar and a black necktie, 1850s; whitehead = a 28 year old English vicar with fair curly hair, a round friendly face, rosy cheeks, a black clerical coat and a white clerical collar, 1850s; simon = a 38 year old London health official with a neat full black beard, a high bald forehead, a brown overcoat with a fur collar and a grey top hat, 1850s; mother = a 30 year old poor London woman with red hair tied under a white cotton cap, a faded blue cotton dress and a brown wool shawl, 1850s; brewer = a burly 50 year old brewery worker with a thick ginger beard, a flat cloth cap, rolled-up shirt sleeves and a grey canvas apron, 1850s
   scenes: medium shot, two men in black top hats pulling the long iron handle of | medium close-up, a doctor pointing firmly at an iron street water pump | wide shot of a crowded narrow 1850s London street with laundry hanging | close-up, a pale sweating man lying sick on a straw mattress in a dark | high angle, men carrying plain wooden coffins out of narrow brick hous | medium shot, three doctors in black coats pressing white handkerchiefs | wide shot, thick greenish yellow fog drifting over a rubbish-strewn mu | medium shot, a bearded official shaking his head while reading a lette | close-up, a doctor frowning as he reads a letter by a rainy window, he | medium shot, {snow} and {whitehead} knocking on the wooden door of a n | medium close-up, a crying woman in a doorway answering questions, she  | extreme close-up, a hand with a quill pen marking small black dots on 
+- 005-why-barry-marshall-swallowed-bacteria: cast marshall = a 33 year old Australian doctor, lean build, curly dark brown hair, a full dark brown beard, brown eyes, thin wire-rimmed glasses, a white short-sleeved shirt under a pale blue lab coat and khaki trousers, 1980s; warren = a 46 year old Australian pathologist with short receding grey hair, a clean-shaven square face, heavy black-framed glasses, a white lab coat over a brown checked shirt, 1980s; skeptic = a 48 year old British gastroenterologist, stocky build, balding with short grey hair at the sides, heavy dark eyebrows, clean shaven, a charcoal grey suit jacket, a burgundy patterned tie and white shirt, 1980s; nurse = a 35 year old nurse, sturdy build, dark brown hair in a ponytail, teal scrubs, 1980s; wife = a 32 year old woman with shoulder-length wavy blond hair, a sun-tanned face and a yellow sleeveless summer dress, 1980s
+  scenes: close-up, a bearded doctor drinking cloudy brown liquid from a glass b | medium close-up, a doctor wincing and pressing a hand on his stomach,  | medium shot, a stressed businessman in a brown suit clutching his stom | close-up of a plate of bright red chilli peppers next to a bowl of spi | wide shot of a sunny 1980s Australian city hospital with palm trees in | medium shot, a pathologist looking into a microscope, he is {warren},  | medium shot, a balding doctor laughing and shaking his head at a meeti | extreme close-up of clear liquid bubbling in a glass beaker on a lab b | close-up, a hand dropping a stapled paper into a metal wastebasket, 19 | medium close-up, a doctor reading a letter and slumping back in his ch | medium shot, pink piglets sniffing around a clean straw pen, bright da | close-up, a doctor rolling up his sleeves with a determined face, he i
 
 PROBLEMS FOUND BY THE CHECKS
-- script: not supported by the sources, fix or remove: Fleming shoved a greasy petri dish into his pocket, hoping to keep it safe.
-- script: not supported by the sources, fix or remove: He feared a clean lab would wash away his accidental experiment.
-- script: not supported by the sources, fix or remove: His colleagues snorted, calling him a sloppy scientist.
-- script: not supported by the sources, fix or remove: They warned his mess would ruin any real discovery.
-- script: not supported by the sources, fix or remove: Some even suggested he quit research altogether.
-- script: not supported by the sources, fix or remove: That mess became the miracle that saved millions.
-- film.json is missing: write it
+- shot suitcase: 3.7 s on screen (max 3.2; split it)
+- shot nobel: 3.7 s on screen (max 3.2; split it)
+- script: not supported by the sources: For months, Fleming called it mould juice.
+- script: not supported by the sources: In 1929, he presented it to fellow scientists. His talk got no particular attention.
 
 DRAFT SCRIPT
-{"title": "Messy Lab, Miracle Cure", "beats": [{"lines": ["Fleming shoved a greasy petri dish into his pocket, hoping to keep it safe.", "He feared a clean lab would wash away his accidental experiment."], "feel": "curiosity"}, {"lines": ["His colleagues snorted, calling him a sloppy scientist.", "They warned his mess would ruin any real discovery.", "Some even suggested he quit research altogether."], "feel": "sympathy"}, {"lines": ["He left the dishes on a dusty bench while on holiday.", "When he returned, a blue‑green mold had taken over one plate.", "The bacteria right around the mold vanished like magic.", "Fleming stared, thinking it was just a strange contamination.", "He quickly set up a new experiment to test the zone."], "feel": "dread"}, {"lines": ["You see, it’s like finding a clean spot on a dirty kitchen floor – the clean area stands out instantly."], "feel": "recognition"}, {"lines": ["The mold was Penicillium rubens, which released a substance that kills bacteria.", "That substance, penicillin, proved powerful and barely toxic to humans.", "Fleming published the finding in 1929, coining the name penicillin.", "He imagined it could be a safe antiseptic for wounds."], "feel": "awe"}, {"lines": ["Ironically, his untidy habit kept the mold alive long enough for the world to discover antibiotics.", "That mess became the miracle that saved millions."], "feel": "surprise"}]}
+{"title": "Messy Lab, Miracle Cure", "beats": [{"feel": "curiosity", "lines": ["A scientist came back from holiday to find mould on his germs.", "It was September 1928, and his name was Alexander Fleming."]}, {"feel": "intrigue", "lines": ["Before leaving, he had spread germs called staphylococci on culture plates.", "He left them on a bench in a corner of his lab."]}, {"feel": "surprise", "lines": ["On one plate, a mould had moved in.", "Right around the mould, the germs were destroyed.", "Farther away, they grew as normal."]}, {"feel": "recognition", "lines": ["You see, it's like the dry ring under an umbrella in the rain.", "Something was keeping the germs away."]}, {"feel": "wonder", "lines": ["The mould was making its own germ killer.", "For months, Fleming called it mould juice.", "Then he named it penicillin."]}, {"feel": "frustration", "lines": ["In 1929, he presented it to fellow scientists.", "His talk got no particular attention."]}, {"feel": "hope", "lines": ["Years later, Ernst Chain and Howard Florey's team in Oxford turned it into a drug.", "By D-Day in 1944, there was enough penicillin to treat all the wounded Allied troops."]}, {"feel": "irony", "lines": ["When Chain heard Fleming was coming to visit, he was stunned.", "He had thought Fleming was dead.", "In 1945, all three shared the Nobel Prize."]}]}
 CLAIMS IN THE DRAFT
-- {'claim': 'Fleming left staphylococci cultures on a bench; a contaminating Penicillium killed the bacteria around it.', 'url': 'https://en.wikipedia.org/wiki/Alexander_Fleming'}
-- {'claim': 'The contaminating fungus was identified as Penicillium rubens (originally misidentified as P. rubrum).', 'url': 'https://doi.org/10.5598/imafungus.2011.02.01.12'}
-- {'claim': 'Fleming named the antibacterial substance penicillin and noted its high potency and low toxicity.', 'url': 'https://en.wikipedia.org/wiki/Penicillin'}
+- {'claim': 'On 3 September 1928 Fleming returned from a holiday and found one culture contaminated with a fungus.', 'url': 'https://en.wikipedia.org/wiki/Alexander_Fleming'}
+- {'claim': 'Before his holiday he inoculated staphylococci on culture plates and left them on a bench in a corner of his laboratory.', 'url': 'https://en.wikipedia.org/wiki/Alexander_Fleming'}
+- {'claim': 'Colonies immediately around the fungus were destroyed, while colonies farther away were normal.', 'url': 'https://en.wikipedia.org/wiki/Alexander_Fleming'}
+- {'claim': 'For some months he called it mould juice, then named it penicillin in 1929.', 'url': 'https://en.wikipedia.org/wiki/Alexander_Fleming'}
+- {'claim': 'He presented the discovery on 13 February 1929 to the Medical Research Club; the talk received no particular attention.', 'url': 'https://en.wikipedia.org/wiki/Alexander_Fleming'}
+- {'claim': "Ernst Chain and Howard Florey's Oxford team developed penicillin; by D-Day in 1944 enough had been produced to treat all the wounded Allied troops.", 'url': 'https://en.wikipedia.org/wiki/Alexander_Fleming'}
+- {'claim': 'When Chain heard Fleming was coming he remarked that he thought Fleming was dead.', 'url': 'https://en.wikipedia.org/wiki/Alexander_Fleming'}
+- {'claim': 'Fleming shared the 1945 Nobel Prize with Howard Florey and Ernst Chain.', 'url': 'https://en.wikipedia.org/wiki/Alexander_Fleming'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
-0.12s Fleming#1
-0.44s shoved#1
-0.64s a#1
-0.74s greasy#1
-1.12s petri#1
-1.42s dish#1
-1.62s into#1
-1.77s his#1
-1.89s pocket#1
-2.47s hoping#1
-2.72s to#1
-2.79s keep#1
-2.94s it#1
-3.04s safe#1
-3.63s He#1
-3.78s feared#1
-3.98s a#2
-4.05s clean#1
-4.33s lab#1
-4.65s would#1
-4.78s wash#1
-5.00s away#1
-5.28s his#2
-5.45s accidental#1
-5.85s experiment#1
-6.77s His#3
-6.89s colleagues#1
-7.25s snorted#1
-7.88s calling#1
-8.11s him#1
-8.23s a#3
-8.34s sloppy#1
-8.66s scientist#1
-9.51s They#1
-9.63s warned#1
-9.86s his#4
-9.98s mess#1
-10.21s would#2
-10.36s ruin#1
-10.63s any#1
-10.88s real#1
-11.08s discovery#1
-11.91s Some#1
-12.04s even#1
-12.24s suggested#1
-12.89s he#2
-13.01s quit#1
-13.19s research#1
-13.56s altogether#1
-14.52s He#3
-14.62s left#1
-14.77s the#1
-14.87s dishes#1
-15.32s on#1
-15.42s a#4
-15.49s dusty#1
-15.79s bench#1
-16.04s while#1
-16.19s on#2
-16.32s holiday#1
-17.07s When#1
-17.20s he#4
-17.30s returned#1
-18.06s a#5
-18.14s blue‑green#1
-18.61s mold#1
-18.84s had#1
-18.96s taken#1
-19.16s over#1
-19.34s one#1
-19.49s plate#1
-20.07s The#2
-20.15s bacteria#1
-20.62s right#1
-20.77s around#1
-21.02s the#3
-21.10s mold#2
-21.60s vanished#1
-21.90s like#1
-22.07s magic#1
-22.87s Fleming#2
-23.14s stared#1
-23.74s thinking#1
-23.97s it#2
-24.04s was#1
-24.14s just#1
-24.32s a#6
-24.39s strange#1
-24.79s contamination#1
-25.76s He#5
-25.86s quickly#1
-26.16s set#1
-26.28s up#1
-26.41s a#7
-26.48s new#1
-26.61s experiment#2
-26.98s to#2
-27.08s test#1
-27.28s the#4
-27.38s zone#1
-28.20s You#1
-28.35s see#1
-28.65s it’s#1
-28.75s like#2
-28.93s finding#1
-29.18s a#8
-29.25s clean#2
-29.50s spot#1
-29.78s on#3
-29.88s a#9
-29.95s dirty#1
-30.23s kitchen#1
-30.48s floor#1
-30.89s –#1
-31.05s the#5
-31.15s clean#3
-31.40s area#1
-31.68s stands#1
-31.90s out#1
-32.08s instantly#1
-32.99s The#6
-33.09s mold#3
-33.39s was#2
-33.54s Penicillium#1
-33.99s rubens#1
-34.74s which#1
-34.89s released#1
-35.14s a#10
-35.24s substance#1
-35.62s that#1
-35.77s kills#1
-36.04s bacteria#2
-36.91s That#2
-37.06s substance#2
-37.52s penicillin#1
-38.28s proved#1
-38.50s powerful#1
-38.95s and#1
-39.08s barely#1
-39.33s toxic#1
-39.65s to#3
-39.75s humans#1
-40.52s Fleming#3
-40.79s published#1
-41.02s the#7
-41.12s finding#2
-41.44s in#1
-41.52s 1929#1
-42.67s coining#1
-42.92s the#8
-42.99s name#1
-43.24s penicillin#2
-44.07s He#6
-44.17s imagined#1
-44.60s it#3
-44.67s could#1
-44.77s be#1
-44.87s a#11
-44.97s safe#2
-45.20s antiseptic#1
-45.65s for#1
-45.80s wounds#1
-46.67s Ironically#1
-47.45s his#5
-47.62s untidy#1
-48.05s habit#1
-48.32s kept#1
-48.47s the#9
-48.57s mold#4
-48.85s alive#1
-49.22s long#1
-49.37s enough#1
-49.55s for#2
-49.70s the#10
-49.77s world#1
-50.00s to#4
-50.07s discover#1
-50.40s antibiotics#1
-51.49s That#3
-51.61s mess#2
-51.81s became#1
-52.04s the#11
-52.14s miracle#1
-52.49s that#4
-52.61s saved#1
-52.86s millions#1
+0.10s A#1
+0.20s scientist#1
+0.62s came#1
+0.77s back#1
+0.92s from#1
+1.07s holiday#1
+1.67s to#1
+1.75s find#1
+1.97s mould#1
+2.25s on#1
+2.35s his#1
+2.47s germs#1
+3.30s It#1
+3.38s was#1
+3.50s September#1
+3.85s 1928#1
+5.09s and#1
+5.19s his#2
+5.32s name#1
+5.57s was#2
+5.71s Alexander#1
+6.24s Fleming#1
+7.04s Before#1
+7.27s leaving#1
+7.79s he#1
+7.89s had#1
+7.99s spread#1
+8.22s germs#2
+8.54s called#1
+8.74s staphylococci#1
+9.44s on#2
+9.57s culture#1
+9.84s plates#1
+10.54s He#2
+10.64s left#1
+10.82s them#1
+10.94s on#3
+11.04s a#2
+11.12s bench#1
+11.47s in#1
+11.54s a#3
+11.62s corner#1
+11.89s of#1
+11.97s his#3
+12.09s lab#1
+12.95s On#4
+13.07s one#1
+13.22s plate#1
+13.68s a#4
+13.76s mould#2
+13.98s had#2
+14.08s moved#1
+14.30s in#2
+14.95s Right#1
+15.10s around#1
+15.35s the#1
+15.42s mould#3
+15.89s the#2
+15.99s germs#3
+16.27s were#1
+16.37s destroyed#1
+17.29s Farther#1
+17.54s away#1
+17.91s they#1
+18.04s grew#1
+18.19s as#1
+18.29s normal#1
+19.08s You#1
+19.23s see#1
+19.54s it's#1
+19.64s like#1
+19.79s the#3
+19.89s dry#1
+20.19s ring#1
+20.39s under#1
+20.57s an#1
+20.67s umbrella#1
+21.04s in#3
+21.09s the#4
+21.19s rain#1
+21.93s Something#1
+22.18s was#3
+22.30s keeping#1
+22.53s the#5
+22.63s germs#4
+22.88s away#2
+23.68s The#6
+23.78s mould#4
+24.08s was#4
+24.18s making#1
+24.41s its#1
+24.53s own#1
+24.78s germ#1
+25.03s killer#1
+25.68s For#1
+25.83s months#1
+26.21s Fleming#2
+26.43s called#2
+26.61s it#2
+26.68s mould#5
+26.88s juice#1
+27.65s Then#1
+27.77s he#3
+27.87s named#1
+28.05s it#3
+28.15s penicillin#1
+29.17s In#4
+29.25s 1929#1
+30.35s he#4
+30.45s presented#1
+30.75s it#4
+30.82s to#2
+30.92s fellow#1
+31.17s scientists#1
+32.12s His#4
+32.25s talk#1
+32.48s got#1
+32.67s no#1
+32.85s particular#1
+33.20s attention#1
+34.08s Years#1
+34.28s later#1
+34.68s Ernst#1
+34.88s Chain#1
+35.13s and#2
+35.26s Howard#1
+35.53s Florey's#1
+35.86s team#1
+36.06s in#5
+36.16s Oxford#1
+36.71s turned#1
+36.88s it#5
+36.96s into#1
+37.13s a#5
+37.21s drug#1
+37.84s By#1
+38.02s D-Day#1
+38.30s in#6
+38.37s 1944#1
+38.70s there#1
+39.57s was#5
+39.77s enough#1
+39.97s penicillin#2
+40.37s to#3
+40.47s treat#1
+40.74s all#1
+40.95s the#7
+41.07s wounded#1
+41.37s Allied#1
+41.70s troops#1
+42.55s When#1
+42.70s Chain#2
+42.93s heard#1
+43.15s Fleming#3
+43.40s was#6
+43.50s coming#1
+43.70s to#4
+43.78s visit#1
+44.28s he#5
+44.38s was#7
+44.50s stunned#1
+45.23s He#6
+45.34s had#3
+45.46s thought#1
+45.66s Fleming#4
+45.91s was#8
+46.06s dead#1
+46.69s In#7
+46.77s 1945#1
+47.89s all#2
+48.12s three#1
+48.37s shared#1
+48.54s the#8
+48.62s Nobel#1
+48.89s Prize#1
 
 DRAFT film.json
-(none yet)
+{"era": "1920s", "cast": {"fleming": "a 47 year old Scottish scientist with short grey-brown hair, pale blue eyes, a slightly flattened nose, a grey tweed suit and a dark blue bow tie, 1920s", "chain": "a 34 year old scientist with a thick black moustache, wild dark wavy hair and a white lab coat over a dark waistcoat, 1940s"}, "key_words": ["holiday", "mould", "1928", "Alexander Fleming", "staphylococci", "bench", "destroyed", "umbrella", "germ killer", "mould juice", "penicillin", "no attention", "Oxford", "D-Day", "dead", "Nobel Prize"], "music": "curious", "shots": [{"name": "hook", "at": 0, "who": "fleming", "prompt": "close-up, a scientist holding up a glass petri dish and peering at a patch of mould on it, he is {fleming}, cluttered 1920s laboratory, window light", "check": "Is a man holding up a petri dish?", "clip": true, "motion": "he tilts the dish and frowns, slow camera push in"}, {"name": "spot", "at": "mould#1", "prompt": "extreme close-up of a glass petri dish with a fuzzy blue-green mould spot among small golden dots, window light", "check": "Is there mould in a petri dish?", "move": "push"}, {"name": "suitcase", "at": "It#1", "who": "fleming", "prompt": "medium shot, a man setting down a leather suitcase in a laboratory doorway, he is {fleming}, 1920s, morning light", "check": "Is a man putting down a suitcase?", "clip": true, "motion": "he sets the suitcase down and looks around, slow camera push in"}, {"name": "streak", "at": "Before#1", "prompt": "close-up, a hand streaking a thin wire loop across yellow jelly in a petri dish, 1920s laboratory, lamp light", "check": "Is a hand moving a wire over a dish?", "clip": true, "motion": "the wire loop glides across the jelly, slow camera push in", "xfade": true}, {"name": "dots", "at": "staphylococci#1", "prompt": "extreme close-up of tiny golden dots of bacteria growing on yellow jelly in a petri dish", "check": "Are there golden dots on jelly?", "move": "push"}, {"name": "bench", "at": "He#2", "prompt": "wide shot of a cluttered laboratory corner bench stacked with glass dishes and bottles, dusty window light, 1920s", "check": "Is there a cluttered bench?", "move": "left"}, {"name": "leave", "at": "corner#1", "who": "fleming", "prompt": "medium shot, a scientist in a tweed suit closing a laboratory door behind him, he is {fleming}, 1920s, evening light", "check": "Is a man closing a door?", "clip": true, "motion": "he pulls the door shut, slow camera push in"}, {"name": "mould", "at": "On#4", "prompt": "extreme close-up of a petri dish with a large blue-green mould patch on yellow jelly", "check": "Is there a large mould patch?", "move": "push"}, {"name": "ring", "at": "Right#1", "prompt": "extreme close-up of a petri dish with a clear empty ring around a blue-green mould patch and golden dots farther out", "check": "Is there mould in a petri dish?", "move": "push", "hit": "destroyed#1"}, {"name": "lens", "at": "Farther#1", "who": "fleming", "prompt": "close-up, a scientist leaning in with a magnifying glass over a petri dish, he is {fleming}, 1920s laboratory, window light", "check": "Is a man holding a magnifying glass?", "clip": true, "motion": "he moves the magnifying glass slowly, slow camera push in"}, {"name": "umbrella", "at": "You#1", "prompt": "wide shot, a person under a black umbrella in heavy rain on a 1920s London pavement", "check": "Is a person holding an umbrella in the rain?", "clip": true, "motion": "rain pours around the umbrella, slow camera push in", "xfade": true}, {"name": "dry", "at": "dry#1", "prompt": "close-up of a dry patch of pavement under the edge of a black umbrella with raindrops splashing all around", "check": "Is there rain falling around an umbrella?", "move": "push"}, {"name": "eyes", "at": "Something#1", "who": "fleming", "prompt": "close-up, a scientist's eyes widening as he stares at a petri dish, he is {fleming}, 1920s laboratory", "check": "Is a man staring at a dish?", "clip": true, "motion": "his eyes widen slowly, slow camera push in"}, {"name": "pipette", "at": "The#6", "prompt": "close-up, a hand dripping liquid from a glass pipette onto a petri dish, 1920s laboratory, window light", "check": "Is a pipette dripping onto a dish?", "clip": true, "motion": "a drop falls from the pipette, slow camera push in"}, {"name": "flask", "at": "For#1", "who": "fleming", "prompt": "medium shot, a scientist pouring yellow liquid from a glass flask into test tubes, he is {fleming}, 1920s laboratory", "check": "Is a man pouring from a flask?", "clip": true, "motion": "the yellow liquid pours into a tube, slow camera push in"}, {"name": "bottle", "at": "Then#1", "prompt": "close-up of a small glass bottle of clear yellow liquid on a lab bench by a window", "check": "Is there a small glass bottle?", "move": "push"}, {"name": "talk", "at": "In#4", "who": "fleming", "prompt": "medium shot, a scientist speaking at a wooden lectern to a small room of seated men in suits, he is {fleming}, 1920s", "check": "Is a man speaking at a lectern?", "clip": true, "motion": "he gestures as he speaks, slow camera push in"}, {"name": "bored", "at": "His#4", "prompt": "medium shot, men in suits yawning and looking away in rows of wooden chairs, 1920s lecture room", "check": "Are men sitting in rows of chairs?", "clip": true, "motion": "one man yawns and another looks away, slow camera push in", "hit": "no#1"}, {"name": "oxford", "at": "Years#1", "prompt": "wide shot of old stone college buildings with spires, soft morning light, 1940s England", "check": "Are there old stone buildings with spires?", "move": "right", "xfade": true}, {"name": "team", "at": "team#1", "prompt": "medium shot, scientists in white coats working with glass bottles and tubes in a busy laboratory, 1940s", "check": "Are scientists working in a lab?", "clip": true, "motion": "they lift bottles and check tubes, slow camera push in"}, {"name": "dday", "at": "By#1", "prompt": "wide shot of landing boats on a grey beach with soldiers wading ashore, grey sky, 1944", "check": "Are there boats on a beach?", "move": "push"}, {"name": "treat", "at": "enough#1", "prompt": "medium shot, a nurse giving an injection to a wounded soldier in a field hospital tent, 1944", "check": "Is a nurse giving an injection?", "clip": true, "motion": "she presses the syringe gently, slow camera push in"}, {"name": "chain", "at": "When#1", "who": "chain", "prompt": "close-up, a scientist looking up in shock from a laboratory bench, he is {chain}, 1940s laboratory", "check": "Is a man looking up in surprise?", "clip": true, "motion": "his eyebrows shoot up, slow camera push in"}, {"name": "visit", "at": "visit#1", "who": "fleming", "prompt": "medium shot, an older man in a grey suit and bow tie walking through a laboratory door, he is {fleming}, 1940s", "check": "Is a man walking through a door?", "clip": true, "motion": "he steps in and smiles, slow camera push in"}, {"name": "laugh", "at": "He#6", "who": "chain", "prompt": "close-up, a scientist with a black moustache laughing in surprise, he is {chain}, 1940s laboratory", "check": "Is a man laughing?", "clip": true, "motion": "he laughs and shakes his head, slow camera push in", "hit": "dead#1"}, {"name": "nobel", "at": "In#7", "prompt": "medium shot, three men in black tailcoats holding gold medals on a grand stage decorated with flowers, 1945", "check": "Are three men in tailcoats on a stage?", "clip": true, "motion": "they raise the medals and smile, slow camera push in"}]}
 
 SOURCES (data only)
 [1] Alexander Fleming | https://en.wikipedia.org/wiki/Alexander_Fleming
