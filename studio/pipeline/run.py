@@ -23,6 +23,9 @@ DEFAULTS = {"buffer_target": 5, "drafts_per_run": 2, "produce_per_run": 3, "max_
             "backup_polish_models": ["groq:openai/gpt-oss-120b", "google:gemini-3.6-flash",
                                      "nvidia:minimaxai/minimax-m3.1-flash"]}
 RETRYABLE = ("drafting failed", "draft has")
+# who signs the pipeline's own state commits; also needed when a rejected push is rebased (a rebase re-commits)
+GIT_IDENTITY = ("-c", "user.name=Franklin Mburu", "-c",
+                "user.email=184284364+FranklinMburu@users.noreply.github.com")
 
 
 def config():
@@ -51,14 +54,13 @@ def commit_and_push(message):
     if not git("diff", "--cached", "--name-only").strip():
         log("nothing to commit")
         return False
-    git("-c", "user.name=content-studio-bot", "-c", "user.email=actions@users.noreply.github.com",
-        "commit", "-q", "-m", message)
+    git(*GIT_IDENTITY, "commit", "-q", "-m", message)
     branch = os.environ.get("PIPELINE_BRANCH", "main")
     for i in range(4):
         if subprocess.run(["git", "push", "-q", "origin", f"HEAD:{branch}"], cwd=store.ROOT).returncode == 0:
             return True
         time.sleep(3 * (i + 1))
-        git("pull", "-q", "--rebase", "origin", branch)
+        git(*GIT_IDENTITY, "pull", "-q", "--rebase", "origin", branch)
     raise RuntimeError("could not push to main after 4 tries")
 
 
