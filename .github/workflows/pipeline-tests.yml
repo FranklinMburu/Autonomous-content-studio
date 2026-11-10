@@ -2,6 +2,7 @@ name: "Pipeline tests"
 # Offline tests on every push: no keys, no network, no quota.
 on:
   push:
+    branches: [main]   # pull requests are tested by the pull_request trigger (no duplicate run per push)
   pull_request:
 permissions:
   contents: read
@@ -16,9 +17,13 @@ jobs:
           python-version: "3.12"
       - run: python tests/test_pipeline.py
       - run: python tests/test_pipeline_fixes.py
+      - run: python tests/test_git_identity.py
       - name: Story style tests
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq libcairo2-dev pkg-config ffmpeg > /dev/null
+          # fast install: skip man-page indexing and service-restart checks (they made this step hang for 10 min)
+          sudo rm -f /var/lib/man-db/auto-update; echo '$nrconf{restart} = "l";' | sudo tee /etc/needrestart/conf.d/ci.conf > /dev/null 2>&1 || true
+          # a slow Ubuntu mirror can stall apt: give it 3 minutes, then try once more instead of hanging to the limit
+          for i in 1 2; do timeout 180 sh -c 'sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends libcairo2-dev pkg-config ffmpeg > /dev/null' && break; echo "apt try $i was slow, retrying"; done
           pip install -q pycairo numpy pyflakes
           python tests/test_story.py
           python tests/test_story_writer.py

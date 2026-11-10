@@ -31,7 +31,7 @@ When Franklin says "check my work", "get in sync", "catch up" or similar, do exa
   If data is missing, show "—" or an honest empty state.
 - **Run the tests** after any change; all must pass:
   `python tests/test_story.py`, `python tests/test_story_writer.py`, `python tests/test_workflows.py`,
-  `python tests/test_pipeline.py`, `python tests/test_pipeline_fixes.py`; for the website:
+  `python tests/test_pipeline.py`, `python tests/test_pipeline_fixes.py`, `python tests/test_git_identity.py`; for the website:
   `cd web && npm ci && npx tsc --noEmit && npx vite build`.
 - **Deliver as a pull request** into `main` from a new branch, with a description that says: the cause (with
   evidence), the fix, the checks you ran, and anything Franklin must click after merging. Franklin merges.
