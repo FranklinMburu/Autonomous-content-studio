@@ -1,0 +1,127 @@
+name: Make a motion video (Tech Education)
+
+# The motion engine (studio/motion, docs/MOTION_ENGINE.md): real-looking software in a moving 3D world.
+# Separate from every Hidden Reasons workflow: its own concurrency group, no Kaggle GPU, no channel memory, no schedule.
+# Runs only when started by hand (Actions -> this workflow -> Run workflow). Free on GitHub for public repositories.
+on:
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "NEW video: a topic, and the AI writes the script + visual plan (e.g. What is a database?)"
+        required: false
+        default: ""
+      episode:
+        description: "OR an existing episode folder (default: the approved API episode)"
+        required: false
+        default: "episodes/tech_education/001-what-is-an-api"
+
+permissions:
+  contents: write   # publish the finished video as a GitHub Release
+  issues: write     # a "Review needed" issue when a check fails
+
+concurrency:
+  group: make-motion        # never shares a queue with make-story / film-queue / the story schedule
+  cancel-in-progress: false
+
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150    # writing (<45 min) + about 15-25 min of frames + mixing
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: studio/motion/package-lock.json
+
+      # The brain (private repo FranklinMburu/AI-layer), only needed when the AI writes a new episode.
+      - name: Get the brain
+        if: github.event.inputs.topic != ''
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: FranklinMburu/AI-layer
+          ssh-key: ${{ secrets.AILAYER_DEPLOY_KEY }}
+          path: .brain
+          persist-credentials: false
+
+      - name: Voice model cache (shared with the story workflow, read-only use)
+        uses: actions/cache@v4
+        with:
+          path: cache
+          key: assets-kokoro-v1.1-tabler-3.49.0
+
+      - name: Install
+        run: |
+          sudo rm -f /var/lib/man-db/auto-update; echo '$nrconf{restart} = "l";' | sudo tee /etc/needrestart/conf.d/ci.conf > /dev/null 2>&1 || true
+          for i in 1 2; do timeout 180 sh -c 'sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg > /dev/null' && break; echo "apt try $i was slow, retrying"; done
+          pip install -q kokoro-onnx==0.6.1 "onnxruntime>=1.20" "soundfile>=0.12" "numpy>=1.26" scipy pillow
+          cd studio/motion && npm ci --no-audit --no-fund && npx playwright install --with-deps chromium
+
+      - name: Write a new episode (AI)
+        id: write
+        if: github.event.inputs.topic != ''
+        env:
+          TOPIC_RAW: ${{ github.event.inputs.topic }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          ACCOUNT_KEY_franklincopil3: ${{ secrets.GEMINI_API_KEY }}
+          AILAYER_STATE_URL: ${{ secrets.AILAYER_STATE_URL }}
+          AILAYER_STATE_TOKEN: ${{ secrets.AILAYER_STATE_TOKEN }}
+        run: |
+          [ -f .brain/ailayer/__init__.py ] && export PYTHONPATH=$GITHUB_WORKSPACE/.brain
+          topic=$(printf '%s' "$TOPIC_RAW" | tr -d '\n\r')   # passed as data, never pasted into the script
+          python -m studio.motion write --topic "$topic" | tee write.log
+          grep '^EPISODE=' write.log | tail -1 >> "$GITHUB_ENV"
+
+      - name: Choose the episode
+        env:
+          EP_RAW: ${{ github.event.inputs.episode }}
+        run: |
+          if [ -z "${EPISODE:-}" ]; then
+            ep=$(printf '%s' "$EP_RAW" | tr -d '\n\r')
+            case "$ep" in episodes/tech_education/*) ;; *) echo "episode must be under episodes/tech_education/"; exit 1;; esac
+            echo "EPISODE=$ep" >> "$GITHUB_ENV"
+          fi
+
+      - name: Check the plan (offline)
+        run: |
+          python -m studio.motion check "$EPISODE" || echo "plan problems - the engine will use the fallback plan and flag the video"
+
+      - name: Make the video
+        run: |
+          set +e
+          python -m studio.motion make "$EPISODE" --out out/motion | tee make.log
+          code=${PIPESTATUS[0]}
+          [ -f "$EPISODE/NEEDS_REVIEW.md" ] && [ "$code" = 0 ] && code=2
+          echo "MAKE_CODE=$code" >> "$GITHUB_ENV"
+          [ "$code" = 0 ] || [ "$code" = 2 ]
+
+      - name: Publish as a release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          d=out/motion; name=$(basename "$EPISODE")
+          title=$(python -c "import json,sys; print(json.load(open(sys.argv[1]))['title'])" "$d/script.json")
+          tag="motion-$name-run${{ github.run_number }}"
+          cp "$d/video.mp4" "$name.mp4"
+          (cd "$(dirname "$EPISODE")" && zip -qr "$GITHUB_WORKSPACE/episode-files.zip" "$name")
+          { echo "Motion video (Tech Education): $title"; echo; echo "Episode: $EPISODE"; echo;
+            echo "Checks:"; python -c "import json,sys; r=json.load(open(sys.argv[1])); print(json.dumps({'measures': r['measures'], 'gates': r['gates']}, indent=1))" "$d/report.json";
+            echo; cat "$d/sources.md"; [ -f "$EPISODE/NEEDS_REVIEW.md" ] && { echo; cat "$EPISODE/NEEDS_REVIEW.md"; }; } > notes.md
+          files=("$name.mp4" "$d/report.json" episode-files.zip); [ -f "$d/contact.png" ] && files+=("$d/contact.png")
+          if [ "$MAKE_CODE" = 0 ]; then
+            gh release create "$tag" "${files[@]}" --title "Motion: $title" --notes-file notes.md
+          else   # guardrail: a video that failed a check is never published as finished
+            gh release create "$tag" "${files[@]}" --prerelease --title "REVIEW: $title" --notes-file notes.md
+            gh label create review --color D93F0B --description "A video failed a final check" 2>/dev/null || true
+            gh issue create --label review --title "Review needed (motion): $title" --body "Release **$tag** was made but a check failed or the plan needs a look. See its notes."
+          fi
+          { echo "## $title"; echo; echo "Release **$tag** (Releases page). Checks: see report.json."; } >> "$GITHUB_STEP_SUMMARY"

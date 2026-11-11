@@ -1,0 +1,10 @@
+{
+  "name": "studio-motion",
+  "private": true,
+  "description": "Frame renderer for the motion engine (Tech Education style). Pinned versions: same input, same video.",
+  "dependencies": {
+    "@fontsource/inter": "5.2.8",
+    "@fontsource/jetbrains-mono": "5.0.20",
+    "playwright": "1.63.0"
+  }
+}

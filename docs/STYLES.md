@@ -1,4 +1,4 @@
-# Two ways to make videos
+# Three ways to make videos
 
 YouTube Creator Studio now makes two kinds of video. They share the voice (Kokoro), the fonts and this repo.
 Adding the second one changed nothing in the first.
@@ -138,3 +138,11 @@ a whoosh into each crossfade, a low hit on 2-5 dramatic words, a reverse swell i
   are redone on Kaggle, ~15-20 min, then checked again). Every release keeps `film-assets.zip` (all pictures and
   clips) so a repaint never redoes the good shots.
 - Schedule: 5 videos a day (03:23, 08:23, 13:23, 20:23, 00:23 Nairobi), at most 36 a week.
+
+
+## Style 3: Motion (Tech Education)
+
+Real-looking software in a moving 3D world (laptop, app, server, a diagram that grows), word-by-word captions, a seeded
+camera, music and sound effects made in code. Command `python -m studio.motion ...`, GitHub button **Make a motion
+video (Tech Education)**, episodes in `episodes/tech_education/`, code in `studio/motion/`, releases named `motion-...`.
+Separate from styles 1 and 2. Full description, method and history: `docs/MOTION_ENGINE.md`.

@@ -32,3 +32,22 @@ jobs:
         run: |
           pip install -q pyyaml
           python tests/test_workflows.py
+
+  motion:
+    # Tech Education motion engine: plan contract, seeded style, offline writer, and a real render smoke test
+    # (same inputs -> same frames). Separate job: it can't slow down or break the story tests.
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: studio/motion/package-lock.json
+      - run: pip install -q numpy pillow
+      - run: cd studio/motion && npm ci --no-audit --no-fund && npx playwright install --with-deps chromium
+      - run: python tests/test_motion.py

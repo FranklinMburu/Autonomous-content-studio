@@ -78,6 +78,14 @@ Story clock ──(at each slot)──> Story schedule ──(guardrails ok)─�
   polish issues are closed automatically.
 - Reference videos and the per-style gap report: Notion "Reference videos: gap report (10 Nov 2026)".
 
+### Update 11 Nov 2026
+- **Third style: motion engine for Tech Education (TE)** (`studio/motion/`, `docs/MOTION_ENGINE.md`). Built in the lab
+  v1 -> v3 against a measured quality bar, then generalised: script.json + plan.json (one scene per line from 22 scene
+  types) -> deterministic render in headless Chromium. Manual workflow "Make a motion video (Tech Education)" only;
+  isolated from Hidden Reasons (own concurrency group, no Kaggle, no memory; `tests/test_motion.py` checks the isolation).
+- TE voice locked by Franklin: Kokoro `am_fenrir` 1.0 + gentle EQ (`channels/te/channel.json`). Rejected: voice
+  blends, pitch shifting, echo.
+
 ## 5. Decisions and incidents (why things are the way they are)
 
 | Date | What happened | Cause (evidence) | Fix |

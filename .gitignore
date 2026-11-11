@@ -5,3 +5,4 @@ __pycache__/
 .env
 *.part
 episodes/*/_drafts/
+studio/motion/node_modules/
