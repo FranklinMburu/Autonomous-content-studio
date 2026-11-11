@@ -1,0 +1,253 @@
+{
+ "seed": 44,
+ "scenes": [
+  {
+   "line": 0,
+   "type": "hook_orbit",
+   "p": {
+    "core": "DB",
+    "sub": "where apps remember",
+    "items": [
+     {
+      "label": "Users",
+      "icon": "◉"
+     },
+     {
+      "label": "Orders",
+      "icon": "$"
+     },
+     {
+      "label": "Messages",
+      "icon": "✉"
+     },
+     {
+      "label": "Likes",
+      "icon": "♥"
+     },
+     {
+      "label": "Posts",
+      "icon": "▤"
+     },
+     {
+      "label": "Habits",
+      "icon": "✓"
+     }
+    ]
+   }
+  },
+  {
+   "line": 1,
+   "type": "settings_field",
+   "p": {
+    "title": "New project · Connect a database",
+    "label": "DATABASE_URL",
+    "placeholder": "postgres://user:password@host/db",
+    "glow_word": "need"
+   }
+  },
+  {
+   "line": 2,
+   "type": "stat_floor",
+   "p": {
+    "value": 55.6,
+    "suffix": "%",
+    "caption": "of developers use PostgreSQL",
+    "sub": "the most-used database",
+    "source": "Stack Overflow Developer Survey 2025"
+   }
+  },
+  {
+   "line": 3,
+   "type": "laptop_prompt",
+   "p": {
+    "prompt": "build me a habit tracker",
+    "result": "Created habit-tracker · 5 files"
+   }
+  },
+  {
+   "line": 4,
+   "type": "app_window",
+   "p": {
+    "title": "Habits",
+    "subtitle": "Today · Wednesday",
+    "rows": [
+     [
+      "Drink water",
+      "✓ done"
+     ],
+     [
+      "Read 10 pages",
+      "✓ done"
+     ]
+    ],
+    "slot": "Streak",
+    "unknown": true,
+    "unknown_word": "gone"
+   }
+  },
+  {
+   "line": 5,
+   "type": "diagram_link",
+   "p": {
+    "label": "Database",
+    "icon": "▤",
+    "door": "SQL"
+   }
+  },
+  {
+   "line": 6,
+   "type": "door",
+   "p": {
+    "word": "database"
+   }
+  },
+  {
+   "line": 7,
+   "type": "packet",
+   "p": {
+    "dir": "down",
+    "label": "INSERT habit"
+   }
+  },
+  {
+   "line": 8,
+   "type": "code_card",
+   "p": {
+    "text": "INSERT INTO habits (name, done) VALUES ('Read', true)",
+    "marks": [
+     {
+      "part": "('Read', true)",
+      "label": "a new row",
+      "word": "row"
+     },
+     {
+      "part": "habits",
+      "label": "the table",
+      "word": "table"
+     }
+    ]
+   }
+  },
+  {
+   "line": 9,
+   "type": "packet",
+   "p": {
+    "dir": "up",
+    "label": "{ rows }"
+   }
+  },
+  {
+   "line": 10,
+   "type": "data_card",
+   "p": {
+    "title": "SELECT · 3 rows",
+    "pairs": [
+     [
+      "habit",
+      "Read"
+     ],
+     [
+      "done",
+      true
+     ],
+     [
+      "streak",
+      12
+     ]
+    ],
+    "fill": "12 days ✓"
+   }
+  },
+  {
+   "line": 11,
+   "type": "question",
+   "p": {
+    "word": "who's",
+    "label": "SELECT * FROM habits"
+   }
+  },
+  {
+   "line": 12,
+   "type": "key_fly",
+   "p": {
+    "word": "password"
+   }
+  },
+  {
+   "line": 13,
+   "type": "compare",
+   "p": {
+    "a_label": "Your login",
+    "a_value": "••••••••",
+    "b_label": "Your app's DB password",
+    "b_value": "pg_••••••••9c2e"
+   }
+  },
+  {
+   "line": 14,
+   "type": "leak",
+   "p": {
+    "word": "leaks",
+    "meter_label": "Rows read by strangers",
+    "meter_word": "every"
+   }
+  },
+  {
+   "line": 15,
+   "type": "bullets",
+   "p": {
+    "items": [
+     "Table: one kind of thing",
+     "Row: one item in it",
+     "Query: a question you ask it"
+    ]
+   }
+  },
+  {
+   "line": 16,
+   "type": "cta_terminal",
+   "p": {
+    "title": "claude · habit-tracker",
+    "prompt": "add a Postgres database and keep its password in a .env file",
+    "result": "Added DATABASE_URL to .env · .env is in .gitignore"
+   }
+  },
+  {
+   "line": 17,
+   "type": "file_tree",
+   "p": {
+    "title": "habit-tracker",
+    "files": [
+     [
+      ".env 🔒",
+      "DATABASE_URL=postgres://••••",
+      "accent"
+     ],
+     [
+      ".gitignore",
+      ".env ✓ never uploaded",
+      "ok"
+     ],
+     [
+      "src/db.js",
+      "",
+      ""
+     ]
+    ],
+    "code": [
+     "const db = connect(process.env.DATABASE_URL)",
+     "// the password is never in the code"
+    ]
+   }
+  },
+  {
+   "line": 18,
+   "type": "end_card",
+   "p": {
+    "series": "Build Basics · Part 2",
+    "title": "What actually is a database?",
+    "next": "what is a backend?"
+   }
+  }
+ ]
+}

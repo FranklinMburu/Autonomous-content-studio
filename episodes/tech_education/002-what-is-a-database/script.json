@@ -1,0 +1,104 @@
+{
+ "title": "What actually is a database?",
+ "series": "Build Basics, Part 2",
+ "beats": [
+  {
+   "lines": [
+    "What actually is a database,",
+    "and why does every app you build with AI need one?"
+   ]
+  },
+  {
+   "lines": [
+    "55.6 percent of developers use PostgreSQL, the most popular database."
+   ]
+  },
+  {
+   "lines": [
+    "Say you asked Claude to build a habit tracker.",
+    "You tick a habit, close the tab, and it's gone."
+   ]
+  },
+  {
+   "lines": [
+    "Your app forgot it. It needs somewhere to remember.",
+    "That somewhere is a database."
+   ]
+  },
+  {
+   "lines": [
+    "Your app sends it a write:",
+    "a new row, in a table, like a spreadsheet."
+   ]
+  },
+  {
+   "lines": [
+    "Next visit, your app asks, and the database answers",
+    "with your data, exactly as you left it."
+   ]
+  },
+  {
+   "lines": [
+    "But who's allowed to read it?",
+    "Only apps with the right password.",
+    "It's like your login, but for your app.",
+    "If it leaks, strangers can read every row."
+   ]
+  },
+  {
+   "lines": [
+    "Three words to know: table, row, and query."
+   ]
+  },
+  {
+   "lines": [
+    "If you're building with AI, tell Claude:",
+    "add a database, and keep its password in a dot env file."
+   ]
+  },
+  {
+   "lines": [
+    "Follow for more build basics."
+   ]
+  }
+ ],
+ "key_words": [
+  "database",
+  "database,",
+  "AI",
+  "55.6%",
+  "PostgreSQL,",
+  "Claude",
+  "habit",
+  "tracker.",
+  "gone.",
+  "forgot",
+  "remember.",
+  "write:",
+  "row,",
+  "table,",
+  "spreadsheet.",
+  "answers",
+  "data,",
+  "who's",
+  "password.",
+  "login,",
+  "leaks,",
+  "every",
+  "table,",
+  "row,",
+  "query.",
+  ".env",
+  "basics."
+ ],
+ "display": {
+  "55.6 percent": "55.6%",
+  "dot env": ".env"
+ },
+ "claims": [
+  {
+   "claim": "55.6% of developers in the Stack Overflow 2025 survey used PostgreSQL, the most-used database",
+   "url": "https://survey.stackoverflow.co/2025/technology/"
+  }
+ ]
+}
