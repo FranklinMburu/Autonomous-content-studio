@@ -1,10 +1,19 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
 <!--
-Motion engine (Tech Education style). One page draws one frame for any time t: render(t). Nothing is random at render
-time and nothing depends on the clock, so the same inputs always give the same video (studio/motion/render.js steps t).
-Inputs (window.init): timing (word times from the narration), script (lines, key words, display map), plan (one scene
-per line, from the fixed scene types below), style (seeded: accent colour, camera variation). Docs: docs/MOTION_ENGINE.md
+Motion engine (Tech Education style), v6 "one diagram, straight on" (11 Nov 2026).
+One page draws one frame for any time t: render(t). Nothing is random at render time and nothing reads the clock, so the
+same inputs always give the same video (studio/motion/render.js steps t).
+Inputs (window.init): timing (word times), script (lines, key words, display map), plan (one scene per line, fixed scene
+types), style (seeded accent and music). Docs: docs/MOTION_ENGINE.md
+
+Visual grammar (taken from the reference, after Franklin rejected v5 as "weird" and "moving for the sake of moving"):
+  1. Everything faces the viewer. One big subject at a time, large readable text, near-black background.
+  2. The story is ONE diagram that stays on screen and changes in place (app -> line -> API door -> server). New things
+     appear inside it (the request on the line opens into its URL, the answer opens into its data), never on top of it.
+  3. The camera moves only to show what the voice is talking about: it pans to the part being named, follows a request
+     down the line, pulls back to show a connection. Between those moves it holds still. No drift, no automatic angles.
+  4. A frame at rest never cuts a panel in half (the framing guard), and the frame audit checks every settled frame.
 -->
 <style>
 @font-face{font-family:Inter;font-weight:400;src:url(../node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2)}
@@ -15,103 +24,139 @@ per line, from the fixed scene types below), style (seeded: accent colour, camer
 @font-face{font-family:Inter;font-weight:900;src:url(../node_modules/@fontsource/inter/files/inter-latin-900-normal.woff2)}
 @font-face{font-family:JBM;font-weight:400;src:url(../node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2)}
 @font-face{font-family:JBM;font-weight:700;src:url(../node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-700-normal.woff2)}
-:root{--bg:#09090C;--acc:#F5A524;--accRGB:245,165,36;--tx:#F4F6FB;--tx2:#C6CBD8;--tx3:#8A91A3;--line:rgba(255,255,255,.13);--ok:#3FB950;--bad:#F85149;--warn:#F5A524}
+:root{--bg:#0A0A0C;--acc:#F5A524;--accRGB:245,165,36;--tx:#F4F6FB;--tx2:#C3C8D4;--tx3:#868D9E;--line:rgba(255,255,255,.12);--ok:#3FB950;--bad:#F85149;--warn:#E3A008}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:540px;height:960px;overflow:hidden;background:var(--bg);font-family:Inter,sans-serif;color:var(--tx);-webkit-font-smoothing:antialiased}
-#vp{position:absolute;inset:0;overflow:hidden;perspective:900px;perspective-origin:50% 60%;background:radial-gradient(110% 75% at 50% 40%,#241f28 0%,#131217 45%,var(--bg) 80%)}
-#world{position:absolute;left:50%;top:60%;width:0;height:0;transform-style:preserve-3d}
-.o{position:absolute;left:0;top:0;transform-style:preserve-3d;backface-visibility:hidden}
-.in{transform:translate(-50%,-50%);transform-style:preserve-3d}
-#cap{position:absolute;left:24px;right:24px;top:112px;display:flex;justify-content:center;text-align:center;font:650 32px/1.2 Inter;letter-spacing:-.025em;z-index:10;text-shadow:0 2px 18px rgba(0,0,0,.85)}
+#vp{position:absolute;inset:0;overflow:hidden;background-color:var(--bg)}
+#world{position:absolute;left:270px;top:610px;width:0;height:0;transform-origin:0 0}
+.o{position:absolute;left:0;top:0;transform-origin:0 0;z-index:2}
+.in{transform:translate(-50%,-50%)}
+.ln{position:absolute;left:0;top:0;z-index:1;height:4px;margin-top:-2px;border-radius:3px;transform-origin:0 50%}
+#cap{position:absolute;left:22px;right:22px;top:150px;display:flex;justify-content:center;text-align:center;font:650 31px/1.22 Inter;letter-spacing:-.025em;z-index:10}
 #cap span{display:inline-block;margin:0 .12em;opacity:0}
 #cap span.k{color:var(--acc);font-weight:800;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
-#fx{position:absolute;inset:0;pointer-events:none;z-index:9;background:linear-gradient(180deg,rgba(9,9,12,1) 0,rgba(9,9,12,1) 236px,rgba(9,9,12,0) 286px),radial-gradient(130% 80% at 50% 55%,transparent 55%,rgba(0,0,0,.55) 100%)}
-#grain{position:absolute;inset:0;opacity:.06;mix-blend-mode:overlay;z-index:11;pointer-events:none}
-#flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:12;pointer-events:none;mix-blend-mode:overlay}
-.win{background:linear-gradient(180deg,#2b2e3a,#1d1f28);border:1px solid rgba(255,255,255,.26);border-radius:16px;box-shadow:0 40px 90px rgba(0,0,0,.65);overflow:hidden;position:relative}
-.win:after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,var(--sheen,0)) 48%,transparent 62%);background-size:300% 100%;background-position:var(--sx,120%) 0;pointer-events:none}
-.bar{height:32px;display:flex;align-items:center;gap:6px;padding:0 12px;border-bottom:1px solid var(--line);font:500 12px Inter;color:var(--tx3)}
-.bar i{width:10px;height:10px;border-radius:50%}
+#fx{position:absolute;inset:0;pointer-events:none;z-index:9;background:linear-gradient(180deg,var(--bg) 0,var(--bg) 250px,rgba(10,10,12,0) 282px),radial-gradient(120% 75% at 50% 58%,transparent 60%,rgba(0,0,0,.5) 100%)}
+.win{background:#17181d;border:1px solid rgba(255,255,255,.16);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.55);overflow:hidden}
+.bar{height:34px;display:flex;align-items:center;gap:7px;padding:0 13px;border-bottom:1px solid var(--line);font:500 13px Inter;color:var(--tx3);background:#1f2026}
+.bar i{width:11px;height:11px;border-radius:50%}
 .bar i:nth-child(1){background:#ff5f57}.bar i:nth-child(2){background:#febc2e}.bar i:nth-child(3){background:#28c840}
-.bar b{flex:1;text-align:center;font-weight:500;margin-right:44px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.term{font:400 16px/1.55 JBM;color:var(--tx);padding:16px 18px;min-height:80px;white-space:pre-wrap;word-break:break-word}
+.bar b{flex:1;text-align:center;font-weight:500;margin-right:48px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.light{background:#F6F6F3;color:#141518;border-color:rgba(255,255,255,.5)}
+.light .bar{background:#E9E9E5;border-color:rgba(0,0,0,.08);color:#6b6e76}
+.term{font:400 19px/1.5 JBM;color:var(--tx);padding:16px 18px;white-space:pre-wrap;word-break:break-word}
 .p{color:var(--acc)}
-.cur{display:inline-block;width:9px;height:18px;background:var(--tx);vertical-align:-3px;margin-left:1px}
-.row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 18px;border-top:1px solid var(--line);font:500 16px Inter;color:var(--tx2)}
-.row b{color:var(--tx);font-weight:600;text-align:right}
-.lbl{font:700 11px Inter;letter-spacing:.16em;text-transform:uppercase;color:var(--tx3)}
-.chip{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:9px 16px;font:700 16px JBM;white-space:nowrap}
+.cur{display:inline-block;width:10px;height:20px;background:var(--tx);vertical-align:-3px;margin-left:2px}
+.lbl{font:700 12px Inter;letter-spacing:.14em;text-transform:uppercase;color:var(--tx3)}
+.chip{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:9px 16px;font:700 17px JBM;white-space:nowrap}
 .mono{font-family:JBM}
-.card{border-radius:16px;background:linear-gradient(180deg,#2c2f3b,#1e2029);border:1px solid rgba(255,255,255,.26);box-shadow:0 30px 70px rgba(0,0,0,.6)}
+.card{border-radius:16px;background:#17181d;border:1px solid rgba(255,255,255,.16);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.dot{width:18px;height:18px;border-radius:50%;background:var(--bg);border:4px solid var(--acc);box-shadow:0 0 18px rgba(var(--accRGB),.6)}
 </style></head>
-<body><div id="vp"><div id="world"></div></div><div id="fx"></div><div id="cap"></div><canvas id="grain" width="270" height="480" style="width:540px;height:960px"></canvas><div id="flash"></div>
+<body><div id="vp"><div id="world"></div></div><div id="fx"></div><div id="cap"></div>
 <script>
 "use strict";
-// ============================================================ maths
+// ============================================================ maths and timing
 const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
 const ease = x => { x = clamp(x); return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
 const eout = x => 1 - Math.pow(1 - clamp(x), 3);
 const spring = x => { x = clamp(x); return 1 - Math.exp(-6.5 * x) * Math.cos(10 * x); };
-const ramp = (t, a, d = .45) => ease((t - a) / d);
-const win = (t, a, b, i = .35, o = .35) => Math.min(ramp(t, a, i), 1 - ramp(t, b, o));
+const ramp = (t, a, d = .35) => ease((t - a) / d);
+const win = (t, a, b, i = .3, o = .3) => Math.min(ramp(t, a, i), 1 - ramp(t, b, o));
 const lerp = (a, b, k) => a + (b - a) * k;
 const $ = id => document.getElementById(id);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 let T, S, P, ST, L = [], LE = [], WD = [], DUR = 0, SC = [];
-// first word of line i whose text starts with `w` (case/punctuation ignored); else a fraction into the line
 const norm = s => String(s).toLowerCase().replace(/[^a-z0-9%.']/g, "");
+// time of the first word of line i that starts with `w` (case and punctuation ignored); else a fraction into the line
 function W(i, w, frac = 0.3) {
-  const ws = WD[i] || []; if (typeof w === "number") return ws[Math.min(w, ws.length - 1)] ? ws[Math.min(w, ws.length - 1)].start : L[i];
+  const ws = WD[i] || [];
   if (w) { const n = norm(w); const hit = ws.find(x => norm(x.w).startsWith(n)); if (hit) return hit.start; }
   return lerp(L[i], LE[i], frac);
 }
-const WE = i => (WD[i] && WD[i].length ? WD[i][WD[i].length - 1].end : LE[i]);
 
-// ============================================================ objects and camera
-const OBJ = {};
+// ============================================================ objects in a flat world, seen straight on
+const OBJ = {}, REST = {}, SIZE = {}, LIFE = {};
 function mk(id, html) { const e = document.createElement("div"); e.className = "o"; e.id = id; e.innerHTML = `<div class="in">${html}</div>`; $("world").appendChild(e); OBJ[id] = e; return e; }
-function put(id, o, x, y, z, ry = 0, rx = 0, rz = 0, s = 1, blur = 0) {
-  const e = OBJ[id]; if (!e) return;
+function mkLine(id, color, w = 4) { const e = document.createElement("div"); e.className = "ln"; e.id = id; e.style.background = color; e.style.height = w + "px"; e.style.marginTop = (-w / 2) + "px"; $("world").appendChild(e); OBJ[id] = e; e._line = true; return e; }
+const at = (id, x, y) => { REST[id] = { x, y }; };
+function measure() { for (const [id, e] of Object.entries(OBJ)) if (!e._line) { const el = e.firstElementChild; SIZE[id] = { w: el.offsetWidth, h: el.offsetHeight }; } }
+let NOW = 0;
+function put(id, o, dx = 0, dy = 0, s = 1, rot = 0) {
+  const e = OBJ[id], r = REST[id]; if (!e || !r) return;
   e._o = o > 0.003 ? Math.min(1, o) : 0;
-  if (e._o >= 0.9) { if (e._since == null || NOW < e._since) e._since = NOW; } else e._since = null;   // opaque since when (frame audit)
+  if (e._o >= 0.9) { if (e._since == null || NOW < e._since) e._since = NOW; } else e._since = null;
   if (!(o > 0.003)) { e.style.display = "none"; return; }
   e.style.display = ""; e.style.opacity = Math.min(1, o).toFixed(3);
-  e.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,${z.toFixed(1)}px) rotateY(${ry.toFixed(2)}deg) rotateX(${rx.toFixed(2)}deg) rotateZ(${rz.toFixed(2)}deg) scale(${s.toFixed(4)})`;
-  e.style.filter = blur > 0.15 ? `blur(${blur.toFixed(2)}px)` : "";
+  e.style.transform = `translate(${(r.x + dx).toFixed(1)}px,${(r.y + dy).toFixed(1)}px) rotate(${rot.toFixed(2)}deg) scale(${s.toFixed(4)})`;
 }
-let CAM = { x: 0, y: 0, z: 0, yaw: 0, pitch: 0, roll: 0, D: 900, P: 900 }, NOW = 0;
-const CK = [], CUTS = [], CUES = [];
-const key = (t, c) => CK.push([t, c]);
-function cut(tc, a, b) { key(tc - 0.001, a); key(tc, b); CUTS.push(tc); }
+function line(id, o, x1, y1, x2, y2, k = 1) {
+  const e = OBJ[id]; if (!e) return;
+  if (!(o > 0.003) || k <= 0.001) { e.style.display = "none"; return; }
+  const len = Math.hypot(x2 - x1, y2 - y1), a = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+  e.style.display = ""; e.style.opacity = o.toFixed(3); e.style.width = len.toFixed(1) + "px";
+  e.style.transform = `translate(${x1.toFixed(1)}px,${y1.toFixed(1)}px) rotate(${a.toFixed(2)}deg) scaleX(${clamp(k).toFixed(4)})`;
+}
+const box = id => { const r = REST[id], z = SIZE[id]; return r && z ? { l: r.x - z.w / 2, r: r.x + z.w / 2, t: r.y - z.h / 2, b: r.y + z.h / 2 } : null; };
+
+// ============================================================ the camera: a 2D pan and zoom, keyframed by intent
+// The frame: captions own the top; the subject is fitted into FIT. A camera is {x, y, z}: the world point at the centre
+// of FIT and the zoom. Every key has a reason (shown in info.json): the camera never moves without one.
+const FIT = { l: 24, r: 516, t: 292, b: 928 }, CX = 270, CY = 610, SAFE = { l: 8, r: 532, t: 276, b: 950 };
+const CK = [], CUTS = [], MOVES = [], CUES = [];
+let CUR = null, CAM = { x: 0, y: 0, z: 1 }, CAMFORCE = null;
 const cue = (t, kind, gain = 1) => CUES.push({ t: +Math.max(0, t).toFixed(3), kind, gain });
-function camBase(t) {
+const lastKeyT = () => CK.length ? CK[CK.length - 1][0] : -1;
+function moveTo(t, dur, c, why) {
+  if (!c) return;
+  if (!CUR) { CK.push([Math.max(0, t), c]); CUR = c; return; }
+  if (Math.abs(c.x - CUR.x) < 2 && Math.abs(c.y - CUR.y) < 2 && Math.abs(c.z / CUR.z - 1) < 0.02) return;   // already there: hold
+  t = Math.max(t, lastKeyT() + 0.001);
+  CK.push([t, CUR], [t + dur, c]); CUR = c; MOVES.push({ t: +t.toFixed(2), why });
+  if (dur >= 0.45) cue(t, "whoosh", 0.22);
+}
+function cutTo(t, c, why) {
+  if (!CUR) { CK.push([Math.max(0, t), c]); CUR = c; return; }
+  t = Math.max(t, lastKeyT() + 0.002);
+  CK.push([t - 0.001, CUR], [t, c]); CUR = c; CUTS.push(t); MOVES.push({ t: +t.toFixed(2), why: "cut: " + why });
+}
+function camAt(t) {
+  if (!CK.length) return { x: 0, y: 0, z: 1 };
   let i = 0; while (i < CK.length - 1 && CK[i + 1][0] <= t) i++;
   const a = CK[i], b = CK[Math.min(i + 1, CK.length - 1)];
   const k = b === a || t <= a[0] ? 0 : ease((t - a[0]) / (b[0] - a[0]));
-  const c = {}; for (const p of ["x", "y", "z", "yaw", "pitch", "roll", "D", "P"]) c[p] = lerp(a[1][p], b[1][p], k);
-  return c;
+  return { x: lerp(a[1].x, b[1].x, k), y: lerp(a[1].y, b[1].y, k), z: a[1].z * Math.pow(b[1].z / a[1].z, k) };
 }
-function camAt(t) {
-  const c = camBase(t), d = ST.drift;   // never still: a slow handheld drift, its phases come from the seed
-  c.yaw += 2.4 * Math.sin(t * 0.52 + d[0]) + 0.8 * Math.sin(t * 1.21 + d[1]); c.pitch += 1.0 * Math.sin(t * 0.61 + d[2]); c.roll += 0.5 * Math.sin(t * 0.37 + d[3]);
-  c.x += 6 * Math.sin(t * 0.83 + d[1]); c.y += 5 * Math.sin(t * 0.71 + d[2]);
-  return c;
-}
-function applyCam(c, shake) {
+function moving(t) { for (let i = 0; i < CK.length - 1; i++) { const a = CK[i], b = CK[i + 1]; if (t > a[0] - 0.05 && t < b[0] + 0.12 && (a[1].x !== b[1].x || a[1].y !== b[1].y || a[1].z !== b[1].z)) return true; } return false; }
+function applyCam(c) {
   CAM = c;
-  const sx = shake * Math.sin(NOW * 91) * 6, sy = shake * Math.cos(NOW * 77) * 6;
-  $("vp").style.perspective = c.P.toFixed(1) + "px";
-  $("world").style.transform = `translate(${sx}px,${sy}px) translateZ(${(c.P - c.D).toFixed(1)}px) rotateZ(${c.roll.toFixed(2)}deg) rotateX(${(-c.pitch).toFixed(2)}deg) rotateY(${(-c.yaw).toFixed(2)}deg) translate3d(${(-c.x).toFixed(1)}px,${(-c.y).toFixed(1)}px,${(-c.z).toFixed(1)}px)`;
+  $("world").style.transform = `scale(${c.z.toFixed(5)}) translate(${(-c.x).toFixed(2)}px,${(-c.y).toFixed(2)}px)`;
+  const g = 44 * c.z;   // a faint dot grid fixed to the world, so every pan reads as a move across one surface
+  $("vp").style.backgroundImage = `radial-gradient(circle,rgba(255,255,255,.07) ${Math.max(0.8, 1.3 * c.z).toFixed(2)}px,transparent ${Math.max(1, 1.6 * c.z).toFixed(2)}px)`;
+  $("vp").style.backgroundSize = `${g.toFixed(2)}px ${g.toFixed(2)}px`;
+  $("vp").style.backgroundPosition = `${(CX - c.x * c.z).toFixed(2)}px ${(CY - c.y * c.z).toFixed(2)}px`;
 }
-function depth(x, y, z) {
-  const c = CAM, dx = x - c.x, dy = y - c.y, dz = z - c.z, yw = -c.yaw * Math.PI / 180, pt = -c.pitch * Math.PI / 180;
-  const z1 = -dx * Math.sin(yw) + dz * Math.cos(yw), z2 = dy * Math.sin(pt) + z1 * Math.cos(pt);
-  return c.D - z2;
-}
-const dof = (x, y, z, amt = 1) => amt * clamp(Math.abs(depth(x, y, z) - CAM.D) / 260 * 2.2, 0, 5);
-const cam = (o, dx, dy, dz, yaw, pitch, D, P = 900, roll = 0) => ({ x: o.x + dx, y: o.y + dy, z: o.z + dz, yaw, pitch, roll, D, P });
 
-// ============================================================ captions
+// The framing guard. fitShots() turns "show these things" into a camera: everything named is whole and inside FIT, as big
+// as fits (up to zmax). If another solid panel that is alive during the shot would be cut by the frame edge, it is
+// either pulled fully in (the frame widens) or the shot is recentred so it is fully out. A shot at rest never halves a panel.
+function fitShots(ids, t0, t1, zmax = 1.25, pad = 18) {
+  let set = ids.filter(id => box(id));
+  if (!set.length) return null;
+  const others = Object.keys(LIFE).filter(id => !set.includes(id) && box(id) && LIFE[id].some(([a, b]) => a < t1 && b > t0));
+  let c = null;
+  for (let it = 0; it < 8; it++) {
+    const bs = set.map(box), U = { l: Math.min(...bs.map(b => b.l)), r: Math.max(...bs.map(b => b.r)), t: Math.min(...bs.map(b => b.t)), b: Math.max(...bs.map(b => b.b)) };
+    const z = Math.min(zmax, (FIT.r - FIT.l) / (U.r - U.l + 2 * pad), (FIT.b - FIT.t) / (U.b - U.t + 2 * pad));
+    c = { x: (U.l + U.r) / 2, y: (U.t + U.b) / 2, z };
+    const V = { l: c.x - (CX - FIT.l) / z, r: c.x + (FIT.r - CX) / z, t: c.y - (CY - FIT.t) / z, b: c.y + (FIT.b - CY) / z };
+    const cut = others.find(id => { const b = box(id); const inX = b.r > V.l && b.l < V.r, inY = b.b > V.t && b.t < V.b; return inX && inY && (b.l < V.l || b.r > V.r || b.t < V.t || b.b > V.b); });
+    if (!cut) return c;
+    set = set.concat(cut);
+  }
+  return c;
+}
+
+// ============================================================ captions (word by word, key words in the accent colour)
 let groups = [], lastG = -1, KEYW = null;
 function buildCaptions() {
   const disp = Object.entries(S.display || {}).map(([k, v]) => [k.split(/\s+/), v]);
@@ -139,528 +184,536 @@ function captions(t) {
   if (gi < 0) return;
   const g = groups[gi], spans = cap.querySelectorAll("span"), lineEnd = LE[g.li];
   const fade = g.until > lineEnd + 0.3 ? 1 - ramp(t, lineEnd + 0.25, .2) : 1;
-  g.toks.forEach((k, i) => { const a = clamp((t - k.s + 0.04) / 0.14), s = spring(a); spans[i].style.opacity = (Math.min(1, a * 1.5) * fade).toFixed(3); spans[i].style.transform = `translateY(${((1 - s) * 14).toFixed(1)}px) scale(${(0.86 + 0.14 * s).toFixed(3)})`; });
+  g.toks.forEach((k, i) => { const a = clamp((t - k.s + 0.04) / 0.14), s = spring(a); spans[i].style.opacity = (Math.min(1, a * 1.5) * fade).toFixed(3); spans[i].style.transform = `translateY(${((1 - s) * 12).toFixed(1)}px)`; });
 }
 
-// ============================================================ the plan -> scenes on a timeline, sets in space
-const SET_OF = { hook_orbit: "hook", settings_field: "hook", stat_floor: "stat", stat_wall: "wall", cta_terminal: "cta", file_tree: "cta",
-  end_card: "end", big_word: "free", bullets: "free" };      // every other type plays in the "story" set (the growing diagram)
+// ============================================================ the plan -> scenes; each kind of scene lives in a zone
+// Zones are far apart in the world; changing zone is a hard cut (like the reference cutting to a statistic).
+// Inside a zone the camera only pans and zooms.
+const ZONE_OF = { hook_orbit: "hook", settings_field: "hook", stat_floor: "stat", stat_wall: "wall", cta_terminal: "cta", file_tree: "cta",
+  end_card: "end", big_word: "free", bullets: "free" };       // every other type is part of the story diagram
 const STORY_TYPES = ["laptop_prompt", "app_window", "diagram_link", "door", "packet", "code_card", "data_card", "question", "key_fly", "compare", "leak", "badges_intro", "badge"];
-const POS = {};
+const DIAGRAM_TYPES = ["diagram_link", "door", "packet", "question", "key_fly", "leak", "badges_intro", "badge", "data_card", "code_card", "compare"];
+const Z = {};
 function layout() {
-  SC = P.scenes.map((s, i) => ({ ...s, i, p: s.p || {}, t0: L[s.line], set: SET_OF[s.type] || "story" }));
-  SC.forEach((s, i) => { s.t1 = i + 1 < SC.length ? SC[i + 1].t0 : DUR; });
-  // each new set gets its own place in the world, further along the path (x varies with the seed)
-  let z = 0, n = 0;
-  SC.forEach(s => {
-    const id = s.set === "stat" || s.set === "free" ? `${s.set}${s.i}` : s.set; s.sid = id;
-    if (POS[id]) return;
-    if (s.set === "wall") { const st = POS.story || { x: 0, y: 0, z: z - 2800 }; POS[id] = { x: st.x + 1500, y: 0, z: st.z - 400 }; return; }
-    POS[id] = { x: n === 0 ? 0 : Math.round((ST.r(n) - 0.5) * 700), y: 0, z }; z -= 2900; n++;
-  });
+  SC = P.scenes.map((s, i) => ({ ...s, i, p: s.p || {}, t0: L[s.line], set: ZONE_OF[s.type] || "story" }));
+  SC.forEach((s, i) => { s.t1 = i + 1 < SC.length ? SC[i + 1].t0 : DUR; s.zid = (s.set === "stat" || s.set === "wall") ? s.set + s.i : s.set; });
+  let n = 0; for (const s of SC) if (!Z[s.zid]) Z[s.zid] = { x: 0, y: (n++) * 5000 };
 }
 const first = (type, after = -1) => SC.find(s => s.type === type && s.i > after);
 const sceneAt = t => { let c = SC[0]; for (const s of SC) if (s.t0 - 0.001 <= t) c = s; return c; };
+const zoneSpan = zid => { const ss = SC.filter(s => s.zid === zid); return ss.length ? [ss[0].t0, ss[ss.length - 1].t1] : null; };
+const nextIn = (s, types) => SC.find(x => x.i > s.i && types.includes(x.type));
 
-// ============================================================ build the elements the plan needs
-const ICON = { key: `<svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M15 8l2 2"/></svg>` };
-function winHtml(title, body, w, extra = "") { return `<div class="win" style="width:${w}px;${extra}"><div class="bar"><i></i><i></i><i></i><b>${esc(title)}</b></div>${body}</div>`; }
-function build() {
-  const accRGB = ST.accent_rgb.join(",");
-  document.documentElement.style.setProperty("--acc", ST.accent); document.documentElement.style.setProperty("--accRGB", accRGB);
-  // glows and lit floors under every set
-  for (const [id, o] of Object.entries(POS)) {
-    const c = id === "wall" ? "248,81,73" : id === "story" ? ST.cool_rgb.join(",") : accRGB;
-    mk("g_" + id, `<div style="width:1400px;height:1400px;border-radius:50%;background:radial-gradient(circle,rgba(${c},.26) 0%,rgba(${c},.09) 40%,rgba(${c},0) 70%)"></div>`);
-    mk("f_" + id, `<div style="width:3000px;height:3000px;background:repeating-linear-gradient(90deg,rgba(${accRGB},.42) 0 3px,transparent 3px 120px),repeating-linear-gradient(0deg,rgba(${accRGB},.30) 0 3px,transparent 3px 120px);-webkit-mask-image:radial-gradient(50% 50% at 50% 50%,#000 25%,transparent 72%)"></div>`);
-  }
-  for (let i = 0; i < 46; i++) mk("st" + i, `<div style="width:9px;height:${150 + (i * 53) % 160}px;border-radius:6px;background:linear-gradient(180deg,rgba(255,214,150,0),rgba(255,214,150,.95));box-shadow:0 0 16px rgba(${accRGB},.7)"></div>`);
-  for (const s of SC) BUILD[s.type] && BUILD[s.type](s);
-  if (SC.some(s => STORY_TYPES.includes(s.type))) buildStory();
-}
+// ============================================================ build: one element per thing the plan names
+const ICON = { key: `<svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M15 8l2 2"/></svg>`,
+  person: `<svg width="60%" height="60%" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4.2"/><path d="M3.5 21c.8-4.6 4.3-7 8.5-7s7.7 2.4 8.5 7z"/></svg>` };
+function winHtml(title, body, w, cls = "") { return `<div class="win ${cls}" style="width:${w}px"><div class="bar"><i></i><i></i><i></i><b>${esc(title)}</b></div>${body}</div>`; }
+const fs = (text, base, room, perChar = 0.6) => Math.max(11, Math.min(base, room / Math.max(1, String(text).length * perChar))).toFixed(1);
 const BUILD = {
   hook_orbit(s) {
-    mk("core" + s.i, `<div class="card" style="width:190px;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-color:rgba(var(--accRGB),.6);box-shadow:0 0 90px rgba(var(--accRGB),.35),inset 0 0 40px rgba(var(--accRGB),.12);background:radial-gradient(circle at 50% 40%,#2a1d08,#141016);padding:10px;text-align:center"><div style="font:800 ${String(s.p.core || "").length > 5 ? 34 : 56}px/1 Inter;color:var(--acc);letter-spacing:-.03em">${esc(s.p.core)}</div><div class="lbl" style="color:var(--tx2)">${esc(s.p.sub || "")}</div></div>`);
-    (s.p.items || []).slice(0, 8).forEach((a, j) => mk(`ap${s.i}_${j}`, `<div class="card" style="width:170px;padding:14px 16px;display:flex;align-items:center;gap:12px"><div style="width:42px;height:42px;border-radius:11px;background:#22242d;display:flex;align-items:center;justify-content:center;font:700 22px Inter">${esc(a.icon || "•")}</div><div style="font:650 17px Inter">${esc(a.label)}</div></div>`));
-    for (let j = 0; j < 24; j++) mk(`pt${s.i}_${j}`, `<div style="width:10px;height:10px;border-radius:50%;background:#FFD596;box-shadow:0 0 14px 4px rgba(var(--accRGB),.7)"></div>`);
+    const core = String(s.p.core || "");
+    mk("core" + s.i, `<div style="width:210px;height:210px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:5px solid var(--acc);background:radial-gradient(circle at 50% 40%,rgba(var(--accRGB),.18),#111216 70%);box-shadow:0 0 70px rgba(var(--accRGB),.35);text-align:center;padding:16px"><div style="font:850 ${core.length > 5 ? Math.max(26, 200 / core.length) : 70}px/1 Inter;color:var(--acc);letter-spacing:-.03em">${esc(core)}</div>${s.p.sub ? `<div style="font:650 15px Inter;color:var(--tx2)">${esc(s.p.sub)}</div>` : ""}</div>`);
+    (s.p.items || []).slice(0, 8).forEach((a, j) => {
+      mk(`hi${s.i}_${j}`, `<div class="card" style="width:156px;padding:12px 14px;display:flex;align-items:center;gap:11px"><div style="width:38px;height:38px;flex:none;border-radius:10px;background:#25262d;display:flex;align-items:center;justify-content:center;font:700 20px Inter;color:var(--tx)">${esc(a.icon || "•")}</div><div style="font:650 17px Inter;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(a.label)}</div></div>`);
+      mkLine(`hl${s.i}_${j}`, `rgba(var(--accRGB),.45)`, 3);
+      mk(`hd${s.i}_${j}`, `<div style="width:11px;height:11px;border-radius:50%;background:var(--acc);box-shadow:0 0 12px 3px rgba(var(--accRGB),.7)"></div>`);
+    });
   },
   settings_field(s) {
-    mk("set" + s.i, winHtml(s.p.title || "Settings", `<div style="padding:20px"><div class="lbl" style="margin-bottom:9px">${esc(s.p.label)}</div>
-      <div class="kf" style="height:50px;border-radius:11px;border:1.5px solid rgba(255,255,255,.14);background:#0c0d11;display:flex;align-items:center;padding:0 14px;gap:11px;font:500 16px Inter;color:var(--tx3)">
-      <span style="width:22px;height:22px;color:var(--acc)">${ICON.key}</span><span>${esc(s.p.placeholder)}</span><span class="cur kc" style="background:var(--acc)"></span></div>
-      <div style="display:flex;justify-content:flex-end;margin-top:16px"><div style="background:var(--tx);color:#111;border-radius:999px;padding:10px 20px;font:650 15px Inter">${esc(s.p.button || "Connect")}</div></div></div>`, 440));
+    mk("set" + s.i, winHtml(s.p.title || "Settings", `<div style="padding:22px 22px 20px"><div class="lbl" style="margin-bottom:10px">${esc(s.p.label)}</div>
+      <div class="kf" style="height:56px;border-radius:12px;border:2px solid rgba(255,255,255,.14);background:#0d0e12;display:flex;align-items:center;padding:0 15px;gap:12px;font:500 18px Inter;color:var(--tx3)">
+      <span style="width:24px;height:24px;flex:none;color:var(--acc)">${ICON.key}</span><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(s.p.placeholder)}</span><span class="cur kc" style="background:var(--acc)"></span></div>
+      <div style="display:flex;justify-content:flex-end;margin-top:18px"><div style="background:var(--tx);color:#111;border-radius:999px;padding:11px 22px;font:700 16px Inter">${esc(s.p.button || "Connect")}</div></div></div>`, 450));
   },
   stat_floor(s) {
-    mk("sf" + s.i, `<div style="width:2600px;height:5200px;background:repeating-linear-gradient(90deg,rgba(var(--accRGB),.16) 0 2px,transparent 2px 130px),repeating-linear-gradient(0deg,rgba(var(--accRGB),.10) 0 2px,transparent 2px 130px);-webkit-mask-image:radial-gradient(50% 50% at 50% 50%,#000 30%,transparent 75%)"></div>`);
-    mk("sn" + s.i, `<div style="text-align:center;width:520px"><div style="font:850 ${String(s.p.value).length > 4 ? 140 : 190}px/1 Inter;letter-spacing:-.06em;color:var(--acc);text-shadow:0 0 60px rgba(var(--accRGB),.45)"><span class="v">0</span><span style="font-size:.58em">${esc(s.p.suffix || "")}</span></div>
-      <div style="font:600 24px/1.3 Inter;color:var(--tx);margin-top:6px">${esc(s.p.caption || "")}<br><span style="color:var(--tx2)">${esc(s.p.sub || "")}</span></div>
-      <div style="font:600 17px Inter;color:var(--tx2);margin-top:18px">${s.p.source ? "Source: " + esc(s.p.source) : ""}</div></div>`);
+    mk("sg" + s.i, `<div style="width:900px;height:420px;perspective:520px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,transparent,#000 35%,#000 70%,transparent)"><div class="gr" style="width:1600px;height:1400px;margin-left:-350px;transform:rotateX(68deg);transform-origin:50% 0;background:repeating-linear-gradient(90deg,rgba(var(--accRGB),.35) 0 2px,transparent 2px 90px),repeating-linear-gradient(0deg,rgba(var(--accRGB),.28) 0 2px,transparent 2px 90px)"></div></div>`);
+    statBlock("sn" + s.i, s, "var(--acc)", "var(--acc)");
   },
   stat_wall(s) {
-    const rows = (s.p.rows || []).slice(0, 14);
-    mk("wl" + s.i, winHtml(s.p.wall_title || "", rows.map(r => `<div class="row" style="font:400 17px JBM"><span style="color:#6E7586">${esc(r[0])}</span><span style="flex:1;margin-left:16px;color:var(--tx2)">${esc(r[1])}</span><span style="color:var(--bad);font-weight:700">${esc(r[2] || "")}</span></div>`).join(""), 760));
-    mk("wn" + s.i, `<div style="text-align:center;width:540px"><div style="font:850 ${String(s.p.value).length > 4 ? 130 : 170}px/1 Inter;letter-spacing:-.06em;color:#fff;text-shadow:0 10px 60px rgba(0,0,0,.95),0 0 40px rgba(248,81,73,.35)"><span class="v">0</span><span style="font-size:.6em;color:var(--bad)">${esc(s.p.suffix || "")}</span></div>
-      <div style="font:600 24px/1.3 Inter;color:var(--tx);margin-top:8px;text-shadow:0 4px 24px #000">${esc(s.p.caption || "")}<br><span style="color:var(--tx2)">${esc(s.p.sub || "")}</span></div>
-      <div style="font:600 17px Inter;color:var(--tx2);margin-top:18px;text-shadow:0 2px 10px #000">${s.p.source ? "Source: " + esc(s.p.source) : ""}</div></div>`);
+    statBlock("wn" + s.i, s, "#fff", "var(--bad)");
+    const rows = (s.p.rows || []).slice(0, 5);
+    if (rows.length) mk("wl" + s.i, winHtml(s.p.wall_title || "public commits", rows.map(r => `<div class="wr" style="display:flex;gap:12px;align-items:center;padding:10px 16px;border-top:1px solid var(--line);font:400 16px JBM"><span style="color:#6E7586">${esc(r[0])}</span><span style="flex:1;color:var(--tx2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(r[1])}</span><span style="color:var(--bad);font-weight:700;white-space:nowrap">${esc(r[2] || "")}</span></div>`).join(""), 470));
   },
-  cta_terminal(s) { mk("ct" + s.i, winHtml(s.p.title || "claude", `<div class="term" style="min-height:118px"><span class="p">&gt; </span><span class="ty"></span><span class="cur"></span><div class="res" style="color:var(--ok);margin-top:8px;font-size:14px"></div></div>`, 490)); },
-  file_tree(s) {
-    const f = (s.p.files || []).slice(0, 5);
-    mk("ft" + s.i, winHtml(s.p.title || "project", `<div style="font:400 17px/2.1 JBM;padding:10px 18px;color:var(--tx2)">${f.map((x, j) => `<div class="fr" style="display:flex;justify-content:space-between;gap:12px;border-radius:9px;padding:0 10px;margin:0 -10px"><span style="color:${x[2] === "accent" ? "var(--acc)" : "var(--tx)"}">${esc(x[0])}</span><span style="color:${x[2] === "ok" ? "var(--ok)" : "var(--tx3)"};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(x[1] || "")}</span></div>`).join("")}
-      ${(s.p.code || []).length ? `<div class="fc" style="font-size:15px;line-height:1.6;background:#0c0d11;border-radius:9px;padding:10px 14px;margin:6px 0 10px;color:var(--tx2)">${s.p.code.slice(0, 3).map(c => esc(c)).join("<br>")}</div>` : ""}</div>`, 490));
+  laptop_prompt(s) { mk("term", winHtml(s.p.title || "claude", `<div class="term" style="min-height:120px"><span class="p">&gt; </span><span class="ty"></span><span class="cur"></span><div class="res" style="color:var(--ok);margin-top:10px;font-size:17px"></div></div>`, 440)); },
+  app_window(s) {
+    const rows = (s.p.rows || []).slice(0, 3);
+    mk("app", winHtml(s.p.url || "localhost:5173", `<div style="padding:18px 20px 10px"><div style="font:800 32px Inter;letter-spacing:-.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(s.p.title)}</div><div style="font:500 16px Inter;color:#777a82;margin-top:3px">${esc(s.p.subtitle || "")}</div></div>
+      ${rows.map(r => `<div style="display:flex;justify-content:space-between;gap:12px;padding:12px 20px;border-top:1px solid rgba(0,0,0,.08);font:500 18px Inter"><span style="color:#6b6e76">${esc(r[0])}</span><b style="font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(r[1])}</b></div>`).join("")}
+      ${s.p.slot ? `<div id="slotRow" style="display:flex;justify-content:space-between;gap:12px;padding:13px 20px;border-top:1px solid rgba(0,0,0,.08);font:600 18px Inter"><span style="color:#6b6e76">${esc(s.p.slot)}</span><b id="slotV" style="font-weight:750">—</b></div>` : ""}`, 370, "light"));
   },
-  end_card(s) {
-    mk("ea" + s.i, `<div class="lbl" style="color:var(--acc);font-size:15px;width:420px;text-align:center">${esc(s.p.series || "")}</div>`);
-    mk("eb" + s.i, `<div style="font:850 ${String(s.p.title).length > 26 ? 52 : 66}px/1.03 Inter;letter-spacing:-.045em;text-align:center;width:520px">${esc(s.p.title)}</div>`);
-    mk("ec" + s.i, `<div style="display:flex;flex-direction:column;align-items:center;gap:22px;width:420px"><div style="font:500 18px Inter;color:var(--tx3)">${s.p.next ? "Next: " + esc(s.p.next) : ""}</div><div class="fl" style="background:var(--tx);color:#111;border-radius:999px;padding:15px 36px;font:750 20px Inter">Follow</div></div>`);
-  },
-  big_word(s) { mk("bw" + s.i, `<div style="text-align:center;width:520px"><div style="font:900 ${String(s.p.text).length > 9 ? 70 : 104}px/1 Inter;letter-spacing:-.05em;color:var(--tx);text-shadow:0 0 50px rgba(var(--accRGB),.35)">${esc(s.p.text)}</div><div style="font:600 22px/1.3 Inter;color:var(--acc);margin-top:14px">${esc(s.p.sub || "")}</div></div>`); },
-  bullets(s) { (s.p.items || []).slice(0, 4).forEach((x, j) => mk(`bl${s.i}_${j}`, `<div class="card" style="width:440px;padding:18px 22px;display:flex;gap:16px;align-items:center"><div style="width:40px;height:40px;border-radius:12px;background:rgba(var(--accRGB),.16);color:var(--acc);font:800 20px Inter;display:flex;align-items:center;justify-content:center">${j + 1}</div><div style="font:650 20px/1.3 Inter">${esc(x)}</div></div>`)); },
   code_card(s) {
-    let html = esc(s.p.text || ""); (s.p.marks || []).forEach((m, j) => { const e = esc(m.part); html = html.replace(e, `<span class="mk${j}" style="padding-bottom:3px;border-bottom:3px solid transparent">${e}</span>`); });
-    const chars = String(s.p.text).length;
-    mk("cc" + s.i, `<div class="win" style="width:510px;padding:18px 18px 14px"><div class="mono" style="font-size:${Math.min(17, 470 / (chars * 0.602)).toFixed(2)}px;line-height:1.5;white-space:nowrap;overflow:hidden"><span class="body">${html}</span><div class="app" style="color:var(--acc);font-weight:700;min-height:0"></div></div>
-      <div style="display:flex;gap:18px;justify-content:center;margin-top:10px;font:750 15px Inter">${(s.p.marks || []).map((m, j) => `<span class="ml${j}" style="color:${j % 2 ? "var(--acc)" : "var(--tx)"}">↑ ${esc(m.label)}</span>`).join("")}</div></div>`);
+    let html = esc(s.p.text || ""); (s.p.marks || []).slice(0, 3).forEach((m, j) => { const e = esc(m.part); html = html.replace(e, `<span class="mk${j}" style="border-bottom:3px solid transparent;padding-bottom:2px">${e}</span>`); });
+    const txt = String(s.p.text || ""), oneLine = txt.length <= 34;
+    if (!oneLine && txt.includes("?")) html = html.replace("?", "<br>?");     // address on the first line, what it asks for on the second
+    mk("cc" + s.i, `<div class="win" style="width:470px;padding:16px 18px 14px;border-color:rgba(var(--accRGB),.55)"><div class="lbl" style="color:var(--acc);margin-bottom:8px">the request</div><div class="mono body" style="display:block;font-size:${oneLine ? 22 : 20}px;line-height:1.5;color:var(--tx);word-break:break-all">${html}<span class="app" style="color:var(--acc);font-weight:700"></span></div>
+      <div style="display:flex;gap:18px;justify-content:center;margin-top:10px;font:750 16px Inter">${(s.p.marks || []).slice(0, 3).map((m, j) => `<span class="ml${j}" style="color:${j % 2 ? "var(--acc)" : "var(--tx)"}">↑ ${esc(m.label)}</span>`).join("")}</div></div>`);
   },
-  data_card(s) { mk("dc" + s.i, winHtml(s.p.title || "response", `<div class="mono body" style="font-size:20px;line-height:1.7;padding:16px 22px;color:var(--tx2);min-height:150px"></div>`, 420)); mk("dv" + s.i, `<div class="mono" style="font:700 22px JBM;color:#fff;text-shadow:0 0 18px rgba(var(--accRGB),.9);white-space:nowrap">${esc(s.p.fill || "")}</div>`); },
+  data_card(s) {
+    mk("dc" + s.i, winHtml(s.p.title || "response", `<div class="mono body" style="font-size:19px;line-height:1.55;padding:12px 20px;color:var(--tx2);white-space:pre"></div>`, 340));
+    if (s.p.fill) mk("dv" + s.i, `<div class="chip" style="background:#fff;color:#111;box-shadow:0 0 26px rgba(255,255,255,.5)">${esc(s.p.fill)}</div>`);
+  },
+  packet(s) { mk("pk" + s.i, `<div class="chip" style="${s.p.dir === "up" ? "background:#fff;color:#111;box-shadow:0 0 26px rgba(255,255,255,.4)" : "background:var(--acc);color:#1a1205;box-shadow:0 0 26px rgba(var(--accRGB),.6)"}">${esc(s.p.label || (s.p.dir === "up" ? "response" : "request"))}</div>`); },
+  question(s) {
+    mk("hq" + s.i, `<div class="chip" style="background:var(--acc);color:#1a1205;box-shadow:0 0 26px rgba(var(--accRGB),.6)"><span>${esc(s.p.label || "request")}</span><span class="kk" style="display:none;width:20px;height:20px">${ICON.key}</span></div>`);
+    mk("qm" + s.i, `<div style="width:62px;height:62px;border-radius:50%;background:#fff;color:#111;display:flex;align-items:center;justify-content:center;font:900 36px Inter;box-shadow:0 0 30px rgba(255,255,255,.4)">?</div>`);
+  },
+  key_fly(s) { mk("ky" + s.i, `<div style="width:70px;height:70px;color:var(--acc);filter:drop-shadow(0 0 12px rgba(var(--accRGB),.9))">${ICON.key}</div>`); },
   compare(s) {
-    mk("cA" + s.i, `<div class="win" style="width:420px;padding:18px 20px"><div class="lbl" style="margin-bottom:8px">${esc(s.p.a_label)}</div><div style="height:48px;border-radius:10px;background:#0c0d11;border:1.5px solid rgba(255,255,255,.13);display:flex;align-items:center;padding:0 14px;font:700 19px JBM;color:var(--tx2)">${esc(s.p.a_value)}</div></div>`);
-    mk("cB" + s.i, `<div class="win" style="width:420px;padding:18px 20px;border-color:rgba(var(--accRGB),.5)"><div class="lbl" style="margin-bottom:8px;color:var(--acc)">${esc(s.p.b_label)}</div><div style="height:48px;border-radius:10px;background:#1a1307;border:1.5px solid rgba(var(--accRGB),.65);display:flex;align-items:center;padding:0 14px;font:700 19px JBM;color:var(--acc)">${esc(s.p.b_value)}</div></div>`);
-    mk("cE" + s.i, `<div style="font:850 54px Inter;color:var(--tx)">${esc(s.p.sign || "=")}</div>`);
+    const c = (lab, val, acc) => `<div class="win" style="width:215px;padding:14px 14px 16px;${acc ? "border-color:rgba(var(--accRGB),.6)" : ""}"><div class="lbl" style="margin-bottom:9px;font-size:11px;${acc ? "color:var(--acc)" : ""};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(lab)}</div><div style="height:46px;border-radius:10px;background:#0d0e12;border:1.5px solid ${acc ? "rgba(var(--accRGB),.6)" : "rgba(255,255,255,.14)"};display:flex;align-items:center;justify-content:center;padding:0 8px;font:700 ${fs(val, 17, 180)}px JBM;color:${acc ? "var(--acc)" : "var(--tx2)"};white-space:nowrap;overflow:hidden">${esc(val)}</div></div>`;
+    mk("cA" + s.i, c(s.p.a_label, s.p.a_value, false)); mk("cB" + s.i, c(s.p.b_label, s.p.b_value, true));
+    mk("cE" + s.i, `<div style="width:44px;height:44px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font:850 34px/1 Inter;color:var(--tx)">${esc(s.p.sign || "=")}</div>`);
   },
   leak(s) {
-    for (let j = 0; j < 10; j++) { mk(`av${s.i}_${j}`, `<div style="width:76px;height:76px;border-radius:50%;background:radial-gradient(circle at 50% 35%,#4a4d5a,#262830);border:2.5px solid rgba(248,81,73,.9);display:flex;align-items:center;justify-content:center;font:800 32px Inter;color:#e3e6ee;box-shadow:0 0 30px rgba(248,81,73,.45)">?</div>`);
-      mk(`lk${s.i}_${j}`, `<div style="width:44px;height:44px;color:#FFC861;filter:drop-shadow(0 0 8px rgba(var(--accRGB),.9))">${ICON.key}</div>`); }
-    mk("q" + s.i, `<div class="win" style="width:440px;padding:16px 18px"><div style="display:flex;justify-content:space-between;font:650 15px Inter;color:var(--tx2)"><span>${esc(s.p.meter_label || "Usage")}</span><span class="qv mono" style="color:var(--tx)">12%</span></div><div style="height:12px;border-radius:9px;background:#22242c;margin-top:12px;overflow:hidden"><div class="qb" style="height:100%;width:12%;border-radius:9px"></div></div></div>`);
+    for (let j = 0; j < 6; j++) {
+      mk(`av${s.i}_${j}`, `<div style="width:64px;height:64px;border-radius:50%;background:#26272e;border:3px solid var(--bad);display:flex;align-items:center;justify-content:center;color:#d9dce4;box-shadow:0 0 24px rgba(248,81,73,.4)">${ICON.person}</div>`);
+      mk(`lk${s.i}_${j}`, `<div style="width:30px;height:30px;color:var(--acc)">${ICON.key}</div>`);
+      mk(`rd${s.i}_${j}`, `<div style="width:14px;height:14px;border-radius:50%;background:var(--bad);box-shadow:0 0 14px 3px rgba(248,81,73,.7)"></div>`);
+    }
   },
-  key_fly(s) { mk("ky" + s.i, `<div style="width:90px;height:90px;color:#FFC861;filter:drop-shadow(0 0 14px rgba(var(--accRGB),.9))">${ICON.key}</div>`); },
-  packet(s) { mk("pk" + s.i, `<div class="chip" style="${s.p.dir === "up" ? "background:var(--tx);color:#111;box-shadow:0 0 30px rgba(255,255,255,.35)" : "background:var(--acc);color:#1a1205;box-shadow:0 0 30px rgba(var(--accRGB),.6)"}">${esc(s.p.label || (s.p.dir === "up" ? "response" : "request"))}</div>`); },
-  question(s) { mk("hq" + s.i, `<div class="chip" style="background:var(--acc);color:#1a1205;box-shadow:0 0 30px rgba(var(--accRGB),.6)">${esc(s.p.label || "request")}<span class="kk" style="display:none;width:16px;height:16px">${ICON.key}</span></div>`); },
-  badge(s) { const c = { ok: ["var(--ok)", "rgba(63,185,80,.14)"], bad: ["var(--bad)", "rgba(248,81,73,.14)"], warn: ["var(--warn)", "rgba(245,165,36,.14)"] }[s.p.tone || "ok"];
-    mk("bd" + s.i, `<div style="width:170px;height:150px;border-radius:20px;border:2px solid ${c[0]};background:${c[1]};text-align:center;padding-top:22px;box-shadow:0 0 50px ${c[1]},0 30px 60px rgba(0,0,0,.6)"><div style="font:800 ${String(s.p.code).length > 4 ? 40 : 56}px JBM;color:${c[0]};letter-spacing:-.04em">${esc(s.p.code)}</div><div style="font:650 17px Inter;color:var(--tx);margin-top:6px">${esc(s.p.label || "")}</div></div>`); },
+  badges_intro(s) { mk("bi" + s.i, `<div class="chip" style="background:#fff;color:#111;box-shadow:0 0 26px rgba(255,255,255,.4)">answer <span style="background:#111;color:#fff;border-radius:8px;padding:3px 9px;font-size:15px">+ code</span></div>`); },
+  badge(s) {
+    const c = { ok: ["var(--ok)", "rgba(63,185,80,.14)"], bad: ["var(--bad)", "rgba(248,81,73,.14)"], warn: ["var(--warn)", "rgba(227,160,8,.14)"] }[s.p.tone || "ok"] || ["var(--ok)", "rgba(63,185,80,.14)"];
+    mk("bd" + s.i, `<div style="width:142px;height:118px;border-radius:18px;border:2.5px solid ${c[0]};background:#121317;text-align:center;padding-top:16px;box-shadow:0 0 40px ${c[1]}"><div style="font:800 ${String(s.p.code).length > 4 ? 30 : 46}px JBM;color:${c[0]};letter-spacing:-.04em">${esc(s.p.code)}</div><div style="font:650 15px Inter;color:var(--tx);margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 8px">${esc(s.p.label || "")}</div></div>`);
+    mk("br" + s.i, `<div class="chip" style="background:#fff;color:#111">${esc(s.p.code)}</div>`);
+  },
+  cta_terminal(s) { mk("ct" + s.i, winHtml(s.p.title || "claude", `<div class="term" style="min-height:150px"><span class="p">&gt; </span><span class="ty"></span><span class="cur"></span><div class="res" style="color:var(--ok);margin-top:10px;font-size:16px"></div></div>`, 470)); },
+  file_tree(s) {
+    const f = (s.p.files || []).slice(0, 5);
+    mk("ft" + s.i, winHtml(s.p.title || "project", `<div style="font:400 17px/1 JBM;padding:8px 14px;color:var(--tx2)">${f.map(x => `<div class="fr" style="display:flex;justify-content:space-between;gap:12px;border-radius:9px;padding:11px 10px"><span style="color:${x[2] === "accent" ? "var(--acc)" : "var(--tx)"};white-space:nowrap">${esc(x[0])}</span><span style="color:${x[2] === "ok" ? "var(--ok)" : "var(--tx3)"};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(x[1] || "")}</span></div>`).join("")}
+      ${(s.p.code || []).length ? `<div class="fc" style="font-size:15px;line-height:1.6;background:#0d0e12;border-radius:9px;padding:10px 14px;margin:6px 0 8px;color:var(--tx2);white-space:nowrap;overflow:hidden">${s.p.code.slice(0, 3).map(c => esc(c)).join("<br>")}</div>` : ""}</div>`, 470));
+  },
+  end_card(s) {
+    mk("ea" + s.i, `<div class="lbl" style="color:var(--acc);font-size:15px;width:440px;text-align:center">${esc(s.p.series || "")}</div>`);
+    mk("eb" + s.i, `<div style="font:850 ${String(s.p.title).length > 26 ? 50 : 62}px/1.05 Inter;letter-spacing:-.045em;text-align:center;width:470px">${esc(s.p.title)}</div>`);
+    mk("ec" + s.i, `<div style="display:flex;flex-direction:column;align-items:center;gap:22px;width:420px"><div style="font:500 19px Inter;color:var(--tx3)">${s.p.next ? "Next: " + esc(s.p.next) : ""}</div><div class="fl" style="background:var(--tx);color:#111;border-radius:999px;padding:15px 38px;font:750 21px Inter">Follow</div></div>`);
+  },
+  big_word(s) { mk("bw" + s.i, `<div style="text-align:center;width:470px"><div style="font:900 ${String(s.p.text).length > 9 ? 64 : 96}px/1 Inter;letter-spacing:-.05em;color:var(--tx)">${esc(s.p.text)}</div><div style="font:600 22px/1.3 Inter;color:var(--acc);margin-top:14px">${esc(s.p.sub || "")}</div></div>`); },
+  bullets(s) { (s.p.items || []).slice(0, 4).forEach((x, j) => mk(`bl${s.i}_${j}`, `<div class="card" style="width:450px;padding:18px 22px;display:flex;gap:16px;align-items:center"><div style="width:40px;height:40px;flex:none;border-radius:12px;background:rgba(var(--accRGB),.16);color:var(--acc);font:800 20px Inter;display:flex;align-items:center;justify-content:center">${j + 1}</div><div style="font:650 21px/1.3 Inter">${esc(x)}</div></div>`)); },
 };
+function statBlock(id, s, color, sufColor) {
+  mk(id, `<div style="text-align:center;width:480px"><div style="font:850 ${String(s.p.value).length > 4 ? 136 : 168}px/1 Inter;letter-spacing:-.06em;color:${color};text-shadow:0 0 60px rgba(var(--accRGB),.3)"><span class="v">0</span><span style="font-size:.55em;color:${sufColor}">${esc(s.p.suffix || "")}</span></div>
+    <div style="font:650 26px/1.3 Inter;color:var(--tx);margin-top:10px">${esc(s.p.caption || "")}</div><div style="font:500 22px/1.3 Inter;color:var(--tx2);margin-top:4px">${esc(s.p.sub || "")}</div>
+    <div style="font:500 15px Inter;color:var(--tx3);margin-top:18px">${s.p.source ? "Source: " + esc(s.p.source) : ""}</div></div>`);
+}
+// the story diagram: built once, then each scene changes it in place
+let HAS_DIAGRAM = false;
 function buildStory() {
-  const lap = first("laptop_prompt"), app = first("app_window"), dia = first("diagram_link");
-  if (lap) {
-    mk("desk", `<div style="width:1500px;height:900px;border-radius:40px;background:radial-gradient(60% 60% at 50% 45%,rgba(var(--accRGB),.22),transparent 70%),linear-gradient(180deg,#241d17,#110f0d);-webkit-mask-image:radial-gradient(55% 55% at 50% 50%,#000 55%,transparent 100%)"></div>`);
-    // a laptop that reads as a laptop: light metal deck with visible keys and trackpad, bright screen with a real window
-    const keys = Array.from({ length: 4 }, (_, r) => `<div style="display:flex;gap:6px;margin-bottom:6px">${Array.from({ length: 13 }, () => `<i style="flex:1;height:30px;border-radius:5px;background:#5b606d;box-shadow:inset 0 -3px 0 #3f434d"></i>`).join("")}</div>`).join("");
-    mk("laptop", `<div style="position:relative;width:600px;height:0;transform-style:preserve-3d">
-      <div style="position:absolute;left:0;top:0;width:600px;height:390px;transform-origin:50% 0;transform:rotateX(90deg);border-radius:20px;background:linear-gradient(180deg,#8d93a1,#6d7280);box-shadow:inset 0 0 0 2px rgba(255,255,255,.35)">
-        <div style="margin:22px 26px 0;padding:8px;border-radius:10px;background:#2a2c33">${keys}</div>
-        <div style="margin:16px auto 0;width:230px;height:110px;border-radius:12px;background:#7d8391;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.3)"></div></div>
-      <div id="lapScreen" style="position:absolute;left:0;top:-380px;width:600px;height:380px;transform-origin:50% 100%;transform:rotateX(14deg);background:linear-gradient(160deg,#27324a,#151a26);border-radius:18px 18px 6px 6px;border:13px solid #9aa0ae;box-shadow:0 0 140px rgba(var(--accRGB),.3),0 0 0 2px rgba(255,255,255,.25);overflow:hidden">
-        <div class="win" style="margin:20px 22px;border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,.5)"><div class="bar"><i></i><i></i><i></i><b>${esc(lap.p.title || "claude")}</b></div>
-        <div class="term" style="font-size:27px;line-height:1.45;padding:20px 22px;min-height:236px"><span class="p">&gt; </span><span id="lapT"></span><span class="cur" id="lapC" style="height:28px;width:13px"></span><div id="lapR" style="color:var(--ok);margin-top:14px;font-size:21px"></div></div></div></div></div>`);
+  HAS_DIAGRAM = SC.some(s => DIAGRAM_TYPES.includes(s.type));
+  if (!first("app_window") && SC.some(s => STORY_TYPES.includes(s.type) && s.type !== "laptop_prompt"))
+    BUILD.app_window({ i: -1, p: { title: "Your app", subtitle: "", rows: [], url: "localhost:5173" } });
+  if (!HAS_DIAGRAM) return;
+  const d = first("diagram_link") || { p: {} }, lk = first("leak");
+  mk("server", `<div class="card" style="width:270px;padding:28px 20px 16px;display:flex;flex-direction:column;gap:10px">
+    ${[0, 1].map(() => `<div style="height:26px;border-radius:7px;background:#0d0e12;display:flex;align-items:center;gap:8px;padding:0 11px"><i class="led" style="width:9px;height:9px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px var(--ok)"></i><i class="led" style="width:9px;height:9px;border-radius:50%;background:var(--acc)"></i><i style="flex:1;height:4px;background:#30333d;border-radius:3px"></i></div>`).join("")}
+    <div style="text-align:center;font:750 21px Inter;color:var(--tx);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(((d.p.icon || "") + " " + (d.p.label || "Server")).trim())}</div>
+    ${lk ? `<div class="quota" style="margin-top:2px"><div style="display:flex;justify-content:space-between;font:600 13px Inter;color:var(--tx2)"><span>${esc(lk.p.meter_label || "Usage")}</span><span class="qv mono" style="color:var(--tx)">12%</span></div><div style="height:10px;border-radius:9px;background:#24262e;margin-top:7px;overflow:hidden"><div class="qb" style="height:100%;width:12%;border-radius:9px;background:var(--ok)"></div></div></div>` : ""}</div>`);
+  mk("door", `<div id="doorIn" style="min-width:120px;height:54px;padding:0 20px;border-radius:14px;background:var(--acc);display:flex;align-items:center;justify-content:center;gap:8px;font:850 ${String(d.p.door || "API").length > 6 ? 18 : 26}px Inter;color:#1a1205;box-shadow:0 0 40px rgba(var(--accRGB),.55)">${esc(d.p.door || "API")}<span class="ok" style="display:none;font-size:22px">✓</span></div>`);
+  mkLine("link", `rgba(var(--accRGB),.8)`, 4);
+  mk("nodeA", `<div class="dot"></div>`); mk("nodeB", `<div class="dot"></div>`);
+}
+function build() {
+  document.documentElement.style.setProperty("--acc", ST.accent); document.documentElement.style.setProperty("--accRGB", ST.accent_rgb.join(","));
+  for (const s of SC) if (BUILD[s.type] && s.type !== "app_window") BUILD[s.type](s);
+  const app = first("app_window"); if (app) BUILD.app_window(app);
+  if (SC.some(s => STORY_TYPES.includes(s.type))) buildStory();
+}
+
+// ============================================================ place: where everything rests (measured sizes, fixed gaps)
+// Story diagram, top to bottom (portrait suits a vertical flow): terminal (leaves when the app arrives) / app / the
+// line with whatever is travelling on it / the API door on top of the server. Things that explain the line (the request's
+// URL, the answer's data, the password comparison, strangers, status codes) open IN the gap on the line, never on a panel.
+let G = {};
+function place() {
+  measure();
+  for (const s of SC) { const o = Z[s.zid]; s.o = o; }
+  // hook: the core with its apps around it; the settings panel below, far enough that a shot of one never halves the other
+  for (const s of SC.filter(x => x.type === "hook_orbit")) {
+    const o = s.o, items = (s.p.items || []).slice(0, 8), n = items.length;
+    at("core" + s.i, o.x, o.y);
+    items.forEach((_, j) => { const a = -Math.PI / 2 + j * 2 * Math.PI / Math.max(1, n), rx = n <= 4 ? 175 : 195, ry = n <= 4 ? 205 : 262;
+      at(`hi${s.i}_${j}`, o.x + Math.cos(a) * rx, o.y + Math.sin(a) * ry); at(`hd${s.i}_${j}`, 0, 0); });
+    s.hookBottom = Math.max(o.y + 105, ...items.map((_, j) => box(`hi${s.i}_${j}`).b));
   }
-  if (app) {
-    const rows = (app.p.rows || []).slice(0, 3);
-    mk("app", winHtml(app.p.url || "localhost:5173", `<div class="ar" style="padding:16px 18px 6px"><div style="font:800 30px Inter;letter-spacing:-.03em">${esc(app.p.title)}</div><div style="font:500 15px Inter;color:var(--tx3);margin-top:3px">${esc(app.p.subtitle || "")}</div></div>
-      ${rows.map(r => `<div class="row ar"><span>${esc(r[0])}</span><b>${esc(r[1])}</b></div>`).join("")}
-      ${app.p.slot ? `<div class="row ar" id="slotRow"><span>${esc(app.p.slot)}</span><b id="slotV">—</b></div>` : ""}`, 500, "") );
+  for (const s of SC.filter(x => x.type === "settings_field")) {
+    const h = SC.filter(x => x.type === "hook_orbit" && x.zid === s.zid).pop(), top = h ? h.hookBottom + 360 : s.o.y - SIZE["set" + s.i].h / 2;
+    at("set" + s.i, s.o.x, top + SIZE["set" + s.i].h / 2);
   }
-  if (dia) {
-    mk("server", `<div style="position:relative;width:320px;height:250px;transform-style:preserve-3d">
-      <div class="card front" style="position:absolute;inset:0;transform:translateZ(110px);border-radius:14px;padding:30px 22px 16px;display:flex;flex-direction:column;gap:13px;background:linear-gradient(180deg,#343846,#22242d)">
-        ${[0, 1, 2].map(() => `<div style="height:30px;border-radius:7px;background:#14151b;display:flex;align-items:center;gap:8px;padding:0 12px"><i class="led" style="width:9px;height:9px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px var(--ok)"></i><i class="led" style="width:9px;height:9px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px var(--acc)"></i><i style="flex:1;height:4px;background:#3a3e4b;border-radius:3px"></i></div>`).join("")}
-        <div style="text-align:center;font:700 20px Inter;color:var(--tx);margin-top:8px">${esc((dia.p.icon || "") + " " + (dia.p.label || "Server"))}</div></div>
-      <div style="position:absolute;inset:0;transform:rotateY(180deg) translateZ(110px);background:#15161b;border-radius:14px"></div>
-      <div style="position:absolute;left:50px;top:0;width:220px;height:250px;transform:rotateY(-90deg) translateZ(160px);background:linear-gradient(90deg,#17181e,#23252d);border-radius:10px"></div>
-      <div style="position:absolute;left:50px;top:0;width:220px;height:250px;transform:rotateY(90deg) translateZ(160px);background:linear-gradient(90deg,#23252d,#17181e);border-radius:10px"></div>
-      <div style="position:absolute;left:0;top:15px;width:320px;height:220px;transform:rotateX(90deg) translateZ(125px);background:linear-gradient(180deg,#3d414f,#2b2e39);border-radius:12px"></div></div>`);
-    // the door and the "?" are their own objects, in front of and above the box, so the box can never hide them
-    mk("doorO", `<div id="door" style="width:132px;height:54px;border-radius:14px;background:#1c1407;border:2px solid var(--acc);display:flex;align-items:center;justify-content:center;font:850 ${String(dia.p.door || "API").length > 5 ? 15 : 24}px Inter;color:var(--acc);box-shadow:0 0 40px rgba(var(--accRGB),.5)">${esc(dia.p.door || "API")}</div>`);
-    mk("askO", `<div id="ask" style="width:58px;height:58px;border-radius:50%;background:#23252d;border:2px solid rgba(255,255,255,.45);display:flex;align-items:center;justify-content:center;font:850 30px Inter">?</div>`);
-    mk("link", `<div id="linkL" style="width:4px;height:100px;background:repeating-linear-gradient(180deg,rgba(255,255,255,.4) 0 6px,transparent 6px 14px);border-radius:3px"></div>`);
+  for (const s of SC.filter(x => x.type === "stat_floor")) { at("sn" + s.i, s.o.x, s.o.y); at("sg" + s.i, s.o.x, s.o.y + SIZE["sn" + s.i].h / 2 + 120); }
+  for (const s of SC.filter(x => x.type === "stat_wall")) { at("wn" + s.i, s.o.x, s.o.y); if (OBJ["wl" + s.i]) at("wl" + s.i, s.o.x, s.o.y + SIZE["wn" + s.i].h / 2 + 40 + SIZE["wl" + s.i].h / 2); }
+  for (const s of SC.filter(x => x.type === "cta_terminal")) at("ct" + s.i, s.o.x, s.o.y);
+  for (const s of SC.filter(x => x.type === "file_tree")) { const c = SC.filter(x => x.type === "cta_terminal" && x.zid === s.zid).pop(); at("ft" + s.i, s.o.x, c ? box("ct" + c.i).b + 40 + SIZE["ft" + s.i].h / 2 : s.o.y); }
+  for (const s of SC.filter(x => x.type === "end_card")) { at("ea" + s.i, s.o.x, s.o.y - 170); at("eb" + s.i, s.o.x, s.o.y - 60); at("ec" + s.i, s.o.x, s.o.y + 110); }
+  { let y = 0; for (const s of SC.filter(x => x.set === "free")) { s.fy = y; const o = s.o;
+      if (s.type === "big_word") { at("bw" + s.i, o.x, o.y + y); y += SIZE["bw" + s.i].h + 520; }
+      else { let yy = y; (s.p.items || []).slice(0, 4).forEach((_, j) => { const id = `bl${s.i}_${j}`; at(id, o.x, o.y + yy + SIZE[id].h / 2); yy += SIZE[id].h + 18; }); y = yy + 520; } } }
+  // the story
+  if (!OBJ.app && !OBJ.term) return;
+  const o = Z.story, aH = OBJ.app ? SIZE.app.h : 0;
+  if (OBJ.app) at("app", o.x, o.y);
+  if (OBJ.term) at("term", o.x, o.y - aH / 2 - 340 - SIZE.term.h / 2);
+  if (!HAS_DIAGRAM) return;
+  const appB = o.y + aH / 2, LINE = 262, doorY = appB + LINE + 27, srvH = SIZE.server.h;
+  at("door", o.x, doorY); at("server", o.x, doorY + srvH / 2 - 6);
+  at("nodeA", o.x, appB + 12); at("nodeB", o.x, doorY - 39);
+  G = { x: o.x, top: appB + 12, bot: doorY - 39, mid: (appB + doorY - 27) / 2, appB, doorY };
+  for (const s of SC) {
+    const id = { packet: "pk", code_card: "cc", data_card: "dc", badge: "bd" }[s.type];
+    if (s.type === "packet") at("pk" + s.i, o.x, G.mid);
+    if (s.type === "code_card" || s.type === "data_card") at(id + s.i, o.x, G.mid);
+    if (s.type === "data_card" && OBJ["dv" + s.i]) at("dv" + s.i, o.x, G.mid);
+    if (s.type === "question") { at("hq" + s.i, o.x, G.bot - 30); at("qm" + s.i, o.x + SIZE["hq" + s.i].w / 2 + 52, G.bot - 64); }
+    if (s.type === "key_fly") at("ky" + s.i, o.x, G.bot - 30);
+    if (s.type === "compare") { at("cA" + s.i, o.x - 130, G.mid); at("cB" + s.i, o.x + 130, G.mid); at("cE" + s.i, o.x, G.mid); }
+    if (s.type === "leak") for (let j = 0; j < 6; j++) { const side = j % 2 ? 1 : -1, row = Math.floor(j / 2); at(`av${s.i}_${j}`, o.x + side * (row === 1 ? 205 : 128), G.mid + (row - 1) * 74 - 10); at(`lk${s.i}_${j}`, o.x, G.bot - 30); at(`rd${s.i}_${j}`, 0, 0); }
+    if (s.type === "badges_intro") at("bi" + s.i, o.x, G.mid);
+    if (s.type === "badge") { const n = SC.filter(x => x.type === "badge" && x.i < s.i).length % 3; at("bd" + s.i, o.x + (n - 1) * 160, G.mid); at("br" + s.i, o.x, G.mid); }
   }
 }
 
-// ============================================================ camera + sound plan per scene type (seeded variation)
-function direct() {
-  const sg = ST.sign, H = POS.hook, O = POS.story;
-  let badgeN = 0;
-  SC.forEach((s, idx) => {
-    const t0 = s.t0, t1 = s.t1, o = POS[s.sid], prev = SC[idx - 1];
-    const newSet = !prev || prev.sid !== s.sid;
-    const go = (dt, c) => key(t0 + dt, c);
+// ============================================================ lifetimes (when each solid panel is on screen)
+// Used by the framing guard (what else is alive during a shot) and the frame audit.
+function lives() {
+  const add = (id, a, b) => { if (OBJ[id] && b > a) (LIFE[id] = LIFE[id] || []).push([a, b]); };
+  const zs = zid => zoneSpan(zid) || [0, 0];
+  for (const s of SC) {
+    const t0 = s.t0, t1 = s.t1, i = s.i;
     switch (s.type) {
-      case "hook_orbit": key(Math.max(0, t0 - 0.2), cam(o, 0, 30, 0, -32 * sg, 14, 980, 820, -3)); key(t1 - 0.2, cam(o, 0, 30, 0, 6 * sg, 8, 940)); s.p.items && s.p.items.forEach((_, j) => cue(t0 + 0.15 + j * 0.09, "pop", 0.5)); break;
-      case "settings_field": go(0.25, cam(o, 0, 110, 160, 10 * sg, 4, 820)); key(t1 - 0.25, cam(o, 0, 120, 220, 0, 2, 720)); cue(t0, "whoosh", 0.8); cue(W(s.line, s.p.glow_word, 0.8), "click"); break;
-      case "stat_floor": go(0.55, cam(o, 0, -40, 0, -6 * sg, 14, 820, 780, -2)); if (t1 - t0 > 3.2) { key(t0 + 2.3, cam(o, 0, -40, 0, 6 * sg, 8, 760, 800)); cut(t0 + 2.4, cam(o, 0, -40, 0, 6 * sg, 8, 760, 800), cam(o, 60 * sg, 60, 0, 26 * sg, -6, 700, 700, 3)); }
-        key(t1 - 0.3, cam(o, 40 * sg, 40, 0, 16 * sg, -3, 660, 720, 1)); cue(t0 - 0.3, "swoosh_big"); cue(t0 + 0.1, "riser", 0.7); for (let j = 0; j < 12; j++) cue(t0 + 0.1 + j * 0.085, "tick", 0.35); break;
-      case "laptop_prompt": { const c0 = cam(o, 0, 130, 40, 34 * sg, 18, 1150, 880); key(t0, c0);
-        key(t1 - 0.1, cam(o, 0, 120, 20, 12 * sg, 12, 1000)); const n = Math.max(8, String(s.p.prompt || "").length); for (let j = 0; j < Math.min(n, 30); j++) cue(lerp(t0 + 0.4, t1 - 0.3, j / Math.min(n, 30)), "key", 0.35); cue(t1 - 0.2, "pop"); break; }
-      case "app_window": { const fromLap = prev && prev.type === "laptop_prompt";
-        if (!fromLap) { const c0 = cam(o, 0, 30, 40, -10 * sg, 6, 900); newSet && prev ? cut(t0 - 0.1, camAtKeyLast(), c0) : key(t0, c0); }
-        go(0.2, cam(o, 0, 30, 40, -6 * sg, 6, 900)); [0, 1, 2, 3].forEach(j => cue(t0 + 0.1 + j * 0.09, "pop", 0.45));
-        if (s.p.unknown && s.p.slot) { const a = W(s.line, s.p.unknown_word, 0.5); cut(a - 0.05, cam(o, 0, 30, 40, -6 * sg, 6, 900), cam(o, 40 * sg, 70, 60, -14 * sg, 4, 800, 900, -2)); cue(a, "blip", 0.6); key(t1 - 0.05, cam(o, 30 * sg, 60, 60, -8 * sg, 2, 830)); } break; }
-      case "diagram_link": go(0.8, cam(o, 0, 110, -60, -18 * sg, 10, 1150, 860)); key(t1, cam(o, 0, 120, -60, 12 * sg, 6, 1080, 860)); cue(t0, "whoosh"); break;
-      case "door": { const a = W(s.line, s.p.word, 0.6); key(a + 0.2, cam(o, 0, 200, -60, 14 * sg, 8, 760)); key(t1, cam(o, 0, 120, -60, 12 * sg, 6, 1080, 860)); cue(a, "thump"); break; }
-      case "packet": if (s.p.dir === "up") { go(0.9, cam(o, 0, 20, 0, 8 * sg, -4, 900, 880, -2)); } else { go(0, cam(o, 0, 120, -60, 12 * sg, 6, 1080, 860)); go(1.2, cam(o, 0, 260, -120, 4 * sg, 14, 900, 880, 2)); } cue(t0 + 0.15, "zip"); break;
-      case "code_card": cut(t0 - 0.1, camAtKeyLast(), cam(o, 0, 150, 170, -3 * sg, 2, 880)); key(t1 - 0.1, cam(o, 0, 150, 170, 4 * sg, 2, 900)); cue(t0 - 0.15, "pop"); (s.p.marks || []).forEach(m => cue(W(s.line, m.word, 0.5), "tick")); break;
-      case "data_card": cut(t0 - 0.1, camAtKeyLast(), cam(o, 20, 150, 140, -22 * sg, 6, 780, 900, 1)); go(0.5, cam(o, 20, 130, 120, -12 * sg, 4, 700)); cue(t0 - 0.15, "pop"); for (let j = 0; j < 5; j++) cue(t0 - 0.1 + j * 0.12, "key", 0.4); if (s.p.fill) { cue(t0 + 0.75, "whoosh", 0.6); cue(t0 + 1.2, "ding"); } break;
-      case "question": key(t0 - 0.1, cam(o, 0, 120, -60, 10 * sg, 6, 1080, 860)); cue(W(s.line, s.p.word, 0.6), "blip"); break;
-      case "key_fly": { const a = W(s.line, s.p.word, 0.4); cut(a - 0.3, camAtKeyLast(), cam(o, -120 * sg, 160, 120, -30 * sg, -8, 620, 760, -3)); key(a + 0.5, cam(o, 40 * sg, 140, 20, -10 * sg, -2, 700, 820)); cue(a - 0.25, "whoosh"); cue(a + 0.3, "click"); break; }
-      case "compare": cut(t0 - 0.05, camAtKeyLast(), cam(o, 0, 160, 100, 12 * sg, 3, 920)); key(t1 - 0.1, cam(o, 0, 160, 100, 4 * sg, 2, 880)); cue(t0, "pop"); cue(t0 + 0.15, "pop", 0.6); break;
-      case "leak": { const a = W(s.line, s.p.word, 0.4); go(0.3, cam(o, 0, 150, -60, -24 * sg, 16, 1250, 760, -3)); key(t1 - 0.15, cam(o, 0, 150, -60, 18 * sg, 12, 1200, 780, 2)); cue(a, "swoosh_big"); for (let j = 0; j < 10; j++) cue(a + j * 0.06, "tick", 0.4); cue(a + 0.3, "riser", 0.8); break; }
-      case "stat_wall": go(0.7, cam(o, -180, 40, 300, 34, 3, 980, 860, 2)); if (t1 - t0 > 3.4) { key(t0 + 2.6, cam(o, -180, 50, 300, 28, 2, 920, 880)); cut(t0 + 2.7, cam(o, -180, 50, 300, 28, 2, 920, 880), cam(o, -260, 40, 200, 10, -4, 1000, 760, -2)); }
-        key(t1 - 0.25, cam(o, -240, 50, 220, 18, -2, 1050, 780)); cue(t0 - 0.2, "swoosh_big"); cue(t0 + 0.6, "impact"); for (let j = 0; j < 14; j++) cue(t0 + 0.3 + j * 0.12, "tick", 0.3); break;
-      case "badges_intro": go(0.5, cam(o, 0, 150, 60, -10 * sg, 6, 1050, 880)); cue(t0 - 0.25, "swoosh_big"); break;
-      case "badge": { const ang = [[-150, -24, 760], [40, 20, 780], [0, 2, 1040]][badgeN % 3]; cut(t0 - 0.16, camAtKeyLast(), cam(o, ang[0] * sg, 110, 170, ang[1] * sg, 4, ang[2], 880, -2 * sg)); key(t1 - 0.2, cam(o, ang[0] * sg * 0.6, 120, 160, ang[1] * sg * 0.7, 4, ang[2] + 40, 880)); cue(t0 - 0.05, "slam"); s.n = badgeN++; break; }
-      case "cta_terminal": go(0.25, cam(o, 0, -90, 0, -12 * sg, 4, 760)); key(t1, cam(o, 0, 10, 0, 8 * sg, 6, 900)); cue(t0 - 0.3, "swoosh_big"); { const n = Math.min(50, String(s.p.prompt || "").length); for (let j = 0; j < n; j++) cue(lerp(t0 + 0.6, t1 - 0.2, j / n), "key", 0.3); } break;
-      case "file_tree": go(0.2, cam(o, 0, 10, 0, 8 * sg, 6, 900)); key(lerp(t0, t1, 0.5), cam(o, -20, 120, -40, 3 * sg, 8, 880, 940, 1)); key(t1 - 0.25, cam(o, -20, 120, -40, -3 * sg, 4, 840, 920)); cue(t1 - 0.3, "ding"); break;
-      case "end_card": go(0.6, cam(o, 0, 0, 0, -16 * sg, 2, 1000)); key(DUR + 1, cam(o, 0, 0, 0, 8 * sg, 2, 900)); cue(t0 - 0.3, "swoosh_big"); cue(t0 + 0.2, "impact", 0.6); break;
-      case "big_word": go(0.1, cam(o, 0, -40, 0, 20 * sg, 4, 900)); key(t1, cam(o, 0, -40, 0, -6 * sg, 2, 820)); cue(t0 - 0.2, "swoosh_big"); cue(t0 + 0.1, "slam", 0.6); break;
-      case "bullets": go(0.3, cam(o, 0, 0, 0, -10 * sg, 4, 980)); key(t1, cam(o, 0, 0, 0, 10 * sg, 4, 940)); (s.p.items || []).forEach((_, j) => cue(t0 + 0.2 + j * ((t1 - t0 - 0.4) / Math.max(1, (s.p.items || []).length)), "pop")); break;
+      case "hook_orbit": { const z = zs(s.zid); add("core" + i, t0, z[1]); (s.p.items || []).slice(0, 8).forEach((_, j) => add(`hi${i}_${j}`, t0 + 0.4 + j * 0.07, z[1])); break; }
+      case "settings_field": add("set" + i, t0 - 0.3, zs(s.zid)[1]); break;
+      case "stat_floor": add("sn" + i, t0, t1); break;
+      case "stat_wall": add("wn" + i, t0, t1); add("wl" + i, t0, t1); break;
+      case "cta_terminal": add("ct" + i, t0, zs(s.zid)[1]); break;
+      case "file_tree": add("ft" + i, t0, zs(s.zid)[1]); break;
+      case "end_card": add("ea" + i, t0, DUR); add("eb" + i, t0, DUR); add("ec" + i, t0, DUR); break;
+      case "big_word": add("bw" + i, t0, t1); break;
+      case "bullets": (s.p.items || []).slice(0, 4).forEach((_, j) => add(`bl${i}_${j}`, t0, t1)); break;
+      case "code_card": add("cc" + i, t0 - 0.1, gapEnd(s)); break;
+      case "data_card": add("dc" + i, t0 - 0.1, gapEnd(s)); break;
+      case "compare": add("cA" + i, t0, gapEnd(s)); add("cB" + i, t0, gapEnd(s)); break;
+      case "badge": add("bd" + i, t0 - 0.2, badgesEnd()); break;
+      case "leak": for (let j = 0; j < 6; j++) add(`av${i}_${j}`, t0, gapEnd(s)); break;
     }
-    if (newSet && prev && !["laptop_prompt", "app_window", "code_card", "data_card", "key_fly", "compare", "badge"].includes(s.type)) cue(t0 - 0.35, "swoosh_big", 0.8);
+  }
+  const sp = zoneSpan("story");
+  if (sp) {
+    const lap = first("laptop_prompt"), app = first("app_window");
+    if (OBJ.term && lap) add("term", lap.t0 - 0.1, termEnd());
+    if (OBJ.app) add("app", appStart(), sp[1]);
+    if (HAS_DIAGRAM) { const d = diagramStart(); add("server", d, sp[1]); add("door", doorAt(), sp[1]); }
+  }
+}
+// the gap on the line holds one thing at a time: each item stays until the next scene that uses the gap
+const GAP_TYPES = ["packet", "code_card", "data_card", "compare", "leak", "badges_intro", "badge", "question"];
+function gapEnd(s) { const n = nextIn(s, GAP_TYPES); return n ? n.t0 : (zoneSpan("story") || [0, DUR])[1]; }
+function badgesEnd() { const b = SC.filter(x => x.type === "badge"); const last = b[b.length - 1]; const n = last && nextIn(last, GAP_TYPES.filter(x => x !== "badge")); return n ? n.t0 : (zoneSpan("story") || [0, DUR])[1]; }
+function appStart() { const lap = first("laptop_prompt"), app = first("app_window"); return lap && app && app.i === lap.i + 1 ? lap.t1 - 0.35 : app ? app.t0 - 0.15 : (zoneSpan("story") || [0])[0]; }
+function termEnd() { const lap = first("laptop_prompt"), app = first("app_window"); return app && app.i > lap.i ? app.t0 + 0.55 : lap.t1; }
+function diagramStart() { const d = first("diagram_link"); if (d) return d.t0; const f = SC.find(s => DIAGRAM_TYPES.includes(s.type)); return f ? f.t0 : DUR; }
+function doorAt() { const d = first("door"); return d ? W(d.line, d.p.word, 0.5) - 0.05 : diagramStart() + 0.5; }
+
+// ============================================================ direction: the camera and the sound, scene by scene
+// Rule: every camera move answers "what is the voice talking about now?". Holds are allowed; motion comes from the
+// diagram changing (things writing themselves, travelling, opening), as in the reference.
+function direct() {
+  let prevZ = null;
+  const shot = (ids, a, b, zmax) => fitShots(ids, a, Math.max(a + 0.05, b - 0.2), zmax);   // the shot at rest, before the next scene's lead-in
+  const whole = () => ["app", "server", "door"];
+  SC.forEach((s, idx) => {
+    const t0 = s.t0, t1 = s.t1, i = s.i, newZone = s.zid !== prevZ, enter = (c, why) => newZone ? (cutTo(t0 - 0.02, c, why), cue(t0 - 0.12, "swoosh_big", 0.7)) : moveTo(t0 - 0.05, 0.6, c, why);
+    prevZ = s.zid;
+    switch (s.type) {
+      case "hook_orbit": {
+        const items = (s.p.items || []).slice(0, 8).map((_, j) => `hi${i}_${j}`);
+        cutTo(0, shot(["core" + i], 0, t0 + 0.5, 1.45), "open on the subject");
+        moveTo(t0 + 0.35, 0.9, shot(["core" + i, ...items], t0, t1, 1.1), "pull back: every app talks to one");
+        items.forEach((_, j) => cue(t0 + 0.4 + j * 0.07, "pop", 0.45)); break;
+      }
+      case "settings_field": {
+        enter(shot(["set" + i], t0, t1, 1.15), "the panel that asks for the key");
+        const g = W(s.line, s.p.glow_word, 0.7); cue(g, "click");
+        if (t1 - g > 0.8) { const c = shot(["set" + i], g, t1, 1.15); moveTo(g + 0.05, 0.6, { ...c, z: c.z * 1.08, y: c.y - 8 }, "push to the field being named"); }
+        break;
+      }
+      case "stat_floor": case "stat_wall": {
+        const ids = s.type === "stat_floor" ? ["sn" + i] : ["wn" + i].concat(OBJ["wl" + i] ? ["wl" + i] : []);
+        const c = shot(ids, t0, t1, 1.1); cutTo(t0 - 0.02, { ...c, z: c.z * 0.93 }, "the number"); cue(t0 - 0.12, "swoosh_big", 0.8);
+        moveTo(t0 + 0.1, Math.max(0.6, t1 - t0 - 0.4), c, "slow push: let the number land");
+        cue(t0 + 0.1, "riser", 0.6); for (let j = 0; j < 12; j++) cue(t0 + 0.1 + j * 0.09, "tick", 0.3); cue(t0 + 1.2, "impact", 0.5); break;
+      }
+      case "laptop_prompt": {
+        enter(shot(["term"], t0, appStart(), 1.2), "the prompt being typed");
+        const n = Math.min(30, String(s.p.prompt || "").length); for (let j = 0; j < n; j++) cue(lerp(t0 + 0.3, t1 - 0.55, j / n), "key", 0.3);
+        cue(t1 - 0.4, "ding", 0.5); break;
+      }
+      case "app_window": {
+        const c = shot(["app"], termEnd(), t1, 1.25);
+        if (OBJ.term && first("laptop_prompt") && first("laptop_prompt").i === i - 1) moveTo(t0 - 0.3, 0.8, c, "down to the app it built");
+        else enter(c, "the app");
+        cue(t0 - 0.2, "pop", 0.6);
+        if (s.p.unknown && s.p.slot) cue(W(s.line, s.p.unknown_word, 0.5), "blip", 0.6);
+        break;
+      }
+      case "diagram_link": enter(shot(whole(), t0, t1, 1.0), "pull back: the app is connected to another program"); cue(t0 + 0.25, "zip", 0.5); cue(t0 + 0.8, "pop", 0.6); break;
+      case "door": { const a = doorAt(); moveTo(a - 0.15, 0.6, shot(["server", "door"], a, t1, 1.2), "push in to the door being named"); cue(a + 0.05, "thump"); break; }
+      case "packet": {
+        const down = s.p.dir !== "up";
+        const A = shot(["app"], t0, t0 + 0.6, 1.2), B = shot(["server", "door"], t0, t1, 1.2);
+        if (newZone) cutTo(t0 - 0.02, down ? A : B, "where the message starts");
+        else moveTo(t0 - 0.1, 0.45, down ? A : B, "where the message starts");
+        moveTo(t0 + 0.4, Math.max(0.6, t1 - t0 - 0.6), down ? B : A, "follow it along the line"); cue(t0 + 0.4, "zip"); break;
+      }
+      case "code_card": enter(shot(whole().concat("cc" + i), t0, t1, 1.0), "open the request up"); cue(t0, "pop"); (s.p.marks || []).forEach((m, j) => cue(W(s.line, m.word, 0.3 + 0.4 * j), "tick", 0.7)); break;
+      case "data_card": enter(shot(whole().concat("dc" + i), t0, t1, 1.0), "open the answer up"); cue(t0, "pop"); for (let j = 0; j < 6; j++) cue(t0 + 0.1 + j * 0.1, "key", 0.3); if (s.p.fill) cue(fillAt(s) + 0.3, "ding", 0.7); break;
+      case "question": enter(shot(["server", "door", "hq" + i, "qm" + i], t0, nextIn(s, ["compare", "leak", "badges_intro", "badge", "packet", "end_card", "stat_wall", "stat_floor"])?.t0 ?? t1, 1.2), "the request waiting at the door"); cue(W(s.line, s.p.word, 0.6), "blip"); break;
+      case "key_fly": { const a = W(s.line, s.p.word, 0.4); if (newZone) enter(shot(["server", "door"], t0, t1, 1.2), "the door"); cue(a - 0.2, "whoosh", 0.6); cue(a + 0.25, "click"); cue(a + 0.4, "ding", 0.4); break; }
+      case "compare": enter(shot(whole().concat("cA" + i, "cB" + i), t0, t1, 1.0), "side by side"); cue(t0, "pop"); cue(t0 + 0.2, "pop", 0.6); break;
+      case "leak": { const a = W(s.line, s.p.word, 0.4); enter(shot(whole().concat(Array.from({ length: 6 }, (_, j) => `av${i}_${j}`)), t0, t1, 1.0), "pull back: who else has the key"); cue(a, "swoosh_big", 0.6); for (let j = 0; j < 6; j++) cue(a + 0.3 + j * 0.08, "tick", 0.5); cue(W(s.line, s.p.meter_word, 0.7), "riser", 0.7); break; }
+      case "badges_intro": enter(shot(whole(), t0, t1, 1.0), "the answers coming back"); cue(t0 + 0.3, "zip", 0.5); break;
+      case "badge": { const ids = whole().concat(SC.filter(x => x.type === "badge").map(x => "bd" + x.i)); enter(shot(ids, t0, t1, 1.0), "the status codes"); cue(t0 + 0.05, "zip", 0.4); cue(t0 + 0.42, "slam", 0.8); break; }
+      case "cta_terminal": { enter(shot(["ct" + i], t0, t1, 1.15), "what to tell Claude"); const n = Math.min(50, String(s.p.prompt || "").length), end = ctaEnd(s); for (let j = 0; j < n; j++) cue(lerp(t0 + 0.5, end, j / n), "key", 0.3); break; }
+      case "file_tree": { const c = SC.filter(x => x.type === "cta_terminal" && x.zid === s.zid).pop(); enter(shot(["ft" + i].concat(c ? ["ct" + c.i] : []), t0, t1, 1.15), "the result in the project"); cue(t0 + 0.3, "pop"); cue(t1 - 0.4, "ding", 0.6); break; }
+      case "end_card": { const c = shot(["ea" + i, "eb" + i, "ec" + i], t0, DUR, 1.1); cutTo(t0 - 0.02, { ...c, z: c.z * 0.94 }, "end"); moveTo(t0 + 0.1, Math.max(0.8, DUR - t0), c, "slow push on the title"); cue(t0 - 0.12, "swoosh_big"); cue(t0 + 0.2, "impact", 0.5); break; }
+      case "big_word": enter(shot(["bw" + i], t0, t1, 1.1), "the next idea"); cue(t0, "slam", 0.6); break;
+      case "bullets": { const ids = (s.p.items || []).slice(0, 4).map((_, j) => `bl${i}_${j}`); enter(shot(ids, t0, t1, 1.1), "the next point"); ids.forEach((_, j) => cue(t0 + 0.15 + j * 0.25, "pop")); break; }
+    }
   });
   CK.sort((a, b) => a[0] - b[0]);
-  SC.forEach((s, i) => {
-    if (!i || SC[i - 1].sid === s.sid || CUTS.some(c => Math.abs(c - s.t0) < 0.2)) return;
-    const arrive = CK.find(k => k[0] >= s.t0 - 0.001); if (!arrive) return;
-    const prevKeys = CK.filter(k => k[0] < s.t0 - 0.0005); if (!prevKeys.length) return;
-    const before = prevKeys[prevKeys.length - 1][1], a = arrive[1];     // hold the last shot of the old set until the cut
-    CK.push([s.t0 - 0.001, before], [s.t0, { ...a, D: a.D * 1.14, yaw: a.yaw - 9 * ST.sign }]); CK.sort((x, y) => x[0] - y[0]);   // cut, then a short push-in
-    CUTS.push(s.t0);
-  });
-  CUTS.forEach(tc => cue(tc - 0.12, "whoosh", 0.45));
-  coverage();
   CUES.sort((a, b) => a.t - b.t);
 }
-// Coverage: the reference changes the whole picture about every second; a scene held from one angle reads as a
-// "template". Wherever the planned camera holds one shot for more than ~1.1 s, cut to another angle of the same
-// subject ON a spoken word (so the cut feels motivated). The planned move continues from the new angle until the
-// next planned cut or set change. Angles come from a fixed list, started at a seeded position.
-const SETCH = [];
-function coverage() {
-  SC.forEach((s, i) => { if (i && SC[i - 1].sid !== s.sid) SETCH.push(s.t0); });
-  const events = [0, ...CUTS, ...SETCH, DUR].sort((a, b) => a - b), PLANNED = [...events];
-  // [yaw, pitch, distance factor, roll]: mild on purpose. Closer than 0.84 or more than ~24 degrees cropped wide panels
-  // off the screen in the first test (11 Nov); an angle change replaces the whole picture anyway.
-  const ANG = [[18, -4, 0.86, 2], [-15, 6, 1.15, -1], [-22, -3, 0.9, -2], [12, 7, 1.1, 1], [24, 2, 0.95, 2], [-10, -5, 0.84, 0]];
-  const sg = ST.sign, sh = (c, g, d) => ({ ...c, yaw: c.yaw + d * g[0] * sg, pitch: c.pitch + d * g[1], D: d > 0 ? c.D * g[2] : c.D / g[2], roll: c.roll + d * g[3] });
-  let n = Math.floor(ST.r(77) * ANG.length), added = 0, cur = null;      // cur = the angle already applied up to the next planned event
-  for (const w of T.words) {
-    const tc = w.start; if (tc < 0.7 || tc > DUR - 0.9) continue;
-    let last = 0, next = DUR; for (const e of events) { if (e <= tc) last = e; else { next = e; break; } }
-    if (tc - last < 0.9 || next - tc < 0.6) continue;
-    if (cur && tc >= cur.until) cur = null;
-    const g = ANG[n++ % ANG.length], from = camBase(tc), base = cur ? sh(from, cur.g, -1) : from;   // never stack one angle on another
-    let planned = DUR; for (const e of PLANNED) if (e > tc) { planned = e; break; }
-    for (const k of CK) if (k[0] > tc && k[0] < planned - 0.002) k[1] = sh(cur ? sh(k[1], cur.g, -1) : k[1], g, 1);   // the planned move goes on, seen from the new angle
-    CK.push([tc - 0.001, from], [tc, sh(base, g, 1)]); CK.sort((x, y) => x[0] - y[0]);
-    cur = { g, until: planned };
-    events.push(tc); events.sort((x, y) => x - y); CUTS.push(tc); added++;
-    cue(tc - 0.08, "whoosh", 0.18);
-  }
-  return added;
+function fillAt(s) { return lerp(s.t0, s.t1, 0.62); }
+function ctaEnd(s) { const nx = SC[s.i + 1]; return nx && nx.type === "file_tree" ? Math.min(nx.t0 + 0.6, nx.t1 - 0.8) : s.t1 - 0.3; }
+
+// ============================================================ the frame
+function type(el, text, t, a, b) { const n = Math.round(String(text).length * clamp((t - a) / (b - a))); el.textContent = String(text).slice(0, n); }
+const q = (id, sel) => OBJ[id] && OBJ[id].querySelector(sel);
+const blink = t => Math.floor(t * 2.2) % 2 ? 0 : 1;
+const live = (id, t) => (LIFE[id] || []).reduce((m, [a, b]) => Math.max(m, win(t, a, b, .28, .28)), 0);
+function render(t) {
+  NOW = t; captions(t);
+  applyCam(CAMFORCE || camAt(t));
+  for (const s of SC) RENDER[s.type] && RENDER[s.type](t, s);
+  renderStory(t);
 }
-// ============================================================ framing guard + frame audit
-// Two faults reached Franklin on 11 Nov because motion numbers can't see them: panels cut off by the screen edge and
-// things sitting on top of each other. So the engine now measures its own frames (real on-screen boxes):
-//   fitShots()  per shot (between cuts), pulls the camera back / re-centres it until the scene's subject is inside the frame
-//   audit()     afterwards, lists anything still cut off or overlapping; the pipeline holds the video if the list isn't empty
-let CAMFORCE = null;
-const SAFE = { l: 10, r: 530, t: 292, b: 944 }, FIT = { l: 26, r: 514, t: 304, b: 932 }   /* fit tighter than the audit: things still move between samples */, SETTLE = 0.55;
-const SOLID = /^(core|set|sn|wn|app|server|cc|dc|cA|cB|bd|ct|ft|eb|q|bw|bl)\d*(_\d+)?$/;
-function subjects(s, t = 0) {
-  const i = s.i, prevOf = ty => { for (let k = i - 1; k >= 0; k--) if (SC[k].type === ty) return SC[k]; return null; };
+const RENDER = {
+  hook_orbit(t, s) {
+    const items = (s.p.items || []).slice(0, 8), c = REST["core" + s.i];
+    put("core" + s.i, live("core" + s.i, t), 0, 0, 0.75 + 0.25 * spring((t - s.t0) / 0.7));
+    items.forEach((_, j) => {
+      const id = `hi${s.i}_${j}`, a = s.t0 + 0.4 + j * 0.07, k = spring((t - a) / 0.6), r = REST[id], o = live(id, t) * clamp((t - a) * 6);
+      put(id, o, (c.x - r.x) * (1 - k), (c.y - r.y) * (1 - k), 0.6 + 0.4 * k);
+      const ex = lerp(c.x, r.x, k), ey = lerp(c.y, r.y, k), ang = Math.atan2(ey - c.y, ex - c.x), d = Math.hypot(ex - c.x, ey - c.y);
+      line(`hl${s.i}_${j}`, o, c.x + Math.cos(ang) * 108, c.y + Math.sin(ang) * 108, ex, ey, d > 110 ? ramp(t, a + 0.2, .4) : 0);
+      const p = ((t - a - 0.6) * 0.8 + j * 0.37) % 1, on = o * ramp(t, a + 0.6, .3) * Math.sin(Math.PI * p);   // requests flow into the core
+      REST[`hd${s.i}_${j}`] = { x: lerp(r.x, c.x + Math.cos(ang) * 108, p), y: lerp(r.y, c.y + Math.sin(ang) * 108, p) }; put(`hd${s.i}_${j}`, t > a + 0.6 ? on : 0);
+    });
+  },
+  settings_field(t, s) {
+    const a = s.t0 - 0.2; put("set" + s.i, live("set" + s.i, t), 0, (1 - spring((t - a) / 0.7)) * 40);
+    const g = ramp(t, W(s.line, s.p.glow_word, 0.7) - 0.05, .25), f = q("set" + s.i, ".kf");
+    f.style.borderColor = `rgba(${ST.accent_rgb},${0.14 + 0.86 * g})`; f.style.boxShadow = `0 0 ${34 * g}px rgba(${ST.accent_rgb},${0.5 * g})`;
+    q("set" + s.i, ".kc").style.opacity = blink(t);
+  },
+  stat_floor(t, s) {
+    const on = live("sn" + s.i, t), k = spring((t - s.t0) / 0.8);
+    put("sn" + s.i, on, 0, (1 - k) * 30, 0.9 + 0.1 * k); put("sg" + s.i, on);
+    const gr = q("sg" + s.i, ".gr"); if (gr) gr.style.backgroundPosition = `0 ${(t * 60).toFixed(1)}px`;
+    q("sn" + s.i, ".v").textContent = fmtNum(+s.p.value * eout((t - s.t0) / 1.2), s.p.value);
+  },
+  stat_wall(t, s) {
+    const on = live("wn" + s.i, t), k = spring((t - s.t0) / 0.7);
+    put("wn" + s.i, on, 0, (1 - k) * 30, 0.9 + 0.1 * k);
+    q("wn" + s.i, ".v").textContent = fmtNum(+s.p.value * eout((t - s.t0) / 1.5), s.p.value);
+    if (OBJ["wl" + s.i]) { put("wl" + s.i, live("wl" + s.i, t)); OBJ["wl" + s.i].querySelectorAll(".wr").forEach((r, j) => { const kk = clamp((t - s.t0 - 0.9 - j * 0.28) * 5); r.style.opacity = kk; r.style.transform = `translateX(${((1 - kk) * 30).toFixed(1)}px)`; }); }
+  },
+  cta_terminal(t, s) {
+    put("ct" + s.i, live("ct" + s.i, t), 0, (1 - spring((t - s.t0) / 0.6)) * 30);
+    const end = ctaEnd(s); type(q("ct" + s.i, ".ty"), s.p.prompt || "", t, s.t0 + 0.5, end); q("ct" + s.i, ".cur").style.opacity = blink(t);
+    q("ct" + s.i, ".res").textContent = t > end + 0.25 && s.p.result ? "✓ " + s.p.result : "";
+  },
+  file_tree(t, s) {
+    put("ft" + s.i, live("ft" + s.i, t), 0, (1 - spring((t - s.t0) / 0.6)) * 40);
+    const rows = OBJ["ft" + s.i].querySelectorAll(".fr");
+    rows.forEach((r, j) => { const a = lerp(s.t0 + 0.4, s.t1 - 0.6, j / Math.max(1, rows.length)); r.style.background = `rgba(${ST.accent_rgb},${(0.18 * win(t, a, a + 1.1, .2, .3)).toFixed(3)})`; });
+    const fc = q("ft" + s.i, ".fc"); if (fc) fc.style.boxShadow = `inset 4px 0 0 rgba(${ST.accent_rgb},${ramp(t, lerp(s.t0, s.t1, 0.55), .2)})`;
+  },
+  end_card(t, s) {
+    put("ea" + s.i, live("ea" + s.i, t) * clamp((t - s.t0) * 4), 0, (1 - spring((t - s.t0) / .6)) * 20);
+    put("eb" + s.i, live("eb" + s.i, t) * clamp((t - s.t0 - 0.1) * 4), 0, (1 - spring((t - s.t0 - 0.1) / .7)) * 30);
+    put("ec" + s.i, live("ec" + s.i, t) * clamp((t - s.t0 - 0.3) * 4), 0, (1 - spring((t - s.t0 - 0.3) / .7)) * 30);
+    q("ec" + s.i, ".fl").style.transform = `scale(${(1 + 0.06 * Math.max(0, Math.sin((t - s.t0) * 5)) * ramp(t, s.t0 + 0.6, .2)).toFixed(4)})`;
+  },
+  big_word(t, s) { put("bw" + s.i, live("bw" + s.i, t), 0, 0, 0.85 + 0.15 * spring((t - s.t0) / 0.6)); },
+  bullets(t, s) { (s.p.items || []).slice(0, 4).forEach((_, j) => { const id = `bl${s.i}_${j}`, a = s.t0 + 0.15 + j * 0.25, k = spring((t - a) / 0.6); put(id, live(id, t) * clamp((t - a) * 5), (1 - k) * 60, 0); }); },
+};
+function fmtNum(x, target) { const s = String(target); const dec = s.includes(".") ? s.split(".")[1].length : 0; return x.toFixed(dec); }
+
+// The story diagram changes in place. Everything on the line sits in the gap between the app and the door.
+function renderStory(t) {
+  const sp = zoneSpan("story"); if (!sp) return;
+  const lap = first("laptop_prompt");
+  if (OBJ.term && lap) {
+    const lv = live("term", t), up = ramp(t, termEnd() - 0.6, .6);
+    put("term", lv, 0, (1 - spring((t - lap.t0 + 0.1) / 0.6)) * 30 - up * 60);
+    const end = lap.t1 - 0.55; type(q("term", ".ty"), lap.p.prompt || "", t, lap.t0 + 0.3, end); q("term", ".cur").style.opacity = blink(t);
+    q("term", ".res").textContent = t > end + 0.15 && lap.p.result ? "✓ " + lap.p.result : "";
+  }
+  if (OBJ.app) {
+    const a = appStart(), k = spring((t - a) / 0.7);
+    put("app", live("app", t), 0, (1 - k) * 50, 0.94 + 0.06 * k);
+    const sv = $("slotV"), app = first("app_window");
+    if (sv && app) {
+      const dat = SC.find(s => s.type === "data_card" && s.p.fill), fAt = dat ? fillAt(dat) + 0.35 : 1e9, unkA = app.p.unknown ? W(app.line, app.p.unknown_word, 0.5) : 1e9;
+      const filled = ramp(t, fAt, .2), unk = t >= unkA && t < fAt;
+      if (filled > 0) { sv.textContent = dat.p.fill; sv.style.color = "#141518"; sv.style.transform = `scale(${(1 + 0.18 * (1 - spring((t - fAt) / .5))).toFixed(3)})`; sv.style.opacity = 1; }
+      else if (unk) { sv.textContent = "?"; sv.style.color = `rgb(${ST.accent_rgb})`; sv.style.opacity = (0.55 + 0.45 * Math.abs(Math.sin((t - unkA) * 4))).toFixed(3); sv.style.transform = "scale(1.3)"; }
+      else { sv.textContent = "—"; sv.style.color = "#141518"; sv.style.opacity = 1; sv.style.transform = ""; }
+      let glow = 0, col = ST.accent_rgb.join(",");
+      if (unk) glow = 0.22; if (filled > 0) glow = 0.2 * (1 - ramp(t, fAt + 1.2, .5));
+      for (const b of SC.filter(x => x.type === "badge")) { const g = win(t, b.t0 + 0.4, b.t1 - 0.1, .15, .2); if (g > 0) { glow = 0.22 * g; col = { ok: "63,185,80", bad: "248,81,73", warn: "227,160,8" }[b.p.tone || "ok"]; } }
+      $("slotRow").style.background = `rgba(${col},${glow.toFixed(3)})`;
+    }
+  }
+  if (!HAS_DIAGRAM) return;
+  const d0 = diagramStart(), ds = live("server", t), dk = spring((t - d0 - 0.4) / 0.7);
+  line("link", live("server", t), G.x, G.top, G.x, G.bot, ease((t - d0 - 0.05) / 0.5));
+  put("nodeA", ds); put("nodeB", ds * ramp(t, d0 + 0.4, .2));
+  put("server", ds * ramp(t, d0 + 0.35, .3), 0, (1 - dk) * 50);
+  OBJ.server.querySelectorAll(".led").forEach((e, i) => e.style.opacity = Math.sin(t * 6 + i * 2.1) > -0.3 ? 1 : 0.3);
+  const da = doorAt(), dd = spring((t - da) / 0.55);
+  put("door", live("door", t), 0, 0, 0.5 + 0.5 * dd);
+  const pos = k => G.top + 24 + (G.bot - G.top - 48) * k;     // a point on the line, 0 = at the app, 1 = at the door
+  let doorOk = 0;
+  for (const s of SC) {
+    const i = s.i;
+    if (s.type === "packet") { const k = ease((t - s.t0 - 0.4) / Math.max(0.6, s.t1 - s.t0 - 0.6)), y = pos(s.p.dir === "up" ? 1 - k : k), n = nextIn(s, GAP_TYPES);
+      const cc = n && n.type === "code_card" && s.p.dir !== "up", dc = n && n.type === "data_card" && s.p.dir === "up";   // it opens into the card that follows
+      const end = cc || dc ? n.t0 + 0.05 : s.t1;
+      put("pk" + i, win(t, s.t0, end, .2, .15), 0, y - G.mid, 1); }
+    if (s.type === "code_card") {
+      const o = live("cc" + i, t), k = spring((t - s.t0 + 0.1) / 0.55);
+      put("cc" + i, o, 0, 0, 0.35 + 0.65 * k);
+      const bd = q("cc" + i, ".body"); if (bd) bd.style.clipPath = `inset(0 ${(100 * (1 - eout((t - s.t0 - 0.05) / 0.6))).toFixed(1)}% 0 0)`;
+      (s.p.marks || []).slice(0, 3).forEach((m, j) => { const a = ramp(t, W(s.line, m.word, 0.3 + 0.4 * j) - 0.05, .25), e = q("cc" + i, ".mk" + j), l = q("cc" + i, ".ml" + j);
+        if (e) e.style.borderBottomColor = j % 2 ? `rgba(${ST.accent_rgb},${a})` : `rgba(237,239,245,${a})`;
+        if (l) { l.style.opacity = a; l.style.transform = `translateY(${((1 - spring((t - W(s.line, m.word, 0.3)) / .5)) * 8).toFixed(1)}px)`; } });
+      const kf = SC.find(x => x.type === "key_fly" && x.p.append && x.i > i); q("cc" + i, ".app").textContent = kf && t > W(kf.line, kf.p.word, 0.4) + 0.3 ? kf.p.append : "";
+    }
+    if (s.type === "data_card") {
+      const o = live("dc" + i, t), k = spring((t - s.t0 + 0.1) / 0.55), fA = fillAt(s);
+      put("dc" + i, o, 0, 0, 0.35 + 0.65 * k);
+      const pairs = s.p.pairs || [], rows = [["{", ""], ...pairs.map((pq, j) => [`  "${pq[0]}"`, `: ${JSON.stringify(pq[1])}${j < pairs.length - 1 ? "," : ""}`]), ["}", ""]];
+      let left = Math.round(clamp((t - s.t0 - 0.05) / 0.65) * rows.reduce((a, l) => a + l[0].length + l[1].length, 0));
+      const hl = ramp(t, s.t0 + 0.75, .2);
+      q("dc" + i, ".body").innerHTML = rows.map(([kk, vv]) => { const full = kk + vv, take = Math.max(0, Math.min(full.length, left)); left -= full.length; const sh = full.slice(0, take), kp = sh.slice(0, Math.min(kk.length, take)), vp = sh.slice(kk.length);
+        return `<span style="color:var(--acc);background:rgba(${ST.accent_rgb},${kk.includes('"') ? (0.22 * hl).toFixed(3) : 0});border-radius:4px">${esc(kp)}</span><span style="color:#fff">${esc(vp)}</span>`; }).join("\n");
+      if (OBJ["dv" + i]) { const f = ease((t - fA) / 0.45), slotY = REST.app.y - SIZE.app.h / 2 + $("slotRow").offsetTop + $("slotRow").offsetHeight / 2;   // the value rises into the app's empty slot
+        put("dv" + i, f > 0 && f < 1 ? 1 : 0, 70 * Math.sin(Math.PI * f), lerp(0, slotY - G.mid, f), lerp(1, 0.8, f)); }
+    }
+    if (s.type === "question") {
+      const until = (nextIn(s, ["badges_intro", "badge", "packet", "data_card", "code_card"]) || { t0: (zoneSpan("story") || [0, DUR])[1] }).t0, a = W(s.line, s.p.word, 0.6);
+      const lv = win(t, s.t0 - 0.05, until, .2, .2), k = ease((t - s.t0) / 0.7);
+      put("hq" + i, lv, 0, lerp(G.top + 24 - REST["hq" + i].y, 0, k), 1);
+      const kf = first("key_fly", i), keyed = kf && t > W(kf.line, kf.p.word, 0.4) + 0.35;
+      q("hq" + i, ".kk").style.display = keyed ? "inline-block" : "none";
+      put("qm" + i, lv * win(t, a - 0.05, keyed ? W(kf.line, kf.p.word, 0.4) + 0.35 : until, .15, .15), 0, -6 * Math.abs(Math.sin((t - a) * 3)), 0.4 + 0.6 * spring((t - a) / .45));
+      if (keyed) doorOk = Math.max(doorOk, lv);
+    }
+    if (s.type === "key_fly") { const a = W(s.line, s.p.word, 0.4), k = ease((t - a + 0.25) / 0.6);
+      put("ky" + i, t > a - 0.25 && t < a + 0.38 ? 1 : 0, lerp(-260, -60, k), lerp(-140, 0, k) - 50 * Math.sin(Math.PI * k), lerp(1.2, 0.5, k), lerp(-90, 0, k)); }
+    if (s.type === "compare") { const k = spring((t - s.t0 + 0.05) / 0.6), k2 = spring((t - s.t0 - 0.15) / 0.6);
+      put("cA" + i, live("cA" + i, t), -(1 - k) * 60, 0); put("cB" + i, live("cB" + i, t) * ramp(t, s.t0 + 0.15, .2), (1 - k2) * 60, 0, 1 + 0.04 * Math.max(0, Math.sin((t - s.t0 - 0.6) * 6)) * ramp(t, s.t0 + 0.6, .2));
+      put("cE" + i, live("cA" + i, t) * ramp(t, s.t0 + 0.35, .2), 0, 0, spring((t - s.t0 - 0.35) / .5)); }
+    if (s.type === "leak") {
+      const a = W(s.line, s.p.word, 0.4), mw = W(s.line, s.p.meter_word, 0.6);
+      for (let j = 0; j < 6; j++) {
+        const id = `av${i}_${j}`, r = REST[id], ak = spring((t - s.t0 - j * 0.06) / 0.5), lv = live(id, t) * clamp((t - s.t0 - j * 0.06) * 6);
+        put(id, lv, 0, 0, 0.4 + 0.6 * ak);
+        const kf = ease((t - a - j * 0.06) / 0.5), from = REST[`lk${i}_${j}`];   // a copy of the key flies to each stranger
+        put(`lk${i}_${j}`, lv * (kf > 0 && kf < 1 ? 1 : 0), lerp(0, r.x - from.x, kf), lerp(0, r.y - from.y - 30, kf) - 40 * Math.sin(Math.PI * kf), 1, t * 300 + j * 50);
+        const p = ((t - a - 0.6 - j * 0.11) * 1.4) % 1, go = t > a + 0.6 + j * 0.11;   // ...and they all send requests to the door
+        REST[`rd${i}_${j}`] = { x: lerp(r.x, G.x, p), y: lerp(r.y, G.bot - 10, p) }; put(`rd${i}_${j}`, go ? lv * Math.sin(Math.PI * p) : 0);
+      }
+      const qq = t < s.t0 ? 12 : Math.round(12 + 85 * ease((t - mw) / 1.0)), qv = q("server", ".qv"), qb = q("server", ".qb");
+      if (qv) { qv.textContent = qq + "%"; qb.style.width = qq + "%"; qb.style.background = qq > 80 ? "var(--bad)" : qq > 50 ? "var(--warn)" : "var(--ok)"; qb.style.boxShadow = qq > 80 ? "0 0 16px rgba(248,81,73,.8)" : "none"; }
+    }
+    if (s.type === "badge") {
+      const r = REST["bd" + i], k = ease((t - s.t0 - 0.05) / 0.4), y = pos(1 - k) - G.mid;     // the answer travels up from the door, then becomes its code
+      put("br" + i, t > s.t0 - 0.02 && k < 1 ? 1 : 0, lerp(0, r.x - G.x, k * k), y);
+      const pop = spring((t - s.t0 - 0.42) / 0.5); put("bd" + i, t > s.t0 + 0.4 ? live("bd" + i, t) : 0, 0, 0, 0.5 + 0.5 * pop);
+    }
+    if (s.type === "badges_intro") { const k = ease((t - s.t0 - 0.3) / Math.max(0.6, s.t1 - s.t0 - 0.6)); put("bi" + i, win(t, s.t0 + 0.2, s.t1 - 0.05, .2, .2), 0, pos(1 - k) - G.mid); }
+  }
+  const di = $("doorIn"); if (di) { di.querySelector(".ok").style.display = doorOk > 0.5 ? "inline" : "none"; di.style.boxShadow = `0 0 ${(40 + 30 * doorOk).toFixed(0)}px rgba(${doorOk > 0.5 ? "63,185,80" : ST.accent_rgb},.6)`; }
+}
+
+// ============================================================ the frame audit
+// After direction, step through the video and list every settled frame where a solid panel is cut by the frame edge,
+// runs under the captions, or overlaps another solid panel. The pipeline holds the video if the list is not empty.
+const SETTLE = 0.45;
+const SOLID = /^(core|hi|set|sn|wn|wl|term|app|server|cc|dc|cA|cB|bd|av|ct|ft|eb|ec|bw|bl)\d*(_\d+)?$|^(term|app|server)$/;
+function subjects(s) {
+  const i = s.i;
   switch (s.type) {
-    case "hook_orbit": return ["core" + i].concat((s.p.items || []).slice(0, 8).map((_, j) => `ap${i}_${j}`));
-    case "settings_field": { const h = prevOf("hook_orbit"); return ["set" + i].concat(h ? ["core" + h.i] : []); }
+    case "hook_orbit": return ["core" + i].concat((s.p.items || []).slice(0, 8).map((_, j) => `hi${i}_${j}`));
+    case "settings_field": return ["set" + i];
     case "stat_floor": return ["sn" + i];
-    case "laptop_prompt": return ["laptop"];
-    case "app_window": return ["app"];
-    case "diagram_link": case "badges_intro": case "packet": return ["app", "server", "doorO"];
-    case "door": return ["app", "server", "doorO"];
-    case "code_card": return ["cc" + i];
-    case "data_card": return t < s.t0 + 1.1 ? ["dc" + i] : ["app", "server", "doorO"];   // the card leaves, the diagram is the subject again
-    case "question": return ["app", "server", "doorO", "hq" + i];
-    case "key_fly": { const h = prevOf("question"), c = s.p.append ? prevOf("code_card") : null; return c && t >= W(s.line, s.p.word, 0.4) + 0.3 ? ["cc" + c.i] : ["app", "server", "doorO"].concat(h ? ["hq" + h.i] : []); }
-    case "compare": return ["cA" + i, "cB" + i];
-    case "leak": return ["server", "doorO", "q" + i].concat(Array.from({ length: 10 }, (_, j) => `av${i}_${j}`));
     case "stat_wall": return ["wn" + i];
-    case "badge": return ["app", "server", "doorO"].concat(SC.filter(x => x.type === "badge" && x.i <= i).map(x => "bd" + x.i));
+    case "laptop_prompt": return ["term"];
+    case "app_window": return ["app"];
+    case "door": case "question": case "key_fly": return ["server", "door"];
+    case "code_card": return ["cc" + i];
+    case "data_card": return ["dc" + i];
+    case "compare": return ["cA" + i, "cB" + i];
+    case "badge": return ["bd" + i];
     case "cta_terminal": return ["ct" + i];
-    case "file_tree": { const h = prevOf("cta_terminal"); return ["ft" + i].concat(h ? ["ct" + h.i] : []); }
-    case "end_card": return ["ea" + i, "eb" + i, "ec" + i];
+    case "file_tree": return ["ft" + i];
+    case "end_card": return ["eb" + i, "ec" + i];
     case "big_word": return ["bw" + i];
     case "bullets": return (s.p.items || []).slice(0, 4).map((_, j) => `bl${i}_${j}`);
   }
   return [];
 }
-function boxOf(id) {
-  const e = OBJ[id]; if (!e || !e._o || e._o < 0.9 || e._since == null || NOW - e._since < SETTLE - 0.01) return null;   // only solid, settled things
-  const el = id === "laptop" ? $("lapScreen") : e.firstElementChild.firstElementChild; if (!el) return null;
-  const r = el.getBoundingClientRect(); if (r.width < 2 || r.height < 2) return null;
+function screenBox(id) {
+  const e = OBJ[id]; if (!e || !e._o || e._o < 0.9 || e._since == null || NOW - e._since < SETTLE - 0.01) return null;
+  const r = e.firstElementChild.firstElementChild.getBoundingClientRect(); if (r.width < 2 || r.height < 2) return null;
   return { id, l: r.left, r: r.right, t: r.top, b: r.bottom };
 }
-function look(t) { render(Math.max(0, t - SETTLE)); render(t); }      // so "settled" is known at t
-function fitShots() {
-  const ev = [...new Set([0, ...CUTS, ...SETCH, DUR].map(x => +x.toFixed(4)))].sort((a, b) => a - b);
-  let moved = 0;
-  for (let n = 0; n < ev.length - 1; n++) {
-    const a = ev[n], b = ev[n + 1]; if (b - a < 0.12) continue;
-    const times = []; for (let t = a + 0.06; t < b - 0.05; t += 0.1) times.push(t); times.push(b - 0.06);
-    const keys = CK.filter(k => k[0] >= a - 0.0005 && k[0] < b - 0.0005); if (!keys.length) continue;
-    for (let it = 0; it < 14; it++) {
-      let L = -1e9, R = -1e9, T_ = -1e9, B = -1e9, any = false, x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9;
-      const take = (sc, t) => { for (const id of subjects(sc, t)) { const x = boxOf(id); if (!x) continue; any = true;
-        L = Math.max(L, FIT.l - x.l); R = Math.max(R, x.r - FIT.r); T_ = Math.max(T_, FIT.t - x.t); B = Math.max(B, x.b - FIT.b);
-        x0 = Math.min(x0, x.l); x1 = Math.max(x1, x.r); y0 = Math.min(y0, x.t); y1 = Math.max(y1, x.b); } };
-      for (const t of times) { look(t); take(sceneAt(t), t); }
-      if (!any) {   // nothing has settled inside this short shot: measure where things will be, seen from this shot's camera
-        const sc = sceneAt((a + b) / 2), tl = Math.min(sc.t1 - 0.03, b + 0.75);
-        CAMFORCE = camBase((a + b) / 2); look(tl); take(sc, tl); CAMFORCE = null;
-      }
-      if (!any) break;
-      const D = keys.reduce((m, k) => m + k[1].D, 0) / keys.length, P = keys[0][1].P, w = D / P;
-      const fill = Math.max((x1 - x0) / (FIT.r - FIT.l), (y1 - y0) / (FIT.b - FIT.t));
-      if (L <= 0.5 && R <= 0.5 && T_ <= 0.5 && B <= 0.5) {
-        if (fill > 0.66 || it > 4) break;
-        const z = Math.max(0.72, fill / 0.8);        // small in the frame: move in (then the next rounds re-centre)
-        for (const k of keys) k[1] = { ...k[1], D: k[1].D * z };
-        moved++; continue;
-      }
-      const zoom = Math.max(L + R > 0 ? 1 + (L + R) / (FIT.r - FIT.l) : 1, T_ + B > 0 ? 1 + (T_ + B) / (FIT.b - FIT.t) : 1);
-      const dx = L + R > 0 ? (R - L) / 2 : (R > 0 ? R : L > 0 ? -L : 0), dy = T_ + B > 0 ? (B - T_) / 2 : (B > 0 ? B : T_ > 0 ? -T_ : 0);
-      for (const k of keys) k[1] = { ...k[1], D: k[1].D * Math.min(1.35, zoom > 1 ? zoom + 0.015 : 1), x: k[1].x + dx * w * 1.02, y: k[1].y + dy * w * 1.02 };
-      moved++;
-    }
-  }
-  return moved;
-}
+function look(t) { render(Math.max(0, t - SETTLE)); render(t); }
 function audit() {
   const out = {}, add = (key, t, what, px) => { if (!out[key] || px > out[key].px) out[key] = { t: +t.toFixed(2), what, px: Math.round(px) }; };
   for (let t = 0.4; t < DUR - 0.15; t += 0.2) {
+    if (moving(t)) continue;                    // only frames at rest: during a move the frame is travelling on purpose
     const sc = sceneAt(t); look(t);
-    if (t <= sc.t1 - 0.2) for (const id of subjects(sc, t)) { const x = boxOf(id); if (!x) continue;
+    if (t <= sc.t1 - 0.2) for (const id of subjects(sc)) { const x = screenBox(id); if (!x) continue;
       const over = Math.max(SAFE.l - x.l, x.r - SAFE.r, SAFE.t - x.t, x.b - SAFE.b);
-      if (over > 8) add("cut:" + id, t, `${id} is cut off by the ${SAFE.t - x.t === over ? "caption area" : "screen edge"} (${sc.type})`, over); }
-    const solid = Object.keys(OBJ).filter(id => SOLID.test(id) || id === "laptop" || id === "doorO" || /^ap\d/.test(id)).map(boxOf).filter(Boolean);
-    for (const x of solid) {   // anything solid that is partly on screen must be whole, and clear of the captions
-      const w = x.r - x.l, h = x.b - x.t, outX = Math.max(0 - x.l, x.r - 540, 0), outB = Math.max(x.b - 960, 0), cap = x.t < SAFE.t - 10 && x.b > SAFE.t + 6 ? SAFE.t - x.t : 0;
-      if (x.r < 0 || x.l > 540 || x.b < SAFE.t || x.t > 960) continue;
-      if (outX > 0.06 * w || outB > 0.06 * h) add("edge:" + x.id, t, `${x.id} is cut off by the screen edge (${sc.type})`, Math.max(outX, outB));
-      if (cap > 0.06 * h) add("cap:" + x.id, t, `${x.id} runs under the captions (${sc.type})`, cap);
+      if (over > 6) add("cut:" + id, t, `${id} is cut off by the ${SAFE.t - x.t === over ? "caption area" : "screen edge"} (${sc.type})`, over); }
+    const solid = Object.keys(OBJ).filter(id => SOLID.test(id)).map(screenBox).filter(x => x && x.r > 0 && x.l < 540 && x.b > 0 && x.t < 960);
+    for (const x of solid) {
+      const w = x.r - x.l, h = x.b - x.t, outX = Math.max(0 - x.l, x.r - 540, 0), outB = Math.max(x.b - 960, 0), cap = x.t < SAFE.t - 8 && x.b > SAFE.t + 6 ? SAFE.t - x.t : 0;
+      if (x.r < 0 || x.l > 540 || x.b < SAFE.t - 30 || x.t > 960) continue;
+      if (outX > 0.04 * w || outB > 0.04 * h) add("edge:" + x.id, t, `${x.id} is cut off by the screen edge (${sc.type})`, Math.max(outX, outB));
+      if (cap > 0.04 * h) add("cap:" + x.id, t, `${x.id} runs under the captions (${sc.type})`, cap);
     }
     for (let i = 0; i < solid.length; i++) for (let j = i + 1; j < solid.length; j++) {
       const p = solid[i], q_ = solid[j], w = Math.min(p.r, q_.r) - Math.max(p.l, q_.l), h = Math.min(p.b, q_.b) - Math.max(p.t, q_.t);
       if (w <= 0 || h <= 0) continue;
       const share = w * h / Math.min((p.r - p.l) * (p.b - p.t), (q_.r - q_.l) * (q_.b - q_.t));
-      if ((p.id === "doorO" && q_.id === "server") || (p.id === "server" && q_.id === "doorO")) continue;   // the door is mounted on the server
-      if (share > 0.08) add(`over:${p.id}+${q_.id}`, t, `${p.id} and ${q_.id} overlap (${sc.type})`, share * 100);
+      if (share > 0.04) add(`over:${p.id}+${q_.id}`, t, `${p.id} and ${q_.id} overlap (${sc.type})`, share * 100);
     }
   }
   return Object.values(out).sort((a, b) => a.t - b.t);
 }
-function camAtKeyLast() { return CK.length ? { ...CK[CK.length - 1][1] } : cam({ x: 0, y: 0, z: 0 }, 0, 0, 0, 0, 0, 900); }
-
-// ============================================================ the frame
-function type(el, text, t, a, b) { const n = Math.round(String(text).length * clamp((t - a) / (b - a))); el.textContent = String(text).slice(0, n); }
-const q = (id, sel) => OBJ[id] && OBJ[id].querySelector(sel);
-function render(t) {
-  NOW = t; captions(t);
-  let shake = 0; for (const c of CUES) if ((c.kind === "slam" || c.kind === "impact") && t >= c.t && t < c.t + 0.35) shake = Math.max(shake, (1 - (t - c.t) / 0.35) * (c.kind === "slam" ? 1 : 0.7));
-  applyCam(CAMFORCE || camAt(t), shake);
-  let fl = 0; for (const c of CUES) if ((c.kind === "slam" || c.kind === "impact") && t >= c.t && t < c.t + 0.2) fl = Math.max(fl, 1 - (t - c.t) / 0.2);
-  $("flash").style.opacity = (0.35 * fl).toFixed(3);
-  // which sets are on screen: a set is visible from its first scene to the last, with fades
-  const span = {}; SC.forEach(s => { const sp = span[s.sid] || (span[s.sid] = [s.t0, s.t1]); sp[0] = Math.min(sp[0], s.t0); sp[1] = Math.max(sp[1], s.t1); });
-  const vis = id => span[id] ? (t >= span[id][0] - 0.02 && t < span[id][1] - 0.001 ? 1 : 0) : 0;   // sets switch on the cut
-  for (const [id, o] of Object.entries(POS)) { const v = vis(id); put("g_" + id, 0.9 * v + 0.1 * v * Math.sin(t * 1.3), o.x, o.y + 40, o.z - 500, CAM.yaw, CAM.pitch, 0, 1 + 0.05 * Math.sin(t * 0.8)); put("f_" + id, v, o.x, o.y + (id === "story" ? 700 : 400), o.z, 0, 90, 0, 1); }
-  // light streaks run across whichever floor is most visible
-  let best = null, bv = 0; for (const id of Object.keys(POS)) { const v = vis(id); if (v > bv) { bv = v; best = id; } }
-  for (let i = 0; i < 46; i++) { const lane = (i * 7) % 19 - 9, sp = 900 + (i * 131) % 700, ph = (t * sp / 3400 + i * 0.217) % 1, o = POS[best] || { x: 0, y: 0, z: 0 };
-    put("st" + i, bv * Math.sin(Math.PI * ph), o.x + lane * 120, o.y + (best === "story" ? 698 : 398), o.z - 1300 + ph * 2600, 0, 90, 0, 0.8); }
-  for (const s of SC) RENDER[s.type] && RENDER[s.type](t, s, POS[s.sid], vis(s.sid));
-  if (POS.story) renderStory(t, POS.story, vis("story"));
-  // window sheen when panels arrive
-  document.querySelectorAll(".win").forEach(w => { const a = +(w.dataset.a || -1); if (a < 0) return; const k = clamp((t - a) / 0.8); w.style.setProperty("--sheen", k > 0 && k < 1 ? 0.10 : 0); w.style.setProperty("--sx", `${lerp(120, -20, k)}%`); });
-}
-const RENDER = {
-  hook_orbit(t, s, o, v) {
-    const nx = SC[s.i + 1], panel = nx && nx.type === "settings_field" ? ramp(t, nx.t0 - 0.15, .35) : 0, oH = v;
-    put("core" + s.i, oH * ramp(t, s.t0 + 0.05, .3), o.x, o.y + 30 - 150 * panel, o.z, 0, 0, 0, (0.6 + 0.4 * spring((t - s.t0 - 0.05) / 0.8) + 0.02 * Math.sin(t * 4)) * (1 - 0.15 * panel));
-    const items = s.p.items || [], n = Math.max(1, items.length);
-    items.slice(0, 8).forEach((_, j) => {
-      const ang = j * (2 * Math.PI / n) + t * 0.32 * ST.sign, k = spring((t - s.t0 - 0.1 - j * 0.045) / 0.6);
-      const x = Math.cos(ang) * 240, z = 0, y = 30 + Math.sin(ang) * 215;     // a flat ring around the core, never across it
-      put(`ap${s.i}_${j}`, oH * (1 - panel) * clamp((t - s.t0 - 0.1 - j * 0.045) * 6), o.x + x * k, o.y + y * k + (1 - k) * 40, o.z + z * k, CAM.yaw, 0, 0, (0.5 + 0.5 * k) * 0.88, dof(o.x + x, y, o.z + z, 0.3));
-    });
-    for (let j = 0; j < 24; j++) { const a = j % n, ang = a * (2 * Math.PI / n) + t * 0.32 * ST.sign, p = (t * 0.7 + j * 0.37) % 1, x = Math.cos(ang) * 240, z = 0, y = 30 + Math.sin(ang) * 215;
-      put(`pt${s.i}_${j}`, oH * (1 - panel) * Math.sin(Math.PI * p) * ramp(t, s.t0 + 0.6, .4), o.x + lerp(x, 0, p), o.y + lerp(y, 30, p), o.z + lerp(z, 0, p)); }
-  },
-  settings_field(t, s, o, v) {
-    const a = s.t0 - 0.05, k = spring((t - a) / 0.8), on = ramp(t, a, .25) * (1 - ramp(t, s.t1 - 0.1, .4));
-    put("set" + s.i, on * v, o.x, o.y + lerp(520, 170, k), o.z + lerp(-200, 0, k), lerp(-25, 0, k), lerp(55, 0, k)); markWin("set" + s.i, a);
-    const g = ramp(t, W(s.line, s.p.glow_word, 0.8) - 0.05, .25), f = q("set" + s.i, ".kf");
-    f.style.borderColor = `rgba(${ST.accent_rgb},${0.14 + 0.86 * g})`; f.style.boxShadow = `0 0 ${36 * g}px rgba(${ST.accent_rgb},${0.5 * g})`;
-    q("set" + s.i, ".kc").style.opacity = Math.floor(t * 2.4) % 2 ? 0 : 1;
-  },
-  stat_floor(t, s, o, v) {
-    const on = v * ramp(t, s.t0 - 0.35, .4);
-    put("sf" + s.i, on, o.x, o.y + 280, o.z, 0, 90, 0, 1);
-    const k = spring((t - s.t0 - 0.1) / 0.9); put("sn" + s.i, on * ramp(t, s.t0 - 0.05, .3), o.x, o.y + lerp(80, -40, k), o.z, 0, lerp(-40, 0, k), 0, lerp(0.6, 1, k));
-    q("sn" + s.i, ".v").textContent = fmtNum(+s.p.value * eout((t - s.t0 - 0.05) / 1.3), s.p.value);
-  },
-  stat_wall(t, s, o, v) {
-    const on = v * ramp(t, s.t0 - 0.25, .3);
-    put("wl" + s.i, on * 0.3, o.x - 330, o.y + 60, o.z - 420, 18, 0, -4, 1.5, 3.5);   // far behind and dim: a backdrop, never over the text
-    OBJ["wl" + s.i].querySelectorAll(".row").forEach((r, j) => { const k = clamp((t - s.t0 - 0.25 - j * 0.11) * 5); r.style.opacity = k; r.style.transform = `translateX(${(1 - k) * 60}px)`; });
-    const k = spring((t - s.t0 - 0.05) / 0.7); put("wn" + s.i, on * ramp(t, s.t0 - 0.05, .12), o.x - 180, o.y + 80, o.z + 300, CAM.yaw, 0, 0, lerp(1.3, 0.9, k));
-    q("wn" + s.i, ".v").textContent = fmtNum(+s.p.value * eout((t - s.t0 - 0.1) / 1.6), s.p.value);
-  },
-  cta_terminal(t, s, o, v) {
-    const on = v * ramp(t, s.t0 - 0.25, .35), k = spring((t - s.t0 + 0.1) / 0.7);
-    put("ct" + s.i, on, o.x, o.y - 150, o.z + lerp(-300, 0, k), lerp(-25, 0, k), 0, 0, 1, dof(o.x, o.y - 150, o.z, 0.5)); markWin("ct" + s.i, s.t0);
-    const nx = SC[s.i + 1], end = nx && nx.type === "file_tree" ? Math.min(nx.t1 - 0.6, WE(nx.line)) : s.t1 - 0.3;
-    type(q("ct" + s.i, ".ty"), s.p.prompt || "", t, s.t0 + 0.6, end); q("ct" + s.i, ".cur").style.opacity = Math.floor(t * 2.4) % 2 ? 0 : 1;
-    q("ct" + s.i, ".res").textContent = t > end + 0.25 ? (s.p.result ? "✓ " + s.p.result : "") : "";
-  },
-  file_tree(t, s, o, v) {
-    const k = spring((t - s.t0 + 0.1) / 0.7); put("ft" + s.i, v * ramp(t, s.t0 - 0.1, .25), o.x, o.y + 170, o.z + lerp(-300, -40, k), lerp(20, 0, k), lerp(30, 0, k), 0, 1, dof(o.x, o.y + 170, o.z - 40, 0.5)); markWin("ft" + s.i, s.t0);
-    OBJ["ft" + s.i].querySelectorAll(".fr").forEach((r, j) => { const a = lerp(s.t0 + 0.3, s.t1 - 0.4, j / Math.max(1, (s.p.files || []).length)); r.style.background = `rgba(${ST.accent_rgb},${0.16 * win(t, a, a + 1.2, .2, .3)})`; });
-    const fc = q("ft" + s.i, ".fc"); if (fc) fc.style.boxShadow = `inset 4px 0 0 rgba(${ST.accent_rgb},${ramp(t, lerp(s.t0, s.t1, 0.55), .2)})`;
-  },
-  end_card(t, s, o, v) {
-    const on = ramp(t, s.t0 - 0.1, .4), e1 = spring((t - s.t0 + 0.05) / 0.7), e2 = spring((t - s.t0 - 0.1) / 0.8), e3 = spring((t - s.t0 - 0.35) / 0.8);
-    put("ea" + s.i, on * clamp((t - s.t0) * 4), o.x, o.y - 190 + (1 - e1) * 30, o.z + 40);
-    put("eb" + s.i, on * clamp((t - s.t0 - 0.1) * 4), o.x, o.y - 70, o.z + lerp(-300, 0, e2), 0, lerp(-40, 0, e2));
-    put("ec" + s.i, on * clamp((t - s.t0 - 0.35) * 4), o.x, o.y + 120 + (1 - e3) * 40, o.z);
-    q("ec" + s.i, ".fl").style.transform = `scale(${1 + 0.07 * Math.max(0, Math.sin((t - s.t0) * 5)) * ramp(t, s.t0 + 0.5, .2)})`;
-  },
-  big_word(t, s, o, v) { const k = spring((t - s.t0 + 0.05) / 0.6); put("bw" + s.i, win(t, s.t0 - 0.1, s.t1 - 0.1, .2, .3), o.x, o.y - 40, o.z + lerp(500, 0, k), lerp(-30, 0, k) * ST.sign, 0, 0, lerp(1.3, 1, k)); },
-  bullets(t, s, o, v) { const n = (s.p.items || []).length; (s.p.items || []).slice(0, 4).forEach((_, j) => { const a = s.t0 + 0.2 + j * ((s.t1 - s.t0 - 0.4) / Math.max(1, n)), k = spring((t - a) / 0.6);
-    put(`bl${s.i}_${j}`, win(t, a - 0.05, s.t1 - 0.1, .2, .3), o.x + lerp(400 * ST.sign, 0, k), o.y - 150 + j * 110, o.z, lerp(40, 0, k) * ST.sign); }); },
-};
-function fmtNum(x, target) { const s = String(target); const dec = s.includes(".") ? s.split(".")[1].length : 0; return x.toFixed(dec); }
-function markWin(id, a) { const w = OBJ[id] && OBJ[id].querySelector(".win"); if (w) w.dataset.a = a; }
-
-// The growing story set: laptop -> app -> server + link -> packets, cards, key, leak, badges.
-// Layout rule (frame audit, 11 Nov): two solid things never share the same screen space.
-//   app on top (y -272..-28) | badges in the gap (y 6..144) | door (y 195..250) | server (y 255..505) | meter (y ~590)
-//   Overlay cards (code, data, compare) take the frame: everything behind them fades to 10%.
-function renderStory(t, O, v) {
-  const lap = first("laptop_prompt"), app = first("app_window"), dia = first("diagram_link"), door = first("door");
-  const leakS = first("leak"), leakK = leakS ? win(t, leakS.t0 - 0.05, leakS.t1 + 0.1, .3, .3) : 0;
-  let awayK = 0; for (const w of SC) if (w.set === "wall" && w.t0 > (app ? app.t0 : 0)) awayK = Math.max(awayK, win(t, w.t0, w.t1 - 0.3, .3, .3));
-  const sv = v * (1 - awayK);
-  // how much an overlay card owns the frame right now
-  let ov = 0;
-  for (const s of SC) {
-    if (s.type === "code_card") { const kf = first("key_fly", s.i); ov = Math.max(ov, win(t, s.t0 - 0.34, s.t1 - 0.05, .2, .25), kf && kf.p.append ? win(t, W(kf.line, kf.p.word, 0.4) + 0.3, kf.t1 - 0.05, .25, .25) : 0); }
-    if (s.type === "data_card") ov = Math.max(ov, win(t, s.t0 - 0.34, s.t0 + 1.25, .2, .25));   // the diagram is gone before the cut to the card
-    if (s.type === "compare") ov = Math.max(ov, win(t, s.t0 - 0.3, s.t1 - 0.05, .2, .25));
-  }
-  const bg = 1 - 0.9 * ov;
-  if (lap) {
-    const a0 = lap.t1 - 0.35, k = spring((t - lap.t0 + 0.7) / 0.9), on = sv * win(t, lap.t0 - 0.3, a0 + 0.15, .3, .3), go = ramp(t, a0, .5);
-    put("desk", on, O.x, O.y + 302, O.z, 0, 90, 0, 1);
-    put("laptop", on, O.x, O.y + 300 + lerp(120, 0, k) + go * 200, O.z - go * 260, lerp(-30, 0, k) * ST.sign, 0, 0, 1);
-    $("lapScreen").style.transform = `rotateX(${lerp(60, 12, spring((t - lap.t0 + 0.35) / 0.8))}deg)`;
-    type($("lapT"), lap.p.prompt || "", t, lap.t0 + 0.4, lap.t1 - 0.6); $("lapC").style.opacity = Math.floor(t * 2.4) % 2 ? 0 : 1;
-    $("lapR").textContent = t > lap.t1 - 0.5 && lap.p.result ? "✓ " + lap.p.result : "";
-  }
-  if (app) {
-    const a0 = lap ? lap.t1 - 0.3 : app.t0 - 0.1, aIn = spring((t - a0) / 0.8), toNode = dia ? ramp(t, dia.t0 - 0.05, .7) : 0;
-    const appY = lerp(lerp(lerp(120, 40, aIn), 0, ramp(t, app.t0 + 0.6, .5)), -150, toNode);
-    const dat = first("data_card");
-    put("app", sv * ramp(t, a0 + 0.1, .25) * bg * (1 - 0.9 * leakK), O.x + 4 * Math.sin(t * 1.3), O.y + appY + 5 * Math.sin(t * 1.7), O.z, lerp(25, 0, aIn) * ST.sign, lerp(20, 0, aIn)); markWin("app", a0);
-    OBJ.app.querySelectorAll(".ar").forEach((r, j) => { const k = spring((t - a0 - 0.1 - j * 0.09) / 0.6); r.style.transform = `translateX(${(1 - k) * 40}px)`; r.style.opacity = clamp((t - a0 - j * 0.09) * 4); });
-    const sv2 = $("slotV");
-    if (sv2) {
-      const fillAt = dat && dat.p.fill ? dat.t0 + 1.36 : 1e9, unkA = app.p.unknown ? W(app.line, app.p.unknown_word, 0.5) : 1e9;
-      const unk = win(t, unkA, fillAt - 0.05, .2, .2), filled = ramp(t, fillAt, .25);
-      if (filled > 0) { sv2.innerHTML = `<span style="color:#fff">${esc(dat.p.fill)}</span>`; sv2.style.opacity = filled; sv2.style.transform = `scale(${1 + 0.25 * (1 - spring((t - fillAt) / .6))})`; }
-      else if (unk > 0) { sv2.innerHTML = `<span style="color:var(--acc);font-size:24px;font-weight:850">?</span>`; sv2.style.opacity = 0.5 + 0.5 * Math.abs(Math.sin(t * 4)); sv2.style.transform = ""; }
-      else { sv2.textContent = "—"; sv2.style.opacity = 1; sv2.style.transform = ""; }
-      const okB = SC.find(s => s.type === "badge" && (s.p.tone || "ok") === "ok"), okG = okB ? win(t, okB.t0, okB.t1 - 0.1, .15, .3) : 0;
-      $("slotRow").style.background = `rgba(${ST.accent_rgb},${0.13 * unk + 0.08 * win(t, fillAt, fillAt + 2, .2, .6)})`;
-      $("slotRow").style.boxShadow = okG > 0 ? `inset 4px 0 0 rgba(63,185,80,${okG}),0 0 30px rgba(63,185,80,${0.3 * okG})` : "none";
-    }
-  }
-  if (!dia) return;
-  const srv = spring((t - dia.t0 - 0.1) / 0.8), SY = O.y + 380, SZ = O.z - 140, sOn = sv * ramp(t, dia.t0 + 0.05, .3) * bg;
-  put("server", sOn, O.x, lerp(SY + 260, SY, srv), lerp(SZ - 400, SZ, srv), lerp(-20, 0, srv) * ST.sign + 5 * Math.sin(t * 0.9));
-  OBJ.server.querySelectorAll(".led").forEach((e, i) => e.style.opacity = Math.sin(t * 7 + i * 2) > -0.3 ? 1 : 0.25);
-  const doorAt = door ? W(door.line, door.p.word, 0.6) : dia.t0 + 1.0, dk = spring((t - doorAt + 0.05) / 0.6), DY = SY - 125 - 32;
-  put("doorO", sOn * clamp((t - doorAt + 0.05) * 6), O.x, DY - (1 - dk) * 30, SZ + 118, 0, lerp(-80, 0, dk), 0, 0.7 + 0.3 * dk);
-  $("door").style.boxShadow = `0 0 ${40 + 40 * Math.sin(t * 3) ** 2}px rgba(${ST.accent_rgb},${0.3 + 0.4 * dk})`;
-  const appH = OBJ.app ? OBJ.app.firstElementChild.firstElementChild.offsetHeight : 240;
-  const aB = { y: O.y - 150 + appH / 2, z: O.z }, sT = { y: DY - 30, z: SZ + 118 };
-  const ll = ease((t - dia.t0 - 0.3) / 0.6), len = Math.hypot(sT.y - aB.y, sT.z - aB.z) * ll, ang = Math.atan2(sT.z - aB.z, sT.y - aB.y) * 180 / Math.PI;
-  $("linkL").style.height = len + "px"; $("linkL").style.backgroundPosition = `0 ${t * 40}px`;
-  put("link", sv * ramp(t, dia.t0 + 0.05, .3) * bg, O.x, lerp(aB.y, sT.y, ll / 2), lerp(aB.z, sT.z, ll / 2), 0, -ang);
-  const path = k => ({ y: lerp(aB.y + 26, sT.y - 26, k), z: lerp(aB.z, sT.z, k) });
-  const CY = O.y + 110, CZ = O.z + 120;      // where overlay cards sit: centre of the frame, in front
-  let askOn = 0, askAt = 0;
-  for (const s of SC) {
-    const o = O;
-    if (s.type === "packet") { const k = ease((t - s.t0 - 0.15) / 1.1), p = path(s.p.dir === "up" ? 1 - k : k); put("pk" + s.i, sv * bg * win(t, s.t0, s.t1 - 0.05, .15, .2), o.x, p.y, p.z + 12, 0, 0, Math.sin(t * 3) * 2, 1 + 0.15 * Math.sin(Math.PI * k)); }
-    if (s.type === "question") {
-      const holdEnd = (SC.find(x => x.i > s.i && !["key_fly", "compare", "leak", "code_card"].includes(x.type)) || { t0: DUR }).t0, p = path(0.5);
-      put("hq" + s.i, sv * bg * win(t, s.t0, holdEnd, .2, .3), o.x + 6 * Math.sin(t * 5.1), p.y + 4 * Math.sin(t * 3.7), p.z + 12, 0, 0, Math.sin(t * 6) * 3, 1 + 0.05 * Math.sin(t * 7));
-      const kf = first("key_fly", s.i); q("hq" + s.i, ".kk").style.display = kf && t > W(kf.line, kf.p.word, 0.4) + 0.3 ? "inline-block" : "none";
-      const next = SC[s.i + 1]; askAt = W(s.line, s.p.word, 0.6); askOn = win(t, askAt, (next ? next.t0 : s.t1) + 0.4, .2, .25);
-    }
-    if (s.type === "code_card") {
-      const kf = first("key_fly", s.i), reshow = kf && kf.p.append ? win(t, W(kf.line, kf.p.word, 0.4) + 0.3, kf.t1 - 0.05, .25, .25) : 0;
-      const on = Math.min(1, win(t, s.t0 - 0.2, s.t1 - 0.05, .25, .25) + reshow), k = spring((t - s.t0 + 0.2) / 0.6);
-      put("cc" + s.i, sv * on, o.x, CY + 6 * Math.sin(t * 2.3), CZ + 20 * Math.sin(t * 1.4), lerp(-18, 0, k) * ST.sign + 4 * Math.sin(t * 1.9), lerp(30, 0, k), 0, 1 + 0.03 * Math.sin(t * 2.9));
-      const bd = q("cc" + s.i, ".body"); if (bd) bd.style.clipPath = `inset(0 ${(100 * (1 - eout((t - s.t0 + 0.1) / 0.55))).toFixed(1)}% 0 0)`;   // the line writes itself
-      (s.p.marks || []).forEach((m, j) => { const a = ramp(t, W(s.line, m.word, 0.3 + 0.4 * j) - 0.05, .25), e = q("cc" + s.i, ".mk" + j), l = q("cc" + s.i, ".ml" + j);
-        if (e) { e.style.borderBottomColor = j % 2 ? `rgba(${ST.accent_rgb},${a})` : `rgba(237,239,245,${a})`; if (j % 2) e.style.color = `rgba(${ST.accent_rgb},${0.4 + 0.6 * a})`; }
-        if (l) { l.style.opacity = reshow > 0 ? 0 : a; l.style.transform = `translateY(${(1 - spring((t - W(s.line, m.word, 0.3)) / .5)) * 10}px)`; } });
-      q("cc" + s.i, ".app").textContent = kf && kf.p.append && t > W(kf.line, kf.p.word, 0.4) + 0.3 ? kf.p.append : "";
-    }
-    if (s.type === "data_card") {
-      const on = win(t, s.t0 - 0.15, s.t0 + 1.25, .25, .25), k = spring((t - s.t0 + 0.15) / 0.6);
-      put("dc" + s.i, sv * on, o.x, CY, lerp(CZ - 300, CZ, k), lerp(20, -4, k) * ST.sign); markWin("dc" + s.i, s.t0 - 0.1);
-      const pairs = s.p.pairs || [], lines = [["{", ""], ...pairs.map((pq, j) => [`  "${pq[0]}"`, `: ${JSON.stringify(pq[1])}${j < pairs.length - 1 ? "," : ""}`]), ["}", ""]];
-      let left = Math.round(clamp((t - s.t0 + 0.1) / 0.6) * lines.reduce((a, l) => a + l[0].length + l[1].length, 0)); const hl = ramp(t, s.t0 + 0.4, .2);
-      q("dc" + s.i, ".body").innerHTML = lines.map(([kk, vv]) => { const full = kk + vv, take = Math.max(0, Math.min(full.length, left)); left -= full.length; const sh = full.slice(0, take), kp = sh.slice(0, Math.min(kk.length, take)), vp = sh.slice(kk.length);
-        return `<span style="color:var(--acc);background:rgba(${ST.accent_rgb},${kk.includes('"') ? 0.2 * hl : 0});border-radius:4px">${esc(kp).replace(/ /g, "&nbsp;")}</span><span style="color:#fff">${esc(vp)}</span>`; }).join("<br>");
-      // the value leaves as the card fades, and lands in the app's slot as the app comes back: never over the card
-      const f = ease((t - s.t0 - 1.12) / 0.26), tgt = $("slotV");
-      if (s.p.fill && tgt && OBJ.app) { const sy = O.y - 150 - appH / 2 + $("slotRow").offsetTop + 22; put("dv" + s.i, f > 0 && f < 1 ? Math.sin(Math.PI * f) : 0, o.x + lerp(0, 120, f), lerp(CY, sy, f), lerp(CZ, o.z + 10, f), 0, 0, 0, 0.8); }
-      else put("dv" + s.i, 0, 0, 0, 0);
-    }
-    if (s.type === "key_fly") { const a = W(s.line, s.p.word, 0.4), kf = ease((t - a + 0.25) / 0.7), p = path(0.5);
-      put("ky" + s.i, sv * bg * (t > a - 0.25 && t < a + 0.5 ? 1 : 0), o.x + lerp(-230, 78, kf) * ST.sign, lerp(p.y + 40, p.y - 6, kf), lerp(o.z + 60, p.z + 20, kf), lerp(0, 360, kf), 0, lerp(-70, -30, kf), lerp(0.9, 0.45, kf)); }
-    if (s.type === "compare") { const k = spring((t - s.t0 + 0.05) / 0.7), k2 = spring((t - s.t0 - 0.15) / 0.7), on = sv * win(t, s.t0 - 0.05, s.t1 - 0.05, .25, .25);
-      const pu = 1 + 0.04 * Math.max(0, Math.sin((t - s.t0 - 0.5) * 6));
-      put("cA" + s.i, on, o.x - lerp(400, 0, k), CY - 105, CZ, lerp(-60, -6, k)); put("cB" + s.i, on * ramp(t, s.t0 + 0.15, .2), o.x + lerp(400, 0, k2), CY + 105, CZ, lerp(60, 6, k2), 0, 0, pu);
-      put("cE" + s.i, on * ramp(t, s.t0 + 0.35, .2), o.x, CY, CZ + 10, 0, 0, 0, spring((t - s.t0 - 0.35) / .5)); }
-    if (s.type === "leak") { const a = W(s.line, s.p.word, 0.4), on = sv * win(t, s.t0 - 0.05, s.t1 + 0.1, .25, .3), p = path(0.5);
-      // strangers stand on an arc above and beside the request (never over the door or the server); copies of the key fly out to them
-      for (let j = 0; j < 10; j++) { const an = (-200 + j * (220 / 9)) * Math.PI / 180, ax = Math.cos(an) * 205, ay = p.y - 30 + Math.sin(an) * 215, kk = spring((t - s.t0 - j * 0.05) / 0.6);
-        put(`av${s.i}_${j}`, on * clamp((t - s.t0 - j * 0.05) * 5), o.x + ax * kk, lerp(p.y, ay, kk), p.z + 10, CAM.yaw, 0, 0, 0.5 + 0.5 * kk);
-        const kf = ease((t - a - j * 0.05) / 0.55); put(`lk${s.i}_${j}`, on * (kf > 0 ? 1 : 0), o.x + lerp(0, ax + 30, kf), lerp(p.y, ay - 34, kf) - 40 * Math.sin(Math.PI * kf), p.z + 30, CAM.yaw, 0, t * 200 + j * 40); }
-      const qOn = win(t, s.t0 + 0.3, s.t1 + 0.1, .25, .3), qq = Math.round(12 + 88 * ease((t - W(s.line, s.p.meter_word, 0.6)) / 1.2));
-      put("q" + s.i, sv * qOn, o.x, o.y - 175 - (1 - spring((t - s.t0 - 0.3) / .6)) * 40, o.z, CAM.yaw, 0, 0, 1.1);
-      q("q" + s.i, ".qv").textContent = qq + "%"; const qb = q("q" + s.i, ".qb"); qb.style.width = qq + "%"; qb.style.background = qq > 80 ? "var(--bad)" : qq > 50 ? "var(--warn)" : "var(--ok)"; qb.style.boxShadow = qq > 80 ? "0 0 20px rgba(248,81,73,.8)" : "none"; }
-    if (s.type === "badge") { const a = s.t0 - 0.14, k = eout((t - a) / 0.24), wob = Math.sin(Math.PI * clamp((t - a) / 0.32)), n = s.n || 0;
-      const bEnd = Math.max(...SC.filter(x => x.type === "badge").map(x => x.t1));
-      // in the gap between the app and the door, in the same plane as the app: they can't cover either
-      put("bd" + s.i, sv * clamp((t - a) * 8) * (1 - ramp(t, bEnd - 0.15, .3)), o.x - 180 + (n % 3) * 180, o.y + 75 - 10 * wob, o.z + lerp(700, 0, k), lerp(-35 + (n % 3) * 35, 0, k), lerp(-25, 0, k), 0, 0.88 + 0.08 * wob); }
-  }
-  put("askO", sOn * askOn, O.x + 118, DY - 6, SZ + 124, 0, 0, Math.sin(t * 6) * 8, 0.4 + 0.6 * spring((t - askAt) / .5));
-}
-(function () { const c = $("grain").getContext("2d"), im = c.createImageData(270, 480); let s = 9; for (let i = 0; i < im.data.length; i += 4) { s = (s * 16807) % 2147483647; const v = s % 255; im.data[i] = im.data[i + 1] = im.data[i + 2] = v; im.data[i + 3] = 255; } c.putImageData(im, 0, 0); })();
 
 window.init = function (data) {
   T = data.timing; S = data.script; P = data.plan; ST = data.style;
-  let seed = ST.seed >>> 0; ST.r = n => { let x = (seed + n * 2654435761) >>> 0; x ^= x << 13; x >>>= 0; x ^= x >>> 17; x ^= x << 5; x >>>= 0; return (x % 100000) / 100000; };
   L = T.lines.map(l => l.start); LE = T.lines.map(l => l.end); DUR = T.duration;
   WD = T.lines.map((_, i) => T.words.filter(w => w.line === i));
-  layout(); build(); buildCaptions(); direct(); render(0);
-  CUES.sort((a, b) => a.t - b.t);
-  const fitted = fitShots(), problems = audit();
+  layout(); build(); buildCaptions(); place(); lives(); direct(); render(0);
+  const problems = audit();
   for (const e of Object.values(OBJ)) e._since = null;
   render(0);
-  return { duration: DUR, cues: CUES, sections: sections(), cuts: CUTS.length, set_changes: SETCH.length, fitted, audit: problems };
+  return { duration: DUR, cues: CUES, sections: sections(), cuts: CUTS.length, moves: MOVES, set_changes: new Set(SC.map(s => s.zid)).size - 1, audit: problems };
 };
 // music arrangement, read by the mixer (studio/motion/sound.py)
 function sections() {

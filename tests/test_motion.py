@@ -170,8 +170,12 @@ def test_render_smoke():
         info = json.loads((Path(tmp) / "c.json").read_text()) if r3.returncode == 0 else {}
         check(len(info.get("cues", [])) > 50 and info.get("sections", {}).get("break_from") is not None, "sound cues and music sections come out of the plan")
         check(info.get("audit") == [], f"frame audit: nothing cut off, under the captions or overlapping {info.get('audit', 'missing')[:3] if isinstance(info.get('audit'), list) else info.get('audit')}")
-        per = info.get("duration", 0) / max(1, info.get("cuts", 0) + info.get("set_changes", 0))
-        check(per <= 1.6, f"the picture changes about every second (one cut or set change every {per:.2f} s; the reference: 0.7 s)")
+        # 11 Nov (v6): the camera moves only to show what the voice names. Every move carries its reason, and there is
+        # no automatic drift or "coverage" angle (Franklin: "not moving just for the sake of moving").
+        moves = info.get("moves", [])
+        check(len(moves) >= len(p["scenes"]) // 2 and all(m.get("why") for m in moves), f"every camera move has a reason ({len(moves)} moves)")
+        html = (motion / "web" / "engine.html").read_text(encoding="utf-8")
+        check("function coverage" not in html and "drift" not in html.split("<script>")[1], "no automatic camera drift or coverage cuts")
 
 
 def _data(script, plan, step, gap, seed):
@@ -189,7 +193,7 @@ def test_layout_guard_holds_for_other_voices_and_seeds():
     its own frames; this runs that audit for slower/faster voices, other seeds, and the fallback plan."""
     motion = ROOT / "studio" / "motion"
     html = (motion / "web" / "engine.html").read_text(encoding="utf-8")
-    check("function audit()" in html and "function fitShots()" in html, "engine has the framing guard and the frame audit")
+    check("function audit()" in html and "function fitShots(" in html, "engine has the framing guard and the frame audit")
     check('"layout_ok"' in (motion / "__main__.py").read_text(encoding="utf-8"), "a layout problem holds the video for review (gate layout_ok)")
     if not (motion / "node_modules" / "playwright").exists() or not shutil.which("node"):
         print("skip layout runs (renderer not installed)")

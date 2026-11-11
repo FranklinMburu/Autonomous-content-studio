@@ -1,9 +1,8 @@
 # Motion engine: the Tech Education style
 
-Faceless 45–75 s explainers built from real-looking software in a moving 3D world:
-- a laptop and app windows;
-- a server and a diagram that grows line by line;
-- word-by-word captions and a camera that never stands still;
+Faceless 45–75 s explainers built from real-looking software, seen straight on:
+- one diagram that stays on screen and changes in place (app → line → API door → server);
+- word-by-word captions, and a camera that moves only to show what the voice is naming;
 - music and sound effects composed in code.
 
 Channel: **Tech Education (TE)**, series "Build Basics". Code: `studio/motion/`. Approved 11 Nov 2026 (lab v3).
@@ -64,7 +63,22 @@ Rejected: blending in a second voice, pitch shifting, room echo and `am_puck`. T
 voices" or "soprano". A more human voice needs a bigger model on Kaggle (Chatterbox, MIT; Dia2, Apache 2.0); that
 hasn't been done yet.
 
-**Still below the reference:** average motion is about three quarters of it (4.2 against 5.5), and contrast is lower (26 against
+**v4/v5 rejected (11 Nov, Franklin): "weird", "not making someone understand", "the camera moving just for the
+sake of moving".** The causes:
+- coverage cuts and a handheld drift that moved the camera with no reason;
+- many small, tilted panels floating in 3D space;
+- overlay cards that hid the diagram instead of changing it;
+- abstract metaphors.
+
+**v6 (11 Nov), one diagram, straight on.** Studied frame by frame, the reference:
+- shows everything facing the viewer, with one big subject at a time;
+- keeps one diagram (its timeline) on screen and changes it in place;
+- pans and zooms only to follow what is being said, and holds still otherwise.
+
+The engine was rewritten to do the same (section 3). Rejected for good: automatic angle cuts, drift, tilted 3D panels,
+and cards laid over the diagram.
+
+**Before v6, still below the reference:** average motion is about three quarters of it (4.2 against 5.5), and contrast is lower (26 against
 35). The reference fills the frame with one bright screen far more often.
 
 ## 3. Architecture
@@ -93,20 +107,28 @@ studio/motion/
 
 **How a frame is made:**
 1. Every scene starts on its line and is anchored to spoken words (`"word": "address"`).
-2. Scenes live in sets (hook, stat, story, wall, cta, end). Each set has its own place in the world, and the camera
-   flies between them.
-3. The story set grows: laptop → app → server and link → packets, cards, key, leak, badges.
-4. The camera is keyframed per scene type, with hard cuts for close-ups, plus a slow seeded handheld drift.
-5. **Coverage cuts** (`coverage()` in the engine): wherever the planned camera holds one shot for more than about
-   0.9 s, it cuts to another angle of the same subject, on a spoken word. The angles are mild on purpose (at most 24°
-   and 0.84× distance): stronger ones cropped wide panels off the screen. Angles never stack. This is automatic, so
-   the writer does not have to plan it.
-6. Changes of set are hard cuts, followed by a short push-in. (A light wipe was tried and removed: it read as a glitch.)
-7. **Framing guard** (`fitShots()`): for every shot, the engine measures the real on-screen boxes of the scene's
-   subjects and moves the camera back or sideways until they sit inside the frame and below the captions. If the
-   subject is small, it moves in.
-8. **Frame audit** (`audit()`): after fitting, it steps through the whole video and lists anything solid that is cut
-   off by the screen edge, runs under the captions, or overlaps another solid thing. The list goes into `info.json`.
+2. Scenes live in zones (hook, stat, story, wall, cta, end, free), far apart in a flat world. Changing zone is a hard
+   cut; inside a zone the camera only pans and zooms (2D, straight on).
+3. The story zone is one vertical diagram:
+   - the terminal builds the app, then steps aside;
+   - app, then a line, then the API door on top of the server.
+
+   Whatever explains the line opens **in the gap on the line**, one thing at a time:
+   - the request opens into its URL;
+   - the answer opens into its data, and the value rises into the app;
+   - the request waits at the door and the key attaches to it;
+   - the password comparison;
+   - strangers with copied keys, and the server's quota meter filling up;
+   - the status codes coming back.
+4. **The camera moves only with a reason** (`direct()`): to the panel being named, following a message down the line,
+   or pulling back to show a connection. Every move is listed with its reason in `info.json` (`moves`). Between moves
+   it holds still; the motion comes from the diagram changing. There is no drift and no automatic angles.
+5. **Framing guard** (`fitShots()`): a shot is "show these things". It becomes a camera where they are whole, inside
+   the frame and below the captions, as big as fits. If another panel alive during the shot would be cut by the edge,
+   the frame widens to take it in, so a frame at rest never halves a panel.
+6. **Frame audit** (`audit()`): it steps through every frame at rest and lists any solid panel that is cut off, under
+   the captions or overlapping another. The list goes into `info.json`, and the `layout_ok` gate holds the video if
+   it is not empty.
 
 ## 4. Determinism and guardrails
 
