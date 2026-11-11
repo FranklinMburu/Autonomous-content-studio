@@ -13,20 +13,22 @@ const { chromium } = require('playwright'); const fs = require('fs'); const path
   await p.goto('file://' + path.join(__dirname, 'web', 'engine.html'));
   await p.evaluate(() => document.fonts.ready);
   const info = await p.evaluate(d => window.init(d), data);
+  // after each render(t), let Chromium finish two frames so every tile is fully drawn before the screenshot
+  const settle = () => p.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))));
   await p.evaluate(() => document.fonts.ready);
   let code = 0;
   if (a2 === '--cues') {
     fs.writeFileSync(a3, JSON.stringify({ cues: info.cues, sections: info.sections, duration: info.duration }));
   } else if (a2 === '--stills') {
     fs.mkdirSync(a4, { recursive: true });
-    for (const s of a3.split(',')) { const t = +s; await p.evaluate(t => render(t), t); await p.screenshot({ path: path.join(a4, `still_${t.toFixed(2)}.jpg`), type: 'jpeg', quality: 88 }); }
+    for (const s of a3.split(',')) { const t = +s; await p.evaluate(t => render(t), t); await settle(); await p.screenshot({ path: path.join(a4, `still_${t.toFixed(2)}.jpg`), type: 'jpeg', quality: 88 }); }
   } else {
     const out = a2, fps = +(a3 || 30), t0 = +(a4 || 0), t1 = +(a5 || info.duration);
     const ff = spawn('ffmpeg', ['-v', 'error', '-y', '-f', 'image2pipe', '-framerate', String(fps), '-c:v', 'mjpeg', '-i', '-',
       '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', '-pix_fmt', 'yuv420p', out], { stdio: ['pipe', 'inherit', 'inherit'] });
     const n = Math.round((t1 - t0) * fps), st = Date.now();
     for (let i = 0; i < n; i++) {
-      await p.evaluate(t => render(t), t0 + i / fps);
+      await p.evaluate(t => render(t), t0 + i / fps); await settle();
       const buf = await p.screenshot({ type: 'jpeg', quality: 93 });
       if (!ff.stdin.write(buf)) await new Promise(r => ff.stdin.once('drain', r));
       if (i % 300 === 0) console.log(`  frame ${i}/${n} (${((Date.now() - st) / 1000).toFixed(0)} s)`);

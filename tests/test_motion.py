@@ -78,6 +78,12 @@ def test_voice_is_locked():
           "no pitch shift or echo in the voice chain (rejected on 11 Nov)")
 
 
+def test_never_imports_the_story_engine():
+    for p in (ROOT / "studio" / "motion").glob("*.py"):
+        txt = p.read_text(encoding="utf-8")
+        check("from ..story" not in txt and "studio.story" not in txt, f"{p.name} does not import the story engine")
+
+
 def test_isolated_from_hidden_reasons():
     hits = [str(p.relative_to(ROOT)) for p in list((ROOT / "studio").rglob("*.py")) + list((ROOT / ".github" / "workflows").glob("*.yml"))
             if "studio.motion" in p.read_text(encoding="utf-8", errors="ignore") or "studio/motion" in p.read_text(encoding="utf-8", errors="ignore")]

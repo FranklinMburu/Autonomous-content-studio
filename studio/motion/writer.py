@@ -100,7 +100,7 @@ def next_folder(channel_dir, title):
 
 def write(topic, channel_dir, ch, log=print, ask_fn=None, research_fn=None, fact_fn=None):
     """Topic -> new episode folder. ask_fn/research_fn/fact_fn are injectable for offline tests."""
-    from ..story.writer import _cfg, _compat, patient, _timed, repair_draft
+    from .calls import _cfg, _compat, patient, _timed, repair_draft
     if ask_fn is None:
         from ailayer import ask as _ask
         from ailayer import skills as _skills

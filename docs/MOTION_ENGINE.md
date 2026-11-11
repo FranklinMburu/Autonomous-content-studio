@@ -100,8 +100,9 @@ studio/motion/
   - Time is stepped by `render.js`.
   - All variation comes from the seed: `plan.seed`, or a hash of the folder name.
   - Pinned Chromium, fonts and Playwright (`package-lock.json`).
-  - `tests/test_motion.py` renders the same frames twice. Chromium's blur may change a few pixels (at most 0.5%,
-    measured 0.2%); the picture may not.
+  - `tests/test_motion.py` renders the same frames twice and they are byte-identical. `render.js` waits two
+    animation frames after each `render(t)`, so Chromium has finished drawing before the screenshot (without this, frames
+    differed by up to 2% under CPU load).
 - **Guardrails, so the line never dies and nothing bad is published:**
   1. An invalid plan becomes `auto_plan()` (plain but valid), and the video is flagged for review.
   2. Facts still unsupported after the fact check go into `NEEDS_REVIEW.md`, and the result is a pre-release
@@ -115,8 +116,8 @@ studio/motion/
   - no Kaggle GPU, no channel memory, no schedule.
 
   Shared, read-only: the Kokoro voice model and word timing (`studio/voice.py`), the brain, and the research step.
-  The writer also reuses the story writer's model-call helpers (`_cfg`, `_compat`, `patient`, `_timed`,
-  `repair_draft`). If those change, `tests/test_motion.py` (offline writer test) will show it.
+  The model-call helpers are a copy in `studio/motion/calls.py`, not imported from the story engine
+  (importing them pulled in pycairo and broke the CI job on 11 Nov).
 
 ## 5. How to run
 
