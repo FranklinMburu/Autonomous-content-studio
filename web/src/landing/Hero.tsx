@@ -6,12 +6,45 @@ import { useStudio } from '../context/StudioContext';
 import { createEarth, pickTags } from '../lib/earth.js';
 import { buildGlobe } from '../lib/github-data.js';
 import placesData from '../lib/places.json';
+import { GLOBE_DEFAULT, SHOW_GLOBE_SWITCH } from './globe-setting';
 
 interface HeroProps {
   onSelectFilmForPanel?: (filmId: string) => void;
 }
 
 const CARD_W = 262;
+
+// Film globe (11 Nov 2026): a Blender render of the real Earth (lab/kaggle/earth_film) replaces the dotted planet on
+// desktop; the approved sun, arcs, story lights and cards stay on top. Which globe shows: see globe-setting.ts.
+// Order: ?globe=earth|dots in the address (one visit) > the switch / G key (saved in this browser) > GLOBE_DEFAULT.
+// Phones, reduced motion and data-saver always keep the dots.
+const GLOBE_KEY = 'candela.globe';
+function filmPossible(): boolean {
+  if (typeof window === 'undefined' || window.innerWidth < 640) return false;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
+  return !(navigator as any).connection?.saveData;
+}
+function globeChoice(): 'earth' | 'dots' {
+  const q = new URLSearchParams(window.location.search).get('globe');
+  if (q === 'earth' || q === 'dots') return q;
+  try { const v = localStorage.getItem(GLOBE_KEY); if (v === 'earth' || v === 'dots') return v; } catch { /* private mode */ }
+  return GLOBE_DEFAULT;
+}
+function setGlobe(v: 'earth' | 'dots') {
+  try { localStorage.setItem(GLOBE_KEY, v); } catch { /* private mode: the address still carries it */ }
+  const u = new URL(window.location.href);
+  if (u.searchParams.has('globe')) u.searchParams.set('globe', v);
+  window.location.replace(u.toString());   // a fresh load is the cleanest way to swap the whole globe
+}
+function filmVideo(): HTMLVideoElement | null {
+  if (!filmPossible() || globeChoice() !== 'earth') return null;
+  const v = document.createElement('video');
+  v.muted = true; v.playsInline = true; v.preload = 'auto'; v.crossOrigin = 'anonymous';
+  const base = `${import.meta.env.BASE_URL}earth/earth`;
+  v.src = v.canPlayType('video/webm; codecs="vp9"') ? `${base}.webm` : `${base}.mp4`;
+  v.load();
+  return v;
+}
 const SCROLL_ROOM = 800; // px of scroll over which the sun rises (BUILD_SPEC 4.1)
 
 // Scroll: 0-800 px the sun rises; then the hero stays pinned one more screen while section 2 (.sheet, pulled up
@@ -21,6 +54,18 @@ const SCROLL_ROOM = 800; // px of scroll over which the sun rises (BUILD_SPEC 4.
 export const Hero: React.FC<HeroProps> = ({ onSelectFilmForPanel }) => {
   const { films, topics, navigate } = useStudio();
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [showSwitch] = useState(() => SHOW_GLOBE_SWITCH && filmPossible());
+  const [globeNow] = useState<'earth' | 'dots'>(() => (typeof window === 'undefined' ? GLOBE_DEFAULT : globeChoice()));
+  useEffect(() => {
+    if (!filmPossible()) return;
+    const onKey = (e: KeyboardEvent) => {
+      const el = e.target as HTMLElement | null;
+      if (e.metaKey || e.ctrlKey || e.altKey || (el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)))) return;
+      if (e.key === 'g' || e.key === 'G') setGlobe(globeChoice() === 'earth' ? 'dots' : 'earth');
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
   const wrapRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -53,6 +98,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectFilmForPanel }) => {
         if (cancelled || !canvasRef.current) return;
         earth = createEarth(canvasRef.current, data, globe.stories, {
           arcs: globe.arcs,
+          film: filmVideo(),
           onPlace: (places: any[]) => {
             const W = canvasRef.current?.clientWidth || window.innerWidth;
             const phone = W < 640;
@@ -239,6 +285,18 @@ export const Hero: React.FC<HeroProps> = ({ onSelectFilmForPanel }) => {
         </div>
 
         <div className="scroll"><span />Scroll</div>
+
+        {showSwitch && (
+          <div className="globe-switch" role="group" aria-label="Globe style">
+            <span>Globe</span>
+            {(['earth', 'dots'] as const).map(v => (
+              <button key={v} type="button" aria-pressed={globeNow === v} className={globeNow === v ? 'on' : ''}
+                onClick={() => { if (globeNow !== v) setGlobe(v); }}>
+                {v === 'earth' ? 'Earth' : 'Dots'}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

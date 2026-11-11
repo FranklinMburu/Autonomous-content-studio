@@ -135,7 +135,7 @@ body.light .sheet { box-shadow: 0 -18px 40px -24px rgba(15, 27, 51, .18); }
 .hero-stage .hero-sink, .hero-stage .hero, .hero-stage .foot, .hero-stage .scroll {
   transform-origin: 50% 0; }
 .hero-stage .hero-sink { transform: translateY(calc(var(--hp, 0) * 70px)) scale(calc(1 - var(--hp, 0) * .07)); opacity: calc(1 - var(--hp, 0) * .85); }
-.hero-stage .foot, .hero-stage .scroll { opacity: calc(1 - var(--hp, 0) * 4); }
+.hero-stage .foot, .hero-stage .scroll, .hero-stage .globe-switch { opacity: calc(1 - var(--hp, 0) * 4); }
 .lb { text-decoration: none; color: inherit; } .lnk { text-decoration: none; cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -164,6 +164,12 @@ body.light .sheet { box-shadow: 0 -18px 40px -24px rgba(15, 27, 51, .18); }
 .foot{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:26px;z-index:4}
 .foot div{display:flex;align-items:baseline;gap:8px}.foot b{font-size:15px;font-weight:650}.foot span{font-size:13px;color:var(--tx3)}.foot i{width:1px;height:14px;background:var(--line2)}
 .scroll{position:absolute;right:56px;bottom:34px;display:flex;align-items:center;gap:10px;font-size:12px;color:var(--tx3);letter-spacing:.14em;text-transform:uppercase;z-index:4}
+.globe-switch{position:absolute;left:56px;bottom:30px;z-index:5;display:flex;align-items:center;gap:2px;padding:3px;border-radius:999px;background:rgba(20,20,26,.55);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:12px}
+.globe-switch>span{padding:0 8px 0 10px;color:var(--tx3);letter-spacing:.14em;text-transform:uppercase;font-size:11px}
+.globe-switch button{height:26px;padding:0 12px;border-radius:999px;border:0;background:transparent;color:var(--tx3);cursor:pointer;font:inherit;transition:background .2s,color .2s}
+.globe-switch button:hover{color:var(--tx)}
+.globe-switch button.on{background:rgba(255,255,255,.12);color:var(--tx)}
+@media (max-width:639px){.globe-switch{display:none}}
 .scroll span{width:1px;height:28px;background:linear-gradient(180deg,transparent,#C8CEDB)}
 
 .sunres{position:absolute;left:0;right:0;top:-200px;height:600px;background:radial-gradient(50% 60% at 50% 0%,rgba(245,165,36,.10),transparent 70%);pointer-events:none}
