@@ -1,0 +1,80 @@
+{
+ "title": "Why Titanic Skimped on Lifeboats",
+ "channel": "Hidden Reasons",
+ "topic": "Why the Titanic carried too few lifeboats",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A shipyard foreman hoists a massive wooden lifeboat onto a crane, sweat dripping."
+   ]
+  },
+  {
+   "feel": "skepticism",
+   "lines": [
+    "The crew laughs, saying “We have enough – the law only asks for this many.”"
+   ]
+  },
+  {
+   "feel": "dread",
+   "lines": [
+    "Titanic rolls out of Belfast with twenty boats, but only sixteen can be launched from the davits.",
+    "Two emergency cutters sit hanging, ready, while four collapsibles are stored upside‑down on the officers’ roof."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it’s like packing a school bus with only a few seat belts – you feel unsafe even before an accident."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "The Board of Trade required ships over ten‑thousand tons to carry just sixteen lifeboats for 990 people.",
+    "White Star chose to exceed that rule, fitting twenty boats that could hold 1,178 souls – still only a third of the 2,200 aboard."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "Because the law was so lax, the “extra” boats were never fully integrated, leaving half the ship without a quick escape route."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Titanic carried twenty lifeboats: fourteen standard, two cutters, four collapsibles, four more than Board of Trade regulations.",
+   "url": "https://en.wikipedia.org/wiki/Titanic"
+  },
+  {
+   "claim": "The lifeboats could accommodate 1,178 people – about one‑third of those on board.",
+   "url": "https://en.wikipedia.org/wiki/Titanic"
+  },
+  {
+   "claim": "Board of Trade regulations at the time required only sixteen lifeboats for ships over 10,000 tons, enough for 990 occupants.",
+   "url": "https://en.wikipedia.org/wiki/Sinking_of_the_Titanic"
+  },
+  {
+   "claim": "Two emergency cutters were kept swung out for immediate use, while four collapsible boats were stored upside‑down and hard to launch.",
+   "url": "https://en.wikipedia.org/wiki/Sinking_of_the_Titanic"
+  }
+ ],
+ "key_words": [
+  "lifeboat",
+  "crane",
+  "Board of Trade",
+  "regulations",
+  "third",
+  "escape"
+ ]
+}
