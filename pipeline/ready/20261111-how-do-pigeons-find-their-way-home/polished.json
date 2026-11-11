@@ -1,0 +1,159 @@
+{
+ "title": "The hidden compass that flies pigeons home",
+ "topic": "How do pigeons find their way home?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "map-pin",
+   "reveal": {
+    "text": "home?",
+    "at": "home"
+   },
+   "lines": [
+    "Take a pigeon somewhere it has never been, and it still flies home."
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "link",
+   "from": {
+    "icon": "sun",
+    "label": "sun",
+    "at": "sun"
+   },
+   "to": {
+    "icon": "clock",
+    "label": "inner clock",
+    "at": "clock"
+   },
+   "note": {
+    "text": "lost on sunny days",
+    "at": "bearings"
+   },
+   "lines": [
+    "Most researchers think its compass is the sun, read with an inner clock.",
+    "Shift that clock with artificial light, and on a sunny day the bird loses its bearings."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "compare",
+   "title": "Clock-shifted pigeons",
+   "left": {
+    "icon": "sun",
+    "label": "sunny day",
+    "value": "lost",
+    "at": "But"
+   },
+   "right": {
+    "icon": "cloud-rain",
+    "label": "cloudy day",
+    "value": "on course",
+    "at": "correctly"
+   },
+   "verdict": {
+    "text": "magnetic sense",
+    "at": "magnetic"
+   },
+   "lines": [
+    "But on cloudy days, those same clock-shifted birds navigate correctly.",
+    "That suggests they can use Earth's magnetic field, and magnets strapped to their backs disrupt it."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "link",
+   "kicker": "One study · Germany",
+   "from": {
+    "icon": "magnet",
+    "label": "small magnet",
+    "at": "magnet"
+   },
+   "to": {
+    "icon": "feather",
+    "label": "veers right",
+    "at": "right"
+   },
+   "note": {
+    "text": "vs brass weights",
+    "at": "brass"
+   },
+   "lines": [
+    "In one German study, pigeons wearing a small magnet headed off further right than birds carrying brass weights."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "tags",
+   "title": "Where is the sensor?",
+   "icon": "search",
+   "items": [
+    {
+     "text": "nose",
+     "at": "nose",
+     "tone": "neutral"
+    },
+    {
+     "text": "inner ear",
+     "at": "ear",
+     "tone": "neutral"
+    },
+    {
+     "text": "liver",
+     "at": "liver",
+     "tone": "neutral"
+    }
+   ],
+   "lines": [
+    "Where that sense sits is still debated, with suspects in the nose, the inner ear and even the liver."
+   ],
+   "id": "beat5"
+  },
+  {
+   "scene": "bubble",
+   "icon": "feather",
+   "prop": "volume",
+   "text": "mapping sound?",
+   "at": "circles",
+   "lines": [
+    "So next time a pigeon circles after take-off, watch closely: one researcher suggests it's mapping very low sound waves."
+   ],
+   "id": "beat6"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Pigeons find their way home from distant places they have never visited; map and compass model; compass appears to rely on the sun; altering perceived time of day with artificial lighting affected homing",
+   "url": "https://en.wikipedia.org/wiki/Homing_pigeon"
+  },
+  {
+   "claim": "Time-shifted pigeons cannot orient on clear sunny days but navigate correctly on overcast days, suggesting magnetic orientation; disrupted by magnets attached to their backs",
+   "url": "https://en.wikipedia.org/wiki/Magnetoreception"
+  },
+  {
+   "claim": "Magnet pigeons released around a loft in Germany vanished deflected to the right of controls carrying brass weights; magnetic sense located in the nasal region",
+   "url": "https://openalex.org/W619981508"
+  },
+  {
+   "claim": "Location of the pigeon magnetic sense debated: trigeminal system, inner ear (2025 study), superparamagnetic macrophages in the liver",
+   "url": "https://en.wikipedia.org/wiki/Magnetoreception"
+  },
+  {
+   "claim": "Research by Jon Hagstrum suggests pigeons use low-frequency infrasound and fly in a circle when first taking off to map it",
+   "url": "https://en.wikipedia.org/wiki/Homing_pigeon"
+  }
+ ],
+ "youtube": {
+  "title": "The hidden compass that flies pigeons home 🕊️",
+  "description": "Pigeons find home from places they've never seen. On sunny days they read the sun; on cloudy days, something else takes over.",
+  "tags": [
+   "pigeons",
+   "homing pigeon",
+   "animal navigation",
+   "magnetoreception",
+   "bird science",
+   "shorts"
+  ]
+ }
+}

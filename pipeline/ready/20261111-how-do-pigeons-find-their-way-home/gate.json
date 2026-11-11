@@ -1,0 +1,68 @@
+{
+ "at": "2026-11-11T09:49:19+00:00",
+ "offline": [],
+ "fact_check": {
+  "results": [
+   {
+    "claim": "A pigeon can still fly home after being taken somewhere it has never been before.",
+    "verdict": "supported",
+    "evidence": "Source 1 states researchers study 'how pigeons, after being transported, can find their way back from distant places they have never visited before.'"
+   },
+   {
+    "claim": "Most researchers think the pigeon's compass mechanism relies on the sun.",
+    "verdict": "supported",
+    "evidence": "Source 1 states that 'Most researchers believe that homing ability is based on a \"map and compass\" model... While the compass mechanism appears to rely on the sun'."
+   },
+   {
+    "claim": "Shifting a pigeon's clock with artificial light causes it to lose its bearings on a sunny day.",
+    "verdict": "supported",
+    "evidence": "Source 2 states 'time-shifted homing pigeons (acclimatised in the laboratory to a different time-zone) are unable to orient themselves correctly on a clear, sunny day', and Source 1 mentions 'altering the perceived time of day with artificial lighting... affected the pigeons' ability to return home.'"
+   },
+   {
+    "claim": "On cloudy or overcast days, clock-shifted pigeons navigate correctly.",
+    "verdict": "supported",
+    "evidence": "Source 2 states 'Conversely, time-shifted pigeons released on overcast days navigate correctly'."
+   },
+   {
+    "claim": "This suggests pigeons can use Earth's magnetic field, and magnets attached to their backs disrupt this ability.",
+    "verdict": "supported",
+    "evidence": "Source 2 states this 'suggests that pigeons can use magnetic fields to orient themselves; this ability can be disrupted with magnets attached to the birds' backs.'"
+   },
+   {
+    "claim": "In a German study, pigeons carrying a small magnet headed off further to the right than birds carrying brass weights.",
+    "verdict": "supported",
+    "evidence": "Source 3 describes releases around a loft in Germany where magnets 'consistently and reproducibly deflected the average vanishing direction of magnet pigeons to the right of that of the control group carrying brass weights.'"
+   },
+   {
+    "claim": "The location of the magnetic sense is debated, with candidate locations including the nose, inner ear, and liver.",
+    "verdict": "supported",
+    "evidence": "Source 3 reports the sense is 'located in the nasal region', Source 2 mentions evidence that pigeons 'sense magnetism in the inner ear' as well as 'superparamagnetic macrophages' in the liver required for sensing magnetic direction."
+   },
+   {
+    "claim": "One researcher suggests that when a pigeon circles after take-off, it is mapping low-frequency sound waves.",
+    "verdict": "supported",
+    "evidence": "Source 1 states that research by Jon Hagstrum suggests pigeons use low-frequency infrasound and that long waves 'directs pigeons to fly in a circle when first taking air, in order to mentally map such long infrasound waves.'"
+   }
+  ],
+  "counts": {
+   "unsupported": 0,
+   "partial": 0,
+   "supported": 8
+  },
+  "model": "google:gemini-3.6-flash"
+ },
+ "judge": {
+  "index": 1,
+  "scores": {
+   "1": 2,
+   "2": 5
+  },
+  "reason": "Candidate 2 strictly adheres to the source text, opens with a compelling hook under 14 words, builds a clear narrative showing how scientists unraveled sun vs. magnetic navigation, and finishes with a fresh payoff about infrasound mapping.",
+  "model": "google:gemini-3.6-flash"
+ },
+ "score": {
+  "score": 5,
+  "reason": "All claims are spot‑on, the hook is concise and intriguing, the narrative flows to a fresh final twist, and the visual cues match the narration.",
+  "model": "groq:openai/gpt-oss-120b"
+ }
+}
