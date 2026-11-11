@@ -7,4 +7,3 @@ Problems left by the free models (the copy-paste polish fixes them):
 - script: not supported by the sources, fix or remove: The lifeboat capacity was still only a third of the 2,200 aboard.
 - script: not supported by the sources, fix or remove: Because the law was so lax, the 'extra' boats were never fully integrated, leaving half the ship without a quick escape route.
 - script: sentences are too long on average; keep most under 12 words
-- the free models could not write the shots for part 5
