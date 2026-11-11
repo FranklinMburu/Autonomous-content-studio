@@ -25,7 +25,8 @@ const RISE_FROM = 0.8, RISE_TO = 1.0;    // sun strength
 const LON_FROM = -10, LON_TO = -6;       // the globe turns 4 degrees east while you scroll
 const LAT0 = -6;
 const SWAY_DEG = 3.5, SWAY_SECONDS = 48;
-const FILM_ROLL_DEG = 1.6;   // film mode: the picture turns gently about the globe centre (the film itself can't sway) // living planet: a slow sway, Europe always stays in view
+const FILM_ROLL_DEG = 1.6;
+const MOON = 0.7;    // film mode: how bright the moonlit continents are (0 = pure black night, as rendered)   // film mode: the picture turns gently about the globe centre (the film itself can't sway) // living planet: a slow sway, Europe always stays in view
 
 const lerp = (a, b, t) => a + (b - a) * t;
 const ease = t => 1 - Math.pow(1 - t, 3);
@@ -57,17 +58,40 @@ export function createEarth(canvas, data, stories = [], opts = {}) {
   let W = 0, H = 0, g, progress = 0, raf = 0, active = true, img = null, px = null, box = null, slow = 0;
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const t0 = performance.now();
-  const SKY = false;   // v7: the film's own air shell renders as a separate pale band; the page's ring is cleaner
 const FILM_FPS = opts.filmFps || 24, FILM_N = opts.filmFrames || 72;
-  let film = null, filmIdx = -1, filmSeeking = false, filmKey = "";
-  const sky = document.createElement("canvas");   // the film's space around the planet, black turned into transparency
-  const useFilm = () => film && film.readyState >= 2 && W >= 640;
+  // Film frames are copied into `still` once decoded and always drawn from there. Drawing the <video> itself failed
+  // while it was seeking (readyState drops below 2), so the page flipped between dots and Earth on every scroll step.
+  let filmOk = false, filmIdx = -1, filmSeeking = false, filmWant = -1;
+  const still = document.createElement("canvas");
+  const grab = v => { still.width = v.videoWidth; still.height = v.videoHeight; still.getContext("2d").drawImage(v, 0, 0); };
+  const useFilm = () => filmOk && W >= 640;   // once ready, film mode never drops back to the dots
+  // moonlight: the render's night side is pure black (pixel values 1-2), so the page adds faint, soft continents
+  // (the dot globe's land points, plotted small and drawn up-scaled = blurred) and a dim blue body underneath the lights
+  const moon = document.createElement("canvas"), moonTmp = document.createElement("canvas"); let moonKey = "";
   if (opts.film) {
     const v = opts.film;
-    const ready = () => { film = v; request(); };
-    v.addEventListener("seeked", () => { filmSeeking = false; filmKey = ""; request(); });
+    const next = () => { if (filmWant >= 0 && filmWant !== filmIdx) { filmIdx = filmWant; filmSeeking = true; v.currentTime = (filmIdx + 0.5) / FILM_FPS; } };
+    v.addEventListener("seeked", () => { grab(v); filmOk = true; filmSeeking = false; request(); next(); });
+    const ready = () => { grab(v); filmOk = true; filmIdx = 0; request(); };
     if (v.readyState >= 2) setTimeout(ready, 0); else v.addEventListener("loadeddata", ready, { once: true });
+    var seekFilm = i => { filmWant = i; if (!filmSeeking) next(); };
   }
+  function moonland(rot, cx, cy, R) {
+    const S = 3.5, mw = Math.ceil(2 * R / S) + 2, mh = Math.ceil(R / S) + 2;   // only the top half of the disc is on screen
+    moon.width = mw; moon.height = mh;
+    const mc = moon.getContext("2d"), im = mc.createImageData(mw, mh), d = im.data;
+    for (let i = 0; i < land.length; i += 3) {
+      const [x, y, z] = rot(land[i], land[i + 1], land[i + 2]); if (z <= 0) continue;
+      const px = Math.round((R * x + R) / S), py = Math.round((R - R * y) / S); if (px < 0 || py < 0 || px >= mw || py >= mh) continue;
+      const o = (py * mw + px) * 4, a = 150 * Math.min(1, z * 1.6);
+      if (a > d[o + 3]) { d[o] = 92; d[o + 1] = 112; d[o + 2] = 150; d[o + 3] = a; }
+    }
+    // soften: the land points sit on a lattice, so blur them once into smooth landmasses (small canvas: cheap)
+    moonTmp.width = mw; moonTmp.height = mh; moonTmp.getContext("2d").putImageData(im, 0, 0);
+    mc.filter = "blur(1.4px)"; mc.drawImage(moonTmp, 0, 0); mc.filter = "none";
+    return { x: cx - R, y: cy - R, w: mw * S, h: mh * S };
+  }
+  let moonBox = null;
 
   let acc = null;   // the pixel buffer's bytes (r, g, b, a): dots are blended straight into it, see dots()
   function size() {
@@ -185,34 +209,21 @@ const FILM_FPS = opts.filmFps || 24, FILM_N = opts.filmFrames || 72;
     c.fillStyle = gr; c.beginPath(); c.arc(sx, sy, 150 * k, 0, 7); c.fill();
     c.fillStyle = `rgba(255,253,247,${rise})`; c.beginPath(); c.arc(sx, sy, 7.5 * k, 0, 7); c.fill();   // the disc itself
     if (filmOn) {
-      // the film frame for this scroll position; seek only when the frame changes (the encode has a keyframe every 4)
-      const want = Math.round(t * (FILM_N - 1));
-      if (want !== filmIdx && !filmSeeking) { filmIdx = want; filmSeeking = true; film.currentTime = (want + 0.5) / FILM_FPS; }
+      // the film frame for this scroll position (the encode has a keyframe every 4 frames, so seeks are quick)
+      seekFilm(Math.round(t * (FILM_N - 1)));
       const fw = W, fh = W / 1.6, fy = cy - 1370 * g.k;   // the film is the 1440x900 reference frame, globe centre (720, 1370)
-      // outside the planet the film is near-black space + the glowing air: turn brightness into transparency once per
-      // film frame (cached), so the page's own background and glow show through and the air adds light on top
-      const key = `${filmIdx}|${W}|${H}|${dpr}`;
-      if (SKY && key !== filmKey && !filmSeeking) {
-        filmKey = key;
-        const sw = Math.round(W * dpr), sh = Math.round(Math.min(H, cy + 20) * dpr);
-        sky.width = sw; sky.height = Math.max(1, sh);
-        const sc = sky.getContext("2d", { willReadFrequently: true });
-        sc.drawImage(film, 0, fy * dpr, fw * dpr, fh * dpr);
-        const im = sc.getImageData(0, 0, sw, sky.height), d = im.data;
-        for (let i = 0; i < d.length; i += 4) {
-          const m = Math.max(d[i], d[i + 1], d[i + 2]);
-          if (m <= 4) { d[i + 3] = 0; continue; }          // the film's black (and its faint star-plane edge) = no light
-          const a = Math.min(255, (m - 4) * 1.6);
-          d[i] = Math.min(255, d[i] * 255 / a); d[i + 1] = Math.min(255, d[i + 1] * 255 / a); d[i + 2] = Math.min(255, d[i + 2] * 255 / a);
-          d[i + 3] = a;
-        }
-        sc.putImageData(im, 0, 0);
-      }
-      if (SKY) { c.save(); c.beginPath(); c.rect(0, 0, W, H); c.arc(cx, cy, R, 0, 7, true); c.clip("evenodd");
-      c.drawImage(sky, 0, 0, sky.width / dpr, sky.height / dpr); c.restore(); }
-      // inside: the real planet, opaque (it hides the sun behind it)
+      const mk = `${lon0.toFixed(2)}|${W}|${H}`;
+      if (mk !== moonKey) { moonKey = mk; moonBox = moonland(rot, cx, cy, R); }
       c.save(); c.beginPath(); c.arc(cx, cy, R, 0, 7); c.clip();
-      c.translate(cx, cy); c.rotate(roll); c.translate(-cx, -cy); c.drawImage(film, 0, fy, fw, fh); c.restore();
+      c.translate(cx, cy); c.rotate(roll); c.translate(-cx, -cy);
+      c.drawImage(still, 0, fy, fw, fh);                                   // the real planet, opaque (hides the sun)
+      c.globalCompositeOperation = "lighter";                              // + moonlight, never darkens the film
+      gr = c.createRadialGradient(cx, cy - R * 0.55, R * 0.1, cx, cy, R);
+      gr.addColorStop(0, "rgba(22,30,48,.9)"); gr.addColorStop(0.7, "rgba(14,20,34,.7)"); gr.addColorStop(1, "rgba(8,12,22,.4)");
+      c.fillStyle = gr; c.fillRect(cx - R, cy - R, 2 * R, R + 4);
+      c.globalAlpha = MOON; c.imageSmoothingQuality = "high";
+      c.drawImage(moon, moonBox.x, moonBox.y, moonBox.w, moonBox.h);
+      c.restore();
     } else {
     // planet body, warmer on the sun's side
     gr = c.createRadialGradient(sx, sy, R * 0.05, cx, cy, R * 1.1);
