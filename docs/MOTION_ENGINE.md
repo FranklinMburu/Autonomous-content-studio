@@ -1,8 +1,9 @@
 # Motion engine: the Tech Education style
 
-Faceless 45–75 s explainers built from real-looking software, seen straight on:
-- one diagram that stays on screen and changes in place (app → line → API door → server);
-- word-by-word captions, and a camera that moves only to show what the voice is naming;
+Faceless 45–75 s explainers built from real-looking software in a moving 3D world:
+- a laptop and app windows;
+- a server and a diagram that grows line by line;
+- word-by-word captions and a camera that never stands still;
 - music and sound effects composed in code.
 
 Channel: **Tech Education (TE)**, series "Build Basics". Code: `studio/motion/`. Approved 11 Nov 2026 (lab v3).
@@ -54,8 +55,20 @@ Reference: "Vibe Coding Essentials, Part 2: What actually is GitHub" (54.7 s, 72
 | v3 | v2 + lit grid floors under every scene, a 3D laptop and a server rack, hard cuts to new angles, the locked voice | accepted as the standard; integrate next | 1% |
 
 After a review of the first pipeline version (PR #88, 11 Nov), the engine also got **coverage cuts**, light wipes
-between sets, brighter panels and livelier slow scenes (section 3). Measured on the API episode: average motion 2.8 → 4.2
-and a whole-picture change every 5.7 s → 1.8 s (the reference: 5.5 and 0.7 s).
+between sets, brighter panels and livelier slow scenes (section 3). Measured on the API episode: average motion 2.8 → 4.0
+and a whole-picture change every 5.7 s → 2.2 s (the reference: 5.5 and 0.7 s).
+
+**After v4 (11 Nov), two more versions were tried and rejected. Franklin chose v4.**
+- **v5** added a framing guard, a frame audit, overlay cards that dim the diagram, and hard cuts between sets. It fixed
+  the cut-off and overlapping panels Franklin had listed, but the video felt "weird" and hard to follow.
+- **v6** was a full rewrite: a flat, straight-on diagram, and a camera that moves only with a stated reason. It was
+  clean, but it did not have v4's feel.
+
+Franklin then said of v4: "this one was good to be honest after all this trials". The engine was restored exactly to
+v4 (commit b7bd4b1); re-rendered frames match the v4 video. The v5 and v6 code stays in git history (commits f90d898,
+5c5f380 and 0414a98) as material, not as the style. Known v4 faults remain open: some panels are cut off at the edges,
+and some sit under the captions. Fix them only one at a time, comparing each change against the v4 video so the feel
+stays the same.
 
 **Voice lock:** Kokoro `am_fenrir` at 1.0, read line by line, then only a gentle EQ (more bass, a softer top).
 
@@ -63,22 +76,7 @@ Rejected: blending in a second voice, pitch shifting, room echo and `am_puck`. T
 voices" or "soprano". A more human voice needs a bigger model on Kaggle (Chatterbox, MIT; Dia2, Apache 2.0); that
 hasn't been done yet.
 
-**v4/v5 rejected (11 Nov, Franklin): "weird", "not making someone understand", "the camera moving just for the
-sake of moving".** The causes:
-- coverage cuts and a handheld drift that moved the camera with no reason;
-- many small, tilted panels floating in 3D space;
-- overlay cards that hid the diagram instead of changing it;
-- abstract metaphors.
-
-**v6 (11 Nov), one diagram, straight on.** Studied frame by frame, the reference:
-- shows everything facing the viewer, with one big subject at a time;
-- keeps one diagram (its timeline) on screen and changes it in place;
-- pans and zooms only to follow what is being said, and holds still otherwise.
-
-The engine was rewritten to do the same (section 3). Rejected for good: automatic angle cuts, drift, tilted 3D panels,
-and cards laid over the diagram.
-
-**Before v6, still below the reference:** average motion is about three quarters of it (4.2 against 5.5), and contrast is lower (26 against
+**Still below the reference:** average motion is about 70% of it (4.0 against 5.5), and contrast is lower (26 against
 35). The reference fills the frame with one bright screen far more often.
 
 ## 3. Architecture
@@ -107,28 +105,15 @@ studio/motion/
 
 **How a frame is made:**
 1. Every scene starts on its line and is anchored to spoken words (`"word": "address"`).
-2. Scenes live in zones (hook, stat, story, wall, cta, end, free), far apart in a flat world. Changing zone is a hard
-   cut; inside a zone the camera only pans and zooms (2D, straight on).
-3. The story zone is one vertical diagram:
-   - the terminal builds the app, then steps aside;
-   - app, then a line, then the API door on top of the server.
-
-   Whatever explains the line opens **in the gap on the line**, one thing at a time:
-   - the request opens into its URL;
-   - the answer opens into its data, and the value rises into the app;
-   - the request waits at the door and the key attaches to it;
-   - the password comparison;
-   - strangers with copied keys, and the server's quota meter filling up;
-   - the status codes coming back.
-4. **The camera moves only with a reason** (`direct()`): to the panel being named, following a message down the line,
-   or pulling back to show a connection. Every move is listed with its reason in `info.json` (`moves`). Between moves
-   it holds still; the motion comes from the diagram changing. There is no drift and no automatic angles.
-5. **Framing guard** (`fitShots()`): a shot is "show these things". It becomes a camera where they are whole, inside
-   the frame and below the captions, as big as fits. If another panel alive during the shot would be cut by the edge,
-   the frame widens to take it in, so a frame at rest never halves a panel.
-6. **Frame audit** (`audit()`): it steps through every frame at rest and lists any solid panel that is cut off, under
-   the captions or overlapping another. The list goes into `info.json`, and the `layout_ok` gate holds the video if
-   it is not empty.
+2. Scenes live in sets (hook, stat, story, wall, cta, end). Each set has its own place in the world, and the camera
+   flies between them.
+3. The story set grows: laptop → app → server and link → packets, cards, key, leak, badges.
+4. The camera is keyframed per scene type, with hard cuts for close-ups, plus a slow seeded handheld drift.
+5. **Coverage cuts** (`coverage()` in the engine): wherever the planned camera holds one shot for more than about
+   0.9 s, it cuts to another angle of the same subject, on a spoken word. The angles are mild on purpose (at most 24°
+   and 0.84× distance): stronger ones cropped wide panels off the screen. Angles never stack. This is automatic, so
+   the writer does not have to plan it.
+6. A light wipe crosses the frame on every change of set.
 
 ## 4. Determinism and guardrails
 
@@ -139,17 +124,11 @@ studio/motion/
   - `tests/test_motion.py` renders the same frames twice and they are byte-identical. `render.js` waits two
     animation frames after each `render(t)`, so Chromium has finished drawing before the screenshot (without this, frames
     differed by up to 2% under CPU load).
-- **Layout rules** (after the 11 Nov video with cut-off and overlapping panels):
-  - two solid things never share screen space: app on top, badges in the gap, door mounted on the server, meter where
-    the app was;
-  - overlay cards (code, data, compare) own the frame, and everything behind them fades to 10% before the cut;
-  - the door and the "?" are their own objects, so the server box can't hide them.
 - **Guardrails, so the line never dies and nothing bad is published:**
   1. An invalid plan becomes `auto_plan()` (plain but valid), and the video is flagged for review.
   2. Facts still unsupported after the fact check go into `NEEDS_REVIEW.md`, and the result is a pre-release
      "REVIEW: …" plus a `review` issue.
-  3. Measured gates in `report.json`: plan valid, loudness within 1 LU of −14, no more than 10% of frames almost still,
-     and `layout_ok` (the frame audit found nothing).
+  3. Measured gates in `report.json`: plan valid, loudness within 1 LU of −14, no more than 10% of frames almost still.
      If any gate fails, the video is held for review.
   4. The writer repairs the closest draft with its exact problems before giving up (the shared `repair_draft`).
 - **Isolation from Hidden Reasons:**
@@ -199,7 +178,7 @@ On GitHub, run **Actions → "Make a motion video (Tech Education)"**:
 
 ## 7. Known limits / next steps
 
-- Motion is about three quarters of the reference's. Next: scene types that fill the whole frame with one bright screen (a browser
+- Motion is about 70% of the reference's. Next: scene types that fill the whole frame with one bright screen (a browser
   page, a full-screen terminal, a phone), which is where most of the reference's motion and contrast come from.
 - The voice is Kokoro's best for this channel, but still recognisably AI. Next step up: Chatterbox or Dia2 on Kaggle.
 - Only one approved episode so far. The AI writer is tested offline with fake models, and the two workflows have never
