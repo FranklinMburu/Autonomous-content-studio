@@ -11,6 +11,11 @@
 //   earth.setProgress(p)   // 0 at the top of the page, 1 when the hero has scrolled away (the sun rises)
 //   earth.setActive(bool)  // pause when the hero is off-screen (IntersectionObserver)
 //   earth.destroy()
+// Film mode (11 Nov 2026, opt-in): opts.film = a paused <video> of the Blender Earth (lab/kaggle/earth_film, same camera
+// maths, frame i = eased progress i/(N-1)). The film replaces the drawn planet (ring, body, dots); the approved sun,
+// limb light, bloom, arcs and story lights are still drawn on top. The page's silver ring replaces the film's own air
+// (render 7's air shell shows as a separate pale band). Instead of the dot sway, the film picture rolls slowly about
+// the globe centre and the lights/arcs get the same roll, so they stay on their cities. Desktop only.
 // onPlace(places) is called every frame with [{...story, year, x, y}] (x, y in CSS px): position HTML cards and
 // tags imperatively from it (do NOT put it in React state: that re-renders 60 times a second).
 
@@ -19,7 +24,8 @@ const SUN_FROM = -0.55, SUN_TO = 0.12;   // angle on the rim, radians from the t
 const RISE_FROM = 0.8, RISE_TO = 1.0;    // sun strength
 const LON_FROM = -10, LON_TO = -6;       // the globe turns 4 degrees east while you scroll
 const LAT0 = -6;
-const SWAY_DEG = 3.5, SWAY_SECONDS = 48; // living planet: a slow sway, Europe always stays in view
+const SWAY_DEG = 3.5, SWAY_SECONDS = 48;
+const FILM_ROLL_DEG = 1.6;   // film mode: the picture turns gently about the globe centre (the film itself can't sway) // living planet: a slow sway, Europe always stays in view
 
 const lerp = (a, b, t) => a + (b - a) * t;
 const ease = t => 1 - Math.pow(1 - t, 3);
@@ -51,6 +57,17 @@ export function createEarth(canvas, data, stories = [], opts = {}) {
   let W = 0, H = 0, g, progress = 0, raf = 0, active = true, img = null, px = null, box = null, slow = 0;
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const t0 = performance.now();
+  const SKY = false;   // v7: the film's own air shell renders as a separate pale band; the page's ring is cleaner
+const FILM_FPS = opts.filmFps || 24, FILM_N = opts.filmFrames || 72;
+  let film = null, filmIdx = -1, filmSeeking = false, filmKey = "";
+  const sky = document.createElement("canvas");   // the film's space around the planet, black turned into transparency
+  const useFilm = () => film && film.readyState >= 2 && W >= 640;
+  if (opts.film) {
+    const v = opts.film;
+    const ready = () => { film = v; request(); };
+    v.addEventListener("seeked", () => { filmSeeking = false; filmKey = ""; request(); });
+    if (v.readyState >= 2) setTimeout(ready, 0); else v.addEventListener("loadeddata", ready, { once: true });
+  }
 
   let acc = null;   // the pixel buffer's bytes (r, g, b, a): dots are blended straight into it, see dots()
   function size() {
@@ -120,8 +137,11 @@ export function createEarth(canvas, data, stories = [], opts = {}) {
     const dt = lastFrame ? now - lastFrame : 16; lastFrame = now;
     const t = reduce ? 0 : ease(progress);
     const sa = lerp(SUN_FROM, SUN_TO, t), rise = lerp(RISE_FROM, RISE_TO, t);
-    const sway = reduce ? 0 : SWAY_DEG * Math.sin(((now - t0) / 1000) * (2 * Math.PI / SWAY_SECONDS));
+    const sway = reduce || useFilm() ? 0 : SWAY_DEG * Math.sin(((now - t0) / 1000) * (2 * Math.PI / SWAY_SECONDS));
     const lon0 = lerp(LON_FROM, LON_TO, t) + sway;
+    // film mode: a slow roll of the whole planet picture about its centre; lights and arcs get the same roll (see P)
+    const roll = reduce || !useFilm() ? 0 : (FILM_ROLL_DEG * Math.PI / 180) * Math.sin(((now - t0) / 1000) * (2 * Math.PI / SWAY_SECONDS));
+    const rc = Math.cos(roll), rs = Math.sin(roll);
     // the sun sits on the planet's limb and rises over it as you scroll (its centre goes from 6 px below to 9 px above)
     const { R, cx, cy } = g, sd = R + lerp(-6, 9, t) * g.k, sx = cx + sd * Math.sin(sa), sy = cy - sd * Math.cos(sa);
     // the sun sits just behind the rim: its direction in view space (y up, z towards the viewer)
@@ -130,7 +150,8 @@ export function createEarth(canvas, data, stories = [], opts = {}) {
     const P = (lat, lon) => {
       const la = lat * Math.PI / 180, lo = lon * Math.PI / 180, c = Math.cos(la);
       const [x, y, z] = rot(c * Math.sin(lo), Math.sin(la), c * Math.cos(lo));
-      return [cx + R * x, cy - R * y, z];
+      const X = R * x, Y = -R * y;
+      return [cx + X * rc - Y * rs, cy + X * rs + Y * rc, z];
     };
     const tStart = performance.now();
     const c = canvas.getContext("2d"); c.setTransform(dpr, 0, 0, dpr, 0, 0); c.clearRect(0, 0, W, H);
@@ -140,6 +161,8 @@ export function createEarth(canvas, data, stories = [], opts = {}) {
     gr.addColorStop(0.5, `rgba(140,90,60,${0.06 * rise})`); gr.addColorStop(1, "rgba(0,0,0,0)");
     c.fillStyle = gr; c.fillRect(0, 0, W, H);
     // atmosphere: a smooth silver haze + a crisp rim that turns gold near the sun
+    const filmOn = useFilm();
+    {
     const ring = c.createRadialGradient(cx, cy, R - 2, cx, cy, R + 46);
     ring.addColorStop(0, "rgba(205,210,228,.28)"); ring.addColorStop(0.1, "rgba(190,198,222,.15)");
     ring.addColorStop(0.4, "rgba(170,180,210,.05)"); ring.addColorStop(1, "rgba(160,170,200,0)");
@@ -151,6 +174,7 @@ export function createEarth(canvas, data, stories = [], opts = {}) {
       cg.addColorStop(1, `rgba(150,160,190,${al * 0.35})`);
       c.strokeStyle = cg; c.lineWidth = w; c.beginPath(); c.arc(cx, cy, R + w / 2 - 1, 0, 7); c.stroke();
     }
+    }
     // the sun BEHIND the planet: corona and core first, so the planet's body hides the part below the limb (v2 drew it
     // on top of the planet, with a hard horizontal streak through it: not how a real sunrise over a planet looks)
     const k = g.k;
@@ -160,6 +184,36 @@ export function createEarth(canvas, data, stories = [], opts = {}) {
     gr.addColorStop(1, "rgba(240,140,60,0)");
     c.fillStyle = gr; c.beginPath(); c.arc(sx, sy, 150 * k, 0, 7); c.fill();
     c.fillStyle = `rgba(255,253,247,${rise})`; c.beginPath(); c.arc(sx, sy, 7.5 * k, 0, 7); c.fill();   // the disc itself
+    if (filmOn) {
+      // the film frame for this scroll position; seek only when the frame changes (the encode has a keyframe every 4)
+      const want = Math.round(t * (FILM_N - 1));
+      if (want !== filmIdx && !filmSeeking) { filmIdx = want; filmSeeking = true; film.currentTime = (want + 0.5) / FILM_FPS; }
+      const fw = W, fh = W / 1.6, fy = cy - 1370 * g.k;   // the film is the 1440x900 reference frame, globe centre (720, 1370)
+      // outside the planet the film is near-black space + the glowing air: turn brightness into transparency once per
+      // film frame (cached), so the page's own background and glow show through and the air adds light on top
+      const key = `${filmIdx}|${W}|${H}|${dpr}`;
+      if (SKY && key !== filmKey && !filmSeeking) {
+        filmKey = key;
+        const sw = Math.round(W * dpr), sh = Math.round(Math.min(H, cy + 20) * dpr);
+        sky.width = sw; sky.height = Math.max(1, sh);
+        const sc = sky.getContext("2d", { willReadFrequently: true });
+        sc.drawImage(film, 0, fy * dpr, fw * dpr, fh * dpr);
+        const im = sc.getImageData(0, 0, sw, sky.height), d = im.data;
+        for (let i = 0; i < d.length; i += 4) {
+          const m = Math.max(d[i], d[i + 1], d[i + 2]);
+          if (m <= 4) { d[i + 3] = 0; continue; }          // the film's black (and its faint star-plane edge) = no light
+          const a = Math.min(255, (m - 4) * 1.6);
+          d[i] = Math.min(255, d[i] * 255 / a); d[i + 1] = Math.min(255, d[i + 1] * 255 / a); d[i + 2] = Math.min(255, d[i + 2] * 255 / a);
+          d[i + 3] = a;
+        }
+        sc.putImageData(im, 0, 0);
+      }
+      if (SKY) { c.save(); c.beginPath(); c.rect(0, 0, W, H); c.arc(cx, cy, R, 0, 7, true); c.clip("evenodd");
+      c.drawImage(sky, 0, 0, sky.width / dpr, sky.height / dpr); c.restore(); }
+      // inside: the real planet, opaque (it hides the sun behind it)
+      c.save(); c.beginPath(); c.arc(cx, cy, R, 0, 7); c.clip();
+      c.translate(cx, cy); c.rotate(roll); c.translate(-cx, -cy); c.drawImage(film, 0, fy, fw, fh); c.restore();
+    } else {
     // planet body, warmer on the sun's side
     gr = c.createRadialGradient(sx, sy, R * 0.05, cx, cy, R * 1.1);
     gr.addColorStop(0, "#2A2420"); gr.addColorStop(0.35, "#15151A"); gr.addColorStop(1, "#0B0B0F");
@@ -167,6 +221,7 @@ export function createEarth(canvas, data, stories = [], opts = {}) {
     // every dot, this frame
     dots(rot, sun, rise);
     c.setTransform(1, 0, 0, 1, 0, 0); c.drawImage(buf, box.x, box.y); c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
     // sunlight scattered through the air along the limb: a thin bright arc, white at the sun, warm, then gone ~25 deg away
     const limb = c.createConicGradient(-Math.PI / 2 + sa - 0.45, cx, cy);
     limb.addColorStop(0, "rgba(255,170,90,0)"); limb.addColorStop(0.035, `rgba(255,190,120,${0.55 * rise})`);
@@ -196,6 +251,15 @@ export function createEarth(canvas, data, stories = [], opts = {}) {
       const fade = Math.sin(Math.PI * q);
       const pg = c.createRadialGradient(qx, qy, 0, qx, qy, 9); pg.addColorStop(0, `rgba(255,220,150,${fade})`); pg.addColorStop(1, "rgba(255,200,97,0)");
       c.fillStyle = pg; c.beginPath(); c.arc(qx, qy, 9, 0, 7); c.fill();
+      if (filmOn) {   // over the real Earth the hopping light needs a brighter core and a short tail to read
+        for (let j = 1; j <= 6; j++) {
+          const u = Math.max(0, q - j * 0.018), ux = (1 - u) ** 2 * A[0] + 2 * (1 - u) * u * mx + u * u * B[0], uy = (1 - u) ** 2 * A[1] + 2 * (1 - u) * u * my + u * u * B[1];
+          c.fillStyle = `rgba(255,214,140,${0.5 * fade * (1 - j / 7)})`; c.beginPath(); c.arc(ux, uy, 2.2 - j * 0.25, 0, 7); c.fill();
+        }
+        const hg = c.createRadialGradient(qx, qy, 0, qx, qy, 16); hg.addColorStop(0, `rgba(255,236,190,${0.55 * fade})`); hg.addColorStop(1, "rgba(255,200,97,0)");
+        c.fillStyle = hg; c.beginPath(); c.arc(qx, qy, 16, 0, 7); c.fill();
+        c.fillStyle = `rgba(255,250,236,${fade})`; c.beginPath(); c.arc(qx, qy, 2.4, 0, 7); c.fill();
+      }
     }
     // story lights; report screen positions so the page can place the cards and name tags (HTML, not canvas)
     const places = [];
