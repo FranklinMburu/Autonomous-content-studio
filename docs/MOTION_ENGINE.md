@@ -55,8 +55,8 @@ Reference: "Vibe Coding Essentials, Part 2: What actually is GitHub" (54.7 s, 72
 | v3 | v2 + lit grid floors under every scene, a 3D laptop and a server rack, hard cuts to new angles, the locked voice | accepted as the standard; integrate next | 1% |
 
 After a review of the first pipeline version (PR #88, 11 Nov), the engine also got **coverage cuts**, light wipes
-between sets, brighter panels and livelier slow scenes (section 3). Measured on the API episode: average motion 2.8 → 4.0
-and a whole-picture change every 5.7 s → 2.2 s (the reference: 5.5 and 0.7 s).
+between sets, brighter panels and livelier slow scenes (section 3). Measured on the API episode: average motion 2.8 → 4.2
+and a whole-picture change every 5.7 s → 1.8 s (the reference: 5.5 and 0.7 s).
 
 **Voice lock:** Kokoro `am_fenrir` at 1.0, read line by line, then only a gentle EQ (more bass, a softer top).
 
@@ -64,7 +64,7 @@ Rejected: blending in a second voice, pitch shifting, room echo and `am_puck`. T
 voices" or "soprano". A more human voice needs a bigger model on Kaggle (Chatterbox, MIT; Dia2, Apache 2.0); that
 hasn't been done yet.
 
-**Still below the reference:** average motion is about 70% of it (4.0 against 5.5), and contrast is lower (26 against
+**Still below the reference:** average motion is about three quarters of it (4.2 against 5.5), and contrast is lower (26 against
 35). The reference fills the frame with one bright screen far more often.
 
 ## 3. Architecture
@@ -166,7 +166,7 @@ On GitHub, run **Actions → "Make a motion video (Tech Education)"**:
 
 ## 7. Known limits / next steps
 
-- Motion is about 70% of the reference's. Next: scene types that fill the whole frame with one bright screen (a browser
+- Motion is about three quarters of the reference's. Next: scene types that fill the whole frame with one bright screen (a browser
   page, a full-screen terminal, a phone), which is where most of the reference's motion and contrast come from.
 - The voice is Kokoro's best for this channel, but still recognisably AI. Next step up: Chatterbox or Dia2 on Kaggle.
 - Only one approved episode so far. The AI writer is tested offline with fake models, and the two workflows have never
