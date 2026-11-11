@@ -1,0 +1,113 @@
+{
+ "title": "What actually is an API?",
+ "series": "Build Basics, Part 1",
+ "beats": [
+  {
+   "lines": [
+    "What actually is an API,",
+    "and why does every AI tool ask you for an API key?"
+   ]
+  },
+  {
+   "lines": [
+    "57 percent of dynamic internet traffic is apps talking to APIs."
+   ]
+  },
+  {
+   "lines": [
+    "Say you asked Claude to build a trip planner.",
+    "It needs tomorrow's weather, and your app doesn't know it.",
+    "So it asks a program that does.",
+    "That program's front door is the API."
+   ]
+  },
+  {
+   "lines": [
+    "Your app sends a request:",
+    "an address, plus what it wants."
+   ]
+  },
+  {
+   "lines": [
+    "The API answers with data,",
+    "labelled so code can read it."
+   ]
+  },
+  {
+   "lines": [
+    "But how does it know who's asking?",
+    "Your API key.",
+    "It's a password for programs.",
+    "And if it leaks, strangers spend your quota.",
+    "23.8 million secrets leaked on public GitHub in 2024 alone."
+   ]
+  },
+  {
+   "lines": [
+    "Every answer comes with a code.",
+    "Two hundred, okay.",
+    "Four oh one, wrong key.",
+    "Four twenty-nine, slow down."
+   ]
+  },
+  {
+   "lines": [
+    "If you're building with AI, tell Claude:",
+    "keep my keys in a dot env file, never in the code."
+   ]
+  },
+  {
+   "lines": [
+    "Follow for more build basics."
+   ]
+  }
+ ],
+ "key_words": [
+  "API",
+  "APIs",
+  "key",
+  "57%",
+  "Claude",
+  "trip",
+  "planner",
+  "weather",
+  "front",
+  "door",
+  "request",
+  "address",
+  "wants",
+  "data",
+  "labelled",
+  "code",
+  "who's",
+  "password",
+  "leaks",
+  "quota",
+  "23.8",
+  "million",
+  "200,",
+  "401,",
+  "429,",
+  ".env",
+  "never",
+  "basics",
+  "traffic"
+ ],
+ "display": {
+  "57 percent": "57%",
+  "dot env": ".env",
+  "Two hundred": "200",
+  "Four oh one": "401",
+  "Four twenty-nine": "429"
+ },
+ "claims": [
+  {
+   "claim": "APIs are 57% of dynamic internet traffic",
+   "url": "https://www.cloudflare.com/press-releases/2024/new-cloudflare-report-shows-organizations-struggle-to-identify-and-manage"
+  },
+  {
+   "claim": "23.8 million secrets leaked on public GitHub in 2024",
+   "url": "https://blog.gitguardian.com/the-state-of-secrets-sprawl-2025/"
+  }
+ ]
+}

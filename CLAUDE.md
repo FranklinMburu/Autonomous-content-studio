@@ -13,13 +13,18 @@ Channels are the **Sub-item** records of that page. They are parts of this proje
 |---|---|---|---|
 | BS | Body Science (placeholder name) | Pilot | YouTube Creator Studio · Body Science |
 | HR | Hidden Reasons (true stories behind history's strangest acts) | Film style Stage 1 (episode 002 film v2); scheduled pipeline built | YouTube Creator Studio · Hidden Reasons — True Stories Behind History's Strangest Acts (HR) |
+| TE | Tech Education (working name; series "Build Basics") | Motion engine approved in the lab 11 Nov 2026 (v3); integrated, manual runs only | YouTube Creator Studio · Tech Education |
 
 Six more channels are ideas only (ranked in Notion); they have no code yet.
 
-## Two video styles (see docs/STYLES.md)
+## Three video styles (see docs/STYLES.md)
 - Explainer: `python -m studio ...` + the pipeline. Unchanged. Pre-story version kept on branch `v1.0-explainer` (frozen; never commit to it).
 - Story: `python -m studio.story make episodes/<channel>/<NNN-slug>` or `write --topic "..."` (AI writes it). Each episode = script.json + storyboard.json (data, uses the library in studio/story/board.py) + sources.md.
   Scenes refer to words by occurrence (`L.wt("six", 2)`), never seconds. `tests/test_story.py` must pass.
+- Motion (Tech Education): `python -m studio.motion make episodes/tech_education/<NNN-slug>` or `write --topic "..."`.
+  Each episode = script.json + plan.json (one scene per line from `studio/motion/plan.py` TYPES) + sources.md.
+  Isolated from Hidden Reasons; the method, architecture and history are in `docs/MOTION_ENGINE.md`. `tests/test_motion.py` must pass.
+  The TE voice is locked in `channels/te/channel.json` (Franklin, 11 Nov): never blend voices, pitch-shift or add echo.
 
 Rules:
 - Shared things (engine, gates, pipeline, rules, Toolbox) live once, here and on the parent page.

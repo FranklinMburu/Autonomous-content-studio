@@ -1,0 +1,367 @@
+{
+ "seed": 27,
+ "scenes": [
+  {
+   "line": 0,
+   "type": "hook_orbit",
+   "p": {
+    "core": "API",
+    "sub": "the front door",
+    "items": [
+     {
+      "label": "Weather",
+      "icon": "☁"
+     },
+     {
+      "label": "Maps",
+      "icon": "⌖"
+     },
+     {
+      "label": "Payments",
+      "icon": "$"
+     },
+     {
+      "label": "Sign in",
+      "icon": "◉"
+     },
+     {
+      "label": "AI chat",
+      "icon": "✦"
+     },
+     {
+      "label": "Music",
+      "icon": "♪"
+     },
+     {
+      "label": "Rides",
+      "icon": "➜"
+     },
+     {
+      "label": "Mail",
+      "icon": "✉"
+     }
+    ]
+   }
+  },
+  {
+   "line": 1,
+   "type": "settings_field",
+   "p": {
+    "title": "Settings · Connect a model",
+    "label": "API key",
+    "placeholder": "Paste your API key",
+    "glow_word": "API"
+   }
+  },
+  {
+   "line": 2,
+   "type": "stat_floor",
+   "p": {
+    "value": 57,
+    "suffix": "%",
+    "caption": "of dynamic internet traffic",
+    "sub": "is apps talking to APIs",
+    "source": "Cloudflare API Security & Management Report, 2024"
+   }
+  },
+  {
+   "line": 3,
+   "type": "laptop_prompt",
+   "p": {
+    "prompt": "build me a trip planner",
+    "result": "Created trip-planner · 6 files"
+   }
+  },
+  {
+   "line": 4,
+   "type": "app_window",
+   "p": {
+    "title": "Trip planner",
+    "subtitle": "Nairobi · Saturday",
+    "rows": [
+     [
+      "08:00",
+      "Hike Ngong Hills"
+     ],
+     [
+      "13:00",
+      "Lunch in Karen"
+     ]
+    ],
+    "slot": "Weather tomorrow",
+    "unknown": true,
+    "unknown_word": "weather"
+   }
+  },
+  {
+   "line": 5,
+   "type": "diagram_link",
+   "p": {
+    "label": "Weather service",
+    "icon": "☁",
+    "door": "API"
+   }
+  },
+  {
+   "line": 6,
+   "type": "door",
+   "p": {
+    "word": "door"
+   }
+  },
+  {
+   "line": 7,
+   "type": "packet",
+   "p": {
+    "dir": "down",
+    "label": "GET /forecast"
+   }
+  },
+  {
+   "line": 8,
+   "type": "code_card",
+   "p": {
+    "text": "GET api.weather.dev/forecast?city=Nairobi&day=sat",
+    "marks": [
+     {
+      "part": "api.weather.dev/forecast",
+      "label": "the address",
+      "word": "address"
+     },
+     {
+      "part": "city=Nairobi&day=sat",
+      "label": "what it wants",
+      "word": "what"
+     }
+    ]
+   }
+  },
+  {
+   "line": 9,
+   "type": "packet",
+   "p": {
+    "dir": "up",
+    "label": "{ JSON }"
+   }
+  },
+  {
+   "line": 10,
+   "type": "data_card",
+   "p": {
+    "title": "response · 200",
+    "pairs": [
+     [
+      "city",
+      "Nairobi"
+     ],
+     [
+      "temp_c",
+      24
+     ],
+     [
+      "rain",
+      0.2
+     ]
+    ],
+    "fill": "☁ 24°C · 20% rain"
+   }
+  },
+  {
+   "line": 11,
+   "type": "question",
+   "p": {
+    "word": "who's",
+    "label": "GET /forecast"
+   }
+  },
+  {
+   "line": 12,
+   "type": "key_fly",
+   "p": {
+    "word": "API",
+    "append": "&key=wk_••3f9a"
+   }
+  },
+  {
+   "line": 13,
+   "type": "compare",
+   "p": {
+    "a_label": "Your password",
+    "a_value": "••••••••••",
+    "b_label": "Your app's API key",
+    "b_value": "wk_••••••••••3f9a"
+   }
+  },
+  {
+   "line": 14,
+   "type": "leak",
+   "p": {
+    "word": "leaks",
+    "meter_label": "Quota used this month",
+    "meter_word": "quota"
+   }
+  },
+  {
+   "line": 15,
+   "type": "stat_wall",
+   "p": {
+    "value": 23.8,
+    "suffix": "M",
+    "caption": "secrets leaked on public GitHub",
+    "sub": "in 2024 alone",
+    "source": "GitGuardian, The State of Secrets Sprawl 2025",
+    "rows": [
+     [
+      "4f2a9c1",
+      "add weather api",
+      "⚠ key exposed"
+     ],
+     [
+      "4f5c740",
+      "quick fix",
+      "⚠ key exposed"
+     ],
+     [
+      "4f8e4bf",
+      "deploy config",
+      "⚠ key exposed"
+     ],
+     [
+      "4fc023e",
+      "test openai",
+      "⚠ key exposed"
+     ],
+     [
+      "4ff1fbd",
+      "init project",
+      "⚠ key exposed"
+     ],
+     [
+      "5023d3c",
+      "update settings",
+      "⚠ key exposed"
+     ],
+     [
+      "5055abb",
+      "wip",
+      "⚠ key exposed"
+     ],
+     [
+      "508783a",
+      "connect stripe",
+      "⚠ key exposed"
+     ],
+     [
+      "50b95b9",
+      "fix login",
+      "⚠ key exposed"
+     ],
+     [
+      "50eb338",
+      "add maps key",
+      "⚠ key exposed"
+     ],
+     [
+      "511d0b7",
+      "hotfix",
+      "⚠ key exposed"
+     ],
+     [
+      "514ee36",
+      "env stuff",
+      "⚠ key exposed"
+     ],
+     [
+      "5180bb5",
+      "first commit",
+      "⚠ key exposed"
+     ],
+     [
+      "51b2934",
+      "ship it",
+      "⚠ key exposed"
+     ]
+    ],
+    "wall_title": "public commits · 2024"
+   }
+  },
+  {
+   "line": 16,
+   "type": "badges_intro",
+   "p": {}
+  },
+  {
+   "line": 17,
+   "type": "badge",
+   "p": {
+    "code": "200",
+    "label": "OK",
+    "tone": "ok"
+   }
+  },
+  {
+   "line": 18,
+   "type": "badge",
+   "p": {
+    "code": "401",
+    "label": "Wrong key",
+    "tone": "bad"
+   }
+  },
+  {
+   "line": 19,
+   "type": "badge",
+   "p": {
+    "code": "429",
+    "label": "Slow down",
+    "tone": "warn"
+   }
+  },
+  {
+   "line": 20,
+   "type": "cta_terminal",
+   "p": {
+    "title": "claude · trip-planner",
+    "prompt": "keep my API keys in a .env file, never in the code",
+    "result": "Moved WEATHER_KEY to .env · added .env to .gitignore"
+   }
+  },
+  {
+   "line": 21,
+   "type": "file_tree",
+   "p": {
+    "title": "trip-planner",
+    "files": [
+     [
+      ".env 🔒",
+      "WEATHER_KEY=wk_••3f9a",
+      "accent"
+     ],
+     [
+      ".gitignore",
+      ".env ✓ never uploaded",
+      "ok"
+     ],
+     [
+      "src/weather.js",
+      "",
+      ""
+     ]
+    ],
+    "code": [
+     "const key = process.env.WEATHER_KEY",
+     "// the key itself is never in the code"
+    ]
+   }
+  },
+  {
+   "line": 22,
+   "type": "end_card",
+   "p": {
+    "series": "Build Basics · Part 1",
+    "title": "What actually is an API?",
+    "next": "what is a database?"
+   }
+  }
+ ]
+}
