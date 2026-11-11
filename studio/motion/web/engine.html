@@ -15,10 +15,10 @@ per line, from the fixed scene types below), style (seeded: accent colour, camer
 @font-face{font-family:Inter;font-weight:900;src:url(../node_modules/@fontsource/inter/files/inter-latin-900-normal.woff2)}
 @font-face{font-family:JBM;font-weight:400;src:url(../node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2)}
 @font-face{font-family:JBM;font-weight:700;src:url(../node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-700-normal.woff2)}
-:root{--bg:#09090C;--acc:#F5A524;--accRGB:245,165,36;--tx:#F4F6FB;--tx2:#C6CBD8;--tx3:#8A91A3;--line:rgba(255,255,255,.13);--ok:#3FB950;--bad:#F85149;--warn:#F5A524}
+:root{--bg:#09090C;--acc:#F5A524;--accRGB:245,165,36;--tx:#EDEFF5;--tx2:#A3A9B8;--tx3:#6E7586;--line:rgba(255,255,255,.09);--ok:#3FB950;--bad:#F85149;--warn:#F5A524}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:540px;height:960px;overflow:hidden;background:var(--bg);font-family:Inter,sans-serif;color:var(--tx);-webkit-font-smoothing:antialiased}
-#vp{position:absolute;inset:0;overflow:hidden;perspective:900px;perspective-origin:50% 60%;background:radial-gradient(110% 75% at 50% 40%,#241f28 0%,#131217 45%,var(--bg) 80%)}
+#vp{position:absolute;inset:0;overflow:hidden;perspective:900px;perspective-origin:50% 60%;background:radial-gradient(110% 75% at 50% 40%,#211d24 0%,#121116 45%,var(--bg) 80%)}
 #world{position:absolute;left:50%;top:60%;width:0;height:0;transform-style:preserve-3d}
 .o{position:absolute;left:0;top:0;transform-style:preserve-3d;backface-visibility:hidden}
 .in{transform:translate(-50%,-50%);transform-style:preserve-3d}
@@ -28,8 +28,7 @@ html,body{width:540px;height:960px;overflow:hidden;background:var(--bg);font-fam
 #fx{position:absolute;inset:0;pointer-events:none;z-index:9;background:linear-gradient(180deg,rgba(9,9,12,.96) 0,rgba(9,9,12,.9) 200px,rgba(9,9,12,0) 300px),radial-gradient(130% 80% at 50% 55%,transparent 55%,rgba(0,0,0,.55) 100%)}
 #grain{position:absolute;inset:0;opacity:.06;mix-blend-mode:overlay;z-index:11;pointer-events:none}
 #flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:12;pointer-events:none;mix-blend-mode:overlay}
-#wipe{position:absolute;top:-10%;left:0;width:70%;height:120%;opacity:0;z-index:8;pointer-events:none;mix-blend-mode:screen;background:linear-gradient(100deg,transparent 0%,rgba(var(--accRGB),.55) 45%,rgba(255,255,255,.75) 50%,rgba(var(--accRGB),.55) 55%,transparent 100%)}
-.win{background:linear-gradient(180deg,#2b2e3a,#1d1f28);border:1px solid rgba(255,255,255,.26);border-radius:16px;box-shadow:0 40px 90px rgba(0,0,0,.65);overflow:hidden;position:relative}
+.win{background:linear-gradient(180deg,#1d1f27,#15161c);border:1px solid rgba(255,255,255,.16);border-radius:16px;box-shadow:0 40px 90px rgba(0,0,0,.65);overflow:hidden;position:relative}
 .win:after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,var(--sheen,0)) 48%,transparent 62%);background-size:300% 100%;background-position:var(--sx,120%) 0;pointer-events:none}
 .bar{height:32px;display:flex;align-items:center;gap:6px;padding:0 12px;border-bottom:1px solid var(--line);font:500 12px Inter;color:var(--tx3)}
 .bar i{width:10px;height:10px;border-radius:50%}
@@ -43,9 +42,9 @@ html,body{width:540px;height:960px;overflow:hidden;background:var(--bg);font-fam
 .lbl{font:700 11px Inter;letter-spacing:.16em;text-transform:uppercase;color:var(--tx3)}
 .chip{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:9px 16px;font:700 16px JBM;white-space:nowrap}
 .mono{font-family:JBM}
-.card{border-radius:16px;background:linear-gradient(180deg,#2c2f3b,#1e2029);border:1px solid rgba(255,255,255,.26);box-shadow:0 30px 70px rgba(0,0,0,.6)}
+.card{border-radius:16px;background:linear-gradient(180deg,#1e2028,#16171d);border:1px solid rgba(255,255,255,.16);box-shadow:0 30px 70px rgba(0,0,0,.6)}
 </style></head>
-<body><div id="vp"><div id="world"></div></div><div id="fx"></div><div id="cap"></div><canvas id="grain" width="270" height="480" style="width:540px;height:960px"></canvas><div id="flash"></div><div id="wipe"></div>
+<body><div id="vp"><div id="world"></div></div><div id="fx"></div><div id="cap"></div><canvas id="grain" width="270" height="480" style="width:540px;height:960px"></canvas><div id="flash"></div>
 <script>
 "use strict";
 // ============================================================ maths
@@ -83,15 +82,12 @@ const CK = [], CUTS = [], CUES = [];
 const key = (t, c) => CK.push([t, c]);
 function cut(tc, a, b) { key(tc - 0.001, a); key(tc, b); CUTS.push(tc); }
 const cue = (t, kind, gain = 1) => CUES.push({ t: +Math.max(0, t).toFixed(3), kind, gain });
-function camBase(t) {
+function camAt(t) {
   let i = 0; while (i < CK.length - 1 && CK[i + 1][0] <= t) i++;
   const a = CK[i], b = CK[Math.min(i + 1, CK.length - 1)];
   const k = b === a || t <= a[0] ? 0 : ease((t - a[0]) / (b[0] - a[0]));
   const c = {}; for (const p of ["x", "y", "z", "yaw", "pitch", "roll", "D", "P"]) c[p] = lerp(a[1][p], b[1][p], k);
-  return c;
-}
-function camAt(t) {
-  const c = camBase(t), d = ST.drift;   // never still: a slow handheld drift, its phases come from the seed
+  const d = ST.drift;   // never still: a slow handheld drift, its phases come from the seed
   c.yaw += 2.4 * Math.sin(t * 0.52 + d[0]) + 0.8 * Math.sin(t * 1.21 + d[1]); c.pitch += 1.0 * Math.sin(t * 0.61 + d[2]); c.roll += 0.5 * Math.sin(t * 0.37 + d[3]);
   c.x += 6 * Math.sin(t * 0.83 + d[1]); c.y += 5 * Math.sin(t * 0.71 + d[2]);
   return c;
@@ -108,7 +104,7 @@ function depth(x, y, z) {
   return c.D - z2;
 }
 const dof = (x, y, z, amt = 1) => amt * clamp(Math.abs(depth(x, y, z) - CAM.D) / 260 * 2.2, 0, 5);
-const cam = (o, dx, dy, dz, yaw, pitch, D, P = 900, roll = 0) => ({ x: o.x + dx, y: o.y + dy, z: o.z + dz, yaw, pitch, roll, D: D * 0.97, P });
+const cam = (o, dx, dy, dz, yaw, pitch, D, P = 900, roll = 0) => ({ x: o.x + dx, y: o.y + dy, z: o.z + dz, yaw, pitch, roll, D, P });
 
 // ============================================================ captions
 let groups = [], lastG = -1, KEYW = null;
@@ -170,10 +166,10 @@ function build() {
   // glows and lit floors under every set
   for (const [id, o] of Object.entries(POS)) {
     const c = id === "wall" ? "248,81,73" : id === "story" ? ST.cool_rgb.join(",") : accRGB;
-    mk("g_" + id, `<div style="width:1400px;height:1400px;border-radius:50%;background:radial-gradient(circle,rgba(${c},.26) 0%,rgba(${c},.09) 40%,rgba(${c},0) 70%)"></div>`);
-    mk("f_" + id, `<div style="width:3000px;height:3000px;background:repeating-linear-gradient(90deg,rgba(${accRGB},.42) 0 3px,transparent 3px 120px),repeating-linear-gradient(0deg,rgba(${accRGB},.30) 0 3px,transparent 3px 120px);-webkit-mask-image:radial-gradient(50% 50% at 50% 50%,#000 25%,transparent 72%)"></div>`);
+    mk("g_" + id, `<div style="width:1400px;height:1400px;border-radius:50%;background:radial-gradient(circle,rgba(${c},.24) 0%,rgba(${c},.08) 40%,rgba(${c},0) 70%)"></div>`);
+    mk("f_" + id, `<div style="width:3000px;height:3000px;background:repeating-linear-gradient(90deg,rgba(${accRGB},.20) 0 2px,transparent 2px 120px),repeating-linear-gradient(0deg,rgba(${accRGB},.13) 0 2px,transparent 2px 120px);-webkit-mask-image:radial-gradient(50% 50% at 50% 50%,#000 25%,transparent 72%)"></div>`);
   }
-  for (let i = 0; i < 46; i++) mk("st" + i, `<div style="width:9px;height:${150 + (i * 53) % 160}px;border-radius:6px;background:linear-gradient(180deg,rgba(255,214,150,0),rgba(255,214,150,.95));box-shadow:0 0 16px rgba(${accRGB},.7)"></div>`);
+  for (let i = 0; i < 46; i++) mk("st" + i, `<div style="width:6px;height:${150 + (i * 53) % 160}px;border-radius:6px;background:linear-gradient(180deg,rgba(255,214,150,0),rgba(255,214,150,.95));box-shadow:0 0 16px rgba(${accRGB},.7)"></div>`);
   for (const s of SC) BUILD[s.type] && BUILD[s.type](s);
   if (SC.some(s => STORY_TYPES.includes(s.type))) buildStory();
 }
@@ -286,7 +282,7 @@ function direct() {
       case "app_window": { const fromLap = prev && prev.type === "laptop_prompt";
         if (!fromLap) { const c0 = cam(o, 0, 30, 40, -10 * sg, 6, 900); newSet && prev ? cut(t0 - 0.1, camAtKeyLast(), c0) : key(t0, c0); }
         go(0.2, cam(o, 0, 30, 40, -6 * sg, 6, 900)); [0, 1, 2, 3].forEach(j => cue(t0 + 0.1 + j * 0.09, "pop", 0.45));
-        if (s.p.unknown && s.p.slot) { const a = W(s.line, s.p.unknown_word, 0.5); cut(a - 0.05, cam(o, 0, 30, 40, -6 * sg, 6, 900), cam(o, 40 * sg, 70, 60, -14 * sg, 4, 800, 900, -2)); cue(a, "blip", 0.6); key(t1 - 0.05, cam(o, 30 * sg, 60, 60, -8 * sg, 2, 830)); } break; }
+        if (s.p.unknown && s.p.slot) { const a = W(s.line, s.p.unknown_word, 0.5); cut(a - 0.05, cam(o, 0, 30, 40, -6 * sg, 6, 900), cam(o, 90 * sg, 70, 60, -16 * sg, 4, 700, 900, -2)); cue(a, "blip", 0.6); key(t1 - 0.05, cam(o, 60 * sg, 60, 60, -8 * sg, 2, 740)); } break; }
       case "diagram_link": go(0.8, cam(o, 0, 110, -60, -18 * sg, 10, 1150, 860)); key(t1, cam(o, 0, 120, -60, 12 * sg, 6, 1080, 860)); cue(t0, "whoosh"); break;
       case "door": { const a = W(s.line, s.p.word, 0.6); key(a + 0.2, cam(o, 0, 200, -60, 14 * sg, 8, 760)); key(t1, cam(o, 0, 120, -60, 12 * sg, 6, 1080, 860)); cue(a, "thump"); break; }
       case "packet": if (s.p.dir === "up") { go(0.9, cam(o, 0, 20, 0, 8 * sg, -4, 900, 880, -2)); } else { go(0, cam(o, 0, 120, -60, 12 * sg, 6, 1080, 860)); go(1.2, cam(o, 0, 260, -120, 4 * sg, 14, 900, 880, 2)); } cue(t0 + 0.15, "zip"); break;
@@ -310,36 +306,7 @@ function direct() {
   });
   CK.sort((a, b) => a[0] - b[0]);
   CUTS.forEach(tc => cue(tc - 0.12, "whoosh", 0.45));
-  coverage();
   CUES.sort((a, b) => a.t - b.t);
-}
-// Coverage: the reference changes the whole picture about every second; a scene held from one angle reads as a
-// "template". Wherever the planned camera holds one shot for more than ~1.1 s, cut to another angle of the same
-// subject ON a spoken word (so the cut feels motivated). The planned move continues from the new angle until the
-// next planned cut or set change. Angles come from a fixed list, started at a seeded position.
-const SETCH = [];
-function coverage() {
-  SC.forEach((s, i) => { if (i && SC[i - 1].sid !== s.sid) SETCH.push(s.t0); });
-  const events = [0, ...CUTS, ...SETCH, DUR].sort((a, b) => a - b), PLANNED = [...events];
-  // [yaw, pitch, distance factor, roll]: mild on purpose. Closer than 0.84 or more than ~24 degrees cropped wide panels
-  // off the screen in the first test (11 Nov); an angle change replaces the whole picture anyway.
-  const ANG = [[18, -4, 0.86, 2], [-15, 6, 1.15, -1], [-22, -3, 0.9, -2], [12, 7, 1.1, 1], [24, 2, 0.95, 2], [-10, -5, 0.84, 0]];
-  const sg = ST.sign, sh = (c, g, d) => ({ ...c, yaw: c.yaw + d * g[0] * sg, pitch: c.pitch + d * g[1], D: d > 0 ? c.D * g[2] : c.D / g[2], roll: c.roll + d * g[3] });
-  let n = Math.floor(ST.r(77) * ANG.length), added = 0, cur = null;      // cur = the angle already applied up to the next planned event
-  for (const w of T.words) {
-    const tc = w.start; if (tc < 0.7 || tc > DUR - 0.9) continue;
-    let last = 0, next = DUR; for (const e of events) { if (e <= tc) last = e; else { next = e; break; } }
-    if (tc - last < 0.9 || next - tc < 0.6) continue;
-    if (cur && tc >= cur.until) cur = null;
-    const g = ANG[n++ % ANG.length], from = camBase(tc), base = cur ? sh(from, cur.g, -1) : from;   // never stack one angle on another
-    let planned = DUR; for (const e of PLANNED) if (e > tc) { planned = e; break; }
-    for (const k of CK) if (k[0] > tc && k[0] < planned - 0.002) k[1] = sh(cur ? sh(k[1], cur.g, -1) : k[1], g, 1);   // the planned move goes on, seen from the new angle
-    CK.push([tc - 0.001, from], [tc, sh(base, g, 1)]); CK.sort((x, y) => x[0] - y[0]);
-    cur = { g, until: planned };
-    events.push(tc); events.sort((x, y) => x - y); CUTS.push(tc); added++;
-    cue(tc - 0.08, "whoosh", 0.18);
-  }
-  return added;
 }
 function camAtKeyLast() { return CK.length ? { ...CK[CK.length - 1][1] } : cam({ x: 0, y: 0, z: 0 }, 0, 0, 0, 0, 0, 900); }
 
@@ -352,8 +319,6 @@ function render(t) {
   applyCam(camAt(t), shake);
   let fl = 0; for (const c of CUES) if ((c.kind === "slam" || c.kind === "impact") && t >= c.t && t < c.t + 0.2) fl = Math.max(fl, 1 - (t - c.t) / 0.2);
   $("flash").style.opacity = (0.35 * fl).toFixed(3);
-  let wk = -1; for (const ts of SETCH) { const k = (t - ts + 0.16) / 0.34; if (k > 0 && k < 1) wk = k; }   // a light wipe on every change of set
-  const wp = $("wipe"); wp.style.opacity = wk < 0 ? 0 : Math.sin(Math.PI * wk).toFixed(3); wp.style.transform = `translateX(${lerp(-110, 250, wk < 0 ? 0 : ease(wk)) * ST.sign}%) skewX(-12deg)`;
   // which sets are on screen: a set is visible from its first scene to the last, with fades
   const span = {}; SC.forEach(s => { const sp = span[s.sid] || (span[s.sid] = [s.t0, s.t1]); sp[0] = Math.min(sp[0], s.t0); sp[1] = Math.max(sp[1], s.t1); });
   const vis = id => span[id] ? win(t, span[id][0] - 0.35, span[id][1] - 0.15, .4, .35) : 0;
@@ -361,7 +326,7 @@ function render(t) {
   // light streaks run across whichever floor is most visible
   let best = null, bv = 0; for (const id of Object.keys(POS)) { const v = vis(id); if (v > bv) { bv = v; best = id; } }
   for (let i = 0; i < 46; i++) { const lane = (i * 7) % 19 - 9, sp = 900 + (i * 131) % 700, ph = (t * sp / 3400 + i * 0.217) % 1, o = POS[best] || { x: 0, y: 0, z: 0 };
-    put("st" + i, bv * Math.sin(Math.PI * ph), o.x + lane * 120, o.y + (best === "story" ? 598 : 398), o.z - 1300 + ph * 2600, 0, 90, 0, 0.8); }
+    put("st" + i, bv * 0.8 * Math.sin(Math.PI * ph), o.x + lane * 120, o.y + (best === "story" ? 598 : 398), o.z - 1300 + ph * 2600, 0, 90, 0, 0.8); }
   for (const s of SC) RENDER[s.type] && RENDER[s.type](t, s, POS[s.sid], vis(s.sid));
   if (POS.story) renderStory(t, POS.story, vis("story"));
   // window sheen when panels arrive
@@ -447,7 +412,7 @@ function renderStory(t, O, v) {
     const big = lerp(lerp(150, 60, aIn), 0, ramp(t, app.t0 + 0.6, .5)), appY = lerp(big, -150, toNode), appZ = lerp(lerp(-80, 60, aIn), 0, toNode);
     const cmpS = first("compare"), dat = first("data_card");
     const dim = dimL * (cmpS ? 1 - 0.6 * win(t, cmpS.t0 - 0.05, cmpS.t1 - 0.05, .25, .25) : 1) * (dat ? 1 - 0.45 * win(t, dat.t0 - 0.15, dat.t0 + 0.6, .2, .25) : 1);
-    put("app", sv * ramp(t, a0, .25), O.x + 5 * Math.sin(t * 1.3), O.y + appY + 6 * Math.sin(t * 1.7), O.z + appZ, lerp(25, 0, aIn) * ST.sign, lerp(20, 0, aIn), 0, 1, dof(O.x, O.y + appY, O.z, 0.6)); markWin("app", a0);
+    put("app", sv * ramp(t, a0, .25), O.x, O.y + appY, O.z + appZ, lerp(25, 0, aIn) * ST.sign, lerp(20, 0, aIn), 0, 1, dof(O.x, O.y + appY, O.z, 0.6)); markWin("app", a0);
     OBJ.app.querySelector(".win").style.filter = `brightness(${dim})`;
     OBJ.app.querySelectorAll(".ar").forEach((r, j) => { const k = spring((t - a0 - 0.1 - j * 0.09) / 0.6); r.style.transform = `translateX(${(1 - k) * 40}px)`; r.style.opacity = clamp((t - a0 - j * 0.09) * 4); });
     const sv2 = $("slotV");
@@ -464,7 +429,7 @@ function renderStory(t, O, v) {
   }
   if (!dia) return;
   const srv = spring((t - dia.t0 - 0.1) / 0.8), SY = O.y + 330, SZ = O.z - 140;
-  put("server", sv * ramp(t, dia.t0 + 0.05, .3), O.x, lerp(SY + 260, SY, srv) + 5 * Math.sin(t * 1.5 + 1), lerp(SZ - 400, SZ, srv), lerp(-20, 0, srv) * ST.sign + 6 * Math.sin(t * 0.9));
+  put("server", sv * ramp(t, dia.t0 + 0.05, .3), O.x, lerp(SY + 260, SY, srv), lerp(SZ - 400, SZ, srv), lerp(-20, 0, srv) * ST.sign);
   OBJ.server.querySelector(".front").style.filter = `brightness(${dimL})`;
   const doorAt = door ? W(door.line, door.p.word, 0.6) : dia.t0 + 1.0, dk = spring((t - doorAt + 0.05) / 0.6), D_ = $("door");
   D_.style.transform = `perspective(400px) rotateX(${lerp(-90, 0, dk)}deg) scale(${0.7 + 0.3 * dk})`; D_.style.opacity = clamp((t - doorAt + 0.05) * 6);
@@ -482,15 +447,14 @@ function renderStory(t, O, v) {
     if (s.type === "packet") { const k = ease((t - s.t0 - 0.15) / 1.1), p = path(s.p.dir === "up" ? 1 - k : k); put("pk" + s.i, sv * win(t, s.t0, s.t1 - 0.05, .15, .2), o.x, p.y, p.z + 30, 0, 0, Math.sin(t * 3) * 2, 1 + 0.15 * Math.sin(Math.PI * k)); }
     if (s.type === "question") {
       const holdEnd = (SC.find(x => x.i > s.i && !["key_fly", "compare", "leak", "code_card"].includes(x.type)) || { t0: DUR }).t0, p = path(0.45);
-      put("hq" + s.i, sv * win(t, s.t0, holdEnd, .2, .3), o.x + 10 * Math.sin(t * 5.1), p.y + 8 * Math.sin(t * 3.7), p.z + 30, 0, 0, Math.sin(t * 6) * 5, 1 + 0.06 * Math.sin(t * 7));
+      put("hq" + s.i, sv * win(t, s.t0, holdEnd, .2, .3), o.x, p.y, p.z + 30, 0, 0, Math.sin(t * 3) * 2);
       const kf = first("key_fly", s.i); q("hq" + s.i, ".kk").style.display = kf && t > W(kf.line, kf.p.word, 0.4) + 0.3 ? "inline-block" : "none";
       const ask = $("ask"), aa = W(s.line, s.p.word, 0.6), next = SC[s.i + 1]; ask.style.opacity = win(t, aa, (next ? next.t0 : s.t1) + 0.4, .2, .25); ask.style.transform = `scale(${0.4 + 0.6 * spring((t - aa) / .5)}) rotate(${Math.sin(t * 6) * 8}deg)`;
     }
     if (s.type === "code_card") {
       const kf = first("key_fly", s.i), reshow = kf && kf.p.append ? win(t, W(kf.line, kf.p.word, 0.4) + 0.3, kf.t1 - 0.05, .25, .25) : 0;
       const on = Math.min(1, win(t, s.t0 - 0.2, s.t1 - 0.05, .25, .25) + reshow), k = spring((t - s.t0 + 0.2) / 0.6);
-      put("cc" + s.i, sv * on, o.x, o.y + 140 + 7 * Math.sin(t * 2.3), o.z + 170 + 30 * Math.sin(t * 1.4), lerp(-18, 0, k) * ST.sign + 5 * Math.sin(t * 1.9), lerp(30, 0, k), 0, 1 + 0.04 * Math.sin(t * 2.9));
-      const bd = q("cc" + s.i, ".body"); if (bd) bd.style.clipPath = `inset(0 ${(100 * (1 - eout((t - s.t0 + 0.1) / 0.55))).toFixed(1)}% 0 0)`;   // the line writes itself
+      put("cc" + s.i, sv * on, o.x, o.y + 140, o.z + 170, lerp(-18, 0, k) * ST.sign, lerp(30, 0, k));
       (s.p.marks || []).forEach((m, j) => { const a = ramp(t, W(s.line, m.word, 0.3 + 0.4 * j) - 0.05, .25), e = q("cc" + s.i, ".mk" + j), l = q("cc" + s.i, ".ml" + j);
         if (e) { e.style.borderBottomColor = j % 2 ? `rgba(${ST.accent_rgb},${a})` : `rgba(237,239,245,${a})`; if (j % 2) e.style.color = `rgba(${ST.accent_rgb},${0.4 + 0.6 * a})`; }
         if (l) { l.style.opacity = reshow > 0 ? 0 : a; l.style.transform = `translateY(${(1 - spring((t - W(s.line, m.word, 0.3)) / .5)) * 10}px)`; } });
@@ -510,8 +474,7 @@ function renderStory(t, O, v) {
     if (s.type === "key_fly") { const a = W(s.line, s.p.word, 0.4), kf = ease((t - a + 0.25) / 0.7), p = path(0.45);
       put("ky" + s.i, sv * (t > a - 0.25 && t < a + 0.5 ? 1 : 0), o.x + lerp(-420, 70, kf) * ST.sign, lerp(o.y - 80, p.y - 10, kf), lerp(o.z + 500, p.z + 40, kf), lerp(0, 720, kf), lerp(40, 0, kf), lerp(-60, -30, kf), lerp(2.2, 0.5, kf)); }
     if (s.type === "compare") { const k = spring((t - s.t0 + 0.05) / 0.7), k2 = spring((t - s.t0 - 0.15) / 0.7), on = sv * win(t, s.t0 - 0.05, s.t1 - 0.05, .25, .25);
-      const pu = 1 + 0.05 * Math.max(0, Math.sin((t - s.t0 - 0.5) * 6));
-      put("cA" + s.i, on, o.x - lerp(400, 0, k), o.y + 70 + 6 * Math.sin(t * 2.1), o.z + 160, lerp(-60, -8, k) + 5 * Math.sin(t * 1.7)); put("cB" + s.i, on * ramp(t, s.t0 + 0.15, .2), o.x + lerp(400, 0, k2), o.y + 250 - 6 * Math.sin(t * 2.1), o.z + 160 + 25 * Math.sin(t * 2.6), lerp(60, 8, k2) - 5 * Math.sin(t * 1.7), 0, 0, pu);
+      put("cA" + s.i, on, o.x - lerp(400, 0, k), o.y + 70, o.z + 160, lerp(-60, -8, k)); put("cB" + s.i, on * ramp(t, s.t0 + 0.15, .2), o.x + lerp(400, 0, k2), o.y + 250, o.z + 160, lerp(60, 8, k2));
       put("cE" + s.i, on * ramp(t, s.t0 + 0.35, .2), o.x, o.y + 162, o.z + 180, 0, 0, 0, spring((t - s.t0 - 0.35) / .5)); }
     if (s.type === "leak") { const a = W(s.line, s.p.word, 0.4), on = sv * win(t, s.t0 - 0.05, s.t1 + 0.1, .25, .3), p = path(0.45);
       for (let j = 0; j < 10; j++) { const an = j * (2 * Math.PI / 10) + 0.3, ax = Math.cos(an) * 360, az = Math.sin(an) * 360, ay = o.y + 150 + Math.sin(an * 3) * 160, kk = spring((t - s.t0 - j * 0.05) / 0.6);
@@ -533,8 +496,7 @@ window.init = function (data) {
   L = T.lines.map(l => l.start); LE = T.lines.map(l => l.end); DUR = T.duration;
   WD = T.lines.map((_, i) => T.words.filter(w => w.line === i));
   layout(); build(); buildCaptions(); direct(); render(0);
-  CUES.sort((a, b) => a.t - b.t);
-  return { duration: DUR, cues: CUES, sections: sections(), cuts: CUTS.length, set_changes: SETCH.length };
+  return { duration: DUR, cues: CUES, sections: sections() };
 };
 // music arrangement, read by the mixer (studio/motion/sound.py)
 function sections() {

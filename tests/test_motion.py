@@ -169,8 +169,6 @@ def test_render_smoke():
         r3 = subprocess.run(["node", str(motion / "render.js"), str(dp), "--cues", str(Path(tmp) / "c.json")], capture_output=True, text=True, timeout=300)
         info = json.loads((Path(tmp) / "c.json").read_text()) if r3.returncode == 0 else {}
         check(len(info.get("cues", [])) > 50 and info.get("sections", {}).get("break_from") is not None, "sound cues and music sections come out of the plan")
-        per = info.get("duration", 0) / max(1, info.get("cuts", 0) + info.get("set_changes", 0))
-        check(per <= 1.6, f"the picture changes about every second (one cut or set change every {per:.2f} s; the reference: 0.7 s)")
 
 
 if __name__ == "__main__":

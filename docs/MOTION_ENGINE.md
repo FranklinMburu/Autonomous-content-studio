@@ -58,17 +58,18 @@ After a review of the first pipeline version (PR #88, 11 Nov), the engine also g
 between sets, brighter panels and livelier slow scenes (section 3). Measured on the API episode: average motion 2.8 → 4.0
 and a whole-picture change every 5.7 s → 2.2 s (the reference: 5.5 and 0.7 s).
 
-**After v4 (11 Nov), two more versions were tried and rejected. Franklin chose v4.**
-- **v5** added a framing guard, a frame audit, overlay cards that dim the diagram, and hard cuts between sets. It fixed
-  the cut-off and overlapping panels Franklin had listed, but the video felt "weird" and hard to follow.
-- **v6** was a full rewrite: a flat, straight-on diagram, and a camera that moves only with a stated reason. It was
-  clean, but it did not have v4's feel.
+**After the first pipeline version (11 Nov), three more versions were tried and all were rejected:**
+- **v4** added coverage cuts, wipes, brighter panels and busier slow scenes. It had visual faults: cut-off and
+  overlapping panels, and things under the captions.
+- **v5** added a framing guard, a frame audit and overlay cards. It felt "weird" and was hard to follow.
+- **v6** was a flat, straight-on diagram whose camera moves only with a reason. It did not have the original's feel.
 
-Franklin then said of v4: "this one was good to be honest after all this trials". The engine was restored exactly to
-v4 (commit b7bd4b1); re-rendered frames match the v4 video. The v5 and v6 code stays in git history (commits f90d898,
-5c5f380 and 0414a98) as material, not as the style. Known v4 faults remain open: some panels are cut off at the edges,
-and some sit under the captions. Fix them only one at a time, comparing each change against the v4 video so the feel
-stays the same.
+Franklin's verdict was that the video made before these changes, the first pipeline version (TE_engine_001), "was
+better". The engine was restored exactly to that version (commit df5fdc0). Re-rendered frames match that video. The
+later code stays in git history only (commits b7bd4b1, f90d898, 5c5f380 and 0414a98).
+
+**Rule for any future change to the look:** change one thing at a time, render it next to TE_engine_001, and keep the
+change only if Franklin prefers it. More cuts, more camera movement and more panels made the video worse, not better.
 
 **Voice lock:** Kokoro `am_fenrir` at 1.0, read line by line, then only a gentle EQ (more bass, a softer top).
 
