@@ -66,7 +66,7 @@ const FILM_FPS = opts.filmFps || 24, FILM_N = opts.filmFrames || 72;
   const grab = v => { still.width = v.videoWidth; still.height = v.videoHeight; still.getContext("2d").drawImage(v, 0, 0); };
   const useFilm = () => filmOk && W >= 640;   // once ready, film mode never drops back to the dots
   // moonlight: the render's night side is pure black (pixel values 1-2), so the page adds faint, soft continents
-  // (the dot globe's land points, plotted small and drawn up-scaled = blurred) and a dim blue body underneath the lights
+  // (the dot globe's land points, plotted small and drawn up-scaled = blurred) and a dim, almost neutral body (only a hint of cool) underneath the lights
   const moon = document.createElement("canvas"), moonTmp = document.createElement("canvas"); let moonKey = "";
   if (opts.film) {
     const v = opts.film;
@@ -84,7 +84,7 @@ const FILM_FPS = opts.filmFps || 24, FILM_N = opts.filmFrames || 72;
       const [x, y, z] = rot(land[i], land[i + 1], land[i + 2]); if (z <= 0) continue;
       const px = Math.round((R * x + R) / S), py = Math.round((R - R * y) / S); if (px < 0 || py < 0 || px >= mw || py >= mh) continue;
       const o = (py * mw + px) * 4, a = 150 * Math.min(1, z * 1.6);
-      if (a > d[o + 3]) { d[o] = 92; d[o + 1] = 112; d[o + 2] = 150; d[o + 3] = a; }
+      if (a > d[o + 3]) { d[o] = 84; d[o + 1] = 90; d[o + 2] = 102; d[o + 3] = a; }
     }
     // soften: the land points sit on a lattice, so blur them once into smooth landmasses (small canvas: cheap)
     moonTmp.width = mw; moonTmp.height = mh; moonTmp.getContext("2d").putImageData(im, 0, 0);
@@ -219,7 +219,7 @@ const FILM_FPS = opts.filmFps || 24, FILM_N = opts.filmFrames || 72;
       c.drawImage(still, 0, fy, fw, fh);                                   // the real planet, opaque (hides the sun)
       c.globalCompositeOperation = "lighter";                              // + moonlight, never darkens the film
       gr = c.createRadialGradient(cx, cy - R * 0.55, R * 0.1, cx, cy, R);
-      gr.addColorStop(0, "rgba(22,30,48,.9)"); gr.addColorStop(0.7, "rgba(14,20,34,.7)"); gr.addColorStop(1, "rgba(8,12,22,.4)");
+      gr.addColorStop(0, "rgba(18,20,26,.9)"); gr.addColorStop(0.7, "rgba(12,14,19,.7)"); gr.addColorStop(1, "rgba(8,9,13,.4)");
       c.fillStyle = gr; c.fillRect(cx - R, cy - R, 2 * R, R + 4);
       c.globalAlpha = MOON; c.imageSmoothingQuality = "high";
       c.drawImage(moon, moonBox.x, moonBox.y, moonBox.w, moonBox.h);
