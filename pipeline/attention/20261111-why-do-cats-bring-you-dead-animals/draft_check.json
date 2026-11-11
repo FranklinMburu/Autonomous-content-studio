@@ -1,0 +1,164 @@
+{
+ "gates": [],
+ "writer": "groq:openai/gpt-oss-120b",
+ "candidates": [
+  "groq:openai/gpt-oss-120b"
+ ],
+ "failed": [
+  {
+   "ref": "google:gemini-3.6-flash",
+   "error": "no model in tier 'standard' could answer (google:gemini-3.6-flash: invalid output [output was not valid JSON (Unterminated string starting at: line 22 column 11 (char 422))] starts: '{\\n \"title\": \"Why cats bring you dead animals\",\\n \"topic\": \"Why do cats bring you dead animals?\",\\n \"voice\": \"af_heart\",\\n \"beats\": [\\n  {\\n   \"scene\": \"hero\",\\n   \"icon\": \"@cat\",\\n   \"reveal\": {\\n    \"text\": \"Not a g",
+   "attempts": [
+    {
+     "ref": "google:gemini-3.6-flash",
+     "invalid": [
+      "output was not valid JSON (Unterminated string starting at: line 22 column 11 (char 422))"
+     ],
+     "answer_start": "{\n \"title\": \"Why cats bring you dead animals\",\n \"topic\": \"Why do cats bring you dead animals?\",\n \"voice\": \"af_heart\",\n \"beats\": [\n  {\n   \"scene\": \"hero\",\n   \"icon\": \"@cat\",\n   \"reveal\": {\n    \"text\": \"Not a gift!\",\n    \"at\": \"gift\"\n   },\n   \"lines\": [\n    \"Your cat leaving a dead mouse at your feet ",
+     "latency_s": 22.31,
+     "tokens_in": 7185,
+     "tokens_out": 155,
+     "finish": "MAX_TOKENS"
+    },
+    {
+     "ref": "google:gemini-3.6-flash",
+     "error": "HTTP 429",
+     "reason": "{\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do",
+     "seconds": 77.3
+    }
+   ]
+  },
+  {
+   "ref": "nvidia:minimaxai/minimax-m3.1-flash",
+   "error": "no model in tier 'standard' could answer (nvidia:minimaxai/minimax-m3.1-flash: HTTP 0)",
+   "attempts": [
+    {
+     "ref": "nvidia:minimaxai/minimax-m3.1-flash",
+     "error": "HTTP 0",
+     "reason": "empty text (finish_reason=length) - the model spent its whole token budget thinking",
+     "seconds": 701.8
+    }
+   ]
+  }
+ ],
+ "judge": {
+  "index": 0,
+  "scores": {},
+  "reason": "only one candidate",
+  "model": null
+ },
+ "fact_check": {
+  "results": [
+   {
+    "claim": "Cats are obligate predators.",
+    "verdict": "partial",
+    "evidence": "Source 1 describes cats as obligate carnivores with claws adapted for killing small prey, but does not use the term “obligate predators.”"
+   },
+   {
+    "claim": "Even well‑fed house cats still stalk and pounce.",
+    "verdict": "supported",
+    "evidence": "Source 3 states that most cats retain a propensity to express hunting behaviours even when hunting is not required for nutrition."
+   },
+   {
+    "claim": "Hunting satisfies a built‑in nutritional need.",
+    "verdict": "supported",
+    "evidence": "Source 3 notes that hunting is driven by evolutionary constraints and associated physiological and nutritional requirements."
+   },
+   {
+    "claim": "A single mouse provides the right temperature and protein balance cats instinctively seek.",
+    "verdict": "unsupported",
+    "evidence": "None of the sources mention temperature or a specific protein balance provided by a mouse."
+   },
+   {
+    "claim": "The behavior is mostly instinctual; kittens play‑hunt long before they ever see a human hand.",
+    "verdict": "supported",
+    "evidence": "Source 1 describes play in kittens as mimicking hunting and helping them learn stalking and capture skills."
+   },
+   {
+    "claim": "Outdoor access and early life experiences increase kills, while neutered or indoor cats show fewer gifts.",
+    "verdict": "partial",
+    "evidence": "Source 3 reports that early life history and environment (including outdoor access) affect hunting rates, but it does not address neutering effects."
+   },
+   {
+    "claim": "Breed matters little; all felines share the same hunting circuitry.",
+    "verdict": "unsupported",
+    "evidence": "The sources do not discuss breed differences or a universal hunting circuitry across breeds."
+   },
+   {
+    "claim": "Try a feather wand or puzzle feeder so your cat can hunt safely at home.",
+    "verdict": "unsupported",
+    "evidence": "No source mentions feather wands, puzzle feeders, or indoor enrichment as a method to satisfy hunting instincts."
+   }
+  ],
+  "counts": {
+   "supported": 3,
+   "unsupported": 3,
+   "partial": 2
+  },
+  "model": "groq:openai/gpt-oss-120b"
+ },
+ "provenance": {
+  "layer_version": "0.3.0",
+  "config": "1cd713cd88bb",
+  "tier": "standard",
+  "ref": "groq:openai/gpt-oss-120b",
+  "prompt_sha256": "3bc2a44004f5d3ec",
+  "system_sha256": "a328b827560026be",
+  "temperature": 0.7,
+  "max_tokens": 4000,
+  "json": true,
+  "cached": false,
+  "finish": "stop",
+  "tokens_in": 7038,
+  "tokens_out": 1819,
+  "at": "2026-11-11T06:25:05+00:00",
+  "best_of": {
+   "candidates": [
+    "groq:openai/gpt-oss-120b"
+   ],
+   "failed": [
+    {
+     "ref": "google:gemini-3.6-flash",
+     "error": "no model in tier 'standard' could answer (google:gemini-3.6-flash: invalid output [output was not valid JSON (Unterminated string starting at: line 22 column 11 (char 422))] starts: '{\\n \"title\": \"Why cats bring you dead animals\",\\n \"topic\": \"Why do cats bring you dead animals?\",\\n \"voice\": \"af_heart\",\\n \"beats\": [\\n  {\\n   \"scene\": \"hero\",\\n   \"icon\": \"@cat\",\\n   \"reveal\": {\\n    \"text\": \"Not a g",
+     "attempts": [
+      {
+       "ref": "google:gemini-3.6-flash",
+       "invalid": [
+        "output was not valid JSON (Unterminated string starting at: line 22 column 11 (char 422))"
+       ],
+       "answer_start": "{\n \"title\": \"Why cats bring you dead animals\",\n \"topic\": \"Why do cats bring you dead animals?\",\n \"voice\": \"af_heart\",\n \"beats\": [\n  {\n   \"scene\": \"hero\",\n   \"icon\": \"@cat\",\n   \"reveal\": {\n    \"text\": \"Not a gift!\",\n    \"at\": \"gift\"\n   },\n   \"lines\": [\n    \"Your cat leaving a dead mouse at your feet ",
+       "latency_s": 22.31,
+       "tokens_in": 7185,
+       "tokens_out": 155,
+       "finish": "MAX_TOKENS"
+      },
+      {
+       "ref": "google:gemini-3.6-flash",
+       "error": "HTTP 429",
+       "reason": "{\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do",
+       "seconds": 77.3
+      }
+     ]
+    },
+    {
+     "ref": "nvidia:minimaxai/minimax-m3.1-flash",
+     "error": "no model in tier 'standard' could answer (nvidia:minimaxai/minimax-m3.1-flash: HTTP 0)",
+     "attempts": [
+      {
+       "ref": "nvidia:minimaxai/minimax-m3.1-flash",
+       "error": "HTTP 0",
+       "reason": "empty text (finish_reason=length) - the model spent its whole token budget thinking",
+       "seconds": 701.8
+      }
+     ]
+    }
+   ],
+   "judge": {
+    "index": 0,
+    "scores": {},
+    "reason": "only one candidate",
+    "model": null
+   }
+  }
+ }
+}
