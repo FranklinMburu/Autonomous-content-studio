@@ -1,0 +1,293 @@
+{
+ "era": "1919",
+ "cast": {
+  "firefighter": "a 34 year old Boston firefighter with a soot-smudged square jaw, short black hair, thick dark eyebrows, a navy blue wool fire coat with brass buttons, a leather helmet and rubber boots, 1919",
+  "clerk": "a 26 year old Boston office clerk with thin blond hair parted neatly, pale blue eyes, round wire glasses, a brown tweed suit, a white stiff collar and a dark green tie, 1919",
+  "mother": "a 31 year old Italian immigrant mother with dark wavy hair under a grey wool shawl, a long faded black skirt, a cream apron and a small gold cross necklace, 1919",
+  "boy": "a nine year old boy with black curly hair, olive skin, a patched brown wool jacket, grey knickerbockers and a flat cap, 1919",
+  "sailor": "a 40 year old ship's mate with a weathered red face, a thick grey beard, a dark blue peacoat and a black knit cap, 1919",
+  "engineer": "a 52 year old industrial engineer with a bald head, a grey walrus moustache, small round spectacles, a dark grey three-piece suit and a gold watch chain, 1919"
+ },
+ "music": "tense",
+ "key_words": [
+  "molasses#1",
+  "burst#1",
+  "roar#1",
+  "wave#1",
+  "killed#1",
+  "trapped#1",
+  "never#1"
+ ],
+ "shots": [
+  {
+   "name": "tank",
+   "at": 0,
+   "move": "up",
+   "prompt": "low angle wide shot of a huge dark steel molasses tank towering over a narrow brick Boston street, wooden warehouses and cobblestones below, cold grey January afternoon light, 1919",
+   "check": "Is there a huge steel tank above a street?"
+  },
+  {
+   "name": "burst",
+   "at": "burst#1",
+   "clip": true,
+   "prompt": "medium shot, a massive dark steel tank splitting open with a burst of brown syrup and flying rivets, a wall of molasses pouring out, brick buildings beside it, grey daylight, 1919",
+   "motion": "the tank splits and brown syrup bursts outward, slow camera push in",
+   "hit": "burst#1",
+   "check": "Is a steel tank bursting open?"
+  },
+  {
+   "name": "wave",
+   "at": "wall#1",
+   "move": "right",
+   "prompt": "wide shot of a tall brown wave of molasses rushing down a narrow brick Boston street, swallowing a wooden cart and a lamppost, cobblestones, cold grey light, 1919",
+   "check": "Is a tall brown wave rushing down a street?"
+  },
+  {
+   "name": "roar",
+   "at": "heard#1",
+   "who": "mother",
+   "clip": true,
+   "prompt": "close-up, a frightened woman in a grey shawl turning her head toward a loud roar, mouth open, she is {mother}, a narrow Boston tenement doorway, cold grey light, 1919",
+   "motion": "she turns her head sharply toward the sound, slow camera push in",
+   "hit": "roar#1",
+   "check": "Is a woman turning her head in fear?"
+  },
+  {
+   "name": "date",
+   "at": "It#1",
+   "move": "push",
+   "prompt": "wide shot of a snowy 1919 Boston street corner with a tall iron street clock and a newspaper boy in a flat cap, brick buildings, grey winter light",
+   "check": "Is there a street clock in the snow?",
+   "xfade": true
+  },
+  {
+   "name": "tank_5",
+   "at": "That#1",
+   "move": "up",
+   "prompt": "low angle wide shot of a huge dark steel tank towering above wooden North End rooftops, rivets on the curved wall, pale winter sky, 1919",
+   "check": "Is there a huge steel tank above rooftops?"
+  },
+  {
+   "name": "tall",
+   "at": "It#2",
+   "move": "up",
+   "prompt": "low angle wide shot of the giant steel molasses tank beside a brick warehouse, a tiny worker in a flat cap walking past its base, 1919, overcast sky",
+   "check": "Is a huge steel tank beside a brick building?"
+  },
+  {
+   "name": "tank_7",
+   "at": "The#2",
+   "move": "push",
+   "prompt": "wide shot of a huge dark steel molasses tank standing beside low brick tenement houses in a 1919 Boston waterfront street, cold grey winter afternoon light, bare trees",
+   "check": "Is a large steel tank standing near brick houses?",
+   "xfade": true
+  },
+  {
+   "name": "rivets",
+   "at": "Rivets#1",
+   "clip": true,
+   "prompt": "extreme close-up of a row of steel rivets popping and shooting out of a torn metal tank plate, sparks and dust, dark background, 1919",
+   "motion": "the rivets pop out one by one, slow camera push in",
+   "hit": "Rivets#1",
+   "check": "Are rivets flying out of metal?"
+  },
+  {
+   "name": "wave_9",
+   "at": "A#5",
+   "move": "down",
+   "prompt": "high angle wide shot of a towering dark brown wave of molasses crashing down a narrow 1919 Boston street between brick tenements, splintered wood, grey winter light",
+   "hit": "wave#1",
+   "check": "Is a tall brown wave in a street?"
+  },
+  {
+   "name": "street",
+   "at": "raced#1",
+   "clip": true,
+   "prompt": "medium shot, a man in a navy fire coat and leather helmet running from a fast brown flood of molasses pouring down a 1919 Boston street, he is {firefighter}, splashing syrup, grey afternoon light",
+   "motion": "he stumbles and runs from the rushing molasses, slow camera push in",
+   "check": "Is a man running from a brown flood?"
+  },
+  {
+   "name": "speed",
+   "at": "It#3",
+   "clip": true,
+   "prompt": "extreme close-up of a dark brown wave of molasses rushing past a brick wall, splashing high, motion blur, cold grey daylight, 1919 Boston street",
+   "motion": "the thick brown wave rushes past and splashes, slow camera push in",
+   "check": "Is a brown wave rushing past a wall?",
+   "xfade": true
+  },
+  {
+   "name": "foundations",
+   "at": "swept#1",
+   "clip": true,
+   "prompt": "wide shot, a wooden house lifting off its brick foundation and tilting sideways in a brown flood of molasses, 1919 Boston North End street, grey winter light",
+   "motion": "the house tilts and slides slowly, molasses pours under it, slow camera move right",
+   "check": "Is a house tilting in a brown flood?"
+  },
+  {
+   "name": "streetcar",
+   "at": "tipped#1",
+   "clip": true,
+   "prompt": "medium shot, a green and white streetcar tipped over on its side in a brown molasses flood, one wheel up in the air, 1919 Boston street, grey light",
+   "motion": "the streetcar rocks slightly in the molasses, slow camera push in",
+   "check": "Is a streetcar lying on its side?"
+  },
+  {
+   "name": "truck",
+   "at": "picked#1",
+   "clip": true,
+   "prompt": "wide shot, a wooden truck lifted and thrown into dark harbour water by a brown molasses wave, splashing, 1919 Boston waterfront, grey sky",
+   "motion": "the truck splashes into the harbour water, slow camera move up",
+   "check": "Is a truck splashing into water?"
+  },
+  {
+   "name": "killed",
+   "at": "killed#1",
+   "move": "push",
+   "prompt": "close-up of a black armband on a dark wool coat sleeve, a hand resting on a wooden coffin lid, dim 1919 Boston room, candle light",
+   "check": "Is there an armband on a coat sleeve?"
+  },
+  {
+   "name": "injured",
+   "at": "injured#1",
+   "clip": true,
+   "prompt": "medium shot, a nurse in a white apron bandaging the arm of a seated man in a crowded 1919 hospital ward, iron beds behind, warm lamp light",
+   "motion": "the nurse wraps the bandage around his arm, slow camera push in",
+   "check": "Is a nurse bandaging a man's arm?"
+  },
+  {
+   "name": "denser",
+   "at": "You#1",
+   "clip": true,
+   "prompt": "extreme close-up of two hands slowly lifting thick dark molasses dripping from a wooden spoon over a glass jar, warm kitchen light, 1919",
+   "motion": "the thick molasses drips slowly from the spoon, slow camera push in",
+   "check": "Is thick dark syrup dripping from a spoon?",
+   "xfade": true
+  },
+  {
+   "name": "water",
+   "at": "40%#1",
+   "move": "push",
+   "prompt": "close-up of a glass jar of clear water beside a glass jar of dark molasses on a wooden kitchen table, warm lamp light, 1919",
+   "check": "Are there two jars on a table?"
+  },
+  {
+   "name": "honey",
+   "at": "It's#1",
+   "clip": true,
+   "prompt": "close-up of a hand slowly stirring a wooden spoon in a pot of thick golden honey, warm kitchen light, 1919",
+   "motion": "the spoon stirs the thick honey slowly, slow camera push in",
+   "check": "Is a hand stirring thick golden honey?"
+  },
+  {
+   "name": "struggle",
+   "at": "thicker#1",
+   "clip": true,
+   "prompt": "medium shot, a young woman in a kitchen apron pulling her arm slowly out of a big pot of thick dark syrup, straining, she is {mother}, warm lamp light, 1919",
+   "motion": "she strains and pulls her arm slowly from the thick syrup, slow camera push in",
+   "hit": "struggle#1",
+   "check": "Is a woman pulling her arm from a pot of thick syrup?"
+  },
+  {
+   "name": "reason",
+   "at": "The#7",
+   "who": "sailor",
+   "clip": true,
+   "prompt": "medium shot, a bearded ship's mate on a wooden pier watching workers roll a big iron tank valve wheel, he is {sailor}, a docked steel tanker ship behind him, cold grey morning light, 1919 Boston harbor",
+   "motion": "he turns the valve wheel slowly, steam drifts, slow camera push in",
+   "check": "Is a man turning a valve wheel on a pier?",
+   "xfade": true
+  },
+  {
+   "name": "ship",
+   "at": "ship#1",
+   "move": "right",
+   "prompt": "wide shot of a steel tanker ship docked at a wooden pier with thick pipes running from its deck toward a huge dark tank, cold grey morning, 1919 Boston harbor",
+   "check": "Is a ship docked at a pier?"
+  },
+  {
+   "name": "thinned",
+   "at": "thinned#1",
+   "move": "down",
+   "prompt": "extreme close-up of dark brown molasses swirling and mixing in a glass jar, thin streaks of lighter warm syrup curling through the thick dark liquid, warm lamp light",
+   "check": "Is dark syrup swirling in a glass jar?"
+  },
+  {
+   "name": "pressure",
+   "at": "pressure#1",
+   "clip": true,
+   "prompt": "medium shot, {engineer} pressing his palm flat against the curved steel wall of a giant tank, frowning, dark rivets bulging, dim industrial light, 1919",
+   "motion": "he presses his hand against the bulging steel wall, slow camera push in",
+   "check": "Is a man pressing his hand on a steel wall?"
+  },
+  {
+   "name": "burst_25",
+   "at": "burst#2",
+   "move": "pull",
+   "prompt": "wide shot of a giant steel tank splitting open with a huge dark wave of molasses bursting out, rivets flying, grey afternoon sky over brick buildings, 1919 Boston",
+   "check": "Is a steel tank bursting open?"
+  },
+  {
+   "name": "flowed",
+   "at": "flowed#1",
+   "clip": true,
+   "prompt": "low angle, a dark brown wave of molasses racing down a narrow cobblestone street, splashing over a wooden crate, brick buildings, grey afternoon light, 1919",
+   "motion": "the dark wave rushes forward and splashes, slow camera push in",
+   "check": "Is a wave of dark liquid rushing down a street?"
+  },
+  {
+   "name": "trapped",
+   "at": "trapped#1",
+   "who": "mother",
+   "clip": true,
+   "prompt": "medium shot, a woman sinking waist-deep in thick dark molasses with both arms reaching up, terrified, she is {mother}, a narrow cobblestone street, grey afternoon light, 1919",
+   "motion": "she struggles and reaches up slowly, the thick goo barely moves, slow camera push in",
+   "hit": "trapped#1",
+   "check": "Is a woman stuck in thick dark liquid?"
+  },
+  {
+   "name": "free",
+   "at": "free#1",
+   "who": "firefighter",
+   "clip": true,
+   "prompt": "medium shot, {firefighter} gripping a woman's arm and pulling her from thick dark molasses while she kneels on the cobblestones, a wooden ladder behind them, grey afternoon light, 1919",
+   "motion": "he pulls her arm slowly free from the goo, slow camera push in",
+   "hit": "free#1",
+   "check": "Is a firefighter pulling a woman from thick liquid?"
+  },
+  {
+   "name": "smell",
+   "at": "For#1",
+   "who": "mother",
+   "clip": true,
+   "prompt": "close-up, a woman standing on a tenement stoop lifting her chin and sniffing the warm air with a puzzled frown, she is {mother}, a narrow 1919 Boston North End street with brick buildings behind her, golden summer evening light",
+   "motion": "she lifts her chin and sniffs the air, slow camera push in",
+   "check": "Is a woman sniffing the air?",
+   "xfade": true
+  },
+  {
+   "name": "swore",
+   "at": "swore#1",
+   "who": "clerk",
+   "clip": true,
+   "prompt": "medium shot, a young man in a tweed suit standing on a street corner and pointing at the ground while talking to a neighbour, he is {clerk}, 1919 Boston North End, warm evening light",
+   "motion": "he points down at the cobblestones and talks, slow camera push in",
+   "check": "Is a man pointing at the ground?"
+  },
+  {
+   "name": "summer",
+   "at": "hot#1",
+   "move": "push",
+   "prompt": "wide shot of a narrow 1919 Boston North End street on a hot summer day, brick tenements, fire escapes, laundry hanging, heat haze shimmering over the cobblestones, warm golden light",
+   "check": "Is this a narrow brick street in summer?"
+  },
+  {
+   "name": "rebuilt",
+   "at": "rebuilt#1",
+   "move": "pull",
+   "prompt": "wide shot of an empty flat paved lot between brick buildings where a huge tank once stood, a few weeds at the edges, 1919 Boston North End, late afternoon light",
+   "hit": "rebuilt#1",
+   "check": "Is this an empty lot between buildings?"
+  }
+ ]
+}

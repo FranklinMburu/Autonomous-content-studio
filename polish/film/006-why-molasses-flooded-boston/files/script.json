@@ -1,0 +1,135 @@
+{
+ "title": "Why Molasses Flooded Boston",
+ "channel": "Hidden Reasons",
+ "topic": "Why a wave of molasses flooded Boston streets in 1919",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity + dread",
+   "lines": [
+    "A steel tank burst and a wall of syrup swallowed a Boston street.",
+    "People in the North End heard a roar like an elevated train."
+   ]
+  },
+  {
+   "feel": "sympathy",
+   "lines": [
+    "It was January 15, 1919.",
+    "That tank held 2.3 million gallons of molasses.",
+    "It stood 50 feet tall and 90 feet wide."
+   ]
+  },
+  {
+   "feel": "shock",
+   "lines": [
+    "The tank collapsed at about 12:30 in the afternoon.",
+    "Rivets shot out like machine gun fire.",
+    "A wave of molasses 25 feet high raced through the streets."
+   ]
+  },
+  {
+   "feel": "horror",
+   "lines": [
+    "It moved at 35 miles per hour.",
+    "It swept buildings off their foundations.",
+    "It tipped a streetcar off its tracks.",
+    "It picked up a truck and threw it into the harbor.",
+    "The molasses killed 21 people and injured 150."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, molasses is 40% denser than water.",
+    "It's like trying to swim through warm honey that gets thicker as you struggle."
+   ]
+  },
+  {
+   "feel": "awe + understanding",
+   "lines": [
+    "The real reason: the day before, a ship delivered warm molasses.",
+    "That warm molasses thinned the older, colder molasses already inside.",
+    "The tank couldn't hold the pressure.",
+    "When it burst, the molasses flowed fast, then cooled and thickened.",
+    "That sticky goo trapped people before rescuers could pull them free."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "For decades after, Bostonians swore the North End still smelled of molasses on hot summer days.",
+    "The tank was never rebuilt."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "The disaster occurred on January 15, 1919, in the North End neighborhood of Boston.",
+   "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+  },
+  {
+   "claim": "The tank contained 2.3 million US gallons of molasses, stood 50 feet tall and 90 feet in diameter.",
+   "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+  },
+  {
+   "claim": "The tank burst at approximately 12:30 p.m.",
+   "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+  },
+  {
+   "claim": "Witnesses reported hearing a roar similar to an elevated train and rivets shooting out like machine gun fire.",
+   "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+  },
+  {
+   "claim": "A wave of molasses 25 feet high at its peak moved at 35 mph.",
+   "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+  },
+  {
+   "claim": "The wave swept buildings off their foundations, tipped a streetcar off its tracks, and threw a truck into the harbor.",
+   "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+  },
+  {
+   "claim": "The disaster killed 21 people and injured 150.",
+   "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+  },
+  {
+   "claim": "Molasses is about 40% denser than water.",
+   "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+  },
+  {
+   "claim": "On the previous day, a ship had delivered a fresh load of molasses, which had been warmed to decrease its viscosity for transfer.",
+   "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+  },
+  {
+   "claim": "When the tank collapsed, the fluid cooled quickly as it spread, and the viscosity increased dramatically, hampering efforts to free victims before they suffocated.",
+   "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+  },
+  {
+   "claim": "Residents reported for decades afterwards that the area still smelled of molasses on hot summer days.",
+   "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+  },
+  {
+   "claim": "USIA did not rebuild the tank.",
+   "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+  }
+ ],
+ "key_words": [
+  "molasses",
+  "Boston",
+  "tank",
+  "burst",
+  "wave",
+  "denser",
+  "warm",
+  "cooled",
+  "trapped",
+  "smelled"
+ ]
+}
