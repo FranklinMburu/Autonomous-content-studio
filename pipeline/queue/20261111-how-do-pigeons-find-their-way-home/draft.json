@@ -1,0 +1,125 @@
+{
+ "title": "How pigeons find their way home",
+ "topic": "How do pigeons find their way home?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "map-pin",
+   "reveal": {
+    "text": "?",
+    "at": "home"
+   },
+   "lines": [
+    "What lets a pigeon sprint 100 miles straight back home?"
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "tags",
+   "title": "Sun compass",
+   "icon": "sun",
+   "items": [
+    {
+     "text": "sun angle",
+     "at": "sun",
+     "tone": "neutral"
+    },
+    {
+     "text": "internal clock",
+     "at": "clock",
+     "tone": "neutral"
+    }
+   ],
+   "lines": [
+    "They read the bright sun’s position like a built‑in clock.",
+    "By shifting their internal clock they keep the sun’s angle precisely correct."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "link",
+   "from": {
+    "icon": "magnet",
+    "label": "nasal magnet",
+    "at": "magnet"
+   },
+   "to": {
+    "icon": "brain",
+    "label": "trigeminal nerve",
+    "at": "nerve"
+   },
+   "note": {
+    "text": "veers off",
+    "at": "veers"
+   },
+   "lines": [
+    "When clouds hide the sun, a tiny magnet in their nasal cavity takes over.",
+    "Researchers attached a small magnet and saw the birds veer off, proving a magnetic compass linked to the trigeminal nerve."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "tags",
+   "title": "Smell & sight",
+   "icon": "eye",
+   "items": [
+    {
+     "text": "olfactory map",
+     "at": "smell",
+     "tone": "neutral"
+    },
+    {
+     "text": "visual landmarks",
+     "at": "landmarks",
+     "tone": "neutral"
+    }
+   ],
+   "lines": [
+    "They also sniff familiar city smells and match streets they’ve seen before.",
+    "Visual landmarks let them make right‑angle turns along familiar routes."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "bubble",
+   "icon": "feather",
+   "prop": "home",
+   "text": "watch it home",
+   "at": "watch",
+   "lines": [
+    "Next time you see a pigeon, watch it turn toward home quickly even on a cloudy day."
+   ],
+   "id": "beat5"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Pigeons use sun compass and internal clock",
+   "url": "https://en.wikipedia.org/wiki/Homing_pigeon"
+  },
+  {
+   "claim": "Magnetic sense located in nasal region, linked to trigeminal nerve, demonstrated by magnet experiments",
+   "url": "https://openalex.org/W619981508"
+  },
+  {
+   "claim": "Pigeons use olfactory and visual landmarks for navigation",
+   "url": "https://en.wikipedia.org/wiki/Homing_pigeon"
+  },
+  {
+   "claim": "Magnetic sense can be disrupted with magnets attached to birds",
+   "url": "https://en.wikipedia.org/wiki/Magnetoreception"
+  }
+ ],
+ "youtube": {
+  "title": "How pigeons find their way home 🕊️",
+  "description": "Discover the sun, magnetic, and sensory tricks that let pigeons fly hundreds of miles back to their loft.",
+  "tags": [
+   "pigeon",
+   "navigation",
+   "magnetoreception",
+   "bird science",
+   "shorts"
+  ]
+ }
+}

@@ -1,0 +1,142 @@
+{
+ "gates": [],
+ "writer": "groq:openai/gpt-oss-120b",
+ "candidates": [
+  "groq:openai/gpt-oss-120b"
+ ],
+ "failed": [
+  {
+   "ref": "google:gemini-3.6-flash",
+   "error": "no model in tier 'standard' could answer (google:gemini-3.6-flash: HTTP 429)",
+   "attempts": [
+    {
+     "ref": "google:gemini-3.6-flash",
+     "error": "HTTP 429",
+     "reason": "{\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do",
+     "seconds": 0.9
+    }
+   ]
+  },
+  {
+   "ref": "nvidia:minimaxai/minimax-m3.1-flash",
+   "error": "no model in tier 'standard' could answer (nvidia:minimaxai/minimax-m3.1-flash: HTTP 0)",
+   "attempts": [
+    {
+     "ref": "nvidia:minimaxai/minimax-m3.1-flash",
+     "error": "HTTP 0",
+     "reason": "empty text (finish_reason=length) - the model spent its whole token budget thinking",
+     "seconds": 576.7
+    }
+   ]
+  }
+ ],
+ "judge": {
+  "index": 0,
+  "scores": {},
+  "reason": "only one candidate",
+  "model": null
+ },
+ "fact_check": {
+  "results": [
+   {
+    "claim": "Pigeons sprint 100 miles straight back home.",
+    "verdict": "partial",
+    "evidence": "Source 1 notes flights as long as 1,800 km (1,100 mi) and speeds up to 100 mph, but does not specify a straight 100‑mile sprint."
+   },
+   {
+    "claim": "They read the bright sun’s position like a built‑in clock.",
+    "verdict": "supported",
+    "evidence": "Source 1 states the compass mechanism appears to rely on the sun."
+   },
+   {
+    "claim": "By shifting their internal clock they keep the sun’s angle precisely correct.",
+    "verdict": "supported",
+    "evidence": "Source 1 describes time‑shifted pigeons failing to orient on sunny days because they cannot compensate for the sun’s movement, implying an internal clock adjustment."
+   },
+   {
+    "claim": "When clouds hide the sun, a tiny magnet in their nasal cavity takes over.",
+    "verdict": "unsupported",
+    "evidence": "Sources locate a magnetic sense in the nasal region (Source 3) but do not state it activates specifically when the sun is obscured."
+   },
+   {
+    "claim": "Researchers attached a small magnet and saw the birds veer off, proving a magnetic compass linked to the trigeminal nerve.",
+    "verdict": "supported",
+    "evidence": "Source 3 reports that attaching a magnet deflected pigeons’ vanishing direction and that nerve section showed transmission via the ophthalmic branch of the trigeminal nerve."
+   },
+   {
+    "claim": "They also sniff familiar city smells and match streets they’ve seen before.",
+    "verdict": "supported",
+    "evidence": "Source 1 mentions pigeons orient using atmospheric odors (olfactory navigation)."
+   },
+   {
+    "claim": "Visual landmarks let them make right‑angle turns along familiar routes.",
+    "verdict": "supported",
+    "evidence": "Source 1 notes pigeons navigate through visual landmarks, making 90‑degree turns and following habitual routes."
+   },
+   {
+    "claim": "Next time you see a pigeon, watch it turn toward home quickly even on a cloudy day.",
+    "verdict": "supported",
+    "evidence": "Source 2 describes time‑shifted pigeons navigating correctly on overcast days using magnetic fields, indicating they can home on cloudy days."
+   }
+  ],
+  "counts": {
+   "supported": 6,
+   "unsupported": 1,
+   "partial": 1
+  },
+  "model": "groq:openai/gpt-oss-120b"
+ },
+ "provenance": {
+  "layer_version": "0.3.0",
+  "config": "1cd713cd88bb",
+  "tier": "standard",
+  "ref": "groq:openai/gpt-oss-120b",
+  "prompt_sha256": "c1041c2bc1b09d80",
+  "system_sha256": "a328b827560026be",
+  "temperature": 0.7,
+  "max_tokens": 4000,
+  "json": true,
+  "cached": false,
+  "finish": "stop",
+  "tokens_in": 7312,
+  "tokens_out": 1514,
+  "at": "2026-11-11T06:14:22+00:00",
+  "best_of": {
+   "candidates": [
+    "groq:openai/gpt-oss-120b"
+   ],
+   "failed": [
+    {
+     "ref": "google:gemini-3.6-flash",
+     "error": "no model in tier 'standard' could answer (google:gemini-3.6-flash: HTTP 429)",
+     "attempts": [
+      {
+       "ref": "google:gemini-3.6-flash",
+       "error": "HTTP 429",
+       "reason": "{\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do",
+       "seconds": 0.9
+      }
+     ]
+    },
+    {
+     "ref": "nvidia:minimaxai/minimax-m3.1-flash",
+     "error": "no model in tier 'standard' could answer (nvidia:minimaxai/minimax-m3.1-flash: HTTP 0)",
+     "attempts": [
+      {
+       "ref": "nvidia:minimaxai/minimax-m3.1-flash",
+       "error": "HTTP 0",
+       "reason": "empty text (finish_reason=length) - the model spent its whole token budget thinking",
+       "seconds": 576.7
+      }
+     ]
+    }
+   ],
+   "judge": {
+    "index": 0,
+    "scores": {},
+    "reason": "only one candidate",
+    "model": null
+   }
+  }
+ }
+}

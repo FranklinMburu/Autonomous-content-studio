@@ -1,0 +1,48 @@
+{
+ "id": "20261111-how-do-pigeons-find-their-way-home",
+ "topic": "How do pigeons find their way home?",
+ "lane": null,
+ "topic_key": "48ffa7aab1be9340",
+ "stage": "queue",
+ "created": "2026-11-11T06:12:45+00:00",
+ "attempts": 0,
+ "history": [
+  {
+   "at": "2026-11-11T06:12:45+00:00",
+   "to": "queue",
+   "why": "created"
+  }
+ ],
+ "provenance": {
+  "research_plan": {
+   "questions": [
+    "How do pigeons navigate over long distances?",
+    "What sensory cues do pigeons use for homing?",
+    "Is there a magnetic sense involved?",
+    "Do pigeons rely on visual landmarks or memory?"
+   ],
+   "wikipedia": [
+    "Pigeon homing",
+    "Magnetic compass (bird)",
+    "Navigation (bird)",
+    "How do pigeons find their way home?"
+   ],
+   "scholar": [
+    "pigeon homing magnetic sense",
+    "avian navigation mechanisms"
+   ],
+   "model": "groq:openai/gpt-oss-20b"
+  },
+  "writer": "groq:openai/gpt-oss-120b",
+  "candidates": [
+   "groq:openai/gpt-oss-120b"
+  ],
+  "judge": {
+   "index": 0,
+   "scores": {},
+   "reason": "only one candidate",
+   "model": null
+  },
+  "rules": "studio/pipeline/draft.py TASK + POLISH.md"
+ }
+}
