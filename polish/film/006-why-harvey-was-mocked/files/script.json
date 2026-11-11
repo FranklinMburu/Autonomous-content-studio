@@ -1,0 +1,88 @@
+{
+ "title": "Why Harvey Was Mocked",
+ "channel": "Hidden Reasons",
+ "topic": "Why William Harvey was mocked for saying the heart pumps blood in a circle",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A physician thrust his palm into a beating pigeon’s chest."
+   ]
+  },
+  {
+   "feel": "sympathy",
+   "lines": [
+    "Colleagues laughed, calling his claim “a wild fantasy.”",
+    "They clung to Galen’s ancient idea that the liver spewed fresh blood."
+   ]
+  },
+  {
+   "feel": "dread",
+   "lines": [
+    "Harvey publishes De Motu Cordis in Frankfurt.",
+    "Patients stop coming; his practice “falls mightily.”"
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it’s like watching a bathtub drain while the faucet keeps running – the water never disappears."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "Harvey measured the heart’s capacity, counted beats, and proved the volume of blood moved each half‑hour was far too great for the liver to produce.",
+    "His experiments on fish and serpents showed veins have one‑way valves, forcing blood to travel in a closed loop."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "The real reason he was mocked? He dared to replace a millennia‑old liver theory with a simple circular pump."
+   ]
+  },
+  {
+   "feel": "twist",
+   "lines": [
+    "Ironically, the same “circulation” he proved later powered the very Royalist court that would exile him."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Harvey’s De Motu Cordis described blood moving in a circuit and faced strong opposition from physicians who preferred Galen’s liver theory.",
+   "url": "https://en.wikipedia.org/wiki/William_Harvey"
+  },
+  {
+   "claim": "Harvey’s publication caused his practice to suffer and he was mocked by other doctors.",
+   "url": "https://en.wikipedia.org/wiki/William_Harvey"
+  },
+  {
+   "claim": "Harvey used experiments on fish and serpents, and measured heart capacity and beats to show the amount of blood moved could not be produced by the liver.",
+   "url": "https://en.wikipedia.org/wiki/William_Harvey"
+  },
+  {
+   "claim": "Harvey’s discovery of one‑way venous valves explained why blood flows toward the heart.",
+   "url": "https://en.wikipedia.org/wiki/William_Harvey"
+  }
+ ],
+ "key_words": [
+  "pigeon",
+  "laugh",
+  "Galen",
+  "De Motu Cordis",
+  "circulation",
+  "valves",
+  "Royalist"
+ ]
+}

@@ -1,0 +1,269 @@
+{
+ "era": "1620s",
+ "cast": {
+  "harvey": "a 37 year old English physician, lean build, wavy dark brown hair, a neat pointed dark beard, keen dark eyes, wearing a long black academic physician's gown with crimson silk sleeves and a white linen collar, 1620s",
+  "skeptic": "a 55 year old stout English physician with a balding head, a full bushy grey beard and heavy jowls, wearing a rich brown fur-lined robe over a stiff white ruff, 1620s",
+  "lecturer": "a 64 year old university professor with a long white beard, thin grey hair and a severe lined face, wearing a black scholar's gown with a hood over a dark grey tunic, 1620s",
+  "apprentice": "a 19 year old English apprentice with short brown hair, freckles and a eager face, wearing a brown leather apron over a cream linen shirt, 1620s",
+  "patient": "a 35 year old English woman with a calm round face, brown hair under a white linen coif, wearing a russet wool gown with a cream shawl, 1620s",
+  "king": "a 30 year old English king with long dark curls, a thin moustache and a pointed goatee, wearing a crimson and gold embroidered doublet with a white lace collar and a blue sash, 1620s"
+ },
+ "music": "curious",
+ "key_words": [
+  "pigeon",
+  "fantasy",
+  "Galen",
+  "liver",
+  "Frankfurt",
+  "practice",
+  "bathtub",
+  "faucet",
+  "heart",
+  "beats",
+  "fish",
+  "serpents",
+  "valves",
+  "loop",
+  "circular",
+  "pump",
+  "Royalist",
+  "exile"
+ ],
+ "shots": [
+  {
+   "name": "thrust",
+   "at": 0,
+   "who": "harvey",
+   "clip": true,
+   "prompt": "medium close-up, a physician pressing his bare palm into a pigeon's beating chest, he is {harvey}, a 1620s anatomy room with a wooden table, warm candlelight",
+   "motion": "his palm presses down and the pigeon's chest flutters, slow camera push in",
+   "hit": "thrust#1",
+   "check": "Is a man's palm pressed into a pigeon's chest?"
+  },
+  {
+   "name": "beating",
+   "at": "beating#1",
+   "clip": true,
+   "prompt": "extreme close-up, a bare hand resting on a grey pigeon's chest as its breast flutters under the feathers, wooden table, warm candlelight",
+   "motion": "the pigeon's chest flutters under the hand, slow camera push in",
+   "check": "Is a bare hand on a pigeon's chest?"
+  },
+  {
+   "name": "mocking",
+   "at": "Colleagues#1",
+   "who": "skeptic",
+   "clip": true,
+   "xfade": true,
+   "prompt": "medium close-up, a stout physician laughing and pointing mockingly toward the foreground, he is {skeptic}, two other physicians in dark robes behind him, a 1620s university lecture hall with wooden benches, candle light",
+   "motion": "he laughs and points, candle flames flicker, slow camera push in",
+   "check": "Is a man laughing and pointing?"
+  },
+  {
+   "name": "fantasy",
+   "at": "calling#1",
+   "clip": true,
+   "prompt": "medium shot, an old professor pointing mockingly at a young physician holding a pigeon against his chest, the professor is {lecturer}, the physician is {harvey}, a 1620s university lecture hall, candle light",
+   "motion": "the professor jabs his finger and laughs, the pigeon flutters slightly, slow camera push in",
+   "hit": "fantasy.”#1",
+   "check": "Is one man pointing at another man?"
+  },
+  {
+   "name": "galen",
+   "at": "They#1",
+   "who": "lecturer",
+   "xfade": true,
+   "move": "push",
+   "prompt": "medium shot, a weathered marble bust of an ancient bearded physician on a stone pedestal, an old professor standing beside it with one hand raised, he is {lecturer}, a university lecture hall, candle light",
+   "check": "Is there a marble bust of a bearded man?"
+  },
+  {
+   "name": "liver",
+   "at": "liver#1",
+   "clip": true,
+   "prompt": "close-up of a large dark red human liver on a wooden dissection table, a physician's hand pressing it, fresh red blood seeping out, dim lamp light",
+   "motion": "the hand presses the liver and red liquid oozes out, slow camera push in",
+   "hit": "blood#1",
+   "check": "Is there a large red liver?"
+  },
+  {
+   "name": "publish",
+   "at": "Harvey#1",
+   "who": "harvey",
+   "clip": true,
+   "prompt": "medium shot, a physician lifting a plain heavy bound book from a wooden printing table, he is {harvey}, 1620s Frankfurt printshop, warm lamp light",
+   "motion": "he lifts the book slowly from the table, slow camera push in",
+   "xfade": true,
+   "check": "Is a physician lifting a bound book?"
+  },
+  {
+   "name": "empty",
+   "at": "Patients#1",
+   "who": "harvey",
+   "clip": true,
+   "prompt": "medium shot, a physician pushing open a wooden door toward an empty waiting bench, he is {harvey}, 1620s English consulting room, cold morning light",
+   "motion": "he pushes the door open and pauses, slow camera push in",
+   "xfade": true,
+   "check": "Is a physician opening a door?"
+  },
+  {
+   "name": "falls",
+   "at": "“falls#1",
+   "who": "harvey",
+   "clip": true,
+   "prompt": "medium shot, a physician sinking back in a wooden chair beside a bare desk with a closed empty ledger, he is {harvey}, dim 1620s consulting room, single candle light",
+   "motion": "he sinks back and exhales, slow camera pull",
+   "hit": "“falls#1",
+   "check": "Is a physician sinking back in a chair?"
+  },
+  {
+   "name": "bathtub_watch",
+   "at": "You#1",
+   "who": "harvey",
+   "xfade": true,
+   "clip": true,
+   "prompt": "medium close-up, a physician leaning over a wooden bathtub and watching the water swirl, he is {harvey}, a 1620s English room with a shuttered window, warm candlelight",
+   "motion": "he leans forward and watches the water, slow camera push in",
+   "check": "Is a man leaning over a bathtub?"
+  },
+  {
+   "name": "drain_swirl",
+   "at": "drain#1",
+   "move": "push",
+   "prompt": "extreme close-up of water swirling down the open drain hole of a wooden bathtub, wet varnished wood, warm candlelight, dark room",
+   "check": "Is water swirling into a bathtub drain?"
+  },
+  {
+   "name": "faucet_flow",
+   "at": "disappears#1",
+   "clip": true,
+   "prompt": "close-up, a hand turning a brass faucet so a steady stream of water pours into a wooden bathtub already full of water, warm candlelight",
+   "motion": "the hand turns the tap and water pours steadily, slow camera push in",
+   "check": "Is water pouring from a faucet into a bathtub?"
+  },
+  {
+   "name": "heart_capacity",
+   "at": "Harvey#2",
+   "who": "harvey",
+   "xfade": true,
+   "clip": true,
+   "prompt": "medium close-up, a physician pressing a large animal heart down into a tall glass jar of water, he is {harvey}, 1620s anatomy room with wooden shelves, warm candle light",
+   "motion": "he pushes the heart down and the water rises, slow camera push in",
+   "check": "Is a man pushing a heart into a glass jar?"
+  },
+  {
+   "name": "count_beats",
+   "at": "counted#1",
+   "clip": true,
+   "prompt": "close-up, a hand counting beats by tapping fingers on a wooden table beside a beating animal heart, 1620s anatomy room, candle light",
+   "motion": "the fingers tap in a steady rhythm, slow camera push in",
+   "check": "Is a hand tapping fingers on a table?"
+  },
+  {
+   "name": "blood_volume",
+   "at": "volume#1",
+   "move": "push",
+   "prompt": "close-up, a large glass vessel filled with dark red blood held steady in two hands, 1620s study with shelves of books, warm candle light",
+   "check": "Is there a glass vessel full of blood?"
+  },
+  {
+   "name": "liver_limit",
+   "at": "liver#2",
+   "who": "harvey",
+   "clip": true,
+   "prompt": "medium close-up, a physician pointing at a large dark red animal liver on a wooden table, he is {harvey}, 1620s anatomy theatre, warm lamp light",
+   "motion": "he points at the liver and raises one eyebrow, slow camera push in",
+   "hit": "liver#2",
+   "check": "Is a man pointing at a liver?"
+  },
+  {
+   "name": "fish_test",
+   "at": "fish#1",
+   "xfade": true,
+   "clip": true,
+   "prompt": "close-up, a live fish wriggling in a shallow glass bowl of water on a wooden table, 1620s anatomy room, candle light",
+   "motion": "the fish wriggles and splashes the water, slow camera push in",
+   "check": "Is there a live fish in a bowl?"
+  },
+  {
+   "name": "vein_valves",
+   "at": "valves#1",
+   "move": "push",
+   "prompt": "extreme close-up of a dissected vein segment with tiny pocket flaps inside, resting on a wooden board, 1620s anatomy room, candle light",
+   "check": "Is there an opened vein with small flaps inside?",
+   "hit": "valves#1"
+  },
+  {
+   "name": "closed_loop",
+   "at": "loop#1",
+   "clip": true,
+   "prompt": "close-up, a hand in a black sleeve drawing a large circle with a brass compass on blank parchment, 1620s study, warm candle light",
+   "motion": "the compass traces the circle, slow camera push in",
+   "hit": "loop#1",
+   "check": "Is a hand drawing a circle with a compass?"
+  },
+  {
+   "name": "mocked",
+   "at": "The#7",
+   "who": "skeptic",
+   "clip": true,
+   "prompt": "medium close-up, a stout bearded doctor in a fur robe laughing mockingly and pointing a finger, he is {skeptic}, dark wood-panelled 1620s lecture hall, warm candle light",
+   "motion": "he laughs and points his finger mockingly, candle light flickers, slow camera push in",
+   "hit": "mocked#1",
+   "check": "Is a man pointing and laughing?"
+  },
+  {
+   "name": "liver_theory",
+   "at": "He#2",
+   "clip": false,
+   "xfade": true,
+   "prompt": "close-up, a hand turning the yellowed page of an ancient leather bound book showing a detailed anatomical drawing of a liver, wooden desk, candle light",
+   "motion": "the hand turns the ancient book page slowly, slow camera push in",
+   "check": "Is a hand turning a page in a book?",
+   "move": "push"
+  },
+  {
+   "name": "circular_pump",
+   "at": "with#1",
+   "clip": true,
+   "prompt": "close-up of hands pushing the lever of a brass mechanical water pump on a wooden table, water pulsing through a clear tube, warm candle light",
+   "motion": "the lever moves up and down slowly, slow camera push in",
+   "check": "Are hands operating a brass pump?"
+  },
+  {
+   "name": "irony",
+   "at": "Ironically#1",
+   "who": "harvey",
+   "clip": true,
+   "prompt": "medium shot, a physician standing in a shadowed stone corridor looking through an open arched doorway into a brightly lit royal hall, he is {harvey}, warm candlelight beyond",
+   "motion": "he turns his head toward the hall and pauses, slow camera push in",
+   "xfade": true,
+   "check": "Is a physician standing at an open doorway?"
+  },
+  {
+   "name": "loop",
+   "at": "“circulation”#1",
+   "move": "push",
+   "prompt": "close-up of a red wax anatomical model of a heart with looping red tubes on a wooden table, warm candle light, dark background",
+   "check": "Is there a heart model with looping red tubes?"
+  },
+  {
+   "name": "court",
+   "at": "powered#1",
+   "who": "king",
+   "clip": true,
+   "prompt": "medium shot, a king raising one hand while richly dressed courtiers bow around him, he is {king}, a grand 1620s royal hall with tall candle stands, golden light",
+   "motion": "the courtiers bow lower as he lifts his hand, slow camera push in",
+   "check": "Is a king raising his hand in a hall?"
+  },
+  {
+   "name": "exile",
+   "at": "exile#1",
+   "who": "harvey",
+   "clip": true,
+   "prompt": "medium shot, a physician stepping out through a heavy wooden gate into a cold stone courtyard, he is {harvey}, grey overcast daylight, bare stone walls",
+   "motion": "he steps forward and looks back over his shoulder, slow camera pull back",
+   "hit": "exile#1",
+   "check": "Is a physician stepping through a wooden gate?"
+  }
+ ]
+}
