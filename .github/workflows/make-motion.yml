@@ -51,11 +51,13 @@ jobs:
           path: .brain
           persist-credentials: false
 
-      - name: Voice model cache (shared with the story workflow, read-only use)
+      # Its own cache (only the voice model). It never reads or writes the Hidden Reasons cache key, so it can't
+      # replace that cache with one that lacks the icon set.
+      - name: Voice model cache (motion only)
         uses: actions/cache@v4
         with:
-          path: cache
-          key: assets-kokoro-v1.1-tabler-3.49.0
+          path: cache/models
+          key: motion-kokoro-v1.1
 
       - name: Install
         run: |
@@ -80,6 +82,16 @@ jobs:
           topic=$(printf '%s' "$TOPIC_RAW" | tr -d '\n\r')   # passed as data, never pasted into the script
           python -m studio.motion write --topic "$topic" | tee write.log
           grep '^EPISODE=' write.log | tail -1 >> "$GITHUB_ENV"
+
+      # Keep the new episode in the repo (like Hidden Reasons drafts), so it can be fixed and re-made later and the
+      # next episode gets the next number. Only this one folder is written; a failed save does not stop the video.
+      - name: Save the new episode to the repo
+        if: github.event.inputs.topic != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          case "$EPISODE" in episodes/tech_education/[0-9][0-9][0-9]-*) ;; *) echo "unexpected episode path: $EPISODE"; exit 1;; esac
+          tools/commit_to_main.sh "Motion episode: $(basename "$EPISODE")" "$EPISODE" || echo "::warning::could not save the episode to main; it is still in the release zip"
 
       - name: Choose the episode
         env:
@@ -121,7 +133,13 @@ jobs:
             gh release create "$tag" "${files[@]}" --title "Motion: $title" --notes-file notes.md
           else   # guardrail: a video that failed a check is never published as finished
             gh release create "$tag" "${files[@]}" --prerelease --title "REVIEW: $title" --notes-file notes.md
-            gh label create review --color D93F0B --description "A video failed a final check" 2>/dev/null || true
-            gh issue create --label review --title "Review needed (motion): $title" --body "Release **$tag** was made but a check failed or the plan needs a look. See its notes."
+            # its own label: these never appear in the Hidden Reasons review queue, and the film review workflow ignores them
+            gh label create review-motion --color 5319E7 --description "A Tech Education video failed a check" 2>/dev/null || true
+            { echo "<!-- motion-review: tag=$tag episode=$EPISODE -->";
+              echo "The video was made but is held as a pre-release (not finished): a check failed or the plan needs a look.";
+              echo; echo "- Video and report: release **$tag** (https://github.com/$GITHUB_REPOSITORY/releases/tag/$tag)"; echo;
+              [ -f "$EPISODE/NEEDS_REVIEW.md" ] && { cat "$EPISODE/NEEDS_REVIEW.md"; echo; };
+              echo "**What to do:** comment \`approve\` to mark the release finished, or fix the episode files in \`$EPISODE\` (delete NEEDS_REVIEW.md once fixed) and comment \`remake\`."; } > issue.md
+            gh issue create --label review-motion --title "Review needed (motion): $title" --body-file issue.md
           fi
           { echo "## $title"; echo; echo "Release **$tag** (Releases page). Checks: see report.json."; } >> "$GITHUB_STEP_SUMMARY"

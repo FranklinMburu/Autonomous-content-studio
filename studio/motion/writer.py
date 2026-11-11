@@ -140,7 +140,8 @@ def write(topic, channel_dir, ch, log=print, ask_fn=None, research_fn=None, fact
     plan["seed"] = plan.get("seed") or seed_of(folder.name)
     (folder / "script.json").write_text(json.dumps(s, indent=1, ensure_ascii=False), encoding="utf-8")
     (folder / "plan.json").write_text(json.dumps(plan, indent=1, ensure_ascii=False), encoding="utf-8")
-    (folder / "sources.json").write_text(json.dumps(srcs_raw, ensure_ascii=False)[:2_000_000], encoding="utf-8")
+    kept = [{"url": x["url"], "title": x.get("title", ""), "text": x.get("text", "")[:20000]} for x in srcs_raw[:12]]   # valid JSON, small enough for the repo
+    (folder / "sources.json").write_text(json.dumps(kept, ensure_ascii=False), encoding="utf-8")
     (folder / "sources.md").write_text(f"# Sources: {s.get('title')}\n\n" + "\n".join(f"- {x.get('title', '')}: {x['url']}" for x in srcs_raw) + "\n", encoding="utf-8")
     if review or left:
         (folder / "NEEDS_REVIEW.md").write_text("# Needs review before it can be finished\n\n" + "\n".join(f"- {x}" for x in review + left) + "\n", encoding="utf-8")

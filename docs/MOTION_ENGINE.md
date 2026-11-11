@@ -54,14 +54,18 @@ Reference: "Vibe Coding Essentials, Part 2: What actually is GitHub" (54.7 s, 72
 | v2 | a real 3D world (CSS 3D) with an orbit camera, springs, typing and counters; music and sound effects synthesised in code | big step; "not there yet" | 4% |
 | v3 | v2 + lit grid floors under every scene, a 3D laptop and a server rack, hard cuts to new angles, the locked voice | accepted as the standard; integrate next | 1% |
 
+After a review of the first pipeline version (PR #88, 11 Nov), the engine also got **coverage cuts**, light wipes
+between sets, brighter panels and livelier slow scenes (section 3). Measured on the API episode: average motion 2.8 → 4.0
+and a whole-picture change every 5.7 s → 2.2 s (the reference: 5.5 and 0.7 s).
+
 **Voice lock:** Kokoro `am_fenrir` at 1.0, read line by line, then only a gentle EQ (more bass, a softer top).
 
 Rejected: blending in a second voice, pitch shifting, room echo and `am_puck`. Together they "sound like two stacked
 voices" or "soprano". A more human voice needs a bigger model on Kaggle (Chatterbox, MIT; Dia2, Apache 2.0); that
 hasn't been done yet.
 
-**Still below the reference:** average motion is about half (2.9 against 5.5). The reference changes scene almost
-every second.
+**Still below the reference:** average motion is about 70% of it (4.0 against 5.5), and contrast is lower (26 against
+35). The reference fills the frame with one bright screen far more often.
 
 ## 3. Architecture
 
@@ -93,6 +97,11 @@ studio/motion/
    flies between them.
 3. The story set grows: laptop → app → server and link → packets, cards, key, leak, badges.
 4. The camera is keyframed per scene type, with hard cuts for close-ups, plus a slow seeded handheld drift.
+5. **Coverage cuts** (`coverage()` in the engine): wherever the planned camera holds one shot for more than about
+   0.9 s, it cuts to another angle of the same subject, on a spoken word. The angles are mild on purpose (at most 24°
+   and 0.84× distance): stronger ones cropped wide panels off the screen. Angles never stack. This is automatic, so
+   the writer does not have to plan it.
+6. A light wipe crosses the frame on every change of set.
 
 ## 4. Determinism and guardrails
 
@@ -111,13 +120,19 @@ studio/motion/
      If any gate fails, the video is held for review.
   4. The writer repairs the closest draft with its exact problems before giving up (the shared `repair_draft`).
 - **Isolation from Hidden Reasons:**
-  - nothing in `studio/story`, `studio/pipeline` or any other workflow imports `studio.motion` (a test checks this);
-  - its own workflow `make-motion.yml` with concurrency group `make-motion`;
+  - no motion module imports the story engine, and nothing in `studio/`, the workflows, `tools/` or the website
+    mentions the motion engine (two tests check this);
+  - its own workflows: `make-motion.yml` (concurrency group `make-motion`) and `motion-review.yml`;
+  - its own cache key (`motion-kokoro-v1.1`, the voice model only), so it can never replace the Hidden Reasons cache;
+  - its own review label, `review-motion`, with its own marker. These issues do not appear in the Hidden Reasons
+    review queue on the website, and the film review workflow ignores them;
   - no Kaggle GPU, no channel memory, no schedule.
 
-  Shared, read-only: the Kokoro voice model and word timing (`studio/voice.py`), the brain, and the research step.
-  The model-call helpers are a copy in `studio/motion/calls.py`, not imported from the story engine
-  (importing them pulled in pycairo and broke the CI job on 11 Nov).
+  Shared, read-only: the Kokoro voice model and word timing (`studio/voice.py`), the brain, the research step and
+  `tools/commit_to_main.sh`. Every pacing value of the locked voice is set in `channels/te/channel.json`, so a change
+  to the shared voice defaults for another channel cannot change this voice. The model-call helpers are a copy in
+  `studio/motion/calls.py`, not imported from the story engine (importing them pulled in pycairo and broke the CI job
+  on 11 Nov).
 
 ## 5. How to run
 
@@ -131,7 +146,12 @@ python -m studio.motion write  --topic "What is a database?" --make             
 
 On GitHub, run **Actions → "Make a motion video (Tech Education)"**:
 - enter a topic for a new video, or an episode folder;
-- you get a release `motion-<episode>-runN`, or "REVIEW: …" plus an issue if a check failed.
+- a new episode written by the AI is saved to `episodes/tech_education/` on main, so it can be fixed and re-made, and
+  the next one gets the next number;
+- you get a release `motion-<episode>-runN`, or a pre-release "REVIEW: …" plus an issue labelled `review-motion` if a
+  check failed;
+- on that issue, comment `approve` (the release becomes finished) or fix the episode files, delete
+  `NEEDS_REVIEW.md`, and comment `remake`.
 
 ## 6. Adding a scene type
 
@@ -146,9 +166,9 @@ On GitHub, run **Actions → "Make a motion video (Tech Education)"**:
 
 ## 7. Known limits / next steps
 
-- Motion is about half the reference's. Next: more scene changes per line, plus new scene types (a browser page, a
-  3D chart, a phone).
+- Motion is about 70% of the reference's. Next: scene types that fill the whole frame with one bright screen (a browser
+  page, a full-screen terminal, a phone), which is where most of the reference's motion and contrast come from.
 - The voice is Kokoro's best for this channel, but still recognisably AI. Next step up: Chatterbox or Dia2 on Kaggle.
-- Only one approved episode so far. The AI writer is tested offline with fake models. Its first real run is the
-  next proof.
+- Only one approved episode so far. The AI writer is tested offline with fake models, and the two workflows have never
+  run on GitHub (they can't until they are on main). Their first real run is the next proof; expect small fixes.
 - No schedule for TE yet. Add one only after Franklin approves a few AI-written episodes.

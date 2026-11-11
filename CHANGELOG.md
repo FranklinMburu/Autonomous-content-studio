@@ -7,6 +7,8 @@
 - New: workflow "Make a motion video (Tech Education)" (manual, own concurrency group) and `tests/test_motion.py`
   (separate CI job with a real render smoke test).
 - New: `docs/MOTION_ENGINE.md`: the reference-to-pipeline method, the v1 -> v3 history and the architecture.
+- New: workflow "Motion review (approve or remake)" for issues labelled `review-motion`; AI-written episodes are saved to main.
+- Engine: automatic coverage cuts (a new angle about every second), light wipes between sets, brighter panels.
 - Unchanged: the explainer and story styles, their workflows, schedule and Kaggle use.
 
 ## v2.0 — Story style added (31 Oct 2026)

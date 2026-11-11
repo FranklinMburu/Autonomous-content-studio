@@ -18,7 +18,7 @@ const { chromium } = require('playwright'); const fs = require('fs'); const path
   await p.evaluate(() => document.fonts.ready);
   let code = 0;
   if (a2 === '--cues') {
-    fs.writeFileSync(a3, JSON.stringify({ cues: info.cues, sections: info.sections, duration: info.duration }));
+    fs.writeFileSync(a3, JSON.stringify(info));
   } else if (a2 === '--stills') {
     fs.mkdirSync(a4, { recursive: true });
     for (const s of a3.split(',')) { const t = +s; await p.evaluate(t => render(t), t); await settle(); await p.screenshot({ path: path.join(a4, `still_${t.toFixed(2)}.jpg`), type: 'jpeg', quality: 88 }); }
