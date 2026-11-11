@@ -107,6 +107,8 @@ Story clock ──(at each slot)──> Story schedule ──(guardrails ok)─�
 | 10 Nov | Tests hung 10 min | apt mirror stall in the test workflow, tests twice per push | apt 3-min timeout + retry, man-db/needrestart off, push runs only on main (#65) |
 | 10 Nov | Films sounded rushed | voice forced to 1.38-1.6x with 0.08/0.2 s gaps | `STORY_VOICE` (#71); voice lab re-baselined (#76) |
 
+| 11 Nov | A Tech Education video reached Franklin with panels cut off, overlapping and under the captions | automatic camera cuts were judged by motion numbers only; nobody measured the frames | engine fits every shot to its subjects and audits its own frames; gate `layout_ok`; tests run the audit for 4 voices/seeds and the fallback plan |
+
 ## 6. Known issues and open questions (verify before acting)
 
 - Whether the repaint changes lower the picture-check failure rate is **not proven yet**: compare the next films'

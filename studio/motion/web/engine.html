@@ -25,10 +25,9 @@ html,body{width:540px;height:960px;overflow:hidden;background:var(--bg);font-fam
 #cap{position:absolute;left:24px;right:24px;top:112px;display:flex;justify-content:center;text-align:center;font:650 32px/1.2 Inter;letter-spacing:-.025em;z-index:10;text-shadow:0 2px 18px rgba(0,0,0,.85)}
 #cap span{display:inline-block;margin:0 .12em;opacity:0}
 #cap span.k{color:var(--acc);font-weight:800;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
-#fx{position:absolute;inset:0;pointer-events:none;z-index:9;background:linear-gradient(180deg,rgba(9,9,12,.96) 0,rgba(9,9,12,.9) 200px,rgba(9,9,12,0) 300px),radial-gradient(130% 80% at 50% 55%,transparent 55%,rgba(0,0,0,.55) 100%)}
+#fx{position:absolute;inset:0;pointer-events:none;z-index:9;background:linear-gradient(180deg,rgba(9,9,12,1) 0,rgba(9,9,12,1) 236px,rgba(9,9,12,0) 286px),radial-gradient(130% 80% at 50% 55%,transparent 55%,rgba(0,0,0,.55) 100%)}
 #grain{position:absolute;inset:0;opacity:.06;mix-blend-mode:overlay;z-index:11;pointer-events:none}
 #flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:12;pointer-events:none;mix-blend-mode:overlay}
-#wipe{position:absolute;top:-10%;left:0;width:70%;height:120%;opacity:0;z-index:8;pointer-events:none;mix-blend-mode:screen;background:linear-gradient(100deg,transparent 0%,rgba(var(--accRGB),.55) 45%,rgba(255,255,255,.75) 50%,rgba(var(--accRGB),.55) 55%,transparent 100%)}
 .win{background:linear-gradient(180deg,#2b2e3a,#1d1f28);border:1px solid rgba(255,255,255,.26);border-radius:16px;box-shadow:0 40px 90px rgba(0,0,0,.65);overflow:hidden;position:relative}
 .win:after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,var(--sheen,0)) 48%,transparent 62%);background-size:300% 100%;background-position:var(--sx,120%) 0;pointer-events:none}
 .bar{height:32px;display:flex;align-items:center;gap:6px;padding:0 12px;border-bottom:1px solid var(--line);font:500 12px Inter;color:var(--tx3)}
@@ -45,7 +44,7 @@ html,body{width:540px;height:960px;overflow:hidden;background:var(--bg);font-fam
 .mono{font-family:JBM}
 .card{border-radius:16px;background:linear-gradient(180deg,#2c2f3b,#1e2029);border:1px solid rgba(255,255,255,.26);box-shadow:0 30px 70px rgba(0,0,0,.6)}
 </style></head>
-<body><div id="vp"><div id="world"></div></div><div id="fx"></div><div id="cap"></div><canvas id="grain" width="270" height="480" style="width:540px;height:960px"></canvas><div id="flash"></div><div id="wipe"></div>
+<body><div id="vp"><div id="world"></div></div><div id="fx"></div><div id="cap"></div><canvas id="grain" width="270" height="480" style="width:540px;height:960px"></canvas><div id="flash"></div>
 <script>
 "use strict";
 // ============================================================ maths
@@ -73,6 +72,8 @@ const OBJ = {};
 function mk(id, html) { const e = document.createElement("div"); e.className = "o"; e.id = id; e.innerHTML = `<div class="in">${html}</div>`; $("world").appendChild(e); OBJ[id] = e; return e; }
 function put(id, o, x, y, z, ry = 0, rx = 0, rz = 0, s = 1, blur = 0) {
   const e = OBJ[id]; if (!e) return;
+  e._o = o > 0.003 ? Math.min(1, o) : 0;
+  if (e._o >= 0.9) { if (e._since == null || NOW < e._since) e._since = NOW; } else e._since = null;   // opaque since when (frame audit)
   if (!(o > 0.003)) { e.style.display = "none"; return; }
   e.style.display = ""; e.style.opacity = Math.min(1, o).toFixed(3);
   e.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,${z.toFixed(1)}px) rotateY(${ry.toFixed(2)}deg) rotateX(${rx.toFixed(2)}deg) rotateZ(${rz.toFixed(2)}deg) scale(${s.toFixed(4)})`;
@@ -108,7 +109,7 @@ function depth(x, y, z) {
   return c.D - z2;
 }
 const dof = (x, y, z, amt = 1) => amt * clamp(Math.abs(depth(x, y, z) - CAM.D) / 260 * 2.2, 0, 5);
-const cam = (o, dx, dy, dz, yaw, pitch, D, P = 900, roll = 0) => ({ x: o.x + dx, y: o.y + dy, z: o.z + dz, yaw, pitch, roll, D: D * 0.97, P });
+const cam = (o, dx, dy, dz, yaw, pitch, D, P = 900, roll = 0) => ({ x: o.x + dx, y: o.y + dy, z: o.z + dz, yaw, pitch, roll, D, P });
 
 // ============================================================ captions
 let groups = [], lastG = -1, KEYW = null;
@@ -193,14 +194,14 @@ const BUILD = {
     mk("sf" + s.i, `<div style="width:2600px;height:5200px;background:repeating-linear-gradient(90deg,rgba(var(--accRGB),.16) 0 2px,transparent 2px 130px),repeating-linear-gradient(0deg,rgba(var(--accRGB),.10) 0 2px,transparent 2px 130px);-webkit-mask-image:radial-gradient(50% 50% at 50% 50%,#000 30%,transparent 75%)"></div>`);
     mk("sn" + s.i, `<div style="text-align:center;width:520px"><div style="font:850 ${String(s.p.value).length > 4 ? 140 : 190}px/1 Inter;letter-spacing:-.06em;color:var(--acc);text-shadow:0 0 60px rgba(var(--accRGB),.45)"><span class="v">0</span><span style="font-size:.58em">${esc(s.p.suffix || "")}</span></div>
       <div style="font:600 24px/1.3 Inter;color:var(--tx);margin-top:6px">${esc(s.p.caption || "")}<br><span style="color:var(--tx2)">${esc(s.p.sub || "")}</span></div>
-      <div style="font:500 13px Inter;color:var(--tx3);margin-top:16px">${s.p.source ? "Source: " + esc(s.p.source) : ""}</div></div>`);
+      <div style="font:600 17px Inter;color:var(--tx2);margin-top:18px">${s.p.source ? "Source: " + esc(s.p.source) : ""}</div></div>`);
   },
   stat_wall(s) {
     const rows = (s.p.rows || []).slice(0, 14);
     mk("wl" + s.i, winHtml(s.p.wall_title || "", rows.map(r => `<div class="row" style="font:400 17px JBM"><span style="color:#6E7586">${esc(r[0])}</span><span style="flex:1;margin-left:16px;color:var(--tx2)">${esc(r[1])}</span><span style="color:var(--bad);font-weight:700">${esc(r[2] || "")}</span></div>`).join(""), 760));
     mk("wn" + s.i, `<div style="text-align:center;width:540px"><div style="font:850 ${String(s.p.value).length > 4 ? 130 : 170}px/1 Inter;letter-spacing:-.06em;color:#fff;text-shadow:0 10px 60px rgba(0,0,0,.95),0 0 40px rgba(248,81,73,.35)"><span class="v">0</span><span style="font-size:.6em;color:var(--bad)">${esc(s.p.suffix || "")}</span></div>
       <div style="font:600 24px/1.3 Inter;color:var(--tx);margin-top:8px;text-shadow:0 4px 24px #000">${esc(s.p.caption || "")}<br><span style="color:var(--tx2)">${esc(s.p.sub || "")}</span></div>
-      <div style="font:500 13px Inter;color:var(--tx3);margin-top:16px;text-shadow:0 2px 10px #000">${s.p.source ? "Source: " + esc(s.p.source) : ""}</div></div>`);
+      <div style="font:600 17px Inter;color:var(--tx2);margin-top:18px;text-shadow:0 2px 10px #000">${s.p.source ? "Source: " + esc(s.p.source) : ""}</div></div>`);
   },
   cta_terminal(s) { mk("ct" + s.i, winHtml(s.p.title || "claude", `<div class="term" style="min-height:118px"><span class="p">&gt; </span><span class="ty"></span><span class="cur"></span><div class="res" style="color:var(--ok);margin-top:8px;font-size:14px"></div></div>`, 490)); },
   file_tree(s) {
@@ -217,7 +218,8 @@ const BUILD = {
   bullets(s) { (s.p.items || []).slice(0, 4).forEach((x, j) => mk(`bl${s.i}_${j}`, `<div class="card" style="width:440px;padding:18px 22px;display:flex;gap:16px;align-items:center"><div style="width:40px;height:40px;border-radius:12px;background:rgba(var(--accRGB),.16);color:var(--acc);font:800 20px Inter;display:flex;align-items:center;justify-content:center">${j + 1}</div><div style="font:650 20px/1.3 Inter">${esc(x)}</div></div>`)); },
   code_card(s) {
     let html = esc(s.p.text || ""); (s.p.marks || []).forEach((m, j) => { const e = esc(m.part); html = html.replace(e, `<span class="mk${j}" style="padding-bottom:3px;border-bottom:3px solid transparent">${e}</span>`); });
-    mk("cc" + s.i, `<div class="win" style="width:510px;padding:18px 18px 14px"><div class="mono" style="font-size:${String(s.p.text).length > 52 ? 13.5 : 16}px;line-height:1.5;white-space:nowrap"><span class="body">${html}</span><span class="app" style="color:var(--acc)"></span></div>
+    const chars = String(s.p.text).length;
+    mk("cc" + s.i, `<div class="win" style="width:510px;padding:18px 18px 14px"><div class="mono" style="font-size:${Math.min(17, 470 / (chars * 0.602)).toFixed(2)}px;line-height:1.5;white-space:nowrap;overflow:hidden"><span class="body">${html}</span><div class="app" style="color:var(--acc);font-weight:700;min-height:0"></div></div>
       <div style="display:flex;gap:18px;justify-content:center;margin-top:10px;font:750 15px Inter">${(s.p.marks || []).map((m, j) => `<span class="ml${j}" style="color:${j % 2 ? "var(--acc)" : "var(--tx)"}">↑ ${esc(m.label)}</span>`).join("")}</div></div>`);
   },
   data_card(s) { mk("dc" + s.i, winHtml(s.p.title || "response", `<div class="mono body" style="font-size:20px;line-height:1.7;padding:16px 22px;color:var(--tx2);min-height:150px"></div>`, 420)); mk("dv" + s.i, `<div class="mono" style="font:700 22px JBM;color:#fff;text-shadow:0 0 18px rgba(var(--accRGB),.9);white-space:nowrap">${esc(s.p.fill || "")}</div>`); },
@@ -227,8 +229,8 @@ const BUILD = {
     mk("cE" + s.i, `<div style="font:850 54px Inter;color:var(--tx)">${esc(s.p.sign || "=")}</div>`);
   },
   leak(s) {
-    for (let j = 0; j < 10; j++) { mk(`av${s.i}_${j}`, `<div style="width:64px;height:64px;border-radius:50%;background:radial-gradient(circle at 50% 35%,#2b2d36,#15161b);border:2px solid rgba(248,81,73,.6);display:flex;align-items:center;justify-content:center;font:800 26px Inter;color:#8a90a0;box-shadow:0 0 24px rgba(248,81,73,.25)">?</div>`);
-      mk(`lk${s.i}_${j}`, `<div style="width:34px;height:34px;color:#FFC861;filter:drop-shadow(0 0 8px rgba(var(--accRGB),.9))">${ICON.key}</div>`); }
+    for (let j = 0; j < 10; j++) { mk(`av${s.i}_${j}`, `<div style="width:76px;height:76px;border-radius:50%;background:radial-gradient(circle at 50% 35%,#4a4d5a,#262830);border:2.5px solid rgba(248,81,73,.9);display:flex;align-items:center;justify-content:center;font:800 32px Inter;color:#e3e6ee;box-shadow:0 0 30px rgba(248,81,73,.45)">?</div>`);
+      mk(`lk${s.i}_${j}`, `<div style="width:44px;height:44px;color:#FFC861;filter:drop-shadow(0 0 8px rgba(var(--accRGB),.9))">${ICON.key}</div>`); }
     mk("q" + s.i, `<div class="win" style="width:440px;padding:16px 18px"><div style="display:flex;justify-content:space-between;font:650 15px Inter;color:var(--tx2)"><span>${esc(s.p.meter_label || "Usage")}</span><span class="qv mono" style="color:var(--tx)">12%</span></div><div style="height:12px;border-radius:9px;background:#22242c;margin-top:12px;overflow:hidden"><div class="qb" style="height:100%;width:12%;border-radius:9px"></div></div></div>`);
   },
   key_fly(s) { mk("ky" + s.i, `<div style="width:90px;height:90px;color:#FFC861;filter:drop-shadow(0 0 14px rgba(var(--accRGB),.9))">${ICON.key}</div>`); },
@@ -240,12 +242,16 @@ const BUILD = {
 function buildStory() {
   const lap = first("laptop_prompt"), app = first("app_window"), dia = first("diagram_link");
   if (lap) {
-    mk("desk", `<div style="width:1500px;height:900px;border-radius:40px;background:radial-gradient(60% 60% at 50% 45%,rgba(var(--accRGB),.16),transparent 70%),linear-gradient(180deg,#1d1814,#0f0d0c);-webkit-mask-image:radial-gradient(55% 55% at 50% 50%,#000 55%,transparent 100%)"></div>`);
+    mk("desk", `<div style="width:1500px;height:900px;border-radius:40px;background:radial-gradient(60% 60% at 50% 45%,rgba(var(--accRGB),.22),transparent 70%),linear-gradient(180deg,#241d17,#110f0d);-webkit-mask-image:radial-gradient(55% 55% at 50% 50%,#000 55%,transparent 100%)"></div>`);
+    // a laptop that reads as a laptop: light metal deck with visible keys and trackpad, bright screen with a real window
+    const keys = Array.from({ length: 4 }, (_, r) => `<div style="display:flex;gap:6px;margin-bottom:6px">${Array.from({ length: 13 }, () => `<i style="flex:1;height:30px;border-radius:5px;background:#5b606d;box-shadow:inset 0 -3px 0 #3f434d"></i>`).join("")}</div>`).join("");
     mk("laptop", `<div style="position:relative;width:600px;height:0;transform-style:preserve-3d">
-      <div style="position:absolute;left:0;top:0;width:600px;height:390px;transform-origin:50% 0;transform:rotateX(-90deg);border-radius:20px;background:linear-gradient(180deg,#2c2e35,#1b1c21);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.12)"><div style="margin:26px 34px 0;height:190px;border-radius:8px;background:repeating-linear-gradient(90deg,#14151a 0 34px,transparent 34px 38px),repeating-linear-gradient(0deg,#14151a 0 34px,transparent 34px 38px);opacity:.9"></div><div style="margin:24px auto 0;width:220px;height:120px;border-radius:12px;background:#24262c"></div></div>
-      <div id="lapScreen" style="position:absolute;left:0;top:-380px;width:600px;height:380px;transform-origin:50% 100%;transform:rotateX(14deg);background:#0b0c0f;border-radius:18px 18px 6px 6px;border:12px solid #25272d;box-shadow:0 0 120px rgba(var(--accRGB),.22),0 0 0 1px rgba(255,255,255,.08);overflow:hidden">
-      <div style="height:26px;display:flex;align-items:center;gap:6px;padding:0 10px;border-bottom:1px solid rgba(255,255,255,.07)"><i style="width:9px;height:9px;border-radius:50%;background:#ff5f57"></i><i style="width:9px;height:9px;border-radius:50%;background:#febc2e"></i><i style="width:9px;height:9px;border-radius:50%;background:#28c840"></i><b style="flex:1;text-align:center;font:500 11px Inter;color:#6E7586;margin-right:40px">${esc(lap.p.title || "claude")}</b></div>
-      <div class="term" style="font-size:24px;line-height:1.5;padding:22px 24px"><span class="p">&gt; </span><span id="lapT"></span><span class="cur" id="lapC"></span><div id="lapR" style="color:var(--ok);margin-top:12px;font-size:19px"></div></div></div></div>`);
+      <div style="position:absolute;left:0;top:0;width:600px;height:390px;transform-origin:50% 0;transform:rotateX(90deg);border-radius:20px;background:linear-gradient(180deg,#8d93a1,#6d7280);box-shadow:inset 0 0 0 2px rgba(255,255,255,.35)">
+        <div style="margin:22px 26px 0;padding:8px;border-radius:10px;background:#2a2c33">${keys}</div>
+        <div style="margin:16px auto 0;width:230px;height:110px;border-radius:12px;background:#7d8391;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.3)"></div></div>
+      <div id="lapScreen" style="position:absolute;left:0;top:-380px;width:600px;height:380px;transform-origin:50% 100%;transform:rotateX(14deg);background:linear-gradient(160deg,#27324a,#151a26);border-radius:18px 18px 6px 6px;border:13px solid #9aa0ae;box-shadow:0 0 140px rgba(var(--accRGB),.3),0 0 0 2px rgba(255,255,255,.25);overflow:hidden">
+        <div class="win" style="margin:20px 22px;border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,.5)"><div class="bar"><i></i><i></i><i></i><b>${esc(lap.p.title || "claude")}</b></div>
+        <div class="term" style="font-size:27px;line-height:1.45;padding:20px 22px;min-height:236px"><span class="p">&gt; </span><span id="lapT"></span><span class="cur" id="lapC" style="height:28px;width:13px"></span><div id="lapR" style="color:var(--ok);margin-top:14px;font-size:21px"></div></div></div></div></div>`);
   }
   if (app) {
     const rows = (app.p.rows || []).slice(0, 3);
@@ -255,15 +261,16 @@ function buildStory() {
   }
   if (dia) {
     mk("server", `<div style="position:relative;width:320px;height:250px;transform-style:preserve-3d">
-      <div class="card front" style="position:absolute;inset:0;transform:translateZ(110px);border-radius:14px;padding:44px 22px 16px;display:flex;flex-direction:column;gap:11px;background:linear-gradient(180deg,#262832,#1a1b21)">
-        <div id="door" style="position:absolute;left:100px;top:-27px;width:120px;height:52px;border-radius:13px;background:#1c1407;border:2px solid var(--acc);display:flex;align-items:center;justify-content:center;font:850 ${String(dia.p.door || "API").length > 5 ? 15 : 22}px Inter;color:var(--acc);box-shadow:0 0 40px rgba(var(--accRGB),.5);opacity:0">${esc(dia.p.door || "API")}</div>
-        ${[0, 1, 2].map(() => `<div style="height:24px;border-radius:6px;background:#121318;display:flex;align-items:center;gap:7px;padding:0 10px"><i class="led" style="width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 8px var(--ok)"></i><i class="led" style="width:7px;height:7px;border-radius:50%;background:var(--acc);box-shadow:0 0 8px var(--acc)"></i><i style="flex:1;height:3px;background:#2b2e39;border-radius:3px"></i></div>`).join("")}
-        <div style="text-align:center;font:700 18px Inter;color:var(--tx);margin-top:4px">${esc((dia.p.icon || "") + " " + (dia.p.label || "Server"))}</div>
-        <div id="ask" style="position:absolute;right:-20px;top:-64px;width:56px;height:56px;border-radius:50%;background:#1b1c22;border:1.5px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font:850 28px Inter;opacity:0">?</div></div>
-      <div style="position:absolute;inset:0;transform:rotateY(180deg) translateZ(110px);background:#101115;border-radius:14px"></div>
-      <div style="position:absolute;left:50px;top:0;width:220px;height:250px;transform:rotateY(-90deg) translateZ(160px);background:linear-gradient(90deg,#0f1014,#17181d);border-radius:10px"></div>
-      <div style="position:absolute;left:50px;top:0;width:220px;height:250px;transform:rotateY(90deg) translateZ(160px);background:linear-gradient(90deg,#17181d,#0f1014);border-radius:10px"></div>
-      <div style="position:absolute;left:0;top:15px;width:320px;height:220px;transform:rotateX(90deg) translateZ(125px);background:linear-gradient(180deg,#2c2e36,#1f2027);border-radius:12px"></div></div>`);
+      <div class="card front" style="position:absolute;inset:0;transform:translateZ(110px);border-radius:14px;padding:30px 22px 16px;display:flex;flex-direction:column;gap:13px;background:linear-gradient(180deg,#343846,#22242d)">
+        ${[0, 1, 2].map(() => `<div style="height:30px;border-radius:7px;background:#14151b;display:flex;align-items:center;gap:8px;padding:0 12px"><i class="led" style="width:9px;height:9px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px var(--ok)"></i><i class="led" style="width:9px;height:9px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px var(--acc)"></i><i style="flex:1;height:4px;background:#3a3e4b;border-radius:3px"></i></div>`).join("")}
+        <div style="text-align:center;font:700 20px Inter;color:var(--tx);margin-top:8px">${esc((dia.p.icon || "") + " " + (dia.p.label || "Server"))}</div></div>
+      <div style="position:absolute;inset:0;transform:rotateY(180deg) translateZ(110px);background:#15161b;border-radius:14px"></div>
+      <div style="position:absolute;left:50px;top:0;width:220px;height:250px;transform:rotateY(-90deg) translateZ(160px);background:linear-gradient(90deg,#17181e,#23252d);border-radius:10px"></div>
+      <div style="position:absolute;left:50px;top:0;width:220px;height:250px;transform:rotateY(90deg) translateZ(160px);background:linear-gradient(90deg,#23252d,#17181e);border-radius:10px"></div>
+      <div style="position:absolute;left:0;top:15px;width:320px;height:220px;transform:rotateX(90deg) translateZ(125px);background:linear-gradient(180deg,#3d414f,#2b2e39);border-radius:12px"></div></div>`);
+    // the door and the "?" are their own objects, in front of and above the box, so the box can never hide them
+    mk("doorO", `<div id="door" style="width:132px;height:54px;border-radius:14px;background:#1c1407;border:2px solid var(--acc);display:flex;align-items:center;justify-content:center;font:850 ${String(dia.p.door || "API").length > 5 ? 15 : 24}px Inter;color:var(--acc);box-shadow:0 0 40px rgba(var(--accRGB),.5)">${esc(dia.p.door || "API")}</div>`);
+    mk("askO", `<div id="ask" style="width:58px;height:58px;border-radius:50%;background:#23252d;border:2px solid rgba(255,255,255,.45);display:flex;align-items:center;justify-content:center;font:850 30px Inter">?</div>`);
     mk("link", `<div id="linkL" style="width:4px;height:100px;background:repeating-linear-gradient(180deg,rgba(255,255,255,.4) 0 6px,transparent 6px 14px);border-radius:3px"></div>`);
   }
 }
@@ -281,7 +288,7 @@ function direct() {
       case "settings_field": go(0.25, cam(o, 0, 110, 160, 10 * sg, 4, 820)); key(t1 - 0.25, cam(o, 0, 120, 220, 0, 2, 720)); cue(t0, "whoosh", 0.8); cue(W(s.line, s.p.glow_word, 0.8), "click"); break;
       case "stat_floor": go(0.55, cam(o, 0, -40, 0, -6 * sg, 14, 820, 780, -2)); if (t1 - t0 > 3.2) { key(t0 + 2.3, cam(o, 0, -40, 0, 6 * sg, 8, 760, 800)); cut(t0 + 2.4, cam(o, 0, -40, 0, 6 * sg, 8, 760, 800), cam(o, 60 * sg, 60, 0, 26 * sg, -6, 700, 700, 3)); }
         key(t1 - 0.3, cam(o, 40 * sg, 40, 0, 16 * sg, -3, 660, 720, 1)); cue(t0 - 0.3, "swoosh_big"); cue(t0 + 0.1, "riser", 0.7); for (let j = 0; j < 12; j++) cue(t0 + 0.1 + j * 0.085, "tick", 0.35); break;
-      case "laptop_prompt": { const c0 = cam(o, 0, 130, 40, 34 * sg, 18, 1150, 880); if (newSet && prev) cut(t0 - 0.15, camAtKeyLast(), c0); else key(t0 - 0.1, c0);
+      case "laptop_prompt": { const c0 = cam(o, 0, 130, 40, 34 * sg, 18, 1150, 880); key(t0, c0);
         key(t1 - 0.1, cam(o, 0, 120, 20, 12 * sg, 12, 1000)); const n = Math.max(8, String(s.p.prompt || "").length); for (let j = 0; j < Math.min(n, 30); j++) cue(lerp(t0 + 0.4, t1 - 0.3, j / Math.min(n, 30)), "key", 0.35); cue(t1 - 0.2, "pop"); break; }
       case "app_window": { const fromLap = prev && prev.type === "laptop_prompt";
         if (!fromLap) { const c0 = cam(o, 0, 30, 40, -10 * sg, 6, 900); newSet && prev ? cut(t0 - 0.1, camAtKeyLast(), c0) : key(t0, c0); }
@@ -309,6 +316,14 @@ function direct() {
     if (newSet && prev && !["laptop_prompt", "app_window", "code_card", "data_card", "key_fly", "compare", "badge"].includes(s.type)) cue(t0 - 0.35, "swoosh_big", 0.8);
   });
   CK.sort((a, b) => a[0] - b[0]);
+  SC.forEach((s, i) => {
+    if (!i || SC[i - 1].sid === s.sid || CUTS.some(c => Math.abs(c - s.t0) < 0.2)) return;
+    const arrive = CK.find(k => k[0] >= s.t0 - 0.001); if (!arrive) return;
+    const prevKeys = CK.filter(k => k[0] < s.t0 - 0.0005); if (!prevKeys.length) return;
+    const before = prevKeys[prevKeys.length - 1][1], a = arrive[1];     // hold the last shot of the old set until the cut
+    CK.push([s.t0 - 0.001, before], [s.t0, { ...a, D: a.D * 1.14, yaw: a.yaw - 9 * ST.sign }]); CK.sort((x, y) => x[0] - y[0]);   // cut, then a short push-in
+    CUTS.push(s.t0);
+  });
   CUTS.forEach(tc => cue(tc - 0.12, "whoosh", 0.45));
   coverage();
   CUES.sort((a, b) => a.t - b.t);
@@ -341,6 +356,105 @@ function coverage() {
   }
   return added;
 }
+// ============================================================ framing guard + frame audit
+// Two faults reached Franklin on 11 Nov because motion numbers can't see them: panels cut off by the screen edge and
+// things sitting on top of each other. So the engine now measures its own frames (real on-screen boxes):
+//   fitShots()  per shot (between cuts), pulls the camera back / re-centres it until the scene's subject is inside the frame
+//   audit()     afterwards, lists anything still cut off or overlapping; the pipeline holds the video if the list isn't empty
+let CAMFORCE = null;
+const SAFE = { l: 10, r: 530, t: 292, b: 944 }, FIT = { l: 26, r: 514, t: 304, b: 932 }   /* fit tighter than the audit: things still move between samples */, SETTLE = 0.55;
+const SOLID = /^(core|set|sn|wn|app|server|cc|dc|cA|cB|bd|ct|ft|eb|q|bw|bl)\d*(_\d+)?$/;
+function subjects(s, t = 0) {
+  const i = s.i, prevOf = ty => { for (let k = i - 1; k >= 0; k--) if (SC[k].type === ty) return SC[k]; return null; };
+  switch (s.type) {
+    case "hook_orbit": return ["core" + i].concat((s.p.items || []).slice(0, 8).map((_, j) => `ap${i}_${j}`));
+    case "settings_field": { const h = prevOf("hook_orbit"); return ["set" + i].concat(h ? ["core" + h.i] : []); }
+    case "stat_floor": return ["sn" + i];
+    case "laptop_prompt": return ["laptop"];
+    case "app_window": return ["app"];
+    case "diagram_link": case "badges_intro": case "packet": return ["app", "server", "doorO"];
+    case "door": return ["app", "server", "doorO"];
+    case "code_card": return ["cc" + i];
+    case "data_card": return t < s.t0 + 1.1 ? ["dc" + i] : ["app", "server", "doorO"];   // the card leaves, the diagram is the subject again
+    case "question": return ["app", "server", "doorO", "hq" + i];
+    case "key_fly": { const h = prevOf("question"), c = s.p.append ? prevOf("code_card") : null; return c && t >= W(s.line, s.p.word, 0.4) + 0.3 ? ["cc" + c.i] : ["app", "server", "doorO"].concat(h ? ["hq" + h.i] : []); }
+    case "compare": return ["cA" + i, "cB" + i];
+    case "leak": return ["server", "doorO", "q" + i].concat(Array.from({ length: 10 }, (_, j) => `av${i}_${j}`));
+    case "stat_wall": return ["wn" + i];
+    case "badge": return ["app", "server", "doorO"].concat(SC.filter(x => x.type === "badge" && x.i <= i).map(x => "bd" + x.i));
+    case "cta_terminal": return ["ct" + i];
+    case "file_tree": { const h = prevOf("cta_terminal"); return ["ft" + i].concat(h ? ["ct" + h.i] : []); }
+    case "end_card": return ["ea" + i, "eb" + i, "ec" + i];
+    case "big_word": return ["bw" + i];
+    case "bullets": return (s.p.items || []).slice(0, 4).map((_, j) => `bl${i}_${j}`);
+  }
+  return [];
+}
+function boxOf(id) {
+  const e = OBJ[id]; if (!e || !e._o || e._o < 0.9 || e._since == null || NOW - e._since < SETTLE - 0.01) return null;   // only solid, settled things
+  const el = id === "laptop" ? $("lapScreen") : e.firstElementChild.firstElementChild; if (!el) return null;
+  const r = el.getBoundingClientRect(); if (r.width < 2 || r.height < 2) return null;
+  return { id, l: r.left, r: r.right, t: r.top, b: r.bottom };
+}
+function look(t) { render(Math.max(0, t - SETTLE)); render(t); }      // so "settled" is known at t
+function fitShots() {
+  const ev = [...new Set([0, ...CUTS, ...SETCH, DUR].map(x => +x.toFixed(4)))].sort((a, b) => a - b);
+  let moved = 0;
+  for (let n = 0; n < ev.length - 1; n++) {
+    const a = ev[n], b = ev[n + 1]; if (b - a < 0.12) continue;
+    const times = []; for (let t = a + 0.06; t < b - 0.05; t += 0.1) times.push(t); times.push(b - 0.06);
+    const keys = CK.filter(k => k[0] >= a - 0.0005 && k[0] < b - 0.0005); if (!keys.length) continue;
+    for (let it = 0; it < 14; it++) {
+      let L = -1e9, R = -1e9, T_ = -1e9, B = -1e9, any = false, x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9;
+      const take = (sc, t) => { for (const id of subjects(sc, t)) { const x = boxOf(id); if (!x) continue; any = true;
+        L = Math.max(L, FIT.l - x.l); R = Math.max(R, x.r - FIT.r); T_ = Math.max(T_, FIT.t - x.t); B = Math.max(B, x.b - FIT.b);
+        x0 = Math.min(x0, x.l); x1 = Math.max(x1, x.r); y0 = Math.min(y0, x.t); y1 = Math.max(y1, x.b); } };
+      for (const t of times) { look(t); take(sceneAt(t), t); }
+      if (!any) {   // nothing has settled inside this short shot: measure where things will be, seen from this shot's camera
+        const sc = sceneAt((a + b) / 2), tl = Math.min(sc.t1 - 0.03, b + 0.75);
+        CAMFORCE = camBase((a + b) / 2); look(tl); take(sc, tl); CAMFORCE = null;
+      }
+      if (!any) break;
+      const D = keys.reduce((m, k) => m + k[1].D, 0) / keys.length, P = keys[0][1].P, w = D / P;
+      const fill = Math.max((x1 - x0) / (FIT.r - FIT.l), (y1 - y0) / (FIT.b - FIT.t));
+      if (L <= 0.5 && R <= 0.5 && T_ <= 0.5 && B <= 0.5) {
+        if (fill > 0.66 || it > 4) break;
+        const z = Math.max(0.72, fill / 0.8);        // small in the frame: move in (then the next rounds re-centre)
+        for (const k of keys) k[1] = { ...k[1], D: k[1].D * z };
+        moved++; continue;
+      }
+      const zoom = Math.max(L + R > 0 ? 1 + (L + R) / (FIT.r - FIT.l) : 1, T_ + B > 0 ? 1 + (T_ + B) / (FIT.b - FIT.t) : 1);
+      const dx = L + R > 0 ? (R - L) / 2 : (R > 0 ? R : L > 0 ? -L : 0), dy = T_ + B > 0 ? (B - T_) / 2 : (B > 0 ? B : T_ > 0 ? -T_ : 0);
+      for (const k of keys) k[1] = { ...k[1], D: k[1].D * Math.min(1.35, zoom > 1 ? zoom + 0.015 : 1), x: k[1].x + dx * w * 1.02, y: k[1].y + dy * w * 1.02 };
+      moved++;
+    }
+  }
+  return moved;
+}
+function audit() {
+  const out = {}, add = (key, t, what, px) => { if (!out[key] || px > out[key].px) out[key] = { t: +t.toFixed(2), what, px: Math.round(px) }; };
+  for (let t = 0.4; t < DUR - 0.15; t += 0.2) {
+    const sc = sceneAt(t); look(t);
+    if (t <= sc.t1 - 0.2) for (const id of subjects(sc, t)) { const x = boxOf(id); if (!x) continue;
+      const over = Math.max(SAFE.l - x.l, x.r - SAFE.r, SAFE.t - x.t, x.b - SAFE.b);
+      if (over > 8) add("cut:" + id, t, `${id} is cut off by the ${SAFE.t - x.t === over ? "caption area" : "screen edge"} (${sc.type})`, over); }
+    const solid = Object.keys(OBJ).filter(id => SOLID.test(id) || id === "laptop" || id === "doorO" || /^ap\d/.test(id)).map(boxOf).filter(Boolean);
+    for (const x of solid) {   // anything solid that is partly on screen must be whole, and clear of the captions
+      const w = x.r - x.l, h = x.b - x.t, outX = Math.max(0 - x.l, x.r - 540, 0), outB = Math.max(x.b - 960, 0), cap = x.t < SAFE.t - 10 && x.b > SAFE.t + 6 ? SAFE.t - x.t : 0;
+      if (x.r < 0 || x.l > 540 || x.b < SAFE.t || x.t > 960) continue;
+      if (outX > 0.06 * w || outB > 0.06 * h) add("edge:" + x.id, t, `${x.id} is cut off by the screen edge (${sc.type})`, Math.max(outX, outB));
+      if (cap > 0.06 * h) add("cap:" + x.id, t, `${x.id} runs under the captions (${sc.type})`, cap);
+    }
+    for (let i = 0; i < solid.length; i++) for (let j = i + 1; j < solid.length; j++) {
+      const p = solid[i], q_ = solid[j], w = Math.min(p.r, q_.r) - Math.max(p.l, q_.l), h = Math.min(p.b, q_.b) - Math.max(p.t, q_.t);
+      if (w <= 0 || h <= 0) continue;
+      const share = w * h / Math.min((p.r - p.l) * (p.b - p.t), (q_.r - q_.l) * (q_.b - q_.t));
+      if ((p.id === "doorO" && q_.id === "server") || (p.id === "server" && q_.id === "doorO")) continue;   // the door is mounted on the server
+      if (share > 0.08) add(`over:${p.id}+${q_.id}`, t, `${p.id} and ${q_.id} overlap (${sc.type})`, share * 100);
+    }
+  }
+  return Object.values(out).sort((a, b) => a.t - b.t);
+}
 function camAtKeyLast() { return CK.length ? { ...CK[CK.length - 1][1] } : cam({ x: 0, y: 0, z: 0 }, 0, 0, 0, 0, 0, 900); }
 
 // ============================================================ the frame
@@ -349,19 +463,17 @@ const q = (id, sel) => OBJ[id] && OBJ[id].querySelector(sel);
 function render(t) {
   NOW = t; captions(t);
   let shake = 0; for (const c of CUES) if ((c.kind === "slam" || c.kind === "impact") && t >= c.t && t < c.t + 0.35) shake = Math.max(shake, (1 - (t - c.t) / 0.35) * (c.kind === "slam" ? 1 : 0.7));
-  applyCam(camAt(t), shake);
+  applyCam(CAMFORCE || camAt(t), shake);
   let fl = 0; for (const c of CUES) if ((c.kind === "slam" || c.kind === "impact") && t >= c.t && t < c.t + 0.2) fl = Math.max(fl, 1 - (t - c.t) / 0.2);
   $("flash").style.opacity = (0.35 * fl).toFixed(3);
-  let wk = -1; for (const ts of SETCH) { const k = (t - ts + 0.16) / 0.34; if (k > 0 && k < 1) wk = k; }   // a light wipe on every change of set
-  const wp = $("wipe"); wp.style.opacity = wk < 0 ? 0 : Math.sin(Math.PI * wk).toFixed(3); wp.style.transform = `translateX(${lerp(-110, 250, wk < 0 ? 0 : ease(wk)) * ST.sign}%) skewX(-12deg)`;
   // which sets are on screen: a set is visible from its first scene to the last, with fades
   const span = {}; SC.forEach(s => { const sp = span[s.sid] || (span[s.sid] = [s.t0, s.t1]); sp[0] = Math.min(sp[0], s.t0); sp[1] = Math.max(sp[1], s.t1); });
-  const vis = id => span[id] ? win(t, span[id][0] - 0.35, span[id][1] - 0.15, .4, .35) : 0;
-  for (const [id, o] of Object.entries(POS)) { const v = vis(id); put("g_" + id, 0.9 * v + 0.1 * v * Math.sin(t * 1.3), o.x, o.y + 40, o.z - 500, CAM.yaw, CAM.pitch, 0, 1 + 0.05 * Math.sin(t * 0.8)); put("f_" + id, v, o.x, o.y + (id === "story" ? 600 : 400), o.z, 0, 90, 0, 1); }
+  const vis = id => span[id] ? (t >= span[id][0] - 0.02 && t < span[id][1] - 0.001 ? 1 : 0) : 0;   // sets switch on the cut
+  for (const [id, o] of Object.entries(POS)) { const v = vis(id); put("g_" + id, 0.9 * v + 0.1 * v * Math.sin(t * 1.3), o.x, o.y + 40, o.z - 500, CAM.yaw, CAM.pitch, 0, 1 + 0.05 * Math.sin(t * 0.8)); put("f_" + id, v, o.x, o.y + (id === "story" ? 700 : 400), o.z, 0, 90, 0, 1); }
   // light streaks run across whichever floor is most visible
   let best = null, bv = 0; for (const id of Object.keys(POS)) { const v = vis(id); if (v > bv) { bv = v; best = id; } }
   for (let i = 0; i < 46; i++) { const lane = (i * 7) % 19 - 9, sp = 900 + (i * 131) % 700, ph = (t * sp / 3400 + i * 0.217) % 1, o = POS[best] || { x: 0, y: 0, z: 0 };
-    put("st" + i, bv * Math.sin(Math.PI * ph), o.x + lane * 120, o.y + (best === "story" ? 598 : 398), o.z - 1300 + ph * 2600, 0, 90, 0, 0.8); }
+    put("st" + i, bv * Math.sin(Math.PI * ph), o.x + lane * 120, o.y + (best === "story" ? 698 : 398), o.z - 1300 + ph * 2600, 0, 90, 0, 0.8); }
   for (const s of SC) RENDER[s.type] && RENDER[s.type](t, s, POS[s.sid], vis(s.sid));
   if (POS.story) renderStory(t, POS.story, vis("story"));
   // window sheen when panels arrive
@@ -369,36 +481,36 @@ function render(t) {
 }
 const RENDER = {
   hook_orbit(t, s, o, v) {
-    const oH = v;
-    put("core" + s.i, oH * ramp(t, s.t0 + 0.05, .3), o.x, o.y + 40, o.z, 0, 0, 0, 0.6 + 0.4 * spring((t - s.t0 - 0.05) / 0.8) + 0.02 * Math.sin(t * 4));
+    const nx = SC[s.i + 1], panel = nx && nx.type === "settings_field" ? ramp(t, nx.t0 - 0.15, .35) : 0, oH = v;
+    put("core" + s.i, oH * ramp(t, s.t0 + 0.05, .3), o.x, o.y + 30 - 150 * panel, o.z, 0, 0, 0, (0.6 + 0.4 * spring((t - s.t0 - 0.05) / 0.8) + 0.02 * Math.sin(t * 4)) * (1 - 0.15 * panel));
     const items = s.p.items || [], n = Math.max(1, items.length);
     items.slice(0, 8).forEach((_, j) => {
-      const ang = j * (2 * Math.PI / n) + t * 0.32 * ST.sign, k = spring((t - s.t0 - 0.15 - j * 0.09) / 0.7);
-      const x = Math.cos(ang) * 270, z = Math.sin(ang) * 270, y = 40 + Math.sin(ang * 2 + j) * 90 - 10;
-      put(`ap${s.i}_${j}`, oH * clamp((t - s.t0 - 0.15 - j * 0.09) * 5), o.x + x * k, o.y + y * k + (1 - k) * 40, o.z + z * k, CAM.yaw, 0, 0, 0.5 + 0.5 * k, dof(o.x + x, y, o.z + z, 0.45));
+      const ang = j * (2 * Math.PI / n) + t * 0.32 * ST.sign, k = spring((t - s.t0 - 0.1 - j * 0.045) / 0.6);
+      const x = Math.cos(ang) * 240, z = 0, y = 30 + Math.sin(ang) * 215;     // a flat ring around the core, never across it
+      put(`ap${s.i}_${j}`, oH * (1 - panel) * clamp((t - s.t0 - 0.1 - j * 0.045) * 6), o.x + x * k, o.y + y * k + (1 - k) * 40, o.z + z * k, CAM.yaw, 0, 0, (0.5 + 0.5 * k) * 0.88, dof(o.x + x, y, o.z + z, 0.3));
     });
-    for (let j = 0; j < 24; j++) { const a = j % n, ang = a * (2 * Math.PI / n) + t * 0.32 * ST.sign, p = (t * 0.7 + j * 0.37) % 1, x = Math.cos(ang) * 270, z = Math.sin(ang) * 270, y = 40 + Math.sin(ang * 2 + a) * 90 - 10;
-      put(`pt${s.i}_${j}`, oH * Math.sin(Math.PI * p) * ramp(t, s.t0 + 0.6, .4), o.x + lerp(x, 0, p), o.y + lerp(y, 40, p), o.z + lerp(z, 0, p)); }
+    for (let j = 0; j < 24; j++) { const a = j % n, ang = a * (2 * Math.PI / n) + t * 0.32 * ST.sign, p = (t * 0.7 + j * 0.37) % 1, x = Math.cos(ang) * 240, z = 0, y = 30 + Math.sin(ang) * 215;
+      put(`pt${s.i}_${j}`, oH * (1 - panel) * Math.sin(Math.PI * p) * ramp(t, s.t0 + 0.6, .4), o.x + lerp(x, 0, p), o.y + lerp(y, 30, p), o.z + lerp(z, 0, p)); }
   },
   settings_field(t, s, o, v) {
     const a = s.t0 - 0.05, k = spring((t - a) / 0.8), on = ramp(t, a, .25) * (1 - ramp(t, s.t1 - 0.1, .4));
-    put("set" + s.i, on * v, o.x, o.y + lerp(520, 150, k), o.z + lerp(-200, 120, k), lerp(-25, 0, k), lerp(55, 0, k)); markWin("set" + s.i, a);
+    put("set" + s.i, on * v, o.x, o.y + lerp(520, 170, k), o.z + lerp(-200, 0, k), lerp(-25, 0, k), lerp(55, 0, k)); markWin("set" + s.i, a);
     const g = ramp(t, W(s.line, s.p.glow_word, 0.8) - 0.05, .25), f = q("set" + s.i, ".kf");
     f.style.borderColor = `rgba(${ST.accent_rgb},${0.14 + 0.86 * g})`; f.style.boxShadow = `0 0 ${36 * g}px rgba(${ST.accent_rgb},${0.5 * g})`;
     q("set" + s.i, ".kc").style.opacity = Math.floor(t * 2.4) % 2 ? 0 : 1;
   },
   stat_floor(t, s, o, v) {
-    const on = win(t, s.t0 - 0.35, s.t1 - 0.15, .4, .35);
+    const on = v * ramp(t, s.t0 - 0.35, .4);
     put("sf" + s.i, on, o.x, o.y + 280, o.z, 0, 90, 0, 1);
     const k = spring((t - s.t0 - 0.1) / 0.9); put("sn" + s.i, on * ramp(t, s.t0 - 0.05, .3), o.x, o.y + lerp(80, -40, k), o.z, 0, lerp(-40, 0, k), 0, lerp(0.6, 1, k));
     q("sn" + s.i, ".v").textContent = fmtNum(+s.p.value * eout((t - s.t0 - 0.05) / 1.3), s.p.value);
   },
   stat_wall(t, s, o, v) {
-    const on = win(t, s.t0 - 0.25, s.t1 - 0.05, .3, .35);
-    put("wl" + s.i, on * 0.85, o.x - 470, o.y + 40, o.z - 120, 18, 0, -4, 1.15, 2.2);
+    const on = v * ramp(t, s.t0 - 0.25, .3);
+    put("wl" + s.i, on * 0.3, o.x - 330, o.y + 60, o.z - 420, 18, 0, -4, 1.5, 3.5);   // far behind and dim: a backdrop, never over the text
     OBJ["wl" + s.i].querySelectorAll(".row").forEach((r, j) => { const k = clamp((t - s.t0 - 0.25 - j * 0.11) * 5); r.style.opacity = k; r.style.transform = `translateX(${(1 - k) * 60}px)`; });
-    const k = spring((t - s.t0 - 0.5) / 0.7); put("wn" + s.i, on * ramp(t, s.t0 + 0.4, .2), o.x - 180, o.y + 80, o.z + 300, 30, 0, 0, lerp(1.5, 0.9, k));
-    q("wn" + s.i, ".v").textContent = fmtNum(+s.p.value * eout((t - s.t0 - 0.5) / 1.6), s.p.value);
+    const k = spring((t - s.t0 - 0.05) / 0.7); put("wn" + s.i, on * ramp(t, s.t0 - 0.05, .12), o.x - 180, o.y + 80, o.z + 300, CAM.yaw, 0, 0, lerp(1.3, 0.9, k));
+    q("wn" + s.i, ".v").textContent = fmtNum(+s.p.value * eout((t - s.t0 - 0.1) / 1.6), s.p.value);
   },
   cta_terminal(t, s, o, v) {
     const on = v * ramp(t, s.t0 - 0.25, .35), k = spring((t - s.t0 + 0.1) / 0.7);
@@ -426,33 +538,40 @@ const RENDER = {
 function fmtNum(x, target) { const s = String(target); const dec = s.includes(".") ? s.split(".")[1].length : 0; return x.toFixed(dec); }
 function markWin(id, a) { const w = OBJ[id] && OBJ[id].querySelector(".win"); if (w) w.dataset.a = a; }
 
-// the growing story set: laptop -> app -> server + link -> packets, cards, key, leak, badges
+// The growing story set: laptop -> app -> server + link -> packets, cards, key, leak, badges.
+// Layout rule (frame audit, 11 Nov): two solid things never share the same screen space.
+//   app on top (y -272..-28) | badges in the gap (y 6..144) | door (y 195..250) | server (y 255..505) | meter (y ~590)
+//   Overlay cards (code, data, compare) take the frame: everything behind them fades to 10%.
 function renderStory(t, O, v) {
   const lap = first("laptop_prompt"), app = first("app_window"), dia = first("diagram_link"), door = first("door");
-  const leakS = first("leak"), dimL = leakS ? 1 - 0.75 * win(t, leakS.t0 - 0.05, leakS.t1 + 0.3, .3, .3) : 1;
-  const away = SC.filter(s => s.set === "wall" && s.t0 > (app ? app.t0 : 0));   // camera visits the wall set: fade the story while away
-  let awayK = 0; for (const w of away) awayK = Math.max(awayK, win(t, w.t0, w.t1 - 0.3, .3, .3));
+  const leakS = first("leak"), leakK = leakS ? win(t, leakS.t0 - 0.05, leakS.t1 + 0.1, .3, .3) : 0;
+  let awayK = 0; for (const w of SC) if (w.set === "wall" && w.t0 > (app ? app.t0 : 0)) awayK = Math.max(awayK, win(t, w.t0, w.t1 - 0.3, .3, .3));
   const sv = v * (1 - awayK);
-  if (lap) {
-    const k = spring((t - lap.t0 + 0.25) / 0.9), endT = app ? app.t0 : lap.t1, on = sv * win(t, lap.t0 - 0.3, endT + 0.3, .3, .5), go = ramp(t, endT - 0.3, .7);
-    put("desk", on, O.x, O.y + 302, O.z, 0, 90, 0, 1);
-    put("laptop", on, O.x, O.y + 300 + lerp(120, 0, k) + go * 260, O.z - go * 300, lerp(-30, 0, k) * ST.sign, 0, 0, 1);
-    $("lapScreen").style.transform = `rotateX(${lerp(95, 14, spring((t - lap.t0 - 0.05) / 0.9))}deg)`;
-    type($("lapT"), lap.p.prompt || "", t, lap.t0 + 0.4, lap.t1 - 0.4); $("lapC").style.opacity = Math.floor(t * 2.4) % 2 ? 0 : 1;
-    $("lapR").textContent = t > lap.t1 - 0.3 && lap.p.result ? "✓ " + lap.p.result : "";
+  // how much an overlay card owns the frame right now
+  let ov = 0;
+  for (const s of SC) {
+    if (s.type === "code_card") { const kf = first("key_fly", s.i); ov = Math.max(ov, win(t, s.t0 - 0.34, s.t1 - 0.05, .2, .25), kf && kf.p.append ? win(t, W(kf.line, kf.p.word, 0.4) + 0.3, kf.t1 - 0.05, .25, .25) : 0); }
+    if (s.type === "data_card") ov = Math.max(ov, win(t, s.t0 - 0.34, s.t0 + 1.25, .2, .25));   // the diagram is gone before the cut to the card
+    if (s.type === "compare") ov = Math.max(ov, win(t, s.t0 - 0.3, s.t1 - 0.05, .2, .25));
   }
-  const storyEnd = Math.max(...SC.filter(s => s.set === "story").map(s => s.t1));
+  const bg = 1 - 0.9 * ov;
+  if (lap) {
+    const a0 = lap.t1 - 0.35, k = spring((t - lap.t0 + 0.7) / 0.9), on = sv * win(t, lap.t0 - 0.3, a0 + 0.15, .3, .3), go = ramp(t, a0, .5);
+    put("desk", on, O.x, O.y + 302, O.z, 0, 90, 0, 1);
+    put("laptop", on, O.x, O.y + 300 + lerp(120, 0, k) + go * 200, O.z - go * 260, lerp(-30, 0, k) * ST.sign, 0, 0, 1);
+    $("lapScreen").style.transform = `rotateX(${lerp(60, 12, spring((t - lap.t0 + 0.35) / 0.8))}deg)`;
+    type($("lapT"), lap.p.prompt || "", t, lap.t0 + 0.4, lap.t1 - 0.6); $("lapC").style.opacity = Math.floor(t * 2.4) % 2 ? 0 : 1;
+    $("lapR").textContent = t > lap.t1 - 0.5 && lap.p.result ? "✓ " + lap.p.result : "";
+  }
   if (app) {
-    const a0 = lap ? lap.t1 - 0.35 : app.t0 - 0.1, aIn = spring((t - a0) / 0.8), toNode = dia ? ramp(t, dia.t0 - 0.05, .7) : 0;
-    const big = lerp(lerp(150, 60, aIn), 0, ramp(t, app.t0 + 0.6, .5)), appY = lerp(big, -150, toNode), appZ = lerp(lerp(-80, 60, aIn), 0, toNode);
-    const cmpS = first("compare"), dat = first("data_card");
-    const dim = dimL * (cmpS ? 1 - 0.6 * win(t, cmpS.t0 - 0.05, cmpS.t1 - 0.05, .25, .25) : 1) * (dat ? 1 - 0.45 * win(t, dat.t0 - 0.15, dat.t0 + 0.6, .2, .25) : 1);
-    put("app", sv * ramp(t, a0, .25), O.x + 5 * Math.sin(t * 1.3), O.y + appY + 6 * Math.sin(t * 1.7), O.z + appZ, lerp(25, 0, aIn) * ST.sign, lerp(20, 0, aIn), 0, 1, dof(O.x, O.y + appY, O.z, 0.6)); markWin("app", a0);
-    OBJ.app.querySelector(".win").style.filter = `brightness(${dim})`;
+    const a0 = lap ? lap.t1 - 0.3 : app.t0 - 0.1, aIn = spring((t - a0) / 0.8), toNode = dia ? ramp(t, dia.t0 - 0.05, .7) : 0;
+    const appY = lerp(lerp(lerp(120, 40, aIn), 0, ramp(t, app.t0 + 0.6, .5)), -150, toNode);
+    const dat = first("data_card");
+    put("app", sv * ramp(t, a0 + 0.1, .25) * bg * (1 - 0.9 * leakK), O.x + 4 * Math.sin(t * 1.3), O.y + appY + 5 * Math.sin(t * 1.7), O.z, lerp(25, 0, aIn) * ST.sign, lerp(20, 0, aIn)); markWin("app", a0);
     OBJ.app.querySelectorAll(".ar").forEach((r, j) => { const k = spring((t - a0 - 0.1 - j * 0.09) / 0.6); r.style.transform = `translateX(${(1 - k) * 40}px)`; r.style.opacity = clamp((t - a0 - j * 0.09) * 4); });
     const sv2 = $("slotV");
     if (sv2) {
-      const fillAt = dat && dat.p.fill ? dat.t0 + 1.05 : 1e9, unkA = app.p.unknown ? W(app.line, app.p.unknown_word, 0.5) : 1e9;
+      const fillAt = dat && dat.p.fill ? dat.t0 + 1.36 : 1e9, unkA = app.p.unknown ? W(app.line, app.p.unknown_word, 0.5) : 1e9;
       const unk = win(t, unkA, fillAt - 0.05, .2, .2), filled = ramp(t, fillAt, .25);
       if (filled > 0) { sv2.innerHTML = `<span style="color:#fff">${esc(dat.p.fill)}</span>`; sv2.style.opacity = filled; sv2.style.transform = `scale(${1 + 0.25 * (1 - spring((t - fillAt) / .6))})`; }
       else if (unk > 0) { sv2.innerHTML = `<span style="color:var(--acc);font-size:24px;font-weight:850">?</span>`; sv2.style.opacity = 0.5 + 0.5 * Math.abs(Math.sin(t * 4)); sv2.style.transform = ""; }
@@ -463,33 +582,33 @@ function renderStory(t, O, v) {
     }
   }
   if (!dia) return;
-  const srv = spring((t - dia.t0 - 0.1) / 0.8), SY = O.y + 330, SZ = O.z - 140;
-  put("server", sv * ramp(t, dia.t0 + 0.05, .3), O.x, lerp(SY + 260, SY, srv) + 5 * Math.sin(t * 1.5 + 1), lerp(SZ - 400, SZ, srv), lerp(-20, 0, srv) * ST.sign + 6 * Math.sin(t * 0.9));
-  OBJ.server.querySelector(".front").style.filter = `brightness(${dimL})`;
-  const doorAt = door ? W(door.line, door.p.word, 0.6) : dia.t0 + 1.0, dk = spring((t - doorAt + 0.05) / 0.6), D_ = $("door");
-  D_.style.transform = `perspective(400px) rotateX(${lerp(-90, 0, dk)}deg) scale(${0.7 + 0.3 * dk})`; D_.style.opacity = clamp((t - doorAt + 0.05) * 6);
-  D_.style.boxShadow = `0 0 ${40 + 40 * Math.sin(t * 3) ** 2}px rgba(${ST.accent_rgb},${0.3 + 0.4 * dk})`;
+  const srv = spring((t - dia.t0 - 0.1) / 0.8), SY = O.y + 380, SZ = O.z - 140, sOn = sv * ramp(t, dia.t0 + 0.05, .3) * bg;
+  put("server", sOn, O.x, lerp(SY + 260, SY, srv), lerp(SZ - 400, SZ, srv), lerp(-20, 0, srv) * ST.sign + 5 * Math.sin(t * 0.9));
   OBJ.server.querySelectorAll(".led").forEach((e, i) => e.style.opacity = Math.sin(t * 7 + i * 2) > -0.3 ? 1 : 0.25);
+  const doorAt = door ? W(door.line, door.p.word, 0.6) : dia.t0 + 1.0, dk = spring((t - doorAt + 0.05) / 0.6), DY = SY - 125 - 32;
+  put("doorO", sOn * clamp((t - doorAt + 0.05) * 6), O.x, DY - (1 - dk) * 30, SZ + 118, 0, lerp(-80, 0, dk), 0, 0.7 + 0.3 * dk);
+  $("door").style.boxShadow = `0 0 ${40 + 40 * Math.sin(t * 3) ** 2}px rgba(${ST.accent_rgb},${0.3 + 0.4 * dk})`;
   const appH = OBJ.app ? OBJ.app.firstElementChild.firstElementChild.offsetHeight : 240;
-  const aB = { y: O.y - 150 + appH / 2, z: O.z }, sT = { y: SY - 150, z: SZ + 110 };
+  const aB = { y: O.y - 150 + appH / 2, z: O.z }, sT = { y: DY - 30, z: SZ + 118 };
   const ll = ease((t - dia.t0 - 0.3) / 0.6), len = Math.hypot(sT.y - aB.y, sT.z - aB.z) * ll, ang = Math.atan2(sT.z - aB.z, sT.y - aB.y) * 180 / Math.PI;
   $("linkL").style.height = len + "px"; $("linkL").style.backgroundPosition = `0 ${t * 40}px`;
-  put("link", sv * ramp(t, dia.t0 + 0.05, .3), O.x, lerp(aB.y, sT.y, ll / 2), lerp(aB.z, sT.z, ll / 2), 0, -ang);
-  const path = k => ({ y: lerp(aB.y + 10, sT.y - 30, k), z: lerp(aB.z, sT.z, k) });
-  const hq = first("question");
+  put("link", sv * ramp(t, dia.t0 + 0.05, .3) * bg, O.x, lerp(aB.y, sT.y, ll / 2), lerp(aB.z, sT.z, ll / 2), 0, -ang);
+  const path = k => ({ y: lerp(aB.y + 26, sT.y - 26, k), z: lerp(aB.z, sT.z, k) });
+  const CY = O.y + 110, CZ = O.z + 120;      // where overlay cards sit: centre of the frame, in front
+  let askOn = 0, askAt = 0;
   for (const s of SC) {
     const o = O;
-    if (s.type === "packet") { const k = ease((t - s.t0 - 0.15) / 1.1), p = path(s.p.dir === "up" ? 1 - k : k); put("pk" + s.i, sv * win(t, s.t0, s.t1 - 0.05, .15, .2), o.x, p.y, p.z + 30, 0, 0, Math.sin(t * 3) * 2, 1 + 0.15 * Math.sin(Math.PI * k)); }
+    if (s.type === "packet") { const k = ease((t - s.t0 - 0.15) / 1.1), p = path(s.p.dir === "up" ? 1 - k : k); put("pk" + s.i, sv * bg * win(t, s.t0, s.t1 - 0.05, .15, .2), o.x, p.y, p.z + 12, 0, 0, Math.sin(t * 3) * 2, 1 + 0.15 * Math.sin(Math.PI * k)); }
     if (s.type === "question") {
-      const holdEnd = (SC.find(x => x.i > s.i && !["key_fly", "compare", "leak", "code_card"].includes(x.type)) || { t0: DUR }).t0, p = path(0.45);
-      put("hq" + s.i, sv * win(t, s.t0, holdEnd, .2, .3), o.x + 10 * Math.sin(t * 5.1), p.y + 8 * Math.sin(t * 3.7), p.z + 30, 0, 0, Math.sin(t * 6) * 5, 1 + 0.06 * Math.sin(t * 7));
+      const holdEnd = (SC.find(x => x.i > s.i && !["key_fly", "compare", "leak", "code_card"].includes(x.type)) || { t0: DUR }).t0, p = path(0.5);
+      put("hq" + s.i, sv * bg * win(t, s.t0, holdEnd, .2, .3), o.x + 6 * Math.sin(t * 5.1), p.y + 4 * Math.sin(t * 3.7), p.z + 12, 0, 0, Math.sin(t * 6) * 3, 1 + 0.05 * Math.sin(t * 7));
       const kf = first("key_fly", s.i); q("hq" + s.i, ".kk").style.display = kf && t > W(kf.line, kf.p.word, 0.4) + 0.3 ? "inline-block" : "none";
-      const ask = $("ask"), aa = W(s.line, s.p.word, 0.6), next = SC[s.i + 1]; ask.style.opacity = win(t, aa, (next ? next.t0 : s.t1) + 0.4, .2, .25); ask.style.transform = `scale(${0.4 + 0.6 * spring((t - aa) / .5)}) rotate(${Math.sin(t * 6) * 8}deg)`;
+      const next = SC[s.i + 1]; askAt = W(s.line, s.p.word, 0.6); askOn = win(t, askAt, (next ? next.t0 : s.t1) + 0.4, .2, .25);
     }
     if (s.type === "code_card") {
       const kf = first("key_fly", s.i), reshow = kf && kf.p.append ? win(t, W(kf.line, kf.p.word, 0.4) + 0.3, kf.t1 - 0.05, .25, .25) : 0;
       const on = Math.min(1, win(t, s.t0 - 0.2, s.t1 - 0.05, .25, .25) + reshow), k = spring((t - s.t0 + 0.2) / 0.6);
-      put("cc" + s.i, sv * on, o.x, o.y + 140 + 7 * Math.sin(t * 2.3), o.z + 170 + 30 * Math.sin(t * 1.4), lerp(-18, 0, k) * ST.sign + 5 * Math.sin(t * 1.9), lerp(30, 0, k), 0, 1 + 0.04 * Math.sin(t * 2.9));
+      put("cc" + s.i, sv * on, o.x, CY + 6 * Math.sin(t * 2.3), CZ + 20 * Math.sin(t * 1.4), lerp(-18, 0, k) * ST.sign + 4 * Math.sin(t * 1.9), lerp(30, 0, k), 0, 1 + 0.03 * Math.sin(t * 2.9));
       const bd = q("cc" + s.i, ".body"); if (bd) bd.style.clipPath = `inset(0 ${(100 * (1 - eout((t - s.t0 + 0.1) / 0.55))).toFixed(1)}% 0 0)`;   // the line writes itself
       (s.p.marks || []).forEach((m, j) => { const a = ramp(t, W(s.line, m.word, 0.3 + 0.4 * j) - 0.05, .25), e = q("cc" + s.i, ".mk" + j), l = q("cc" + s.i, ".ml" + j);
         if (e) { e.style.borderBottomColor = j % 2 ? `rgba(${ST.accent_rgb},${a})` : `rgba(237,239,245,${a})`; if (j % 2) e.style.color = `rgba(${ST.accent_rgb},${0.4 + 0.6 * a})`; }
@@ -498,32 +617,36 @@ function renderStory(t, O, v) {
     }
     if (s.type === "data_card") {
       const on = win(t, s.t0 - 0.15, s.t0 + 1.25, .25, .25), k = spring((t - s.t0 + 0.15) / 0.6);
-      put("dc" + s.i, sv * on, o.x + 20, o.y + 150, o.z + lerp(-200, 140, k), lerp(20, -6, k) * ST.sign); markWin("dc" + s.i, s.t0 - 0.1);
+      put("dc" + s.i, sv * on, o.x, CY, lerp(CZ - 300, CZ, k), lerp(20, -4, k) * ST.sign); markWin("dc" + s.i, s.t0 - 0.1);
       const pairs = s.p.pairs || [], lines = [["{", ""], ...pairs.map((pq, j) => [`  "${pq[0]}"`, `: ${JSON.stringify(pq[1])}${j < pairs.length - 1 ? "," : ""}`]), ["}", ""]];
       let left = Math.round(clamp((t - s.t0 + 0.1) / 0.6) * lines.reduce((a, l) => a + l[0].length + l[1].length, 0)); const hl = ramp(t, s.t0 + 0.4, .2);
       q("dc" + s.i, ".body").innerHTML = lines.map(([kk, vv]) => { const full = kk + vv, take = Math.max(0, Math.min(full.length, left)); left -= full.length; const sh = full.slice(0, take), kp = sh.slice(0, Math.min(kk.length, take)), vp = sh.slice(kk.length);
         return `<span style="color:var(--acc);background:rgba(${ST.accent_rgb},${kk.includes('"') ? 0.2 * hl : 0});border-radius:4px">${esc(kp).replace(/ /g, "&nbsp;")}</span><span style="color:#fff">${esc(vp)}</span>`; }).join("<br>");
-      const f = ease((t - s.t0 - 0.55) / 0.55), tgt = $("slotV");
-      if (s.p.fill && tgt && OBJ.app) { const sy = O.y - 150 - appH / 2 + $("slotRow").offsetTop + 22; put("dv" + s.i, f > 0 && f < 1 ? 1 : 0, o.x + lerp(0, 110, f), lerp(o.y + 170, sy, f) - 70 * Math.sin(Math.PI * f), lerp(o.z + 160, o.z + 20, f), 0, 0, 0, 1 + 0.4 * Math.sin(Math.PI * f)); }
+      // the value leaves as the card fades, and lands in the app's slot as the app comes back: never over the card
+      const f = ease((t - s.t0 - 1.12) / 0.26), tgt = $("slotV");
+      if (s.p.fill && tgt && OBJ.app) { const sy = O.y - 150 - appH / 2 + $("slotRow").offsetTop + 22; put("dv" + s.i, f > 0 && f < 1 ? Math.sin(Math.PI * f) : 0, o.x + lerp(0, 120, f), lerp(CY, sy, f), lerp(CZ, o.z + 10, f), 0, 0, 0, 0.8); }
       else put("dv" + s.i, 0, 0, 0, 0);
     }
-    if (s.type === "key_fly") { const a = W(s.line, s.p.word, 0.4), kf = ease((t - a + 0.25) / 0.7), p = path(0.45);
-      put("ky" + s.i, sv * (t > a - 0.25 && t < a + 0.5 ? 1 : 0), o.x + lerp(-420, 70, kf) * ST.sign, lerp(o.y - 80, p.y - 10, kf), lerp(o.z + 500, p.z + 40, kf), lerp(0, 720, kf), lerp(40, 0, kf), lerp(-60, -30, kf), lerp(2.2, 0.5, kf)); }
+    if (s.type === "key_fly") { const a = W(s.line, s.p.word, 0.4), kf = ease((t - a + 0.25) / 0.7), p = path(0.5);
+      put("ky" + s.i, sv * bg * (t > a - 0.25 && t < a + 0.5 ? 1 : 0), o.x + lerp(-230, 78, kf) * ST.sign, lerp(p.y + 40, p.y - 6, kf), lerp(o.z + 60, p.z + 20, kf), lerp(0, 360, kf), 0, lerp(-70, -30, kf), lerp(0.9, 0.45, kf)); }
     if (s.type === "compare") { const k = spring((t - s.t0 + 0.05) / 0.7), k2 = spring((t - s.t0 - 0.15) / 0.7), on = sv * win(t, s.t0 - 0.05, s.t1 - 0.05, .25, .25);
-      const pu = 1 + 0.05 * Math.max(0, Math.sin((t - s.t0 - 0.5) * 6));
-      put("cA" + s.i, on, o.x - lerp(400, 0, k), o.y + 70 + 6 * Math.sin(t * 2.1), o.z + 160, lerp(-60, -8, k) + 5 * Math.sin(t * 1.7)); put("cB" + s.i, on * ramp(t, s.t0 + 0.15, .2), o.x + lerp(400, 0, k2), o.y + 250 - 6 * Math.sin(t * 2.1), o.z + 160 + 25 * Math.sin(t * 2.6), lerp(60, 8, k2) - 5 * Math.sin(t * 1.7), 0, 0, pu);
-      put("cE" + s.i, on * ramp(t, s.t0 + 0.35, .2), o.x, o.y + 162, o.z + 180, 0, 0, 0, spring((t - s.t0 - 0.35) / .5)); }
-    if (s.type === "leak") { const a = W(s.line, s.p.word, 0.4), on = sv * win(t, s.t0 - 0.05, s.t1 + 0.1, .25, .3), p = path(0.45);
-      for (let j = 0; j < 10; j++) { const an = j * (2 * Math.PI / 10) + 0.3, ax = Math.cos(an) * 360, az = Math.sin(an) * 360, ay = o.y + 150 + Math.sin(an * 3) * 160, kk = spring((t - s.t0 - j * 0.05) / 0.6);
-        put(`av${s.i}_${j}`, on * clamp((t - s.t0 - j * 0.05) * 5), o.x + ax * kk, ay, o.z - 60 + az * kk, CAM.yaw, 0, 0, 0.5 + 0.5 * kk, dof(o.x + ax, ay, o.z + az, 0.7));
-        const kf = ease((t - a - j * 0.05) / 0.55); put(`lk${s.i}_${j}`, on * (kf > 0 ? 1 : 0), o.x + lerp(0, ax, kf), lerp(p.y, ay - 50, kf) - 60 * Math.sin(Math.PI * kf), lerp(p.z, o.z - 60 + az, kf), t * 200 + j * 40); }
+      const pu = 1 + 0.04 * Math.max(0, Math.sin((t - s.t0 - 0.5) * 6));
+      put("cA" + s.i, on, o.x - lerp(400, 0, k), CY - 105, CZ, lerp(-60, -6, k)); put("cB" + s.i, on * ramp(t, s.t0 + 0.15, .2), o.x + lerp(400, 0, k2), CY + 105, CZ, lerp(60, 6, k2), 0, 0, pu);
+      put("cE" + s.i, on * ramp(t, s.t0 + 0.35, .2), o.x, CY, CZ + 10, 0, 0, 0, spring((t - s.t0 - 0.35) / .5)); }
+    if (s.type === "leak") { const a = W(s.line, s.p.word, 0.4), on = sv * win(t, s.t0 - 0.05, s.t1 + 0.1, .25, .3), p = path(0.5);
+      // strangers stand on an arc above and beside the request (never over the door or the server); copies of the key fly out to them
+      for (let j = 0; j < 10; j++) { const an = (-200 + j * (220 / 9)) * Math.PI / 180, ax = Math.cos(an) * 205, ay = p.y - 30 + Math.sin(an) * 215, kk = spring((t - s.t0 - j * 0.05) / 0.6);
+        put(`av${s.i}_${j}`, on * clamp((t - s.t0 - j * 0.05) * 5), o.x + ax * kk, lerp(p.y, ay, kk), p.z + 10, CAM.yaw, 0, 0, 0.5 + 0.5 * kk);
+        const kf = ease((t - a - j * 0.05) / 0.55); put(`lk${s.i}_${j}`, on * (kf > 0 ? 1 : 0), o.x + lerp(0, ax + 30, kf), lerp(p.y, ay - 34, kf) - 40 * Math.sin(Math.PI * kf), p.z + 30, CAM.yaw, 0, t * 200 + j * 40); }
       const qOn = win(t, s.t0 + 0.3, s.t1 + 0.1, .25, .3), qq = Math.round(12 + 88 * ease((t - W(s.line, s.p.meter_word, 0.6)) / 1.2));
-      put("q" + s.i, sv * qOn, o.x, o.y + 560, o.z + 120, 0, lerp(40, 10, spring((t - s.t0 - 0.3) / .6)));
+      put("q" + s.i, sv * qOn, o.x, o.y - 175 - (1 - spring((t - s.t0 - 0.3) / .6)) * 40, o.z, CAM.yaw, 0, 0, 1.1);
       q("q" + s.i, ".qv").textContent = qq + "%"; const qb = q("q" + s.i, ".qb"); qb.style.width = qq + "%"; qb.style.background = qq > 80 ? "var(--bad)" : qq > 50 ? "var(--warn)" : "var(--ok)"; qb.style.boxShadow = qq > 80 ? "0 0 20px rgba(248,81,73,.8)" : "none"; }
     if (s.type === "badge") { const a = s.t0 - 0.14, k = eout((t - a) / 0.24), wob = Math.sin(Math.PI * clamp((t - a) / 0.32)), n = s.n || 0;
       const bEnd = Math.max(...SC.filter(x => x.type === "badge").map(x => x.t1));
-      put("bd" + s.i, sv * clamp((t - a) * 8) * (1 - ramp(t, bEnd - 0.15, .3)), o.x - 185 + (n % 3) * 185, o.y + 100 - 18 * wob + Math.floor(n / 3) * 170, o.z + lerp(900, 170, k), lerp(-35 + (n % 3) * 35, 0, k), lerp(-25, 0, k), 0, 0.92 + 0.12 * wob); }
+      // in the gap between the app and the door, in the same plane as the app: they can't cover either
+      put("bd" + s.i, sv * clamp((t - a) * 8) * (1 - ramp(t, bEnd - 0.15, .3)), o.x - 180 + (n % 3) * 180, o.y + 75 - 10 * wob, o.z + lerp(700, 0, k), lerp(-35 + (n % 3) * 35, 0, k), lerp(-25, 0, k), 0, 0.88 + 0.08 * wob); }
   }
+  put("askO", sOn * askOn, O.x + 118, DY - 6, SZ + 124, 0, 0, Math.sin(t * 6) * 8, 0.4 + 0.6 * spring((t - askAt) / .5));
 }
 (function () { const c = $("grain").getContext("2d"), im = c.createImageData(270, 480); let s = 9; for (let i = 0; i < im.data.length; i += 4) { s = (s * 16807) % 2147483647; const v = s % 255; im.data[i] = im.data[i + 1] = im.data[i + 2] = v; im.data[i + 3] = 255; } c.putImageData(im, 0, 0); })();
 
@@ -534,7 +657,10 @@ window.init = function (data) {
   WD = T.lines.map((_, i) => T.words.filter(w => w.line === i));
   layout(); build(); buildCaptions(); direct(); render(0);
   CUES.sort((a, b) => a.t - b.t);
-  return { duration: DUR, cues: CUES, sections: sections(), cuts: CUTS.length, set_changes: SETCH.length };
+  const fitted = fitShots(), problems = audit();
+  for (const e of Object.values(OBJ)) e._since = null;
+  render(0);
+  return { duration: DUR, cues: CUES, sections: sections(), cuts: CUTS.length, set_changes: SETCH.length, fitted, audit: problems };
 };
 // music arrangement, read by the mixer (studio/motion/sound.py)
 function sections() {

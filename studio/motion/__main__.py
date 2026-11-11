@@ -73,6 +73,11 @@ def cmd_make(a):
     data, used, st, probs = prepare(folder, script, plan, out, ch)
     node(data, "--cues", out / "info.json")
     info = json.loads((out / "info.json").read_text())
+    layout = info.get("audit", [])     # the engine measured its own frames: anything cut off, under the captions or overlapping
+    if layout:
+        log("[layout] problems (video will be held for review):\n  " + "\n  ".join(f"{x['t']:.1f}s {x['what']}" for x in layout[:12]))
+    else:
+        log(f"[layout] ok: {info.get('cuts', 0)} cuts, camera adjusted {info.get('fitted', 0)} times, nothing cut off or overlapping")
     from . import sound
     sound.make(info, st["music"], st["seed"], out / "music.wav", out / "sfx.wav")
     log("[render] frames (about 0.25 s each)")
@@ -85,9 +90,9 @@ def cmd_make(a):
         log(f"  contact sheet skipped: {e}")
     m = measure(out / "video.mp4")
     gates = {"plan_valid": not probs, "loudness_ok": m["lufs"] is not None and abs(m["lufs"] - ch.get("loudness_lufs", -14)) <= 1.0,
-             "moves_enough": m["still_pct"] <= 10}
+             "moves_enough": m["still_pct"] <= 10, "layout_ok": not layout}
     report = {"episode": folder.as_posix(), "title": script.get("title"), "seed": st["seed"], "style": st, "measures": m,
-              "gates": gates, "plan_problems": probs, "plan_warnings": PL.variety(used), "fallback_plan": bool(used.get("auto"))}
+              "gates": gates, "layout_problems": layout, "plan_problems": probs, "plan_warnings": PL.variety(used), "fallback_plan": bool(used.get("auto"))}
     (out / "report.json").write_text(json.dumps(report, indent=1), encoding="utf-8")
     for f in ("script.json", "plan.json", "sources.md"):
         shutil.copy(folder / f, out / f)

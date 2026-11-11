@@ -101,7 +101,12 @@ studio/motion/
    0.9 s, it cuts to another angle of the same subject, on a spoken word. The angles are mild on purpose (at most 24°
    and 0.84× distance): stronger ones cropped wide panels off the screen. Angles never stack. This is automatic, so
    the writer does not have to plan it.
-6. A light wipe crosses the frame on every change of set.
+6. Changes of set are hard cuts, followed by a short push-in. (A light wipe was tried and removed: it read as a glitch.)
+7. **Framing guard** (`fitShots()`): for every shot, the engine measures the real on-screen boxes of the scene's
+   subjects and moves the camera back or sideways until they sit inside the frame and below the captions. If the
+   subject is small, it moves in.
+8. **Frame audit** (`audit()`): after fitting, it steps through the whole video and lists anything solid that is cut
+   off by the screen edge, runs under the captions, or overlaps another solid thing. The list goes into `info.json`.
 
 ## 4. Determinism and guardrails
 
@@ -112,11 +117,17 @@ studio/motion/
   - `tests/test_motion.py` renders the same frames twice and they are byte-identical. `render.js` waits two
     animation frames after each `render(t)`, so Chromium has finished drawing before the screenshot (without this, frames
     differed by up to 2% under CPU load).
+- **Layout rules** (after the 11 Nov video with cut-off and overlapping panels):
+  - two solid things never share screen space: app on top, badges in the gap, door mounted on the server, meter where
+    the app was;
+  - overlay cards (code, data, compare) own the frame, and everything behind them fades to 10% before the cut;
+  - the door and the "?" are their own objects, so the server box can't hide them.
 - **Guardrails, so the line never dies and nothing bad is published:**
   1. An invalid plan becomes `auto_plan()` (plain but valid), and the video is flagged for review.
   2. Facts still unsupported after the fact check go into `NEEDS_REVIEW.md`, and the result is a pre-release
      "REVIEW: …" plus a `review` issue.
-  3. Measured gates in `report.json`: plan valid, loudness within 1 LU of −14, no more than 10% of frames almost still.
+  3. Measured gates in `report.json`: plan valid, loudness within 1 LU of −14, no more than 10% of frames almost still,
+     and `layout_ok` (the frame audit found nothing).
      If any gate fails, the video is held for review.
   4. The writer repairs the closest draft with its exact problems before giving up (the shared `repair_draft`).
 - **Isolation from Hidden Reasons:**
