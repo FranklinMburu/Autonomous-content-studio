@@ -382,7 +382,10 @@ function camAtKeyLast() { return CK.length ? { ...CK[CK.length - 1][1] } : cam({
 // the words named in "word" fields when given.
 const WK = {};   // per world type: its scenes, and every item with the scene it belongs to
 function worldItems(type, key) { const out = []; SC.filter(s => s.type === type).forEach(s => (s.p[key] || []).forEach((x, j, arr) => out.push({ s, x, j, n: arr.length }))); return out; }
-function revealAt(it) { const s = it.s, w = it.x && it.x.word; if (w) return W(s.line, w, 0.3); return lerp(s.t0 + 0.15, Math.max(s.t0 + 0.3, s.t1 - 0.5), it.n > 1 ? it.j / it.n : 0); }
+function revealAt(it) { const s = it.s, w = it.x && it.x.word;
+  if (w) { const wt = W(s.line, w, 0.3);   // the first item of a world's first line never leaves the screen empty: it appears as the scene opens
+    if (it.j === 0 && !SC.some(x => x.type === s.type && x.i < s.i)) return Math.min(wt, s.t0 + 0.3);
+    return wt; } return lerp(s.t0 + 0.15, Math.max(s.t0 + 0.3, s.t1 - 0.5), it.n > 1 ? it.j / it.n : 0); }
 function buildWorlds() {
   const cell = (x, b, k) => `<div style="flex:${k === 0 ? 1.8 : 1};min-width:0;padding:11px 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;${b ? "font-weight:700;color:var(--tx)" : ""}">${esc(x)}</div>`;
   if (first("table_grid")) {
