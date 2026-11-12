@@ -17,18 +17,49 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Recon
+      - name: Answer key and media
         run: |
-          pip install -q "yt-dlp==2026.10.26"
-          echo "== Twitch: Kai Cenat last VODs"
-          yt-dlp --flat-playlist --playlist-end 6 --print "TWVOD %(id)s %(duration)s %(title)s" "https://www.twitch.tv/kaicenat/videos?filter=archives" 2>&1 | tail -6
-          echo "== Twitch: top clips of the last 7 days, full info of the first 2"
-          yt-dlp --flat-playlist --playlist-end 2 --print "%(url)s" "https://www.twitch.tv/kaicenat/clips?filter=clips&range=7d" > c.txt
-          while read u; do yt-dlp -J --skip-download "$u" | python -c "import json,sys; d=json.load(sys.stdin); print('TWCLIPKEYS', sorted(k for k in d if not k.startswith('_'))[:80]); print('TWCLIP', {k: d.get(k) for k in ('id','title','view_count','duration','timestamp','upload_date','uploader','creator','episode_id','webpage_url')})"; done < c.txt
-          echo "== Kick: N3on videos list (fields)"
-          curl -sS -m 20 -A "Mozilla/5.0" "https://kick.com/api/v2/channels/n3on/videos" -o kv.json -w "http %{http_code}\n"
-          python -c "import json; d=json.load(open('kv.json')); d=d if isinstance(d,list) else d.get('data',d); print('KVKEYS', sorted(d[0].keys())); [print('KVOD', v.get('id'), v.get('start_time') or v.get('created_at'), v.get('duration'), (v.get('video') or {}).get('uuid'), (v.get('session_title') or '')[:70]) for v in d[:6]]" || head -c 400 kv.json
-          echo "== Kick: N3on clips (fields of one)"
-          curl -sS -m 20 -A "Mozilla/5.0" "https://kick.com/api/v2/channels/n3on/clips?sort=view&time=month" -o kc.json -w "http %{http_code}\n"
-          python -c "import json; d=json.load(open('kc.json')); c=d.get('clips',d) if isinstance(d,dict) else d; print('KCKEYS', json.dumps(c[0])[:1500]); print('KC count', len(c))" || head -c 400 kc.json
+          sudo apt-get install -y -qq ffmpeg > /dev/null 2>&1; pip install -q "yt-dlp==2026.10.26"
+          mkdir -p key
+          python - <<'PY'
+          import json, subprocess, time, urllib.request, datetime as dt
+          UA={"User-Agent":"Mozilla/5.0"}
+          def get(u):
+              for i in range(4):
+                  try: return json.load(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=30))
+                  except Exception as e: err=e; time.sleep(3)
+              raise err
+          # --- Kick: N3on, livestream 137320696 (87 min, 11 Nov)
+          vods = get("https://kick.com/api/v2/channels/n3on/videos"); vods = vods if isinstance(vods, list) else vods.get("data", vods)
+          v = next(x for x in vods if str(x["id"]) == "137320696")
+          start = dt.datetime.fromisoformat(v["start_time"].replace(" ", "T")).replace(tzinfo=dt.timezone.utc); dur = v["duration"]/1000
+          print("KICKVOD", v["id"], v["start_time"], round(dur), (v.get("video") or {}).get("uuid"), v["session_title"])
+          clips, cursor = [], None
+          for page in range(15):
+              u = "https://kick.com/api/v2/channels/n3on/clips?sort=view&time=month" + (f"&cursor={cursor}" if cursor else "")
+              d = get(u); cs = d.get("clips", []) if isinstance(d, dict) else d
+              clips += cs; cursor = d.get("nextCursor") if isinstance(d, dict) else None
+              if not cursor: break
+          mine = [c for c in clips if str(c.get("livestream_id")) == str(v["id"])]
+          key = []
+          for c in mine:
+              made = dt.datetime.fromisoformat(c["created_at"].replace("Z", "+00:00"))
+              off = (made - start).total_seconds() - c["duration"]   # the clip ends about when it is made
+              key.append({"views": c["views"], "offset": round(off), "duration": c["duration"], "title": c["title"], "url": c["clip_url"]})
+          key.sort(key=lambda k: -k["views"])
+          print("KICK clips scanned", len(clips), "for this stream", len(key))
+          for k in key[:25]: print("KEY_KICK", k["views"], k["offset"], k["duration"], k["title"][:70])
+          json.dump({"vod": {"id": v["id"], "uuid": (v.get("video") or {}).get("uuid"), "start": v["start_time"], "duration": dur}, "key": key}, open("key/kick_n3on.json", "w"), indent=1)
+          PY
+          echo "== Kick VOD media (audio only + low quality, sizes)"
+          u=$(python -c "import json; print('https://kick.com/n3on/videos/'+json.load(open('key/kick_n3on.json'))['vod']['uuid'])")
+          echo "$u"; yt-dlp -F "$u" 2>&1 | tail -8
+          s0=$(date +%s); yt-dlp -q -f "worstaudio/worst" -x --audio-format m4a -o "key/n3on_audio.%(ext)s" "$u" 2>&1 | tail -2; echo "audio took $(( $(date +%s)-s0 )) s"; ls -la key/ 
+          echo "== Twitch: Kai Cenat Japan nightlife VOD v2910392998 + its clips"
+          yt-dlp -J --skip-download "https://www.twitch.tv/videos/2910392998" | python -c "import json,sys; d=json.load(sys.stdin); print('TWVOD', d.get('timestamp'), d.get('duration'), d.get('title'))"
+          yt-dlp --flat-playlist --playlist-end 100 --print "%(url)s" "https://www.twitch.tv/kaicenat/clips?filter=clips&range=30d" > tc.txt; wc -l tc.txt
           echo "== done"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: recall-key
+          path: key/*.json
