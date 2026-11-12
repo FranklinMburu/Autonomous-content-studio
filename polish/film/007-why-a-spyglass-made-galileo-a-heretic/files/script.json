@@ -1,0 +1,120 @@
+{
+ "title": "Why a Spyglass Made Galileo a Heretic",
+ "channel": "Hidden Reasons",
+ "topic": "Why Galileo was put on trial for saying the Earth moves",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "lines": [
+    "Galileo aimed a spyglass at Jupiter, then spent his life under house arrest."
+   ],
+   "feel": "curiosity"
+  },
+  {
+   "lines": [
+    "Galileo saw four moons circling Jupiter.",
+    "Most educated people still believed Earth stood at the center.",
+    "Many astronomers refused to believe Galileo could have found them.",
+    "Other astronomers struggled to confirm his observations."
+   ],
+   "feel": "sympathy"
+  },
+  {
+   "lines": [
+    "In 1613, Grand Duchess Christina of Florence raised biblical objections to Earth's motion with Galileo's friend Castelli.",
+    "Galileo wrote that the Bible guides faith, not science.",
+    "In 1616, Church judges ruled Earth's motion formally heretical.",
+    "Galileo was ordered never to hold, teach, or defend it."
+   ],
+   "feel": "dread"
+  },
+  {
+   "lines": [
+    "You see, it is like telling a teacher the answer key is wrong."
+   ],
+   "feel": "recognition"
+  },
+  {
+   "lines": [
+    "Galileo's telescope turned Earth's motion from opinion into evidence.",
+    "Jupiter's moons and Venus's phases fit a moving Earth.",
+    "But Galileo also claimed Scripture could be set aside in astronomy.",
+    "The Inquisition treated that claim as a second heresy."
+   ],
+   "feel": "awe"
+  },
+  {
+   "lines": [
+    "In 1632, Galileo published a book defending Earth's motion.",
+    "The book called geocentrists 'simpletons'.",
+    "Pope Urban VIII banned its sale.",
+    "In 1633, the Inquisition found Galileo 'vehemently suspect of heresy'."
+   ],
+   "feel": "frustration"
+  },
+  {
+   "lines": [
+    "Galileo abjured his views and stayed under house arrest for life.",
+    "The twist: the famous last words 'And yet it moves' have no evidence.",
+    "The earliest written account came a century after his death."
+   ],
+   "feel": "surprise"
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Many astronomers and philosophers initially refused to believe Galileo could have discovered Jupiter's moons, and other astronomers had difficulty confirming his observations.",
+   "url": "https://en.wikipedia.org/wiki/Galileo_Galilei"
+  },
+  {
+   "claim": "In December 1613, Grand Duchess Christina of Florence confronted Galileo's friend and follower Benedetto Castelli with biblical objections to the motion of the Earth; prompted by this, Galileo wrote a letter arguing heliocentrism was not contrary to biblical texts and that the Bible was an authority on faith and morals, not science.",
+   "url": "https://en.wikipedia.org/wiki/Galileo_Galilei"
+  },
+  {
+   "claim": "In February 1616, an Inquisitorial commission declared heliocentrism 'foolish and absurd in philosophy, and formally heretical since it explicitly contradicts in many places the sense of Holy Scripture', and Galileo was ordered to abandon it and never to hold, teach, or defend it orally or in writing.",
+   "url": "https://en.wikipedia.org/wiki/Galileo_affair"
+  },
+  {
+   "claim": "Galileo's 1633 sentence found him 'vehemently suspect of heresy' for two reasons: holding and defending that Earth revolves around the Sun, and claiming one may hold and defend as probable an opinion declared contrary to Holy Scripture, which is the principle that Scripture is not an authority in astronomy.",
+   "url": "https://doi.org/10.1353/cat.0.0046"
+  },
+  {
+   "claim": "Galileo's telescopic discoveries, including Jupiter's four moons and the phases of Venus, removed most observational-astronomical objections against Earth's motion and added new evidence in its favor.",
+   "url": "https://doi.org/10.1353/cat.0.0046"
+  },
+  {
+   "claim": "Galileo published Dialogue Concerning the Two Chief World Systems in 1632, defending heliocentrism while describing geocentrists as 'simpletons'; Pope Urban VIII banned its sale and had its text examined by a special commission.",
+   "url": "https://en.wikipedia.org/wiki/Galileo_affair"
+  },
+  {
+   "claim": "The 1633 sentence required Galileo to abjure his opinions, banned the Dialogue, forbade publication of any of his works including future ones, and imposed house arrest for the rest of his life.",
+   "url": "https://en.wikipedia.org/wiki/Galileo_affair"
+  },
+  {
+   "claim": "The phrase 'And yet it moves' is a popular legend; the earliest known written account of it dates to a century after Galileo's death.",
+   "url": "https://en.wikipedia.org/wiki/Galileo_Galilei"
+  }
+ ],
+ "key_words": [
+  "spyglass",
+  "Jupiter",
+  "moons",
+  "telescope",
+  "heresy",
+  "Scripture",
+  "Venus",
+  "phases",
+  "Inquisition",
+  "abjured",
+  "simpletons",
+  "evidence"
+ ]
+}
