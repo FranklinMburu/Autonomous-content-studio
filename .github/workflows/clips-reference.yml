@@ -38,6 +38,12 @@ jobs:
           case "$ch" in https://www.youtube.com/*) ;; *) echo "not a YouTube channel URL"; exit 1;; esac
           yt-dlp --flat-playlist -J "$ch/shorts" > shorts.json
           yt-dlp --flat-playlist -J "$ch/videos" > videos.json || echo '{"entries":[]}' > videos.json
+          # The streams a clipping campaign names (e.g. IShowSpeed x Expedia: the 6 Nov 2026 stream): list them with
+          # their links, titles and dates so the exact VOD can be picked. Nothing is downloaded here.
+          echo "## Recent streams of the campaign channels"
+          for c in https://www.youtube.com/@IShowSpeed; do
+            yt-dlp --flat-playlist --playlist-end 12 --print "%(upload_date|)s %(release_timestamp|)s %(duration|)s %(url)s %(title)s" "$c/streams" || true
+          done
           python - <<'PY'
           import csv, json
           rows = []
