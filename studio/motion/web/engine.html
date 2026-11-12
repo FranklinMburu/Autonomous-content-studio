@@ -115,11 +115,11 @@ let CAM = { x: 0, y: 0, z: 0, yaw: 0, pitch: 0, roll: 0, D: 900, P: 900 }, NOW =
 // Design families: one look per episode (plan.look, chosen by studio/motion/variety.py). studio = the approved original (all 1).
 const LOOKS = {
   studio:    { drift: 1,   dof: 1,   orbit: 1,   P: 1,   floor: 1,   streak: 1,   glow: 1 },
-  paper:     { drift: 0.6, dof: 0.3, orbit: 0.7, P: 1.3, floor: 0.7, streak: 0,   glow: 0.5 },
-  blueprint: { drift: 0.5, dof: 0,   orbit: 0.6, P: 1.25, floor: 1.2, streak: 0,  glow: 0.3 },
+  paper:     { drift: 0.9, dof: 0.3, orbit: 0.7, P: 1.3, floor: 0.7, streak: 0,   glow: 0.5 },
+  blueprint: { drift: 0.8, dof: 0,   orbit: 0.6, P: 1.25, floor: 1.2, streak: 0,  glow: 0.3 },
   neon:      { drift: 1.2, dof: 1,   orbit: 1.15, P: 0.92, floor: 1.3, streak: 1.4, glow: 1.4 },
-  glass:     { drift: 0.8, dof: 1.4, orbit: 0.9, P: 1,   floor: 0.25, streak: 0.4, glow: 1.2 },
-  bold:      { drift: 0.3, dof: 0,   orbit: 0.5, P: 1.8, floor: 0,   streak: 0,   glow: 0 },
+  glass:     { drift: 1,   dof: 1.4, orbit: 0.9, P: 1,   floor: 0.25, streak: 0.4, glow: 1.2 },
+  bold:      { drift: 0.6, dof: 0,   orbit: 0.5, P: 1.8, floor: 0,   streak: 0,   glow: 0 },
 };
 let LK = LOOKS.studio;
 const CK = [], CUTS = [], CUES = [];
@@ -468,16 +468,19 @@ function directWorld(s, o, prev, newSet, sg) {
     let last = CK[0]; for (const k of CK) if (k[0] > last[0]) last = k; cut(tc, last ? { ...last[1] } : c, c); } else key(t0 - 0.05, c); };
   const t0 = s.t0, t1 = s.t1, C = (dx, dy, dz, yaw, pitch, D) => cam(o, dx, dy, dz, yaw, pitch, D * 0.84);   // worlds sit closer: one big subject
   const pop = (items) => items.filter(it => it.s === s).forEach(it => cue(revealAt(it), "pop", 0.5));
+  // follow: as each item of this line appears, the camera leans toward it (where the voice is), alternating sides
+  const follow = (items, dyOf, base, D) => { let k = 0; items.forEach((it, i) => { if (it.s !== s) return; const a = revealAt(it) + 0.3;
+    if (a > t0 + 0.2 && a < t1 - 0.45) { k++; key(a, C((k % 2 ? 18 : -18) * sg, base + 0.55 * dyOf(i, items.length), 0, (k % 2 ? 9 : -9) * sg, 6, D * (k % 2 ? 0.93 : 0.97))); } }); };
   switch (s.type) {
-    case "table_grid": { const n = WK.table.length; enter(C(0, 80, 0, -14 * sg, 10, 960 + n * 20)); key(t1 - 0.1, C(30 * sg, 90, 0, -4 * sg, 6, 840 + n * 20)); WK.table.filter(it => it.s === s).forEach(it => cue(revealAt(it), "tick", 0.6)); break; }
+    case "table_grid": { const n = WK.table.length; enter(C(0, 80, 0, -14 * sg, 10, 960 + n * 20)); follow(WK.table, (i, m) => (i - (m - 1) / 2) * 46, 80, 900 + n * 20); key(t1 - 0.1, C(30 * sg, 90, 0, -4 * sg, 6, 840 + n * 20)); WK.table.filter(it => it.s === s).forEach(it => cue(revealAt(it), "tick", 0.6)); break; }
     case "timeline": { const mine = WK.time.filter(it => it.s === s), last = WK.time.indexOf(mine[mine.length - 1]); enter(C(Math.max(0, last - 1) * 230, 60, 0, 16 * sg, 6, 860));
       mine.forEach(it => { const i = WK.time.indexOf(it); key(revealAt(it) + 0.45, C(i * 230 - 40 * sg, 60, 0, 10 * sg, 4, 820)); cue(revealAt(it), "pop", 0.6); }); key(t1 - 0.05, C(last * 230 - 60 * sg, 60, 0, 4 * sg, 3, 880)); break; }
-    case "flow_steps": { const n = WK.flow.length; enter(C(0, 80, 0, 18 * sg, 8, 900 + n * 60)); key(t1 - 0.1, C(-20 * sg, 80, 0, 6 * sg, 4, 860 + n * 60)); pop(WK.flow); cue(t0 + 0.3, "zip", 0.4); break; }
-    case "browser_page": enter(C(0, 80, 0, -18 * sg, 10, 1000)); key(t1 - 0.1, C(20 * sg, 90, 0, -4 * sg, 4, 860)); cue(t0, "whoosh", 0.6); WK.web.filter(it => it.s === s).forEach(it => cue(revealAt(it), "blip", 0.4)); break;
-    case "chat_thread": enter(C(0, 60, 0, 14 * sg, 6, 940)); key(t1 - 0.1, C(-20 * sg, 60, 0, 4 * sg, 3, 860)); WK.chat.filter(it => it.s === s).forEach(it => cue(revealAt(it), "pop", 0.6)); break;
-    case "bar_chart": enter(C(0, 80, 0, -12 * sg, 12, 980)); key(t1 - 0.1, C(0, 90, 0, 4 * sg, 6, 880)); cue(t0, "riser", 0.5); WK.chart.filter(it => it.s === s).forEach(it => cue(revealAt(it), "tick", 0.6)); break;
-    case "phone_screen": enter(C(0, 40, 0, 22 * sg, 8, 1040)); key(t1 - 0.1, C(-10 * sg, 40, 0, 8 * sg, 4, 900)); pop(WK.phone); if (s.p.notify) cue(W(s.line, s.p.notify_word, 0.5), "ding", 0.7); break;
-    case "stack_layers": { const n = WK.stack.length; enter(C(0, 120, 0, -24 * sg, 26, 1150 + n * 40)); key(t1 - 0.1, C(0, 120, 0, 10 * sg, 18, 1050 + n * 40)); pop(WK.stack); break; }
+    case "flow_steps": { const n = WK.flow.length; enter(C(0, 80, 0, 18 * sg, 8, 900 + n * 60)); follow(WK.flow, (i, m) => (i - (m - 1) / 2) * 118, 80, 880 + n * 60); key(t1 - 0.1, C(-20 * sg, 80, 0, 6 * sg, 4, 860 + n * 60)); pop(WK.flow); cue(t0 + 0.3, "zip", 0.4); break; }
+    case "browser_page": enter(C(0, 80, 0, -18 * sg, 10, 1000)); follow(WK.web, (i) => i * 60 - 40, 80, 940); key(t1 - 0.1, C(20 * sg, 90, 0, -4 * sg, 4, 860)); cue(t0, "whoosh", 0.6); WK.web.filter(it => it.s === s).forEach(it => cue(revealAt(it), "blip", 0.4)); break;
+    case "chat_thread": enter(C(0, 60, 0, 14 * sg, 6, 940)); follow(WK.chat, (i, m) => (i - (m - 1) / 2) * 50, 60, 900); key(t1 - 0.1, C(-20 * sg, 60, 0, 4 * sg, 3, 860)); WK.chat.filter(it => it.s === s).forEach(it => cue(revealAt(it), "pop", 0.6)); break;
+    case "bar_chart": enter(C(0, 80, 0, -12 * sg, 12, 980)); follow(WK.chart, (i, m) => (i - (m - 1) / 2) * 56, 80, 920); key(t1 - 0.1, C(0, 90, 0, 4 * sg, 6, 880)); cue(t0, "riser", 0.5); WK.chart.filter(it => it.s === s).forEach(it => cue(revealAt(it), "tick", 0.6)); break;
+    case "phone_screen": enter(C(0, 40, 0, 22 * sg, 8, 1040)); follow(WK.phone, (i) => i * 56 - 60, 40, 980); key(t1 - 0.1, C(-10 * sg, 40, 0, 8 * sg, 4, 900)); pop(WK.phone); if (s.p.notify) cue(W(s.line, s.p.notify_word, 0.5), "ding", 0.7); break;
+    case "stack_layers": { const n = WK.stack.length; enter(C(0, 120, 0, -24 * sg, 26, 1150 + n * 40)); follow(WK.stack, (i, m) => (i - (m - 1) / 2) * 92, 120, 1100 + n * 40); key(t1 - 0.1, C(0, 120, 0, 10 * sg, 18, 1050 + n * 40)); pop(WK.stack); break; }
   }
 }
 // ============================================================ the frame
