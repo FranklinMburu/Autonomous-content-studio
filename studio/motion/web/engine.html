@@ -356,6 +356,13 @@ function direct() {
     if (newSet && prev && !["laptop_prompt", "app_window", "code_card", "data_card", "key_fly", "compare", "badge"].includes(s.type)) cue(t0 - 0.35, "swoosh_big", 0.8);
   });
   CK.sort((a, b) => a[0] - b[0]);
+  if (LK !== LOOKS.studio) {   // every look but the original: a long hold gets one gentle lean at its midpoint (never across a cut)
+    const cuts = new Set(CUTS.map(x => +x.toFixed(3))), add = [];
+    for (let i = 0; i + 1 < CK.length; i++) { const [ta, ca] = CK[i], [tb, cb] = CK[i + 1];
+      if (tb - ta > 1.1 && ![...cuts].some(c => c > ta - 0.01 && c < tb + 0.01)) { const side = i % 2 ? 1 : -1;
+        add.push([(ta + tb) / 2, { ...ca, x: (ca.x + cb.x) / 2 + side * 20 * ST.sign, y: (ca.y + cb.y) / 2, z: (ca.z + cb.z) / 2, yaw: (ca.yaw + cb.yaw) / 2 + side * 6 * ST.sign, D: Math.min(ca.D, cb.D) * 0.96 }]); } }
+    CK.push(...add); CK.sort((a, b) => a[0] - b[0]);
+  }
   CUTS.forEach(tc => cue(tc - 0.12, "whoosh", 0.45));
   CUES.sort((a, b) => a.t - b.t);
 }
@@ -428,6 +435,8 @@ function renderWorlds(t, vis) {
     put("tg", v, o.x, o.y + 80 + (1 - k) * 60, o.z, (1 - k) * 18 * ST.sign, (1 - k) * 25, 0, 1, dof(o.x, o.y + 80, o.z, 0.4));
     OBJ.tg.querySelectorAll(".tr").forEach((r, i) => { const it = WK.table[i], a = revealAt(it), kk = clamp((t - a) / 0.35), hw = it.s.p.highlight_word, hr = it.s.p.highlight_row ?? -1;
       r.style.opacity = kk.toFixed(3); r.style.transform = `translateX(${((1 - eout(kk)) * 40).toFixed(1)}px)`;
+      const ty = clamp((t - a) / 0.9); [...r.children].forEach((c, ci) => { if (c.dataset.f == null) c.dataset.f = c.textContent;   // the row is written cell by cell
+        const f = c.dataset.f, part = clamp(ty * r.children.length - ci); c.textContent = f.slice(0, Math.round(f.length * part)); });
       const hl = hw && it.j === hr ? win(t, W(it.s.line, hw, 0.5), it.s.t1 + 0.2, .2, .3) : (kk < 1 && kk > 0 ? 0.6 * (1 - kk) : 0);
       r.style.background = `rgba(${ST.accent_rgb},${(0.22 * hl).toFixed(3)})`; }); }
   if (OBJ.tl_line) { const o = POS.w_time, v = V("w_time"), n = WK.time.length;
@@ -470,7 +479,7 @@ function directWorld(s, o, prev, newSet, sg) {
   const pop = (items) => items.filter(it => it.s === s).forEach(it => cue(revealAt(it), "pop", 0.5));
   // follow: as each item of this line appears, the camera leans toward it (where the voice is), alternating sides
   const follow = (items, dyOf, base, D) => { let k = 0; items.forEach((it, i) => { if (it.s !== s) return; const a = revealAt(it) + 0.3;
-    if (a > t0 + 0.2 && a < t1 - 0.45) { k++; key(a, C((k % 2 ? 18 : -18) * sg, base + 0.55 * dyOf(i, items.length), 0, (k % 2 ? 9 : -9) * sg, 6, D * (k % 2 ? 0.93 : 0.97))); } }); };
+    if (a > t0 + 0.2 && a < t1 - 0.45) { k++; key(a, C((k % 2 ? 30 : -30) * sg, base + 0.7 * dyOf(i, items.length), 0, (k % 2 ? 12 : -12) * sg, 7, D * (k % 2 ? 0.88 : 0.95))); } }); };
   switch (s.type) {
     case "table_grid": { const n = WK.table.length; enter(C(0, 80, 0, -14 * sg, 10, 960 + n * 20)); follow(WK.table, (i, m) => (i - (m - 1) / 2) * 46, 80, 900 + n * 20); key(t1 - 0.1, C(30 * sg, 90, 0, -4 * sg, 6, 840 + n * 20)); WK.table.filter(it => it.s === s).forEach(it => cue(revealAt(it), "tick", 0.6)); break; }
     case "timeline": { const mine = WK.time.filter(it => it.s === s), last = WK.time.indexOf(mine[mine.length - 1]); enter(C(Math.max(0, last - 1) * 230, 60, 0, 16 * sg, 6, 860));
@@ -482,6 +491,11 @@ function directWorld(s, o, prev, newSet, sg) {
     case "phone_screen": enter(C(0, 40, 0, 22 * sg, 8, 1040)); follow(WK.phone, (i) => i * 56 - 60, 40, 980); key(t1 - 0.1, C(-10 * sg, 40, 0, 8 * sg, 4, 900)); pop(WK.phone); if (s.p.notify) cue(W(s.line, s.p.notify_word, 0.5), "ding", 0.7); break;
     case "stack_layers": { const n = WK.stack.length; enter(C(0, 120, 0, -24 * sg, 26, 1150 + n * 40)); follow(WK.stack, (i, m) => (i - (m - 1) / 2) * 92, 120, 1100 + n * 40); key(t1 - 0.1, C(0, 120, 0, 10 * sg, 18, 1050 + n * 40)); pop(WK.stack); break; }
   }
+  // a long hold inside a world gets one gentle lean at its midpoint (the shot breathes like the reference; never a new angle)
+  const mine = CK.filter(k => k[0] >= t0 - 0.06 && k[0] <= t1 + 0.01).sort((a, b) => a[0] - b[0]);
+  for (let i = 0; i + 1 < mine.length; i++) { const [ta, ca] = mine[i], [tb, cb] = mine[i + 1];
+    if (tb - ta > 1.1) { const m = (ta + tb) / 2, side = i % 2 ? 1 : -1;
+      key(m, { ...ca, x: (ca.x + cb.x) / 2 + side * 30 * sg, y: (ca.y + cb.y) / 2, yaw: (ca.yaw + cb.yaw) / 2 + side * 10 * sg, D: Math.min(ca.D, cb.D) * 0.92 }); } }
 }
 // ============================================================ the frame
 function type(el, text, t, a, b) { const n = Math.round(String(text).length * clamp((t - a) / (b - a))); el.textContent = String(text).slice(0, n); }
