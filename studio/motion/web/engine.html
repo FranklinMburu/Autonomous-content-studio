@@ -109,7 +109,8 @@ const WE = i => (WD[i] && WD[i].length ? WD[i][WD[i].length - 1].end : LE[i]);
 
 // ============================================================ objects and camera
 const OBJ = {};
-function mk(id, html) { const e = document.createElement("div"); e.className = "o"; e.id = id; e.innerHTML = `<div class="in">${html}</div>`; $("world").appendChild(e); OBJ[id] = e; return e; }
+// every object starts hidden until the engine first places it (before 12 Nov an unplaced object showed at the world centre)
+function mk(id, html) { const e = document.createElement("div"); e.className = "o"; e.id = id; e.innerHTML = `<div class="in">${html}</div>`; e.style.display = "none"; $("world").appendChild(e); OBJ[id] = e; return e; }
 function put(id, o, x, y, z, ry = 0, rx = 0, rz = 0, s = 1, blur = 0) {
   const e = OBJ[id]; if (!e) return;
   if (!(o > 0.003)) { e.style.display = "none"; return; }
@@ -635,7 +636,12 @@ function renderStory(t, O, v) {
       $("slotRow").style.boxShadow = okG > 0 ? `inset 4px 0 0 rgba(63,185,80,${okG}),0 0 30px rgba(63,185,80,${0.3 * okG})` : "none";
     }
   }
-  if (!dia) return;
+  if (!dia) {   // no app/server diagram: the side-by-side comparison still plays (it used to be skipped)
+    for (const s of SC) if (s.type === "compare") { const o = O, k = spring((t - s.t0 + 0.05) / 0.7), k2 = spring((t - s.t0 - 0.15) / 0.7), on = sv * win(t, s.t0 - 0.05, s.t1 - 0.05, .25, .25);
+      put("cA" + s.i, on, o.x - lerp(400, 0, k), o.y + 70, o.z + 160, lerp(-60, -8, k)); put("cB" + s.i, on * ramp(t, s.t0 + 0.15, .2), o.x + lerp(400, 0, k2), o.y + 250, o.z + 160, lerp(60, 8, k2));
+      put("cE" + s.i, on * ramp(t, s.t0 + 0.35, .2), o.x, o.y + 162, o.z + 180, 0, 0, 0, spring((t - s.t0 - 0.35) / .5)); }
+    return;
+  }
   const srv = spring((t - dia.t0 - 0.1) / 0.8), SY = O.y + 330, SZ = O.z - 140;
   put("server", sv * ramp(t, dia.t0 + 0.05, .3), O.x, lerp(SY + 260, SY, srv), lerp(SZ - 400, SZ, srv), lerp(-20, 0, srv) * ST.sign);
   OBJ.server.querySelector(".front").style.filter = `brightness(${dimL})`;

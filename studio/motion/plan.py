@@ -38,10 +38,10 @@ TYPES = {
     "table_grid":     {"columns": (L, False), "rows": (L, True), "title": (S, False), "highlight_word": (S, False), "highlight_row": (N, False)},
     "timeline":       {"items": (L, True)},
     "flow_steps":     {"steps": (L, True)},
-    "browser_page":   {"url": (S, False), "title": (S, True), "blocks": (L, True), "button": (S, False)},
+    "browser_page":   {"url": (S, False), "title": (S, False), "blocks": (L, True), "button": (S, False)},
     "chat_thread":    {"messages": (L, True), "title": (S, False)},
     "bar_chart":      {"bars": (L, True), "title": (S, True), "unit": (S, False), "source": (S, False)},
-    "phone_screen":   {"app": (S, False), "title": (S, True), "rows": (L, True), "notify": (S, False), "notify_word": (S, False)},
+    "phone_screen":   {"app": (S, False), "title": (S, False), "rows": (L, True), "notify": (S, False), "notify_word": (S, False)},
     "stack_layers":   {"layers": (L, True)},
 }
 LOOKS = ["studio", "paper", "blueprint", "neon", "glass", "bold"]          # design families, one per episode (plan.look)
@@ -116,6 +116,7 @@ def validate(script, plan):
                 if len(x[shape[1]]) > TEXT_MAX + 30: probs.append(f"{where}: {shape[0]} {shape[1]} too long"); break
                 if x.get("word") and not _has_word(line, x["word"]): probs.append(f"{where}: item word {x['word']!r} is not in line {s.get('line')}")
             if t == "chat_thread" and any(isinstance(x, dict) and x.get("from", "you") not in ("you", "ai") for x in p.get("messages", [])): probs.append(f"{where}: message from must be you or ai")
+        if t in ("browser_page", "phone_screen") and t not in seen and not p.get("title"): probs.append(f"{where}: the first {t} needs a title")
         if t == "table_grid" and "table_grid" not in seen and not p.get("columns"): probs.append(f"{where}: the first table_grid needs columns")
         if t == "table_grid" and any(not isinstance(x, list) or not 1 <= len(x) <= 4 for x in p.get("rows", [])): probs.append(f"{where}: rows are lists of up to 4 cells")
         if t == "bar_chart" and any(not isinstance(x, list) or len(x) != 2 or not isinstance(x[1], (int, float)) for x in p.get("bars", [])): probs.append(f"{where}: bars are [label, number]")

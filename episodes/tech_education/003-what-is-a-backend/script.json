@@ -1,0 +1,78 @@
+{
+ "title": "What actually is a backend?",
+ "series": "Build Basics, Part 3",
+ "beats": [
+  {
+   "lines": [
+    "What actually is a backend,",
+    "and why does every app you build with AI have one?"
+   ]
+  },
+  {
+   "lines": [
+    "Open any app, and you only see the front: buttons, text, pictures.",
+    "That's the frontend. It runs on your phone."
+   ]
+  },
+  {
+   "lines": [
+    "Tap order, and the real work happens somewhere else.",
+    "Your tap travels to a server you never see.",
+    "That hidden part is the backend."
+   ]
+  },
+  {
+   "lines": [
+    "It checks who you are,",
+    "saves your order in a database,",
+    "and charges your card.",
+    "Then it sends an answer back, in about a second."
+   ]
+  },
+  {
+   "lines": [
+    "The frontend is the shop window. The backend is the kitchen."
+   ]
+  },
+  {
+   "lines": [
+    "If you're building with AI, ask Claude:",
+    "keep secrets and payments on the backend, never in the frontend."
+   ]
+  },
+  {
+   "lines": [
+    "Follow for more build basics."
+   ]
+  }
+ ],
+ "key_words": [
+  "backend,",
+  "backend.",
+  "backend",
+  "AI",
+  "front:",
+  "frontend.",
+  "frontend",
+  "phone.",
+  "order,",
+  "server",
+  "checks",
+  "saves",
+  "database,",
+  "charges",
+  "answer",
+  "window.",
+  "kitchen.",
+  "Claude:",
+  "secrets",
+  "payments",
+  "basics."
+ ],
+ "claims": [
+  {
+   "claim": "Server-side code stores and retrieves data and controls who can access it; the browser shows the client-side front end",
+   "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Introduction"
+  }
+ ]
+}
