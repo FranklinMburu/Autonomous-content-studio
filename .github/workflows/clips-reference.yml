@@ -40,6 +40,18 @@ jobs:
           yt-dlp --flat-playlist -J "$ch/videos" > videos.json || echo '{"entries":[]}' > videos.json
           # The streams a clipping campaign names (e.g. IShowSpeed x Expedia: the 6 Nov 2026 stream): list them with
           # their links, titles and dates so the exact VOD can be picked. Nothing is downloaded here.
+          echo "## Can GitHub reach Kick? (N3on, Adin Ross: Kick streamers who pay clippers)"
+          for k in n3on adinross; do
+            curl -sS -m 20 -A "Mozilla/5.0" -o "kick_$k.json" -w "KICK $k http %{http_code}\n" "https://kick.com/api/v2/channels/$k/videos" || true
+            python -c "import json,sys
+          try:
+              d=json.load(open(sys.argv[1])); d=d if isinstance(d,list) else d.get('data',d)
+              for v in (d or [])[:6]: print('KICKVOD', sys.argv[2], v.get('created_at') or v.get('start_time'), v.get('duration'), (v.get('video') or {}).get('uuid') or v.get('uuid'), (v.get('session_title') or '')[:80])
+          except Exception as e: print('KICK', sys.argv[2], 'not json', e)" "kick_$k.json" "$k" || true
+          done
+          echo "## Second reference channel"
+          yt-dlp --flat-playlist -J "https://www.youtube.com/channel/UCxlQSBBswmNP-wFDkcFrDBw/shorts" > shorts2.json || echo '{"entries":[]}' > shorts2.json
+          python -c "import json; d=json.load(open('shorts2.json')); print('REF2', d.get('channel') or d.get('uploader') or d.get('title'), len(d.get('entries') or []), 'shorts'); [print('REF2ROW', e.get('view_count'), 'https://www.youtube.com/shorts/'+str(e.get('id')), e.get('title')) for e in sorted(d.get('entries') or [], key=lambda e: -(e.get('view_count') or 0))[:40]]"
           echo "## Recent streams of the campaign channels"
           for c in https://www.youtube.com/@IShowSpeed; do
             yt-dlp --flat-playlist --playlist-end 12 --print "%(upload_date|)s %(release_timestamp|)s %(duration|)s %(url)s %(title)s" "$c/streams" || true
