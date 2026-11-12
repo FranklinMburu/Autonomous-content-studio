@@ -28,6 +28,20 @@ Read these, in this order:
   `chat-downloader` (debug), then `recall.py`). Read its log: `gh run view <id> --log` on branch `clips-recall/1`.
 - **Still to add:** the vision AI pass (Gemini on frames) and the AI clipper-judge pass, then compare.
 
+## Progress, 13 Nov 03:00–04:00
+
+- Run 43327666336 (signals-only recall, Whisper transcript) running on `clips-recall/1`; its artifact `recall-key`
+  holds `words.json`, which the next run reuses (`REUSE_RUN` in `clips-recall.yml`) to skip the 1 h transcription.
+- Built and committed (dc38515): `lab/clips/ai_pass.py`
+  - `eyes`: Gemini looks at one 160p frame every 4 s (60 per request) and marks clip-worthy moments;
+  - `judge`: Gemini scores each candidate (signals top 40 + strong eyes moments) with what was said and seen, against
+    the reference-channel taste, and writes a title;
+  - `recall.py` gains `--eyes`, `--cands-out`, `--judged`, and the final finder "ALL + AI JUDGE".
+- Chat: a Twitch chat-replay step was **not** added (the tool guard refused using Twitch's web client id). Chat stays
+  out until there's an approved way; the other signals carry the test.
+- **Next:** when 43327666336 finishes, force-push `clips-engine` to `clips-recall/1` to run eyes + judge, then
+  report the table to Franklin.
+
 ## Next step, exactly
 
 1. Pick 2 real streams: a recent Kai Cenat Twitch VOD (`clips-probe` listed `https://www.twitch.tv/videos/2924282282`
