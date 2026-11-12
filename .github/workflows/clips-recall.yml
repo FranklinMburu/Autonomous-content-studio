@@ -8,6 +8,10 @@ on:
 
 permissions:
   contents: read
+  actions: read
+
+env:
+  REUSE_RUN: "43327666336"   # an earlier run whose transcript (words.json) can be reused; "" = transcribe again
 
 jobs:
   recon:
@@ -73,6 +77,15 @@ jobs:
       - uses: actions/checkout@v4
         with:
           path: repo
+      - name: Reuse an earlier transcript
+        if: env.REUSE_RUN != ''
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: recall-key
+          path: prev
+          run-id: ${{ env.REUSE_RUN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Media (audio only + 160p, whole stream) and transcript
         run: |
           sudo apt-get install -y -qq ffmpeg > /dev/null 2>&1
@@ -81,6 +94,7 @@ jobs:
           s0=$(date +%s); yt-dlp -q -f "Audio_Only" -o key/audio.m4a "$v"; echo "audio $(( $(date +%s)-s0 )) s"; ls -la key/audio.m4a
           s0=$(date +%s); yt-dlp -q -f "160p/worst" -o key/low.mp4 "$v"; echo "160p $(( $(date +%s)-s0 )) s"; ls -la key/low.mp4
           # chat: chat-downloader 0.2.8 is broken for Twitch VODs (KeyError 'data', 13 Nov 2026); a working tool is a separate task
+          if [ -s prev/words.json ]; then cp prev/words.json key/words.json; echo "transcript reused from run $REUSE_RUN"; exit 0; fi
           echo "== transcript"; s0=$(date +%s)
           python - <<'PY'
           import json, subprocess, numpy as np
@@ -95,9 +109,24 @@ jobs:
           print("words", len(words), "language", info.language)
           PY
           echo "transcript $(( $(date +%s)-s0 )) s"
-      - name: Recall test
+      - name: AI eyes (Gemini on one low-res frame every 4 s)
+        continue-on-error: true
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          cd repo && python lab/clips/recall.py --key ../key/twitch.json --audio ../key/audio.m4a --video ../key/low.mp4 --words ../key/words.json --top 20 --out ../key/recall_twitch.json
+          s0=$(date +%s); python repo/lab/clips/ai_pass.py eyes --video key/low.mp4 --out key/eyes.json --step 4 --batch 60 --pause 7
+          echo "eyes $(( $(date +%s)-s0 )) s"
+          python repo/lab/clips/ai_pass.py show --eyes key/eyes.json
+      - name: Recall test (signals, then the AI judge)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          cd repo
+          A="--key ../key/twitch.json --audio ../key/audio.m4a --video ../key/low.mp4 --words ../key/words.json --eyes ../key/eyes.json --top 20"
+          python lab/clips/recall.py $A --cands-out ../key/cands.json --out ../key/recall_signals.json
+          python lab/clips/ai_pass.py judge --cands ../key/cands.json --words ../key/words.json --eyes ../key/eyes.json --out ../key/judged.json --pause 7 || true
+          echo "================ WITH THE AI JUDGE ================"
+          python lab/clips/recall.py $A --judged ../key/judged.json --out ../key/recall_twitch.json
       - uses: actions/upload-artifact@v4
         with:
           name: recall-key

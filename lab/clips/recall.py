@@ -52,6 +52,9 @@ def main():
     ap.add_argument("--key", required=True); ap.add_argument("--audio", required=True); ap.add_argument("--video")
     ap.add_argument("--words"); ap.add_argument("--chat"); ap.add_argument("--top", type=int, default=20)
     ap.add_argument("--out", default="recall_result.json")
+    ap.add_argument("--eyes", help="AI eyes moments (lab/clips/ai_pass.py eyes)")
+    ap.add_argument("--judged", help="AI judge scores (lab/clips/ai_pass.py judge); adds the final finder")
+    ap.add_argument("--cands-out", help="write the candidates for the AI judge here (ALL top 40 + strong eyes moments)")
     a = ap.parse_args()
     K = json.loads(Path(a.key).read_text())
     key = [k for k in K["key"] if k.get("views")]
@@ -76,7 +79,33 @@ def main():
         fams["picture change (low quality video)"] = sum(zz(cv[k]) for k in pic)
     if chat:
         fams["chat (speed, emotes, copy-paste waves)"] = zz(cv["chat_rate"]) + zz(cv["chat_emote"]) + 0.5 * zz(cv["chat_dup"])
-    fams["ALL TOGETHER"] = sum(np.clip(v, -2, 6) for v in fams.values())
+    eyes = json.loads(Path(a.eyes).read_text())["moments"] if a.eyes and Path(a.eyes).exists() else []
+    if eyes:
+        ec = np.zeros(n)
+        for m in eyes:
+            i = int(m["t"])
+            if 0 <= i < n:
+                ec[max(0, i - 4):i + 5] = np.maximum(ec[max(0, i - 4):i + 5], m["score"])
+        fams["AI eyes (vision on low-res frames)"] = ec
+    fams["ALL TOGETHER"] = sum(np.clip(v if not k.startswith("AI eyes") else (v - 5), -2, 6) for k, v in fams.items())
+    if a.cands_out:
+        base = peaks(fams["ALL TOGETHER"], 40)
+        strong = [int(m["t"]) for m in sorted(eyes, key=lambda m: -m["score"]) if m["score"] >= 6][:30]
+        cands = sorted(set(base) | {t for t in strong if all(abs(t - b) > 45 for b in base)})
+        Path(a.cands_out).write_text(json.dumps([{"t": t} for t in cands]))
+        print(f"candidates for the AI judge: {len(cands)}")
+    judged = json.loads(Path(a.judged).read_text())["judged"] if a.judged and Path(a.judged).exists() else []
+    if judged:
+        jc = np.full(n, -1e9)
+        allz = fams["ALL TOGETHER"]
+        for m in judged:
+            try:
+                i, sc = int(float(m["t"])), float(m["score"])
+            except (TypeError, ValueError, KeyError):
+                continue
+            if 0 <= i < n:
+                jc[i] = sc * 10 + float(allz[i])
+        fams["ALL + AI JUDGE"] = jc
     total_views = sum(k["views"] for k in key)
 
     def found(pk, k):
@@ -90,17 +119,20 @@ def main():
         hit = [k for k in key if found(pk, k)]
         res[name] = {"found": len(hit), "of": len(key), "view_share": round(sum(k['views'] for k in hit) / max(1, total_views), 3), "picks": pk}
         print(f"{name:40s} {len(hit):>4d} of {len(key):<4d} {res[name]['view_share']:>14.0%}")
-    allpk = res["ALL TOGETHER"]["picks"]
-    print("\nPer fan clip (found by ALL TOGETHER?):")
+    best = "ALL + AI JUDGE" if judged else "ALL TOGETHER"
+    allpk = res[best]["picks"]
+    print(f"\nPer fan clip (found by {best}?):")
     for k in sorted(key, key=lambda k: -k["views"]):
         print(f"  {'YES' if found(allpk, k) else 'no '}  {k['views']:>7,} views  @{k['offset']//60:>3d}:{k['offset']%60:02d}  {k['title'][:60]}")
-    print("\nTop picks of ALL TOGETHER with what was said (new finds marked NEW):")
+    print(f"\nTop picks of {best} with what was said (new finds marked NEW):")
+    jmap = {int(float(m["t"])): m for m in judged if m.get("t") is not None}
     picks = []
     for p in allpk:
         said = " ".join(w["w"] for w in words if p - 20 <= w["start"] <= p + 10)[:220]
         new = not any(k["offset"] - 120 <= p <= k["offset"] + (k.get("duration") or 30) + 60 for k in key)
-        picks.append({"t": p, "new": new, "said": said})
-        print(f"  {'NEW' if new else 'hit'} @{p//60:>3d}:{p%60:02d}  {said}")
+        j = jmap.get(p, {})
+        picks.append({"t": p, "new": new, "said": said, "judge": j})
+        print(f"  {'NEW' if new else 'hit'} @{p//3600}:{p%3600//60:02d}:{p%60:02d}  " + (f"[{j.get('score')}] {j.get('title')} | " if j else "") + said)
     Path(a.out).write_text(json.dumps({"vod": K["vod"], "results": res, "picks": picks}, indent=1))
 
 
