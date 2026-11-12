@@ -12,7 +12,7 @@ permissions:
 jobs:
   recon:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 150
     steps:
       - uses: actions/setup-python@v5
         with:
@@ -70,6 +70,31 @@ jobs:
           for k in key: print("KEY_TW", k["views"], k["offset"], k["duration"], (k["title"] or "")[:70])
           json.dump({"vod": {"url": "https://www.twitch.tv/videos/2910392998", "start": t0, "duration": tdur, "title": vt.get("title")}, "key": key}, open("key/twitch.json", "w"), indent=1)
           PY
+      - uses: actions/checkout@v4
+        with:
+          path: repo
+      - name: Media (audio only + 160p, whole stream) and transcript
+        run: |
+          sudo apt-get install -y -qq ffmpeg > /dev/null 2>&1
+          pip install -q "numpy>=1.26" "opencv-python-headless==4.10.0.84" "faster-whisper==1.2.1" "chat-downloader==0.2.8"
+          v=$(python -c "import json; print(json.load(open('key/twitch.json'))['vod']['url'])")
+          s0=$(date +%s); yt-dlp -q -f "Audio_Only" -o key/audio.m4a "$v"; echo "audio $(( $(date +%s)-s0 )) s"; ls -la key/audio.m4a
+          s0=$(date +%s); yt-dlp -q -f "160p/worst" -o key/low.mp4 "$v"; echo "160p $(( $(date +%s)-s0 )) s"; ls -la key/low.mp4
+          echo "== chat (debug)"; timeout 900 chat_downloader "$v" --output key/chat.json 2>&1 | tail -3; ls -la key/chat.json 2>/dev/null || true
+          echo "== transcript"; s0=$(date +%s)
+          python - <<'PY'
+          import json
+          from faster_whisper import WhisperModel
+          m = WhisperModel("base", device="cpu", compute_type="int8")
+          segs, info = m.transcribe("key/audio.m4a", word_timestamps=True, vad_filter=True)
+          words = [{"w": w.word.strip(), "start": round(w.start, 2), "end": round(w.end, 2)} for s in segs for w in (s.words or [])]
+          json.dump({"words": words, "language": info.language}, open("key/words.json", "w"))
+          print("words", len(words), "language", info.language)
+          PY
+          echo "transcript $(( $(date +%s)-s0 )) s"
+      - name: Recall test
+        run: |
+          cd repo && python lab/clips/recall.py --key ../key/twitch.json --audio ../key/audio.m4a --video ../key/low.mp4 --words ../key/words.json --chat ../key/chat.json --top 20 --out ../key/recall_twitch.json
       - uses: actions/upload-artifact@v4
         with:
           name: recall-key
