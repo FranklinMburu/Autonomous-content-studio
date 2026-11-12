@@ -7,4 +7,4 @@ Topic: Why Marie Curie's notebooks are still kept in lead-lined boxes
 - Logic check issues found: 2
 - Words: 151, length 58.4s, 155 words/min, 10 words in first 3 s
 - Fact check: {'partial': 0, 'supported': 6, 'unsupported': 3}
-- Film shot list: 30 shots, 4 problem(s) left for the polish step (NEEDS_POLISH.md)
+- Film shot list: 36 shots, 4 problem(s) left for the polish step (NEEDS_POLISH.md)

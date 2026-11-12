@@ -1,39 +1,29 @@
 {
  "era": "today",
  "cast": {
-  "archivist": "a 41 year old French woman archivist with a long grey braid, a lean weathered face and deep-set brown eyes, wearing a teal blue archival jumpsuit with rolled sleeves and white nitrile gloves, 2020s",
-  "colleague": "a 27 year old man with short black hair, round black glasses and a clean-shaven round face, wearing a mustard yellow sweater under an open white lab coat, 2020s",
-  "safety": "a 50 year old woman radiation safety officer with cropped silver hair and a broad build, wearing a thick dark grey lead apron over a navy coverall, clear goggles and green gloves, 2020s",
-  "curie": "a 50 year old Polish-French scientist with dark hair streaked with grey pinned in a loose bun, a long serious face and dark tired eyes, wearing a high-necked black Edwardian dress with white lace cuffs, 1890s"
+  "archivist": "a 34 year old female archivist with short dark hair in a bob, fair skin, oval face, wearing a dark navy wool cardigan over a light grey shirt, today",
+  "colleague": "a 45 year old male archivist, tall build, short grey hair, wire-rimmed glasses, wearing a brown corduroy blazer over a cream buttoned shirt, today",
+  "curie": "a 30 year old Marie Curie, slender build, intense grey eyes, dark hair pinned in a loose 1890s updo, wearing a long dark blue Victorian working dress with high collar, 1890s",
+  "researcher": "a 28 year old male scientist, lean build, neat side-parted black hair, wearing heavy yellow lead apron over blue scrubs and clear safety goggles, today"
  },
  "music": "mysterious",
  "key_words": [
-  "archivist#1",
-  "notebook#1",
-  "dusty#1",
-  "glow#1",
-  "colleagues#1",
-  "papers#1",
-  "ink#1",
-  "tray#1",
-  "hiss#1",
-  "particles#1",
-  "lead-lined#1",
-  "lid#1",
-  "candle#1",
-  "rain#1",
-  "radium-226#1",
-  "half-life#1",
-  "years#1",
-  "blocks#1",
-  "radiation#1",
-  "protective#1",
-  "clothing#1",
-  "cookbooks#1",
-  "goggles#1",
-  "aprons#1",
-  "vault#1",
-  "monitored#1"
+  "archivist",
+  "notebook",
+  "glow",
+  "colleagues",
+  "metal",
+  "hiss",
+  "box",
+  "clangs",
+  "candle",
+  "Curie's",
+  "radium-226",
+  "thousand",
+  "Lead",
+  "protective",
+  "cookbooks",
+  "vault"
  ],
  "shots": [
   {
@@ -41,266 +31,297 @@
    "at": 0,
    "who": "archivist",
    "clip": true,
-   "prompt": "medium close-up, a woman lifting a thick dusty old notebook from a steel shelf with white-gloved hands, she is {archivist}, modern archive vault, cool overhead light",
-   "motion": "she lifts the notebook slowly, dust drifts off the cover, slow camera push in",
-   "check": "Is a woman lifting a dusty notebook?"
+   "prompt": "medium close-up, a woman lifting a thick dusty old notebook off a wooden desk, she is {archivist}, quiet archive vault room, dim lighting",
+   "motion": "she lifts the notebook slowly as dust particles float, slow camera push in",
+   "check": "Is a woman lifting a notebook?"
   },
   {
-   "name": "wince_glow",
+   "name": "archivist_wince",
    "at": "winces#1",
    "who": "archivist",
    "clip": true,
-   "hit": "winces#1",
-   "prompt": "close-up, a woman wincing and pulling her face back while holding an open old notebook with a faint pale green glow on its pages, she is {archivist}, dim archive room, cold light",
-   "motion": "the faint glow flickers across the pages, she recoils slightly, slow camera push in",
-   "check": "Is a woman wincing while holding a notebook?"
+   "prompt": "close-up, a woman squinting and wincing in surprise, she is {archivist}, faint greenish light flickering across her face, dark archive vault",
+   "motion": "she winces and blinks back in surprise, slow camera push in",
+   "check": "Is a woman wincing?"
   },
   {
-   "name": "colleagues_laugh",
+   "name": "colleague_laugh",
    "at": "colleagues#1",
    "who": "colleague",
    "clip": true,
-   "xfade": true,
-   "prompt": "medium shot, a man in a white lab coat laughing and pointing at an old notebook lying on a metal table, he is {colleague}, modern archive room, cool fluorescent light",
-   "motion": "he laughs and points at the notebook, slow camera push in",
-   "check": "Is a man laughing and pointing?"
+   "prompt": "medium shot, a man in glasses laughing dismissively and shaking his head, he is {colleague}, archive room with tall wooden bookshelves, warm lighting",
+   "motion": "he smiles and shakes his head, slow camera push in",
+   "check": "Is a man laughing?"
   },
   {
    "name": "ink_stains",
    "at": "ink#1",
    "move": "push",
-   "prompt": "extreme close-up of yellowed old notebook pages covered in dark brown blotchy stains, a white-gloved hand holding the page edge, dim archive light",
-   "check": "Are there dark stains on old paper pages?"
+   "prompt": "extreme close-up of open yellowed paper pages covered in dark ink stains and handwriting, wooden desk surface, warm lamp light",
+   "check": "Are there paper pages with ink stains?"
   },
   {
-   "name": "place_notebook",
+   "name": "place_tray",
    "at": "She#1",
    "who": "archivist",
    "clip": true,
-   "prompt": "medium close-up, a woman in a teal archival jumpsuit and white gloves lowering a dusty old notebook onto a metal tray, she is {archivist}, a dim archive storage room, cool overhead light",
-   "motion": "she lowers the notebook and lets go, slow camera push in",
-   "xfade": true,
-   "check": "Is a woman placing a notebook on a metal tray?"
+   "prompt": "medium close-up, a woman setting a worn dark brown leather notebook onto a stainless steel tray on a table, she is {archivist}, archival vault, soft light",
+   "motion": "she places the notebook gently on the tray, slow camera push in",
+   "check": "Is a woman placing a book on a tray?"
   },
   {
-   "name": "hiss",
-   "at": "hiss#1",
+   "name": "metal_tray",
+   "at": "metal#1",
    "move": "push",
-   "prompt": "close-up, a dusty old notebook lying on a metal tray as a faint blue-green glow pulses across its yellowed blank pages, dim archive storage room, cool light",
-   "hit": "hiss#1",
-   "check": "Is there a faint glow on the notebook pages?"
+   "prompt": "close-up of an old leather notebook sitting on a shiny stainless steel tray beside a metal air vent, quiet archival vault room, cool overhead light",
+   "check": "Is there a notebook on a metal tray?"
   },
   {
-   "name": "particles",
+   "name": "hiss_escapes",
+   "at": "hiss#1",
+   "clip": true,
+   "prompt": "close-up of a tiny wispy curl of faint grey smoke rising from a metal tray on a wooden desk, dark archival vault background, dim lamp light",
+   "motion": "the grey smoke curls upward slowly, slow camera push in",
+   "check": "Is faint smoke rising from a tray?"
+  },
+  {
+   "name": "particles_detector",
    "at": "particles#1",
    "clip": true,
-   "prompt": "extreme close-up, tiny dust motes and a faint shimmer drifting out of an open notebook on a metal tray, dim archive storage room, cool light",
-   "motion": "the dust motes drift upward from the open pages, slow camera push in",
-   "check": "Are tiny particles drifting out of an open notebook?"
+   "prompt": "close-up of a hand holding a black handheld radiation probe over the open metal tray with an old notebook, bright vault workstation light",
+   "motion": "a hand holds the probe steadily over the tray, slow camera push in",
+   "check": "Is a hand holding a detector over a book?"
   },
   {
-   "name": "slide_in",
+   "name": "slide_tray",
    "at": "She#2",
    "who": "archivist",
    "clip": true,
-   "prompt": "medium close-up, a woman sliding a metal tray holding a dusty notebook into an open grey lead-lined box, she is {archivist}, a modern archive vault with shelves, cool white light",
-   "motion": "she slides the metal tray forward into the open box, slow camera push in",
-   "xfade": true,
-   "check": "Is a woman sliding a metal tray into a box?"
+   "prompt": "medium close-up, a woman sliding a flat metal tray with an old notebook into a dark lead box, she is {archivist}, sterile vault room, bright overhead lamp",
+   "motion": "she carefully slides the metal tray into the container, slow camera push in",
+   "check": "Is a woman sliding a tray into a box?"
   },
   {
-   "name": "lid_down",
-   "at": "lid#1",
-   "who": "safety",
+   "name": "lead_box_tray",
+   "at": "lead‑lined#1",
+   "move": "push",
+   "prompt": "close-up of a dark metal tray inside a thick grey lead container on a workstation table, sterile vault room",
+   "check": "Is there a metal tray inside a container?"
+  },
+  {
+   "name": "lid_clang",
+   "at": "The#4",
    "clip": true,
-   "prompt": "close-up, a woman lowering a heavy grey lead-lined lid onto the box with green-gloved hands, she is {safety}, a modern archive vault, cool white light",
-   "motion": "she lowers the heavy lid and presses it shut, slow camera push in",
+   "prompt": "close-up of gloved hands slamming a thick lead lid shut over a heavy metallic box, bright overhead lighting, dark archive background",
+   "motion": "the heavy lid shuts down firmly, slow camera push in",
    "hit": "clangs#1",
-   "check": "Are gloved hands lowering a heavy lid onto a box?"
+   "check": "Are hands closing a metal lid?"
   },
   {
-   "name": "sealed",
+   "name": "sealed_box",
    "at": "sealing#1",
    "move": "push",
-   "prompt": "extreme close-up of the shut grey lead-lined box lid, a thin pale wisp of vapour curling from the seam, a modern archive vault, cool white light",
-   "check": "Is the box lid closed?"
+   "prompt": "medium shot, a thick dark lead storage box locked shut on a metal shelf, clean modern archive vault, cool blue side lighting",
+   "check": "Is there a metal box on a shelf?"
   },
   {
    "name": "candle_rain",
    "at": "You#1",
    "xfade": true,
    "clip": true,
-   "prompt": "close-up, a bare hand holding a lit candle upright in the rain, the flame bending and guttering in the wind, wet stone street, grey overcast daylight",
-   "motion": "the flame flickers and bends in the wind, raindrops fall past, slow camera push in",
+   "prompt": "close-up of a hand holding a lit wax candle outside in dark rain, water drops splattering against the flickering flame, night, cold blue light",
+   "motion": "rain falls around the flickering candle flame, slow camera push in",
    "check": "Is a hand holding a burning candle in the rain?"
   },
   {
-   "name": "flame_dies",
-   "at": "rain—without#1",
-   "hit": "dies#1",
+   "name": "flame_extinguished",
+   "at": "protection#1",
    "clip": true,
-   "prompt": "close-up, a just-extinguished candle standing on a wet stone ledge in falling rain, a thin wisp of smoke rising from the blackened wick, grey daylight",
-   "motion": "the smoke curls upward and raindrops splash on the ledge, slow camera push in",
-   "check": "Is there a smoking extinguished candle in the rain?"
+   "prompt": "extreme close-up of a candle wick smoking after its small flame goes out, raindrops trickling down wet wax, dark background",
+   "motion": "grey smoke rises slowly from the freshly extinguished wick, slow camera push in",
+   "hit": "dies#1",
+   "check": "Is smoke rising from an extinguished candle wick?"
   },
   {
-   "name": "curie_writes",
+   "name": "curie_desk",
    "at": "Curie's#1",
    "who": "curie",
-   "clip": true,
-   "prompt": "medium close-up, a woman in a high-necked black Edwardian dress writing in a notebook at a wooden laboratory desk, she is {curie}, 1890s Paris laboratory, warm oil lamp light, glass flasks beside her",
-   "motion": "she writes a line and glances at the page, slow camera push in",
    "xfade": true,
-   "check": "Is a woman writing in a notebook?"
+   "clip": true,
+   "prompt": "medium shot, a woman writing with a quill pen in a leather notebook, she is {curie}, wooden laboratory bench with glass beakers, warm lamp light, 1890s",
+   "motion": "she writes in the notebook with a quill pen, lamp light flickers, slow camera push in",
+   "check": "Is a woman writing with a pen?"
   },
   {
-   "name": "glowing_pages",
-   "at": "still#1",
+   "name": "1890s_papers",
+   "at": "papers#2",
    "move": "push",
-   "prompt": "close-up of an open yellowed old notebook on a steel tray, its pages giving off a faint blue-green glow, modern archive vault, cool overhead light",
-   "check": "Is there an open old notebook with a faint glow?"
+   "prompt": "close-up of yellowed 1890s manuscript pages with handwritten mathematical formulas and chemical symbols, wooden lab desk, dim lamp light",
+   "check": "Are there handwritten notes on yellowed paper?"
   },
   {
    "name": "radium_vial",
-   "at": "whose#1",
-   "move": "left",
-   "prompt": "close-up of a small sealed vintage glass vial with faintly glowing pale green residue resting on a thick lead block, modern radiation vault, cool blue light",
-   "check": "Is there a small glass vial with a faint glow?"
+   "at": "radium‑226#1",
+   "move": "push",
+   "prompt": "close-up of a small glass vial filled with glowing pale blue liquid resting on a dark wooden lab bench, 1890s",
+   "check": "Is there a small glass vial?"
   },
   {
-   "name": "brittle_page",
+   "name": "hourglass",
+   "at": "half‑life#1",
+   "clip": true,
+   "prompt": "close-up of a wooden hourglass with fine sand running through the narrow glass neck, warm desk light",
+   "motion": "the sand trickles down through the glass, slow camera push in",
+   "hit": "half‑life#1",
+   "check": "Is there an hourglass?"
+  },
+  {
+   "name": "notebook_cover",
    "at": "1,600#1",
-   "clip": true,
-   "prompt": "close-up of a white-gloved hand turning a brittle yellowed page of an old notebook on a steel tray, modern archive vault, cool light",
-   "motion": "the gloved hand turns the brittle page slowly, slow camera push in",
-   "hit": "1,600#1",
-   "check": "Is a gloved hand turning an old page?"
+   "move": "push",
+   "prompt": "close-up of a dark leather notebook cover with gilded corners resting on a polished metal tray, bright modern lab light",
+   "check": "Is there a dark leather notebook?"
   },
   {
-   "name": "lifting_notebook",
-   "at": "makes#1",
-   "who": "archivist",
-   "clip": true,
-   "prompt": "medium shot, a woman in a teal blue archival jumpsuit and white gloves lifting a glowing old notebook from a steel tray, she is {archivist}, lead-lined vault, cool light",
-   "motion": "she lifts the notebook carefully, slow camera push in",
-   "check": "Is a woman lifting an old notebook with gloved hands?"
+   "name": "vault_room",
+   "at": "notebooks#1",
+   "move": "left",
+   "prompt": "wide shot of a silent modern archive vault with tall steel shelving units and sealed storage boxes, cool fluorescent light",
+   "check": "Is this a room with steel shelves?"
   },
   {
-   "name": "vault",
-   "at": "for#1",
-   "move": "pull",
-   "prompt": "wide shot of a deep concrete radiation vault with shelves of sealed lead-lined steel boxes and a heavy steel door, cool overhead light",
-   "check": "Are there shelves of metal boxes in a vault?"
+   "name": "lead_box",
+   "at": "thousand#1",
+   "move": "push",
+   "prompt": "close-up of a heavy grey lead storage chest with thick metal latches sitting on a stainless steel table",
+   "check": "Is there a metal chest on a table?"
   },
   {
-   "name": "lead_blocks",
+   "name": "shielding",
    "at": "Lead#1",
-   "move": "push",
-   "prompt": "close-up of thick stacked grey lead bricks forming a shield wall beside a lead-lined box, cool vault light",
-   "xfade": true,
+   "clip": true,
+   "prompt": "close-up of gloved hands lowering a heavy lead lid onto a metal container, bright clean vault room",
+   "motion": "the heavy lid settles onto the container, slow camera push in",
    "hit": "Lead#1",
-   "check": "Are there thick grey lead blocks?"
+   "check": "Is a lid being lowered onto a container?"
   },
   {
-   "name": "safety_officer",
-   "at": "keeping#1",
-   "who": "safety",
-   "clip": true,
-   "prompt": "medium shot, a woman in a thick dark grey lead apron, clear goggles and green gloves standing beside a lead-lined workbench, she is {safety}, modern radiation lab, cool light",
-   "motion": "she lowers her hand onto the bench and looks down, slow camera push in",
-   "check": "Is a woman wearing a lead apron and goggles?"
-  },
-  {
-   "name": "gearing_up",
-   "at": "wants#1",
-   "who": "colleague",
-   "clip": true,
-   "prompt": "medium shot, a man in a white lab coat pulling a thick grey lead apron over his shoulders, he is {colleague}, modern changing area, bright cool light",
-   "motion": "he pulls the apron over his shoulders, slow camera push in",
-   "check": "Is a man putting on a lead apron?"
-  },
-  {
-   "name": "reading",
-   "at": "clothing#1",
-   "who": "colleague",
-   "clip": true,
-   "prompt": "medium full shot, a man in a lead apron, goggles and green gloves reading an open old notebook at a lead-lined table, he is {colleague}, modern radiation lab, cool light",
-   "motion": "he turns a page carefully, slow camera push in",
-   "hit": "clothing#1",
-   "check": "Is a man in protective gear reading a notebook?"
-  },
-  {
-   "name": "guarded_box",
-   "at": "Ironically#1",
-   "who": "safety",
-   "clip": true,
-   "prompt": "medium shot, a woman in a thick lead apron steadying a heavy lead-lined metal box on a steel table, she is {safety}, a modern radiation vault with thick concrete walls, cold overhead light",
-   "motion": "she grips the box lid and looks down at it, slow camera push in",
-   "xfade": true,
-   "check": "Is a woman in a lead apron standing beside a heavy metal box?"
-  },
-  {
-   "name": "notebook_lift",
-   "at": "radioactivity#1",
-   "who": "archivist",
-   "clip": true,
-   "prompt": "medium shot, a woman in a teal archival jumpsuit lifting a dark worn notebook from a steel shelf, she is {archivist}, a modern radiation vault, cold overhead light",
-   "motion": "she lifts the notebook carefully with both hands, slow camera push in",
-   "hit": "radioactivity#1",
-   "check": "Is a woman lifting a dark notebook?"
-  },
-  {
-   "name": "seal_lid",
-   "at": "guarded#1",
-   "clip": true,
-   "prompt": "close-up, a green-gloved hand pressing the heavy lid of a lead-lined metal case shut, a modern radiation vault, cold overhead light",
-   "motion": "the gloved hand presses the lid down firmly, slow camera push in",
-   "check": "Is a gloved hand pressing a heavy lid shut?"
-  },
-  {
-   "name": "glowing_cookbook",
-   "at": "cookbooks#1",
+   "name": "radiation_block",
+   "at": "penetrating#1",
    "move": "push",
-   "prompt": "close-up, an old clothbound cookbook lying open on a steel table, its yellowed pages glowing with a faint green light, a modern radiation vault, cold overhead light",
-   "check": "Is there an open old cookbook with glowing pages?"
+   "prompt": "close-up of a thick grey lead wall panel shielding a clean modern laboratory desk, cool overhead lighting",
+   "check": "Is there a thick grey lead wall panel?"
   },
   {
-   "name": "gearup",
-   "at": "Researchers#1",
-   "who": "safety",
+   "name": "vault_monitored",
+   "at": "keeping#1",
+   "who": "archivist",
    "clip": true,
-   "prompt": "medium shot, a woman in a thick dark grey lead apron pulling green gloves onto her hands, she is {safety}, modern concrete archive vault, cool overhead light",
-   "motion": "she pulls the green glove over her fingers and flexes her hand, slow camera push in",
+   "prompt": "medium shot, a woman inspecting a heavy metal container on a stainless steel table, she is {archivist}, quiet archive vault room",
+   "motion": "she looks closely at the metal container and nods, slow camera push in",
+   "check": "Is a woman standing near a metal container?"
+  },
+  {
+   "name": "reading_notes",
+   "at": "read#1",
+   "clip": true,
+   "prompt": "close-up of heavy blue-gloved hands turning a fragile yellowed manuscript page on a metal reading table",
+   "motion": "the gloved hand gently lifts and turns the page, slow camera push in",
+   "check": "Are gloved hands turning a paper page?"
+  },
+  {
+   "name": "protective_gear",
+   "at": "protective#1",
+   "who": "researcher",
+   "clip": true,
+   "prompt": "medium shot, a male scientist adjusting clear safety goggles over his face while wearing a yellow lead apron, he is {researcher}, modern lab room",
+   "motion": "he adjusts his goggles firmly and looks ahead, slow camera push in",
+   "check": "Is a man wearing safety goggles?"
+  },
+  {
+   "name": "curie_writing",
+   "at": "Ironically#1",
+   "who": "curie",
    "xfade": true,
-   "check": "Is a woman wearing a thick lead apron?"
+   "clip": true,
+   "prompt": "medium shot, a woman dipping a feather pen into black ink and writing in a leather journal, she is {curie}, dim 1890s laboratory with glass beakers and warm lamp light",
+   "motion": "she writes in the notebook by lamp light, slow camera push in",
+   "check": "Is a woman writing in a journal?"
   },
   {
-   "name": "goggles",
+   "name": "radioactivity_birth",
+   "at": "radioactivity#1",
+   "move": "push",
+   "prompt": "close-up of glowing blue liquid bubbling inside a glass laboratory flask on a brass tripod stand, 1890s laboratory",
+   "check": "Is liquid bubbling inside a glass flask?"
+  },
+  {
+   "name": "guarded_artifacts",
+   "at": "most#1",
+   "move": "push",
+   "prompt": "wide shot of a sealed glass display case holding an old leather manuscript inside a high-security vault, bright spotlight",
+   "check": "Is there a book inside a glass case?"
+  },
+  {
+   "name": "cookbook_glow",
+   "at": "cookbooks#1",
+   "clip": true,
+   "prompt": "close-up of hands turning a yellowed page of an old handwritten recipe book on a metal table, warm light",
+   "motion": "hands slowly turn the vintage paper page, slow camera push in",
+   "check": "Are hands turning a page of a book?"
+  },
+  {
+   "name": "deadly_ink",
+   "at": "deadly#1",
+   "clip": true,
+   "prompt": "extreme close-up of dark handwritten ink lines on aged paper faintly shimmering under blue light, dark background",
+   "motion": "the blue shimmer glints along the handwritten text, slow camera push in",
+   "hit": "deadly#1",
+   "check": "Is this a close-up of handwritten text on paper?"
+  },
+  {
+   "name": "donning_gloves",
+   "at": "Researchers#1",
+   "who": "researcher",
+   "clip": true,
+   "prompt": "close-up, a man pulling a thick dark rubber glove over his right hand, he is {researcher}, clean modern lab workstation",
+   "motion": "he pulls the thick glove tightly onto his hand, slow camera push in",
+   "check": "Is a man putting on a glove?"
+  },
+  {
+   "name": "wearing_goggles",
    "at": "goggles#1",
-   "who": "archivist",
+   "who": "researcher",
    "clip": true,
-   "prompt": "close-up, a woman lowering clear safety goggles over her eyes, she is {archivist}, grey braid visible, plain concrete vault wall, cold fluorescent light",
-   "motion": "she lowers the goggles onto her face and blinks, slow camera push in",
-   "check": "Is a woman wearing clear goggles?"
+   "prompt": "close-up, a man securing transparent safety goggles over his eyes, he is {researcher}, modern archival laboratory",
+   "motion": "he adjusts the goggle strap behind his head, slow camera push in",
+   "check": "Is a man adjusting goggles?"
   },
   {
-   "name": "openbox",
+   "name": "lead_apron",
+   "at": "lead#2",
+   "who": "researcher",
+   "clip": true,
+   "prompt": "medium close-up, a man fastening the side straps of a thick yellow lead apron across his chest, he is {researcher}, modern laboratory",
+   "motion": "he fastens the apron strap firmly, slow camera push in",
+   "check": "Is a man fastening a lead apron?"
+  },
+  {
+   "name": "open_box",
    "at": "opening#1",
-   "who": "archivist",
+   "who": "researcher",
    "clip": true,
-   "prompt": "medium shot, a woman lifting the heavy lid of a lead-lined metal box on a steel table, she is {archivist}, modern concrete radiation vault, cool light",
-   "motion": "she lifts the heavy lid slowly and looks inside, slow camera push in",
-   "hit": "opening#1",
-   "check": "Is a woman opening a metal box?"
+   "prompt": "medium close-up, lifting the heavy lid of a lead box on a table, he is {researcher}, bright modern vault",
+   "motion": "he slowly opens the metal lid of the box, slow camera push in",
+   "check": "Is a man opening a box?"
   },
   {
-   "name": "monitor",
-   "at": "monitored#1",
-   "who": "colleague",
-   "clip": true,
-   "prompt": "close-up, a man holding up a grey handheld radiation detector with a round dial, he is {colleague}, bare concrete vault wall behind, cold light",
-   "motion": "he raises the detector slightly and watches the dial, slow camera push in",
-   "check": "Is a man holding a radiation detector?"
+   "name": "vault_monitoring",
+   "at": "air#1",
+   "move": "push",
+   "xfade": true,
+   "prompt": "wide shot of a modern clean archive vault with stainless steel shelves, heavy metal air monitoring sensors on the ceiling, bright clean light",
+   "check": "Is this a modern room with metal shelves?"
   }
  ]
 }
