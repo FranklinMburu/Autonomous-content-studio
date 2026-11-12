@@ -1,0 +1,90 @@
+{
+ "title": "Why Curie's Notebooks Stay Locked",
+ "channel": "Hidden Reasons",
+ "topic": "Why Marie Curie's notebooks are still kept in lead-lined boxes",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "lines": [
+    "An archivist lifts a dusty notebook, winces as a faint glow flickers.",
+    "Her colleagues laugh, saying the old papers are just ink stains."
+   ],
+   "feel": "curiosity"
+  },
+  {
+   "lines": [
+    "She places the notebook on a metal tray.",
+    "A soft hiss escapes, invisible particles slipping out."
+   ],
+   "feel": "dread"
+  },
+  {
+   "lines": [
+    "She slides the tray into a lead‑lined box.",
+    "The lid clangs, sealing the hiss inside."
+   ],
+   "feel": "frustration"
+  },
+  {
+   "lines": [
+    "You see, it’s like holding a candle in rain—without protection flame dies."
+   ],
+   "feel": "recognition"
+  },
+  {
+   "lines": [
+    "Curie's 1890s papers still contain radium‑226, whose half‑life is about 1,600 years.",
+    "That makes the notebooks radioactive for well over a thousand years.",
+    "Lead blocks the penetrating radiation, keeping the lab safe.",
+    "Anyone who wants to read them must wear protective clothing."
+   ],
+   "feel": "awe"
+  },
+  {
+   "lines": [
+    "Ironically, the notebooks that birthed radioactivity are now the most guarded artifacts.",
+    "Even her cookbooks glow with the same deadly ink."
+   ],
+   "feel": "surprise"
+  },
+  {
+   "lines": [
+    "Researchers don gloves, goggles, and thick lead aprons before opening a box.",
+    "The air in the vault is monitored for stray particles."
+   ],
+   "feel": "tension"
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Her papers from the 1890s are considered too dangerous to handle because of their radioactivity.",
+   "url": "https://en.wikipedia.org/wiki/Marie_Curie"
+  },
+  {
+   "claim": "Radium‑226 has a half‑life of about 1,600 years, so her notebooks remain radioactive for well over a thousand years.",
+   "url": "https://en.wikipedia.org/wiki/Marie_Curie"
+  },
+  {
+   "claim": "The papers are kept in lead‑lined boxes and require protective clothing to consult.",
+   "url": "https://en.wikipedia.org/wiki/Marie_Curie"
+  }
+ ],
+ "key_words": [
+  "archivist",
+  "glow",
+  "lead‑lined",
+  "radium‑226",
+  "half‑life",
+  "protective",
+  "radioactive",
+  "notebooks"
+ ]
+}
