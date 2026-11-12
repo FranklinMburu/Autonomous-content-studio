@@ -16,21 +16,22 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Probe
+      - name: Probe 2
         run: |
-          pip install -q "yt-dlp==2026.10.26"
-          echo "== 1. Twitch: list Kai Cenat's past broadcasts (no download)"
-          yt-dlp --flat-playlist --playlist-end 3 --print "TWVOD %(url)s %(title)s" "https://www.twitch.tv/kaicenat/videos?filter=archives" 2>&1 | tail -5
-          v=$(yt-dlp --flat-playlist --playlist-end 1 --print "%(url)s" "https://www.twitch.tv/kaicenat/videos?filter=archives" 2>/dev/null | head -1)
-          echo "== 2. Twitch: can we read that VOD's formats and sizes? ($v)"
-          [ -n "$v" ] && yt-dlp -F "$v" 2>&1 | tail -12
-          echo "== 3. Twitch: download ONLY a 60-second section (size check)"
-          [ -n "$v" ] && yt-dlp -q -f "best[height<=720]/best" --download-sections "*1:00:00-1:01:00" -o sec.mp4 "$v" 2>&1 | tail -3; ls -la sec.mp4 2>/dev/null && rm -f sec.mp4
-          echo "== 4. Twitch: viewer-made clips of the channel (top, last week)"
-          yt-dlp --flat-playlist --playlist-end 5 --print "TWCLIP %(url)s %(view_count)s %(title)s" "https://www.twitch.tv/kaicenat/clips?filter=clips&range=7d" 2>&1 | tail -6
-          echo "== 5. YouTube: 'most replayed' heatmap + captions for one IShowSpeed stream"
-          yt-dlp --skip-download --print "HEAT %(heatmap)j" "https://www.youtube.com/watch?v=9aPR9UXI1kY" 2>&1 | cut -c1-300 | tail -3
-          echo "== 6. Kick: the public API and the video CDN"
-          curl -sS -m 15 -A "Mozilla/5.0" -o /dev/null -w "KICK api %{http_code}\n" "https://kick.com/api/v2/channels/n3on/clips" || true
-          curl -sS -m 15 -o /dev/null -w "KICK cdn %{http_code}\n" "https://stream.kick.com/" || true
-          echo "== done"
+          sudo apt-get install -y -qq ffmpeg > /dev/null 2>&1; pip install -q "yt-dlp==2026.10.26" "chat-downloader==0.2.8"
+          v=https://www.twitch.tv/videos/2924282282
+          echo "== A. Twitch: 60 s section at 1080p60 (only that part)"
+          s0=$(date +%s); yt-dlp -q -f "1080p60/best" --download-sections "*1:00:00-1:01:00" -o secA.mp4 "$v" 2>&1 | tail -2; echo "took $(( $(date +%s)-s0 )) s"; ls -la secA.mp4 2>/dev/null
+          echo "== B. Twitch: 10 min of AUDIO ONLY (for transcript and laughter/hype)"
+          s0=$(date +%s); yt-dlp -q -f "Audio_Only" --download-sections "*1:00:00-1:10:00" -o secB.m4a "$v" 2>&1 | tail -2; echo "took $(( $(date +%s)-s0 )) s"; ls -la secB.m4a 2>/dev/null
+          echo "== C. Twitch: chat replay for 10 min (chat-downloader, open source, PyPI)"
+          timeout 300 chat_downloader "$v" --start_time 3600 --end_time 4200 --output chat.json --quiet > /dev/null 2>&1; ls -la chat.json 2>/dev/null && python -c "import json; d=json.load(open('chat.json')); print('CHAT messages in 10 min:', len(d))"
+          echo "== D. A viewer-made Twitch clip (full quality)"
+          yt-dlp -q -o clip.mp4 "https://www.twitch.tv/kaicenat/clip/TriumphantBashfulJaguarMau5-YypDGFnoMq2b5MdR" 2>&1 | tail -2; ls -la clip.mp4 2>/dev/null; ffprobe -v error -show_entries format=duration -of csv=p=0 clip.mp4 2>/dev/null
+          echo "== E. Kick: clips JSON"
+          curl -sS -m 20 -A "Mozilla/5.0" "https://kick.com/api/v2/channels/n3on/clips?sort=view&time=week" -o kclips.json; python -c "import json; d=json.load(open('kclips.json')); c=d.get('clips',d) if isinstance(d,dict) else d; print('KICK clips:', len(c)); [print('KCLIP', x.get('view_count') or x.get('views'), x.get('duration'), x.get('clip_url') or x.get('video_url'), (x.get('title') or '')[:60]) for x in c[:5]]" || head -c 300 kclips.json
+          u=$(python -c "import json; d=json.load(open('kclips.json')); c=d.get('clips',d) if isinstance(d,dict) else d; print((c[0].get('clip_url') or c[0].get('video_url') or ''))" 2>/dev/null)
+          echo "first clip url: $u"; [ -n "$u" ] && curl -sS -m 20 -A "Mozilla/5.0" -o /dev/null -w "KICK clip file %{http_code} %{size_download}\n" "$u"
+          echo "== F. Kick: other paths"
+          for path in api/v1/channels/n3on api/v2/channels/n3on/videos api/v2/channels/n3on; do curl -sS -m 15 -A "Mozilla/5.0" -o /dev/null -w "KICK $path %{http_code}\n" "https://kick.com/$path"; done
+          echo "== done2"
