@@ -17,54 +17,59 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Answer key and media
+      - name: Answer keys (both streams)
         run: |
-          sudo apt-get install -y -qq ffmpeg > /dev/null 2>&1; pip install -q "yt-dlp==2026.10.26"
+          pip install -q "yt-dlp==2026.10.26"
           mkdir -p key
           python - <<'PY'
-          import json, subprocess, time, urllib.request, datetime as dt
+          import json, time, urllib.request, datetime as dt, subprocess
+          from collections import Counter
           UA={"User-Agent":"Mozilla/5.0"}
           def get(u):
               for i in range(4):
                   try: return json.load(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=30))
                   except Exception as e: err=e; time.sleep(3)
               raise err
-          # --- Kick: N3on, livestream 137320696 (87 min, 11 Nov)
-          vods = get("https://kick.com/api/v2/channels/n3on/videos"); vods = vods if isinstance(vods, list) else vods.get("data", vods)
-          v = next(x for x in vods if str(x["id"]) == "137320696")
-          start = dt.datetime.fromisoformat(v["start_time"].replace(" ", "T")).replace(tzinfo=dt.timezone.utc); dur = v["duration"]/1000
-          print("KICKVOD", v["id"], v["start_time"], round(dur), (v.get("video") or {}).get("uuid"), v["session_title"])
+          vods = []
+          for page in range(1, 6):
+              d = get(f"https://kick.com/api/v2/channels/n3on/videos?page={page}"); d = d if isinstance(d, list) else d.get("data", d)
+              if not d: break
+              vods += d
           clips, cursor = [], None
-          for page in range(15):
-              u = "https://kick.com/api/v2/channels/n3on/clips?sort=view&time=month" + (f"&cursor={cursor}" if cursor else "")
-              d = get(u); cs = d.get("clips", []) if isinstance(d, dict) else d
-              clips += cs; cursor = d.get("nextCursor") if isinstance(d, dict) else None
+          for page in range(20):
+              d = get("https://kick.com/api/v2/channels/n3on/clips?sort=view&time=all" + (f"&cursor={cursor}" if cursor else ""))
+              clips += d.get("clips", []); cursor = d.get("nextCursor")
               if not cursor: break
-          from collections import Counter
-          cnt = Counter(str(c.get("livestream_id")) for c in clips)
-          print("CLIP livestream ids (top):", cnt.most_common(8)); print("VOD ids:", [(x["id"], x.get("start_time"), round(x["duration"]/60000)) for x in vods[:8]])
-          print("VOD source field:", (v.get("source") or "")[:160])
-          # the clip's livestream_id may be the live session id; match by time instead: clips made during the stream window
-          mine = [c for c in clips if start <= dt.datetime.fromisoformat(c["created_at"].replace("Z", "+00:00")) <= start + dt.timedelta(seconds=dur + 600)]
+          cnt = Counter(str(c["livestream_id"]) for c in clips)
+          byid = {str(v["id"]): v for v in vods}
+          print("KICK vods", len(vods), "clips", len(clips))
+          for lid, n in cnt.most_common(15):
+              v = byid.get(lid)
+              print("CAND", lid, n, "clips", (round(v["duration"]/3.6e6, 1), v["start_time"], v["session_title"][:60]) if v else "no VOD listed")
+          # best candidate: most clips with a VOD of 1.5-8 h
+          best = max((lid for lid in cnt if lid in byid and 1.5 <= byid[lid]["duration"]/3.6e6 <= 8), key=lambda l: cnt[l], default=None)
+          if best:
+              v = byid[best]; start = dt.datetime.fromisoformat(v["start_time"].replace(" ", "T")).replace(tzinfo=dt.timezone.utc)
+              key = sorted(({"views": c["views"], "offset": round((dt.datetime.fromisoformat(c["created_at"].replace("Z", "+00:00")) - start).total_seconds() - c["duration"]),
+                             "duration": c["duration"], "title": c["title"], "url": c["clip_url"]} for c in clips if str(c["livestream_id"]) == best), key=lambda k: -k["views"])
+              print("PICK_KICK", best, round(v["duration"]/3.6e6, 2), "h", v["session_title"], "source:", (v.get("source") or "")[:120])
+              for k in key: print("KEY_KICK", k["views"], k["offset"], k["duration"], k["title"][:70])
+              json.dump({"vod": {"id": best, "source": v.get("source"), "start": v["start_time"], "duration": v["duration"]/1000, "title": v["session_title"]}, "key": key}, open("key/kick.json", "w"), indent=1)
+          # Twitch: Kai Cenat Japan nightlife VOD and its clips (30 days)
+          vt = json.loads(subprocess.run(["yt-dlp", "-J", "--skip-download", "https://www.twitch.tv/videos/2910392998"], capture_output=True, text=True).stdout)
+          t0, tdur = vt["timestamp"], vt["duration"]
+          urls = subprocess.run(["yt-dlp", "--flat-playlist", "--playlist-end", "100", "--print", "%(url)s", "https://www.twitch.tv/kaicenat/clips?filter=clips&range=30d"], capture_output=True, text=True).stdout.split()
           key = []
-          for c in mine:
-              made = dt.datetime.fromisoformat(c["created_at"].replace("Z", "+00:00"))
-              off = (made - start).total_seconds() - c["duration"]   # the clip ends about when it is made
-              key.append({"views": c["views"], "offset": round(off), "duration": c["duration"], "title": c["title"], "url": c["clip_url"]})
-          key.sort(key=lambda k: -k["views"])
-          print("KICK clips scanned", len(clips), "for this stream", len(key))
-          for k in key[:25]: print("KEY_KICK", k["views"], k["offset"], k["duration"], k["title"][:70])
-          json.dump({"vod": {"id": v["id"], "uuid": (v.get("video") or {}).get("uuid"), "source": v.get("source"), "start": v["start_time"], "duration": dur}, "key": key}, open("key/kick_n3on.json", "w"), indent=1)
+          for u in urls:
+              d = json.loads(subprocess.run(["yt-dlp", "-J", "--skip-download", u], capture_output=True, text=True).stdout or "{}")
+              ts = d.get("timestamp") or 0
+              if t0 <= ts <= t0 + tdur + 600:
+                  key.append({"views": d.get("view_count"), "offset": round(ts - t0 - (d.get("duration") or 30)), "duration": d.get("duration"), "title": d.get("title"), "url": u})
+          key.sort(key=lambda k: -(k["views"] or 0))
+          print("TW clips in 30d", len(urls), "for Japan VOD", len(key))
+          for k in key: print("KEY_TW", k["views"], k["offset"], k["duration"], (k["title"] or "")[:70])
+          json.dump({"vod": {"url": "https://www.twitch.tv/videos/2910392998", "start": t0, "duration": tdur, "title": vt.get("title")}, "key": key}, open("key/twitch.json", "w"), indent=1)
           PY
-          echo "== Kick VOD media (audio only + low quality, sizes)"
-          src=$(python -c "import json; print(json.load(open('key/kick_n3on.json'))['vod']['source'] or '')")
-          echo "SRC $src"
-          [ -n "$src" ] && curl -sS -m 20 -A "Mozilla/5.0" "$src" | head -30
-          [ -n "$src" ] && { s0=$(date +%s); ffmpeg -v error -y -i "$src" -t 600 -vn -c:a copy key/n3on_audio10.m4a; echo "10 min audio took $(( $(date +%s)-s0 )) s"; ls -la key/; }
-          echo "== Twitch: Kai Cenat Japan nightlife VOD v2910392998 + its clips"
-          yt-dlp -J --skip-download "https://www.twitch.tv/videos/2910392998" | python -c "import json,sys; d=json.load(sys.stdin); print('TWVOD', d.get('timestamp'), d.get('duration'), d.get('title'))"
-          for r in 30d all; do yt-dlp --flat-playlist --playlist-end 100 --print "%(url)s" "https://www.twitch.tv/kaicenat/clips?filter=clips&range=$r" > tc_$r.txt 2> err_$r.txt; echo "range $r: $(wc -l < tc_$r.txt) clips"; tail -2 err_$r.txt; done
-          echo "== done"
       - uses: actions/upload-artifact@v4
         with:
           name: recall-key
