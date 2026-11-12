@@ -43,6 +43,8 @@ jobs:
           echo "## Recent streams of the campaign channels"
           for c in https://www.youtube.com/@IShowSpeed; do
             yt-dlp --flat-playlist --playlist-end 12 --print "%(upload_date|)s %(release_timestamp|)s %(duration|)s %(url)s %(title)s" "$c/streams" || true
+            echo "## Dates of the newest streams"
+            yt-dlp --skip-download --playlist-end 5 --print "DATE %(release_date|)s %(upload_date|)s %(duration_string|)s %(webpage_url)s %(title)s" "$c/streams" || true
           done
           python - <<'PY'
           import csv, json
