@@ -155,6 +155,15 @@ drawn with the same app → line → API door → server picture. Variety now co
      like the previous episode, or shares more than 70% of its scene types with a recent episode, the video is held
      for review.
 
+**Lessons from making episode 002 pass the gates (12 Nov):**
+- Sliding the camera sideways cut panels off the edge. World shots now turn around the subject and push in or out
+  instead, and the panels leave room at the edges.
+- The new looks first had no ambient motion, and 32% of frames were almost still. Each look now has its own drifting
+  floor detail (ink specks on paper, white sparks on the blueprint, accent bars in bold). Long holds also get one
+  gentle turn at their midpoint, and the camera eases more evenly in every look except the original.
+- New table rows type in cell by cell.
+- Result: 7.4% of frames almost still, and every gate passes.
+
 Episode 002 was re-planned on 12 Nov with the new layers: the paper look, told with a chat, a chart, a phone, 3D
 layers, a growing table and a timeline. The script is unchanged.
 
