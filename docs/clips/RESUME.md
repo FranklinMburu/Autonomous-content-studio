@@ -13,6 +13,21 @@ Read these, in this order:
   - prompt v4 written.
 - Not started: the recall test (the proof stage). No real clip exists yet.
 
+## Progress since (13 Nov, 02:00–03:00)
+
+- **Answer key built** (workflow `clips-recall.yml`, branch `clips-recall/1`). Kai Cenat's Twitch "JAPAN NIGHT LIFE
+  STREAM" (v2910392998, 3.3 h, IRL) has 10 fan clips. The top one is "Kai hits his camera man who quits on the spot"
+  (27,527 views, about 3:20:36).
+  - N3on's Kick streams: fan clips rarely map to listed VODs (the clip `livestream_id` usually isn't in the VOD list).
+    Best match: "N3on x Lizzo Halloween Special" (1.7 h), 1 clip only.
+  - Kick VOD `source` (`master.m3u8`) works from GitHub, from 160p to 1080p60, **with free subtitles (transcripts)
+    in 7 languages**.
+- **`lab/clips/recall.py`:** each signal family alone, then all together, picks its top 20; it reports recall
+  against the fans' clips (count and view share) and the new finds with what was said.
+- **Running:** the full recall run on the Japan VOD (audio-only and 160p download, Whisper base transcript, chat via
+  `chat-downloader` (debug), then `recall.py`). Read its log: `gh run view <id> --log` on branch `clips-recall/1`.
+- **Still to add:** the vision AI pass (Gemini on frames) and the AI clipper-judge pass, then compare.
+
 ## Next step, exactly
 
 1. Pick 2 real streams: a recent Kai Cenat Twitch VOD (`clips-probe` listed `https://www.twitch.tv/videos/2924282282`
