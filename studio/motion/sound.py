@@ -41,6 +41,7 @@ def _saw(f, n, det=0.0):
 
 def music(sections, duration, cfg, seed):
     rng = np.random.default_rng(seed)
+    kit = cfg.get("kit", "synth")     # the instruments follow the look: synth (the original), keys, mallet, bright
     dur = duration + 1.2; N = int(dur * SR)
     B = 60 / cfg["bpm"]; BAR = 4 * B; off = KEYS.get(cfg["key"], 0)
     ch = [[m + off for m in c] for c in CHORDS]; roots = [r + off for r in ROOTS]
@@ -51,8 +52,11 @@ def music(sections, duration, cfg, seed):
     out = np.zeros((N, 2))
     for b in range(int(dur / BAR) + 1):        # pad, one chord per bar
         t0 = b * BAR; n = int(BAR * SR * 1.15)
-        x = sum(_saw(_note(m), n, 0.004) for m in ch[b % 4]) / 3
-        _place(out, _f("low", x, 1400 if t0 > g0 else 900) * np.interp(np.arange(n), [0, .5 * SR, BAR * .6 * SR, n], [0, 1, .7, .7]) * 0.22, t0)
+        if kit == "keys":       # soft electric piano pad: sines with a little second harmonic
+            tt = np.arange(n) / SR; x = sum(np.sin(2 * np.pi * _note(m) * tt) + 0.25 * np.sin(4 * np.pi * _note(m) * tt) for m in ch[b % 4]) / 3
+        else:
+            x = sum(_saw(_note(m), n, 0.004) for m in ch[b % 4]) / 3
+        _place(out, _f("low", x, (2600 if kit == "bright" else 700 if kit == "mallet" else 1400) if t0 > g0 else 900) * np.interp(np.arange(n), [0, .5 * SR, BAR * .6 * SR, n], [0, 1, .7, .7]) * 0.22, t0)
     sub = np.zeros(N)
     for b in range(int(dur / BAR) + 1):        # sub bass from the first stat
         t0 = b * BAR
@@ -75,12 +79,17 @@ def music(sections, duration, cfg, seed):
         if t >= dur - 0.5: break
         bar, full = int(t / BAR), (g0 - 0.3 <= t < calm) and not inbreak(t)
         if k % 4 == 0 and k0 - 0.2 <= t < calm and not inbreak(t): _place(drums, kick, t, 0.45)
-        if k % 2 == 1 and full: _place(drums, hat, t, 0.10 + 0.05 * (k % 4 == 2), pan=0.3)
+        if k % 2 == 1 and full and not (kit == "keys" and k % 4 == 1): _place(drums, hat, t, 0.10 + 0.05 * (k % 4 == 2), pan=0.3)
         if g0 - 0.3 <= t < end + 1.2 and not inbreak(t):
             m = ch[bar % 4][[0, 1, 2, 1][k % 4]] + 12 + (12 if k % 8 >= 6 else 0)
             if m not in plucks:
                 n = int(0.45 * SR); tt = np.arange(n) / SR
-                plucks[m] = _f("low", _saw(_note(m), n, 0.002) * 0.6 + np.sin(2 * np.pi * _note(m) * 2 * tt) * 0.2, 3200) * np.exp(-tt * 9)
+                if kit == "mallet":    # marimba-like: sine + 4x partial, fast decay
+                    plucks[m] = (np.sin(2 * np.pi * _note(m) * tt) + 0.35 * np.sin(2 * np.pi * _note(m) * 4 * tt) * np.exp(-tt * 30)) * np.exp(-tt * 12)
+                elif kit == "keys":    # bell-like FM tone
+                    plucks[m] = np.sin(2 * np.pi * _note(m) * tt + 1.5 * np.exp(-tt * 6) * np.sin(2 * np.pi * _note(m) * 3.5 * tt)) * np.exp(-tt * 7) * 0.8
+                else:
+                    plucks[m] = _f("low", _saw(_note(m), n, 0.002) * 0.6 + np.sin(2 * np.pi * _note(m) * 2 * tt) * 0.2, 4800 if kit == "bright" else 3200) * np.exp(-tt * 9)
             _place(arp, plucks[m], t, 0.16 if t < calm else 0.12, pan=-0.25 if k % 2 else 0.25)
     if br0 is not None:                        # tension riser through the breakdown
         n = int(max(0.3, br1 - br0) * SR); r = np.linspace(0, 1, n) ** 2

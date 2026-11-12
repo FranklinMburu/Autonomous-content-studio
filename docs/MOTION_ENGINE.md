@@ -116,6 +116,48 @@ studio/motion/
    the writer does not have to plan it.
 6. A light wipe crosses the frame on every change of set.
 
+## 3a. Variety: no two videos look like one template (12 Nov 2026)
+
+Franklin: "even if you're producing 40 videos, we should not have a pattern whereby they look the same." YouTube's
+monetisation policy has targeted "inauthentic", mass-produced content since 15 July 2025.
+
+Before this change, the seed only varied the accent colour, the music key and small camera moves, so every topic was
+drawn with the same app → line → API door → server picture. Variety now comes from four layers:
+
+1. **Worlds: a picture that fits the topic.** Eight scene types are each one picture that grows across consecutive
+   lines:
+   - `table_grid`: a table filling up;
+   - `timeline`: dates or versions along a line;
+   - `flow_steps`: numbered steps with a dot travelling through them;
+   - `browser_page`: a web page loading block by block;
+   - `chat_thread`: a conversation where the AI types first;
+   - `bar_chart`: bars growing from sourced numbers;
+   - `phone_screen`: a phone app with a banner;
+   - `stack_layers`: 3D layers.
+
+   The old app/server diagram is now one world among nine. Each world shows only while its own lines play.
+2. **Six looks (design families)**, one per episode (`plan.look`). Each sets the background, panel style, caption
+   style, how much the camera swings, how flat the space is, the glow and floors, and the music instruments (`kit`):
+   - `studio`: the approved original. It defines nothing new, and frames stay pixel-identical (checked);
+   - `paper`: light, warm, keyword in a highlighter box; soft keys;
+   - `blueprint`: blue grid, outlined panels, mono uppercase captions; mallets;
+   - `neon`: black, glowing outlines, scanlines; brighter synth;
+   - `glass`: colour blobs, frosted panels, pill keywords; keys;
+   - `bold`: flat, white borders, hard accent shadow, heavy uppercase captions; mallets, almost no camera swing.
+3. **Different story shapes.** The writer picks one of five openings (a question, a surprising number, a mistake, a
+   before/after, a tiny demo) and a fresh running example each time.
+4. **The sameness guard** (`studio/motion/variety.py`).
+   - The history is simply the episodes folder: each `plan.json` already records its look, main world, opener and
+     scene types.
+   - The look is chosen by code (least recently used), never by the model.
+   - The writer is told what the last episodes used, and a draft that repeats them is sent back for repair.
+   - `make` has a gate, `unique_enough`. If the plan repeats one of the last two episodes' look or main picture, opens
+     like the previous episode, or shares more than 70% of its scene types with a recent episode, the video is held
+     for review.
+
+Episode 002 was re-planned on 12 Nov with the new layers: the paper look, told with a chat, a chart, a phone, 3D
+layers, a growing table and a timeline. The script is unchanged.
+
 ## 4. Determinism and guardrails
 
 - **No clock, no randomness at render time.**

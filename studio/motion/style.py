@@ -19,7 +19,10 @@ def _pick(seed, salt, n):
     return int(hashlib.sha256(f"{seed}:{salt}".encode()).hexdigest()[:8], 16) % n
 
 
-def style_for(seed, ch=None):
+KITS = {"studio": "synth", "paper": "keys", "glass": "keys", "blueprint": "mallet", "bold": "mallet", "neon": "bright"}
+
+
+def style_for(seed, ch=None, look_name=None):
     ch = ch or channel()
     look, mus = ch["look"], ch["music"]
     acc = look["accents"][_pick(seed, "accent", len(look["accents"]))]
@@ -29,4 +32,5 @@ def style_for(seed, ch=None):
             "cool_rgb": look["cool"][_pick(seed, "cool", len(look["cool"]))],
             "sign": 1 if _pick(seed, "sign", 2) else -1,
             "drift": [round(_pick(seed, f"drift{i}", 628) / 100, 2) for i in range(4)],
-            "music": {"bpm": lo + _pick(seed, "bpm", hi - lo + 1), "key": mus["keys"][_pick(seed, "key", len(mus["keys"]))]}}
+            "music": {"bpm": lo + _pick(seed, "bpm", hi - lo + 1), "key": mus["keys"][_pick(seed, "key", len(mus["keys"]))],
+                      "kit": KITS.get(look_name or "studio", "synth")}}

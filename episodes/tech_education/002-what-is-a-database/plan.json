@@ -1,205 +1,262 @@
 {
  "seed": 44,
+ "look": "paper",
  "scenes": [
   {
    "line": 0,
-   "type": "hook_orbit",
+   "type": "big_word",
    "p": {
-    "core": "DB",
-    "sub": "where apps remember",
-    "items": [
+    "text": "Database",
+    "sub": "where apps remember"
+   }
+  },
+  {
+   "line": 1,
+   "type": "chat_thread",
+   "p": {
+    "title": "Claude",
+    "messages": [
      {
-      "label": "Users",
-      "icon": "◉"
+      "from": "you",
+      "text": "build me a habit tracker"
      },
      {
-      "label": "Orders",
-      "icon": "$"
-     },
-     {
-      "label": "Messages",
-      "icon": "✉"
-     },
-     {
-      "label": "Likes",
-      "icon": "♥"
-     },
-     {
-      "label": "Posts",
-      "icon": "▤"
-     },
-     {
-      "label": "Habits",
-      "icon": "✓"
+      "from": "ai",
+      "text": "Sure. Where should it save your habits?",
+      "word": "need"
      }
     ]
    }
   },
   {
-   "line": 1,
-   "type": "settings_field",
-   "p": {
-    "title": "New project · Connect a database",
-    "label": "DATABASE_URL",
-    "placeholder": "postgres://user:password@host/db",
-    "glow_word": "need"
-   }
-  },
-  {
    "line": 2,
-   "type": "stat_floor",
+   "type": "bar_chart",
    "p": {
-    "value": 55.6,
-    "suffix": "%",
-    "caption": "of developers use PostgreSQL",
-    "sub": "the most-used database",
+    "title": "Most-used databases, 2025",
+    "bars": [
+     [
+      "PostgreSQL",
+      55.6
+     ],
+     [
+      "MySQL",
+      40.5
+     ],
+     [
+      "SQLite",
+      37.5
+     ]
+    ],
+    "unit": "%",
     "source": "Stack Overflow Developer Survey 2025"
    }
   },
   {
    "line": 3,
-   "type": "laptop_prompt",
+   "type": "phone_screen",
    "p": {
-    "prompt": "build me a habit tracker",
-    "result": "Created habit-tracker · 5 files"
-   }
-  },
-  {
-   "line": 4,
-   "type": "app_window",
-   "p": {
-    "title": "Habits",
-    "subtitle": "Today · Wednesday",
+    "app": "Habit tracker",
+    "title": "Today",
     "rows": [
-     [
-      "Drink water",
-      "✓ done"
-     ],
-     [
-      "Read 10 pages",
-      "✓ done"
-     ]
-    ],
-    "slot": "Streak",
-    "unknown": true,
-    "unknown_word": "gone"
-   }
-  },
-  {
-   "line": 5,
-   "type": "diagram_link",
-   "p": {
-    "label": "Database",
-    "icon": "▤",
-    "door": "SQL"
-   }
-  },
-  {
-   "line": 6,
-   "type": "door",
-   "p": {
-    "word": "database"
-   }
-  },
-  {
-   "line": 7,
-   "type": "packet",
-   "p": {
-    "dir": "down",
-    "label": "INSERT habit"
-   }
-  },
-  {
-   "line": 8,
-   "type": "code_card",
-   "p": {
-    "text": "INSERT INTO habits (name, done) VALUES ('Read', true)",
-    "marks": [
      {
-      "part": "('Read', true)",
-      "label": "a new row",
-      "word": "row"
+      "text": "Drink water"
      },
      {
-      "part": "habits",
-      "label": "the table",
-      "word": "table"
+      "text": "Read 10 pages",
+      "word": "habit"
      }
     ]
    }
   },
   {
-   "line": 9,
-   "type": "packet",
+   "line": 4,
+   "type": "phone_screen",
    "p": {
-    "dir": "up",
-    "label": "{ rows }"
+    "title": "Today",
+    "rows": [
+     {
+      "text": "✓ Read 10 pages",
+      "word": "tick"
+     }
+    ],
+    "notify": "Tab closed. Your progress is gone.",
+    "notify_word": "gone"
+   }
+  },
+  {
+   "line": 5,
+   "type": "stack_layers",
+   "p": {
+    "layers": [
+     {
+      "label": "Your app",
+      "word": "app"
+     },
+     {
+      "label": "? somewhere to remember",
+      "word": "remember"
+     }
+    ]
+   }
+  },
+  {
+   "line": 6,
+   "type": "stack_layers",
+   "p": {
+    "layers": [
+     {
+      "label": "Database",
+      "word": "database"
+     }
+    ]
+   }
+  },
+  {
+   "line": 7,
+   "type": "table_grid",
+   "p": {
+    "title": "habits",
+    "columns": [
+     "habit",
+     "done",
+     "streak"
+    ],
+    "rows": [
+     [
+      "Drink water",
+      "✓",
+      "12"
+     ]
+    ]
+   }
+  },
+  {
+   "line": 8,
+   "type": "table_grid",
+   "p": {
+    "rows": [
+     [
+      "Read 10 pages",
+      "✓",
+      "3"
+     ]
+    ],
+    "highlight_word": "row",
+    "highlight_row": 0
+   }
+  },
+  {
+   "line": 9,
+   "type": "flow_steps",
+   "p": {
+    "steps": [
+     {
+      "label": "App asks: SELECT * FROM habits",
+      "word": "asks"
+     },
+     {
+      "label": "Database answers",
+      "word": "answers"
+     }
+    ]
    }
   },
   {
    "line": 10,
-   "type": "data_card",
+   "type": "table_grid",
    "p": {
-    "title": "SELECT · 3 rows",
-    "pairs": [
+    "rows": [
      [
-      "habit",
-      "Read"
-     ],
-     [
-      "done",
-      true
-     ],
-     [
-      "streak",
-      12
+      "Walk 8,000 steps",
+      "✓",
+      "5"
      ]
     ],
-    "fill": "12 days ✓"
+    "highlight_word": "exactly",
+    "highlight_row": 0
    }
   },
   {
    "line": 11,
-   "type": "question",
+   "type": "chat_thread",
    "p": {
-    "word": "who's",
-    "label": "SELECT * FROM habits"
+    "messages": [
+     {
+      "from": "you",
+      "text": "SELECT * FROM habits"
+     },
+     {
+      "from": "ai",
+      "text": "Who's asking? Password first.",
+      "word": "who's"
+     }
+    ]
    }
   },
   {
    "line": 12,
-   "type": "key_fly",
+   "type": "flow_steps",
    "p": {
-    "word": "password"
+    "steps": [
+     {
+      "label": "Password checked ✓",
+      "word": "password"
+     }
+    ]
    }
   },
   {
    "line": 13,
-   "type": "compare",
+   "type": "table_grid",
    "p": {
-    "a_label": "Your login",
-    "a_value": "••••••••",
-    "b_label": "Your app's DB password",
-    "b_value": "pg_••••••••9c2e"
+    "rows": [
+     [
+      "password",
+      "••••••••",
+      "🔒"
+     ]
+    ],
+    "highlight_word": "login",
+    "highlight_row": 0
    }
   },
   {
    "line": 14,
-   "type": "leak",
+   "type": "browser_page",
    "p": {
-    "word": "leaks",
-    "meter_label": "Rows read by strangers",
-    "meter_word": "every"
+    "url": "pastebin.example/leak",
+    "title": "leaked: DATABASE_URL",
+    "blocks": [
+     {
+      "text": "postgres://admin:••••@db.example"
+     },
+     {
+      "text": "14,200 rows downloaded",
+      "word": "every"
+     }
+    ]
    }
   },
   {
    "line": 15,
-   "type": "bullets",
+   "type": "timeline",
    "p": {
     "items": [
-     "Table: one kind of thing",
-     "Row: one item in it",
-     "Query: a question you ask it"
+     {
+      "label": "Table",
+      "sub": "one kind of thing",
+      "word": "table"
+     },
+     {
+      "label": "Row",
+      "sub": "one item in it",
+      "word": "row"
+     },
+     {
+      "label": "Query",
+      "sub": "a question you ask",
+      "word": "query"
+     }
     ]
    }
   },

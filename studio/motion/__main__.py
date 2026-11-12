@@ -41,8 +41,8 @@ def prepare(folder, script, plan, out, ch, log=log):
         log("[plan] problems, using the fallback plan (video flagged for review):\n  " + "\n  ".join(probs[:12]))
         plan = PL.auto_plan(script, script.get("title"), ch.get("series", ""))
     seed = int(plan.get("seed") or seed_of(folder.name))
-    st = style_for(seed, ch)
-    log(f"[style] seed {seed}: accent {st['accent']}, {st['music']['key']} at {st['music']['bpm']} BPM")
+    st = style_for(seed, ch, plan.get("look"))
+    log(f"[style] seed {seed}: look {plan.get('look') or 'studio'}, accent {st['accent']}, {st['music']['key']} at {st['music']['bpm']} BPM ({st['music']['kit']})")
     from .narrate import narrate
     timing = narrate(script, out, ch["voice"])
     n = len(timing["words"])
@@ -89,10 +89,14 @@ def cmd_make(a):
     except Exception as e:  # noqa: BLE001 - the sheet is a convenience, not a gate
         log(f"  contact sheet skipped: {e}")
     m = measure(out / "video.mp4")
-    gates = {"plan_valid": not probs, "loudness_ok": m["lufs"] is not None and abs(m["lufs"] - ch.get("loudness_lufs", -14)) <= 1.0,
+    from .variety import check as vcheck, history
+    same = vcheck(used, history(ROOT / ch["episodes"], before=folder.name))     # does it repeat the recent episodes?
+    if same:
+        log("[variety] too close to recent episodes (held for review):\n  " + "\n  ".join(same))
+    gates = {"unique_enough": not same, "plan_valid": not probs, "loudness_ok": m["lufs"] is not None and abs(m["lufs"] - ch.get("loudness_lufs", -14)) <= 1.0,
              "moves_enough": m["still_pct"] <= 10, "layout_ok": not layout}
     report = {"episode": folder.as_posix(), "title": script.get("title"), "seed": st["seed"], "style": st, "measures": m,
-              "gates": gates, "layout_problems": layout, "plan_problems": probs, "plan_warnings": PL.variety(used), "fallback_plan": bool(used.get("auto"))}
+              "gates": gates, "variety_problems": same, "layout_problems": layout, "plan_problems": probs, "plan_warnings": PL.variety(used), "fallback_plan": bool(used.get("auto"))}
     (out / "report.json").write_text(json.dumps(report, indent=1), encoding="utf-8")
     for f in ("script.json", "plan.json", "sources.md"):
         shutil.copy(folder / f, out / f)
@@ -129,6 +133,10 @@ def cmd_check(a):
     log("OK" if not probs else "PROBLEMS:\n  " + "\n  ".join(probs))
     for w in PL.variety(plan):
         log(f"  warning: {w}")
+    from .variety import check as vcheck, history
+    ch = channel(a.channel)
+    for w in vcheck(plan, history(ROOT / ch["episodes"], before=folder.name)):
+        log(f"  variety: {w} (the video would be held for review)")
     log(f"  {words} words, {len(PL.lines_of(script))} lines, {len(plan.get('scenes', []))} scenes")
     return 1 if probs else 0
 
