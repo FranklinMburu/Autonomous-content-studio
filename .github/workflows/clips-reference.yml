@@ -57,7 +57,7 @@ jobs:
               for r in rows[:60]:
                   f.write(f"| {int(r['views'] or 0):,} | {r['duration'] or ''} | [{(r['title'] or '').replace('|', '/')}]({r['url']}) |\n")
           PY
-          cat summary.md >> "$GITHUB_STEP_SUMMARY"
+          cat summary.md | tee -a "$GITHUB_STEP_SUMMARY"; echo; head -200 reference.csv
       - uses: actions/upload-artifact@v4
         with:
           name: clips-reference
