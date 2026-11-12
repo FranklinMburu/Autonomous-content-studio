@@ -109,6 +109,14 @@ jobs:
           print("words", len(words), "language", info.language)
           PY
           echo "transcript $(( $(date +%s)-s0 )) s"
+      - name: Exact answer key (match each fan clip's sound to the stream)
+        run: |
+          mkdir -p key/clipaudio
+          python -c "import json; [print(i, k['url']) for i, k in enumerate(json.load(open('key/twitch.json'))['key'])]" | while read i u; do
+            yt-dlp -q -f "worst" -x --audio-format m4a -o "key/clipaudio/$i.%(ext)s" "$u" || echo "clip $i not downloaded"
+          done
+          ls key/clipaudio
+          python repo/lab/clips/align.py --key key/twitch.json --audio key/audio.m4a --clips-dir key/clipaudio
       - name: AI eyes (Gemini on one low-res frame every 4 s)
         continue-on-error: true
         env:
