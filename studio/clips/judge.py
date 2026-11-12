@@ -33,10 +33,13 @@ def measured_scores(m, refs, bar):
     s["hook_timing"] = max(0.0, 10 - 8 * max(0.0, hook_t - 0.25))
     s["pacing"] = min(10.0, 10 * (m.get("cuts_per_10s") or 0) / max(med["cuts_per_10s"] or 1, 0.5))
     cap = 10.0
+    ys = sorted(r["caption_y"] for r in refs if r.get("caption_y") is not None)
+    q1, q3 = (ys[len(ys) // 4], ys[(3 * len(ys)) // 4]) if ys else (0.45, 0.65)
     if m.get("caption_y") is None:
         cap = 0.0
-    else:
-        cap -= 20 * abs(m["caption_y"] - (med["caption_y"] or 0.5))
+    else:   # inside the references' middle half = full marks; outside, lose 2 points per 0.1
+        y = m["caption_y"]
+        cap -= 20 * max(0.0, q1 - y, y - q3)
         cap -= 2 * max(0, (m.get("words_on_screen") or 0) - 3)
         cap -= 4 * max(0, (bar["captions"]["min_visible_pct"] - (m.get("caption_frames_pct") or 0)) / 50)
     s["captions"] = max(0.0, cap)

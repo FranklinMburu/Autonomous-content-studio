@@ -99,9 +99,9 @@ def compose_picture(fr, clip, t, scale):
     shot = shot_at(t, clip)
     if kind == "split2" and shot.get("view") == "focus":   # the person talking, full screen
         p = S(lay["people"][shot.get("who", 0)])
-        h = min(H, p[3] * 3.0)
+        h = min(H, max(p[3] * 3.2, 0.8 * H))           # never a tiny, blurry crop
         w = h * OW / OH
-        canvas.paste(crop_cover(fr, [p[0] + p[2] / 2 - w / 2, p[1] + p[3] * 0.45 - h * 0.42, w, h], OW, OH, z), (0, 0))
+        canvas.paste(crop_cover(fr, [p[0] + p[2] / 2 - w / 2, p[1] + p[3] * 0.5 - h * 0.36, w, h], OW, OH, z), (0, 0))
         return canvas
     if kind == "stack":
         cam = S(lay["cam"])
@@ -246,6 +246,7 @@ def loudnorm(wav_in, wav_out, target=-14.0, tp=-1.5):
 
 
 def render(clip, out_mp4, log=print, threads=2):
+    # sliced threads: x264's frame threads gave different bytes on 1 run in 3 here (12 Nov); slices never did
     out_mp4 = Path(out_mp4)
     video = Path(clip["source"]["folder"]) / clip["source"]["video"]
     W0, H0 = clip["layout"]["src"]
@@ -273,7 +274,7 @@ def render(clip, out_mp4, log=print, threads=2):
     total = sum(max(1, int(round((e["src"][1] - e["src"][0]) * FPS))) for e in clip["edl"])
     ff = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{OW}x{OH}",
                            "-r", str(FPS), "-i", "-", "-i", str(tmp) + ".norm.wav", "-c:v", "libx264", "-preset", "medium",
-                           "-crf", "20", "-threads", str(threads), "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k",
+                           "-crf", "20", "-threads", str(threads), "-x264-params", "sliced-threads=1", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k",
                            "-movflags", "+faststart", "-frames:v", str(total), str(out_mp4)], stdin=subprocess.PIPE)
     fi = 0
     for e in clip["edl"]:

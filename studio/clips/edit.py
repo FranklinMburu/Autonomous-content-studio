@@ -116,7 +116,7 @@ def emphasis(words, edl, audio_db=None, bar=None):
     return [{"t": t, "amount": 0.14} for t in hits]
 
 
-def framing(edl, words, layout=None, video=None, peak_t=(), min_shot=1.6):
+def framing(edl, words, layout=None, video=None, peak_t=(), min_shot=1.6, max_shot=3.8):
     """Shots, one per sentence: "wide" (the layout) and "focus" alternate - a hard cut every sentence, the pace
     the references have (2.1 cuts per 10 s). Focus = the facecam big (stack), the person talking full-screen (split2),
     or a tighter frame (letterbox / speaker). The payoff is always on focus: the reaction is what people came for."""
@@ -126,8 +126,13 @@ def framing(edl, words, layout=None, video=None, peak_t=(), min_shot=1.6):
         ws = _words_in(words, *e["src"])
         starts = [(e["at"], e["src"][0])] + [(e["at"] + w1["start"] - e["src"][0], w1["start"]) for w0, w1 in zip(ws, ws[1:])
                                              if re.search(r"[.?!,]$", w0["w"]) or w1["start"] - w0["end"] > 0.35]
-        for t, src_t in starts:
+        # also a word boundary every ~4 s inside long sentences: one cut per 4.7 s is the references' median pace
+        word_t = [(e["at"] + w["start"] - e["src"][0], w["start"]) for w in ws]
+        for t, src_t in sorted(set(starts + word_t)):
             if shots and t - shots[-1]["t"] < min_shot:
+                continue
+            is_sentence = (t, src_t) in starts
+            if shots and not is_sentence and t - shots[-1]["t"] < max_shot:
                 continue
             shots.append({"t": round(t, 3), "src": round(src_t, 3)})
     for i, sh in enumerate(shots):

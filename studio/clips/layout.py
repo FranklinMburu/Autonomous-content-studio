@@ -203,8 +203,8 @@ def active_person(video, people, a, b, n=8):
     d = np.abs(np.diff(g, axis=0)).mean(axis=0)
     act = []
     for x, y, w, h in people:
-        # lower half of the face box (mouth, jaw): talking moves it, listening barely does
-        y0, y1 = int((y + h * 0.5) * k), int((y + h * 1.1) * k)
-        x0, x1 = int(x * k), int((x + w) * k)
+        # the person's box and a margin around it: a talking mouth moves it far more than a listener's blinks
+        y0, y1 = int((y - h * 0.25) * k), int((y + h * 1.25) * k)
+        x0, x1 = int((x - w * 0.25) * k), int((x + w * 1.25) * k)
         act.append(float(d[max(0, y0):y1, max(0, x0):x1].mean()) if y1 > y0 and x1 > x0 else 0.0)
     return int(np.argmax(act))

@@ -1,6 +1,6 @@
 {
   "_about": "The quality bar and the engine's tunable numbers. Every value cites its evidence in docs/clips/RESEARCH.md (section in brackets). Change values only with new evidence, and say so in docs/CLIPS_ENGINE.md history.",
-  "duration_s": {"min": 15, "max": 58, "target": [20, 45], "_why": "[3.2] quso.ai 108k Shorts: median views peak at 11-20 s and fall after 30 s; [3.1] the 14 clip-style references we measured run 21-161 s (median 61 s). Stream moments need a setup, so 20-45 s is the target and 58 s the hard cap."},
+  "duration_s": {"min": 12, "max": 58, "target": [15, 45], "_why": "[3.2] quso.ai 108k Shorts: median views peak at 11-20 s and fall after 30 s; [3.1] the 14 clip-style references we measured run 21-161 s (median 61 s). A stream moment needs its setup; with dead air cut, setup + payoff fit in 15-45 s (target; was 20-45 until round 4, when cut clips of 16-18 s held the whole story), 58 s hard cap."},
   "setup_max_s": 25,
   "min_gap_s": 40,
   "max_pause_s": 0.6,

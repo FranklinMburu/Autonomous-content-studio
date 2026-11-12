@@ -87,8 +87,8 @@ ACS_CACHE=<cache with Kokoro> python lab/clips/make_stream.py neon_dash out/lab_
 ## 4. Determinism and guardrails
 
 - **No clock and no randomness at render time.** Frame counts and audio lengths are exact. We don't use
-  `-shortest`: it was racy with piped frames, and the last 7 frames differed between runs on 12 Nov. x264 runs with
-  fixed threads. A test renders twice and compares the frames.
+  `-shortest`: it was racy with piped frames, and the last 7 frames differed between runs on 12 Nov. x264 uses sliced
+  threads: frame threads gave different output on 1 encode in 3 in our test, slices never did. A test renders twice and compares the frames.
 - **Rights first.** Without `rights.json` of an allowed kind, nothing is made:
   - `own`;
   - `program`, which needs the program name and its terms link;
