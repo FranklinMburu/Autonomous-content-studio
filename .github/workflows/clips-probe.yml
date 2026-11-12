@@ -1,0 +1,36 @@
+name: Clips probe (what GitHub can reach without downloading whole streams)
+
+# 13 Nov 2026: before deciding how streams get in, test every cheap angle from GitHub's machine. Nothing big is saved.
+on:
+  push:
+    branches: ["clips-probe/**"]
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Probe
+        run: |
+          pip install -q "yt-dlp==2026.10.26"
+          echo "== 1. Twitch: list Kai Cenat's past broadcasts (no download)"
+          yt-dlp --flat-playlist --playlist-end 3 --print "TWVOD %(url)s %(title)s" "https://www.twitch.tv/kaicenat/videos?filter=archives" 2>&1 | tail -5
+          v=$(yt-dlp --flat-playlist --playlist-end 1 --print "%(url)s" "https://www.twitch.tv/kaicenat/videos?filter=archives" 2>/dev/null | head -1)
+          echo "== 2. Twitch: can we read that VOD's formats and sizes? ($v)"
+          [ -n "$v" ] && yt-dlp -F "$v" 2>&1 | tail -12
+          echo "== 3. Twitch: download ONLY a 60-second section (size check)"
+          [ -n "$v" ] && yt-dlp -q -f "best[height<=720]/best" --download-sections "*1:00:00-1:01:00" -o sec.mp4 "$v" 2>&1 | tail -3; ls -la sec.mp4 2>/dev/null && rm -f sec.mp4
+          echo "== 4. Twitch: viewer-made clips of the channel (top, last week)"
+          yt-dlp --flat-playlist --playlist-end 5 --print "TWCLIP %(url)s %(view_count)s %(title)s" "https://www.twitch.tv/kaicenat/clips?filter=clips&range=7d" 2>&1 | tail -6
+          echo "== 5. YouTube: 'most replayed' heatmap + captions for one IShowSpeed stream"
+          yt-dlp --skip-download --print "HEAT %(heatmap)j" "https://www.youtube.com/watch?v=9aPR9UXI1kY" 2>&1 | cut -c1-300 | tail -3
+          echo "== 6. Kick: the public API and the video CDN"
+          curl -sS -m 15 -A "Mozilla/5.0" -o /dev/null -w "KICK api %{http_code}\n" "https://kick.com/api/v2/channels/n3on/clips" || true
+          curl -sS -m 15 -o /dev/null -w "KICK cdn %{http_code}\n" "https://stream.kick.com/" || true
+          echo "== done"
