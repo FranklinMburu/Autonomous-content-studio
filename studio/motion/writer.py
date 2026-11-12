@@ -60,7 +60,9 @@ WORLDS: one picture that fits the topic; consecutive lines of the same type keep
 - bar_chart {title, bars:[[label, number] x<=6], unit?, source?}: bars grow; numbers only from SOURCE MATERIAL.
 - phone_screen {title, rows:[{text, word?} x<=4], app?, notify?, notify_word?}: a phone app; notify drops a banner.
 - stack_layers {layers:[{label, word?} x<=4]}: layers stacked in 3D (frontend/backend/database, OSI...).
-"word" lands that item on the spoken word. The app/server diagram above is ALSO a world: use it only when the topic is
+"word" lands that item on the spoken word. Franklin's favourite effect: a line travels and the next item pops up, so the
+picture BUILDS while the voice explains. Prefer worlds that grow item by item across lines (timeline, flow_steps,
+stack_layers, table_grid rows) and give each new item its own "word". The app/server diagram above is ALSO a world: use it only when the topic is
 about apps talking to other programs. Tell each video with 1-3 worlds that fit THIS topic.
 Never the same type 3 times in a row (except badges and world types). Use at least 6 different types."""
 
