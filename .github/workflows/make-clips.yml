@@ -8,11 +8,27 @@ name: Make clips (live streams)
 # The stream folder must already hold the video and rights.json (why we may clip it). The engine never downloads a
 # stream: a folder is committed on a branch, or attached to a release named clips-src-<name> (stream.zip).
 on:
+  # Test runs before this workflow is on main: push a branch clips-run/<anything> holding clips_request.json
+  # ({"stream": "<url or folder>", "rights_program": "...", "rights_terms_url": "...", "section": "", "top": 6}).
+  push:
+    branches: ["clips-run/**"]
   workflow_dispatch:
     inputs:
       stream:
-        description: "Stream folder in the repo (e.g. streams/<name>) OR the name of a release clips-src-<name> with stream.zip"
+        description: "A Kick / Twitch / YouTube VOD link (GitHub downloads it), OR a stream folder in the repo, OR a release name clips-src-<name>"
         required: true
+      rights_program:
+        description: "For a link: the clipping program or campaign that invites clippers for this streamer (e.g. Content Rewards: Kai Cenat)"
+        required: false
+        default: ""
+      rights_terms_url:
+        description: "For a link: the page with that program's terms (proof we may clip)"
+        required: false
+        default: ""
+      section:
+        description: "Optional part of the VOD only, e.g. 0:00:00-2:00:00 (empty = the whole stream)"
+        required: false
+        default: ""
       top:
         description: "How many clips to make"
         required: false
@@ -56,7 +72,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: cache/clips-models
-          key: clips-whisper-${{ github.event.inputs.whisper }}-v1
+          key: clips-whisper-${{ github.event.inputs.whisper || 'base.en' }}-v1
 
       - name: Install
         run: |
@@ -64,13 +80,45 @@ jobs:
           for i in 1 2; do timeout 180 sh -c 'sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg tesseract-ocr > /dev/null' && break; echo "apt try $i was slow, retrying"; done
           pip install -q "numpy>=1.26" pillow "soundfile>=0.12" "opencv-python-headless==4.10.0.84" "faster-whisper==1.2.1"
 
+      # One place for the inputs, from the Run button or from clips_request.json on a clips-run/* branch.
+      - name: Inputs
+        env:
+          IN_STREAM: ${{ github.event.inputs.stream }}
+          IN_PROGRAM: ${{ github.event.inputs.rights_program }}
+          IN_TERMS: ${{ github.event.inputs.rights_terms_url }}
+          IN_SECTION: ${{ github.event.inputs.section }}
+          IN_TOP: ${{ github.event.inputs.top }}
+          IN_WHISPER: ${{ github.event.inputs.whisper }}
+        run: |
+          python - <<'PY'
+          import json, os
+          r = json.load(open("clips_request.json")) if os.environ.get("GITHUB_EVENT_NAME") == "push" else {}
+          v = lambda k, e, d="": str(r.get(k) if r.get(k) not in (None, "") else (os.environ.get(e) or d)).replace("\n", " ").strip()
+          with open(os.environ["GITHUB_ENV"], "a") as f:
+              for k, e, d in (("stream", "IN_STREAM", ""), ("rights_program", "IN_PROGRAM", ""), ("rights_terms_url", "IN_TERMS", ""),
+                              ("section", "IN_SECTION", ""), ("top", "IN_TOP", "6"), ("whisper", "IN_WHISPER", "base.en")):
+                  f.write(f"REQ_{k.upper()}={v(k, e, d)}\n")
+          PY
+
       - name: Get the stream
         env:
-          STREAM_RAW: ${{ github.event.inputs.stream }}
           GH_TOKEN: ${{ github.token }}
         run: |
-          s=$(printf '%s' "$STREAM_RAW" | tr -d '\n\r')   # passed as data, never pasted into the script
+          s="$REQ_STREAM"
           case "$s" in *..*) echo "bad stream name"; exit 1;; esac
+          case "$s" in
+            https://kick.com/*|https://www.kick.com/*|https://www.twitch.tv/videos/*|https://twitch.tv/videos/*|https://www.youtube.com/watch*|https://youtu.be/*)
+              # Franklin's chosen route (12 Nov 2026): GitHub's machine downloads the VOD; the rights record comes from the inputs.
+              [ -n "$REQ_RIGHTS_PROGRAM" ] && [ -n "$REQ_RIGHTS_TERMS_URL" ] || { echo "A link needs rights_program and rights_terms_url (why we may clip it)."; exit 1; }
+              name=$(printf '%s' "$s" | sed 's#https\?://##; s#[^A-Za-z0-9]#-#g' | cut -c1-60)
+              d="streams/$name"; mkdir -p "$d"
+              pip install -q "yt-dlp==2026.10.26"
+              sec=(); [ -n "$REQ_SECTION" ] && sec=(--download-sections "*$REQ_SECTION")
+              yt-dlp -q --no-playlist -f "bv*[height<=720]+ba/b[height<=720]/b" --merge-output-format mp4 "${sec[@]}" -o "$d/stream.%(ext)s" "$s"
+              python -c "import json,sys; json.dump({'source':'program','program':sys.argv[1],'terms_url':sys.argv[2],'vod_url':sys.argv[3]}, open(sys.argv[4]+'/rights.json','w'), indent=1)" \
+                "$REQ_RIGHTS_PROGRAM" "$REQ_RIGHTS_TERMS_URL" "$s" "$d"
+              ls -la "$d"; echo "STREAM=$d" >> "$GITHUB_ENV"; exit 0;;
+          esac
           if [ -d "$s" ]; then echo "STREAM=$s" >> "$GITHUB_ENV"; exit 0; fi
           mkdir -p "streams/$s"
           gh release download "clips-src-$s" -p stream.zip -D "streams/$s"
@@ -83,9 +131,9 @@ jobs:
 
       - name: Find and make the clips
         env:
-          CLIPS_WHISPER: ${{ github.event.inputs.whisper }}
+          CLIPS_WHISPER: ${{ env.REQ_WHISPER }}
           CLIPS_MODEL_CACHE: cache/clips-models
-          TOP_RAW: ${{ github.event.inputs.top }}
+          TOP_RAW: ${{ env.REQ_TOP }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
