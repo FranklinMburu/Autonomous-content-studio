@@ -126,10 +126,11 @@ const CK = [], CUTS = [], CUES = [];
 const key = (t, c) => CK.push([t, c]);
 function cut(tc, a, b) { key(tc - 0.001, a); key(tc, b); CUTS.push(tc); }
 const cue = (t, kind, gain = 1) => CUES.push({ t: +Math.max(0, t).toFixed(3), kind, gain });
+const esine = x => 0.5 - 0.5 * Math.cos(Math.PI * clamp(x));
 function camAt(t) {
   let i = 0; while (i < CK.length - 1 && CK[i + 1][0] <= t) i++;
   const a = CK[i], b = CK[Math.min(i + 1, CK.length - 1)];
-  const k = b === a || t <= a[0] ? 0 : ease((t - a[0]) / (b[0] - a[0]));
+  const k = b === a || t <= a[0] ? 0 : (LK === LOOKS.studio ? ease : esine)((t - a[0]) / (b[0] - a[0]));   // the original keeps its curve; other looks glide more evenly
   const c = {}; for (const p of ["x", "y", "z", "yaw", "pitch", "roll", "D", "P"]) c[p] = lerp(a[1][p], b[1][p], k);
   c.yaw *= LK.orbit; c.pitch *= LK.orbit; c.roll *= LK.orbit; c.D *= LK.P; c.P *= LK.P;   // the look: how far the camera swings, how flat the space is
   const d = ST.drift.map(x => x), dm = LK.drift;   // never still: a slow handheld drift, its phases come from the seed
