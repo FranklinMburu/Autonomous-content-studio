@@ -1,0 +1,127 @@
+{
+ "title": "Why Cats Bring Dead Animals Home",
+ "topic": "Why do cats bring you dead animals?",
+ "voice": "af_heart",
+ "beats": [
+  {
+   "scene": "hero",
+   "icon": "@cat",
+   "reveal": {
+    "text": "?",
+    "at": "feet"
+   },
+   "lines": [
+    "Ever wonder why your cat drops dead birds at your feet?"
+   ],
+   "id": "beat1"
+  },
+  {
+   "scene": "tags",
+   "title": "Natural hunter",
+   "icon": "cat",
+   "items": [
+    {
+     "text": "solitary",
+     "at": "solitary",
+     "tone": "neutral"
+    },
+    {
+     "text": "instinct",
+     "at": "instinct",
+     "tone": "neutral"
+    },
+    {
+     "text": "indoor",
+     "at": "indoor",
+     "tone": "neutral"
+    }
+   ],
+   "lines": [
+    "Cats are solitary hunters by nature, and even indoor felines keep the instinct to stalk and kill small prey."
+   ],
+   "id": "beat2"
+  },
+  {
+   "scene": "link",
+   "from": {
+    "icon": "cat",
+    "label": "cat",
+    "at": "cat"
+   },
+   "to": {
+    "icon": "user",
+    "label": "owner",
+    "at": "owner"
+   },
+   "note": {
+    "text": "social gift",
+    "at": "gift"
+   },
+   "lines": [
+    "Researchers think they present the catch to humans as a social gift, sharing surplus food like members of a pack.",
+    "Even male cats do it, showing it isn’t just teaching kittens."
+   ],
+   "id": "beat3"
+  },
+  {
+   "scene": "compare",
+   "title": "What gets delivered?",
+   "left": {
+    "icon": "bug",
+    "label": "small prey",
+    "value": "",
+    "at": "small"
+   },
+   "right": {
+    "icon": "cat",
+    "label": "large prey",
+    "value": "",
+    "at": "large"
+   },
+   "verdict": {
+    "text": "small = more common",
+    "at": "common"
+   },
+   "lines": [
+    "The gift is most often small prey like birds or rodents; larger animals are harder to carry, so they’re less likely to be offered."
+   ],
+   "id": "beat4"
+  },
+  {
+   "scene": "bubble",
+   "icon": "@cat",
+   "prop": "feather",
+   "text": "play more",
+   "at": "play",
+   "lines": [
+    "You can satisfy that drive with interactive toys, letting the cat hunt safely and reducing unwanted deliveries.",
+    "Next time they bring a gift, offer a feather wand instead."
+   ],
+   "id": "beat5"
+  }
+ ],
+ "sources": [
+  {
+   "claim": "Cats present prey to humans as a social gift, sharing excess kill.",
+   "url": "https://en.wikipedia.org/wiki/Cat"
+  },
+  {
+   "claim": "Male cats also bring prey, indicating it isn’t only teaching kittens.",
+   "url": "https://en.wikipedia.org/wiki/Cat"
+  },
+  {
+   "claim": "Cats retain hunting instinct even when indoor.",
+   "url": "https://en.wikipedia.org/wiki/Cat"
+  }
+ ],
+ "youtube": {
+  "title": "Why Cats Bring Dead Animals Home 🐦",
+  "description": "Explore the instinct behind cats' “gifts” and how to channel their hunting drive.",
+  "tags": [
+   "cats",
+   "cat behavior",
+   "hunting instinct",
+   "pet care"
+  ]
+ }
+}

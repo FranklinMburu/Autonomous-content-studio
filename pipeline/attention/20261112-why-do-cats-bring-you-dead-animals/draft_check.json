@@ -1,0 +1,142 @@
+{
+ "gates": [],
+ "writer": "groq:openai/gpt-oss-120b",
+ "candidates": [
+  "groq:openai/gpt-oss-120b"
+ ],
+ "failed": [
+  {
+   "ref": "google:gemini-3.6-flash",
+   "error": "no model in tier 'standard' could answer (google:gemini-3.6-flash: HTTP 429)",
+   "attempts": [
+    {
+     "ref": "google:gemini-3.6-flash",
+     "error": "HTTP 429",
+     "reason": "{\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do",
+     "seconds": 18.8
+    }
+   ]
+  },
+  {
+   "ref": "nvidia:minimaxai/minimax-m3.1-flash",
+   "error": "no model in tier 'standard' could answer (nvidia:minimaxai/minimax-m3.1-flash: HTTP 0)",
+   "attempts": [
+    {
+     "ref": "nvidia:minimaxai/minimax-m3.1-flash",
+     "error": "HTTP 0",
+     "reason": "network error: stream still running after 900s; abandoned",
+     "seconds": 1831.4
+    }
+   ]
+  }
+ ],
+ "judge": {
+  "index": 0,
+  "scores": {},
+  "reason": "only one candidate",
+  "model": null
+ },
+ "fact_check": {
+  "results": [
+   {
+    "claim": "Cats are solitary hunters by nature.",
+    "verdict": "supported",
+    "evidence": "Source 1 states that the cat is \"a solitary hunter\" and that \"they always hunt alone.\""
+   },
+   {
+    "claim": "Even indoor felines keep the instinct to stalk and kill small prey.",
+    "verdict": "partial",
+    "evidence": "Source 1 notes that play behavior mimics hunting to help cats learn to stalk, capture, and kill small prey, but it does not specifically mention indoor felines maintaining this instinct."
+   },
+   {
+    "claim": "Researchers think cats present their catch to humans as a social gift, sharing surplus food like members of a pack.",
+    "verdict": "partial",
+    "evidence": "Source 1 mentions that one explanation for presenting prey is that cats adopt humans into their social group and share excess kill according to a dominance hierarchy, but it does not describe it as a 'social gift' or compare cats to pack members."
+   },
+   {
+    "claim": "Male cats also bring prey home, showing that presenting prey isn't just about teaching kittens.",
+    "verdict": "supported",
+    "evidence": "Source 1 states that the hypothesis of teaching guardians to hunt \"is inconsistent with the fact that male cats also bring home prey, though males have negligible involvement in raising kittens.\""
+   },
+   {
+    "claim": "The presented gift is most often small prey like birds or rodents.",
+    "verdict": "supported",
+    "evidence": "Source 1 states that \"Cats hunt small prey, primarily birds and rodents\"."
+   },
+   {
+    "claim": "Larger animals are less likely to be offered because they are harder to carry.",
+    "verdict": "unsupported",
+    "evidence": "The sources state that cats prefer and hunt small prey, but they do not state that larger animals are less likely to be offered because they are harder to carry."
+   },
+   {
+    "claim": "You can satisfy a cat's hunting drive with interactive toys, letting them hunt safely and reducing unwanted deliveries.",
+    "verdict": "unsupported",
+    "evidence": "While Source 3 mentions caretaker-led interventions such as 'increased interactive play in the home', the sources do not claim that interactive toys satisfy the hunting drive, allow safe hunting, or reduce unwanted prey deliveries."
+   },
+   {
+    "claim": "When a cat brings a gift, you should offer a feather wand instead.",
+    "verdict": "unsupported",
+    "evidence": "This advice is not mentioned in any of the provided sources."
+   }
+  ],
+  "counts": {
+   "supported": 3,
+   "unsupported": 3,
+   "partial": 2
+  },
+  "model": "google:gemini-3.6-flash"
+ },
+ "provenance": {
+  "layer_version": "0.3.0",
+  "config": "1cd713cd88bb",
+  "tier": "standard",
+  "ref": "groq:openai/gpt-oss-120b",
+  "prompt_sha256": "6ce3d9c736bbdd09",
+  "system_sha256": "a328b827560026be",
+  "temperature": 0.7,
+  "max_tokens": 4000,
+  "json": true,
+  "cached": false,
+  "finish": "stop",
+  "tokens_in": 7579,
+  "tokens_out": 949,
+  "at": "2026-11-12T07:09:13+00:00",
+  "best_of": {
+   "candidates": [
+    "groq:openai/gpt-oss-120b"
+   ],
+   "failed": [
+    {
+     "ref": "google:gemini-3.6-flash",
+     "error": "no model in tier 'standard' could answer (google:gemini-3.6-flash: HTTP 429)",
+     "attempts": [
+      {
+       "ref": "google:gemini-3.6-flash",
+       "error": "HTTP 429",
+       "reason": "{\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do",
+       "seconds": 18.8
+      }
+     ]
+    },
+    {
+     "ref": "nvidia:minimaxai/minimax-m3.1-flash",
+     "error": "no model in tier 'standard' could answer (nvidia:minimaxai/minimax-m3.1-flash: HTTP 0)",
+     "attempts": [
+      {
+       "ref": "nvidia:minimaxai/minimax-m3.1-flash",
+       "error": "HTTP 0",
+       "reason": "network error: stream still running after 900s; abandoned",
+       "seconds": 1831.4
+      }
+     ]
+    }
+   ],
+   "judge": {
+    "index": 0,
+    "scores": {},
+    "reason": "only one candidate",
+    "model": null
+   }
+  }
+ }
+}

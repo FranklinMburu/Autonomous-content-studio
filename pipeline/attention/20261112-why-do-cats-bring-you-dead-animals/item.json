@@ -1,19 +1,19 @@
 {
- "id": "20261111-why-do-cats-bring-you-dead-animals",
+ "id": "20261112-why-do-cats-bring-you-dead-animals",
  "topic": "Why do cats bring you dead animals?",
  "lane": null,
  "topic_key": "35c4e4f95fcbf0c4",
  "stage": "attention",
- "created": "2026-11-11T06:24:05+00:00",
+ "created": "2026-11-12T07:07:34+00:00",
  "attempts": 0,
  "history": [
   {
-   "at": "2026-11-11T06:24:05+00:00",
+   "at": "2026-11-12T07:07:34+00:00",
    "to": "queue",
    "why": "created"
   },
   {
-   "at": "2026-11-11T06:38:31+00:00",
+   "at": "2026-11-12T07:40:18+00:00",
    "from": "queue",
    "to": "attention",
    "why": "draft has 3 unsupported claims (limit 2)"
@@ -22,20 +22,20 @@
  "provenance": {
   "research_plan": {
    "questions": [
-    "Why do cats hunt and bring back dead prey?",
-    "What evolutionary advantage does this behavior provide?",
-    "Is this behavior instinctual or learned?",
-    "Does this behavior vary by cat breed or environment?"
+    "Why do cats bring dead animals to their owners?",
+    "What instinct drives cats to present prey?",
+    "Is this behavior related to hunting or social bonding?",
+    "Does the type of prey affect the likelihood of a gift?"
    ],
    "wikipedia": [
-    "Cat",
-    "Predation",
-    "Animal behavior",
+    "Domestic cat",
+    "Predatory behavior",
+    "Cat behavior",
     "Why do cats bring you dead animals?"
    ],
    "scholar": [
-    "cat hunting behavior evolutionary advantage",
-    "domestic cat prey presentation study"
+    "cat prey gift behavior",
+    "domestic cat hunting instinct"
    ],
    "model": "groq:openai/gpt-oss-20b"
   },
