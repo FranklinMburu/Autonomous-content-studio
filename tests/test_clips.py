@@ -172,6 +172,31 @@ def test_isolated():
     check("review-clips" in wf and "--prerelease" in wf, "a failed gate becomes a REVIEW pre-release + a review-clips issue")
 
 
+def test_dataset_offline():
+    """The winners/baseline collector with a fake API: labels within each channel, statistics with CIs."""
+    from datetime import datetime, timezone, timedelta
+    from studio.clips import dataset as D
+    now = datetime(2026, 11, 12, tzinfo=timezone.utc)
+    vids = [{"id": f"v{i}", "snippet": {"title": ("NO WAY he did this \U0001F631 #shorts" if i % 2 else "stream clip part " + str(i)),
+                                        "publishedAt": (now - timedelta(days=10 + i)).isoformat().replace("+00:00", "Z")},
+             "statistics": {"viewCount": str((100000 if i % 2 else 5000) + i)}, "contentDetails": {"duration": "PT35S"}}
+            for i in range(20)]
+
+    def get(path, **p):
+        if path == "channels":
+            return {"items": [{"contentDetails": {"relatedPlaylists": {"uploads": "UU1"}}, "snippet": {"title": "ch"}, "statistics": {}}]}
+        if path == "playlistItems":
+            return {"items": [{"contentDetails": {"videoId": v["id"], "videoPublishedAt": v["snippet"]["publishedAt"]}} for v in vids]}
+        return {"items": [v for v in vids if v["id"] in p["id"].split(",")]}
+    rows = D.collect(["UCx"], days=90, now=now, get=get)
+    win = [r for r in rows if r["group"] == "winner"]
+    check(len(rows) == 20 and len(win) == 5 and all(r["t_has_emoji"] for r in win), "collector labels the top quartile per channel")
+    st = {x["feature"]: x for x in D.stats(rows)}
+    check(st["t_has_emoji"]["cliffs_delta"] == 1.0 and st["t_has_emoji"]["vpd_ratio"] and st["t_has_emoji"]["vpd_ratio"] > 10,
+          f"stats find the separating feature with an effect size and a CI {st['t_has_emoji']}")
+    check(D.iso_seconds("PT1M5S") == 65 and D.iso_seconds("PT45S") == 45, "ISO 8601 durations read")
+
+
 def test_bar_cites_evidence():
     b = bar()
     for k, v in b.items():

@@ -66,7 +66,7 @@ def collect(channels, days=90, now=None, get=_get):
                 rows.append({"channel": info["snippet"]["title"], "video_id": it["id"], "title": it["snippet"]["title"],
                              "published": it["snippet"]["publishedAt"], "age_days": round(age, 1), "views": views,
                              "views_per_day": round(views / age, 1), "duration_s": dur,
-                             "likes": int(it["statistics"].get("likesCount", it["statistics"].get("likeCount", 0)) or 0),
+                             "likes": int(it["statistics"].get("likeCount", 0) or 0),
                              "comments": int(it["statistics"].get("commentCount", 0) or 0)})
     return label(rows)
 
