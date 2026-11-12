@@ -22,7 +22,7 @@ def subject_in_frame(clip):
 def text_in_safe_zone(clip, bar):
     st, z = clip["style"], bar["ui_safe"]
     y = st.get("y_by_layout", {}).get(clip["layout"]["kind"], st["y"])
-    cap_ok = z["top"] <= y <= z["bottom"] and st["safe_x"][0] >= z["left"] and st["safe_x"][1] <= z["right"]
+    cap_ok = z["top"] <= y <= z["bottom"] and z["top"] <= st.get("y_focus", y) <= z["bottom"] and st["safe_x"][0] >= z["left"] and st["safe_x"][1] <= z["right"]
     hook_ok = z["top"] <= st.get("hook_y_by_layout", {}).get(clip["layout"]["kind"], st.get("hook_y", 0.17)) <= z["bottom"]
     return cap_ok and hook_ok
 

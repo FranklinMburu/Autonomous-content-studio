@@ -125,24 +125,55 @@ def _digits(text):
     return " ".join(str(NUM[w.lower().strip(",.!?")]) if w.lower().strip(",.!?") in NUM else w for w in text.split())
 
 
+WEAK_END = {"i", "the", "a", "an", "to", "and", "of", "my", "your", "in", "on", "for", "is", "was", "that", "it", "we"}
+LEAD = ("okay", "ok", "so", "alright", "chat", "well", "um", "uh", "and", "but", "wait", "like", "real talk")
+
+
+def tighten(text, max_words=7):
+    """Drop a leading filler word, then keep whole comma clauses while they fit in max_words."""
+    t = _digits(text).strip(" ,")
+    changed = True
+    while changed:
+        changed = False
+        for m in LEAD:
+            if t.lower().startswith(m + " ") or t.lower().startswith(m + ",") or t.lower().startswith(m + "."):
+                t = t[len(m):].lstrip(" ,.")
+                changed = True
+    out, n = [], 0
+    for cl in [c.strip() for c in re.split(r"[,;]", t) if c.strip()]:
+        if n + len(cl.split()) > max_words:
+            break
+        out.append(cl)
+        n += len(cl.split())
+    if n < 3:
+        ws = t.replace(",", "").split()[:max_words]
+        while len(ws) > 3 and ws[-1].lower().strip(".!?") in WEAK_END:   # never end on "I", "the", "to"...
+            ws.pop()
+        out = [" ".join(ws)]
+        n = len(ws)
+    clipped = n < len(t.replace(",", "").split())
+    return ", ".join(out).rstrip("."), clipped
+
+
 def hook_from(units, start, peak):
-    """Heuristic hook: the most 'curious' SETUP sentence (numbers, extremes, a question), shortened. Words come only
-    from the transcript, so it is always honest. The payoff itself is never put in the hook (no spoiler)."""
-    cands = [u for u in units if start <= u["start"] < peak - 1.5] or [u for u in units if start <= u["start"] <= peak] \
-        or [u for u in units if u["start"] >= start][:1]
+    """Heuristic hook: the most 'curious' SETUP sentence (numbers, extremes, a question), tightened to whole clauses.
+    Words come only from the transcript, so it is always honest. The payoff itself is never put in the hook."""
+    pool = [u for u in units if start <= u["start"] < peak - 1.5] or [u for u in units if start <= u["start"] <= start + 8]
+    cands = [u["text"] for u in pool] + [a["text"] + " " + b["text"] for a, b in zip(pool, pool[1:]) if len(a["text"].split()) < 4]
     best, bv = None, float("-inf")
-    for u in cands:
-        t = _digits(u["text"]).strip(" ,")
+    for raw in cands:
+        t, clipped = tighten(raw)
         ws = t.split()
+        if not ws:
+            continue
         v = 2 * any(re.search(r"\d", w) for w in ws) + 1.5 * any(w.lower().strip(",.!?") in STRONG for w in ws) \
-            + (1 if "?" in t else 0) + (1 if 3 <= len(ws) <= 9 else 0) - 0.1 * abs(len(ws) - 6) - (3 if len(ws) < 3 else 0)
+            + (1 if "?" in t else 0) + (1 if 3 <= len(ws) <= 7 else 0) - 0.1 * abs(len(ws) - 5) - (3 if len(ws) < 3 else 0) \
+            - (0.5 if clipped else 0)
         if v > bv:
-            best, bv = t, v
+            best, bv, bc = t, v, clipped
     if not best:
         return ""
-    ws = best.replace(",", "").split()
-    ws = ws[:7]
-    return " ".join(ws).upper().rstrip(".") + ("..." if len(best.split()) > 7 else "")
+    return best.upper() + ("..." if bc and not best.endswith("?") else "")
 
 
 def title_from(units, start, end, peak, stream_title=""):

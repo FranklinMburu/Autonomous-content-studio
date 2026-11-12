@@ -7,7 +7,7 @@
   "cold_open_after_s": 9,
   "cold_open_s": 2.4,
   "hook": {"by_s": 1.0, "min_s": 1.6, "max_s": 3.0, "_why": "[3.1] 14 references: text on screen by 0.5 s at the latest (median 0.0 s), speech by 0.92 s (median 0.05 s)."},
-  "captions": {"max_words": 3, "font_px": 84, "stroke_px": 7, "y": 0.56, "y_by_layout": {"stack": 0.42, "split2": 0.5}, "safe_x": [0.10, 0.88], "accent": "yellow",
+  "captions": {"max_words": 3, "font_px": 84, "stroke_px": 7, "y": 0.56, "y_by_layout": {"stack": 0.42, "split2": 0.5}, "y_focus": 0.64, "safe_x": [0.10, 0.88], "accent": "yellow",
                "accent_rgb": [255, 221, 0], "hook_px": 74, "hook_y": 0.17, "hook_y_by_layout": {"stack": 0.455, "split2": 0.15}, "letterbox_y": 0.5, "lufs": -14, "true_peak": -1.5,
                "min_visible_pct": 50,
                "_why": "[3.1] 14 references: captions centred at 0.18-0.85 of the height (median 0.575; the Kick clips 0.49-0.50), text about 3% of the frame tall, 1-3 words on screen, UPPER CASE, yellow the commonest highlight colour."},

@@ -142,9 +142,12 @@ def compose_picture(fr, clip, t, scale):
 
 
 # ---------- text --------------------------------------------------------------------------------------------------
-def caption_y(clip):
-    """Captions sit where the picture lets them: on the seam of two-panel layouts, else at the measured height."""
+def caption_y(clip, t=0.0):
+    """Captions sit where the picture lets them: on the seam of two-panel layouts (it moves with the shot), under the
+    face on a focus shot, else at the measured height."""
     st, kind = clip["style"], clip["layout"]["kind"]
+    if shot_at(t, clip).get("view") == "focus" and kind in ("stack", "split2"):
+        return st.get("y_focus", 0.64)
     return st.get("y_by_layout", {}).get(kind, st["y"])
 
 
@@ -174,7 +177,7 @@ def draw_captions(canvas, clip, t):
             acc += wd
     else:
         lines = [list(range(len(words)))]
-    y = OH * caption_y(clip) - len(lines) * px * 0.6
+    y = OH * caption_y(clip, t) - len(lines) * px * 0.6
     for ln in lines:
         lw = sum(widths[i] for i in ln) - d.textlength(" ", font=f)
         x = OW * (st["safe_x"][0] + st["safe_x"][1]) / 2 - lw / 2
