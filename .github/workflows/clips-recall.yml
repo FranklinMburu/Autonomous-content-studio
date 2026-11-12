@@ -1,0 +1,34 @@
+name: Clips recall test (proof stage)
+
+# Proof stage (docs/clips/PROMPT.md §3.4): can the finder catch the moments that really went viral?
+# Step 1, reconnaissance: what each platform gives for the answer key (fan clips -> which VOD, which second).
+on:
+  push:
+    branches: ["clips-recall/**"]
+
+permissions:
+  contents: read
+
+jobs:
+  recon:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Recon
+        run: |
+          pip install -q "yt-dlp==2026.10.26"
+          echo "== Twitch: Kai Cenat last VODs"
+          yt-dlp --flat-playlist --playlist-end 6 --print "TWVOD %(id)s %(duration)s %(title)s" "https://www.twitch.tv/kaicenat/videos?filter=archives" 2>&1 | tail -6
+          echo "== Twitch: top clips of the last 7 days, full info of the first 2"
+          yt-dlp --flat-playlist --playlist-end 2 --print "%(url)s" "https://www.twitch.tv/kaicenat/clips?filter=clips&range=7d" > c.txt
+          while read u; do yt-dlp -J --skip-download "$u" | python -c "import json,sys; d=json.load(sys.stdin); print('TWCLIPKEYS', sorted(k for k in d if not k.startswith('_'))[:80]); print('TWCLIP', {k: d.get(k) for k in ('id','title','view_count','duration','timestamp','upload_date','uploader','creator','episode_id','webpage_url')})"; done < c.txt
+          echo "== Kick: N3on videos list (fields)"
+          curl -sS -m 20 -A "Mozilla/5.0" "https://kick.com/api/v2/channels/n3on/videos" -o kv.json -w "http %{http_code}\n"
+          python -c "import json; d=json.load(open('kv.json')); d=d if isinstance(d,list) else d.get('data',d); print('KVKEYS', sorted(d[0].keys())); [print('KVOD', v.get('id'), v.get('start_time') or v.get('created_at'), v.get('duration'), (v.get('video') or {}).get('uuid'), (v.get('session_title') or '')[:70]) for v in d[:6]]" || head -c 400 kv.json
+          echo "== Kick: N3on clips (fields of one)"
+          curl -sS -m 20 -A "Mozilla/5.0" "https://kick.com/api/v2/channels/n3on/clips?sort=view&time=month" -o kc.json -w "http %{http_code}\n"
+          python -c "import json; d=json.load(open('kc.json')); c=d.get('clips',d) if isinstance(d,dict) else d; print('KCKEYS', json.dumps(c[0])[:1500]); print('KC count', len(c))" || head -c 400 kc.json
+          echo "== done"
