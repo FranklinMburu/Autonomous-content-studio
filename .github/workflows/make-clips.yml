@@ -1,0 +1,131 @@
+name: Make clips (live streams)
+
+# The clipping engine (studio/clips, docs/CLIPS_ENGINE.md): a long stream we are allowed to clip -> the moments most
+# likely to work -> finished vertical Shorts with hook, captions, layout and loudness, each checked by gates.
+# Separate from every Hidden Reasons / Tech Education workflow: its own concurrency group and cache key, no Kaggle GPU,
+# no channel memory, no schedule. Runs only when started by hand. Free on GitHub for public repositories.
+#
+# The stream folder must already hold the video and rights.json (why we may clip it). The engine never downloads a
+# stream: a folder is committed on a branch, or attached to a release named clips-src-<name> (stream.zip).
+on:
+  workflow_dispatch:
+    inputs:
+      stream:
+        description: "Stream folder in the repo (e.g. streams/<name>) OR the name of a release clips-src-<name> with stream.zip"
+        required: true
+      top:
+        description: "How many clips to make"
+        required: false
+        default: "6"
+      whisper:
+        description: "Transcription model when words.json is missing (base.en is fast on CPU; small.en is better)"
+        required: false
+        default: "base.en"
+
+permissions:
+  contents: write   # publish the clips as a GitHub Release
+  issues: write     # a "review-clips" issue when a gate fails
+
+concurrency:
+  group: make-clips        # never shares a queue with make-story / make-motion / film-queue / the schedules
+  cancel-in-progress: false
+
+jobs:
+  clips:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300   # a 6 h stream: ~30-60 min transcription + ~20 min signals + ~1-2 min per clip
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # The brain (private repo FranklinMburu/AI-layer): ranks the moments and writes hooks/titles. Optional: without
+      # it the engine ranks by signals and takes hooks from the transcript.
+      - name: Get the brain
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: FranklinMburu/AI-layer
+          ssh-key: ${{ secrets.AILAYER_DEPLOY_KEY }}
+          path: .brain
+          persist-credentials: false
+
+      - name: Whisper model cache (clips only)
+        uses: actions/cache@v4
+        with:
+          path: cache/clips-models
+          key: clips-whisper-${{ github.event.inputs.whisper }}-v1
+
+      - name: Install
+        run: |
+          sudo rm -f /var/lib/man-db/auto-update; echo '$nrconf{restart} = "l";' | sudo tee /etc/needrestart/conf.d/ci.conf > /dev/null 2>&1 || true
+          for i in 1 2; do timeout 180 sh -c 'sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg tesseract-ocr > /dev/null' && break; echo "apt try $i was slow, retrying"; done
+          pip install -q "numpy>=1.26" pillow "soundfile>=0.12" "opencv-python-headless==4.10.0.84" "faster-whisper==1.2.1"
+
+      - name: Get the stream
+        env:
+          STREAM_RAW: ${{ github.event.inputs.stream }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          s=$(printf '%s' "$STREAM_RAW" | tr -d '\n\r')   # passed as data, never pasted into the script
+          case "$s" in *..*) echo "bad stream name"; exit 1;; esac
+          if [ -d "$s" ]; then echo "STREAM=$s" >> "$GITHUB_ENV"; exit 0; fi
+          mkdir -p "streams/$s"
+          gh release download "clips-src-$s" -p stream.zip -D "streams/$s"
+          (cd "streams/$s" && unzip -q stream.zip && rm stream.zip)
+          echo "STREAM=streams/$s" >> "$GITHUB_ENV"
+
+      - name: Rights check (nothing is made without rights.json)
+        run: |
+          python -c "import sys; from studio.clips import sources; print(sources.rights(sys.argv[1]))" "$STREAM"
+
+      - name: Find and make the clips
+        env:
+          CLIPS_WHISPER: ${{ github.event.inputs.whisper }}
+          CLIPS_MODEL_CACHE: cache/clips-models
+          TOP_RAW: ${{ github.event.inputs.top }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          ACCOUNT_KEY_franklincopil3: ${{ secrets.GEMINI_API_KEY }}
+          AILAYER_STATE_URL: ${{ secrets.AILAYER_STATE_URL }}
+          AILAYER_STATE_TOKEN: ${{ secrets.AILAYER_STATE_TOKEN }}
+        run: |
+          [ -f .brain/ailayer/__init__.py ] && export PYTHONPATH=$GITHUB_WORKSPACE/.brain
+          top=$(printf '%s' "$TOP_RAW" | tr -cd '0-9'); top=${top:-6}
+          set +e
+          python -m studio.clips make "$STREAM" --top "$top" --out out/clips | tee make.log
+          code=${PIPESTATUS[0]}
+          echo "MAKE_CODE=$code" >> "$GITHUB_ENV"
+          [ "$code" = 0 ] || [ "$code" = 2 ]
+
+      - name: Publish as releases (one per clip)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create review-clips --color D93F0B --description "A clip failed a gate" 2>/dev/null || true
+          name=$(basename "$STREAM")
+          for d in out/clips/*/; do
+            [ -f "$d/video.mp4" ] || continue
+            id=$(basename "$d")
+            tag="clips-$name-$id-run${{ github.run_number }}"
+            title=$(python -c "import json,sys; print(json.load(open(sys.argv[1]))['title'])" "$d/report.json")
+            passed=$(python -c "import json,sys; print(json.load(open(sys.argv[1]))['passed'])" "$d/report.json")
+            python -c "
+          import json,sys
+          c=json.load(open(sys.argv[1]+'clip.json')); r=json.load(open(sys.argv[1]+'report.json'))
+          print('Clip from', c['source']['folder'], '| rights:', c['source']['rights']['source'])
+          print(); print('Title:', c['title']); print('Hook:', c['hook']['text']); print('Why:', c['why']); print()
+          print('Description (copy-ready):'); print(c['description']); print()
+          print('Gates:'); print(json.dumps(r['gates'], indent=1))" "$d" > notes.md
+            if [ "$passed" = "True" ]; then
+              gh release create "$tag" "$d/video.mp4" "$d/clip.json" "$d/report.json" --title "Clip: $title" --notes-file notes.md
+            else   # guardrail: a clip that failed a gate is never published as finished
+              gh release create "$tag" "$d/video.mp4" "$d/clip.json" "$d/report.json" --prerelease --title "REVIEW: $title" --notes-file notes.md
+              gh issue create --label review-clips --title "Review needed (clip): $title" --body "Release **$tag** was made but a gate failed. See report.json in the release."
+            fi
+          done
+          cp out/clips/candidates.json . 2>/dev/null && gh release upload "clips-$name-$(ls out/clips | grep -v candidates | head -1)-run${{ github.run_number }}" candidates.json 2>/dev/null || true
+          { echo "## Clips from $STREAM"; echo; grep '^\[gates\]' make.log || true; } >> "$GITHUB_STEP_SUMMARY"
