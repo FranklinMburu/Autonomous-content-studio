@@ -77,6 +77,12 @@ body.look-bold{--bg:#101010;--tx:#FFFFFF;--tx2:#D9D9D9;--tx3:#9A9A9A;--line:rgba
 .look-bold #cap span.k{text-decoration:none;background:var(--acc);color:#101010;padding:0 .15em}
 .look-bold .win,.look-bold .card{background:#1C1C1C;border:3px solid #FFFFFF;border-radius:10px;box-shadow:10px 10px 0 var(--acc)}
 .look-bold #grain{opacity:0}
+
+/* each look's own drifting floor detail (the original's warm light streaks, restyled) */
+.look-paper [id^="st"] > .in > div{background:linear-gradient(180deg,rgba(60,45,25,0),rgba(60,45,25,.55))!important;box-shadow:none!important;width:4px!important}
+.look-blueprint [id^="st"] > .in > div{background:linear-gradient(180deg,rgba(234,242,255,0),rgba(234,242,255,.9))!important;box-shadow:0 0 10px rgba(234,242,255,.5)!important;width:3px!important}
+.look-glass [id^="st"] > .in > div{background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.8))!important;box-shadow:0 0 18px rgba(255,255,255,.5)!important}
+.look-bold [id^="st"] > .in > div{background:var(--acc)!important;box-shadow:none!important;border-radius:0!important;width:8px!important}
 </style></head>
 <body><div id="vp"><div id="world"></div></div><div id="fx"></div><div id="cap"></div><canvas id="grain" width="270" height="480" style="width:540px;height:960px"></canvas><div id="flash"></div>
 <script>
@@ -115,11 +121,11 @@ let CAM = { x: 0, y: 0, z: 0, yaw: 0, pitch: 0, roll: 0, D: 900, P: 900 }, NOW =
 // Design families: one look per episode (plan.look, chosen by studio/motion/variety.py). studio = the approved original (all 1).
 const LOOKS = {
   studio:    { drift: 1,   dof: 1,   orbit: 1,   P: 1,   floor: 1,   streak: 1,   glow: 1 },
-  paper:     { drift: 0.9, dof: 0.3, orbit: 0.7, P: 1.3, floor: 0.7, streak: 0,   glow: 0.5 },
-  blueprint: { drift: 0.8, dof: 0,   orbit: 0.6, P: 1.25, floor: 1.2, streak: 0,  glow: 0.3 },
+  paper:     { drift: 0.9, dof: 0.3, orbit: 0.7, P: 1.3, floor: 0.7, streak: 0.9,   glow: 0.5 },
+  blueprint: { drift: 0.8, dof: 0,   orbit: 0.6, P: 1.25, floor: 1.2, streak: 1,  glow: 0.3 },
   neon:      { drift: 1.2, dof: 1,   orbit: 1.15, P: 0.92, floor: 1.3, streak: 1.4, glow: 1.4 },
-  glass:     { drift: 1,   dof: 1.4, orbit: 0.9, P: 1,   floor: 0.25, streak: 0.4, glow: 1.2 },
-  bold:      { drift: 0.6, dof: 0,   orbit: 0.5, P: 1.8, floor: 0,   streak: 0,   glow: 0 },
+  glass:     { drift: 1,   dof: 1.4, orbit: 0.9, P: 1,   floor: 0.25, streak: 0.9, glow: 1.2 },
+  bold:      { drift: 0.6, dof: 0,   orbit: 0.5, P: 1.8, floor: 0,   streak: 1,   glow: 0 },
 };
 let LK = LOOKS.studio;
 const CK = [], CUTS = [], CUES = [];
@@ -347,8 +353,8 @@ function direct() {
         key(t1 - 0.25, cam(o, -240, 50, 220, 18, -2, 1050, 780)); cue(t0 - 0.2, "swoosh_big"); cue(t0 + 0.6, "impact"); for (let j = 0; j < 14; j++) cue(t0 + 0.3 + j * 0.12, "tick", 0.3); break;
       case "badges_intro": go(0.5, cam(o, 0, 150, 60, -10 * sg, 6, 1050, 880)); cue(t0 - 0.25, "swoosh_big"); break;
       case "badge": { const ang = [[-150, -24, 760], [40, 20, 780], [0, 2, 1040]][badgeN % 3]; cut(t0 - 0.16, camAtKeyLast(), cam(o, ang[0] * sg, 110, 170, ang[1] * sg, 4, ang[2], 880, -2 * sg)); key(t1 - 0.2, cam(o, ang[0] * sg * 0.6, 120, 160, ang[1] * sg * 0.7, 4, ang[2] + 40, 880)); cue(t0 - 0.05, "slam"); s.n = badgeN++; break; }
-      case "cta_terminal": go(0.25, cam(o, 0, -90, 0, -12 * sg, 4, 760)); key(t1, cam(o, 0, 10, 0, 8 * sg, 6, 900)); cue(t0 - 0.3, "swoosh_big"); { const n = Math.min(50, String(s.p.prompt || "").length); for (let j = 0; j < n; j++) cue(lerp(t0 + 0.6, t1 - 0.2, j / n), "key", 0.3); } break;
-      case "file_tree": go(0.2, cam(o, 0, 10, 0, 8 * sg, 6, 900)); key(lerp(t0, t1, 0.5), cam(o, -20, 120, -40, 3 * sg, 8, 880, 940, 1)); key(t1 - 0.25, cam(o, -20, 120, -40, -3 * sg, 4, 840, 920)); cue(t1 - 0.3, "ding"); break;
+      case "cta_terminal": go(0.25, cam(o, 0, -90, 0, -12 * sg, 4, 900)); key(t1, cam(o, 0, 10, 0, 8 * sg, 6, 1010));   // 12 Nov: further back, the panels were cut off at the edge cue(t0 - 0.3, "swoosh_big"); { const n = Math.min(50, String(s.p.prompt || "").length); for (let j = 0; j < n; j++) cue(lerp(t0 + 0.6, t1 - 0.2, j / n), "key", 0.3); } break;
+      case "file_tree": go(0.2, cam(o, 0, 10, 0, 8 * sg, 6, 1010)); key(lerp(t0, t1, 0.5), cam(o, 0, 120, -40, 3 * sg, 8, 1010, 940, 1)); key(t1 - 0.25, cam(o, 0, 120, -40, -3 * sg, 4, 980, 920)); cue(t1 - 0.3, "ding"); break;
       case "end_card": go(0.6, cam(o, 0, 0, 0, -16 * sg, 2, 1000)); key(DUR + 1, cam(o, 0, 0, 0, 8 * sg, 2, 900)); cue(t0 - 0.3, "swoosh_big"); cue(t0 + 0.2, "impact", 0.6); break;
       case "big_word": go(0.1, cam(o, 0, -40, 0, 20 * sg, 4, 900)); key(t1, cam(o, 0, -40, 0, -6 * sg, 2, 820)); cue(t0 - 0.2, "swoosh_big"); cue(t0 + 0.1, "slam", 0.6); break;
       case "bullets": go(0.3, cam(o, 0, 0, 0, -10 * sg, 4, 980)); key(t1, cam(o, 0, 0, 0, 10 * sg, 4, 940)); (s.p.items || []).forEach((_, j) => cue(t0 + 0.2 + j * ((t1 - t0 - 0.4) / Math.max(1, (s.p.items || []).length)), "pop")); break;
@@ -361,7 +367,7 @@ function direct() {
     const cuts = new Set(CUTS.map(x => +x.toFixed(3))), add = [];
     for (let i = 0; i + 1 < CK.length; i++) { const [ta, ca] = CK[i], [tb, cb] = CK[i + 1];
       if (tb - ta > 1.1 && ![...cuts].some(c => c > ta - 0.01 && c < tb + 0.01)) { const side = i % 2 ? 1 : -1;
-        add.push([(ta + tb) / 2, { ...ca, x: (ca.x + cb.x) / 2 + side * 20 * ST.sign, y: (ca.y + cb.y) / 2, z: (ca.z + cb.z) / 2, yaw: (ca.yaw + cb.yaw) / 2 + side * 6 * ST.sign, D: Math.min(ca.D, cb.D) * 0.96 }]); } }
+        add.push([(ta + tb) / 2, { ...ca, x: (ca.x + cb.x) / 2, y: (ca.y + cb.y) / 2, z: (ca.z + cb.z) / 2, yaw: (ca.yaw + cb.yaw) / 2 + side * 8 * ST.sign, D: Math.max(ca.D, cb.D) }]); } }
     CK.push(...add); CK.sort((a, b) => a[0] - b[0]);
   }
   CUTS.forEach(tc => cue(tc - 0.12, "whoosh", 0.45));
@@ -476,11 +482,11 @@ function directWorld(s, o, prev, newSet, sg) {
   // entering: a hard cut from wherever the camera is; keys the previous scene set after the cut are dropped (no fly-through)
   const enter = c => { if (newSet && prev) { const tc = t0 - 0.12; for (let i = CK.length - 1; i >= 0; i--) if (CK[i][0] >= tc - 0.001) CK.splice(i, 1);
     let last = CK[0]; for (const k of CK) if (k[0] > last[0]) last = k; cut(tc, last ? { ...last[1] } : c, c); } else key(t0 - 0.05, c); };
-  const t0 = s.t0, t1 = s.t1, C = (dx, dy, dz, yaw, pitch, D) => cam(o, dx, dy, dz, yaw, pitch, D * 0.84);   // worlds sit closer: one big subject
+  const t0 = s.t0, t1 = s.t1, C = (dx, dy, dz, yaw, pitch, D) => cam(o, dx, dy, dz, yaw, pitch, D * 1.0);   // worlds: one big subject, with room at the edges for the camera to turn
   const pop = (items) => items.filter(it => it.s === s).forEach(it => cue(revealAt(it), "pop", 0.5));
-  // follow: as each item of this line appears, the camera leans toward it (where the voice is), alternating sides
+  // follow: as each item of this line appears, the camera turns toward it (where the voice is), alternating sides; it never slides a panel off screen
   const follow = (items, dyOf, base, D) => { let k = 0; items.forEach((it, i) => { if (it.s !== s) return; const a = revealAt(it) + 0.3;
-    if (a > t0 + 0.2 && a < t1 - 0.45) { k++; key(a, C((k % 2 ? 30 : -30) * sg, base + 0.7 * dyOf(i, items.length), 0, (k % 2 ? 12 : -12) * sg, 7, D * (k % 2 ? 0.88 : 0.95))); } }); };
+    if (a > t0 + 0.2 && a < t1 - 0.45) { k++; key(a, C(0, base + 0.7 * dyOf(i, items.length), 0, (k % 2 ? 19 : -19) * sg, 8, D * (k % 2 ? 0.95 : 1.06))); } }); };
   switch (s.type) {
     case "table_grid": { const n = WK.table.length; enter(C(0, 80, 0, -14 * sg, 10, 960 + n * 20)); follow(WK.table, (i, m) => (i - (m - 1) / 2) * 46, 80, 900 + n * 20); key(t1 - 0.1, C(30 * sg, 90, 0, -4 * sg, 6, 840 + n * 20)); WK.table.filter(it => it.s === s).forEach(it => cue(revealAt(it), "tick", 0.6)); break; }
     case "timeline": { const mine = WK.time.filter(it => it.s === s), last = WK.time.indexOf(mine[mine.length - 1]); enter(C(Math.max(0, last - 1) * 230, 60, 0, 16 * sg, 6, 860));
@@ -496,7 +502,7 @@ function directWorld(s, o, prev, newSet, sg) {
   const mine = CK.filter(k => k[0] >= t0 - 0.06 && k[0] <= t1 + 0.01).sort((a, b) => a[0] - b[0]);
   for (let i = 0; i + 1 < mine.length; i++) { const [ta, ca] = mine[i], [tb, cb] = mine[i + 1];
     if (tb - ta > 1.1) { const m = (ta + tb) / 2, side = i % 2 ? 1 : -1;
-      key(m, { ...ca, x: (ca.x + cb.x) / 2 + side * 30 * sg, y: (ca.y + cb.y) / 2, yaw: (ca.yaw + cb.yaw) / 2 + side * 10 * sg, D: Math.min(ca.D, cb.D) * 0.92 }); } }
+      key(m, { ...ca, x: (ca.x + cb.x) / 2, y: (ca.y + cb.y) / 2, yaw: (ca.yaw + cb.yaw) / 2 + side * 15 * sg, D: Math.max(ca.D, cb.D) * 1.05 }); } }
 }
 // ============================================================ the frame
 function type(el, text, t, a, b) { const n = Math.round(String(text).length * clamp((t - a) / (b - a))); el.textContent = String(text).slice(0, n); }
