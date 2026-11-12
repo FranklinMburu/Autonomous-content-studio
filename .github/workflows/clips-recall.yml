@@ -40,7 +40,12 @@ jobs:
               d = get(u); cs = d.get("clips", []) if isinstance(d, dict) else d
               clips += cs; cursor = d.get("nextCursor") if isinstance(d, dict) else None
               if not cursor: break
-          mine = [c for c in clips if str(c.get("livestream_id")) == str(v["id"])]
+          from collections import Counter
+          cnt = Counter(str(c.get("livestream_id")) for c in clips)
+          print("CLIP livestream ids (top):", cnt.most_common(8)); print("VOD ids:", [(x["id"], x.get("start_time"), round(x["duration"]/60000)) for x in vods[:8]])
+          print("VOD source field:", (v.get("source") or "")[:160])
+          # the clip's livestream_id may be the live session id; match by time instead: clips made during the stream window
+          mine = [c for c in clips if start <= dt.datetime.fromisoformat(c["created_at"].replace("Z", "+00:00")) <= start + dt.timedelta(seconds=dur + 600)]
           key = []
           for c in mine:
               made = dt.datetime.fromisoformat(c["created_at"].replace("Z", "+00:00"))
@@ -49,15 +54,16 @@ jobs:
           key.sort(key=lambda k: -k["views"])
           print("KICK clips scanned", len(clips), "for this stream", len(key))
           for k in key[:25]: print("KEY_KICK", k["views"], k["offset"], k["duration"], k["title"][:70])
-          json.dump({"vod": {"id": v["id"], "uuid": (v.get("video") or {}).get("uuid"), "start": v["start_time"], "duration": dur}, "key": key}, open("key/kick_n3on.json", "w"), indent=1)
+          json.dump({"vod": {"id": v["id"], "uuid": (v.get("video") or {}).get("uuid"), "source": v.get("source"), "start": v["start_time"], "duration": dur}, "key": key}, open("key/kick_n3on.json", "w"), indent=1)
           PY
           echo "== Kick VOD media (audio only + low quality, sizes)"
-          u=$(python -c "import json; print('https://kick.com/n3on/videos/'+json.load(open('key/kick_n3on.json'))['vod']['uuid'])")
-          echo "$u"; yt-dlp -F "$u" 2>&1 | tail -8
-          s0=$(date +%s); yt-dlp -q -f "worstaudio/worst" -x --audio-format m4a -o "key/n3on_audio.%(ext)s" "$u" 2>&1 | tail -2; echo "audio took $(( $(date +%s)-s0 )) s"; ls -la key/ 
+          src=$(python -c "import json; print(json.load(open('key/kick_n3on.json'))['vod']['source'] or '')")
+          echo "SRC $src"
+          [ -n "$src" ] && curl -sS -m 20 -A "Mozilla/5.0" "$src" | head -30
+          [ -n "$src" ] && { s0=$(date +%s); ffmpeg -v error -y -i "$src" -t 600 -vn -c:a copy key/n3on_audio10.m4a; echo "10 min audio took $(( $(date +%s)-s0 )) s"; ls -la key/; }
           echo "== Twitch: Kai Cenat Japan nightlife VOD v2910392998 + its clips"
           yt-dlp -J --skip-download "https://www.twitch.tv/videos/2910392998" | python -c "import json,sys; d=json.load(sys.stdin); print('TWVOD', d.get('timestamp'), d.get('duration'), d.get('title'))"
-          yt-dlp --flat-playlist --playlist-end 100 --print "%(url)s" "https://www.twitch.tv/kaicenat/clips?filter=clips&range=30d" > tc.txt; wc -l tc.txt
+          for r in 30d all; do yt-dlp --flat-playlist --playlist-end 100 --print "%(url)s" "https://www.twitch.tv/kaicenat/clips?filter=clips&range=$r" > tc_$r.txt 2> err_$r.txt; echo "range $r: $(wc -l < tc_$r.txt) clips"; tail -2 err_$r.txt; done
           echo "== done"
       - uses: actions/upload-artifact@v4
         with:
