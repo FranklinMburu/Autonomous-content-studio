@@ -139,10 +139,25 @@ def one(m, a, model, b, out):
             "why": ed.get("why", ""), "kind": ed.get("kind", "other"), "score": m.get("score", 0), "score_ai": m.get("score", 0),
             "ranked_by": "AI judge (watched)", "signals": {}}
     clip = make_clip(cand, S, S["words"], cv, b, lay, a.stream_title)
+    if a.style == "reference":
+        # Measured on Kick_Clippers' top Shorts (13 Nov): one continuous piece (no jump cuts, no zoom punches, no
+        # word captions), a big zoomed band, and the TITLE in a white box above it for the whole clip.
+        people = lay.get("people") or []
+        ax = (sum(p[0] + p[2] / 2 for p in people) / len(people)) if people else lay["src"][0] / 2
+        dur_c = round(end - start, 3)
+        clip["edl"] = [{"src": [start, end], "at": 0.0}]
+        clip["duration"], clip["cold_open"] = dur_c, None
+        clip["layout"] = {"kind": "band", "src": lay["src"], "action_x": ax, "people": people, "why": "reference style"}
+        clip["captions"], clip["zooms"], clip["framing"] = [], [], []
+        title_box = re.sub(r"\s*#\S+", "", clip["title"]).strip()
+        clip["hook"] = {"text": title_box, "until": dur_c + 1}
+        clip["style"] = {**clip["style"], "hook_px": 50, "hook_y_by_layout": {"band": 0.115}, "band_y": 0.47, "band_zoom": 1.6}
     (d / "clip.json").write_text(json.dumps(clip, indent=1, ensure_ascii=False))
     video = render(clip, d / "short.mp4", log=lambda *x: None)
     rep = gates.check(clip, video, S["words"], b)
     failed = [k for k, v in rep["gates"].items() if not v]
+    if a.style == "reference":   # the measured winners have no word captions and no cuts: those engine gates don't apply
+        failed = [k for k in failed if k not in ("captions_visible", "captions_in_sync", "pace_at_least_bar")]
     log(f"rendered {clip['duration']:.1f} s, layout {lay['kind']}; gates: {'all passed' if not failed else 'REVIEW ' + ', '.join(failed)}")
     # 5. the reviewer watches the finished Short
     small = lowres(video, d / "short_low.mp4", scale="360:640", fps=2)
@@ -181,7 +196,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--vod", required=True); ap.add_argument("--streamer", required=True); ap.add_argument("--lane", default="SC")
     ap.add_argument("--stream-title", default=""); ap.add_argument("--moments", required=True); ap.add_argument("--out", required=True)
-    ap.add_argument("--model"); ap.add_argument("--only", type=int, help="make only moment number N (1-based): one job per Short")
+    ap.add_argument("--model"); ap.add_argument("--style", default="reference", choices=("reference", "engine"), help="reference = the measured Kick_Clippers look")
+    ap.add_argument("--only", type=int, help="make only moment number N (1-based): one job per Short")
     a = ap.parse_args()
     out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
     b = bar()

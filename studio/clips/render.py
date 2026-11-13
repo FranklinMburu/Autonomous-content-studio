@@ -153,6 +153,19 @@ def compose_picture(fr, clip, t, scale):
         h = H
         w = h * OW / OH
         canvas.paste(crop_cover(fr, [p[0] + p[2] / 2 - w / 2, 0, w, h], OW, OH, z), (0, 0))
+    elif kind == "band":
+        # The reference look (measured 13 Nov on Kick_Clippers' 32M / 28M / 9.7M Shorts): the 16:9 picture cropped at
+        # the sides and zoomed ~1.6x into a big band that fills about half the screen, on a blurred copy of itself,
+        # with the title in a white box above it for the whole clip. Crop centred on the people when we know where.
+        zf = clip["style"].get("band_zoom", 1.6)
+        cw = W / zf
+        ax = lay.get("action_x", W / 2) * scale
+        cx = min(max(cw / 2, ax), W - cw / 2)
+        bg = crop_cover(fr, [0, 0, W, H], OW // 10, OH // 10).filter(ImageFilter.GaussianBlur(3)).resize((OW, OH), Image.BILINEAR)
+        bg = Image.fromarray((np.asarray(bg) * 0.80).astype(np.uint8))
+        canvas.paste(bg, (0, 0))
+        fh = int(OW * H / cw)
+        canvas.paste(crop_cover(fr, [cx - cw / 2, 0, cw, H], OW, fh, z), (0, int(OH * clip["style"].get("band_y", 0.47) - fh / 2)))
     else:   # letterbox on a blurred, darkened copy of itself
         bg = crop_cover(fr, [0, 0, W, H], OW // 10, OH // 10).filter(ImageFilter.GaussianBlur(3)).resize((OW, OH), Image.BILINEAR)
         bg = Image.fromarray((np.asarray(bg) * 0.42).astype(np.uint8))
@@ -210,6 +223,79 @@ def draw_captions(canvas, clip, t):
         y += px * 1.15
 
 
+EMOJI_FONT = Path("/usr/share/fonts/truetype/noto/NotoColorEmoji.ttf")   # apt: fonts-noto-color-emoji
+_EMOJI = None
+_EMOJI_RE = None
+
+
+def _is_emoji_char(ch):
+    o = ord(ch)
+    return o >= 0x1F000 or 0x2600 <= o <= 0x27BF or o in (0x200D, 0xFE0F) or 0x1F1E6 <= o <= 0x1F1FF
+
+
+def _runs(text):
+    """[(is_emoji, str)]: emoji sequences are drawn from the colour emoji font, the rest in Poppins."""
+    out = []
+    for ch in text:
+        e = _is_emoji_char(ch)
+        if out and out[-1][0] == e:
+            out[-1] = (e, out[-1][1] + ch)
+        else:
+            out.append((e, ch))
+    return out
+
+
+def _emoji_img(seq, px):
+    """One emoji (or ZWJ sequence) as an RGBA image px tall; None when no emoji font is installed."""
+    global _EMOJI
+    if not EMOJI_FONT.exists():
+        return None
+    if _EMOJI is None:
+        _EMOJI = ImageFont.truetype(str(EMOJI_FONT), 109)   # the only size this bitmap font has
+    im = Image.new("RGBA", (160, 136), (0, 0, 0, 0))
+    ImageDraw.Draw(im).text((4, 4), seq, font=_EMOJI, embedded_color=True)
+    bb = im.getbbox()
+    if not bb:
+        return None
+    im = im.crop(bb)
+    return im.resize((max(1, int(im.width * px / im.height)), px), Image.LANCZOS)
+
+
+def _emoji_units(s):
+    """Split an emoji run into single emoji (keeping ZWJ / variation selectors with their base)."""
+    units, cur = [], ""
+    for ch in s:
+        if ch in ("\u200d", "\ufe0f") or (cur.endswith("\u200d")):
+            cur += ch
+        else:
+            if cur:
+                units.append(cur)
+            cur = ch
+    if cur:
+        units.append(cur)
+    return units
+
+
+def _line_width(d, line, f, px):
+    w = 0
+    for e, s in _runs(line):
+        w += sum(int(px * 1.05) for _ in _emoji_units(s)) if e else d.textlength(s, font=f)
+    return w
+
+
+def _draw_line(canvas, d, x, y, line, f, px, fill):
+    for e, s in _runs(line):
+        if e:
+            for u in _emoji_units(s):
+                im = _emoji_img(u, int(px * 0.92))
+                if im is not None:
+                    canvas.paste(im, (int(x), int(y + px * 0.12)), im)
+                x += int(px * 1.05)
+        else:
+            d.text((x, y), s, font=f, fill=fill)
+            x += d.textlength(s, font=f)
+
+
 def draw_hook(canvas, clip, t):
     h = clip["hook"]
     if not h["text"] or t >= h["until"]:
@@ -221,12 +307,12 @@ def draw_hook(canvas, clip, t):
     words, lines = h["text"].split(), [""]
     for w in words:
         trial = (lines[-1] + " " + w).strip()
-        if d.textlength(trial, font=f) > OW * 0.78 and lines[-1]:
+        if _line_width(d, trial, f, px) > OW * 0.78 and lines[-1]:
             lines.append(w)
         else:
             lines[-1] = trial
     pad = 26
-    bw = max(d.textlength(l, font=f) for l in lines) + 2 * pad
+    bw = max(_line_width(d, l, f, px) for l in lines) + 2 * pad
     bh = len(lines) * px * 1.18 + 2 * pad - px * 0.18
     s = min(1.0, 0.85 + t / 0.12 * 0.15)
     x0 = OW / 2 - bw * s / 2
@@ -234,8 +320,8 @@ def draw_hook(canvas, clip, t):
     d.rounded_rectangle([x0, y0, x0 + bw * s, y0 + bh * s], radius=22, fill=(255, 255, 255))
     ff = font(int(px * s))
     for i, l in enumerate(lines):
-        lw = d.textlength(l, font=ff)
-        d.text((OW / 2 - lw / 2, y0 + pad * s + i * px * 1.18 * s), l, font=ff, fill=(10, 10, 10))
+        lw = _line_width(d, l, ff, int(px * s))
+        _draw_line(canvas, d, OW / 2 - lw / 2, y0 + pad * s + i * px * 1.18 * s, l, ff, int(px * s), (10, 10, 10))
 
 
 # ---------- sound -------------------------------------------------------------------------------------------------

@@ -44,7 +44,7 @@ jobs:
           key: whisper-small-en-v1
       - name: Tools
         run: |
-          for i in 1 2; do timeout 180 sh -c 'sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg tesseract-ocr > /dev/null' && break; done
+          for i in 1 2; do timeout 180 sh -c 'sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg tesseract-ocr fonts-noto-color-emoji > /dev/null' && break; done
           pip install -q -r lab/clips/requirements-shorts.txt
       - name: Make Short ${{ matrix.n }}
         env:
