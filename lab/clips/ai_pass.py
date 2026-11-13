@@ -44,6 +44,7 @@ real winners above, or more like the 21K median?" and score from that comparison
 in the first second), emotional payoff (the reaction lands on screen), quotability, self-contained (needs no setup
 from earlier), density (no dead air). The reaction beat is part of the clip. Be harsh: most moments are 2-5.
 Never name who speaks unless the name is said; the streamer may be named as the subject.
+Score 0-3 (13 Nov lessons, N3on run): the streamer only WATCHING another broadcast or a screen (an awards show, a video, a match) unless his own face reacts big and fills the moment; gambling, slots or a casino on screen; anything you cannot actually SEE or HEAR in the clip (a title must describe what is visible, never what was said elsewhere).
 Title: the clip-channel formula, exaggerate the framing but never invent the event, leave the payoff unread.
 Return JSON list of {"t", "score" 0-10, "kind", "title", "why" one sentence citing the hook or quote}."""
 

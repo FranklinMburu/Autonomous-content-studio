@@ -101,3 +101,17 @@ Run 2 (43331217075, commit f8f4cdd): exact key + AI eyes + AI judge. Read its lo
   man rank 53 → 20); the winners' look measured (above, REFERENCE_kick_clippers.md) and copied; Shorts in parallel
   jobs; research on voice / pipelines / presenters in `docs/lanes/`; reference breakdown of Maitis and Griffin in
   `docs/lanes/REFERENCE_maitis_griffin.md`.
+
+## 13 Nov 09:30–10:00 Nairobi: first fresh-stream run (N3on, run 43379224570)
+
+- New chain: `lab/clips/find.py` (resolve a Kick/Twitch VOD, Kick's own subtitles = transcript in 3 s, pick the judge's
+  best) + `.github/workflows/clips-stream.yml` (branch `clips-stream/**`, stream chosen in `lab/clips/stream_job.json`):
+  find (40 s media, 2 min eyes, 4 min chat, 4 min judge for 62 candidates) → 12 parallel Shorts → release
+  `shorts-sc-n3on-20261113-0650` + board cards. Whole run ~25 min.
+- Result poor because the stream was wrong: "newest" picked a 1.4 h casino-sponsored slots stream ("GAMBLING MY RENT |
+  Jack.com") whose best parts were N3on watching the Streamer Awards. Scores 7, 6, 5, 5, 4, 2, 2, 1, 1, 1, 1; one moment
+  refused by the editor (the judge's title didn't match the picture: the honesty guard works). Cards ≤5 moved to Skipped.
+- Fixes (committed): resolve skips gambling and <1.5 h VODs and dedupes (Kick ignores ?page=); pick drops moments telling
+  the same story; judge scores watch-party, gambling and not-visible moments 0-3; Shorts at least 15 s (were 7-11 s);
+  publish sends cards under 6 straight to Skipped.
+- Next: rerun on a proper stream (N3on's 3.1 h IRL stream if Kick still lists it, or a Kai/Speed IRL VOD).

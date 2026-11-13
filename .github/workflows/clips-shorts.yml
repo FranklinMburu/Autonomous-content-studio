@@ -105,7 +105,7 @@ jobs:
               s = p["scores"]
               why = (f"Reviewer: overall {s['overall']:g}/10, checks {p['checks_passed']}. Scores: " + ", ".join(f"{k} {v:g}" for k, v in s.items())
                      + f". Fix next: {p['fix']}")
-              subprocess.run(["python", "-m", "studio.clips.board", "add", "--lane", cfg["lane"], "--title", p["title"], "--stage", "Review",
+              subprocess.run(["python", "-m", "studio.clips.board", "add", "--lane", cfg["lane"], "--title", p["title"], "--stage", "Review" if s["overall"] >= 6 else "Skipped",
                               "--video-id", p["id"], "--who", cfg["streamer"], "--why", why[:1900],
                               "--source", f"{p['source']['vod']}?t={int(p['source']['start'])}s",
                               "--clip-file", f"https://github.com/{repo}/releases/download/{tag}/{p['id']}.mp4",

@@ -28,6 +28,7 @@ from studio.clips.__main__ import bar  # noqa: E402
 from studio.clips.edit import make_clip  # noqa: E402
 from studio.clips.render import render  # noqa: E402
 
+MIN_S = 15            # the measured winners run 11-38 s; under 15 s the setup or the reaction is missing
 PRE, POST = 60, 90   # 13 Nov run 1: 45 s after the moment cut off payoffs and aftermaths; 90 s keeps them
 
 EDITOR = """You are the editor of a top streamer-clip Shorts channel (@Kick_Clippers / Clipatra style). Below is a
@@ -38,6 +39,7 @@ Watch and listen, then decide the Short:
 - "peak": the second where the biggest thing happens (the hit, the shock, the punchline, the reveal).
 - "start": where the setup a stranger needs begins: at most 25 s before the peak, often less. No dead air, no slow intro.
 - "end": just after the reaction lands (laugh, scream, silence after the reveal). Never trail off.
+  The Short runs 15-40 s: enough setup for a stranger and the full reaction.
 - "hook": the on-screen text for the first seconds, 3-8 words, says the concrete situation with the sound off, names
   {streamer}, teases without spoiling the payoff, no emoji. Good: "Kai Cenat challenges a real sumo wrestler".
 - "title": the channel formula: "The moment / No way {streamer} [REALIZED / was SHOCKED / got HUMBLED / EXPOSED] ...",
@@ -121,6 +123,9 @@ def one(m, a, model, b, out):
     if end <= start or end <= peak:                             # an end before the start/peak = a bad answer: rebuild it
         end = peak + 6
     start, end = max(0, min(start, peak - 2)), min(dur - 0.5, max(end, peak + 2))
+    if end - start < MIN_S:                                     # 13 Nov N3on run: 7-11 s Shorts (winners are 11-38 s)
+        start = max(0.0, min(start, peak - 10))
+        end = min(dur - 0.5, max(end, start + MIN_S))
     if end - start > b["duration_s"]["max"] + 15:
         start = max(start, peak - 25)
     log(f"editor: start {start:.1f} peak {peak:.1f} end {end:.1f} | {ed.get('hook')!r} | {ed.get('title')!r}")
