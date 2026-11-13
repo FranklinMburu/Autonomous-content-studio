@@ -103,6 +103,28 @@ def video_part(p):
     return {"inline_data": {"mime_type": "video/mp4", "data": base64.b64encode(Path(p).read_bytes()).decode()}}
 
 
+def snap(words, start, end, peak, dur):
+    """Start on the first word of a sentence and end after a finished one (Hooky's snap_clip_boundaries idea, MIT):
+    start moves to the nearest sentence start within 3 s before .. 1 s after it (a word after a pause of 0.4 s or after
+    . ! ?), end to the nearest sentence end within 1 s before .. 3 s after it (a pause of 0.35 s follows). Never cuts the
+    peak, never shrinks the Short under MIN_S, and leaves the times alone when no word is near (action, no speech)."""
+    ws = [w for w in words if w.get("end", 0) > w.get("start", 0)]
+    if not ws:
+        return start, end
+    def starts_sentence(i):
+        return i == 0 or ws[i]["start"] - ws[i - 1]["end"] >= 0.4 or str(ws[i - 1]["w"]).rstrip().endswith((".", "!", "?"))
+    def ends_sentence(i):
+        return i == len(ws) - 1 or ws[i + 1]["start"] - ws[i]["end"] >= 0.35 or str(ws[i]["w"]).rstrip().endswith((".", "!", "?"))
+    cs = [ws[i]["start"] - 0.15 for i in range(len(ws)) if starts_sentence(i) and start - 3 <= ws[i]["start"] <= min(start + 1, peak - 1)]
+    ce = [ws[i]["end"] + 0.25 for i in range(len(ws)) if ends_sentence(i) and max(end - 1, peak + 1) <= ws[i]["end"] <= end + 3]
+    ns = min(cs, key=lambda x: abs(x - start)) if cs else start
+    ne = min(ce, key=lambda x: abs(x - end)) if ce else end
+    ns, ne = max(0.0, ns), min(dur - 0.5, ne)
+    if ne - ns < MIN_S or not (ns < peak < ne):
+        return start, end
+    return ns, ne
+
+
 def band(overall):
     return "250K+" if overall >= 9 else "50K-250K" if overall >= 8 else "10K-50K" if overall >= 6.5 else "under 10K"
 
@@ -151,6 +173,10 @@ def one(m, a, model, b, out):
     # 4. edit, render, gates
     S = sources.load(d)
     cv, _ = signals.curves(S, dur, log=lambda *x: None)
+    s0, e0 = start, end
+    start, end = snap(S["words"], start, end, peak, dur)
+    if (round(s0, 1), round(e0, 1)) != (round(start, 1), round(end, 1)):
+        log(f"snapped to whole sentences: {s0:.1f}-{e0:.1f} -> {start:.1f}-{end:.1f}")
     lay = layout.choose(S["video"], start, end)
     cand = {"start": start, "end": end, "peak": peak, "hook": ed.get("hook") or m.get("title", ""), "title": ed.get("title") or m.get("title", ""),
             "why": ed.get("why", ""), "kind": ed.get("kind", "other"), "score": m.get("score", 0), "score_ai": m.get("score", 0),
@@ -164,7 +190,12 @@ def one(m, a, model, b, out):
         dur_c = round(end - start, 3)
         clip["edl"] = [{"src": [start, end], "at": 0.0}]
         clip["duration"], clip["cold_open"] = dur_c, None
-        clip["layout"] = {"kind": "band", "src": lay["src"], "action_x": ax, "people": people, "why": "reference style"}
+        try:   # follow the people over time (falls back to one fixed centre if tracking finds nothing)
+            track = layout.track_action(S["video"], start, end)
+        except Exception as e:  # noqa: BLE001
+            log(f"tracking failed ({type(e).__name__}): fixed crop"); track = []
+        clip["layout"] = {"kind": "band", "src": lay["src"], "action_x": ax, "people": people, "track": track or None,
+                          "why": "reference style" + (", crop follows the action" if track else "")}
         clip["captions"], clip["zooms"], clip["framing"] = [], [], []
         title_box = re.sub(r"\s*#\S+", "", clip["title"]).strip()
         clip["hook"] = {"text": title_box, "until": dur_c + 1}

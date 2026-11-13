@@ -208,3 +208,64 @@ def active_person(video, people, a, b, n=8):
         x0, x1 = int((x - w * 0.25) * k), int((x + w * 1.25) * k)
         act.append(float(d[max(0, y0):y1, max(0, x0):x1].mean()) if y1 > y0 and x1 > x0 else 0.0)
     return int(np.argmax(act))
+
+
+def track_action(video, start, end, step=0.5, w=480, max_speed=0.08):
+    """Where the action is over time, for the band crop (13 Nov 2026; idea from ClippyMe's reframe: detect per frame,
+    lock per scene, smooth twice). Returns [[t, x], ...] with t in seconds from `start` and x in source pixels.
+
+    Per sample: the area-weighted centre of the faces found; else the centre of what moved since 0.2 s before; else the
+    last known position. A scene cut (big picture change) lets the crop jump; inside a scene the path is median
+    filtered, then eased, and may move at most `max_speed` of the width per second (no swimming camera)."""
+    import cv2
+    c = cascade()
+    cap = cv2.VideoCapture(str(video))
+    W0 = cap.get(cv2.CAP_PROP_FRAME_WIDTH) or 1920
+    k = W0 / w
+    def grab(t):
+        cap.set(cv2.CAP_PROP_POS_MSEC, max(0.0, t) * 1000)
+        ok, f = cap.read()
+        if not ok:
+            return None
+        h = int(round(w * f.shape[0] / f.shape[1] / 2) * 2)
+        return cv2.cvtColor(cv2.resize(f, (w, h)), cv2.COLOR_BGR2GRAY)
+    raw, cuts, prev_g, last = [], [], None, W0 / 2
+    for t in np.arange(start, max(start + step, end), step):
+        g = grab(t)
+        if g is None:
+            continue
+        x = None
+        if c is not None:
+            fs = c.detectMultiScale(g, 1.1, 5, minSize=(max(20, w // 28),) * 2)
+            if len(fs):
+                a = np.array([fw * fh for (_, _, fw, fh) in fs], float)
+                x = float(np.sum([(fx + fw / 2) * ai for (fx, _, fw, _), ai in zip(fs, a)]) / a.sum()) * k
+        if x is None:
+            g0 = grab(t - 0.2)
+            if g0 is not None and g0.shape == g.shape:
+                d = cv2.GaussianBlur(cv2.absdiff(g, g0), (9, 9), 0)
+                col = d.sum(axis=0).astype(float)
+                if col.sum() > 0.02 * 255 * d.size:          # enough movement to trust
+                    x = float(np.sum(np.arange(len(col)) * col) / col.sum()) * k
+        if prev_g is not None and prev_g.shape == g.shape and float(np.mean(cv2.absdiff(g, prev_g))) > 40:
+            cuts.append(len(raw))                            # a new scene starts at this sample
+        prev_g = g
+        last = x if x is not None else last
+        raw.append([round(float(t - start), 2), last])
+    cap.release()
+    if not raw:
+        return []
+    xs = np.array([r[1] for r in raw])
+    bounds = [0] + cuts + [len(xs)]
+    out = xs.copy()
+    for a, b in zip(bounds[:-1], bounds[1:]):               # per scene: median, then ease with a speed limit
+        seg = xs[a:b]
+        if len(seg) == 0:
+            continue
+        med = np.array([np.median(seg[max(0, i - 2):i + 3]) for i in range(len(seg))])
+        cur = med[0]
+        lim = max_speed * W0 * step
+        for i in range(len(seg)):
+            cur += float(np.clip((med[i] - cur) * 0.35, -lim, lim))
+            out[a + i] = cur
+    return [[r[0], round(float(x), 1)] for r, x in zip(raw, out)]

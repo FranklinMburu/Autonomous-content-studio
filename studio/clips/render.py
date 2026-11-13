@@ -159,7 +159,8 @@ def compose_picture(fr, clip, t, scale):
         # with the title in a white box above it for the whole clip. Crop centred on the people when we know where.
         zf = clip["style"].get("band_zoom", 1.6)
         cw = W / zf
-        ax = lay.get("action_x", W / 2) * scale
+        tr = lay.get("track")                    # [[t, x_src], ...]: follow the people over time (layout.track_action)
+        ax = (float(np.interp(t, [p[0] for p in tr], [p[1] for p in tr])) if tr else lay.get("action_x", W / 2)) * scale
         cx = min(max(cw / 2, ax), W - cw / 2)
         bg = crop_cover(fr, [0, 0, W, H], OW // 10, OH // 10).filter(ImageFilter.GaussianBlur(3)).resize((OW, OH), Image.BILINEAR)
         bg = Image.fromarray((np.asarray(bg) * 0.80).astype(np.uint8))
