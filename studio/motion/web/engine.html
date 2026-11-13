@@ -78,6 +78,14 @@ body.look-bold{--bg:#101010;--tx:#FFFFFF;--tx2:#D9D9D9;--tx3:#9A9A9A;--line:rgba
 .look-bold .win,.look-bold .card{background:#1C1C1C;border:3px solid #FFFFFF;border-radius:10px;box-shadow:10px 10px 0 var(--acc)}
 .look-bold #grain{opacity:0}
 
+/* ---- long-form (16:9, plan.format = "long"; 13 Nov 2026). Measured on Maitis and Griffin: no subtitles (the headline
+   scenes carry the words), a soft vignette instead of the Shorts' dark caption band. ---- */
+body.fmt-long #cap{display:none}
+body.fmt-long #fx{background:radial-gradient(120% 95% at 50% 50%,transparent 58%,rgba(0,0,0,.5) 100%)!important}
+body.fmt-long.look-paper #fx{background:radial-gradient(120% 95% at 50% 50%,transparent 62%,rgba(120,100,60,.16) 100%)!important}
+body.fmt-long #world{top:54%}
+body.fmt-long #vp{perspective-origin:50% 54%}
+
 /* each look's own drifting floor detail (the original's warm light streaks, restyled) */
 .look-paper [id^="st"] > .in > div{background:linear-gradient(180deg,rgba(60,45,25,0),rgba(60,45,25,.8))!important;box-shadow:none!important;width:5px!important}
 .look-blueprint [id^="st"] > .in > div{background:linear-gradient(180deg,rgba(234,242,255,0),rgba(234,242,255,.9))!important;box-shadow:0 0 10px rgba(234,242,255,.5)!important;width:3px!important}
@@ -118,7 +126,7 @@ function put(id, o, x, y, z, ry = 0, rx = 0, rz = 0, s = 1, blur = 0) {
   e.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,${z.toFixed(1)}px) rotateY(${ry.toFixed(2)}deg) rotateX(${rx.toFixed(2)}deg) rotateZ(${rz.toFixed(2)}deg) scale(${s.toFixed(4)})`;
   e.style.filter = blur > 0.15 ? `blur(${blur.toFixed(2)}px)` : "";
 }
-let CAM = { x: 0, y: 0, z: 0, yaw: 0, pitch: 0, roll: 0, D: 900, P: 900 }, NOW = 0;
+let CAM = { x: 0, y: 0, z: 0, yaw: 0, pitch: 0, roll: 0, D: 900, P: 900 }, NOW = 0, LONG = false;
 // Design families: one look per episode (plan.look, chosen by studio/motion/variety.py). studio = the approved original (all 1).
 const LOOKS = {
   studio:    { drift: 1,   dof: 1,   orbit: 1,   P: 1,   floor: 1,   streak: 1,   glow: 1 },
@@ -146,10 +154,46 @@ function camAt(t) {
   return c;
 }
 function applyCam(c, shake) {
+  let px = 0, py = 0;
+  if (RF) { const f = rfAt(NOW); c.D /= f.z; px = f.px * c.D / c.P; py = f.py * c.D / c.P; }   // long-form framing (below)
   CAM = c;
-  const sx = shake * Math.sin(NOW * 91) * 6, sy = shake * Math.cos(NOW * 77) * 6;
+  const sx = px + shake * Math.sin(NOW * 91) * 6, sy = py + shake * Math.cos(NOW * 77) * 6;
   $("vp").style.perspective = c.P.toFixed(1) + "px";
   $("world").style.transform = `translate(${sx}px,${sy}px) translateZ(${(c.P - c.D).toFixed(1)}px) rotateZ(${c.roll.toFixed(2)}deg) rotateX(${(-c.pitch).toFixed(2)}deg) rotateY(${(-c.yaw).toFixed(2)}deg) translate3d(${(-c.x).toFixed(1)}px,${(-c.y).toFixed(1)}px,${(-c.z).toFixed(1)}px)`;
+}
+// ============================================================ long-form framing (13 Nov 2026)
+// The sets were composed for a tall 9:16 frame. In 16:9 the engine frames each scene itself, like a camera operator:
+// it renders the scene's middle and end once, measures what is on screen, and sets a zoom and a pan so the content
+// fills about 84% of the width / 80% of the height, centred. Between scenes the framing glides (or jumps on a cut).
+let RF = null;
+function contentBox() {
+  const vw = innerWidth, vh = innerHeight; let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9, n = 0;
+  for (const [id, e] of Object.entries(OBJ)) {
+    if (/^(g_|f_|st\d)/.test(id) || e.style.display === "none" || +(e.style.opacity || 1) < 0.3) continue;
+    const r = e.firstElementChild.getBoundingClientRect();
+    if (r.width < 4 || r.height < 4 || r.right < vw * 0.05 || r.left > vw * 0.95 || r.bottom < vh * 0.05 || r.top > vh * 0.95) continue;   // only what is (mostly) in frame
+    x0 = Math.min(x0, r.left); y0 = Math.min(y0, r.top); x1 = Math.max(x1, r.right); y1 = Math.max(y1, r.bottom); n++;
+  }
+  return n ? { x0, y0, x1, y1 } : null;
+}
+function frameScenes() {
+  const vw = innerWidth, vh = innerHeight, C = { x: vw / 2, y: vh * 0.54 }, F = [];
+  RF = null;
+  for (const s of SC) {
+    let b = null;
+    for (const k of s.type === "screen_zoom" ? [0.12] : [0.45, 0.92]) { render(lerp(s.t0, s.t1, k)); const m = contentBox(); if (m) b = b ? { x0: Math.min(b.x0, m.x0), y0: Math.min(b.y0, m.y0), x1: Math.max(b.x1, m.x1), y1: Math.max(b.y1, m.y1) } : m; }
+    if (!b) { F.push(F.length ? F[F.length - 1] : { z: 1, px: 0, py: 0 }); continue; }
+    const z = clamp(Math.min(0.84 * vw / (b.x1 - b.x0), 0.8 * vh / (b.y1 - b.y0)), 0.72, 1.7);
+    F.push({ z, px: clamp(-z * ((b.x0 + b.x1) / 2 - C.x), -vw * 0.45, vw * 0.45), py: clamp(-z * ((b.y0 + b.y1) / 2 - C.y), -vh * 0.45, vh * 0.45) });
+  }
+  RF = F;
+}
+function rfAt(t) {
+  let i = 0; while (i + 1 < SC.length && SC[i + 1].t0 - 0.25 <= t) i++;
+  const f = RF[i], p = RF[i - 1]; if (!p) return f;
+  const s = SC[i], cutAt = CUTS.find(c => Math.abs(c - s.t0) < 0.4);
+  const k = cutAt != null ? (t >= cutAt ? 1 : 0) : ease((t - (s.t0 - 0.25)) / 0.7);
+  return { z: lerp(p.z, f.z, k), px: lerp(p.px, f.px, k), py: lerp(p.py, f.py, k) };
 }
 function depth(x, y, z) {
   const c = CAM, dx = x - c.x, dy = y - c.y, dz = z - c.z, yw = -c.yaw * Math.PI / 180, pt = -c.pitch * Math.PI / 180;
@@ -193,7 +237,7 @@ function captions(t) {
 
 // ============================================================ the plan -> scenes on a timeline, sets in space
 const SET_OF = { hook_orbit: "hook", settings_field: "hook", stat_floor: "stat", stat_wall: "wall", cta_terminal: "cta", file_tree: "cta",
-  end_card: "end", big_word: "free", bullets: "free", headline_build: "free",
+  end_card: "end", big_word: "free", bullets: "free", headline_build: "free", depth_stack: "free", screen_zoom: "free", chapter_card: "free",
   // worlds: each is one picture that grows across consecutive lines (a table filling up, a timeline, a chat...)
   table_grid: "w_table", timeline: "w_time", flow_steps: "w_flow", browser_page: "w_web", chat_thread: "w_chat",
   bar_chart: "w_chart", phone_screen: "w_phone", stack_layers: "w_stack" };
@@ -274,6 +318,23 @@ const BUILD = {
     const ws = WD[s.line] || [], n = ws.length, px = n > 14 ? 40 : n > 9 ? 46 : 54;
     mk("hb" + s.i, `<div style="width:520px;text-align:center;font:850 ${px}px/1.1 Inter;letter-spacing:-.04em;color:var(--tx)">${ws.map(w =>
       `<span class="hw${kw.has(norm(w.w)) ? " k" : ""}" style="display:inline-block;margin:0 .14em;position:relative;opacity:0${kw.has(norm(w.w)) ? ";color:var(--acc)" : ""}">${esc(w.w)}${kw.has(norm(w.w)) ? '<i style="position:absolute;left:0;right:0;bottom:-.06em;height:.07em;border-radius:9px;background:var(--acc);transform-origin:left;transform:scaleX(0)"></i>' : ""}</span>`).join("")}</div>`);
+  },
+  depth_stack(s) {   // 13 Nov 2026: an exploded 3D view (Maitis' tilted panels): slabs floating in depth
+    const ls = (s.p.layers || []).slice(0, 5);
+    if (s.p.title) mk("dt" + s.i, `<div style="font:800 30px/1.1 Inter;letter-spacing:-.03em;color:var(--tx);white-space:nowrap">${esc(s.p.title)}</div>`);
+    ls.forEach((x, j) => mk(`ds${s.i}_${j}`, `<div class="card" style="width:540px;height:112px;padding:0 30px;display:flex;align-items:center;gap:20px;border-radius:22px;border:1.5px solid rgba(var(--accRGB),.6);background:linear-gradient(135deg,rgba(var(--accRGB),.20),rgba(30,32,40,.96) 55%);box-shadow:0 30px 60px rgba(0,0,0,.45)"><div class="dn" style="width:44px;height:44px;flex:none;border-radius:12px;background:rgba(var(--accRGB),.18);color:var(--acc);font:800 20px JBM;display:flex;align-items:center;justify-content:center">${j + 1}</div><div style="min-width:0"><div style="font:780 30px/1.15 Inter;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(x.label)}</div>${x.sub ? `<div style="font:500 18px/1.3 Inter;color:var(--tx2);margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(x.sub)}</div>` : ""}</div></div>`));
+    for (let j = 0; j + 1 < ls.length; j++) mk(`dl${s.i}_${j}`, `<div style="width:3px;height:60px;background:repeating-linear-gradient(180deg,rgba(var(--accRGB),.9) 0 6px,transparent 6px 12px);border-radius:3px"></div>`);
+  },
+  screen_zoom(s) {   // 13 Nov 2026: a real-looking screen, then the camera pushes into the line that matters (Griffin's zoomed recordings)
+    const ls = (s.p.lines || []).slice(0, 8), f = s.p.focus | 0;
+    const body = ls.map((x, j) => `<div class="zr${j === f ? " zf" : ""}" style="display:flex;gap:14px;height:38px;align-items:center;padding:0 18px;border-radius:8px;position:relative"><span style="color:var(--tx3);width:20px;text-align:right">${j + 1}</span><span style="white-space:pre;overflow:hidden;text-overflow:ellipsis;color:${j === f ? "var(--tx)" : "var(--tx2)"}">${esc(x)}</span></div>`).join("");
+    mk("sz" + s.i, winHtml(s.p.title || s.p.url || "editor", `${s.p.url ? `<div style="margin:10px 14px 0;padding:7px 12px;border-radius:8px;background:var(--field,#101116);font:500 13px JBM;color:var(--tx3)">${esc(s.p.url)}</div>` : ""}<div class="mono" style="font-size:17px;padding:12px 6px 16px">${body}</div>`, 560));
+    if (s.p.note) mk("sn" + s.i, `<div class="chip" style="background:var(--acc);color:#14110a;box-shadow:0 0 30px rgba(var(--accRGB),.55);font-size:15px">${esc(s.p.note)}</div>`);
+  },
+  chapter_card(s) {  // long-form: a new chapter, its own accent colour (Maitis changes accent per chapter)
+    mk("cn" + s.i, `<div style="font:900 150px/1 Inter;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:2.5px var(--acc);text-shadow:0 0 60px rgba(var(--accRGB),.35)">${String(s.p.number).padStart(2, "0")}</div>`);
+    mk("ct" + s.i, `<div style="text-align:center;width:620px"><div style="font:850 50px/1.08 Inter;letter-spacing:-.04em;color:var(--tx)">${esc(s.p.title)}</div>${s.p.sub ? `<div style="font:550 21px/1.35 Inter;color:var(--tx2);margin-top:12px">${esc(s.p.sub)}</div>` : ""}</div>`);
+    mk("cb" + s.i, `<div style="width:300px;height:4px;border-radius:4px;background:var(--acc);box-shadow:0 0 24px rgba(var(--accRGB),.8)"></div>`);
   },
   big_word(s) { mk("bw" + s.i, `<div style="text-align:center;width:520px"><div style="font:900 ${String(s.p.text).length > 9 ? 70 : 104}px/1 Inter;letter-spacing:-.05em;color:var(--tx);text-shadow:0 0 50px rgba(var(--accRGB),.35)">${esc(s.p.text)}</div><div style="font:600 22px/1.3 Inter;color:var(--acc);margin-top:14px">${esc(s.p.sub || "")}</div></div>`); },
   bullets(s) { (s.p.items || []).slice(0, 4).forEach((x, j) => mk(`bl${s.i}_${j}`, `<div class="card" style="width:440px;padding:18px 22px;display:flex;gap:16px;align-items:center"><div style="width:40px;height:40px;border-radius:12px;background:rgba(var(--accRGB),.16);color:var(--acc);font:800 20px Inter;display:flex;align-items:center;justify-content:center">${j + 1}</div><div style="font:650 20px/1.3 Inter">${esc(x)}</div></div>`)); },
@@ -366,6 +427,13 @@ function direct() {
       case "file_tree": go(0.2, cam(o, 0, 10, 0, 8 * sg, 6, 1010)); key(lerp(t0, t1, 0.5), cam(o, 0, 120, -40, 3 * sg, 8, 1010, 940, 1)); key(t1 - 0.25, cam(o, 0, 120, -40, -3 * sg, 4, 980, 920)); cue(t1 - 0.3, "ding"); break;
       case "end_card": go(0.6, cam(o, 0, 0, 0, -16 * sg, 2, 1000)); key(DUR + 1, cam(o, 0, 0, 0, 8 * sg, 2, 900)); cue(t0 - 0.3, "swoosh_big"); cue(t0 + 0.2, "impact", 0.6); break;
       case "headline_build": go(0.2, cam(o, 0, -20, 0, 8 * sg, 2, 1120)); key(t1, cam(o, 0, -20, 0, -5 * sg, 1, 1040)); cue(t0 - 0.2, "whoosh", 0.5); break;
+      case "depth_stack": { const n = Math.min(5, (s.p.layers || []).length); go(0.15, cam(o, 0, 0, -n * 70, 30 * sg, 10, 1150 + n * 60, 900)); key(t1 - 0.1, cam(o, 0, 0, -n * 70, 18 * sg, 6, 1080 + n * 60, 900));
+        (s.p.layers || []).slice(0, 5).forEach((x, j) => cue(x.word ? W(s.line, x.word, 0.3) : lerp(t0 + 0.1, Math.max(t0 + 0.3, t1 - 0.6), n > 1 ? j / n : 0), "thump", 0.55)); cue(t0 - 0.3, "whoosh", 0.7); break; }
+      case "screen_zoom": { const a = W(s.line, s.p.word, 0.45), f = s.p.focus | 0, nl = Math.min(8, (s.p.lines || []).length), hasUrl = s.p.url ? 44 : 0;
+        const H = 32 + hasUrl + 28 + nl * 38, fy = -H / 2 + 32 + hasUrl + 12 + f * 38 + 19; s.zy = fy;
+        go(0.05, cam(o, 0, -10, 0, -10 * sg, 5, 1080)); key(a - 0.12, cam(o, 0, -10, 0, -6 * sg, 4, 1000));
+        key(a + 0.55, cam(o, 0, fy - 10, 0, -3 * sg, 2, 600)); key(t1 - 0.05, cam(o, 20, fy - 10, 0, 3 * sg, 2, 570)); cue(a - 0.05, "zip", 0.8); if (s.p.note) cue(a + 0.25, "pop"); break; }
+      case "chapter_card": go(0.1, cam(o, 0, -40, -60, 18 * sg, 4, 1000)); key(t1, cam(o, 0, -40, -60, -10 * sg, 2, 900)); cue(t0 - 0.35, "swoosh_big"); cue(t0 + 0.05, "impact", 0.7); break;
       case "big_word": go(0.1, cam(o, 0, -40, 0, 20 * sg, 4, 900)); key(t1, cam(o, 0, -40, 0, -6 * sg, 2, 820)); cue(t0 - 0.2, "swoosh_big"); cue(t0 + 0.1, "slam", 0.6); break;
       case "bullets": go(0.3, cam(o, 0, 0, 0, -10 * sg, 4, 980)); key(t1, cam(o, 0, 0, 0, 10 * sg, 4, 940)); (s.p.items || []).forEach((_, j) => cue(t0 + 0.2 + j * ((t1 - t0 - 0.4) / Math.max(1, (s.p.items || []).length)), "pop")); break;
     }
@@ -529,8 +597,15 @@ function directWorld(s, o, prev, newSet, sg) {
 // ============================================================ the frame
 function type(el, text, t, a, b) { const n = Math.round(String(text).length * clamp((t - a) / (b - a))); el.textContent = String(text).slice(0, n); }
 const q = (id, sel) => OBJ[id] && OBJ[id].querySelector(sel);
+let ACC_NOW = null;
+function chapterAccent(t) {   // long-form: each chapter_card switches the accent colour (the channel's palette, in order)
+  const ch = SC.filter(s => s.type === "chapter_card" && s.t0 - 0.3 <= t); if (!ch.length || !(ST.accents || []).length) return ST.accent;
+  const base = Math.max(0, ST.accents.indexOf(ST.accent)); return ST.accents[(base + ch.length) % ST.accents.length];
+}
 function render(t) {
   NOW = t; captions(t);
+  const ac = chapterAccent(t); if (ac !== ACC_NOW) { ACC_NOW = ac; const rgb = [1, 3, 5].map(i => parseInt(ac.slice(i, i + 2), 16));
+    document.documentElement.style.setProperty("--acc", ac); document.documentElement.style.setProperty("--accRGB", rgb.join(",")); ST.accent_rgb = rgb; }
   let shake = 0; for (const c of CUES) if ((c.kind === "slam" || c.kind === "impact") && t >= c.t && t < c.t + 0.35) shake = Math.max(shake, (1 - (t - c.t) / 0.35) * (c.kind === "slam" ? 1 : 0.7));
   applyCam(camAt(t), shake);
   let fl = 0; for (const c of CUES) if ((c.kind === "slam" || c.kind === "impact") && t >= c.t && t < c.t + 0.2) fl = Math.max(fl, 1 - (t - c.t) / 0.2);
@@ -611,6 +686,35 @@ const RENDER = {
       e.style.transform = `translateY(${((1 - k) * 26).toFixed(1)}px)`;
       const u = e.querySelector("i"); if (u) u.style.transform = `scaleX(${spring((t - a - 0.15) / 0.4).toFixed(3)})`;
     });
+  },
+  depth_stack(t, s, o, v) {   // parallel slabs separated in depth (no intersecting planes), seen from an angle
+    const ls = (s.p.layers || []).slice(0, 5), n = ls.length, DZ = 150, DY = 128, DX = 70 * ST.sign;
+    const at = j => { const x = ls[j]; const a = x.word ? W(s.line, x.word, 0.3) : lerp(s.t0 + 0.1, Math.max(s.t0 + 0.3, s.t1 - 0.6), n > 1 ? j / n : 0); return j === 0 ? Math.min(a, s.t0 + 0.25) : a; };
+    if (s.p.title) put("dt" + s.i, win(t, s.t0 - 0.1, s.t1 - 0.1, .25, .3), o.x - (n - 1) * DX / 2, o.y - 150 - (n - 1) * DY / 2, o.z + 60, 0, 0, 0, 1.1);
+    ls.forEach((x, j) => {
+      const a = at(j), k = spring((t - a) / 0.7), nxt = j + 1 < n ? at(j + 1) : s.t1;
+      const lit = win(t, a, nxt + 0.05, .15, .3), done = t > s.t1 - 0.9 ? 1 : 0;
+      const X = o.x - (n - 1) * DX / 2 + j * DX, Y = o.y - (n - 1) * DY / 2 + j * DY, Z = o.z - j * DZ;
+      put(`ds${s.i}_${j}`, win(t, a - 0.05, s.t1 - 0.1, .2, .3), X, Y + (1 - k) * 90, Z - (1 - k) * 260, 0, 0, 0, 1, dof(X, Y, Z, 0.35));
+      const c = OBJ[`ds${s.i}_${j}`].querySelector(".card");
+      c.style.boxShadow = `0 30px 60px rgba(0,0,0,.5),0 0 ${(44 * lit).toFixed(0)}px rgba(${ST.accent_rgb},${(0.6 * lit).toFixed(2)})`;
+      c.style.filter = `brightness(${(0.72 + 0.28 * Math.max(lit, done)).toFixed(2)})`;
+      if (j + 1 < n) put(`dl${s.i}_${j}`, 0, 0, 0, 0);
+    });
+  },
+  screen_zoom(t, s, o, v) {
+    const k = spring((t - s.t0 + 0.1) / 0.7), a = W(s.line, s.p.word, 0.45);
+    put("sz" + s.i, win(t, s.t0 - 0.15, s.t1 - 0.05, .25, .3), o.x, o.y - 10, o.z + lerp(-260, 0, k), lerp(16, 0, k) * ST.sign, lerp(10, 0, k));
+    const r = OBJ["sz" + s.i].querySelector(".zf"), hl = ramp(t, a - 0.05, .3);
+    if (r) { r.style.background = `rgba(${ST.accent_rgb},${(0.16 * hl).toFixed(3)})`; r.style.boxShadow = `inset 0 0 0 ${(2 * hl).toFixed(1)}px rgba(${ST.accent_rgb},${(0.9 * hl).toFixed(2)}),0 0 ${(26 * hl).toFixed(0)}px rgba(${ST.accent_rgb},${(0.35 * hl).toFixed(2)})`; }
+    OBJ["sz" + s.i].querySelectorAll(".zr:not(.zf)").forEach(e => e.style.opacity = (1 - 0.55 * hl).toFixed(3));
+    if (s.p.note) { const ky = s.zy || 0, kk = spring((t - a - 0.25) / 0.6); put("sn" + s.i, win(t, a + 0.2, s.t1 - 0.05, .2, .3), o.x + 150, o.y - 10 + ky - 46 - (1 - kk) * 20, o.z + 60, 0, 0, -2 * ST.sign, 0.8 + 0.2 * kk); }
+  },
+  chapter_card(t, s, o, v) {
+    const on = win(t, s.t0 - 0.2, s.t1 - 0.1, .3, .35), k1 = spring((t - s.t0 + 0.15) / 0.8), k2 = spring((t - s.t0 - 0.1) / 0.7);
+    put("cn" + s.i, on, o.x, o.y - 120 + (1 - k1) * 40, o.z - 120 + lerp(-400, 0, k1), lerp(-25, 0, k1) * ST.sign, 0, 0, 1);
+    put("ct" + s.i, on * clamp((t - s.t0 - 0.05) * 4), o.x, o.y + 40 + (1 - k2) * 30, o.z);
+    put("cb" + s.i, on, o.x, o.y + 120, o.z, 0, 0, 0, 1, 0); OBJ["cb" + s.i].firstElementChild.style.transform = `translate(-50%,-50%) scaleX(${eout((t - s.t0 - 0.2) / 0.8).toFixed(3)})`;
   },
   big_word(t, s, o, v) { const k = spring((t - s.t0 + 0.05) / 0.6); put("bw" + s.i, win(t, s.t0 - 0.1, s.t1 - 0.1, .2, .3), o.x, o.y - 40, o.z + lerp(500, 0, k), lerp(-30, 0, k) * ST.sign, 0, 0, lerp(1.3, 1, k)); },
   bullets(t, s, o, v) { const n = (s.p.items || []).length; (s.p.items || []).slice(0, 4).forEach((_, j) => { const a = s.t0 + 0.2 + j * ((s.t1 - s.t0 - 0.4) / Math.max(1, n)), k = spring((t - a) / 0.6);
@@ -729,7 +833,10 @@ window.init = function (data) {
   L = T.lines.map(l => l.start); LE = T.lines.map(l => l.end); DUR = T.duration;
   WD = T.lines.map((_, i) => T.words.filter(w => w.line === i));
   const lk = LOOKS[P.look] ? P.look : "studio"; LK = LOOKS[lk]; document.body.className = "look-" + lk;
-  layout(); build(); buildCaptions(); direct(); render(0);
+  LONG = P.format === "long";
+  if (LONG) { document.body.classList.add("fmt-long"); for (const e of [document.documentElement, document.body]) { e.style.width = "960px"; e.style.height = "540px"; }
+    const g = $("grain"); g.style.width = "960px"; g.style.height = "540px"; }
+  layout(); build(); buildCaptions(); direct(); if (LONG) frameScenes(); render(0);
   return { duration: DUR, cues: CUES, sections: sections(), look: lk };
 };
 // music arrangement, read by the mixer (studio/motion/sound.py)

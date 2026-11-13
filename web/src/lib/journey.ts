@@ -58,10 +58,14 @@ export const WORKFLOWS: Record<string, WorkflowInfo> = {
              "Show the writer's report": "Writer's report" },
   },
   'Make a motion video (Tech Education)': {
-    lane: 'TE', what: 'Makes one Tech Education motion video',
-    plain: { 'Write a new episode (AI)': 'AI writes the script and the visual plan', 'Choose the episode': 'Choosing the episode',
-             'Check the plan (offline)': 'Checking the plan', 'Make the video': 'Rendering the motion scenes, voice and music',
-             'Publish as a release': 'Publishing the video' },
+    lane: 'TE', what: 'Makes one Tech Education motion video (Short or long, made by several machines at once)',
+    plain: { 'The job (the Run form, or lab/motion_job.json for a push)': 'Reading your request',
+             'Write a new episode (AI)': 'AI writes the script and the visual plan (long videos: outline, then chapter by chapter)',
+             'Save the new episode to the repo': 'Saving the episode', 'Choose the episode': 'Choosing the episode',
+             'Check the plan (offline)': 'Checking the plan', 'Voice these lines (Qwen3-TTS, the locked TE voice)': 'Recording the voice for these lines',
+             'Word times, cues and music (any line a voice job missed is made here)': 'Timing every word, planning sound and music',
+             'Draw this part': 'Drawing this part of the picture', 'Join, mix and check': 'Joining the parts, mixing, running the checks',
+             'Make the video': 'Rendering the motion scenes, voice and music', 'Publish as a release': 'Publishing the video' },
   },
   'Story schedule': {
     lane: 'HR', what: 'The timer: starts the next Hidden Reasons film when one is due',
@@ -117,8 +121,11 @@ export function plainStep(workflow: string, step: string): string | null {
 export function plainJob(job: string): string {
   const m = job.match(/^short \((\d+)\)$/);
   if (m) return `Short ${m[1]}`;
+  const v = job.match(/^voice \((\d+)\)$/); if (v) return `Voice ${+v[1] + 1}`;
+  const f = job.match(/^frames \((\d+)\)$/); if (f) return `Picture part ${+f[1] + 1}`;
   return ({ find: 'Finding the moments', publish: 'Publishing for review', make: 'Making', start: 'Starting', act: 'Doing it',
-            feed: 'Refreshing', hot: 'Ranking', reply: 'Answering', continue: 'Continuing' } as Record<string, string>)[job] || job;
+            feed: 'Refreshing', hot: 'Ranking', reply: 'Answering', continue: 'Continuing',
+            write: 'Writing', prep: 'Timing and music', finish: 'Finishing' } as Record<string, string>)[job] || job;
 }
 
 export const STATE_WORDS: Record<string, string> = {
