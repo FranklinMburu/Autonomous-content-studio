@@ -54,3 +54,29 @@ decisions they support are below. A third report (realistic presenters / lip-syn
   `headline_build`); (2) Playwright capture of 4–6 real app screens with a click log; (3) retention lint in plan.json +
   a chapter template for the writer; (4) chapters rendered in parallel jobs, still-frame skipping, loudness gate;
   (5) Gemini layout review on sampled frames, then Franklin reviews.
+
+## Realistic presenters (talking avatar / lip-sync), third research agent
+
+Repositories, licence files (code AND weights) and inference scripts were read; no model was run, so T4 speeds are
+estimates.
+
+- **Decision:** record a real 60–90 s base clip of a consenting person (signed release covering AI voice and lip
+  changes), then lip-sync each new 2–5 s insert onto it. Real skin, teeth, hands, light and room; no identity drift;
+  minutes on a T4, not hours. Photo-to-video avatars (LongCat, InfiniteTalk I2V, StableAvatar, EchoMimic) either can't
+  run on a T4 (flash-attn, bf16, 80 GB) or take hours per minute, and drift in colour after ~1 minute.
+- **Base clip spec:** 1080p, **25 fps**, tripod, face frontal to 3/4, soft even light, no hands near the face, lips not
+  hidden, closed-mouth pause at the start and end; cut into 3–6 s segments; 16 kHz mono audio per insert.
+- **1. MuseTalk 1.5** (Tencent Music; MIT code and weights, "for any purpose, even commercially"): ~4 GB fp16, runs on
+  one T4; `sh inference.sh v1.5 realtime --use_float16`, `preparation: True` once per base clip; estimate ~10–15 GPU-min
+  for 3 min of presenter footage. Weakness: soft mouth and teeth at 1080p.
+- **2. LatentSync 1.6** (ByteDance; Apache code, openrail++ weights): sharper. Its script forces fp32 on a T4 (patch
+  inference.py line 34 to fp16) and it bundles an InsightFace detector (non-commercial models): swap in face-alignment
+  or MediaPipe before commercial use. Estimate 0.5–1.5 h for 3 min; fallback LatentSync 1.5 (8 GB).
+- **Stretch:** InfiniteTalk video-to-video via Wan2GP on Kaggle (int8, 480p) for one 5 s test; hours per minute.
+- **Avoid:** Sonic, Wav2Lip, Hallo2 (non-commercial); HunyuanVideo-Avatar (licence bans showing output in EU/UK/South
+  Korea); Duix/HeyGem (paid above 1,000 monthly users); anything bundling InsightFace models (LivePortrait, Ditto,
+  LatentSync as shipped) unless the detector is replaced.
+- **Not realistic at $0:** 14B photo-to-avatar models as a weekly path; a full 10–20 min on-camera AI presenter;
+  Griffin-level cinematic avatars. No open model fully solves teeth. Keep inserts short and medium-wide.
+- **YouTube rule:** realistic altered or synthetic people must be disclosed (altered-content policy); one real,
+  consenting presenter also helps against "inauthentic content" reviews.
