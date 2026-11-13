@@ -7,7 +7,7 @@ import { FILM_STAGE, LaneCode, Stage } from './channels';
 export interface Item {
   key: string;
   lane: LaneCode;
-  kind: 'short' | 'film' | 'motion' | 'pick' | 'topic';
+  kind: 'short' | 'film' | 'motion' | 'pick' | 'topic' | 'lab';
   title: string;
   stage: Stage;
   at: string;
@@ -26,7 +26,7 @@ export interface Item {
 const NEEDS: Record<string, string> = { polish: 'Polish it (copy, paste)', review: 'Approve or repaint', ready: 'Upload it' };
 
 export function useItems(): Item[] {
-  const { films, shorts, motionVideos, board, topics, isTopicMade } = useStudio();
+  const { films, shorts, motionVideos, labVideos, board, topics, isTopicMade } = useStudio();
   return useMemo(() => {
     const out: Item[] = [];
     for (const f of films) {
@@ -56,7 +56,15 @@ export function useItems(): Item[] {
         score: null, reviewed: true, sub: 'Motion explainer', needsYou: m.held ? 'A check failed: look and decide' : null, source: m.url, raw: m,
       });
     }
-    // picks on the board that are not made yet (who's hot): SC / WC
+    // lab videos: early versions made in the lab before the workflows; never on the board, always marked Lab
+    for (const v of labVideos) {
+      out.push({
+        key: v.id, lane: v.lane, kind: 'lab', title: v.title, stage: 'Approved', at: v.at, route: `/app/v/${encodeURIComponent(v.id)}`,
+        video: v.video?.url || null, poster: v.poster || null, vertical: false, score: null, reviewed: true,
+        sub: `Lab · ${v.note}`, needsYou: null, source: v.release, raw: v,
+      });
+    }
+        // picks on the board that are not made yet (who's hot): SC / WC
     for (const c of board || []) {
       if (c.stage !== 'Picked' || c.videoId || !['SC', 'WC'].includes(c.lane)) continue;
       out.push({
@@ -74,5 +82,5 @@ export function useItems(): Item[] {
       });
     });
     return out.sort((a, b) => (b.at || '').localeCompare(a.at || ''));
-  }, [films, shorts, motionVideos, board, topics, isTopicMade]);
+  }, [films, shorts, motionVideos, labVideos, board, topics, isTopicMade]);
 }

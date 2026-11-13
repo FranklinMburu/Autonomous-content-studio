@@ -16,15 +16,15 @@ export const BoardView: React.FC<{ onNavigate: (r: string) => void; lane?: LaneC
   const [lane, setLane] = useState<string>(fixedLane || q.get('lane') || 'all');
   const [onlyNeeds, setOnlyNeeds] = useState(q.get('stage') === 'needs');
   const [showSkipped, setShowSkipped] = useState(false);
-  const items = useMemo(() => all.filter(i => (lane === 'all' || i.lane === lane) && (!onlyNeeds || i.needsYou) && i.kind !== 'topic'), [all, lane, onlyNeeds]);
+  const items = useMemo(() => all.filter(i => (lane === 'all' || i.lane === lane) && (!onlyNeeds || i.needsYou) && i.kind !== 'topic' && i.kind !== 'lab'), [all, lane, onlyNeeds]);
   const stages = STAGES.filter(s => s !== 'Skipped' || showSkipped);
 
   const body = (
     <>
       <div className="board-bar">
         {!fixedLane && (
-          <Tabs value={lane} onChange={setLane} tabs={[{ key: 'all', label: 'All channels', count: all.filter(i => i.kind !== 'topic').length },
-            ...CHANNELS.map(c => ({ key: c.code, label: c.name, count: all.filter(i => i.lane === c.code && i.kind !== 'topic').length }))]} />
+          <Tabs value={lane} onChange={setLane} tabs={[{ key: 'all', label: 'All channels', count: all.filter(i => i.kind !== 'topic' && i.kind !== 'lab').length },
+            ...CHANNELS.map(c => ({ key: c.code, label: c.name, count: all.filter(i => i.lane === c.code && i.kind !== 'topic' && i.kind !== 'lab').length }))]} />
         )}
         <div className="board-tg">
           <label><input type="checkbox" checked={onlyNeeds} onChange={e => setOnlyNeeds(e.target.checked)} /> Only what needs me</label>

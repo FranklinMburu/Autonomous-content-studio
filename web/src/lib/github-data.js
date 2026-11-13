@@ -116,7 +116,7 @@ export function createStudio(opts = {}) {
     const tag = r.tag_name;
     const m = tag.match(/^(film|story|draft|motion)-(.+)-run(\d+)$/) || tag.match(/^(video)-(\d{8})-(.+)$/) || tag.match(/^(lab)-run(\d+)$/)
       || tag.match(/^(shorts)-([a-z]{2})-(.+)$/);
-    const kind = m ? m[1] : (tag === "channel-memory" ? "memory" : "other");
+    const kind = m ? m[1] : (tag === "channel-memory" ? "memory" : /^lab-archive-/.test(tag) ? "lab-archive" : "other");
     const asset = (re) => r.assets.find(a => re.test(a.name));
     const video = asset(/\.mp4$/i), contact = asset(/^contact\.png$/i);
     const title = (r.name || tag).replace(/^(Film|REVIEW|Story|Draft|Lab):\s*/i, "").trim();
@@ -327,9 +327,25 @@ export function createStudio(opts = {}) {
   const board = async () => { const f = await loadFeed(); return f && Array.isArray(f.board) ? f.board : null; };
   const hot = async () => { const f = await loadFeed(); return (f && f.hot) || null; };
   const motionVideos = async () => (await releases()).filter(r => r.kind === "motion");
+  // lab videos (lab-archive-<lane> releases): early versions made before the workflows; shown marked "Lab"
+  async function labVideos() {
+    const f = await loadFeed();
+    const lists = (f && f.lab) || {};
+    const out = [];
+    for (const r of (await releases()).filter(r => /^lab-archive-/.test(r.tag))) {
+      const lane = r.tag.replace("lab-archive-", "").toUpperCase();
+      for (const v of lists[r.tag] || []) {
+        const a = r.assets.find(x => x.name === v.file); if (!a) continue;
+        const pz = r.assets.find(x => x.name === v.poster);
+        out.push({ id: `lab:${v.file.replace(/\.mp4$/, "")}`, lane, title: v.title, note: v.note, at: v.date, seconds: v.seconds,
+                   video: { url: a.url, bytes: a.bytes }, poster: pz ? pz.url : null, release: r.url });
+      }
+    }
+    return out;
+  }
   const feedInfo = async () => { const f = await loadFeed(); return f ? { built: f.built } : null; };
 
-  return { cfg, feedInfo, usedMemory, shorts, board, hot, motionVideos, releases, films, runs, runSteps, reviewQueue, polishQueue, uploadQueue, uploaded, alerts, statusBoard,
+  return { cfg, feedInfo, usedMemory, shorts, board, hot, motionVideos, labVideos, releases, films, runs, runSteps, reviewQueue, polishQueue, uploadQueue, uploaded, alerts, statusBoard,
            topics, schedule, nextSlots, episode, memorySeed, models, labRuns, links };
 }
 
