@@ -7,6 +7,7 @@ a run always ends with a video or a clear hand-off, never a silent failure:
   - the plan still breaks the contract -> plan.auto_plan() (plain but valid) + NEEDS_REVIEW.md
   - unsupported facts after two repairs -> NEEDS_REVIEW.md (the workflow publishes a pre-release, never a finished video)
 """
+import os
 import json, re
 from pathlib import Path
 
@@ -144,7 +145,8 @@ def write(topic, channel_dir, ch, log=print, ask_fn=None, research_fn=None, fact
     models = _cfg()
     if fmt == "long":   # 16:9 chapters (studio/motion/longform.py): outline first, then one chapter at a time
         from .longform import write_long
-        s, plan, _claims, left = write_long(topic, lambda focus, size: sources_block(sources, focus, size), ask_fn, models, log=log, minutes=minutes)
+        s, plan, _claims, left = write_long(topic, lambda focus, size: sources_block(sources, focus, size), ask_fn, models, log=log, minutes=minutes,
+                                       checkpoint=os.environ.get("MOTION_LONG_CHECKPOINT"))
         return _finish(s, plan, left, sources, srcs_raw, topic, channel_dir, ch, look, fact_fn, log, patient, _timed)
     same = lambda d: [x for x in vcheck({**(d.get("plan") or {}), "look": look}, hist) if not x.startswith("look")] if isinstance(d, dict) and isinstance(d.get("plan"), dict) else []  # noqa: E731
     check = lambda d: problems(d, sources) + same(d)  # noqa: E731

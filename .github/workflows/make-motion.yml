@@ -77,6 +77,20 @@ jobs:
           ssh-key: ${{ secrets.AILAYER_DEPLOY_KEY }}
           path: .brain
           persist-credentials: false
+      - name: Long-video checkpoint (resume where the free allowances stopped the last try)
+        id: ck
+        if: env.TOPIC_RAW != '' && env.LONG == 'true'
+        run: |
+          h=$(printf '%s|%s' "$TOPIC_RAW" "$MINUTES_RAW" | sha1sum | cut -c1-12)
+          echo "key=motion-long-$h" >> "$GITHUB_OUTPUT"
+          mkdir -p .long; echo "MOTION_LONG_CHECKPOINT=$GITHUB_WORKSPACE/.long/draft.json" >> "$GITHUB_ENV"
+      - name: Restore the checkpoint
+        if: steps.ck.outputs.key != ''
+        uses: actions/cache/restore@v4
+        with:
+          path: .long
+          key: ${{ steps.ck.outputs.key }}-${{ github.run_id }}
+          restore-keys: ${{ steps.ck.outputs.key }}-
       - name: Install (writer)
         run: pip install -q kokoro-onnx==0.6.1 "onnxruntime>=1.20" "soundfile>=0.12" "numpy>=1.26" scipy pillow
       - name: Write a new episode (AI)
@@ -97,6 +111,12 @@ jobs:
           grep '^EPISODE=' write.log | tail -1 >> "$GITHUB_ENV"
       # Keep the new episode in the repo (like Hidden Reasons drafts), so it can be fixed and re-made later and the
       # next episode gets the next number. Only this one folder is written; a failed save does not stop the video.
+      - name: Keep the checkpoint (also when the writer stopped)
+        if: always() && steps.ck.outputs.key != ''
+        uses: actions/cache/save@v4
+        with:
+          path: .long
+          key: ${{ steps.ck.outputs.key }}-${{ github.run_id }}
       - name: Save the new episode to the repo
         if: env.TOPIC_RAW != '' && github.event_name != 'push'
         env:

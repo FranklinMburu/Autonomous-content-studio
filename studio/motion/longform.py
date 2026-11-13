@@ -158,7 +158,7 @@ def _patient_draft(prompt, models, check, ask_fn, log, label, max_tokens, tries=
     return None, ["no model answered"]
 
 
-def write_long(topic, sources_fn, ask_fn, models, log=print, minutes=6):
+def write_long(topic, sources_fn, ask_fn, models, log=print, minutes=6, checkpoint=None):
     """Returns (script, plan, claims, problems_left). sources_fn(focus, size) = a SOURCE MATERIAL block focused on
     `focus` (small enough that one chapter request fits every free provider's request limit)."""
     words = int(minutes * 165)
@@ -173,8 +173,22 @@ def write_long(topic, sources_fn, ask_fn, models, log=print, minutes=6):
             for k in ("title", "running_example", "cold_open", "promise", "open_loop", "action"):
                 if not d.get(k): p.append(f"missing {k}")
         return p
-    log(f"[long] outline for {topic!r} ({minutes} min, ~{words} words)")
-    outline, left = _patient_draft(o_prompt, models, o_check, ask_fn, log, "outline", 2500)
+    # checkpoint: the outline and every finished part are saved, so a run stopped by the free daily allowances
+    # resumes where it stopped instead of paying for the same parts again (13 Nov: part 5 of 6 hit every limit)
+    from pathlib import Path
+    ck = Path(checkpoint) if checkpoint else None
+    saved = json.loads(ck.read_text()) if ck and ck.exists() else {}
+    if saved.get("topic") != topic or saved.get("minutes") != minutes:
+        saved = {"topic": topic, "minutes": minutes, "parts": {}}
+    save = lambda: ck and (ck.parent.mkdir(parents=True, exist_ok=True), ck.write_text(json.dumps(saved, ensure_ascii=False)))
+    left = []
+    if saved.get("outline") and not o_check(saved["outline"]):
+        outline = saved["outline"]; log(f"[long] outline resumed from the checkpoint ({len(saved['parts'])} parts already written)")
+    else:
+        log(f"[long] outline for {topic!r} ({minutes} min, ~{words} words)")
+        outline, left = _patient_draft(o_prompt, models, o_check, ask_fn, log, "outline", 2500)
+        if isinstance(outline, dict) and not o_check(outline):
+            saved["outline"] = outline; save()
     if o_check(outline):
         raise RuntimeError("no usable outline: " + "; ".join(o_check(outline)))
     chapters = outline["chapters"]
@@ -193,10 +207,15 @@ def write_long(topic, sources_fn, ask_fn, models, log=print, minutes=6):
         slim["chapters"] = [{x: c.get(x) for x in ("title", "question", "idea")} for c in chapters]
         prompt = CHAPTER.format(k=k + 1, n=n, title=outline["title"], words=per[k], part_rules=rules, before=before,
                                 outline=json.dumps(slim, ensure_ascii=False)[:3000], plan_rules=PLAN_RULES) + "\n\n" + sources_fn(focus, 4500)
-        log(f"[long] part {k + 1}/{n} (~{per[k]} words)")
-        part, pl = _patient_draft(prompt, models, lambda d, k=k: _part_problems(d, k, n, k, per[k]), ask_fn, log, f"part {k + 1}", 4000)
-        if not isinstance(part, dict) or not part.get("beats"):
-            raise RuntimeError(f"part {k + 1}: no usable draft")
+        if str(k) in saved["parts"]:
+            part, pl = saved["parts"][str(k)], []
+            log(f"[long] part {k + 1}/{n}: from the checkpoint")
+        else:
+            log(f"[long] part {k + 1}/{n} (~{per[k]} words)")
+            part, pl = _patient_draft(prompt, models, lambda d, k=k: _part_problems(d, k, n, k, per[k]), ask_fn, log, f"part {k + 1}", 4000)
+            if not isinstance(part, dict) or not part.get("beats"):
+                raise RuntimeError(f"part {k + 1}: no usable draft (the parts before it are saved; a re-run resumes)")
+            saved["parts"][str(k)] = part; save()
         left += [f"part {k + 1}: {x}" for x in pl]
         base = len(PL.lines_of({"beats": beats}))
         p_lines = PL.lines_of({"beats": part["beats"]})
