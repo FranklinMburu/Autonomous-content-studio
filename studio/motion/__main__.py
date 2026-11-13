@@ -46,7 +46,7 @@ def prepare(folder, script, plan, out, ch, log=log):
     from .narrate import narrate
     timing = narrate(script, out, ch["voice"])
     n = len(timing["words"])
-    log(f"[voice] {ch['voice']['voice']}: {timing['duration']:.1f} s, {n} words, {n / timing['duration'] * 60:.0f} words/min")
+    log(f"[voice] {ch['voice'].get('engine') or ch['voice'].get('voice')}: {timing['duration']:.1f} s, {n} words, {n / timing['duration'] * 60:.0f} words/min")
     data = out / "data.json"
     data.write_text(json.dumps({"timing": timing, "script": script, "plan": plan, "style": st}, ensure_ascii=False), encoding="utf-8")
     return data, plan, st, probs
@@ -152,6 +152,19 @@ def cmd_write(a):
     return 0
 
 
+def cmd_voice(a):
+    """Only the voice lines (no picture): one shard of them when --shard k/n, so long videos voice in parallel jobs."""
+    folder, script, _plan = load(a.episode)
+    ch = channel(a.channel)
+    out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
+    if ch["voice"].get("engine") != "qwen3":
+        log("this channel's voice is fast enough: nothing to shard"); return 0
+    from .narrate_qwen3 import make_lines
+    only = tuple(int(x) for x in a.shard.split("/")) if a.shard else None
+    make_lines(script, out, ch["voice"], only=only, log=log)
+    return 0
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(prog="studio.motion", description=__doc__)
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -160,10 +173,11 @@ def main(argv=None):
     c = sub.add_parser("check"); c.add_argument("episode")
     w = sub.add_parser("write"); w.add_argument("--topic", required=True); w.add_argument("--make", action="store_true")
     w.add_argument("--fps", type=int, default=30); w.add_argument("--out")
-    for x in (m, s, c, w):
+    v = sub.add_parser("voice"); v.add_argument("episode"); v.add_argument("--out", required=True); v.add_argument("--shard")
+    for x in (m, s, c, w, v):
         x.add_argument("--channel", default="te")
     a = p.parse_args(argv)
-    return {"make": cmd_make, "stills": cmd_stills, "check": cmd_check, "write": cmd_write}[a.cmd](a)
+    return {"make": cmd_make, "stills": cmd_stills, "check": cmd_check, "write": cmd_write, "voice": cmd_voice}[a.cmd](a)
 
 
 if __name__ == "__main__":

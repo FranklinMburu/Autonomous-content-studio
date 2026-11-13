@@ -72,8 +72,13 @@ def test_style_is_seeded():
 
 def test_voice_is_locked():
     v = channel()["voice"]
-    check((v["voice"], v["speed"], v["pace"]["gap_line"], v["pace"]["gap_beat"]) == ("am_fenrir", 1.0, 0.12, 0.3),
-          "TE voice = Franklin's locked choice (am_fenrir 1.0, gaps 0.12/0.3)")
+    check((v["engine"], v["qwen3"]["ref_audio"], v["qwen3"]["ref_text"]) == ("qwen3", "channels/te/voice_ref_qwen3.wav", "What actually is a database,"),
+          "TE voice = Franklin's locked choice (13 Nov: Qwen3-TTS cloned from one fixed reference recording)")
+    from studio.motion.narrate_qwen3 import _word_times
+    wt, exact = _word_times("The API, in 2023 moved.".split(), [(" The", 0.1, 0.3), (" API", 0.3, 0.7), (" twenty", 0.9, 1.1),
+                            (" twenty-three", 1.1, 1.5), (" moved.", 1.6, 1.9)], 10.0, 2.0)
+    check([w for w, _s, _e in wt] == ["The", "API,", "in", "2023", "moved."] and all(b[1] <= c[1] for b, c in zip(wt, wt[1:]))
+          and abs(wt[0][1] - 10.1) < 1e-6 and wt[-1][2] <= 12.0, "Qwen3 word times: heard words matched, the rest placed in order")
     check(v["pace"] == {"gap_line": 0.12, "gap_beat": 0.3, "lead_in": 0.15, "tail": 0.4, "trim_tail": None},
           "every pacing value of the locked voice is set in the channel file (as approved on 11 Nov)")
     src = (ROOT / "studio" / "motion" / "narrate.py").read_text(encoding="utf-8")
