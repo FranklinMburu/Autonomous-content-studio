@@ -1,0 +1,25 @@
+name: Clips, Studio Board connection test
+
+# Proves GitHub can write to the Notion Studio Board (secret NOTION_TOKEN; integration "Studio Board bot").
+# Adds (or updates) one card "Board connection test" in the SC tab, stage Skipped. Safe to delete afterwards.
+on:
+  push:
+    branches: ["clips-board/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Write a test card
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: python -m studio.clips.board test

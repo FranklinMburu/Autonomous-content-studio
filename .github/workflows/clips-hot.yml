@@ -26,6 +26,13 @@ jobs:
           python -m studio.clips.hot streamers --out hot_streamers.json
       - name: World lane
         run: python -m studio.clips.hot world --out hot_world.json --topics 25
+      - name: Today's picks onto the Studio Board (Notion)
+        continue-on-error: true
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: |
+          python -m studio.clips.board picks --lane SC --file hot_streamers.json --top 5
+          python -m studio.clips.board picks --lane WC --file hot_world.json --top 5
       - name: LivestreamFail page shape (debug, for the parser)
         run: curl -sL -A "Mozilla/5.0" https://livestreamfail.tv/clips/today | grep -o '"[a-zA-Z_]*\(roadcaster\|iew\)[a-zA-Z_]*"' | sort | uniq -c | head -20
       - uses: actions/upload-artifact@v4
