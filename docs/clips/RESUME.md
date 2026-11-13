@@ -115,3 +115,20 @@ Run 2 (43331217075, commit f8f4cdd): exact key + AI eyes + AI judge. Read its lo
   the same story; judge scores watch-party, gambling and not-visible moments 0-3; Shorts at least 15 s (were 7-11 s);
   publish sends cards under 6 straight to Skipped.
 - Next: rerun on a proper stream (N3on's 3.1 h IRL stream if Kick still lists it, or a Kai/Speed IRL VOD).
+
+## 13 Nov 10:00–11:00 Nairobi: second N3on run, taste, and the Studio app redesign
+
+- **Franklin's first taste labels:** he approved all 6 Kai Cenat Japan Shorts (reviewer 9, 8, 8, 7, 7, 7). Use them as
+  positive anchors for the reviewer and judge next to the reference winners.
+- **N3on run 2 (43381690968):** the fixed picker chose the right stream ("N3on x Neveah", 3.1 h IRL; casino streams
+  skipped). The Gemini flash daily quota ran out mid-run: 6 Shorts got no review and were wrongly scored 0 and skipped,
+  and the run reused run 1's Video IDs (overwrote its cards). Fixed: unreviewed Shorts go to Review unscored
+  ("reviewed": false), Video IDs carry the run number (`SC-<date>-n3on-r<run>-NN`), cards moved back by hand.
+- **Studio app redesign** (branch `studio-ui`, see the PR): Home / Board / Library / Make / one page per channel / a page
+  per video / Guide / Settings (connect GitHub once per device). Control backend: `studio-action.yml` (checked board
+  moves and topic edits), `request_id` + `run-name` on every startable workflow (the app follows its own runs live),
+  `clips-stream.yml` start form, who's-hot lists in release `clips-hot`, feed.json carries Shorts posts, hot lists, the
+  Notion board, and mirrors HR/TE onto the board (`board.py mirror`). Shorts get posters (`<id>.jpg` in the release;
+  `clips-posters.yml` backfilled the old ones). Live only after the PR is merged into main (Pages publishes from main;
+  workflow_dispatch needs the workflow on main).
+- Notion: "How the studio works, end to end (13 Nov 2026)" under YouTube Creator Studio.
