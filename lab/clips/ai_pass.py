@@ -10,7 +10,7 @@
 
 Key: GEMINI_API_KEY from the environment (GitHub secret). Never printed. Free tier: requests are paced and retried.
 """
-import argparse, base64, json, os, subprocess, sys, tempfile, time, urllib.error, urllib.request
+import argparse, base64, json, os, re, subprocess, sys, tempfile, time, urllib.error, urllib.request
 from pathlib import Path
 
 API = "https://generativelanguage.googleapis.com/v1beta"
@@ -61,7 +61,15 @@ def call(model, parts, want_json=True, tries=6):
         try:
             STATS["calls"] += 1
             d = json.load(urllib.request.urlopen(req, timeout=180))
-            txt = "".join(p.get("text", "") for p in d["candidates"][0]["content"]["parts"])
+            cand = (d.get("candidates") or [{}])[0]
+            txt = "".join(p.get("text", "") for p in (cand.get("content") or {}).get("parts", []) if not p.get("thought"))
+            if not txt:
+                STATS["empty"] = STATS.get("empty", 0) + 1
+                if STATS["empty"] <= 3:
+                    print(f"[gemini] empty answer from {model}: finish={cand.get('finishReason')} "
+                          f"feedback={d.get('promptFeedback')} usage={d.get('usageMetadata')}", flush=True)
+                continue
+            txt = re.sub(r"^```(?:json)?\s*|\s*```$", "", txt.strip())
             return json.loads(txt) if want_json else txt
         except urllib.error.HTTPError as e:
             full = e.read().decode()
@@ -85,8 +93,17 @@ def call(model, parts, want_json=True, tries=6):
                 body["generationConfig"].pop("mediaResolution", None)
                 req.data = json.dumps(body).encode()
                 continue
+            print(f"[gemini] error {e.code} on {model}: {' '.join(full.split())[:300]}", flush=True)
+            if e.code in (400, 404) and FALLBACK:          # model not usable this way: try the next one
+                DEAD.add(model)
+                nxt = next((m for m in FALLBACK if m not in DEAD), None)
+                if nxt:
+                    return call(nxt, parts, want_json, tries)
             raise SystemExit(f"Gemini error {e.code}: {msg}")
-        except (KeyError, IndexError, json.JSONDecodeError, TimeoutError, urllib.error.URLError):
+        except (KeyError, IndexError, json.JSONDecodeError, TimeoutError, urllib.error.URLError) as ex:
+            STATS["bad"] = STATS.get("bad", 0) + 1
+            if STATS["bad"] <= 3:
+                print(f"[gemini] bad answer from {model}: {type(ex).__name__}: {str(ex)[:200]}", flush=True)
             time.sleep(5)
     return None
 
@@ -97,6 +114,8 @@ def pick_model():
     good = [n for n in names if "flash" in n and not any(b in n for b in ("lite", "image", "tts", "live", "audio", "exp", "preview", "thinking"))]
     good = good or [n for n in names if "flash" in n] or names
     good.sort(key=lambda n: [int(x) if x.isdigit() else 0 for x in n.replace("-", ".").split(".")], reverse=True)
+    if os.environ.get("CLIPS_MODEL") in names:
+        good.insert(0, os.environ["CLIPS_MODEL"])
     lite = sorted([n for n in names if "flash-lite" in n and not any(b in n for b in ("image", "tts", "live", "audio"))], reverse=True)
     FALLBACK[:] = [n for n in good[1:3] + lite[:2] if n != good[0]]
     print("models available:", ", ".join(names[:20]), "| using", good[0], "| fallbacks", FALLBACK)
@@ -119,7 +138,10 @@ def eyes(a):
                           "Most frames are not notable; return [] if nothing stands out."}]
         for i, f in enumerate(chunk):
             parts += [{"text": f"t={t0 + i * a.step}"}, {"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(f.read_bytes()).decode()}}]
-        r = call(model, parts) or []
+        r = call(model, parts)
+        if r is None and b >= 2 * a.batch and not out:
+            raise SystemExit("[eyes] the first batches all failed: stopping instead of burning the run (see [gemini] lines)")
+        r = r or []
         for m in r if isinstance(r, list) else r.get("moments", []):
             if isinstance(m, dict) and "t" in m:
                 out.append({"t": float(m["t"]), "score": float(m.get("score", 0)), "what": str(m.get("what", ""))[:200]})
@@ -183,6 +205,20 @@ def judge(a):
     Path(a.out).write_text(json.dumps({"model": model, "judged": out}, indent=1))
 
 
+def probe(a):
+    """One tiny text call and one 3-frame call, printing exactly what comes back: run before any long pass."""
+    model = a.model or pick_model()
+    print("text:", call(model, [{"text": 'Return JSON {"ok": true}'}]))
+    if a.video:
+        tmp = Path(tempfile.mkdtemp())
+        subprocess.run(["ffmpeg", "-v", "error", "-i", a.video, "-vf", "fps=1/600,scale=284:160", "-frames:v", "3", str(tmp / "f%d.jpg")], check=True)
+        parts = [{"text": 'Describe each frame in 5 words. JSON list of {"t", "what"}.'}]
+        for i, f in enumerate(sorted(tmp.glob("*.jpg"))):
+            parts += [{"text": f"t={i*600}"}, {"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(f.read_bytes()).decode()}}]
+        print("frames:", call(model, parts))
+    print("stats:", STATS, "dead:", DEAD)
+
+
 def show(a):
     for m in sorted(json.loads(Path(a.eyes).read_text())["moments"], key=lambda m: -m["score"])[:30]:
         t = int(m["t"])
@@ -198,10 +234,11 @@ def main():
     j.add_argument("--out", required=True)
     j.add_argument("--video", help="low-res stream video: the judge watches each moment"); j.add_argument("--audio", help="stream audio")
     sh = sub.add_parser("show"); sh.add_argument("--eyes", required=True)
+    pr = sub.add_parser("probe"); pr.add_argument("--video"); pr.add_argument("--model"); pr.add_argument("--pause", type=float, default=0)
     for x in (e, j):
         x.add_argument("--model"); x.add_argument("--pause", type=float, default=6)
     a = ap.parse_args()
-    {"eyes": eyes, "judge": judge, "show": show}[a.cmd](a)
+    {"eyes": eyes, "judge": judge, "show": show, "probe": probe}[a.cmd](a)
 
 
 if __name__ == "__main__":

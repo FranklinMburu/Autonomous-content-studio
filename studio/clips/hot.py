@@ -43,7 +43,13 @@ ROSTER = {
     "plaqueboymax": ("twitch", "plaqueboymax"), "lacy": ("twitch", "lacy"), "xqc": ("kick", "xqc"),
     "dub": ("kick", "notquitelikedub"), "bendadonnn": ("kick", "bendadonnn"), "clavicular": ("kick", "clavicular"),
 }
-BAD_CATEGORY = re.compile(r"slots|casino|gambl|roleplay|\brp\b|grand theft auto|gta", re.I)
+BAD_CATEGORY = re.compile(r"slots|casino|gambl|roleplay|\brp\b|grand theft auto|gta|rob run", re.I)
+LANE_CATEGORY = re.compile(r"just chatting|irl|chat roulette|pools|hot tubs|music|sports|food|travel", re.I)
+
+
+def englishish(text):
+    letters = [c for c in text if c.isalpha()]
+    return not letters or sum(c.isascii() for c in letters) / len(letters) > 0.9 and not re.search(r"\b(que|para|mejor|de la|el|los|na|nie)\b", text.lower())
 
 
 def get(url, as_json=True, timeout=30):
@@ -70,21 +76,58 @@ def ytdlp_json(args, timeout=600):
     return out
 
 
+def rss(channel_id):
+    """A channel's 15 newest uploads from YouTube's public RSS feed: title, published, views, url. No bot check."""
+    raw = get(f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}", as_json=False)
+    out = []
+    if not raw:
+        return out
+    ns = {"a": "http://www.w3.org/2005/Atom", "m": "http://search.yahoo.com/mrss/", "yt": "http://www.youtube.com/xml/schemas/2015"}
+    try:
+        root = ET.fromstring(raw)
+    except ET.ParseError:
+        return out
+    for e in root.findall("a:entry", ns):
+        st = e.find("m:group/m:community/m:statistics", ns)
+        pub = dt.datetime.fromisoformat(e.findtext("a:published", "", ns).replace("Z", "+00:00"))
+        link = e.find("a:link", ns)
+        out.append({"title": e.findtext("a:title", "", ns), "ts": pub.timestamp(), "views": int(st.get("views", 0)) if st is not None else 0,
+                    "url": link.get("href") if link is not None else None, "channel": root.findtext("a:title", "", ns)})
+    return out
+
+
+_IDS = {}
+
+
+def channel_id(handle):
+    """@handle -> UC... id (yt-dlp list metadata, which works where opening a video hits YouTube's bot check)."""
+    if handle.startswith("UC"):
+        return handle
+    if handle not in _IDS:
+        r = subprocess.run(["yt-dlp", "--flat-playlist", "-I", "1", "-J", f"https://www.youtube.com/{handle}/videos"],
+                           capture_output=True, text=True, timeout=120)
+        try:
+            _IDS[handle] = json.loads(r.stdout).get("channel_id")
+        except json.JSONDecodeError:
+            _IDS[handle] = None
+            print(f"  ! could not resolve {handle}: {r.stderr.strip()[-160:]}", file=sys.stderr)
+    return _IDS[handle]
+
+
 def hours_since(ts):
     return max(1.0, (NOW.timestamp() - ts) / 3600) if ts else None
 
 
 # ---------------------------------------------------------------- streamers lane
-def ref_uploads(days=7, n=60):
-    """Newest Shorts of each reference channel with views per hour (full metadata, so upload time is known)."""
+def ref_uploads(days=7):
+    """Newest Shorts of each reference channel with views per hour since upload (RSS: the 15 newest)."""
     out = []
     for name, cid in REF_CHANNELS.items():
-        for e in ytdlp_json(["--playlist-end", str(n), "--skip-download", "-j", f"https://www.youtube.com/channel/{cid}/shorts"]):
-            ts = e.get("timestamp") or (dt.datetime.strptime(e["upload_date"], "%Y%m%d").replace(tzinfo=dt.timezone.utc).timestamp() if e.get("upload_date") else None)
-            h = hours_since(ts)
-            if h and h <= days * 24:
-                out.append({"channel": name, "title": e.get("title", ""), "views": e.get("view_count") or 0, "hours": round(h, 1),
-                            "vph": round((e.get("view_count") or 0) / h, 1), "url": e.get("webpage_url")})
+        for e in rss(cid):
+            h = hours_since(e["ts"])
+            if h <= days * 24:
+                out.append({"channel": name, "title": e["title"], "views": e["views"], "hours": round(h, 1),
+                            "vph": round(e["views"] / h, 1), "url": e["url"]})
     return out
 
 
@@ -154,7 +197,8 @@ def streamers(a):
             s["ref_titles"].append(f"{r['views']:,} views in {r['hours']:.0f} h: {r['title'][:90]}")
     kv, kt, kc = kick_day()
     for slug, n in kv.items():
-        if BAD_CATEGORY.search(kc.get(slug, "")):
+        cat, known = kc.get(slug, ""), ("kick", slug) in ROSTER.values()
+        if BAD_CATEGORY.search(cat) or (not known and (not LANE_CATEGORY.search(cat) or not all(englishish(t) for _, t in kt[slug][:3]))):
             continue
         s = score[("kick", slug)]
         s["kick_views"], s["kick_top"], s["category"] = n, [f"{v:,} {t[:70]}" for v, t in sorted(kt[slug], reverse=True)[:2]], kc.get(slug, "")
@@ -206,11 +250,32 @@ def google_trends(geo):
 
 
 def wiki_top():
-    day = (NOW - dt.timedelta(days=1)).strftime("%Y/%m/%d")
+    day = (NOW - dt.timedelta(days=2)).strftime("%Y/%m/%d")
     d = get(f"https://wikimedia.org/api/rest_v1/metrics/pageviews/top/en.wikipedia/all-access/{day}")
     skip = re.compile(r"^(Main_Page|Special:|Wikipedia:|Portal:|Help:|File:|Talk:|User:|Cleopatra|XXX|Search)")
     arts = (d or {}).get("items", [{}])[0].get("articles", []) if d else []
     return [{"topic": x["article"].replace("_", " "), "views": x["views"]} for x in arts if not skip.match(x["article"])][:40]
+
+
+WORLD_CHANNELS = [  # long-form shows whose moments get clipped everywhere; ids resolved at run time, a bad handle is skipped
+    "@joerogan", "@flagrant", "@TheoVon", "@TheDiaryOfACEO", "@impaulsive", "@ClubShayShay", "@DrinkChamps",
+    "@BreakfastClubPower1051", "@lexfridman", "@PBDPodcast", "@ShawnRyanShow", "@PiersMorganUncensored", "@jubilee",
+    "@FirstWeFeast", "@60minutes", "@CNBCtelevision", "@cspan", "@TuckerCarlson", "@allin", "@fullsend",
+    "@HotOnes", "@IShowSpeed", "@MrBeast", "@colinandsamir", "@hubermanlab", "@NoJumper", "@ComplexNews",
+]
+
+
+def world_sources(days=4):
+    out = []
+    for h in WORLD_CHANNELS:
+        cid = channel_id(h)
+        if not cid:
+            continue
+        for e in rss(cid):
+            age = hours_since(e["ts"])
+            if age <= days * 24 and "#short" not in e["title"].lower():
+                out.append({**e, "handle": h, "hours": round(age), "vph": round(e["views"] / age)})
+    return sorted(out, key=lambda x: -x["vph"])
 
 
 def long_videos(topic, days=4, n=12):
@@ -229,27 +294,24 @@ def world(a):
     trends = google_trends("US") + google_trends("GB")
     wk = wiki_top()
     print(f"[world] {len(trends)} Google trends, {len(wk)} Wikipedia top pages")
-    seen, topics = set(), []
-    for t in sorted(trends, key=lambda t: -t["traffic"]):
-        k = t["topic"].lower()
-        if k not in seen:
-            seen.add(k)
-            topics.append({"topic": t["topic"], "why": f"Google {t['geo']} {t['traffic']:,}+ searches" + (f"; news: {t['news'][0][:80]}" if t["news"] else "")})
-    for w in wk:
-        k = w["topic"].lower()
-        if k not in seen:
-            seen.add(k)
-            topics.append({"topic": w["topic"], "why": f"Wikipedia {w['views']:,} reads yesterday"})
-    topics = topics[: a.topics]
-    print(f"\n== WORLD LANE: {len(topics)} trending topics, with the long videos to clip from (views per hour)")
-    for i, t in enumerate(topics, 1):
-        t["sources"] = long_videos(t["topic"])[:3]
-        best = t["sources"][0]["vph"] if t["sources"] else 0
-        t["score"] = best
-        print(f"{i:>2}. {t['topic']}  ({t['why']})")
-        for s in t["sources"]:
-            print(f"      {s['vph']:>7,}/h  {s['views']:>9,} views  {s['minutes']:>3} min  {s['channel']}: {(s['title'] or '')[:80]}  {s['url']}")
-    Path(a.out).write_text(json.dumps(sorted(topics, key=lambda t: -t["score"]), indent=1))
+    hot_words = {w for t in trends for w in re.findall(r"[a-z][a-z0-9']{3,}", t["topic"].lower())}
+    hot_words |= {w for t in wk[:25] for w in re.findall(r"[a-z][a-z0-9']{3,}", t["topic"].lower())}
+    src = world_sources()
+    print(f"[world] {len(src)} new long-form uploads from {sum(1 for h in WORLD_CHANNELS if _IDS.get(h))}/{len(WORLD_CHANNELS)} shows")
+    for e in src:
+        e["trend_match"] = sorted(hot_words & set(re.findall(r"[a-z][a-z0-9']{3,}", e["title"].lower())))
+        e["score"] = e["vph"] * (1.5 if e["trend_match"] else 1.0)
+    src.sort(key=lambda e: -e["score"])
+    print(f"\n== WORLD LANE: the long videos to clip right now (views per hour since upload; x1.5 when it matches today's trends)")
+    for i, e in enumerate(src[: a.topics], 1):
+        print(f"{i:>2}. {e['vph']:>8,}/h  {e['views']:>10,} views in {e['hours']:>3} h  {e['channel'][:28]:28s} {e['title'][:85]}"
+              + (f"  [trend: {', '.join(e['trend_match'])}]" if e["trend_match"] else "") + f"  {e['url']}")
+    print("\n== What the world is searching and reading (for spotting a moment before the shows cover it)")
+    for t in sorted(trends, key=lambda t: -t["traffic"])[:15]:
+        print(f"   Google {t['geo']} {t['traffic']:>7,}+  {t['topic']}" + (f"  ({t['news'][0][:70]})" if t["news"] else ""))
+    for w in wk[:15]:
+        print(f"   Wikipedia {w['views']:>9,}  {w['topic']}")
+    Path(a.out).write_text(json.dumps({"sources": src[:60], "trends": trends, "wikipedia": wk}, indent=1))
 
 
 def main():

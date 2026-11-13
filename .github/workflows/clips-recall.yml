@@ -11,7 +11,7 @@ permissions:
   actions: read
 
 env:
-  REUSE_RUN: "43331217075"   # an earlier run whose transcript and AI eyes (words.json, eyes.json) are reused; "" = redo
+  REUSE_RUN: "43327666336"   # an earlier run whose transcript and AI eyes (words.json, eyes.json) are reused; "" = redo
 
 jobs:
   recon:
@@ -147,6 +147,7 @@ jobs:
         run: |
           e=$(find prev -name eyes.json 2>/dev/null | head -1)
           if [ -n "$e" ] && [ -s "$e" ]; then cp "$e" key/eyes.json; echo "eyes reused from run $REUSE_RUN"; python repo/lab/clips/ai_pass.py show --eyes key/eyes.json; exit 0; fi
+          python repo/lab/clips/ai_pass.py probe --video key/low.mp4
           s0=$(date +%s); python repo/lab/clips/ai_pass.py eyes --video key/low.mp4 --out key/eyes.json --step 6 --batch 100 --pause 7
           echo "eyes $(( $(date +%s)-s0 )) s"
           python repo/lab/clips/ai_pass.py show --eyes key/eyes.json
