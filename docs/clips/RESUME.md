@@ -81,3 +81,17 @@ Run 2 (43331217075, commit f8f4cdd): exact key + AI eyes + AI judge. Read its lo
 
 - PR #89 (Tech Education variety + episodes 002 and 003) is finished and waiting for Franklin to merge.
 - The untracked `polish/film/004-…/answer.json` in the main checkout waits for Franklin's call. Don't commit it.
+
+## 13 Nov 04:35–06:45 Nairobi (latest)
+
+- **Recall run 5 (43358915880):** all signals + AI judge find **9 of 10 fan clips (98% of their views) in the top 60**;
+  top 20 = 5/10, top 30 = 7/10. Weak spot: the judge's ranking (camera-man moment 5.9, rank 53 of 83). Next: teach the
+  judge physical surprises with the crew; more picks per stream.
+- **Lanes approved (Franklin):** HR, TE, SC (Streamer Clips), WC (World Clips). **Notion Studio Board** (database under
+  YouTube Creator Studio, one tab per lane, stages Picked → Making → Review → Approved → Posted / Skipped). Lane pages:
+  SC (was "livestream clipping"), WC (new). Full record: Notion page "Clipping engine: full record (13 Nov 2026)".
+- **Who's hot** (`studio/clips/hot.py`, `clips-hot.yml`): streamers lane and world lane both working.
+- **Laptop helper** installed by Franklin and proven: `WC-test-aligvslogan` (40 s, 1080p, 20.5 MB) uploaded to release
+  `yt-sections`. Requests go on branch `clips-jobs`. Downloading release assets from Claude's workspace: use
+  `gh api -H "Accept: application/octet-stream" repos/.../releases/assets/<id>` (gh release download uses GraphQL, blocked).
+- **Next:** judge fix + re-test; first real SC Shorts from the board picks; WC after; Notion token for automatic board.
