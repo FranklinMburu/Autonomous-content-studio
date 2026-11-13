@@ -168,7 +168,23 @@ def main():
         print(f"  {e['lift']:>5}x  {e['views']:>9,}  {e['channel'][:22]:22s} {e['title'][:80]}")
     lines = [f"[youtube {e['channel']}] {e['title']} | {e['views']:,} views, {e['lift']}x its median, {e['minutes']} min" for e in hot_yt]
     lines += [f"[{e['source']}] {e['title']} | " + ", ".join(f"{k} {e[k]}" for k in ("stars", "points", "likes", "traffic") if k in e) for e in rest]
-    r = call_gemini(PROMPT + "\n\nEVIDENCE:\n" + "\n".join(lines), a.model) or {}
+    prompt = PROMPT + "\n\nEVIDENCE:\n" + "\n".join(lines)
+    r = {}
+    try:   # the brain first (free Groq / NVIDIA / Gemini with fallbacks and its own allowances), then Gemini directly
+        from ailayer import ask
+
+        def ok(d):
+            ts = d.get("topics") if isinstance(d, dict) else None
+            if not isinstance(ts, list) or len(ts) < 3:
+                return ["'topics' must be a list of at least 3"]
+            bad = [t for t in ts if not isinstance(t, dict) or not t.get("topic") or not isinstance(t.get("titles"), list)]
+            return [f"{len(bad)} topics lack a name or a titles list"] if bad else []
+        res = ask(prompt, tier="critical", validate=ok, temperature=0.4)
+        r = res.data
+        print(f"topics by the brain ({getattr(res, 'ref', 'brain')})")
+    except Exception as e:  # noqa: BLE001
+        print(f"  brain unavailable ({str(e)[:160]}): asking Gemini directly")
+        r = call_gemini(prompt, a.model) or {}
     topics = [t for t in r.get("topics", []) if isinstance(t, dict) and t.get("topic")]
     out = {"built": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "topics": topics,
            "evidence": {"youtube": hot_yt, "other": rest}, "seconds": round(time.time() - t0)}
