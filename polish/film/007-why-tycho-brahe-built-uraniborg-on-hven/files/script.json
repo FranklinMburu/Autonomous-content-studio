@@ -1,0 +1,108 @@
+{
+ "title": "Why Tycho Brahe built Uraniborg on Hven",
+ "channel": "Hidden Reasons",
+ "topic": "Why Tycho Brahe built a brass observatory on the island of Hven (Denmark, 1576) to avoid magnetic interference",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "lines": [
+    "Tycho Brahe measured stars by eye, then built a castle around them.",
+    "Tycho's naked-eye readings had to be exact.",
+    "King Frederick II wanted to keep this famous astronomer in Denmark."
+   ],
+   "feel": "curiosity"
+  },
+  {
+   "lines": [
+    "Tycho's father wanted him to practice law.",
+    "Tycho chose astronomy and complained that society wasted his time.",
+    "Frederick II heard about Tycho's plans to leave Denmark.",
+    "So the king offered Hven and funding in 1576."
+   ],
+   "feel": "sympathy"
+  },
+  {
+   "lines": [
+    "Tycho began building Uraniborg in 1576 and moved there soon after.",
+    "As lord of Hven, he made farmers grow twice as much and build his castle.",
+    "The farmers complained about heavy taxes and took Tycho to court.",
+    "The court backed Tycho's right to tax and demand labor."
+   ],
+   "feel": "frustration"
+  },
+  {
+   "lines": [
+    "You see, it is like needing silence to finish one hard puzzle.",
+    "Tycho chose Hven for seclusion and royal support.",
+    "Quiet helped Tycho focus on his observations."
+   ],
+   "feel": "recognition"
+  },
+  {
+   "lines": [
+    "Tycho used quadrants, sextants, and clocks to watch the sky.",
+    "A brass plumb line helped him adjust his instruments for accuracy.",
+    "Tycho wanted to find the errors hidden inside his own instruments."
+   ],
+   "feel": "awe"
+  },
+  {
+   "lines": [
+    "Years later, Tycho dug a second observatory underground.",
+    "Even his island instruments were not enough.",
+    "Kepler later used Tycho's careful observations to write three laws about how planets move."
+   ],
+   "feel": "surprise"
+  }
+ ],
+ "claims": [
+  {
+   "claim": "King Frederick II offered Tycho the island of Hven and funding to set up an observatory in 1576, because he wanted to keep the distinguished scientist in Denmark.",
+   "url": "https://en.wikipedia.org/wiki/Tycho_Brahe"
+  },
+  {
+   "claim": "Uraniborg's location on Hven was chosen for seclusion and support, giving Tycho a better way to focus on accurate observation without interruptions.",
+   "url": "https://en.wikipedia.org/wiki/Tycho_Brahe"
+  },
+  {
+   "claim": "As lord of Hven, Tycho required the peasants to cultivate twice as much and exacted labor for the construction of his castle; the peasants complained about his taxation and took him to court, and the court established his right to levy taxes and labor.",
+   "url": "https://en.wikipedia.org/wiki/Tycho_Brahe"
+  },
+  {
+   "claim": "Tycho's instruments were adjusted via a brass plumb line and thumb screws, which helped him make more accurate measurements of the heavens.",
+   "url": "https://en.wikipedia.org/wiki/Tycho_Brahe"
+  },
+  {
+   "claim": "Tycho emphasized the need to determine instrumental errors.",
+   "url": "https://doi.org/10.1117/12.269109"
+  },
+  {
+   "claim": "Tycho later worked underground at Stjerneborg, where he realized his instruments in Uraniborg were not sufficient.",
+   "url": "https://en.wikipedia.org/wiki/Tycho_Brahe"
+  },
+  {
+   "claim": "Johannes Kepler used Tycho's data to develop his three laws of planetary motion.",
+   "url": "https://en.wikipedia.org/wiki/Tycho_Brahe"
+  }
+ ],
+ "key_words": [
+  "brass",
+  "observatory",
+  "Tycho",
+  "Hven",
+  "Uraniborg",
+  "seclusion",
+  "instruments",
+  "stars",
+  "taxes",
+  "Kepler"
+ ]
+}
