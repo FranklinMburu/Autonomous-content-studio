@@ -1,0 +1,67 @@
+name: Clips, make Shorts from chosen moments
+
+# The first real product: chosen moments of a real stream -> finished, reviewed 1080x1920 Shorts.
+# Videos go to a GitHub release (pre-release, for review only); each one becomes a "Review" card on the Notion
+# Studio Board. Nothing is published to YouTube. Edit clips_shorts.json on the branch to choose the stream and moments.
+on:
+  push:
+    branches: ["clips-shorts/**"]
+
+permissions:
+  contents: write
+
+jobs:
+  shorts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Tools
+        run: |
+          for i in 1 2; do timeout 180 sh -c 'sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg tesseract-ocr > /dev/null' && break; done
+          pip install -q "numpy>=1.26" pillow "soundfile>=0.12" "opencv-python-headless==4.10.0.84" "faster-whisper==1.2.1" "yt-dlp==2026.10.26"
+      - name: Make the Shorts
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          C=lab/clips/clips_shorts.json
+          python lab/clips/shorts.py --vod "$(jq -r .vod $C)" --streamer "$(jq -r .streamer $C)" --lane "$(jq -r .lane $C)" \
+            --stream-title "$(jq -r .stream_title $C)" --moments "$(jq -r .moments $C)" --out shorts
+      - name: Publish for review (GitHub pre-release, not YouTube)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag="shorts-$(jq -r .lane lab/clips/clips_shorts.json | tr A-Z a-z)-$(date +%Y%m%d-%H%M)"
+          echo "TAG=$tag" >> $GITHUB_ENV
+          files=$(ls shorts/*/short.mp4 | while read f; do d=$(dirname $f); cp $f "$d/$(basename $d).mp4"; echo "$d/$(basename $d).mp4"; done)
+          gh release create "$tag" --prerelease --title "Shorts for review: $tag" --notes "Made by the clipping engine for Franklin's review. Not published anywhere. Each Short's title, description, scores and before-you-post note are in posts.json." $files shorts/posts.json
+      - name: Cards on the Studio Board (Review)
+        continue-on-error: true
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: |
+          python - <<'PY'
+          import json, os, subprocess
+          posts = json.load(open("shorts/posts.json")); tag = os.environ["TAG"]; repo = os.environ["GITHUB_REPOSITORY"]
+          lane = json.load(open("lab/clips/clips_shorts.json"))["lane"]
+          for p in posts:
+              s = p["scores"]
+              why = (f"Reviewer: overall {s['overall']:g}/10, checks {p['checks_passed']}. Scores: " + ", ".join(f"{k} {v:g}" for k, v in s.items())
+                     + f". Fix next: {p['fix']}")
+              subprocess.run(["python", "-m", "studio.clips.board", "add", "--lane", lane, "--title", p["title"], "--stage", "Review",
+                              "--video-id", p["id"], "--who", json.load(open("lab/clips/clips_shorts.json"))["streamer"], "--why", why[:1900],
+                              "--source", f"{p['source']['vod']}?t={int(p['source']['start'])}s",
+                              "--clip-file", f"https://github.com/{repo}/releases/download/{tag}/{p['id']}.mp4",
+                              "--score", str(s["overall"]), "--views-band", p["predicted_views"], "--note", p["before_you_post"][:1900]], check=False)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: shorts
+          path: |
+            shorts/*/post.json
+            shorts/*/clip.json
+            shorts/posts.json

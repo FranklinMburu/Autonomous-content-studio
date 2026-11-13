@@ -14,7 +14,14 @@ def transcribe(video, out_json, model=None, log=print):
     model = model or os.environ.get("CLIPS_WHISPER", "base.en")
     log(f"[transcribe] faster-whisper {model} (int8, CPU)")
     m = WhisperModel(model, device="cpu", compute_type="int8", download_root=os.environ.get("CLIPS_MODEL_CACHE"))
-    segs, info = m.transcribe(str(video), word_timestamps=True, vad_filter=True, beam_size=1,
+    # decode with ffmpeg ourselves: faster-whisper's own decoder (PyAV) crashed on GitHub's runner (13 Nov:
+    # "open() got an unexpected keyword argument 'metadata_errors'")
+    import subprocess
+    import numpy as np
+    pcm = subprocess.run(["ffmpeg", "-v", "error", "-i", str(video), "-ac", "1", "-ar", "16000", "-f", "s16le", "-"],
+                         capture_output=True).stdout
+    audio = np.frombuffer(pcm, np.int16).astype(np.float32) / 32768
+    segs, info = m.transcribe(audio, word_timestamps=True, vad_filter=True, beam_size=1,
                               condition_on_previous_text=False)
     words = []
     for s in segs:

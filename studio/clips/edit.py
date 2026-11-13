@@ -156,7 +156,8 @@ def make_clip(cand, src, words, cv, bar, layout, stream_title=""):
     r = src["rights"]
     where = r.get("title") or stream_title or "a live stream"
     credit = {"own": "Our own stream.", "program": f"Clipped through {r.get('program')} ({r.get('terms_url')}).",
-              "permission": f"Used with permission from {r.get('granted_by')}.", "licence": f"Licence: {r.get('licence')}."}[r["source"]]
+              "permission": f"Used with permission from {r.get('granted_by')}.", "licence": f"Licence: {r.get('licence')}.",
+              "unverified": f"Clip of {r.get('streamer') or 'the streamer'}'s stream."}[r["source"]]
     disclose = "\n#ad" if r.get("disclosure_required") else ""
     clip = {
         "version": 1,

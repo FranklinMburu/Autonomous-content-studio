@@ -18,6 +18,9 @@ ALLOWED_RIGHTS = {
     "program": "the streamer runs an official clipping program or campaign that invites clippers",
     "permission": "explicit written permission from the rights holder",
     "licence": "a licence that allows reuse and editing (e.g. CC BY)",
+    # Franklin, 13 Nov 2026: "build first, guard at publish time". The clip is made; its "before you post" note says
+    # the rights are not verified yet, and nothing is published without his yes.
+    "unverified": "rights not checked yet: to be checked in the before-you-post note before anything is published",
 }
 VIDEO_NAMES = ("stream.mp4", "vod.mp4", "stream.mkv", "vod.mkv", "stream.webm")
 
@@ -36,7 +39,7 @@ def rights(folder):
     if kind not in ALLOWED_RIGHTS:
         raise RightsError(f"{folder}: rights.json source must be one of {sorted(ALLOWED_RIGHTS)} (got {kind!r})")
     need = {"own": ["owner"], "program": ["program", "terms_url"], "permission": ["granted_by", "proof"],
-            "licence": ["licence", "proof"]}[kind]
+            "licence": ["licence", "proof"], "unverified": ["note"]}[kind]
     missing = [k for k in need if not r.get(k)]
     if missing:
         raise RightsError(f"{folder}: rights.json ({kind}) is missing {', '.join(missing)}")

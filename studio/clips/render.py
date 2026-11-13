@@ -39,6 +39,27 @@ def read_segment(video, a, b, w, h):
     return fr[:n]
 
 
+def iter_segment(video, a, b, w, h):
+    """The same frames as read_segment, one at a time from an ffmpeg pipe: a 45 s 1080p segment held whole is ~8 GB
+    and got the renderer killed (13 Nov); streaming keeps memory flat. Same count and padding rule as read_segment."""
+    n = max(1, int(round((b - a) * FPS)))
+    p = subprocess.Popen(["ffmpeg", "-v", "error", "-ss", f"{a:.3f}", "-i", str(video), "-t", f"{b - a + 0.2:.3f}",
+                          "-vf", f"fps={FPS},scale={w}:{h}", "-f", "rawvideo", "-pix_fmt", "rgb24", "-threads", "2", "-"],
+                         stdout=subprocess.PIPE)
+    size, k, last = w * h * 3, 0, None
+    while k < n:
+        buf = p.stdout.read(size)
+        if len(buf) < size:
+            break
+        last = np.frombuffer(buf, np.uint8).reshape(h, w, 3)
+        k += 1
+        yield last
+    p.stdout.close(); p.kill(); p.wait()
+    pad = last if last is not None else np.zeros((h, w, 3), np.uint8)
+    for _ in range(n - k):
+        yield pad
+
+
 def read_audio(video, a, b):
     raw = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{a:.3f}", "-i", str(video), "-t", f"{b - a:.3f}", "-vn",
                           "-ac", "2", "-ar", str(SR), "-f", "f32le", "-"], capture_output=True).stdout
@@ -278,8 +299,7 @@ def render(clip, out_mp4, log=print, threads=2):
                            "-movflags", "+faststart", "-frames:v", str(total), str(out_mp4)], stdin=subprocess.PIPE)
     fi = 0
     for e in clip["edl"]:
-        frames = read_segment(video, *e["src"], w, h)
-        for fr in frames:
+        for fr in iter_segment(video, *e["src"], w, h):
             t = fi / FPS
             cv = compose_picture(fr, clip, t, scale)
             draw_captions(cv, clip, t)
