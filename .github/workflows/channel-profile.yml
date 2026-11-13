@@ -1,0 +1,47 @@
+name: Channel profile (reference channels, metadata only)
+
+# Reads public channel lists from YouTube (metadata only, which works from GitHub): every video and Short with title,
+# views, length; the channel's own description and links. Prints a ranked table to the log. Channels in
+# lab/profile/channels.txt (one channel id per line).
+on:
+  push:
+    branches: ["profile/**"]
+
+permissions:
+  contents: read
+
+jobs:
+  profile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q "yt-dlp==2026.10.26"
+      - name: Profile
+        run: |
+          for ch in $(grep -v '^#' lab/profile/channels.txt); do
+            for tab in videos shorts streams; do
+              yt-dlp -q --no-warnings --flat-playlist -J --extractor-args "youtube:approximate_date" "https://www.youtube.com/channel/$ch/$tab" > "$ch-$tab.json" 2>/dev/null || echo '{}' > "$ch-$tab.json"
+            done
+            python - "$ch" <<'PY'
+          import json, sys, statistics as st
+          ch = sys.argv[1]
+          meta = json.load(open(f"{ch}-videos.json"))
+          print("=" * 100)
+          print("CHANNEL", meta.get("channel"), meta.get("uploader_id"), ch, "followers:", meta.get("channel_follower_count"))
+          print("DESCRIPTION:", (meta.get("description") or "").replace("\n", " | ")[:1500])
+          print("TAGS:", meta.get("tags"))
+          for tab in ("videos", "shorts", "streams"):
+              es = (json.load(open(f"{ch}-{tab}.json")).get("entries") or [])
+              if not es: print(f"-- {tab}: none"); continue
+              v = [e.get("view_count") or 0 for e in es]; d = [e.get("duration") or 0 for e in es if e.get("duration")]
+              print(f"-- {tab}: {len(es)} | views median {int(st.median(v)):,} max {max(v):,} total {sum(v):,} | length median {st.median(d)/60 if d else 0:.1f} min")
+              for i, e in enumerate(es):
+                  ts = e.get("timestamp"); import datetime as dt
+                  when = dt.datetime.utcfromtimestamp(ts).strftime("%Y-%m-%d") if ts else "?"
+                  print(f"   {i+1:>3}. {e.get('view_count') or 0:>10,}  {(e.get('duration') or 0)/60:>5.1f} min  {when}  {e.get('url')}  {(e.get('title') or '')[:110]}")
+          PY
+          done
