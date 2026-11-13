@@ -1,0 +1,266 @@
+name: Clips, a fresh stream to Shorts (find -> make -> review)
+
+# The whole chain on one new stream (13 Nov 2026, Franklin approved): the recall-tested finder (signals + AI eyes +
+# the AI judge that watches each candidate) picks the best moments, one parallel job makes each Short in the measured
+# Kick_Clippers look, then one job puts them in a GitHub pre-release (not YouTube) and a Review card per Short on the
+# Notion Studio Board. Choose the stream in lab/clips/stream_job.json on a clips-stream/** branch.
+run-name: "${{ inputs.request_id && format('{0} [{1}]', github.workflow, inputs.request_id) || github.event.head_commit.message || github.workflow }}"
+on:
+  push:
+    branches: ["clips-stream/**"]
+  workflow_dispatch:        # the Studio app's "Make Shorts from a stream" (or Actions -> this workflow -> Run)
+    inputs:
+      platform:
+        description: "kick or twitch"
+        type: choice
+        options: [kick, twitch]
+        default: kick
+      channel:
+        description: "Kick: the channel name (e.g. n3on). Twitch: the VOD link (https://www.twitch.tv/videos/...)"
+        required: true
+      vod:
+        description: "Kick only, optional: one VOD's id (blank = the newest stream that passes the niche filter)"
+        required: false
+        default: ""
+      streamer:
+        description: "The name viewers know (used in titles)"
+        required: true
+      lane:
+        description: "Board lane"
+        type: choice
+        options: [SC, WC]
+        default: SC
+      top:
+        description: "How many Shorts to make (1-15)"
+        required: false
+        default: "12"
+      request_id:
+        description: "Set by the Studio app to follow this run (leave empty)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    outputs:
+      moments: ${{ steps.out.outputs.moments }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: lab/clips/requirements-shorts.txt
+      - name: Speech model cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: whisper-base-v1
+      - name: Tools
+        run: |
+          for i in 1 2; do timeout 180 sh -c 'sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg > /dev/null' && break; done
+          pip install -q -r lab/clips/requirements-shorts.txt
+      - name: The request (from the Studio app or the Actions form)
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          P: ${{ inputs.platform }}
+          C: ${{ inputs.channel }}
+          V: ${{ inputs.vod }}
+          S: ${{ inputs.streamer }}
+          L: ${{ inputs.lane }}
+          T: ${{ inputs.top }}
+        run: |
+          python3 - <<'PY'
+          import json, os, re, sys
+          p, c, v, s, l = (os.environ[k].strip() for k in "PCVSL")
+          top = max(1, min(15, int(os.environ["T"] or 12)))
+          if p == "kick" and not re.fullmatch(r"[A-Za-z0-9_-]{2,40}", c): sys.exit("Kick channel name looks wrong")
+          if p == "twitch" and not re.fullmatch(r"https://(www\.)?twitch\.tv/videos/\d+", c): sys.exit("give a Twitch VOD link")
+          if v and not re.fullmatch(r"[A-Za-z0-9-]{6,60}", v): sys.exit("VOD id looks wrong")
+          if not (1 <= len(s) <= 40): sys.exit("streamer name: 1-40 characters")
+          job = {"platform": p, "streamer": s, "lane": l, "top": top, "fmt": "b[height<=1080]/b"}
+          job.update({"slug": c.lower(), "uuid": v} if p == "kick" else {"url": c, "slug": re.sub(r"[^a-z0-9]", "", s.lower())[:20] or "twitch"})
+          json.dump(job, open("lab/clips/stream_job.json", "w"), indent=1)
+          print("job:", job)
+          PY
+      - name: Which stream
+        run: |
+          mkdir -p f; J=lab/clips/stream_job.json
+          if [ "$(jq -r .platform $J)" = kick ]; then
+            python lab/clips/find.py resolve --platform kick --slug "$(jq -r .slug $J)" --uuid "$(jq -r '.uuid // empty' $J)" --out f/stream.json
+          else
+            python lab/clips/find.py resolve --platform twitch --url "$(jq -r .url $J)" --out f/stream.json
+          fi
+      - name: Chat replay (in the background while the media downloads)
+        run: |
+          if [ "$(jq -r .vod.platform f/stream.json)" = kick ]; then
+            nohup timeout 2400 python lab/clips/kick_chat.py --slug "$(jq -r .vod.slug f/stream.json)" --start "$(jq -r .vod.start f/stream.json)" \
+              --duration "$(jq -r .vod.duration f/stream.json)" --out f/chat.json > f/chat.log 2>&1 &
+          fi
+      - name: Media (160p with sound, whole stream) and audio
+        run: |
+          s0=$(date +%s)
+          yt-dlp -q --no-warnings -N 16 -f "worst" -o f/low.mp4 "$(jq -r .vod.source f/stream.json)"
+          ffmpeg -v error -y -i f/low.mp4 -vn -ac 1 -ar 16000 -c:a aac -b:a 48k f/audio.m4a
+          echo "media $(( $(date +%s)-s0 )) s"; ls -la f/
+      - name: What was said (Kick's own subtitles; Whisper if there are none)
+        run: |
+          s0=$(date +%s)
+          if [ "$(jq -r .vod.platform f/stream.json)" = kick ] && python lab/clips/find.py subs --stream f/stream.json --out f/words.json; then
+            echo "subtitles $(( $(date +%s)-s0 )) s"; exit 0; fi
+          python - <<'PY'
+          import json, subprocess, numpy as np
+          from faster_whisper import WhisperModel
+          pcm = subprocess.run(["ffmpeg", "-v", "error", "-i", "f/audio.m4a", "-ac", "1", "-ar", "16000", "-f", "s16le", "-"], capture_output=True).stdout
+          audio = np.frombuffer(pcm, np.int16).astype(np.float32) / 32768
+          segs, info = WhisperModel("base", device="cpu", compute_type="int8").transcribe(audio, word_timestamps=True, vad_filter=True)
+          words = [{"w": w.word.strip(), "start": round(w.start, 2), "end": round(w.end, 2)} for s in segs for w in (s.words or [])]
+          json.dump({"words": words, "language": info.language}, open("f/words.json", "w"))
+          print("whisper words", len(words))
+          PY
+          echo "transcript $(( $(date +%s)-s0 )) s"
+      - name: AI eyes (Gemini on one low-res frame every 6 s)
+        continue-on-error: true
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python lab/clips/ai_pass.py probe --video f/low.mp4
+          s0=$(date +%s); python lab/clips/ai_pass.py eyes --video f/low.mp4 --out f/eyes.json --step 6 --batch 100 --pause 7
+          echo "eyes $(( $(date +%s)-s0 )) s"; python lab/clips/ai_pass.py show --eyes f/eyes.json
+      - name: Candidates (every signal family) and the AI judge (watches and hears each one)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          for i in $(seq 1 60); do pgrep -f kick_chat.py > /dev/null || break; sleep 20; done
+          cat f/chat.log 2>/dev/null | tail -3
+          A="--key f/stream.json --audio f/audio.m4a --video f/low.mp4 --words f/words.json --chat f/chat.json --eyes f/eyes.json --top 20"
+          python lab/clips/recall.py $A --cands-out f/cands.json --out f/signals.json
+          s0=$(date +%s)
+          python lab/clips/ai_pass.py judge --cands f/cands.json --words f/words.json --eyes f/eyes.json --video f/low.mp4 --audio f/audio.m4a \
+            --streamer "$(jq -r .streamer lab/clips/stream_job.json)" --out f/judged.json --pause 5
+          echo "judge $(( $(date +%s)-s0 )) s"
+          python lab/clips/find.py pick --judged f/judged.json --top "$(jq -r .top lab/clips/stream_job.json)" --out f/moments.json
+      - id: out
+        run: |
+          python3 - <<'PY'
+          import json, os
+          s = json.load(open("f/stream.json"))["vod"]; j = json.load(open("lab/clips/stream_job.json"))
+          json.dump({"vod": s["source"], "page": s["page"], "streamer": j["streamer"], "lane": j["lane"], "stream_title": s["title"],
+                     "moments": "f/moments.json", "fmt": j.get("fmt", "b[height<=1080]/b"), "tag": f"{j.get('slug', '')}-r{os.environ['GITHUB_RUN_NUMBER']}"}, open("f/shorts_job.json", "w"), indent=1)
+          PY
+          echo "moments=$(python3 -c "import json; print(json.dumps(list(range(1, len(json.load(open('f/moments.json')))+1))))")" >> $GITHUB_OUTPUT
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: found
+          path: f/*.json
+
+  short:
+    needs: find
+    if: needs.find.outputs.moments != '[]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        n: ${{ fromJSON(needs.find.outputs.moments) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: found
+          path: f
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: lab/clips/requirements-shorts.txt
+      - name: Speech model cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: whisper-small-en-v1
+      - name: Tools
+        run: |
+          for i in 1 2; do timeout 180 sh -c 'sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg tesseract-ocr fonts-noto-color-emoji > /dev/null' && break; done
+          pip install -q -r lab/clips/requirements-shorts.txt
+      - name: Make Short ${{ matrix.n }}
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          C=f/shorts_job.json
+          python lab/clips/shorts.py --vod "$(jq -r .vod $C)" --vod-page "$(jq -r .page $C)" --streamer "$(jq -r .streamer $C)" \
+            --lane "$(jq -r .lane $C)" --stream-title "$(jq -r .stream_title $C)" --moments "$(jq -r .moments $C)" \
+            --fmt "$(jq -r .fmt $C)" --id-tag "$(jq -r .tag $C)" --out shorts --only ${{ matrix.n }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: short-${{ matrix.n }}
+          path: |
+            shorts/*/short.mp4
+            shorts/*/poster.jpg
+            shorts/*/post.json
+            shorts/*/clip.json
+          if-no-files-found: ignore
+
+  publish:
+    needs: short
+    if: always() && needs.short.result != 'skipped'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: found
+          path: f
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: short-*
+          path: shorts
+          merge-multiple: true
+      - name: Publish for review (GitHub pre-release, not YouTube)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import json, glob
+          import os
+          posts = [json.load(open(p)) for p in sorted(glob.glob("shorts/*/post.json"))]
+          for p in posts:
+              p["run"] = int(os.environ["GITHUB_RUN_ID"]); p["streamer"] = json.load(open("f/shorts_job.json"))["streamer"]
+          json.dump(posts, open("shorts/posts.json", "w"), indent=1, ensure_ascii=False)
+          print("\n== SHORTS")
+          for p in sorted(posts, key=lambda p: -(p["scores"]["overall"] or 0)):
+              print(f"{p['id']}  overall {p['scores']['overall'] or 0:.1f}  checks {p['checks_passed']}  {p['duration_s']} s  band {p['predicted_views']}\n   {p['title']}\n   scores: "
+                    + " ".join(f"{k} {v:g}" for k, v in p["scores"].items()) + f"\n   fix: {p['fix'][:160]}\n   source: {p['source']}")
+          PY
+          [ -s shorts/posts.json ] && [ "$(jq length shorts/posts.json)" -gt 0 ] || { echo "no Short was made"; exit 1; }
+          tag="shorts-$(jq -r .lane f/shorts_job.json | tr A-Z a-z)-$(jq -r .tag f/shorts_job.json)-$(date +%Y%m%d-%H%M)"
+          echo "TAG=$tag" >> $GITHUB_ENV
+          files=$(ls shorts/*/short.mp4 | while read f; do d=$(dirname $f); cp $f "$d/$(basename $d).mp4"; echo "$d/$(basename $d).mp4"; [ -f "$d/poster.jpg" ] && cp "$d/poster.jpg" "$d/$(basename $d).jpg" && echo "$d/$(basename $d).jpg"; done)
+          gh release create "$tag" --prerelease --title "Shorts for review: $tag" --notes "Made by the clipping engine from $(jq -r .page f/shorts_job.json) for Franklin's review. Not published anywhere. Titles, descriptions, scores and before-you-post notes are in posts.json." $files shorts/posts.json f/moments.json
+      - name: Cards on the Studio Board (Review)
+        continue-on-error: true
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: |
+          python - <<'PY'
+          import json, os, subprocess
+          posts = json.load(open("shorts/posts.json")); tag = os.environ["TAG"]; repo = os.environ["GITHUB_REPOSITORY"]
+          cfg = json.load(open("f/shorts_job.json"))
+          for p in posts:
+              s = p["scores"]
+              ok = p.get("reviewed", True) and s["overall"] is not None
+              why = (f"Reviewer: overall {s['overall']:g}/10, checks {p['checks_passed']}. Scores: " + ", ".join(f"{k} {v:g}" for k, v in s.items())
+                     + f". Fix next: {p['fix']}") if ok else "Not reviewed by the AI (its free quota ran out). Watch it and decide."
+              subprocess.run(["python", "-m", "studio.clips.board", "add", "--lane", cfg["lane"], "--title", p["title"], "--stage", "Review" if (not ok or s["overall"] >= 6) else "Skipped",
+                              "--video-id", p["id"], "--who", cfg["streamer"], "--why", why[:1900],
+                              "--source", f"{p['source']['vod']}?t={int(p['source']['start'])}",
+                              "--clip-file", f"https://github.com/{repo}/releases/download/{tag}/{p['id']}.mp4",
+                              *(["--score", str(s["overall"]), "--views-band", p["predicted_views"]] if ok else []), "--note", p["before_you_post"][:1900]], check=False)
+          PY

@@ -1,0 +1,37 @@
+name: Clips, posters for the Studio app
+
+# Adds a poster (.jpg, one frame just after the payoff) next to every Short in the shorts-* releases that has none.
+# New Shorts get theirs when they are made (shorts.py); this backfills older ones. Free; touches only release files.
+on:
+  push:
+    branches: ["clips-posters/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  posters:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      R: ${{ github.repository }}
+    steps:
+      - name: Tools
+        run: sudo apt-get install -y -qq --no-install-recommends ffmpeg > /dev/null
+      - name: Posters
+        run: |
+          mkdir -p w && cd w
+          for tag in $(gh api "repos/$R/releases?per_page=100" --jq '.[] | select(.tag_name|startswith("shorts-")) | .tag_name'); do
+            rel=$(gh api "repos/$R/releases/tags/$tag")
+            rm -f posts.json; gh release download "$tag" -R "$R" -p posts.json -D . 2>/dev/null || true
+            echo "$rel" | jq -r '.assets[] | select(.name|endswith(".mp4")) | .name' | while read name; do
+              vid=${name%.mp4}
+              echo "$rel" | jq -e --arg n "$vid.jpg" '.assets[] | select(.name==$n)' > /dev/null && continue
+              off=$( [ -s posts.json ] && jq -r --arg v "$vid" '[.[] | select(.id==$v)][0] | if . then ((.source.peak - .source.start) + 0.6) else 3 end' posts.json || echo 3)
+              gh release download "$tag" -R "$R" -p "$name" -D . --clobber || continue
+              ffmpeg -v error -y -ss "$off" -i "$name" -frames:v 1 -vf scale=540:-2 -q:v 4 "$vid.jpg" && gh release upload "$tag" "$vid.jpg" -R "$R" --clobber && echo "poster $tag $vid"
+              rm -f "$name"
+            done
+          done

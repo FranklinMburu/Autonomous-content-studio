@@ -2,6 +2,7 @@ import React from 'react';
 import { GearSix, Sun, Moon, Desktop, ArrowSquareOut, Trash } from '@phosphor-icons/react';
 import { useStudio } from '../../context/StudioContext';
 import { DEFAULTS } from '../../lib/github-data.js';
+import { ConnectPanel } from '../kit';
 
 export const SettingsView: React.FC = () => {
   const { theme, setTheme, clearCache } = useStudio();
@@ -18,6 +19,10 @@ export const SettingsView: React.FC = () => {
       </div>
 
       <div style={{ maxWidth: '640px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
+        <div id="connect" style={{ padding: '20px', borderRadius: '16px', background: 'var(--s1)', boxShadow: '0 0 0 1px var(--line) inset' }}>
+          <b style={{ fontSize: '15px', display: 'block', marginBottom: '6px' }}>Act from this app (GitHub)</b>
+          <ConnectPanel />
+        </div>
         {/* Theme Settings */}
         <div
           style={{

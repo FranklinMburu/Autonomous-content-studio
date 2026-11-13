@@ -1,0 +1,32 @@
+{
+  "_about": "The quality bar and the engine's tunable numbers. Every value cites its evidence in docs/clips/RESEARCH.md (section in brackets). Change values only with new evidence, and say so in docs/CLIPS_ENGINE.md history.",
+  "duration_s": {"min": 12, "max": 58, "target": [15, 45], "_why": "[3.2] quso.ai 108k Shorts: median views peak at 11-20 s and fall after 30 s; [3.1] the 14 clip-style references we measured run 21-161 s (median 61 s). A stream moment needs its setup; with dead air cut, setup + payoff fit in 15-45 s (target; was 20-45 until round 4, when cut clips of 16-18 s held the whole story), 58 s hard cap."},
+  "setup_max_s": 25,
+  "min_gap_s": 40,
+  "max_pause_s": 0.6,
+  "cold_open_after_s": 9,
+  "cold_open_s": 2.4,
+  "hook": {"by_s": 1.0, "min_s": 1.6, "max_s": 3.0, "_why": "[3.1] 14 references: text on screen by 0.5 s at the latest (median 0.0 s), speech by 0.92 s (median 0.05 s)."},
+  "captions": {"max_words": 3, "font_px": 84, "stroke_px": 7, "y": 0.56, "y_by_layout": {"stack": 0.42, "split2": 0.5}, "y_focus": 0.64, "safe_x": [0.10, 0.88], "accent": "yellow",
+               "accent_rgb": [255, 221, 0], "hook_px": 74, "hook_y": 0.17, "hook_y_by_layout": {"stack": 0.455, "split2": 0.15}, "letterbox_y": 0.5, "lufs": -14, "true_peak": -1.5,
+               "min_visible_pct": 50,
+               "_why": "[3.1] 14 references: captions centred at 0.18-0.85 of the height (median 0.575; the Kick clips 0.49-0.50), text about 3% of the frame tall, 1-3 words on screen, UPPER CASE, yellow the commonest highlight colour."},
+  "loudness": {"lufs": -14, "tol": 1.0, "max_true_peak": -1.0, "_why": "[3.1] 14 references median -14.5 LUFS; YouTube normalises playback near -14 LUFS."},
+  "pace": {"min_cuts_per_10s": 2.1, "_why": "[3.1] references median 2.1 cuts per 10 s (0 to 5.1): our edit cuts + framing cuts must reach the median; a stream is one camera, so pace comes from cutting dead air and changing the framing."},
+  "max_frozen_s": 1.5,
+  "ui_safe": {"top": 0.15, "bottom": 0.72, "left": 0.08, "right": 0.90, "_why": "[3.4] the Shorts player covers the bottom (title, channel, music; keep 25-35% clear), the top ~15% and a column of buttons on the right (10-15%): Reap safe-zone guide, Sep 2026 (an editorial recommendation; YouTube publishes no organic template)."},
+  "signal_weights": {"chat_rate": 1.0, "chat_emote": 0.6, "chat_short": 0.3, "chat_dup": 0.2, "audio_burst": 0.8,
+                     "bright_hi": 0.3, "clips": 1.2, "cues": 0.6, "scene": 0.25,
+                     "_why": "[4.2] priors: chat volume, message length and similarity predict highlights (Lightor, ICDE 2020); viewer clips are direct human votes. To be refit on the winners/baseline dataset once it exists [6]."},
+  "rubric": {
+    "hook":     {"weight": 0.20, "what": "Would a stranger stop in the first second? Tension, a question, a number, an extreme."},
+    "moment":   {"weight": 0.22, "what": "A clear setup and a payoff (fail, win, reveal, punchline) that a viewer with no context understands."},
+    "pacing":   {"weight": 0.12, "what": "No dead air, a cut or zoom change every 2-5 s, the payoff not buried."},
+    "layout":   {"weight": 0.10, "what": "The face and the action are both visible and big enough on a phone."},
+    "captions": {"weight": 0.10, "what": "Readable word-by-word captions in the measured style, in sync, outside the UI zones."},
+    "sound":    {"weight": 0.08, "what": "Loudness near -14 LUFS, voice clear, no clipping."},
+    "ending":   {"weight": 0.08, "what": "Ends on the punchline or loops; no trailing filler."},
+    "title":    {"weight": 0.05, "what": "Honest, specific, curiosity without lying."},
+    "trend_fit":{"weight": 0.05, "what": "Fits what clip channels post now (stream reactions, fails, confessions)."}
+  }
+}

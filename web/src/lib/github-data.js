@@ -58,7 +58,7 @@ export function createStudio(opts = {}) {
     if (!feed) feedAt = Date.now(), feed = (async () => {
       if (!cfg.feedBranch || typeof fetch === "undefined") return null;
       try {
-        const r = await fetch(`${RAW}/${repoPath}/${cfg.feedBranch}/feed.json`, { cache: "no-cache" });
+        const r = await fetch(cfg.feedUrl || `${RAW}/${repoPath}/${cfg.feedBranch}/feed.json`, { cache: "no-cache" });
         if (!r.ok) return null;
         const f = await r.json();
         const age = (Date.now() - new Date(f.built).getTime()) / 3600000;
@@ -114,7 +114,8 @@ export function createStudio(opts = {}) {
 
   function parseRelease(r) {
     const tag = r.tag_name;
-    const m = tag.match(/^(film|story|draft)-(.+)-run(\d+)$/) || tag.match(/^(video)-(\d{8})-(.+)$/) || tag.match(/^(lab)-run(\d+)$/);
+    const m = tag.match(/^(film|story|draft|motion)-(.+)-run(\d+)$/) || tag.match(/^(video)-(\d{8})-(.+)$/) || tag.match(/^(lab)-run(\d+)$/)
+      || tag.match(/^(shorts)-([a-z]{2})-(.+)$/);
     const kind = m ? m[1] : (tag === "channel-memory" ? "memory" : "other");
     const asset = (re) => r.assets.find(a => re.test(a.name));
     const video = asset(/\.mp4$/i), contact = asset(/^contact\.png$/i);
@@ -123,8 +124,9 @@ export function createStudio(opts = {}) {
     const line = (label) => (notes.match(new RegExp("^" + label + ":\\s*(.+)$", "mi")) || [])[1] || "";
     return {
       tag, kind, title, url: r.html_url, at: r.published_at || r.created_at,
-      episode: kind === "video" ? `video-${m[2]}-${m[3]}` : (m && m[2]) || null,
-      run: kind === "video" ? null : (m && Number(m[3] || m[2])) || null,
+      episode: kind === "video" ? `video-${m[2]}-${m[3]}` : kind === "shorts" ? tag : (m && m[2]) || null,
+      lane: kind === "shorts" ? m[2].toUpperCase() : kind === "motion" ? "TE" : kind === "video" ? "BS" : ["film", "story", "draft"].includes(kind) ? "HR" : null,
+      run: kind === "video" || kind === "shorts" ? null : (m && Number(m[3] || m[2])) || null,
       held: !!r.prerelease && /^REVIEW:/i.test(r.name || ""),
       prerelease: !!r.prerelease,
       video: video ? { url: video.browser_download_url, bytes: video.size, name: video.name } : null,
@@ -202,7 +204,7 @@ export function createStudio(opts = {}) {
       const pol = polish.find(p => p.tag === r.tag) || polished.find(p => p.tag === r.tag);
       const style = r.kind === "film" ? "film" : r.kind === "story" ? "storyboard" : r.kind === "video" ? "explainer" : "draft";
       const title = r.kind === "draft" ? (pol ? pol.title : humanize(r.episode)) : r.title;
-      return { id: r.episode, title, status, style, at: r.at, run: r.run, release: r, video: r.video, contact: r.contact,
+      return { id: r.episode, lane: r.lane, title, status, style, at: r.at, run: r.run, release: r, video: r.video, contact: r.contact,
                reviewIssue: rev || null, polishIssue: pol || null, weakShots: rev ? rev.failedShots : [] };
     }).sort((a, b) => b.at.localeCompare(a.at));
   }
@@ -288,9 +290,46 @@ export function createStudio(opts = {}) {
 
   // the pipeline's memory (channel-memory release, used.json), only via the feed: release downloads have no CORS
   const usedMemory = async () => { const f = await loadFeed(); return (f && f.memory) || null; };
+
+  // ---------- the clips lanes (SC Streamer Clips, WC World Clips) ----------
+  // Every Short = one .mp4 in a "shorts-<lane>-..." release; its words, scores and checks come from that release's
+  // posts.json, which only the feed can carry (release downloads have no CORS). The board stage comes from Notion.
+  async function shorts() {
+    const f = await loadFeed();
+    const posts = (f && f.clips) || {};
+    const cards = new Map(((f && f.board) || []).map(c => [c.videoId, c]));
+    const out = [], seen = new Set();
+    for (const r of (await releases()).filter(r => r.kind === "shorts")) {   // newest release first
+      const list = posts[r.tag] || [];
+      const byId = new Map(list.map(p => [p.id, p]));
+      for (const a of r.assets.filter(a => /\.mp4$/i.test(a.name))) {
+        const videoId = a.name.replace(/\.mp4$/i, "");
+        const p = byId.get(videoId) || {};
+        // 13 Nov: two runs reused the same ids; the board card belongs to the newest, older ones get their own id here
+        const dup = seen.has(videoId); seen.add(videoId);
+        const id = dup ? `${videoId}~${r.tag}` : videoId;
+        const card = dup ? null : cards.get(videoId) || null;
+        out.push({
+          id, videoId, dup, lane: r.lane, tag: r.tag, at: r.at, release: r.url, video: { url: a.url, bytes: a.bytes },
+          poster: (r.assets.find(x => x.name === `${videoId}.jpg`) || {}).url || null,
+          title: p.title || card?.title || id, hook: p.hook || "", description: p.description || "",
+          hashtags: p.hashtags || [], seconds: p.duration_s || null, streamer: p.streamer || card?.who || "",
+          scores: p.scores || null, overall: p.scores ? p.scores.overall : card?.score ?? null,
+          band: p.predicted_views || card?.band || "", checks: p.checks || [], checksPassed: p.checks_passed || "",
+          fix: p.fix || "", note: p.before_you_post || card?.note || "", source: p.source || null, run: p.run || null,
+          gatesFailed: p.gates_failed || [], editor: p.editor || null,
+          stage: card?.stage || (p.scores ? (p.scores.overall >= 6 ? "Review" : "Skipped") : "Review"), card,
+        });
+      }
+    }
+    return out.sort((a, b) => b.at.localeCompare(a.at) || (b.overall ?? 0) - (a.overall ?? 0));
+  }
+  const board = async () => { const f = await loadFeed(); return f && Array.isArray(f.board) ? f.board : null; };
+  const hot = async () => { const f = await loadFeed(); return (f && f.hot) || null; };
+  const motionVideos = async () => (await releases()).filter(r => r.kind === "motion");
   const feedInfo = async () => { const f = await loadFeed(); return f ? { built: f.built } : null; };
 
-  return { cfg, feedInfo, usedMemory, releases, films, runs, runSteps, reviewQueue, polishQueue, uploadQueue, uploaded, alerts, statusBoard,
+  return { cfg, feedInfo, usedMemory, shorts, board, hot, motionVideos, releases, films, runs, runSteps, reviewQueue, polishQueue, uploadQueue, uploaded, alerts, statusBoard,
            topics, schedule, nextSlots, episode, memorySeed, models, labRuns, links };
 }
 

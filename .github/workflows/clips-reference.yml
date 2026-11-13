@@ -1,0 +1,86 @@
+name: Clips reference (what a top clip channel posts)
+
+# The success bar Franklin set on 13 Nov 2026: the YouTube clip channel Franklin chose
+# (https://www.youtube.com/channel/UCIPD8q8n3Vy7Qfz59RTc1Jg). This reads only the public list of its Shorts
+# (titles, views, length, upload date) with yt-dlp, without downloading any video, and ranks them by views, so the
+# clipping engine's hooks, titles and lengths can be measured against what actually wins on that channel.
+on:
+  push:
+    branches: ["clips-ref/**"]
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: "YouTube channel URL to study"
+        required: false
+        default: "https://www.youtube.com/channel/UCIPD8q8n3Vy7Qfz59RTc1Jg"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: clips-reference
+  cancel-in-progress: false
+
+jobs:
+  reference:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Read the channel's public Shorts list
+        env:
+          CH_RAW: ${{ github.event.inputs.channel || 'https://www.youtube.com/channel/UCIPD8q8n3Vy7Qfz59RTc1Jg' }}
+        run: |
+          pip install -q "yt-dlp==2026.10.26"
+          ch=$(printf '%s' "$CH_RAW" | tr -d '\n\r')
+          case "$ch" in https://www.youtube.com/*) ;; *) echo "not a YouTube channel URL"; exit 1;; esac
+          yt-dlp --flat-playlist -J "$ch/shorts" > shorts.json
+          yt-dlp --flat-playlist -J "$ch/videos" > videos.json || echo '{"entries":[]}' > videos.json
+          # The streams a clipping campaign names (e.g. IShowSpeed x Expedia: the 6 Nov 2026 stream): list them with
+          # their links, titles and dates so the exact VOD can be picked. Nothing is downloaded here.
+          echo "## Can GitHub reach Kick? (N3on, Adin Ross: Kick streamers who pay clippers)"
+          for k in n3on adinross; do
+            curl -sS -m 20 -A "Mozilla/5.0" -o "kick_$k.json" -w "KICK $k http %{http_code}\n" "https://kick.com/api/v2/channels/$k/videos" || true
+            python -c "import json,sys
+          try:
+              d=json.load(open(sys.argv[1])); d=d if isinstance(d,list) else d.get('data',d)
+              for v in (d or [])[:6]: print('KICKVOD', sys.argv[2], v.get('created_at') or v.get('start_time'), v.get('duration'), (v.get('video') or {}).get('uuid') or v.get('uuid'), (v.get('session_title') or '')[:80])
+          except Exception as e: print('KICK', sys.argv[2], 'not json', e)" "kick_$k.json" "$k" || true
+          done
+          echo "## Second reference channel"
+          yt-dlp --flat-playlist -J "https://www.youtube.com/channel/UCxlQSBBswmNP-wFDkcFrDBw/shorts" > shorts2.json || echo '{"entries":[]}' > shorts2.json
+          python -c "import json; d=json.load(open('shorts2.json')); print('REF2', d.get('channel') or d.get('uploader') or d.get('title'), len(d.get('entries') or []), 'shorts'); [print('REF2ROW', e.get('view_count'), 'https://www.youtube.com/shorts/'+str(e.get('id')), e.get('title')) for e in sorted(d.get('entries') or [], key=lambda e: -(e.get('view_count') or 0))[:40]]"
+          echo "## Recent streams of the campaign channels"
+          for c in https://www.youtube.com/@IShowSpeed; do
+            yt-dlp --flat-playlist --playlist-end 12 --print "%(upload_date|)s %(release_timestamp|)s %(duration|)s %(url)s %(title)s" "$c/streams" || true
+            echo "## Dates of the newest streams"
+            yt-dlp --skip-download --playlist-end 5 --print "DATE %(release_date|)s %(upload_date|)s %(duration_string|)s %(webpage_url)s %(title)s" "$c/streams" || true
+          done
+          python - <<'PY'
+          import csv, json
+          rows = []
+          for kind in ("shorts", "videos"):
+              for e in (json.load(open(f"{kind}.json")).get("entries") or []):
+                  rows.append({"kind": kind, "title": e.get("title"), "views": e.get("view_count") or 0, "duration": e.get("duration"),
+                               "url": e.get("url") or f"https://www.youtube.com/shorts/{e.get('id')}", "id": e.get("id")})
+          rows.sort(key=lambda r: -int(r["views"] or 0))
+          with open("reference.csv", "w", newline="") as f:
+              w = csv.DictWriter(f, fieldnames=list(rows[0]) if rows else ["kind"]); w.writeheader(); w.writerows(rows)
+          vs = [int(r["views"] or 0) for r in rows if r["kind"] == "shorts"]
+          with open("summary.md", "w") as f:
+              f.write(f"## Reference channel: {len(rows)} uploads ({len(vs)} Shorts)\n\n")
+              if vs:
+                  s = sorted(vs); f.write(f"Shorts views: median {s[len(s)//2]:,}, top {s[-1]:,}, top 10% from {s[int(len(s)*0.9)]:,}\n\n")
+              f.write("| views | length (s) | title |\n|---|---|---|\n")
+              for r in rows[:60]:
+                  f.write(f"| {int(r['views'] or 0):,} | {r['duration'] or ''} | [{(r['title'] or '').replace('|', '/')}]({r['url']}) |\n")
+          PY
+          cat summary.md | tee -a "$GITHUB_STEP_SUMMARY"; echo; head -200 reference.csv
+      - uses: actions/upload-artifact@v4
+        with:
+          name: clips-reference
+          path: |
+            reference.csv
+            summary.md

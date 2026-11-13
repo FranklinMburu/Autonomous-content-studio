@@ -1,0 +1,3 @@
+# reference channels to profile (one id per line)
+UCdPfG6El0NYgLdSOc8LfP4Q
+UC246MWp4LuTSqBGT-rSNEWw

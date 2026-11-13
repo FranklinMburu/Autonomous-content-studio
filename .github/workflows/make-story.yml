@@ -2,9 +2,14 @@ name: Make a story video
 
 # Story style (channel: Hidden Reasons). Separate from "Make a video" (explainer style), which is unchanged.
 # Free on GitHub for public repositories. No keys needed: the script and scenes are already in the episode folder.
+run-name: "${{ inputs.request_id && format('{0} [{1}]', github.workflow, inputs.request_id) || github.event.head_commit.message || github.workflow }}"
 on:
   workflow_dispatch:
     inputs:
+      request_id:
+        description: "Set by the Studio app to follow this run (leave empty)"
+        required: false
+        default: ""
       style:
         description: "film (painted 3D-film shots on the free Kaggle GPU) or storyboard (the older 2D drawings)"
         type: choice

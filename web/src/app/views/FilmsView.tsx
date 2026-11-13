@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { workflowInfo } from '../../lib/journey';
 import { FilmStrip, Clock, ArrowRight, Play } from '@phosphor-icons/react';
 import { Chip } from '../../ui/Chip';
 import { useStudio } from '../../context/StudioContext';
@@ -31,7 +32,7 @@ export const FilmsView: React.FC<FilmsViewProps> = ({ onSelectFilm, onNavigate }
 
   // Active running run
   const activeRun = runs.find(
-    r => r.state === 'running' || r.state === 'queued' || r.state === 'in_progress'
+    r => (r.state === 'running' || r.state === 'queued' || r.state === 'in_progress') && workflowInfo(r.workflow).lane === 'HR'
   );
 
   useEffect(() => {

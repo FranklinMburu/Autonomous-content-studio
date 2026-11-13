@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { plainStep, plainJob, workflowInfo } from '../../lib/journey';
 import { CaretRight, ArrowSquareOut, Clock, ArrowLeft } from '@phosphor-icons/react';
 import { Chip } from '../../ui/Chip';
 import { useStudio } from '../../context/StudioContext';
@@ -36,7 +37,10 @@ export const RunsView: React.FC<RunsViewProps> = ({
     if (selectedRun && selectedRun.id) {
       const live = selectedRun.state === 'running' || selectedRun.state === 'queued';
       setTimelineSteps([]);
-      studio.runSteps(selectedRun.id, live).then(setTimelineSteps).catch(() => setTimelineSteps([]));
+      studio.runSteps(selectedRun.id, live).then((st: any[]) => {
+        const many = new Set(st.map(x => x.job)).size > 1;
+        setTimelineSteps(st.map(x => { const pl = plainStep(selectedRun.workflow, x.name); return pl ? { ...x, name: (many ? plainJob(x.job) + ': ' : '') + pl } : null; }).filter(Boolean));
+      }).catch(() => setTimelineSteps([]));
     }
   }, [selectedRun, studio]);
 
@@ -176,7 +180,7 @@ export const RunsView: React.FC<RunsViewProps> = ({
                 >
                   <div className="rt">
                     <b>{run.title || run.workflow}</b>
-                    <span>{run.workflow} · {run.started ? new Date(run.started).toLocaleString([], { weekday: 'short', hour: '2-digit', minute: '2-digit' }) : '—'}</span>
+                    <span>{workflowInfo(run.workflow).what} · {run.started ? new Date(run.started).toLocaleString([], { weekday: 'short', hour: '2-digit', minute: '2-digit' }) : '—'}</span>
                   </div>
                   <Segs steps={rowSteps[run.id]} state={run.state} />
                   <Chip status={run.state} />

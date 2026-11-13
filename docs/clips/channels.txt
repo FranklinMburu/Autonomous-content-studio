@@ -1,0 +1,3 @@
+# One YouTube channel per line: a channel ID (UC...) or an @handle. Lines starting with # are ignored.
+# Fill with the clip channels of the campaigns we actually join (see QUESTIONS_FOR_FRANKLIN.md Q1/Q3).
+# Left empty on purpose: no channel is listed until it is checked by hand.

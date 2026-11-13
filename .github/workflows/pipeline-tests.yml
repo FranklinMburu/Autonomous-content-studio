@@ -51,3 +51,19 @@ jobs:
       - run: pip install -q numpy pillow
       - run: cd studio/motion && npm ci --no-audit --no-fund && npx playwright install --with-deps chromium
       - run: python tests/test_motion.py
+
+  clips:
+    # Clipping engine (studio/clips): rights, chat readers, moment finder, edit list, captions sync, a real render
+    # (same inputs -> same frames) and the isolation checks. Separate job: it can't slow down or break the others.
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: |
+          sudo rm -f /var/lib/man-db/auto-update; echo '$nrconf{restart} = "l";' | sudo tee /etc/needrestart/conf.d/ci.conf > /dev/null 2>&1 || true
+          for i in 1 2; do timeout 180 sh -c 'sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg tesseract-ocr > /dev/null' && break; echo "apt try $i was slow, retrying"; done
+          pip install -q numpy pillow soundfile "opencv-python-headless==4.10.0.84"
+      - run: python tests/test_clips.py

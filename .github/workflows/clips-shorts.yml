@@ -1,0 +1,118 @@
+name: Clips, make Shorts from chosen moments
+
+# The first real product: chosen moments of a real stream -> finished, reviewed 1080x1920 Shorts.
+# One parallel job per moment (13 Nov: 6 Shorts one after another took ~25 min; in parallel ~ one Short), then one job
+# publishes them all: a GitHub pre-release for review (not YouTube) + a "Review" card per Short on the Notion Studio
+# Board. Edit lab/clips/clips_shorts.json (stream) and its moments file on the branch to choose what to make.
+on:
+  push:
+    branches: ["clips-shorts/**"]
+
+permissions:
+  contents: write
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      moments: ${{ steps.m.outputs.moments }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: m
+        run: echo "moments=$(python3 -c "import json; c=json.load(open('lab/clips/clips_shorts.json')); print(json.dumps(list(range(1, len(json.load(open(c['moments'])))+1))))")" >> $GITHUB_OUTPUT
+
+  short:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        n: ${{ fromJSON(needs.plan.outputs.moments) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: lab/clips/requirements-shorts.txt
+      - name: Speech model cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: whisper-small-en-v1
+      - name: Tools
+        run: |
+          for i in 1 2; do timeout 180 sh -c 'sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg tesseract-ocr fonts-noto-color-emoji > /dev/null' && break; done
+          pip install -q -r lab/clips/requirements-shorts.txt
+      - name: Make Short ${{ matrix.n }}
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          C=lab/clips/clips_shorts.json
+          python lab/clips/shorts.py --vod "$(jq -r .vod $C)" --streamer "$(jq -r .streamer $C)" --lane "$(jq -r .lane $C)" \
+            --stream-title "$(jq -r .stream_title $C)" --moments "$(jq -r .moments $C)" --out shorts --only ${{ matrix.n }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: short-${{ matrix.n }}
+          path: |
+            shorts/*/short.mp4
+            shorts/*/poster.jpg
+            shorts/*/post.json
+            shorts/*/clip.json
+          if-no-files-found: ignore
+
+  publish:
+    needs: short
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: shorts
+          merge-multiple: true
+      - name: Publish for review (GitHub pre-release, not YouTube)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ls -R shorts | head -40
+          python3 - <<'PY'
+          import json, glob
+          import os
+          posts = [json.load(open(p)) for p in sorted(glob.glob("shorts/*/post.json"))]
+          for p in posts:
+              p["run"] = int(os.environ["GITHUB_RUN_ID"]); p["streamer"] = json.load(open("lab/clips/clips_shorts.json"))["streamer"]
+          json.dump(posts, open("shorts/posts.json", "w"), indent=1, ensure_ascii=False)
+          print("\n== SHORTS")
+          for p in sorted(posts, key=lambda p: -(p["scores"]["overall"] or 0)):
+              print(f"{p['id']}  overall {p['scores']['overall'] or 0:.1f}  checks {p['checks_passed']}  {p['duration_s']} s  {p['layout']}  band {p['predicted_views']}\n   {p['title']}\n   hook: {p['hook']}\n   scores: "
+                    + " ".join(f"{k} {v:g}" for k, v in p["scores"].items()) + f"\n   fix: {p['fix'][:160]}")
+          PY
+          [ -s shorts/posts.json ] || { echo "no Short was made"; exit 1; }
+          tag="shorts-$(jq -r .lane lab/clips/clips_shorts.json | tr A-Z a-z)-$(date +%Y%m%d-%H%M)"
+          echo "TAG=$tag" >> $GITHUB_ENV
+          files=$(ls shorts/*/short.mp4 | while read f; do d=$(dirname $f); cp $f "$d/$(basename $d).mp4"; echo "$d/$(basename $d).mp4"; [ -f "$d/poster.jpg" ] && cp "$d/poster.jpg" "$d/$(basename $d).jpg" && echo "$d/$(basename $d).jpg"; done)
+          gh release create "$tag" --prerelease --title "Shorts for review: $tag" --notes "Made by the clipping engine for Franklin's review. Not published anywhere. Each Short's title, description, scores and before-you-post note are in posts.json." $files shorts/posts.json
+      - name: Cards on the Studio Board (Review)
+        continue-on-error: true
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: |
+          python - <<'PY'
+          import json, os, subprocess
+          posts = json.load(open("shorts/posts.json")); tag = os.environ["TAG"]; repo = os.environ["GITHUB_REPOSITORY"]
+          cfg = json.load(open("lab/clips/clips_shorts.json"))
+          for p in posts:
+              s = p["scores"]
+              ok = p.get("reviewed", True) and s["overall"] is not None
+              why = (f"Reviewer: overall {s['overall']:g}/10, checks {p['checks_passed']}. Scores: " + ", ".join(f"{k} {v:g}" for k, v in s.items())
+                     + f". Fix next: {p['fix']}") if ok else "Not reviewed by the AI (its free quota ran out). Watch it and decide."
+              subprocess.run(["python", "-m", "studio.clips.board", "add", "--lane", cfg["lane"], "--title", p["title"], "--stage", "Review" if (not ok or s["overall"] >= 6) else "Skipped",
+                              "--video-id", p["id"], "--who", cfg["streamer"], "--why", why[:1900],
+                              "--source", f"{p['source']['vod']}?t={int(p['source']['start'])}s",
+                              "--clip-file", f"https://github.com/{repo}/releases/download/{tag}/{p['id']}.mp4",
+                              *(["--score", str(s["overall"]), "--views-band", p["predicted_views"]] if ok else []), "--note", p["before_you_post"][:1900]], check=False)
+          PY

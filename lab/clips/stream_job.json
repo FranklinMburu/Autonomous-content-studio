@@ -1,0 +1,9 @@
+{
+ "platform": "kick",
+ "slug": "n3on",
+ "uuid": "",
+ "streamer": "N3on",
+ "lane": "SC",
+ "top": 12,
+ "fmt": "b[height<=1080]/b"
+}

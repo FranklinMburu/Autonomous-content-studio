@@ -1,0 +1,184 @@
+name: Clips recall test (proof stage)
+
+# Proof stage (docs/clips/PROMPT.md §3.4): can the finder catch the moments that really went viral?
+# Step 1, reconnaissance: what each platform gives for the answer key (fan clips -> which VOD, which second).
+on:
+  push:
+    branches: ["clips-recall/**"]
+
+permissions:
+  contents: read
+  actions: read
+
+env:
+  REUSE_RUN: "43358915880"   # an earlier run whose transcript, chat and AI eyes are reused; "" = redo
+  REJUDGE: "1"               # judge again: real winners as anchors + the crew/cameraman class (13 Nov)
+  KEY_RUN: "43327666336"     # the run whose answer key still had all 10 fan clips (they age out of Twitch's 30-day list)
+
+jobs:
+  recon:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Answer keys (both streams)
+        run: |
+          pip install -q "yt-dlp==2026.10.26"
+          mkdir -p key
+          python - <<'PY'
+          import json, time, urllib.request, datetime as dt, subprocess
+          from collections import Counter
+          UA={"User-Agent":"Mozilla/5.0"}
+          def get(u):
+              for i in range(4):
+                  try: return json.load(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=30))
+                  except Exception as e: err=e; time.sleep(3)
+              raise err
+          vods = []
+          for page in range(1, 6):
+              d = get(f"https://kick.com/api/v2/channels/n3on/videos?page={page}"); d = d if isinstance(d, list) else d.get("data", d)
+              if not d: break
+              vods += d
+          clips, cursor = [], None
+          for page in range(20):
+              d = get("https://kick.com/api/v2/channels/n3on/clips?sort=view&time=all" + (f"&cursor={cursor}" if cursor else ""))
+              clips += d.get("clips", []); cursor = d.get("nextCursor")
+              if not cursor: break
+          cnt = Counter(str(c["livestream_id"]) for c in clips)
+          byid = {str(v["id"]): v for v in vods}
+          print("KICK vods", len(vods), "clips", len(clips))
+          for lid, n in cnt.most_common(15):
+              v = byid.get(lid)
+              print("CAND", lid, n, "clips", (round(v["duration"]/3.6e6, 1), v["start_time"], v["session_title"][:60]) if v else "no VOD listed")
+          # best candidate: most clips with a VOD of 1.5-8 h
+          best = max((lid for lid in cnt if lid in byid and 1.5 <= byid[lid]["duration"]/3.6e6 <= 8), key=lambda l: cnt[l], default=None)
+          if best:
+              v = byid[best]; start = dt.datetime.fromisoformat(v["start_time"].replace(" ", "T")).replace(tzinfo=dt.timezone.utc)
+              key = sorted(({"views": c["views"], "offset": round((dt.datetime.fromisoformat(c["created_at"].replace("Z", "+00:00")) - start).total_seconds() - c["duration"]),
+                             "duration": c["duration"], "title": c["title"], "url": c["clip_url"]} for c in clips if str(c["livestream_id"]) == best), key=lambda k: -k["views"])
+              print("PICK_KICK", best, round(v["duration"]/3.6e6, 2), "h", v["session_title"], "source:", (v.get("source") or "")[:120])
+              for k in key: print("KEY_KICK", k["views"], k["offset"], k["duration"], k["title"][:70])
+              json.dump({"vod": {"id": best, "source": v.get("source"), "start": v["start_time"], "duration": v["duration"]/1000, "title": v["session_title"]}, "key": key}, open("key/kick.json", "w"), indent=1)
+          # Twitch: Kai Cenat Japan nightlife VOD and its clips (30 days)
+          vt = json.loads(subprocess.run(["yt-dlp", "-J", "--skip-download", "https://www.twitch.tv/videos/2910392998"], capture_output=True, text=True).stdout)
+          t0, tdur = vt["timestamp"], vt["duration"]
+          urls = subprocess.run(["yt-dlp", "--flat-playlist", "--playlist-end", "100", "--print", "%(url)s", "https://www.twitch.tv/kaicenat/clips?filter=clips&range=30d"], capture_output=True, text=True).stdout.split()
+          key = []
+          for u in urls:
+              d = json.loads(subprocess.run(["yt-dlp", "-J", "--skip-download", u], capture_output=True, text=True).stdout or "{}")
+              ts = d.get("timestamp") or 0
+              if t0 <= ts <= t0 + tdur + 600:
+                  key.append({"views": d.get("view_count"), "offset": round(ts - t0 - (d.get("duration") or 30)), "duration": d.get("duration"), "title": d.get("title"), "url": u})
+          key.sort(key=lambda k: -(k["views"] or 0))
+          print("TW clips in 30d", len(urls), "for Japan VOD", len(key))
+          for k in key: print("KEY_TW", k["views"], k["offset"], k["duration"], (k["title"] or "")[:70])
+          json.dump({"vod": {"url": "https://www.twitch.tv/videos/2910392998", "start": t0, "duration": tdur, "title": vt.get("title")}, "key": key}, open("key/twitch.json", "w"), indent=1)
+          PY
+      - uses: actions/checkout@v4
+        with:
+          path: repo
+      - name: Reuse an earlier transcript
+        if: env.REUSE_RUN != ''
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: recall-key
+          path: prev
+          run-id: ${{ env.REUSE_RUN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Fuller answer key from an earlier run
+        if: env.KEY_RUN != ''
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: recall-key
+          path: prev0
+          run-id: ${{ env.KEY_RUN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Kick chat replay test (clipit's method, no key)
+        continue-on-error: true
+        run: |
+          python - <<'PY'
+          import json, subprocess
+          v = json.load(open("key/kick.json"))["vod"]
+          subprocess.run(["python", "repo/lab/clips/kick_chat.py", "--slug", "n3on", "--start", v["start"].replace(" ", "T") + ("" if "Z" in v["start"] or "+" in v["start"] else "Z"),
+                          "--duration", str(v["duration"]), "--out", "key/kick_chat.json"], timeout=900)
+          c = json.load(open("key/kick_chat.json"))
+          print("first:", c[:3]); print("last:", c[-2:])
+          PY
+      - name: Chat replay (TwitchDownloaderCLI, open source; Franklin approved 13 Nov)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          c=$(find prev -name chat.json 2>/dev/null | head -1)
+          if [ -n "$c" ] && [ -s "$c" ]; then cp "$c" key/chat.json; echo "chat reused from run $REUSE_RUN"; exit 0; fi
+          mkdir -p tdl && gh release download -R lay295/TwitchDownloader -p "TwitchDownloaderCLI-*-Linux-x64.zip" -D tdl
+          ls tdl; (cd tdl && unzip -q -o ./*.zip && chmod +x TwitchDownloaderCLI)
+          vid=$(python -c "import json; print(json.load(open('key/twitch.json'))['vod']['url'].rstrip('/').split('/')[-1])")
+          s0=$(date +%s); ./tdl/TwitchDownloaderCLI chatdownload --id "$vid" -o key/chat.json --collision Overwrite > tdl/log.txt 2>&1 || tail -5 tdl/log.txt
+          echo "chat $(( $(date +%s)-s0 )) s"
+          python -c "import json; c=json.load(open('key/chat.json'))['comments']; print('chat messages', len(c), 'last at', c[-1]['content_offset_seconds'] if c else None)"
+      - name: Media (audio only + 160p, whole stream) and transcript
+        run: |
+          sudo apt-get install -y -qq ffmpeg > /dev/null 2>&1
+          pip install -q "numpy>=1.26" "opencv-python-headless==4.10.0.84" "faster-whisper==1.2.1"
+          v=$(python -c "import json; print(json.load(open('key/twitch.json'))['vod']['url'])")
+          s0=$(date +%s); yt-dlp -q -f "Audio_Only" -o key/audio.m4a "$v"; echo "audio $(( $(date +%s)-s0 )) s"; ls -la key/audio.m4a
+          s0=$(date +%s); yt-dlp -q -f "160p/worst" -o key/low.mp4 "$v"; echo "160p $(( $(date +%s)-s0 )) s"; ls -la key/low.mp4
+          # chat: chat-downloader 0.2.8 is broken for Twitch VODs (KeyError 'data', 13 Nov 2026); a working tool is a separate task
+          ls -R prev 2>/dev/null | head; w=$(find prev -name words.json 2>/dev/null | head -1)
+          if [ -n "$w" ] && [ -s "$w" ]; then cp "$w" key/words.json; echo "transcript reused from run $REUSE_RUN"; exit 0; fi
+          echo "== transcript"; s0=$(date +%s)
+          python - <<'PY'
+          import json, subprocess, numpy as np
+          from faster_whisper import WhisperModel
+          # decode with ffmpeg ourselves (PyAV in this runner rejects faster-whisper's open() arguments)
+          pcm = subprocess.run(["ffmpeg", "-v", "error", "-i", "key/audio.m4a", "-ac", "1", "-ar", "16000", "-f", "s16le", "-"], capture_output=True).stdout
+          audio = np.frombuffer(pcm, np.int16).astype(np.float32) / 32768
+          m = WhisperModel("base", device="cpu", compute_type="int8")
+          segs, info = m.transcribe(audio, word_timestamps=True, vad_filter=True)
+          words = [{"w": w.word.strip(), "start": round(w.start, 2), "end": round(w.end, 2)} for s in segs for w in (s.words or [])]
+          json.dump({"words": words, "language": info.language}, open("key/words.json", "w"))
+          print("words", len(words), "language", info.language)
+          PY
+          echo "transcript $(( $(date +%s)-s0 )) s"
+      - name: Exact answer key (match each fan clip's sound to the stream)
+        run: |
+          # fan clips age out of Twitch's 30-day list: keep the fuller key from an earlier run when it has more clips
+          p=$(find prev0 -name twitch.json 2>/dev/null | head -1)
+          if [ -n "$p" ] && python -c "import json,sys; sys.exit(0 if len(json.load(open('$p'))['key']) > len(json.load(open('key/twitch.json'))['key']) else 1)"; then cp "$p" key/twitch.json; echo "answer key: reusing the fuller key from run $KEY_RUN"; fi
+          mkdir -p key/clipaudio
+          python -c "import json; [print(i, k['url']) for i, k in enumerate(json.load(open('key/twitch.json'))['key'])]" | while read i u; do
+            yt-dlp -q -f "worst" -x --audio-format m4a -o "key/clipaudio/$i.%(ext)s" "$u" || echo "clip $i not downloaded"
+          done
+          ls key/clipaudio
+          python repo/lab/clips/align.py --key key/twitch.json --audio key/audio.m4a --clips-dir key/clipaudio
+      - name: AI eyes (Gemini on one low-res frame every 4 s)
+        continue-on-error: true
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          e=$(find prev -name eyes.json 2>/dev/null | head -1)
+          if [ -n "$e" ] && [ -s "$e" ]; then cp "$e" key/eyes.json; echo "eyes reused from run $REUSE_RUN"; python repo/lab/clips/ai_pass.py show --eyes key/eyes.json; exit 0; fi
+          python repo/lab/clips/ai_pass.py probe --video key/low.mp4
+          s0=$(date +%s); python repo/lab/clips/ai_pass.py eyes --video key/low.mp4 --out key/eyes.json --step 6 --batch 100 --pause 7
+          echo "eyes $(( $(date +%s)-s0 )) s"
+          python repo/lab/clips/ai_pass.py show --eyes key/eyes.json
+      - name: Recall test (signals, then the AI judge)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          cd repo
+          A="--key ../key/twitch.json --audio ../key/audio.m4a --video ../key/low.mp4 --words ../key/words.json --chat ../key/chat.json --eyes ../key/eyes.json --top 20"
+          python lab/clips/recall.py $A --cands-out ../key/cands.json --out ../key/recall_signals.json
+          j=$(find ../prev -name judged.json 2>/dev/null | head -1)
+          if [ -n "$j" ] && [ -s "$j" ] && [ -z "$REJUDGE" ]; then cp "$j" ../key/judged.json; echo "judge scores reused from run $REUSE_RUN"; else python lab/clips/ai_pass.py judge --cands ../key/cands.json --words ../key/words.json --eyes ../key/eyes.json --video ../key/low.mp4 --audio ../key/audio.m4a --streamer "Kai Cenat" --out ../key/judged.json --pause 5 || true; fi
+          echo "================ WITH THE AI JUDGE ================"
+          python lab/clips/recall.py $A --judged ../key/judged.json --out ../key/recall_twitch.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: recall-key
+          path: key/*.json
