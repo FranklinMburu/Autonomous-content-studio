@@ -51,6 +51,19 @@ New finds worth judging: Drake on the phone (~0:36:48), fan from Uzbekistan (2:2
 
 Run 2 (43331217075, commit f8f4cdd): exact key + AI eyes + AI judge. Read its log for the table.
 
+## 13 Nov 04:00–04:35 Nairobi
+
+- Open-source research, 2 rounds (`docs/clips/OSS_RESEARCH.md`). Closest project: **clipit** (MIT). Copied as-is into
+  `third_party/` (clipit, ClippyMe, Hooky) at Franklin's request.
+- Franklin approved TwitchDownloaderCLI for Twitch chat on GitHub (in `clips-recall.yml`).
+- Judge upgrades: ClippyMe gate and rubric, Hooky global ranking, and it now **watches and hears** a 90 s low-res
+  clip of each candidate (SliceQ/clipit lesson).
+- `lab/clips/kick_chat.py`: Kick VOD chat with no key (clipit's reader), tested in the recall run.
+- A background watcher pushes `clips-engine` to `clips-recall/1` (run 3) when run 2 (43331217075) ends. If the
+  session restarted, check: `gh api "repos/FranklinMburu/Autonomous-content-studio/actions/runs?branch=clips-recall/1&per_page=3"`.
+- Next after run 3: port clipit's veto reviewer (7 checks on the finished clip) and "who's hot today"; benchmark:
+  clipit's own finder caught 20 of 38 good clips on 10 Kick VODs.
+
 ## Next step, exactly
 
 1. Pick 2 real streams: a recent Kai Cenat Twitch VOD (`clips-probe` listed `https://www.twitch.tv/videos/2924282282`
