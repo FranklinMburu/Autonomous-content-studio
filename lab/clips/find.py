@@ -14,6 +14,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 UA = {"User-Agent": "Mozilla/5.0"}
+GAMBLING = ("slots", "casino", "gambl", "stake.com", "jack.com", "roobet", "rollbit", "jackpot", "bonus buy", "poker", "blackjack", "roulette")
 
 
 def get(u, raw=False):
@@ -39,10 +40,30 @@ def resolve(a):
             vods += d
         if not vods:
             sys.exit(f"no Kick VODs for {a.slug}")
-        vods.sort(key=lambda v: v.get("start_time") or "", reverse=True)
-        for v in vods[:5]:
-            print(f"  VOD {v.get('start_time')} {v['duration']/3.6e6:.1f} h  {(v.get('video') or {}).get('uuid')}  {(v.get('session_title') or '')[:60]}")
-        v = next((v for v in vods if a.uuid and a.uuid in json.dumps(v)), None) if a.uuid else vods[0]
+        uniq = {}
+        for v in vods:                       # Kick ignores ?page= (13 Nov: the same VODs came back on every page)
+            uniq.setdefault((v.get("video") or {}).get("uuid") or v.get("id"), v)
+        vods = sorted(uniq.values(), key=lambda v: v.get("start_time") or "", reverse=True)
+
+        def cats(v):
+            return ", ".join(c.get("name", "") for c in (v.get("categories") or []) if isinstance(c, dict))
+
+        def why_not(v):                      # 13 Nov: "newest" picked a 1.4 h casino-sponsored slots stream
+            text = f"{v.get('session_title') or ''} {cats(v)}".lower()
+            if any(w in text for w in GAMBLING):
+                return "gambling"
+            if v["duration"] / 3.6e6 < a.min_hours:
+                return f"shorter than {a.min_hours} h"
+            return ""
+        for v in vods[:8]:
+            print(f"  VOD {v.get('start_time')} {v['duration']/3.6e6:.1f} h  {(v.get('video') or {}).get('uuid')}  "
+                  f"{(v.get('session_title') or '')[:50]!r} [{cats(v)}] {why_not(v) and 'SKIP: ' + why_not(v)}")
+        if a.uuid:
+            v = next((v for v in vods if a.uuid in json.dumps(v)), None)
+        else:
+            v = next((v for v in vods if not why_not(v)), None)
+            if not v:
+                sys.exit(f"no recent {a.slug} VOD passes the niche filter (no gambling, at least {a.min_hours} h)")
         if not v:
             sys.exit(f"VOD {a.uuid} not in {a.slug}'s list ({len(vods)} VODs)")
         uuid = a.uuid or (v.get("video") or {}).get("uuid") or ""
@@ -103,6 +124,17 @@ def subs(a):
     print(f"subtitles: {len(segs)} files, {len(cues)} cues, {len(words)} words, last at {words[-1]['start']/3600:.2f} h")
 
 
+STOP = set("the a an and of on in at to his her after was got by with for moment n3on kai cenat shocked realized humbled exposed no way live stream".split())
+
+
+def same_story(t1, t2):
+    """13 Nov: three of twelve picks were the same 'won an award' moment. Titles sharing most of their content words
+    tell the same story: keep only the best one."""
+    w = lambda t: {x.rstrip("s") for x in re.findall(r"[a-z0-9$]+", t.lower()) if x not in STOP and len(x) > 2}  # noqa: E731
+    a_, b_ = w(t1), w(t2)
+    return bool(a_ and b_) and len(a_ & b_) / min(len(a_), len(b_)) >= 0.5
+
+
 def pick(a):
     judged = json.loads(Path(a.judged).read_text())["judged"]
     ok = []
@@ -116,7 +148,7 @@ def pick(a):
     for sc, t, m in ok:
         if sc < a.min_score or len(keep) >= a.top:
             break
-        if all(abs(t - k["t"]) >= a.gap for k in keep):
+        if all(abs(t - k["t"]) >= a.gap for k in keep) and not any(same_story(m.get("title") or "", k["title"]) for k in keep):
             keep.append({"t": int(t), "title": m.get("title") or "", "why": f"judge {m.get('score_alone', sc)}; {m.get('kind') or ''}: {(m.get('why') or '')[:200]}",
                          "score": round(sc, 2)})
     Path(a.out).write_text(json.dumps(keep, indent=1, ensure_ascii=False))
@@ -129,7 +161,7 @@ def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     r = sub.add_parser("resolve"); r.add_argument("--platform", choices=("kick", "twitch"), required=True)
-    r.add_argument("--slug"); r.add_argument("--uuid"); r.add_argument("--url"); r.add_argument("--out", required=True)
+    r.add_argument("--slug"); r.add_argument("--uuid"); r.add_argument("--url"); r.add_argument("--min-hours", type=float, default=1.5); r.add_argument("--out", required=True)
     s = sub.add_parser("subs"); s.add_argument("--stream", required=True); s.add_argument("--out", required=True)
     p = sub.add_parser("pick"); p.add_argument("--judged", required=True); p.add_argument("--out", required=True)
     p.add_argument("--top", type=int, default=12); p.add_argument("--gap", type=float, default=60); p.add_argument("--min-score", type=float, default=0)
