@@ -88,6 +88,19 @@ def release():
                                "body": "Short sections downloaded by the laptop helper for the clipping pipeline. Not for publishing."}).encode())
 
 
+def ffmpeg_dir():
+    """Where ffmpeg is: on PATH, or winget's links folder (PATH changes don't always reach scheduled tasks)."""
+    import shutil
+    found = shutil.which("ffmpeg")
+    if found:
+        return str(Path(found).parent)
+    for cand in (Path(os.environ.get("LOCALAPPDATA", "")) / "Microsoft" / "WinGet" / "Links",
+                 *sorted((Path(os.environ.get("LOCALAPPDATA", "")) / "Microsoft" / "WinGet" / "Packages").glob("Gyan.FFmpeg*/*/bin"))):
+        if (cand / "ffmpeg.exe").exists():
+            return str(cand)
+    return None
+
+
 def download(r):
     OUT.mkdir(parents=True, exist_ok=True)
     f = OUT / f"{r['id']}.mp4"
@@ -97,6 +110,9 @@ def download(r):
            "-f", "bv*[height<=1080]+ba/b[height<=1080]/b", "--merge-output-format", "mp4",
            "--download-sections", f"*{r['start']:.2f}-{r['end']:.2f}", "--force-keyframes-at-cuts",
            "-o", str(f), r["url"]]
+    loc = ffmpeg_dir()
+    if loc:
+        cmd[3:3] = ["--ffmpeg-location", loc]
     p = subprocess.run(cmd, capture_output=True, text=True, timeout=900)
     if p.returncode or not f.exists():
         raise RuntimeError((p.stderr or p.stdout).strip()[-300:])

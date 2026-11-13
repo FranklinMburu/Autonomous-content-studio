@@ -32,7 +32,7 @@ if (-not (Get-Command ffmpeg -ErrorAction SilentlyContinue)) {
     else { throw "ffmpeg is needed. Run this again when you want to install it." }
     Write-Host "If 'ffmpeg' is still not found below, close and reopen PowerShell, then run setup again."
 }
-ffmpeg -version | Select-Object -First 1
+$ff = (Get-Command ffmpeg -ErrorAction SilentlyContinue).Source; if (-not $ff) { $ff = Join-Path $env:LOCALAPPDATA "Microsoft\WinGet\Links\ffmpeg.exe" }; if (Test-Path $ff) { & $ff -version | Select-Object -First 1 } else { throw "ffmpeg not found yet: close PowerShell, open a new one, run setup again." }
 
 Write-Host "== 4/5 GitHub token (you type it; it stays on this laptop)"
 New-Item -ItemType Directory -Force -Path $Home2 | Out-Null
