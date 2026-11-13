@@ -39,8 +39,6 @@ jobs:
         run: |
           python -m studio.clips.board picks --lane SC --file hot_streamers.json --top 5
           python -m studio.clips.board picks --lane WC --file hot_world.json --top 5
-      - name: LivestreamFail page shape (debug, for the parser)
-        run: curl -sL -A "Mozilla/5.0" https://livestreamfail.tv/clips/today | grep -o '"[a-zA-Z_]*\(roadcaster\|iew\)[a-zA-Z_]*"' | sort | uniq -c | head -20
       - uses: actions/upload-artifact@v4
         with:
           name: hot

@@ -175,12 +175,30 @@ def kick_day():
 
 
 def lsf_today():
-    """LivestreamFail.tv's clips of today: (streamer login lowercased, title, views)."""
-    page = get("https://livestreamfail.tv/clips/today", as_json=False) or ""
+    """Today's top LivestreamFail posts: (streamer login lowercased, title, upvotes). 13 Nov 2026: livestreamfail.tv
+    embeds no clip data any more, so this reads the same community on Reddit (r/LivestreamFail, top of the day): its
+    JSON, else its RSS feed. Post titles start with the streamer ("N3on | ...", "xQc - ...", "[Kai Cenat] ...")."""
     out = []
-    # the page embeds its clips as JSON in a Next.js data script; fall back to nothing if the format changes
-    for m in re.finditer(r'"broadcaster(?:_name|Name|Login|_login)"\s*:\s*"([^"]+)".{0,400}?"title"\s*:\s*"([^"]*)".{0,400}?"view(?:_count|Count|s)"\s*:\s*(\d+)', page, re.S):
-        out.append((m.group(1).lower(), html.unescape(m.group(2)), int(m.group(3))))
+    d = get("https://www.reddit.com/r/LivestreamFail/top.json?t=day&limit=50")
+    posts = [c["data"] for c in ((d or {}).get("data") or {}).get("children", []) if isinstance(c, dict) and "data" in c]
+    if posts:
+        rows = [(p.get("title", ""), int(p.get("score") or 0)) for p in posts]
+        print(f"  livestreamfail (reddit json): {len(rows)} posts")
+    else:
+        rows = []
+        page = get("https://www.reddit.com/r/LivestreamFail/top/.rss?t=day&limit=50", as_json=False) or ""
+        try:
+            ns = {"a": "http://www.w3.org/2005/Atom"}
+            for e in ET.fromstring(page).findall("a:entry", ns):
+                rows.append(((e.findtext("a:title", "", ns) or ""), 0))
+        except ET.ParseError:
+            pass
+        print(f"  livestreamfail (reddit rss): {len(rows)} posts")
+    for title, ups in rows:
+        t = html.unescape(title).strip()
+        m = re.match(r"^\[([A-Za-z0-9_ .]{2,25})\]\s*(.+)$", t) or re.match(r"^([A-Za-z0-9_ .]{2,25}?)\s*(?:\||-|:|\u2013)\s*(.+)$", t)
+        if m:
+            out.append((m.group(1).strip().lower().replace(" ", ""), m.group(2).strip(), ups))
     return out
 
 
