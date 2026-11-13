@@ -48,6 +48,8 @@ PLAN_RULES = """VISUAL PLAN: give EVERY spoken line exactly one scene, in order 
 - stat_wall {value:number, suffix?, caption, sub?, source, rows?:[[id,text,tag] x<=14], wall_title?}: a big number over a wall of records.
 - badges_intro {}: wide shot before a set of badges.  - badge {code, label, tone:"ok"|"bad"|"warn"}: one badge slams in.
 - cta_terminal {prompt, result?, title?}: the action typed into the AI tool.  - file_tree {files:[[name,note,tone] x<=5], code?:[lines]}.
+- headline_build {keywords?:[x<=3]}: the spoken line itself builds word by word as a big headline, keywords in the accent
+  colour and underlined. For a line that IS the message (a hook, a turn, a promise): no picture beats the words.
 - big_word {text, sub?}  - bullets {items:[x<=4]}: plain fallbacks when nothing else fits.
 - end_card {series?, title, next?}: always the last line.
 Order rules: diagram_link before door/packet/question/badge/data_card; question before key_fly and leak.

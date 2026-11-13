@@ -21,6 +21,7 @@ export interface StudioContextValue {
   shorts: any[];
   board: any[] | null;
   hot: any;
+  radar: any;
   motionVideos: any[];
   labVideos: any[];
   feedBuilt: string | null;
@@ -59,6 +60,7 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [shorts, setShorts] = useState<any[]>([]);
   const [board, setBoard] = useState<any[] | null>(null);
   const [hot, setHot] = useState<any>(null);
+  const [radar, setRadar] = useState<any>(null);
   const [motionVideos, setMotionVideos] = useState<any[]>([]);
   const [labVideos, setLabVideos] = useState<any[]>([]);
   const [feedBuilt, setFeedBuilt] = useState<string | null>(null);
@@ -193,6 +195,7 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       studio.shorts().then(setShorts).catch(() => {});
       studio.board().then(setBoard).catch(() => {});
       studio.hot().then(setHot).catch(() => {});
+      studio.techRadar().then(setRadar).catch(() => {});
       studio.motionVideos().then(setMotionVideos).catch(() => {});
       studio.labVideos().then(setLabVideos).catch(() => {});
       studio.feedInfo().then(f => setFeedBuilt(f ? f.built : null)).catch(() => {});
@@ -244,6 +247,7 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       shorts,
       board,
       hot,
+      radar,
       motionVideos,
       labVideos,
       feedBuilt,
@@ -278,6 +282,7 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       shorts,
       board,
       hot,
+      radar,
       motionVideos,
       labVideos,
       feedBuilt,

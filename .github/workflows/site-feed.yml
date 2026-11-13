@@ -12,7 +12,9 @@ on:
     workflows: ["Make a story video", "Polish return (paste Claude's answer)", "Review reply (approve or repaint)",
                 "Story schedule", "Pipeline 3: produce", "Pipeline 1: draft", "Make a motion video (Tech Education)",
                 "Clips, a fresh stream to Shorts (find -> make -> review)", "Clips, make Shorts from chosen moments",
-                "Clips, who's hot today", "Studio action (from the Studio app)", "Film queue (make accepted polishes into videos)"]
+                "Clips, who's hot today", "Studio action (from the Studio app)", "Film queue (make accepted polishes into videos)",
+                "Website (GitHub Pages)", "Tech radar (what Tech Education should make next)", "Clips, review Shorts again",
+                "Clips, World Clips Shorts (needs the laptop on)"]   # 13 Nov: after a site update the data must follow its new code
     types: [completed]
   issues:
     types: [opened, closed, reopened, labeled, unlabeled]

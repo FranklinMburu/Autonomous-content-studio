@@ -63,6 +63,14 @@ try {
   }
 } catch (e) { console.log("lab: " + e.message); }
 
+// Tech radar (release tech-radar): ranked topics for Tech Education
+let radar = null;
+try {
+  const r = (await s.releases()).find(r => r.tag === "tech-radar");
+  const a = r && r.assets.find(x => x.name === "tech_radar.json");
+  if (a) { const x = await realFetch(a.url); if (x.ok) { const d = await x.json(); radar = { built: d.built, topics: d.topics || [] }; } }
+} catch (e) { console.log("radar: " + e.message); }
+
 // The Notion Studio Board (read with the NOTION_TOKEN secret; the token never goes into the file)
 const NOTION = process.env.NOTION_TOKEN || "";
 const BOARD_DB = process.env.STUDIO_BOARD_DB || "654c7f0514f0448f8c8e79752c604dbc";
@@ -121,7 +129,7 @@ const prune = v => Array.isArray(v) ? v.map(prune) : v && typeof v === "object"
   ? Object.fromEntries(Object.entries(v).filter(([k]) => !DROP.has(k) && !(k.endsWith("_url") && !KEEP_URL.has(k)) && k !== "url").map(([k, x]) => [k, prune(x)]))
   : v;
 for (const k of Object.keys(responses)) responses[k] = prune(responses[k]);
-const feed = { built: new Date().toISOString(), note: "Built by the Site feed workflow. Public data only.", responses, memory, clips, hot, board, mirror, lab };
+const feed = { built: new Date().toISOString(), note: "Built by the Site feed workflow. Public data only.", responses, memory, clips, hot, board, mirror, lab, radar };
 writeFileSync(out, JSON.stringify(feed));
 writeFileSync("mirror.json", JSON.stringify(mirror));
 console.log(`clips releases ${Object.keys(clips).length}, hot ${hot ? "yes" : "no"}, board ${board ? board.length + " cards" : "not read"}, mirror ${mirror.length} (${mirror.filter(m => m.changed).length} changed)`);

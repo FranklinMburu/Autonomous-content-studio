@@ -89,11 +89,22 @@ def main():
                 ec[max(0, i - 4):i + 5] = np.maximum(ec[max(0, i - 4):i + 5], m["score"])
         fams["AI eyes (vision on low-res frames)"] = ec
     fams["ALL TOGETHER"] = sum(np.clip(v if not k.startswith("AI eyes") else (v - 5), -2, 6) for k, v in fams.items())
+    # HighlightMiner's idea (scoring.py): a bonus when independent families fire together (13 Nov 2026, measured here
+    # side by side with ALL TOGETHER before it replaces anything)
+    fire = []
+    for k, v in fams.items():
+        if k == "ALL TOGETHER":
+            continue
+        x = (v - 5) if k.startswith("AI eyes") else v
+        hit = (x > (1.5 if not k.startswith("AI eyes") else 2)).astype(float)
+        fire.append(np.convolve(hit, np.ones(9), "same") > 0)       # fired within +-4 s
+    together = np.sum(fire, axis=0) if fire else np.zeros(n)
+    fams["ALL + AGREEMENT BONUS"] = fams["ALL TOGETHER"] + 1.5 * (together >= 2) + 1.5 * (together >= 3)
     if a.cands_out:
         # signals are for RECALL, the judge for PRECISION: the judge sees what ANY signal flags, not only the fused top
-        pool = list(peaks(fams["ALL TOGETHER"], 30))
+        pool = list(peaks(fams["ALL TOGETHER"], 30)) + list(peaks(fams["ALL + AGREEMENT BONUS"], 20))
         for name, sc in fams.items():
-            if name != "ALL TOGETHER":
+            if not name.startswith("ALL"):
                 pool += peaks(sc, 12)
         pool += [int(m["t"]) for m in sorted(eyes, key=lambda m: -m["score"]) if m["score"] >= 7][:40]
         cands = []

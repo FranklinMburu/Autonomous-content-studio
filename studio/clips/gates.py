@@ -23,7 +23,8 @@ def text_in_safe_zone(clip, bar):
     st, z = clip["style"], bar["ui_safe"]
     y = st.get("y_by_layout", {}).get(clip["layout"]["kind"], st["y"])
     cap_ok = z["top"] <= y <= z["bottom"] and z["top"] <= st.get("y_focus", y) <= z["bottom"] and st["safe_x"][0] >= z["left"] and st["safe_x"][1] <= z["right"]
-    hook_ok = z["top"] <= st.get("hook_y_by_layout", {}).get(clip["layout"]["kind"], st.get("hook_y", 0.17)) <= z["bottom"]
+    # a style may set its own top limit for the title box: the measured winners hold it at ~0.115 (bar.json ui_safe)
+    hook_ok = st.get("hook_zone_top", z["top"]) <= st.get("hook_y_by_layout", {}).get(clip["layout"]["kind"], st.get("hook_y", 0.17)) <= z["bottom"]
     return cap_ok and hook_ok
 
 

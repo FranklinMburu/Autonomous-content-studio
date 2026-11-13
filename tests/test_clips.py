@@ -161,7 +161,7 @@ def test_isolated():
             if ("studio.clips" in p.read_text(encoding="utf-8", errors="ignore") or "studio/clips" in p.read_text(encoding="utf-8", errors="ignore"))]
     engine_wf = lambda h: h.startswith(".github/workflows/") and (h.endswith("make-clips.yml") or "/clips-" in h)  # noqa: E731  the engine's own workflows
     # the Studio app's two control workflows use only the board module (studio.clips.board) on purpose (13 Nov 2026)
-    app_wf = {".github/workflows/studio-action.yml", ".github/workflows/site-feed.yml"}
+    app_wf = {".github/workflows/studio-action.yml", ".github/workflows/site-feed.yml", ".github/workflows/tech-radar.yml"}
     hits = [h for h in hits if not h.startswith("studio/clips/") and h != ".github/workflows/pipeline-tests.yml" and not engine_wf(h) and h not in app_wf]
     check(hits == [], f"nothing outside the clipping engine uses it {hits}")
     for p in (ROOT / "studio" / "clips").glob("*.py"):

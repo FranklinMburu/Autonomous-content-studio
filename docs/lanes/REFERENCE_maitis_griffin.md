@@ -65,5 +65,15 @@ the laptop helper: 5 sections, 12 min in total), not from articles. Frames were 
 3. **Titles and topics:** Maitis wins on "FREE alternative to paid X / China gives it away"; Griffin on "tool X for
    designers / ban the AI look". Our honest angle: a $0 builder showing a real working system.
 4. **Loudness target for long-form:** -14 to -16 LUFS, range under 4 LU.
-5. **Still to measure:** speech rate and voice (transcribe the sections), lip-sync quality of the Maitis presenter
-   (consecutive-frame close-ups), and the full retention structure of one whole video (chapters, re-hooks).
+5. **Measured on 13 Nov (afternoon):**
+   - **Speech** (Whisper on the sections): Maitis 153–176 words a minute, 20–26 pauses a minute (median 0.56 s),
+     8.5–12 words per sentence: a calm, pause-rich storyteller. Griffin 208–224 words a minute, ~15 pauses a minute
+     (0.42–0.46 s), 13–17 words per sentence: fast and conversational. Our TE voice (~155 wpm) sits at Maitis' pace.
+   - **Maitis presenter, 16 consecutive frames at 25 fps (0:39):** natural mouth shapes (pucker, open, teeth, smile),
+     sharp teeth identical frame to frame, stable freckles, natural squints: no lip-sync artefacts. Either a real person
+     or an avatar beyond any open model we can run at $0. Our plan stands: a real consenting person filmed once, short
+     MuseTalk inserts.
+   - **Still to measure:** the full retention structure of one whole video (chapters, re-hooks).
+6. **Built from this (PR #107):** the `headline_build` scene (the spoken line builds word by word as a big headline,
+   keywords in the accent colour), and the tech radar, which reads these two channels (and 20 more) every run to see
+   which video is beating its usual views right now.

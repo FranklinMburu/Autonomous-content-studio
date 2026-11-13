@@ -19,7 +19,8 @@ def sh(*a, cwd=None):
 
 
 def request(a):
-    assert URL_OK.match(a.url) and 0 <= a.start < a.end and a.end - a.start <= 600, "bad request"
+    info = getattr(a, "kind", "section") == "info"
+    assert URL_OK.match(a.url) and (info or (0 <= a.start < a.end and a.end - a.start <= 600)), "bad request"
     tok = os.environ["GITHUB_TOKEN"]
     d = Path(tempfile.mkdtemp())
     remote = f"https://x-access-token:{tok}@github.com/{REPO}.git"
@@ -31,17 +32,18 @@ def request(a):
     f = d / "youtube_requests.json"
     data = json.loads(f.read_text()) if f.exists() else {"requests": []}
     if not any(r["id"] == a.id for r in data["requests"]):
-        data["requests"].append({"id": a.id, "url": a.url, "start": a.start, "end": a.end, "asked": int(time.time())})
+        data["requests"].append({"id": a.id, "url": a.url, "kind": "info", "asked": int(time.time())} if info else
+                                {"id": a.id, "url": a.url, "start": a.start, "end": a.end, "asked": int(time.time())})
     data["requests"] = data["requests"][-200:]
     f.write_text(json.dumps(data, indent=1))
     sh("git", "add", "youtube_requests.json", cwd=d)
     sh("git", "-c", "user.name=clips-bot", "-c", "user.email=clips-bot@users.noreply.github.com", "commit", "-q", "-m", f"request {a.id}", cwd=d)
     sh("git", "push", "-q", "origin", "clips-jobs", cwd=d)
-    print(f"requested {a.id}: {a.url} {a.start}-{a.end} s")
+    print(f"requested {a.id}: {a.url}" + (" (details)" if info else f" {a.start}-{a.end} s"))
 
 
 def fetch(a):
-    url = f"https://github.com/{REPO}/releases/download/yt-sections/{a.id}.mp4"
+    url = f"https://github.com/{REPO}/releases/download/yt-sections/{getattr(a, 'name', None) or a.id + '.mp4'}"
     t0 = time.time()
     while True:
         try:
@@ -59,9 +61,10 @@ def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     r = sub.add_parser("request"); r.add_argument("--id", required=True); r.add_argument("--url", required=True)
-    r.add_argument("--start", type=float, required=True); r.add_argument("--end", type=float, required=True)
+    r.add_argument("--start", type=float, default=0); r.add_argument("--end", type=float, default=0)
+    r.add_argument("--kind", choices=("section", "info"), default="section")
     f = sub.add_parser("fetch"); f.add_argument("--id", required=True); f.add_argument("--out", required=True)
-    f.add_argument("--wait", type=int, default=1800)
+    f.add_argument("--wait", type=int, default=1800); f.add_argument("--name", help="file name on the release (default <id>.mp4)")
     a = ap.parse_args()
     {"request": request, "fetch": fetch}[a.cmd](a)
 

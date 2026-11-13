@@ -65,15 +65,17 @@ def requests_list():
         raise
     good = []
     for r in d.get("requests", []) if isinstance(d, dict) else []:
+        kind = r.get("kind", "section") if isinstance(r, dict) else "section"
         try:
-            rid, url, a, b = str(r["id"]), str(r["url"]), float(r["start"]), float(r["end"])
+            rid, url = str(r["id"]), str(r["url"])
+            a, b = (0.0, 1.0) if kind == "info" else (float(r["start"]), float(r["end"]))
         except (KeyError, TypeError, ValueError):
             log(f"skipped a malformed request: {str(r)[:120]}")
             continue
-        if not (ID_OK.match(rid) and URL_OK.match(url) and 0 <= a < b and b - a <= MAX_SECTION):
+        if kind not in ("section", "info") or not (ID_OK.match(rid) and URL_OK.match(url) and 0 <= a < b and b - a <= MAX_SECTION):
             log(f"skipped request {rid[:40]!r}: failed the safety checks")
             continue
-        good.append({"id": rid, "url": url, "start": a, "end": b})
+        good.append({"id": rid, "url": url, "start": a, "end": b, "kind": kind})
     return good
 
 
@@ -119,12 +121,38 @@ def download(r):
     return f
 
 
+def info(r):
+    """The video's public details, no video: title, length, chapters, YouTube's "most replayed" heatmap, and the English
+    auto-subtitles (json3). Small files; the cloud uses them to choose which minutes to ask for."""
+    OUT.mkdir(parents=True, exist_ok=True)
+    base = OUT / r["id"]
+    cmd = [sys.executable, "-m", "yt_dlp", "--no-playlist", "--no-cookies-from-browser", "-q", "--no-warnings", "--skip-download",
+           "--write-auto-subs", "--write-subs", "--sub-langs", "en.*,en", "--sub-format", "json3", "--dump-single-json",
+           "-o", str(base) + ".%(ext)s", r["url"]]
+    p = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
+    if p.returncode or not p.stdout.strip():
+        raise RuntimeError((p.stderr or p.stdout).strip()[-300:])
+    d = json.loads(p.stdout)
+    keep = {k: d.get(k) for k in ("id", "title", "channel", "duration", "view_count", "upload_date", "chapters", "heatmap", "description")}
+    keep["description"] = (keep.get("description") or "")[:2000]
+    f = OUT / f"{r['id']}.info.json"
+    f.write_text(json.dumps(keep))
+    files = [f]
+    subs = sorted(OUT.glob(f"{r['id']}*.json3"))
+    if subs:
+        s = OUT / f"{r['id']}.en.json3"
+        if subs[0] != s:
+            subs[0].replace(s)
+        files.append(s)
+    return files
+
+
 def upload(rel, f):
     for a in rel.get("assets", []):
         if a["name"] == f.name:
             api("DELETE", a["url"])
     up = rel["upload_url"].split("{")[0] + f"?name={f.name}"
-    api("POST", up, f.read_bytes(), {"Content-Type": "video/mp4"})
+    api("POST", up, f.read_bytes(), {"Content-Type": "video/mp4" if f.suffix == ".mp4" else "application/json"})
 
 
 def main():
@@ -137,18 +165,20 @@ def main():
     log(f"{len(todo)} section(s) requested")
     if check:
         for r in todo:
-            print(f"  would download {r['id']}: {r['url']} {r['start']:.0f}-{r['end']:.0f} s")
+            print(f"  would {'read the details of' if r['kind'] == 'info' else 'download'} {r['id']}: {r['url']}" + ("" if r["kind"] == "info" else f" {r['start']:.0f}-{r['end']:.0f} s"))
         return
     rel = release()
     for r in todo:
         try:
             t0 = time.time()
-            f = download(r)
-            upload(rel, f)
+            files = info(r) if r["kind"] == "info" else [download(r)]
+            for f in files:
+                upload(rel, f)
             done.add(r["id"])
             STATE.write_text(json.dumps(sorted(done)))
-            log(f"done {r['id']}: {f.stat().st_size/1e6:.1f} MB in {time.time()-t0:.0f} s")
-            f.unlink()
+            log(f"done {r['id']} ({r['kind']}): {sum(f.stat().st_size for f in files)/1e6:.1f} MB in {time.time()-t0:.0f} s")
+            for f in files:
+                f.unlink()
         except Exception as e:  # noqa: BLE001  one failed section must not stop the others
             log(f"FAILED {r['id']}: {e}")
 

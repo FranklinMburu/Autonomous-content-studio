@@ -22,11 +22,13 @@ export const MakeView: React.FC<{ onNavigate: (r: string) => void }> = ({ onNavi
   const src = q.get('src') || '';
   const kickFromSrc = (src.match(/kick\.com\/([A-Za-z0-9_-]+)/) || [])[1] || '';
   const [hrTopic, setHrTopic] = useState('');
-  const [teTopic, setTeTopic] = useState('');
+  const [teTopic, setTeTopic] = useState(lane === 'TE' ? q.get('topic') || '' : '');
   const [platform, setPlatform] = useState<'kick' | 'twitch'>(/twitch\.tv/.test(src) ? 'twitch' : 'kick');
   const [channel, setChannel] = useState(platform === 'twitch' ? src : kickFromSrc);
   const [streamer, setStreamer] = useState(q.get('who') || kickFromSrc);
   const [top, setTop] = useState('8');
+  const [wcStories, setWcStories] = useState('2');
+  const [wcPer, setWcPer] = useState('2');
   const busy = (wf: string) => tasks.some(t => t.workflow === wf && !t.finished);
   const next = topics.find((t: string) => !isTopicMade(t));
   const scOk = streamer.trim().length > 0 && (platform === 'kick' ? /^[A-Za-z0-9_-]{2,40}$/.test(channel.trim()) : /^https:\/\/(www\.)?twitch\.tv\/videos\/\d+/.test(channel.trim()));
@@ -85,8 +87,16 @@ export const MakeView: React.FC<{ onNavigate: (r: string) => void }> = ({ onNavi
         </Card>
 
         <Card id="mk-WC" icon={<Globe size={22} weight="duotone" />} lane="WC" title="World Clips Shorts"
-          text={<>Not startable yet, honestly: this lane picks stories today (see <button className="lnk" onClick={() => onNavigate('/app/c/WC?tab=ideas')}>its picks</button>), and its Shorts maker is being connected to your laptop helper, which downloads from YouTube from your home connection.</>}>
-          <p className="fine"><Laptop size={13} /> When it is connected, this card starts it, and it will say when your laptop needs to be on.</p>
+          text={<>Takes today's world picks (see <button className="lnk" onClick={() => onNavigate('/app/c/WC?tab=ideas')}>the picks</button>), finds the moments viewers replay most, and makes a Short of each.</>}
+          time="Needs your laptop ON with the helper: YouTube blocks cloud servers, so your laptop downloads only the needed minutes (it checks every 10 minutes). About 40-70 minutes in all.">
+          <div className="form">
+            <label>Stories<select value={wcStories} onChange={e => setWcStories(e.target.value)}>{['1', '2', '3', '4', '5'].map(n => <option key={n}>{n}</option>)}</select></label>
+            <label>Shorts per story<select value={wcPer} onChange={e => setWcPer(e.target.value)}>{['1', '2', '3', '4'].map(n => <option key={n}>{n}</option>)}</select></label>
+          </div>
+          <ActButton variant="pri" disabled={busy('clips-world.yml')} onRun={() => start(`World Clips: ${wcStories} stories, ${wcPer} Shorts each`, 'clips-world.yml',
+            { stories: wcStories, per_story: wcPer }, { next: 'The Shorts are on your board in Review (World Clips).', target: '/app/c/WC?tab=videos' })}>
+            {busy('clips-world.yml') ? 'Making World Clips…' : 'Make World Clips Shorts'}</ActButton>
+          <p className="fine"><Laptop size={13} /> Laptop off? The run waits up to about 50 minutes for it, then stops and says so.</p>
         </Card>
 
         <Card icon={<ArrowsClockwise size={22} weight="duotone" />} title="Refresh what the app shows"

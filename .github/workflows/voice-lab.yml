@@ -6,11 +6,21 @@ name: Voice lab (blind test of free voices)
 # rates blind; the key (which letter is which engine) is a separate workflow artifact, opened only after rating.
 # Models come from Hugging Face and are cached by Actions (not stored in the repo). Free: public repo, CPU runner.
 on:
+  push:
+    branches: ["voice-lab/**"]   # settings from lab/voice_job.json
   workflow_dispatch:
     inputs:
       episode:
         description: "Episode folder whose script.json is read"
         default: "episodes/hidden_reasons/003-why-joseph-lister-sprayed-carbolic-acid-"
+      kokoro_voice:
+        description: "Optional: the Kokoro voice to compare against (e.g. am_fenrir, a channel's locked voice); empty = the story voice"
+        required: false
+        default: ""
+      voice_design:
+        description: "Optional: the voice to design for VoxCPM2 / Qwen3-TTS, in words"
+        required: false
+        default: ""
 
 permissions:
   contents: write   # to publish the samples as a pre-release
@@ -21,13 +31,22 @@ jobs:
     timeout-minutes: 150
     env:
       GH_TOKEN: ${{ github.token }}
-      SCRIPT: ${{ github.event.inputs.episode }}/script.json
+
       HF_HOME: ${{ github.workspace }}/hf
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: The job (the Run form, or lab/voice_job.json for a push)
+        env:
+          E: ${{ github.event.inputs.episode }}
+          K: ${{ github.event.inputs.kokoro_voice }}
+          V: ${{ github.event.inputs.voice_design }}
+        run: |
+          if [ "${{ github.event_name }}" = push ]; then E=$(jq -r .episode lab/voice_job.json); K=$(jq -r .kokoro_voice lab/voice_job.json); V=$(jq -r .voice_design lab/voice_job.json); fi
+          [ -f "$E/script.json" ] || { echo "no script at $E"; exit 1; }
+          { echo "SCRIPT=$E/script.json"; echo "KV=$K"; echo "LAB_VOICE_DESIGN=$V"; echo "EPISODE=$E"; } >> "$GITHUB_ENV"
       - name: System tools
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg libcairo2-dev pkg-config espeak-ng > /dev/null
       - name: Cache the models
@@ -42,6 +61,7 @@ jobs:
         run: |
           pip install -q -r requirements.txt
           python -m studio setup
+          [ -n "$KV" ] && export LAB_KOKORO_VOICE="$KV" LAB_KOKORO_SPEED=1.0
           python tools/voice_lab.py kokoro "$SCRIPT" out
 
       - name: Chatterbox (MIT)
@@ -60,6 +80,16 @@ jobs:
           pip install -q --extra-index-url https://download.pytorch.org/whl/cpu torch torchaudio
           pip install -q voxcpm soundfile
           time python tools/voice_lab.py voxcpm "$SCRIPT" out
+
+      - name: Qwen3-TTS 1.7B (Apache-2.0, designed voice, then cloned)
+        continue-on-error: true
+        timeout-minutes: 90
+        run: |
+          python -m venv /tmp/qw && . /tmp/qw/bin/activate
+          pip install -q --extra-index-url https://download.pytorch.org/whl/cpu torch torchaudio
+          pip install -q qwen-tts==0.1.1 soundfile
+          [ -z "$LAB_VOICE_DESIGN" ] && unset LAB_VOICE_DESIGN
+          time python tools/voice_lab.py qwen3 "$SCRIPT" out
 
       - name: Measure every voice (naturalness, clarity, liveliness)
         continue-on-error: true
@@ -90,7 +120,7 @@ jobs:
         run: |
           tag="voice-lab-${{ github.run_number }}"
           gh release create "$tag" out/sample_*.mp3 --prerelease --title "Voice lab ${{ github.run_number }}: blind test" \
-            --notes "Same script ($(basename "${{ github.event.inputs.episode }}")), read by different free voice engines, in random order.
+            --notes "Same script ($(basename "$EPISODE")), read by different free voice engines, in random order.
           Listen to each sample, then rate it 1-5 (and say which you'd use for the channel). The key is in this run's
           'blind-key' artifact: don't open it before rating. Samples are levelled to the same loudness and length."
           echo "Samples: https://github.com/${{ github.repository }}/releases/tag/$tag" >> "$GITHUB_STEP_SUMMARY"

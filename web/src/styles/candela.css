@@ -752,3 +752,11 @@ a.btn{text-decoration:none!important}
 @media(max-width:1000px){.lch-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.lch{padding:72px 16px 48px}.lch-t{font-size:34px}.lch-p{font-size:15px}.lch-grid{gap:10px}.lch-b{padding:10px 12px 12px}.lch-b b{font-size:14px}}
 .chstats .txt b{font-size:14px;font-weight:600;line-height:1.35}
+
+/* tech radar */
+.radar{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:10px}
+.rt{padding:14px;border-radius:14px;background:var(--s1);box-shadow:0 0 0 1px var(--line) inset;display:flex;flex-direction:column;gap:7px;font-size:13.5px;line-height:1.5}
+.rt-h{display:flex;align-items:center;gap:8px}.rt-h b{flex:1;font-size:14.5px}
+.rt-titles{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:3px;color:var(--tx)}
+.rt .btn{align-self:flex-start;margin-top:4px}
+@media(max-width:640px){.radar{grid-template-columns:1fr}}

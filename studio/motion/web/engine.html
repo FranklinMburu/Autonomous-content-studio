@@ -160,7 +160,7 @@ const dof = (x, y, z, amt = 1) => LK.dof * amt * clamp(Math.abs(depth(x, y, z) -
 const cam = (o, dx, dy, dz, yaw, pitch, D, P = 900, roll = 0) => ({ x: o.x + dx, y: o.y + dy, z: o.z + dz, yaw, pitch, roll, D, P });
 
 // ============================================================ captions
-let groups = [], lastG = -1, KEYW = null;
+let groups = [], lastG = -1, KEYW = null, HEADLINE_LINES = new Set();
 function buildCaptions() {
   const disp = Object.entries(S.display || {}).map(([k, v]) => [k.split(/\s+/), v]);
   KEYW = new Set((S.key_words || []).map(norm));
@@ -180,6 +180,7 @@ function buildCaptions() {
 function captions(t) {
   let gi = -1; for (let i = 0; i < groups.length; i++) if (groups[i].toks[0].s - 0.05 <= t) gi = i;
   const cap = $("cap");
+  if (gi >= 0 && HEADLINE_LINES.has(groups[gi].li)) { cap.innerHTML = ""; lastG = -2; return; }
   if (gi !== lastG) {
     cap.innerHTML = gi < 0 ? "" : `<div>${groups[gi].toks.map(k => { const bare = k.w.replace(/[,.:?!]$/, ""); return `<span class="${KEYW.has(norm(bare)) ? "k" : ""}">${esc(k.w.replace(/[,:]$/, ""))}</span>`; }).join(" ")}</div>`;
     lastG = gi;
@@ -192,7 +193,7 @@ function captions(t) {
 
 // ============================================================ the plan -> scenes on a timeline, sets in space
 const SET_OF = { hook_orbit: "hook", settings_field: "hook", stat_floor: "stat", stat_wall: "wall", cta_terminal: "cta", file_tree: "cta",
-  end_card: "end", big_word: "free", bullets: "free",
+  end_card: "end", big_word: "free", bullets: "free", headline_build: "free",
   // worlds: each is one picture that grows across consecutive lines (a table filling up, a timeline, a chat...)
   table_grid: "w_table", timeline: "w_time", flow_steps: "w_flow", browser_page: "w_web", chat_thread: "w_chat",
   bar_chart: "w_chart", phone_screen: "w_phone", stack_layers: "w_stack" };
@@ -201,6 +202,7 @@ const STORY_TYPES = ["laptop_prompt", "app_window", "diagram_link", "door", "pac
 const POS = {};
 function layout() {
   SC = P.scenes.map((s, i) => ({ ...s, i, p: s.p || {}, t0: L[s.line], set: SET_OF[s.type] || "story" }));
+  HEADLINE_LINES = new Set(SC.filter(s => s.type === "headline_build").map(s => s.line));
   SC.forEach((s, i) => { s.t1 = i + 1 < SC.length ? SC[i + 1].t0 : DUR; });
   // each new set gets its own place in the world, further along the path (x varies with the seed)
   let z = 0, n = 0;
@@ -266,6 +268,12 @@ const BUILD = {
     mk("ea" + s.i, `<div class="lbl" style="color:var(--acc);font-size:15px;width:420px;text-align:center">${esc(s.p.series || "")}</div>`);
     mk("eb" + s.i, `<div style="font:850 ${String(s.p.title).length > 26 ? 52 : 66}px/1.03 Inter;letter-spacing:-.045em;text-align:center;width:520px">${esc(s.p.title)}</div>`);
     mk("ec" + s.i, `<div style="display:flex;flex-direction:column;align-items:center;gap:22px;width:420px"><div style="font:500 18px Inter;color:var(--tx3)">${s.p.next ? "Next: " + esc(s.p.next) : ""}</div><div class="fl" style="background:var(--inv,var(--tx));color:var(--invTx,#111);border-radius:999px;padding:15px 36px;font:750 20px Inter">Follow</div></div>`);
+  },
+  headline_build(s) {   // 13 Nov 2026: the narration IS the picture (measured on Maitis): one big headline, word by word
+    const kw = new Set([...(s.p.keywords || []), ...(S.key_words || [])].flatMap(k => String(k).split(/\s+/)).map(norm));
+    const ws = WD[s.line] || [], n = ws.length, px = n > 14 ? 40 : n > 9 ? 46 : 54;
+    mk("hb" + s.i, `<div style="width:520px;text-align:center;font:850 ${px}px/1.1 Inter;letter-spacing:-.04em;color:var(--tx)">${ws.map(w =>
+      `<span class="hw${kw.has(norm(w.w)) ? " k" : ""}" style="display:inline-block;margin:0 .14em;position:relative;opacity:0${kw.has(norm(w.w)) ? ";color:var(--acc)" : ""}">${esc(w.w)}${kw.has(norm(w.w)) ? '<i style="position:absolute;left:0;right:0;bottom:-.06em;height:.07em;border-radius:9px;background:var(--acc);transform-origin:left;transform:scaleX(0)"></i>' : ""}</span>`).join("")}</div>`);
   },
   big_word(s) { mk("bw" + s.i, `<div style="text-align:center;width:520px"><div style="font:900 ${String(s.p.text).length > 9 ? 70 : 104}px/1 Inter;letter-spacing:-.05em;color:var(--tx);text-shadow:0 0 50px rgba(var(--accRGB),.35)">${esc(s.p.text)}</div><div style="font:600 22px/1.3 Inter;color:var(--acc);margin-top:14px">${esc(s.p.sub || "")}</div></div>`); },
   bullets(s) { (s.p.items || []).slice(0, 4).forEach((x, j) => mk(`bl${s.i}_${j}`, `<div class="card" style="width:440px;padding:18px 22px;display:flex;gap:16px;align-items:center"><div style="width:40px;height:40px;border-radius:12px;background:rgba(var(--accRGB),.16);color:var(--acc);font:800 20px Inter;display:flex;align-items:center;justify-content:center">${j + 1}</div><div style="font:650 20px/1.3 Inter">${esc(x)}</div></div>`)); },
@@ -357,6 +365,7 @@ function direct() {
       case "cta_terminal": go(0.25, cam(o, 0, -90, 0, -12 * sg, 4, 900)); key(t1, cam(o, 0, 10, 0, 8 * sg, 6, 1010));   // 12 Nov: further back, the panels were cut off at the edge cue(t0 - 0.3, "swoosh_big"); { const n = Math.min(50, String(s.p.prompt || "").length); for (let j = 0; j < n; j++) cue(lerp(t0 + 0.6, t1 - 0.2, j / n), "key", 0.3); } break;
       case "file_tree": go(0.2, cam(o, 0, 10, 0, 8 * sg, 6, 1010)); key(lerp(t0, t1, 0.5), cam(o, 0, 120, -40, 3 * sg, 8, 1010, 940, 1)); key(t1 - 0.25, cam(o, 0, 120, -40, -3 * sg, 4, 980, 920)); cue(t1 - 0.3, "ding"); break;
       case "end_card": go(0.6, cam(o, 0, 0, 0, -16 * sg, 2, 1000)); key(DUR + 1, cam(o, 0, 0, 0, 8 * sg, 2, 900)); cue(t0 - 0.3, "swoosh_big"); cue(t0 + 0.2, "impact", 0.6); break;
+      case "headline_build": go(0.2, cam(o, 0, -20, 0, 8 * sg, 2, 1120)); key(t1, cam(o, 0, -20, 0, -5 * sg, 1, 1040)); cue(t0 - 0.2, "whoosh", 0.5); break;
       case "big_word": go(0.1, cam(o, 0, -40, 0, 20 * sg, 4, 900)); key(t1, cam(o, 0, -40, 0, -6 * sg, 2, 820)); cue(t0 - 0.2, "swoosh_big"); cue(t0 + 0.1, "slam", 0.6); break;
       case "bullets": go(0.3, cam(o, 0, 0, 0, -10 * sg, 4, 980)); key(t1, cam(o, 0, 0, 0, 10 * sg, 4, 940)); (s.p.items || []).forEach((_, j) => cue(t0 + 0.2 + j * ((t1 - t0 - 0.4) / Math.max(1, (s.p.items || []).length)), "pop")); break;
     }
@@ -592,6 +601,16 @@ const RENDER = {
     put("eb" + s.i, on * clamp((t - s.t0 - 0.1) * 4), o.x, o.y - 70, o.z + lerp(-300, 0, e2), 0, lerp(-40, 0, e2));
     put("ec" + s.i, on * clamp((t - s.t0 - 0.35) * 4), o.x, o.y + 120 + (1 - e3) * 40, o.z);
     q("ec" + s.i, ".fl").style.transform = `scale(${1 + 0.07 * Math.max(0, Math.sin((t - s.t0) * 5)) * ramp(t, s.t0 + 0.5, .2)})`;
+  },
+  headline_build(t, s, o, v) {
+    put("hb" + s.i, win(t, s.t0 - 0.15, s.t1 - 0.05, .2, .3), o.x, o.y - 20, o.z);
+    const ws = WD[s.line] || [];
+    OBJ["hb" + s.i].querySelectorAll(".hw").forEach((e, j) => {
+      const a = (ws[j] ? ws[j].start : s.t0) - 0.04, k = spring((t - a) / 0.32);
+      e.style.opacity = clamp((t - a) / 0.12).toFixed(3);
+      e.style.transform = `translateY(${((1 - k) * 26).toFixed(1)}px)`;
+      const u = e.querySelector("i"); if (u) u.style.transform = `scaleX(${spring((t - a - 0.15) / 0.4).toFixed(3)})`;
+    });
   },
   big_word(t, s, o, v) { const k = spring((t - s.t0 + 0.05) / 0.6); put("bw" + s.i, win(t, s.t0 - 0.1, s.t1 - 0.1, .2, .3), o.x, o.y - 40, o.z + lerp(500, 0, k), lerp(-30, 0, k) * ST.sign, 0, 0, lerp(1.3, 1, k)); },
   bullets(t, s, o, v) { const n = (s.p.items || []).length; (s.p.items || []).slice(0, 4).forEach((_, j) => { const a = s.t0 + 0.2 + j * ((s.t1 - s.t0 - 0.4) / Math.max(1, n)), k = spring((t - a) / 0.6);

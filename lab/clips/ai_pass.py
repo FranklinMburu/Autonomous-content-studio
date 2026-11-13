@@ -32,7 +32,11 @@ Real winners to compare against (views on @Kick_Clippers):
 - 8.3M "IShowSpeed was SHOCKED seeing how hard his cameraman worked and got REHIRED"
 - 7.2M "IShowSpeed made his production team quit their game so he could sit down"
 - 7.8M "IShowSpeed runs into a Messi fan in Senegal"
-The channel's MEDIAN Short gets 21K: generic reactions, calm chatting, small talk with fans."""
+The channel's MEDIAN Short gets 21K: generic reactions, calm chatting, small talk with fans.
+The owner's own picks (moments he approved, 13 Nov 2026): Kai Cenat humbled by a sumo wrestler; a fan asking Kai to sign
+a picture of him pregnant; muscle girls slapping Kai at a bar; Kai hitting his cameraman, who quits on the spot; Kai meeting
+NIGO and getting rare BAPE; Kai running into a Nigerian in Japan. He skipped: watching an awards show on a screen,
+gambling and slots, talking about stream settings, calm walk-ups and small talk."""
 
 
 RUBRIC = """Judge each MOMENT (what was said and seen around it) like this. Adapted from ClippyMe (MIT), tuned to clip channels.
