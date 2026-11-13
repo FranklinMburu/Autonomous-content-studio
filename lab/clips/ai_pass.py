@@ -23,6 +23,18 @@ a funny or awkward reaction anyone understands with the sound off. Titles: "The 
 about nothing, reading donations, gameplay without a reaction."""
 
 
+RUBRIC = """Judge each MOMENT (what was said and seen around it) like this. Adapted from ClippyMe (MIT), tuned to clip channels.
+GATE first: a moment is a clip only if it hits at least one HARD: an unexpected turn (a reveal, someone appears, a
+pattern break); strong emotion (instant laugh, shock, rage, secondhand embarrassment, tears); conflict or drama; a
+money/flex or celebrity moment. Pleasant, on-topic or merely loud is NOT a clip: score it 0-3.
+Then score 0-10 = how likely a Short cut from it reaches 250K+ views, weighing: hook (the payoff can open the Short
+in the first second), emotional payoff (the reaction lands on screen), quotability, self-contained (needs no setup
+from earlier), density (no dead air). The reaction beat is part of the clip. Be harsh: most moments are 2-5.
+Never name who speaks unless the name is said; the streamer may be named as the subject.
+Title: the clip-channel formula, exaggerate the framing but never invent the event, leave the payoff unread.
+Return JSON list of {"t", "score" 0-10, "kind", "title", "why" one sentence citing the hook or quote}."""
+
+
 def key():
     k = os.environ.get("GEMINI_API_KEY")
     if not k:
@@ -105,15 +117,29 @@ def judge(a):
             said = " ".join(w["w"] for w in words if t - 60 <= w["start"] <= t + 30)[:900]
             saw = "; ".join(f"{m['t']:.0f}s {m['what']}" for m in seen if t - 60 <= m["t"] <= t + 30)[:500]
             blocks.append(f"MOMENT t={t}\nSAID (t-60..t+30): {said or '-'}\nSEEN: {saw or '-'}")
-        prompt = (f"You are the best clip-channel editor alive. {TASTE}\nFor each moment below, decide how likely a Short "
-                  "cut from it reaches 250K+ views. Return JSON list of {\"t\", \"score\" 0-10, \"kind\", \"title\" in the "
-                  "winning formula, \"why\" one sentence}. Be harsh: most moments are 2-5.\n\n" + "\n\n".join(blocks))
+        prompt = f"You are the best clip-channel editor alive. {TASTE}\n{RUBRIC}\n\n" + "\n\n".join(blocks)
         r = call(model, [{"text": prompt}]) or []
         for m in r if isinstance(r, list) else r.get("moments", []):
             if isinstance(m, dict) and "t" in m:
                 out.append({k: m.get(k) for k in ("t", "score", "kind", "title", "why")})
         print(f"[judge] {min(len(cands), i + 8)}/{len(cands)}", flush=True)
         time.sleep(a.pause)
+    # Global ranking pass (Hooky): the model orders the best candidates against each other, which is steadier than
+    # separate 0-10 scores. The rank becomes the final score; the per-moment score stays as "score_alone".
+    top = sorted([m for m in out if isinstance(m.get("score"), (int, float))], key=lambda m: -m["score"])[:30]
+    if len(top) > 3:
+        ev = [{"i": i, "t": m["t"], "kind": m.get("kind"), "title": m.get("title"), "why": m.get("why")} for i, m in enumerate(top)]
+        r = call(model, [{"text": f"{TASTE}\nThese are the strongest candidate moments of one stream. Order ALL of them from most "
+                                  "to least likely to reach 250K+ views as a Short. Return JSON: a list of the \"i\" values, best "
+                                  "first, no invented values.\n" + json.dumps(ev)}]) or []
+        order = [x for x in (r if isinstance(r, list) else r.get("order", [])) if isinstance(x, int) and 0 <= x < len(top)]
+        seen_i = set()
+        order = [x for x in order if not (x in seen_i or seen_i.add(x))]
+        order += [i for i in range(len(top)) if i not in seen_i]
+        for rank, i in enumerate(order):
+            top[i]["score_alone"] = top[i]["score"]
+            top[i]["score"] = round(10 - 7 * rank / max(1, len(order) - 1), 2)   # best 10 ... last of the top 30: 3
+        print("[judge] global ranking:", " ".join(str(top[i]["t"]) for i in order[:10]))
     Path(a.out).write_text(json.dumps({"model": model, "judged": out}, indent=1))
 
 
