@@ -1,0 +1,65 @@
+name: Voice lab, AI listening panel
+
+# Rates the blind samples of a voice-lab release with free Gemini models that can listen (several blind rounds,
+# labels shuffled), and only THEN opens the key and writes the verdict with engine names. Adds ai_verdict.md to the
+# release. A recommendation only: the TE voice is locked in the TE channel settings and changes with Franklin's yes.
+run-name: "${{ inputs.request_id && format('{0} [{1}]', github.workflow, inputs.request_id) || github.event.head_commit.message || github.workflow }}"
+on:
+  push:
+    branches: ["voice-judge/**"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Voice-lab release (voice-lab-N), or empty for the newest"
+        required: false
+        default: ""
+      request_id:
+        description: "Set by the Studio app to follow this run (leave empty)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  judge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      GH_TOKEN: ${{ github.token }}
+      R: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Which samples
+        env:
+          TAG_IN: ${{ inputs.tag }}
+        run: |
+          sudo apt-get install -y -qq ffmpeg >/dev/null
+          tag="$TAG_IN"
+          [ -n "$tag" ] || tag=$(gh api "repos/$R/releases?per_page=50" -q '[.[]|select(.tag_name|startswith("voice-lab-"))][0].tag_name')
+          case "$tag" in voice-lab-[0-9]*) ;; *) echo "not a voice-lab release: $tag"; exit 1;; esac
+          echo "TAG=$tag" >> "$GITHUB_ENV"
+          mkdir -p samples && gh release download "$tag" -R "$R" -p 'sample_*.mp3' -D samples && ls -la samples
+
+      - name: Blind rating by the AI panel (no key yet)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          E=$(python -c "import json;print(json.load(open('lab/voice_job.json'))['episode'])")
+          python tools/voice_judge.py rate --dir samples --script "$E/script.json" --out verdict.json
+
+      - name: Open the key and write the verdict
+        run: |
+          n="${TAG#voice-lab-}"
+          id=$(gh api "repos/$R/actions/workflows/voice-lab.yml/runs?per_page=50" -q ".workflow_runs[]|select(.run_number==$n)|.id" | head -1)
+          [ -n "$id" ] || { echo "no voice-lab run number $n"; exit 1; }
+          gh run download "$id" -R "$R" -n blind-key -D key
+          python tools/voice_judge.py reveal --verdict verdict.json --key key/blind_key.json --scores key/scores.json --out ai_verdict.md
+          cat ai_verdict.md >> "$GITHUB_STEP_SUMMARY"
+          cp verdict.json ai_verdict.json
+          gh release upload "$TAG" -R "$R" ai_verdict.md ai_verdict.json --clobber
