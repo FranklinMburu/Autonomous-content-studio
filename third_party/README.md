@@ -6,6 +6,7 @@ Nothing here is imported or run yet. Read `docs/clips/OSS_RESEARCH.md` for what 
 | Folder | Source | Commit | Licence |
 |---|---|---|---|
 | `clippyme/` | https://github.com/fralapo/clippyme (`src/clippyme/...`) | 00b2f3a9d2b0cca8a77e7a51bc002f026d46d7ce | MIT (`clippyme/LICENSE`) |
+| `clipit/` | https://github.com/EJaredMejia/clipit (`clipit/...`, README) | 6e8c2075eb2ba9ff636c3b300ca3fe9053178c5f | MIT (`clipit/LICENSE`) |
 | `hooky/` | https://github.com/pranav256/Hooky (`hooky/core/...`) | 7a6fbabd5614b8c2680140257642fa7e6b93cf1f | MIT (`hooky/LICENSE`) |
 
 What was copied:
@@ -17,3 +18,5 @@ What was copied:
 - hooky/highlights.py: chunked candidates, global ranking pass, sentence-boundary snapping. hooky/subtitles.py.
 
 When porting, imports must change (`clippyme.*` → our paths) and the original licence notice stays with the code.
+- clipit (the closest project to ours: Twitch + Kick streams → Shorts): audio + chat moments, Kick VOD chat history,
+  viewer clips first, 'who's hot today' search, picker prompt, the vision veto reviewer, facecam layout, YouTube upload.

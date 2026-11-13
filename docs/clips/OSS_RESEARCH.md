@@ -3,7 +3,48 @@
 17 repos cloned and read (scratch copies, not vendored). Question: has anyone done better than us at
 "stream in → viral Shorts out", and what can we take?
 
-## Verdict
+## Round 2 (Franklin pushed back: "no way no one has thought about this"; he was right)
+
+Round 1 searched English GitHub only. Round 2 added China's livestream-slicing industry (直播切片), clip-farm bots and
+2025–26 papers; 11 more repos cloned. **It found a project close to ours:**
+
+**clipit** (github.com/EJaredMejia/clipit, MIT, updated 12 Nov 2026): Twitch and Kick VODs → 9:16 Shorts. Read in full:
+- Finds moments from loudness plus lag-corrected, hype-weighted chat (`moments.py`): a simpler finder than ours, with
+  no vision over the whole stream and no recall test.
+- **Kick VOD chat with no key:** `web.kick.com/api/v1/chat/<channel_id>/history?cursor=<µs>`, sampled in parallel and
+  then read closer around loud spots (`kick.py`). Our Kick blocker, solved.
+- **Viewer clips first:** "a moment strangers already chose beats any spike".
+- **Who to clip today:** ranks Twitch/Kick streamers by the views on their clips in the last day, plus a web search of
+  LivestreamFail, X and TikTok for what just happened (`HOT_PROMPT`).
+- **A picker prompt written for our niche** (Kai Cenat is in its examples): peak second, at most 20 s before and 6 s
+  after it, cold open, named streamer + strong verb + specific, scoring that rewards conflict, cops, fights, rage bait
+  and open doubts.
+- **A veto reviewer that watches the finished clip** (contact sheets at 2 frames per second plus the words) against 7
+  pass/fail checks (hook, tension, real, share, minors, honest, webcam), and re-cuts the peak and end. A clip posts
+  only if every check passes. Their note: the picker once gave an 8 to a 49 s argument over a shared Photoshop screen.
+- Facecam detection (webcam stacked above gameplay), YouTube upload through the official API, a keep/skip dashboard.
+
+Others in round 2:
+- **SliceQ** (MIT): two stages. Cheap text screening cuts hours to dozens of windows, then a multimodal model
+  (Qwen-Omni) *watches and listens to the actual video* of each window. Lesson for us: our judge should get each
+  candidate's low-res video and audio, not just the words.
+- **BiliLiveCut** (MIT, Bilibili VTuber slicing): a hotspot detector fusing danmaku, audio, speech and trends; and
+  **threshold learning**: every human approve/reject is stored, and the cut-off becomes the 15th percentile of approved
+  scores. Lesson: learn from Franklin's keep/skip, later from real views.
+- **HotClip** (AGPL, so read only, never copy): chat log fused with loudness, gifts and superchats weighted; a
+  four-dimension review per cut.
+- **bilive** (Apache): records, slices by danmaku density, and has a VLM write the title from the video.
+- auto-slice-video (danmaku density only), biliup (recording and uploading), clip-farm bots (repost the top Twitch
+  clips): nothing new for finding moments.
+- Papers: "A Multimodal Transformer for Live Streaming Highlight Prediction" (Kuaishou, arXiv 2407.12002) and "Aha:
+  online highlight detection" (arXiv 2509.16421). Their models and data aren't released or aren't for our niche, so
+  they're ideas only.
+
+**Revised verdict:** someone has built most of our pipeline (clipit), and we should stand on it. What still nobody
+does: watch the whole stream with vision, learn taste from the top clip channels, and *measure* recall against what
+went viral. Those stay our edge.
+
+## Verdict (round 1)
 
 Nobody open-source does what we're doing, and nobody measures it. Every project falls in one of two groups:
 

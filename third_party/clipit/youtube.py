@@ -1,0 +1,176 @@
+"""Post clips to YouTube Shorts through the official YouTube Data API.
+
+A run posts up to db.POSTS clips, the first now and the rest scheduled GAP apart (YouTube publishes them). Only clips from polled VODs of the last db.FRESH are posted (in a dashboard run, only from VODs that run polled): the ones the user marked Keep, then unreviewed ones the AI
+scored db.AUTO_SCORE+, never skipped ones, at most PER_DAY a day and GAP apart: slow posting through the official API
+is what keeps the channel clear of spam enforcement. Never replace this with browser automation of YouTube Studio.
+
+Credentials live in ~/.clipit/, outside the repo and the out folder: the OAuth client the user downloads from
+Google Cloud, and the token `clipit --youtube-login` saves.
+"""
+
+import datetime
+import sqlite3
+from pathlib import Path
+
+from google.auth.exceptions import RefreshError
+from google.auth.transport.requests import Request
+from google.oauth2.credentials import Credentials
+from google_auth_oauthlib.flow import InstalledAppFlow
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
+from googleapiclient.http import MediaFileUpload
+
+from clipit import db, runs
+from clipit.util import ClipitError, log, logger, utcnow, write_atomic
+
+HOME = Path.home() / ".clipit"
+CLIENT = HOME / "youtube_client.json"
+TOKEN = HOME / "youtube_token.json"
+SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]  # posting only: it can't read or manage the channel
+PER_DAY = 10  # YouTube's default API quota fits about 6 uploads a day: past that a post waits (QUOTA) until a raise
+QUOTA = (b"quotaExceeded", b"uploadLimitExceeded")  # daily limits: hitting one costs the clip no attempt
+GAP = datetime.timedelta(hours=1)
+SOON = datetime.timedelta(minutes=1)  # a post due sooner than this goes public now, not scheduled
+STUCK = datetime.timedelta(hours=2)  # an upload still unfinished this long after it started belongs to a run that died
+
+
+def login() -> None:
+    """One-time browser sign-in to the channel to post to. Saves a token that keeps working unattended."""
+    if not CLIENT.exists():
+        raise ClipitError(f"No OAuth client at {CLIENT}: download it from Google Cloud (README, Post to YouTube Shorts)")
+    flow = InstalledAppFlow.from_client_secrets_file(str(CLIENT), SCOPES)
+    # prompt=consent: Google only hands out the long-lived refresh token when the consent screen is shown
+    creds = flow.run_local_server(port=0, timeout_seconds=600, prompt="consent")
+    if not creds.refresh_token:
+        raise ClipitError("Google returned no refresh token: run clipit --youtube-login again")
+    HOME.mkdir(exist_ok=True)
+    HOME.chmod(0o700)  # owner only, also when the user made the folder: the token (and its temp file) live inside it
+    write_atomic(TOKEN, creds.to_json())
+    TOKEN.chmod(0o600)  # on Windows both only toggle read-only; the folder sits in the user's own profile there
+    log(f"logged in to YouTube, token saved in {TOKEN}")
+
+
+def metadata(clip: sqlite3.Row, publish_at: datetime.datetime | None = None) -> dict:
+    """The video's title, description and settings. YouTube rejects < and >, and titles over 100 characters.
+    publish_at: a scheduled post, private until YouTube makes it public then."""
+
+    def text(s: str) -> str:
+        return s.replace("<", "").replace(">", "")
+
+    return {
+        "snippet": {
+            "title": " ".join(text(clip["title"]).split())[:100] or "Stream clip",
+            # clips made before descriptions only have the caption; once the user edits, an empty one is their choice
+            "description": text(clip["youtube"] if clip["edited"] else clip["youtube"] or clip["caption"]),
+            "categoryId": "20",  # Gaming
+        },
+        "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": False}
+        if publish_at is None
+        else {
+            "privacyStatus": "private",
+            "publishAt": publish_at.isoformat(timespec="seconds"),
+            "selfDeclaredMadeForKids": False,
+        },
+    }
+
+
+def upload_next(
+    conn: sqlite3.Connection,
+    out: Path,
+    first: list[str] | None = None,
+    run_id: int | None = None,
+    at: datetime.datetime | None = None,
+) -> str | None:
+    """Post the next due clip (db.claim_upload) that isn't on YouTube yet, if the pacing allows. Returns its link.
+    first: streamers ("twitch:login", "kick:login") whose clips go ahead of the rest. run_id: only VODs that dashboard run polled.
+    at: when it goes public, a later time schedules it; the pacing counts from then."""
+    for clip_id in db.stuck_uploads(conn, "youtube", utcnow() - STUCK):
+        logger.warning(
+            "clip %d was being posted to YouTube when a run stopped, so it may be up: check YouTube Studio, then in the "
+            "dashboard add its link, or undo its YouTube post to have it posted again",
+            clip_id,
+        )
+    creds = _credentials()  # before claiming: a broken login must not use up a clip's attempts
+    now = utcnow()
+    at = max(at or now, now)
+    clip = db.claim_upload(conn, "youtube", PER_DAY, GAP, now=at, first=first, run_id=run_id)
+    if not clip:
+        log("no YouTube post due: no fresh clip is kept or scored high enough, or the last post was too recent")
+        return None
+    return _post(conn, creds, clip, out, at if at - now > SOON else None)
+
+
+def upload_run(conn: sqlite3.Connection, out: Path, first: list[str] | None = None, run_id: int | None = None) -> int:
+    """A run's posts: up to db.POSTS due clips, the first now and each next one scheduled GAP later. Returns how many."""
+    at, posted = utcnow(), 0
+    try:
+        while posted < db.POSTS and upload_next(conn, out, first, run_id, at):
+            posted, at = posted + 1, max(at, utcnow()) + GAP  # a post going up now is recorded when its upload ends
+    except HttpError as e:  # the daily quota ran out partway: the posts so far stand, the rest wait for a later run
+        if not posted or not any(q in e.content for q in QUOTA):
+            raise
+        logger.warning("YouTube's daily quota ran out after %d post(s): the rest wait for a later run", posted)
+    return posted
+
+
+def upload_clip(conn: sqlite3.Connection, clip_id: int, out: Path) -> str | None:
+    """Post one clip now, because the user asked in the dashboard. None when it's posted or being posted already."""
+    creds = _credentials()
+    clip = db.claim_clip_upload(conn, clip_id, "youtube")
+    return _post(conn, creds, clip, out) if clip else None
+
+
+def _post(
+    conn: sqlite3.Connection, creds: Credentials, clip: sqlite3.Row, out: Path, publish_at: datetime.datetime | None = None
+) -> str:
+    when = f", public at {publish_at:%H:%M} UTC" if publish_at else ""
+    log(f"posting clip {clip['id']} to YouTube{when}: {clip['title']}")
+    runs.progress(what="Posting to YouTube", stage=clip["title"])
+    try:
+        video_file = (out / clip["file"]).resolve()
+        if not video_file.is_relative_to(out.resolve()):  # never send a local file that isn't one of our clips
+            raise ClipitError(f"clip file {clip['file']} is outside {out}")
+        video = _upload(creds, video_file, metadata(clip, publish_at))
+    except Exception as e:  # retried on a later run (up to db.MAX_ATTEMPTS), unless the video may already be up
+        spent = not (isinstance(e, HttpError) and any(q in e.content for q in QUOTA))
+        error = f"{type(e).__name__}: {e}"[:1000]
+        db.fail_upload(conn, clip["id"], "youtube", error, retry=not isinstance(e, MaybePosted), spent=spent)
+        raise
+    url = f"https://youtube.com/shorts/{video['id']}"
+    db.set_upload(conn, clip["id"], "youtube", url, at=publish_at)
+    log(f"posted clip {clip['id']} to {video['snippet']['channelTitle']}: {url}")
+    if (privacy := video["status"]["privacyStatus"]) != "public" and not publish_at:
+        logger.warning("YouTube made clip %d %s, not public: check it in YouTube Studio", clip["id"], privacy)
+    return url
+
+
+def _credentials() -> Credentials:
+    if not TOKEN.exists():
+        raise ClipitError("Not logged in to YouTube: run clipit --youtube-login")
+    creds = Credentials.from_authorized_user_file(str(TOKEN), SCOPES)
+    try:
+        creds.refresh(Request())  # requests transport, 120 s timeout
+    except RefreshError as e:
+        raise ClipitError(
+            f"The YouTube login stopped working ({e}): run clipit --youtube-login. If this happens every week, the "
+            "Google Cloud app is still in Testing: publish it (In production)"
+        ) from e
+    return creds
+
+
+class MaybePosted(ClipitError):
+    """The upload broke off after the video started going up: YouTube may have it, so it's never retried on its own."""
+
+
+def _upload(creds: Credentials, video: Path, body: dict) -> dict:
+    # build() makes its own HTTP client with a 60 s socket timeout, and reads the API description bundled with the library
+    youtube = build("youtube", "v3", credentials=creds)
+    media = MediaFileUpload(str(video), mimetype="video/mp4", resumable=True)
+    request = youtube.videos().insert(part="snippet,status", body=body, media_body=media)
+    try:
+        # retries resume the same upload session, so a retry inside this call never posts the video twice
+        return request.execute(num_retries=3)
+    except Exception as e:
+        if request.resumable_uri:  # the session was open: the video may be up even though no answer came back
+            raise MaybePosted(f"the upload broke off, so it may be on YouTube: check YouTube Studio ({e})") from e
+        raise
