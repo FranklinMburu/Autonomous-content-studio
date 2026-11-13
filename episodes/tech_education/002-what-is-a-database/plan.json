@@ -1,0 +1,310 @@
+{
+ "seed": 44,
+ "look": "paper",
+ "scenes": [
+  {
+   "line": 0,
+   "type": "big_word",
+   "p": {
+    "text": "Database",
+    "sub": "where apps remember"
+   }
+  },
+  {
+   "line": 1,
+   "type": "chat_thread",
+   "p": {
+    "title": "Claude",
+    "messages": [
+     {
+      "from": "you",
+      "text": "build me a habit tracker"
+     },
+     {
+      "from": "ai",
+      "text": "Sure. Where should it save your habits?",
+      "word": "need"
+     }
+    ]
+   }
+  },
+  {
+   "line": 2,
+   "type": "bar_chart",
+   "p": {
+    "title": "Most-used databases, 2025",
+    "bars": [
+     [
+      "PostgreSQL",
+      55.6
+     ],
+     [
+      "MySQL",
+      40.5
+     ],
+     [
+      "SQLite",
+      37.5
+     ]
+    ],
+    "unit": "%",
+    "source": "Stack Overflow Developer Survey 2025"
+   }
+  },
+  {
+   "line": 3,
+   "type": "phone_screen",
+   "p": {
+    "app": "Habit tracker",
+    "title": "Today",
+    "rows": [
+     {
+      "text": "Drink water"
+     },
+     {
+      "text": "Read 10 pages",
+      "word": "habit"
+     }
+    ]
+   }
+  },
+  {
+   "line": 4,
+   "type": "phone_screen",
+   "p": {
+    "title": "Today",
+    "rows": [
+     {
+      "text": "✓ Read 10 pages",
+      "word": "tick"
+     }
+    ],
+    "notify": "Tab closed. Your progress is gone.",
+    "notify_word": "gone"
+   }
+  },
+  {
+   "line": 5,
+   "type": "stack_layers",
+   "p": {
+    "layers": [
+     {
+      "label": "Your app",
+      "word": "app"
+     },
+     {
+      "label": "? somewhere to remember",
+      "word": "remember"
+     }
+    ]
+   }
+  },
+  {
+   "line": 6,
+   "type": "stack_layers",
+   "p": {
+    "layers": [
+     {
+      "label": "Database",
+      "word": "database"
+     }
+    ]
+   }
+  },
+  {
+   "line": 7,
+   "type": "table_grid",
+   "p": {
+    "title": "habits",
+    "columns": [
+     "habit",
+     "done",
+     "streak"
+    ],
+    "rows": [
+     [
+      "Drink water",
+      "✓",
+      "12"
+     ]
+    ]
+   }
+  },
+  {
+   "line": 8,
+   "type": "table_grid",
+   "p": {
+    "rows": [
+     [
+      "Read 10 pages",
+      "✓",
+      "3"
+     ]
+    ],
+    "highlight_word": "row",
+    "highlight_row": 0
+   }
+  },
+  {
+   "line": 9,
+   "type": "flow_steps",
+   "p": {
+    "steps": [
+     {
+      "label": "App asks: SELECT * FROM habits",
+      "word": "asks"
+     },
+     {
+      "label": "Database answers",
+      "word": "answers"
+     }
+    ]
+   }
+  },
+  {
+   "line": 10,
+   "type": "table_grid",
+   "p": {
+    "rows": [
+     [
+      "Walk 8,000 steps",
+      "✓",
+      "5"
+     ]
+    ],
+    "highlight_word": "exactly",
+    "highlight_row": 0
+   }
+  },
+  {
+   "line": 11,
+   "type": "chat_thread",
+   "p": {
+    "messages": [
+     {
+      "from": "you",
+      "text": "SELECT * FROM habits"
+     },
+     {
+      "from": "ai",
+      "text": "Who's asking? Password first.",
+      "word": "who's"
+     }
+    ]
+   }
+  },
+  {
+   "line": 12,
+   "type": "flow_steps",
+   "p": {
+    "steps": [
+     {
+      "label": "Password checked ✓",
+      "word": "password"
+     }
+    ]
+   }
+  },
+  {
+   "line": 13,
+   "type": "table_grid",
+   "p": {
+    "rows": [
+     [
+      "password",
+      "••••••••",
+      "🔒"
+     ]
+    ],
+    "highlight_word": "login",
+    "highlight_row": 0
+   }
+  },
+  {
+   "line": 14,
+   "type": "browser_page",
+   "p": {
+    "url": "pastebin.example/leak",
+    "title": "leaked: DATABASE_URL",
+    "blocks": [
+     {
+      "text": "postgres://admin:••••@db.example"
+     },
+     {
+      "text": "14,200 rows downloaded",
+      "word": "every"
+     }
+    ]
+   }
+  },
+  {
+   "line": 15,
+   "type": "timeline",
+   "p": {
+    "items": [
+     {
+      "label": "Table",
+      "sub": "one kind of thing",
+      "word": "table"
+     },
+     {
+      "label": "Row",
+      "sub": "one item in it",
+      "word": "row"
+     },
+     {
+      "label": "Query",
+      "sub": "a question you ask",
+      "word": "query"
+     }
+    ]
+   }
+  },
+  {
+   "line": 16,
+   "type": "cta_terminal",
+   "p": {
+    "title": "claude · habit-tracker",
+    "prompt": "add a Postgres database and keep its password in a .env file",
+    "result": "Added DATABASE_URL to .env · .env is in .gitignore"
+   }
+  },
+  {
+   "line": 17,
+   "type": "file_tree",
+   "p": {
+    "title": "habit-tracker",
+    "files": [
+     [
+      ".env 🔒",
+      "DATABASE_URL=postgres://••••",
+      "accent"
+     ],
+     [
+      ".gitignore",
+      ".env ✓ never uploaded",
+      "ok"
+     ],
+     [
+      "src/db.js",
+      "",
+      ""
+     ]
+    ],
+    "code": [
+     "const db = connect(process.env.DATABASE_URL)",
+     "// the password is never in the code"
+    ]
+   }
+  },
+  {
+   "line": 18,
+   "type": "end_card",
+   "p": {
+    "series": "Build Basics · Part 2",
+    "title": "What actually is a database?",
+    "next": "what is a backend?"
+   }
+  }
+ ]
+}

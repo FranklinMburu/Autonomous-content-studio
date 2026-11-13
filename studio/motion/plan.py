@@ -34,11 +34,22 @@ TYPES = {
     "end_card":       {"series": (S, False), "title": (S, True), "next": (S, False)},
     "big_word":       {"text": (S, True), "sub": (S, False)},
     "bullets":        {"items": (L, True)},
+    # worlds: one picture that fits the topic; consecutive lines of the same type keep adding to it
+    "table_grid":     {"columns": (L, False), "rows": (L, True), "title": (S, False), "highlight_word": (S, False), "highlight_row": (N, False)},
+    "timeline":       {"items": (L, True)},
+    "flow_steps":     {"steps": (L, True)},
+    "browser_page":   {"url": (S, False), "title": (S, False), "blocks": (L, True), "button": (S, False)},
+    "chat_thread":    {"messages": (L, True), "title": (S, False)},
+    "bar_chart":      {"bars": (L, True), "title": (S, True), "unit": (S, False), "source": (S, False)},
+    "phone_screen":   {"app": (S, False), "title": (S, False), "rows": (L, True), "notify": (S, False), "notify_word": (S, False)},
+    "stack_layers":   {"layers": (L, True)},
 }
+LOOKS = ["studio", "paper", "blueprint", "neon", "glass", "bold"]          # design families, one per episode (plan.look)
+WORLDS = ["story", "table_grid", "timeline", "flow_steps", "browser_page", "chat_thread", "bar_chart", "phone_screen", "stack_layers"]
 # Scenes that need the story set's pieces drawn first (the engine draws nothing for them otherwise).
-NEEDS = {"door": "diagram_link", "packet": "diagram_link", "question": "diagram_link", "key_fly": "question",
+NEEDS = {"compare": "app_window", "door": "diagram_link", "packet": "diagram_link", "question": "diagram_link", "key_fly": "question",
          "leak": "question", "badges_intro": "diagram_link", "badge": "diagram_link", "data_card": "diagram_link"}
-LIMITS = {"items": 8, "rows": 14, "files": 5, "code": 3, "pairs": 6, "marks": 2}
+LIMITS = {"items": 8, "rows": 14, "files": 5, "code": 3, "pairs": 6, "marks": 2, "columns": 4, "steps": 6, "blocks": 5, "messages": 6, "bars": 6, "layers": 5}
 TEXT_MAX = 64
 
 
@@ -82,7 +93,7 @@ def validate(script, plan):
         for k in p:
             if k not in TYPES[t]: probs.append(f"{where}: unknown field {k}")
         line = lines[s["line"]] if isinstance(s.get("line"), int) and 0 <= s["line"] < len(lines) else ""
-        for k in ("word", "glow_word", "unknown_word", "meter_word"):
+        for k in ("word", "glow_word", "unknown_word", "meter_word", "notify_word", "highlight_word"):
             if isinstance(p.get(k), str) and not _has_word(line, p[k]):
                 probs.append(f"{where}: {k} {p[k]!r} is not a word of line {s.get('line')}")
         for m in p.get("marks", []) if isinstance(p.get("marks"), list) else []:
@@ -96,9 +107,23 @@ def validate(script, plan):
         if t == "data_card" and any(not isinstance(x, list) or len(x) != 2 for x in p.get("pairs", [])): probs.append(f"{where}: pairs are [key, value]")
         if t == "file_tree" and any(not isinstance(x, list) or not 1 <= len(x) <= 3 for x in p.get("files", [])): probs.append(f"{where}: files are [name, note, tone]")
         if t == "stat_wall" and any(not isinstance(x, list) or len(x) > 3 for x in p.get("rows", [])): probs.append(f"{where}: rows are [id, text, tag]")
+        shape = {"timeline": ("items", "label"), "flow_steps": ("steps", "label"), "browser_page": ("blocks", "text"), "chat_thread": ("messages", "text"),
+                 "phone_screen": ("rows", "text"), "stack_layers": ("layers", "label")}.get(t)
+        if shape:   # world items: {label|text, word?, ...}; "word" lands the item on that spoken word
+            for x in p.get(shape[0], []) if isinstance(p.get(shape[0]), list) else []:
+                if not isinstance(x, dict) or not isinstance(x.get(shape[1]), str) or not x[shape[1]].strip():
+                    probs.append(f"{where}: each of {shape[0]} needs {shape[1]}"); break
+                if len(x[shape[1]]) > TEXT_MAX + 30: probs.append(f"{where}: {shape[0]} {shape[1]} too long"); break
+                if x.get("word") and not _has_word(line, x["word"]): probs.append(f"{where}: item word {x['word']!r} is not in line {s.get('line')}")
+            if t == "chat_thread" and any(isinstance(x, dict) and x.get("from", "you") not in ("you", "ai") for x in p.get("messages", [])): probs.append(f"{where}: message from must be you or ai")
+        if t in ("browser_page", "phone_screen") and t not in seen and not p.get("title"): probs.append(f"{where}: the first {t} needs a title")
+        if t == "table_grid" and "table_grid" not in seen and not p.get("columns"): probs.append(f"{where}: the first table_grid needs columns")
+        if t == "table_grid" and any(not isinstance(x, list) or not 1 <= len(x) <= 4 for x in p.get("rows", [])): probs.append(f"{where}: rows are lists of up to 4 cells")
+        if t == "bar_chart" and any(not isinstance(x, list) or len(x) != 2 or not isinstance(x[1], (int, float)) for x in p.get("bars", [])): probs.append(f"{where}: bars are [label, number]")
         if t in NEEDS and NEEDS[t] not in seen: probs.append(f"{where}: needs a {NEEDS[t]} scene before it")
         seen.add(t)
     if sc and sc[-1].get("type") != "end_card": probs.append("the last scene must be end_card")
+    if isinstance(plan, dict) and plan.get("look") is not None and plan.get("look") not in LOOKS: probs.append(f"look must be one of {', '.join(LOOKS)}")
     return probs
 
 
@@ -109,7 +134,7 @@ def variety(plan):
     runs = [i for i in range(2, len(types)) if types[i] == types[i - 1] == types[i - 2] and types[i] not in ("badge",)]
     if runs: warn.append(f"same scene type 3 times in a row at scenes {runs}")
     if len(set(types)) < min(8, len(types)): warn.append(f"only {len(set(types))} different scene types")
-    if not any(t in ("stat_floor", "stat_wall") for t in types): warn.append("no stat_floor or stat_wall: the bar wants a real, sourced number")
+    if not any(t in ("stat_floor", "stat_wall", "bar_chart") for t in types): warn.append("no stat_floor, stat_wall or bar_chart: the bar wants a real, sourced number")
     return warn
 
 

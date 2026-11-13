@@ -43,6 +43,46 @@ html,body{width:540px;height:960px;overflow:hidden;background:var(--bg);font-fam
 .chip{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:9px 16px;font:700 16px JBM;white-space:nowrap}
 .mono{font-family:JBM}
 .card{border-radius:16px;background:linear-gradient(180deg,#1e2028,#16171d);border:1px solid rgba(255,255,255,.16);box-shadow:0 30px 70px rgba(0,0,0,.6)}
+
+/* ---- design families ("looks"). studio = the approved original and defines nothing here. Picked per episode (plan.look). ---- */
+body.look-paper{--inv:#1A1B1F;--invTx:#FFFFFF;--bg:#F2EEE5;--tx:#1A1B1F;--tx2:#4B4F5A;--tx3:#7C808B;--line:rgba(0,0,0,.10);--field:#EAE5D9;--panelHi:#E2DCCD}
+.look-paper #vp{background:radial-gradient(110% 80% at 50% 40%,#FBF8F1 0%,#F1ECE1 55%,#E6DFD0 100%)}
+.look-paper #fx{background:linear-gradient(180deg,rgba(242,238,229,.97) 0,rgba(242,238,229,.9) 200px,rgba(242,238,229,0) 300px),radial-gradient(130% 80% at 50% 55%,transparent 60%,rgba(120,100,60,.18) 100%)}
+.look-paper #cap{text-shadow:none;font-family:Inter;font-weight:750}
+.look-paper #cap span.k{text-decoration:none;background:var(--acc);color:#1A1B1F;border-radius:8px;padding:0 .18em}
+.look-paper .win,.look-paper .card{background:#FFFFFF;border:1px solid rgba(0,0,0,.12);box-shadow:0 26px 50px rgba(80,60,20,.16)}
+.look-paper #grain{mix-blend-mode:multiply;opacity:.08}
+body.look-blueprint{--bg:#0B2B4C;--tx:#EAF2FF;--tx2:#A9C1E0;--tx3:#7C9CC4;--line:rgba(234,242,255,.22);--field:rgba(234,242,255,.06);--panelHi:rgba(234,242,255,.10)}
+.look-blueprint #vp{background:repeating-linear-gradient(0deg,rgba(234,242,255,.06) 0 1px,transparent 1px 36px),repeating-linear-gradient(90deg,rgba(234,242,255,.06) 0 1px,transparent 1px 36px),radial-gradient(110% 80% at 50% 40%,#123C66 0%,#0B2B4C 70%)}
+.look-blueprint #fx{background:linear-gradient(180deg,rgba(11,43,76,.97) 0,rgba(11,43,76,.9) 200px,rgba(11,43,76,0) 300px)}
+.look-blueprint #cap{font:600 29px/1.25 JBM;letter-spacing:-.02em;text-transform:uppercase;text-shadow:none}
+.look-blueprint #cap span.k{text-decoration:none;border:2px solid var(--acc);padding:0 .2em;border-radius:4px}
+.look-blueprint .win,.look-blueprint .card{background:rgba(13,52,92,.88);border:1.5px solid rgba(234,242,255,.6);border-radius:6px;box-shadow:none}
+.look-blueprint .bar i{background:transparent!important;border:1.5px solid rgba(234,242,255,.7)}
+body.look-neon{--bg:#040406;--tx:#F4F2FF;--tx2:#B7B3D1;--tx3:#7E7A99;--line:rgba(var(--accRGB),.25);--field:#08080c;--panelHi:#101018}
+.look-neon #vp{background:radial-gradient(90% 60% at 50% 45%,rgba(var(--accRGB),.10) 0%,#06060a 55%,#020203 100%)}
+.look-neon #fx{background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 2px,transparent 2px 4px),linear-gradient(180deg,rgba(4,4,6,.97) 0,rgba(4,4,6,.9) 200px,rgba(4,4,6,0) 300px)}
+.look-neon #cap span.k{text-decoration:none;text-shadow:0 0 18px rgba(var(--accRGB),.9),0 0 4px rgba(var(--accRGB),1)}
+.look-neon .win,.look-neon .card{background:#07070b;border:1.5px solid rgba(var(--accRGB),.75);box-shadow:0 0 28px rgba(var(--accRGB),.35),inset 0 0 22px rgba(var(--accRGB),.10)}
+body.look-glass{--bg:#140F2A;--tx:#FFFFFF;--tx2:#D2CDEB;--tx3:#9B95BF;--line:rgba(255,255,255,.16);--field:rgba(255,255,255,.08);--panelHi:rgba(255,255,255,.12)}
+.look-glass #vp{background:radial-gradient(60% 40% at 20% 30%,rgba(var(--accRGB),.45) 0%,transparent 70%),radial-gradient(60% 45% at 85% 75%,rgba(70,120,255,.45) 0%,transparent 70%),linear-gradient(160deg,#1d1440,#0e1a33)}
+.look-glass #fx{background:linear-gradient(180deg,rgba(20,15,42,.85) 0,rgba(20,15,42,.6) 200px,rgba(20,15,42,0) 300px)}
+.look-glass #cap span.k{text-decoration:none;background:rgba(255,255,255,.92);color:#1a1530;border-radius:999px;padding:0 .3em}
+.look-glass .win,.look-glass .card{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.32);border-radius:26px;box-shadow:0 30px 70px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.35)}
+.look-glass .bar{background:rgba(255,255,255,.06)}
+body.look-bold{--bg:#101010;--tx:#FFFFFF;--tx2:#D9D9D9;--tx3:#9A9A9A;--line:rgba(255,255,255,.18);--field:#000;--panelHi:#2A2A2A}
+.look-bold #vp{background:#121212}
+.look-bold #fx{background:linear-gradient(180deg,#121212 0,#121212 210px,rgba(18,18,18,0) 290px)}
+.look-bold #cap{font:900 33px/1.15 Inter;text-transform:uppercase;letter-spacing:-.01em;text-shadow:none}
+.look-bold #cap span.k{text-decoration:none;background:var(--acc);color:#101010;padding:0 .15em}
+.look-bold .win,.look-bold .card{background:#1C1C1C;border:3px solid #FFFFFF;border-radius:10px;box-shadow:10px 10px 0 var(--acc)}
+.look-bold #grain{opacity:0}
+
+/* each look's own drifting floor detail (the original's warm light streaks, restyled) */
+.look-paper [id^="st"] > .in > div{background:linear-gradient(180deg,rgba(60,45,25,0),rgba(60,45,25,.8))!important;box-shadow:none!important;width:5px!important}
+.look-blueprint [id^="st"] > .in > div{background:linear-gradient(180deg,rgba(234,242,255,0),rgba(234,242,255,.9))!important;box-shadow:0 0 10px rgba(234,242,255,.5)!important;width:3px!important}
+.look-glass [id^="st"] > .in > div{background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.8))!important;box-shadow:0 0 18px rgba(255,255,255,.5)!important}
+.look-bold [id^="st"] > .in > div{background:var(--acc)!important;box-shadow:none!important;border-radius:0!important;width:8px!important}
 </style></head>
 <body><div id="vp"><div id="world"></div></div><div id="fx"></div><div id="cap"></div><canvas id="grain" width="270" height="480" style="width:540px;height:960px"></canvas><div id="flash"></div>
 <script>
@@ -69,7 +109,8 @@ const WE = i => (WD[i] && WD[i].length ? WD[i][WD[i].length - 1].end : LE[i]);
 
 // ============================================================ objects and camera
 const OBJ = {};
-function mk(id, html) { const e = document.createElement("div"); e.className = "o"; e.id = id; e.innerHTML = `<div class="in">${html}</div>`; $("world").appendChild(e); OBJ[id] = e; return e; }
+// every object starts hidden until the engine first places it (before 12 Nov an unplaced object showed at the world centre)
+function mk(id, html) { const e = document.createElement("div"); e.className = "o"; e.id = id; e.innerHTML = `<div class="in">${html}</div>`; e.style.display = "none"; $("world").appendChild(e); OBJ[id] = e; return e; }
 function put(id, o, x, y, z, ry = 0, rx = 0, rz = 0, s = 1, blur = 0) {
   const e = OBJ[id]; if (!e) return;
   if (!(o > 0.003)) { e.style.display = "none"; return; }
@@ -78,18 +119,30 @@ function put(id, o, x, y, z, ry = 0, rx = 0, rz = 0, s = 1, blur = 0) {
   e.style.filter = blur > 0.15 ? `blur(${blur.toFixed(2)}px)` : "";
 }
 let CAM = { x: 0, y: 0, z: 0, yaw: 0, pitch: 0, roll: 0, D: 900, P: 900 }, NOW = 0;
+// Design families: one look per episode (plan.look, chosen by studio/motion/variety.py). studio = the approved original (all 1).
+const LOOKS = {
+  studio:    { drift: 1,   dof: 1,   orbit: 1,   P: 1,   floor: 1,   streak: 1,   glow: 1 },
+  paper:     { drift: 0.9, dof: 0.3, orbit: 0.7, P: 1.3, floor: 0.7, streak: 1.2,   glow: 0.5 },
+  blueprint: { drift: 0.8, dof: 0,   orbit: 0.6, P: 1.25, floor: 1.2, streak: 1,  glow: 0.3 },
+  neon:      { drift: 1.2, dof: 1,   orbit: 1.15, P: 0.92, floor: 1.3, streak: 1.4, glow: 1.4 },
+  glass:     { drift: 1,   dof: 1.4, orbit: 0.9, P: 1,   floor: 0.25, streak: 0.9, glow: 1.2 },
+  bold:      { drift: 0.6, dof: 0,   orbit: 0.5, P: 1.8, floor: 0,   streak: 1,   glow: 0 },
+};
+let LK = LOOKS.studio;
 const CK = [], CUTS = [], CUES = [];
 const key = (t, c) => CK.push([t, c]);
 function cut(tc, a, b) { key(tc - 0.001, a); key(tc, b); CUTS.push(tc); }
 const cue = (t, kind, gain = 1) => CUES.push({ t: +Math.max(0, t).toFixed(3), kind, gain });
+const esine = x => 0.5 - 0.5 * Math.cos(Math.PI * clamp(x));
 function camAt(t) {
   let i = 0; while (i < CK.length - 1 && CK[i + 1][0] <= t) i++;
   const a = CK[i], b = CK[Math.min(i + 1, CK.length - 1)];
-  const k = b === a || t <= a[0] ? 0 : ease((t - a[0]) / (b[0] - a[0]));
+  const k = b === a || t <= a[0] ? 0 : (LK === LOOKS.studio ? ease : esine)((t - a[0]) / (b[0] - a[0]));   // the original keeps its curve; other looks glide more evenly
   const c = {}; for (const p of ["x", "y", "z", "yaw", "pitch", "roll", "D", "P"]) c[p] = lerp(a[1][p], b[1][p], k);
-  const d = ST.drift;   // never still: a slow handheld drift, its phases come from the seed
-  c.yaw += 2.4 * Math.sin(t * 0.52 + d[0]) + 0.8 * Math.sin(t * 1.21 + d[1]); c.pitch += 1.0 * Math.sin(t * 0.61 + d[2]); c.roll += 0.5 * Math.sin(t * 0.37 + d[3]);
-  c.x += 6 * Math.sin(t * 0.83 + d[1]); c.y += 5 * Math.sin(t * 0.71 + d[2]);
+  c.yaw *= LK.orbit; c.pitch *= LK.orbit; c.roll *= LK.orbit; c.D *= LK.P; c.P *= LK.P;   // the look: how far the camera swings, how flat the space is
+  const d = ST.drift.map(x => x), dm = LK.drift;   // never still: a slow handheld drift, its phases come from the seed
+  c.yaw += dm * 2.4 * Math.sin(t * 0.52 + d[0]) + dm * 0.8 * Math.sin(t * 1.21 + d[1]); c.pitch += dm * 1.0 * Math.sin(t * 0.61 + d[2]); c.roll += dm * 0.5 * Math.sin(t * 0.37 + d[3]);
+  c.x += dm * 6 * Math.sin(t * 0.83 + d[1]); c.y += dm * 5 * Math.sin(t * 0.71 + d[2]);
   return c;
 }
 function applyCam(c, shake) {
@@ -103,7 +156,7 @@ function depth(x, y, z) {
   const z1 = -dx * Math.sin(yw) + dz * Math.cos(yw), z2 = dy * Math.sin(pt) + z1 * Math.cos(pt);
   return c.D - z2;
 }
-const dof = (x, y, z, amt = 1) => amt * clamp(Math.abs(depth(x, y, z) - CAM.D) / 260 * 2.2, 0, 5);
+const dof = (x, y, z, amt = 1) => LK.dof * amt * clamp(Math.abs(depth(x, y, z) - CAM.D) / 260 * 2.2, 0, 5);
 const cam = (o, dx, dy, dz, yaw, pitch, D, P = 900, roll = 0) => ({ x: o.x + dx, y: o.y + dy, z: o.z + dz, yaw, pitch, roll, D, P });
 
 // ============================================================ captions
@@ -139,7 +192,11 @@ function captions(t) {
 
 // ============================================================ the plan -> scenes on a timeline, sets in space
 const SET_OF = { hook_orbit: "hook", settings_field: "hook", stat_floor: "stat", stat_wall: "wall", cta_terminal: "cta", file_tree: "cta",
-  end_card: "end", big_word: "free", bullets: "free" };      // every other type plays in the "story" set (the growing diagram)
+  end_card: "end", big_word: "free", bullets: "free",
+  // worlds: each is one picture that grows across consecutive lines (a table filling up, a timeline, a chat...)
+  table_grid: "w_table", timeline: "w_time", flow_steps: "w_flow", browser_page: "w_web", chat_thread: "w_chat",
+  bar_chart: "w_chart", phone_screen: "w_phone", stack_layers: "w_stack" };
+const WORLD_TYPES = ["table_grid", "timeline", "flow_steps", "browser_page", "chat_thread", "bar_chart", "phone_screen", "stack_layers"];      // every other type plays in the "story" set (the growing diagram)
 const STORY_TYPES = ["laptop_prompt", "app_window", "diagram_link", "door", "packet", "code_card", "data_card", "question", "key_fly", "compare", "leak", "badges_intro", "badge"];
 const POS = {};
 function layout() {
@@ -172,18 +229,19 @@ function build() {
   for (let i = 0; i < 46; i++) mk("st" + i, `<div style="width:6px;height:${150 + (i * 53) % 160}px;border-radius:6px;background:linear-gradient(180deg,rgba(255,214,150,0),rgba(255,214,150,.95));box-shadow:0 0 16px rgba(${accRGB},.7)"></div>`);
   for (const s of SC) BUILD[s.type] && BUILD[s.type](s);
   if (SC.some(s => STORY_TYPES.includes(s.type))) buildStory();
+  buildWorlds();
 }
 const BUILD = {
   hook_orbit(s) {
     mk("core" + s.i, `<div class="card" style="width:190px;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-color:rgba(var(--accRGB),.6);box-shadow:0 0 90px rgba(var(--accRGB),.35),inset 0 0 40px rgba(var(--accRGB),.12);background:radial-gradient(circle at 50% 40%,#2a1d08,#141016);padding:10px;text-align:center"><div style="font:800 ${String(s.p.core || "").length > 5 ? 34 : 56}px/1 Inter;color:var(--acc);letter-spacing:-.03em">${esc(s.p.core)}</div><div class="lbl" style="color:var(--tx2)">${esc(s.p.sub || "")}</div></div>`);
-    (s.p.items || []).slice(0, 8).forEach((a, j) => mk(`ap${s.i}_${j}`, `<div class="card" style="width:170px;padding:14px 16px;display:flex;align-items:center;gap:12px"><div style="width:42px;height:42px;border-radius:11px;background:#22242d;display:flex;align-items:center;justify-content:center;font:700 22px Inter">${esc(a.icon || "•")}</div><div style="font:650 17px Inter">${esc(a.label)}</div></div>`));
+    (s.p.items || []).slice(0, 8).forEach((a, j) => mk(`ap${s.i}_${j}`, `<div class="card" style="width:170px;padding:14px 16px;display:flex;align-items:center;gap:12px"><div style="width:42px;height:42px;border-radius:11px;background:var(--panelHi,#22242d);display:flex;align-items:center;justify-content:center;font:700 22px Inter">${esc(a.icon || "•")}</div><div style="font:650 17px Inter">${esc(a.label)}</div></div>`));
     for (let j = 0; j < 24; j++) mk(`pt${s.i}_${j}`, `<div style="width:10px;height:10px;border-radius:50%;background:#FFD596;box-shadow:0 0 14px 4px rgba(var(--accRGB),.7)"></div>`);
   },
   settings_field(s) {
     mk("set" + s.i, winHtml(s.p.title || "Settings", `<div style="padding:20px"><div class="lbl" style="margin-bottom:9px">${esc(s.p.label)}</div>
-      <div class="kf" style="height:50px;border-radius:11px;border:1.5px solid rgba(255,255,255,.14);background:#0c0d11;display:flex;align-items:center;padding:0 14px;gap:11px;font:500 16px Inter;color:var(--tx3)">
+      <div class="kf" style="height:50px;border-radius:11px;border:1.5px solid rgba(255,255,255,.14);background:var(--field,#0c0d11);display:flex;align-items:center;padding:0 14px;gap:11px;font:500 16px Inter;color:var(--tx3)">
       <span style="width:22px;height:22px;color:var(--acc)">${ICON.key}</span><span>${esc(s.p.placeholder)}</span><span class="cur kc" style="background:var(--acc)"></span></div>
-      <div style="display:flex;justify-content:flex-end;margin-top:16px"><div style="background:var(--tx);color:#111;border-radius:999px;padding:10px 20px;font:650 15px Inter">${esc(s.p.button || "Connect")}</div></div></div>`, 440));
+      <div style="display:flex;justify-content:flex-end;margin-top:16px"><div style="background:var(--inv,var(--tx));color:var(--invTx,#111);border-radius:999px;padding:10px 20px;font:650 15px Inter">${esc(s.p.button || "Connect")}</div></div></div>`, 440));
   },
   stat_floor(s) {
     mk("sf" + s.i, `<div style="width:2600px;height:5200px;background:repeating-linear-gradient(90deg,rgba(var(--accRGB),.16) 0 2px,transparent 2px 130px),repeating-linear-gradient(0deg,rgba(var(--accRGB),.10) 0 2px,transparent 2px 130px);-webkit-mask-image:radial-gradient(50% 50% at 50% 50%,#000 30%,transparent 75%)"></div>`);
@@ -202,12 +260,12 @@ const BUILD = {
   file_tree(s) {
     const f = (s.p.files || []).slice(0, 5);
     mk("ft" + s.i, winHtml(s.p.title || "project", `<div style="font:400 17px/2.1 JBM;padding:10px 18px;color:var(--tx2)">${f.map((x, j) => `<div class="fr" style="display:flex;justify-content:space-between;gap:12px;border-radius:9px;padding:0 10px;margin:0 -10px"><span style="color:${x[2] === "accent" ? "var(--acc)" : "var(--tx)"}">${esc(x[0])}</span><span style="color:${x[2] === "ok" ? "var(--ok)" : "var(--tx3)"};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(x[1] || "")}</span></div>`).join("")}
-      ${(s.p.code || []).length ? `<div class="fc" style="font-size:15px;line-height:1.6;background:#0c0d11;border-radius:9px;padding:10px 14px;margin:6px 0 10px;color:var(--tx2)">${s.p.code.slice(0, 3).map(c => esc(c)).join("<br>")}</div>` : ""}</div>`, 490));
+      ${(s.p.code || []).length ? `<div class="fc" style="font-size:15px;line-height:1.6;background:var(--field,#0c0d11);border-radius:9px;padding:10px 14px;margin:6px 0 10px;color:var(--tx2)">${s.p.code.slice(0, 3).map(c => esc(c)).join("<br>")}</div>` : ""}</div>`, 490));
   },
   end_card(s) {
     mk("ea" + s.i, `<div class="lbl" style="color:var(--acc);font-size:15px;width:420px;text-align:center">${esc(s.p.series || "")}</div>`);
     mk("eb" + s.i, `<div style="font:850 ${String(s.p.title).length > 26 ? 52 : 66}px/1.03 Inter;letter-spacing:-.045em;text-align:center;width:520px">${esc(s.p.title)}</div>`);
-    mk("ec" + s.i, `<div style="display:flex;flex-direction:column;align-items:center;gap:22px;width:420px"><div style="font:500 18px Inter;color:var(--tx3)">${s.p.next ? "Next: " + esc(s.p.next) : ""}</div><div class="fl" style="background:var(--tx);color:#111;border-radius:999px;padding:15px 36px;font:750 20px Inter">Follow</div></div>`);
+    mk("ec" + s.i, `<div style="display:flex;flex-direction:column;align-items:center;gap:22px;width:420px"><div style="font:500 18px Inter;color:var(--tx3)">${s.p.next ? "Next: " + esc(s.p.next) : ""}</div><div class="fl" style="background:var(--inv,var(--tx));color:var(--invTx,#111);border-radius:999px;padding:15px 36px;font:750 20px Inter">Follow</div></div>`);
   },
   big_word(s) { mk("bw" + s.i, `<div style="text-align:center;width:520px"><div style="font:900 ${String(s.p.text).length > 9 ? 70 : 104}px/1 Inter;letter-spacing:-.05em;color:var(--tx);text-shadow:0 0 50px rgba(var(--accRGB),.35)">${esc(s.p.text)}</div><div style="font:600 22px/1.3 Inter;color:var(--acc);margin-top:14px">${esc(s.p.sub || "")}</div></div>`); },
   bullets(s) { (s.p.items || []).slice(0, 4).forEach((x, j) => mk(`bl${s.i}_${j}`, `<div class="card" style="width:440px;padding:18px 22px;display:flex;gap:16px;align-items:center"><div style="width:40px;height:40px;border-radius:12px;background:rgba(var(--accRGB),.16);color:var(--acc);font:800 20px Inter;display:flex;align-items:center;justify-content:center">${j + 1}</div><div style="font:650 20px/1.3 Inter">${esc(x)}</div></div>`)); },
@@ -218,17 +276,17 @@ const BUILD = {
   },
   data_card(s) { mk("dc" + s.i, winHtml(s.p.title || "response", `<div class="mono body" style="font-size:20px;line-height:1.7;padding:16px 22px;color:var(--tx2);min-height:150px"></div>`, 420)); mk("dv" + s.i, `<div class="mono" style="font:700 22px JBM;color:#fff;text-shadow:0 0 18px rgba(var(--accRGB),.9);white-space:nowrap">${esc(s.p.fill || "")}</div>`); },
   compare(s) {
-    mk("cA" + s.i, `<div class="win" style="width:420px;padding:18px 20px"><div class="lbl" style="margin-bottom:8px">${esc(s.p.a_label)}</div><div style="height:48px;border-radius:10px;background:#0c0d11;border:1.5px solid rgba(255,255,255,.13);display:flex;align-items:center;padding:0 14px;font:700 19px JBM;color:var(--tx2)">${esc(s.p.a_value)}</div></div>`);
+    mk("cA" + s.i, `<div class="win" style="width:420px;padding:18px 20px"><div class="lbl" style="margin-bottom:8px">${esc(s.p.a_label)}</div><div style="height:48px;border-radius:10px;background:var(--field,#0c0d11);border:1.5px solid rgba(255,255,255,.13);display:flex;align-items:center;padding:0 14px;font:700 19px JBM;color:var(--tx2)">${esc(s.p.a_value)}</div></div>`);
     mk("cB" + s.i, `<div class="win" style="width:420px;padding:18px 20px;border-color:rgba(var(--accRGB),.5)"><div class="lbl" style="margin-bottom:8px;color:var(--acc)">${esc(s.p.b_label)}</div><div style="height:48px;border-radius:10px;background:#1a1307;border:1.5px solid rgba(var(--accRGB),.65);display:flex;align-items:center;padding:0 14px;font:700 19px JBM;color:var(--acc)">${esc(s.p.b_value)}</div></div>`);
     mk("cE" + s.i, `<div style="font:850 54px Inter;color:var(--tx)">${esc(s.p.sign || "=")}</div>`);
   },
   leak(s) {
     for (let j = 0; j < 10; j++) { mk(`av${s.i}_${j}`, `<div style="width:64px;height:64px;border-radius:50%;background:radial-gradient(circle at 50% 35%,#2b2d36,#15161b);border:2px solid rgba(248,81,73,.6);display:flex;align-items:center;justify-content:center;font:800 26px Inter;color:#8a90a0;box-shadow:0 0 24px rgba(248,81,73,.25)">?</div>`);
       mk(`lk${s.i}_${j}`, `<div style="width:34px;height:34px;color:#FFC861;filter:drop-shadow(0 0 8px rgba(var(--accRGB),.9))">${ICON.key}</div>`); }
-    mk("q" + s.i, `<div class="win" style="width:440px;padding:16px 18px"><div style="display:flex;justify-content:space-between;font:650 15px Inter;color:var(--tx2)"><span>${esc(s.p.meter_label || "Usage")}</span><span class="qv mono" style="color:var(--tx)">12%</span></div><div style="height:12px;border-radius:9px;background:#22242c;margin-top:12px;overflow:hidden"><div class="qb" style="height:100%;width:12%;border-radius:9px"></div></div></div>`);
+    mk("q" + s.i, `<div class="win" style="width:440px;padding:16px 18px"><div style="display:flex;justify-content:space-between;font:650 15px Inter;color:var(--tx2)"><span>${esc(s.p.meter_label || "Usage")}</span><span class="qv mono" style="color:var(--tx)">12%</span></div><div style="height:12px;border-radius:9px;background:var(--panelHi,#22242c);margin-top:12px;overflow:hidden"><div class="qb" style="height:100%;width:12%;border-radius:9px"></div></div></div>`);
   },
   key_fly(s) { mk("ky" + s.i, `<div style="width:90px;height:90px;color:#FFC861;filter:drop-shadow(0 0 14px rgba(var(--accRGB),.9))">${ICON.key}</div>`); },
-  packet(s) { mk("pk" + s.i, `<div class="chip" style="${s.p.dir === "up" ? "background:var(--tx);color:#111;box-shadow:0 0 30px rgba(255,255,255,.35)" : "background:var(--acc);color:#1a1205;box-shadow:0 0 30px rgba(var(--accRGB),.6)"}">${esc(s.p.label || (s.p.dir === "up" ? "response" : "request"))}</div>`); },
+  packet(s) { mk("pk" + s.i, `<div class="chip" style="${s.p.dir === "up" ? "background:var(--inv,var(--tx));color:var(--invTx,#111);box-shadow:0 0 30px rgba(255,255,255,.35)" : "background:var(--acc);color:#1a1205;box-shadow:0 0 30px rgba(var(--accRGB),.6)"}">${esc(s.p.label || (s.p.dir === "up" ? "response" : "request"))}</div>`); },
   question(s) { mk("hq" + s.i, `<div class="chip" style="background:var(--acc);color:#1a1205;box-shadow:0 0 30px rgba(var(--accRGB),.6)">${esc(s.p.label || "request")}<span class="kk" style="display:none;width:16px;height:16px">${ICON.key}</span></div>`); },
   badge(s) { const c = { ok: ["var(--ok)", "rgba(63,185,80,.14)"], bad: ["var(--bad)", "rgba(248,81,73,.14)"], warn: ["var(--warn)", "rgba(245,165,36,.14)"] }[s.p.tone || "ok"];
     mk("bd" + s.i, `<div style="width:170px;height:150px;border-radius:20px;border:2px solid ${c[0]};background:${c[1]};text-align:center;padding-top:22px;box-shadow:0 0 50px ${c[1]},0 30px 60px rgba(0,0,0,.6)"><div style="font:800 ${String(s.p.code).length > 4 ? 40 : 56}px JBM;color:${c[0]};letter-spacing:-.04em">${esc(s.p.code)}</div><div style="font:650 17px Inter;color:var(--tx);margin-top:6px">${esc(s.p.label || "")}</div></div>`); },
@@ -253,7 +311,7 @@ function buildStory() {
     mk("server", `<div style="position:relative;width:320px;height:250px;transform-style:preserve-3d">
       <div class="card front" style="position:absolute;inset:0;transform:translateZ(110px);border-radius:14px;padding:44px 22px 16px;display:flex;flex-direction:column;gap:11px;background:linear-gradient(180deg,#262832,#1a1b21)">
         <div id="door" style="position:absolute;left:100px;top:-27px;width:120px;height:52px;border-radius:13px;background:#1c1407;border:2px solid var(--acc);display:flex;align-items:center;justify-content:center;font:850 ${String(dia.p.door || "API").length > 5 ? 15 : 22}px Inter;color:var(--acc);box-shadow:0 0 40px rgba(var(--accRGB),.5);opacity:0">${esc(dia.p.door || "API")}</div>
-        ${[0, 1, 2].map(() => `<div style="height:24px;border-radius:6px;background:#121318;display:flex;align-items:center;gap:7px;padding:0 10px"><i class="led" style="width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 8px var(--ok)"></i><i class="led" style="width:7px;height:7px;border-radius:50%;background:var(--acc);box-shadow:0 0 8px var(--acc)"></i><i style="flex:1;height:3px;background:#2b2e39;border-radius:3px"></i></div>`).join("")}
+        ${[0, 1, 2].map(() => `<div style="height:24px;border-radius:6px;background:#121318;display:flex;align-items:center;gap:7px;padding:0 10px"><i class="led" style="width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 8px var(--ok)"></i><i class="led" style="width:7px;height:7px;border-radius:50%;background:var(--acc);box-shadow:0 0 8px var(--acc)"></i><i style="flex:1;height:3px;background:var(--panelHi,#2b2e39);border-radius:3px"></i></div>`).join("")}
         <div style="text-align:center;font:700 18px Inter;color:var(--tx);margin-top:4px">${esc((dia.p.icon || "") + " " + (dia.p.label || "Server"))}</div>
         <div id="ask" style="position:absolute;right:-20px;top:-64px;width:56px;height:56px;border-radius:50%;background:#1b1c22;border:1.5px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font:850 28px Inter;opacity:0">?</div></div>
       <div style="position:absolute;inset:0;transform:rotateY(180deg) translateZ(110px);background:#101115;border-radius:14px"></div>
@@ -296,20 +354,169 @@ function direct() {
         key(t1 - 0.25, cam(o, -240, 50, 220, 18, -2, 1050, 780)); cue(t0 - 0.2, "swoosh_big"); cue(t0 + 0.6, "impact"); for (let j = 0; j < 14; j++) cue(t0 + 0.3 + j * 0.12, "tick", 0.3); break;
       case "badges_intro": go(0.5, cam(o, 0, 150, 60, -10 * sg, 6, 1050, 880)); cue(t0 - 0.25, "swoosh_big"); break;
       case "badge": { const ang = [[-150, -24, 760], [40, 20, 780], [0, 2, 1040]][badgeN % 3]; cut(t0 - 0.16, camAtKeyLast(), cam(o, ang[0] * sg, 110, 170, ang[1] * sg, 4, ang[2], 880, -2 * sg)); key(t1 - 0.2, cam(o, ang[0] * sg * 0.6, 120, 160, ang[1] * sg * 0.7, 4, ang[2] + 40, 880)); cue(t0 - 0.05, "slam"); s.n = badgeN++; break; }
-      case "cta_terminal": go(0.25, cam(o, 0, -90, 0, -12 * sg, 4, 760)); key(t1, cam(o, 0, 10, 0, 8 * sg, 6, 900)); cue(t0 - 0.3, "swoosh_big"); { const n = Math.min(50, String(s.p.prompt || "").length); for (let j = 0; j < n; j++) cue(lerp(t0 + 0.6, t1 - 0.2, j / n), "key", 0.3); } break;
-      case "file_tree": go(0.2, cam(o, 0, 10, 0, 8 * sg, 6, 900)); key(lerp(t0, t1, 0.5), cam(o, -20, 120, -40, 3 * sg, 8, 880, 940, 1)); key(t1 - 0.25, cam(o, -20, 120, -40, -3 * sg, 4, 840, 920)); cue(t1 - 0.3, "ding"); break;
+      case "cta_terminal": go(0.25, cam(o, 0, -90, 0, -12 * sg, 4, 900)); key(t1, cam(o, 0, 10, 0, 8 * sg, 6, 1010));   // 12 Nov: further back, the panels were cut off at the edge cue(t0 - 0.3, "swoosh_big"); { const n = Math.min(50, String(s.p.prompt || "").length); for (let j = 0; j < n; j++) cue(lerp(t0 + 0.6, t1 - 0.2, j / n), "key", 0.3); } break;
+      case "file_tree": go(0.2, cam(o, 0, 10, 0, 8 * sg, 6, 1010)); key(lerp(t0, t1, 0.5), cam(o, 0, 120, -40, 3 * sg, 8, 1010, 940, 1)); key(t1 - 0.25, cam(o, 0, 120, -40, -3 * sg, 4, 980, 920)); cue(t1 - 0.3, "ding"); break;
       case "end_card": go(0.6, cam(o, 0, 0, 0, -16 * sg, 2, 1000)); key(DUR + 1, cam(o, 0, 0, 0, 8 * sg, 2, 900)); cue(t0 - 0.3, "swoosh_big"); cue(t0 + 0.2, "impact", 0.6); break;
       case "big_word": go(0.1, cam(o, 0, -40, 0, 20 * sg, 4, 900)); key(t1, cam(o, 0, -40, 0, -6 * sg, 2, 820)); cue(t0 - 0.2, "swoosh_big"); cue(t0 + 0.1, "slam", 0.6); break;
       case "bullets": go(0.3, cam(o, 0, 0, 0, -10 * sg, 4, 980)); key(t1, cam(o, 0, 0, 0, 10 * sg, 4, 940)); (s.p.items || []).forEach((_, j) => cue(t0 + 0.2 + j * ((t1 - t0 - 0.4) / Math.max(1, (s.p.items || []).length)), "pop")); break;
     }
+    if (WORLD_TYPES.includes(s.type)) directWorld(s, o, prev, newSet, sg);
     if (newSet && prev && !["laptop_prompt", "app_window", "code_card", "data_card", "key_fly", "compare", "badge"].includes(s.type)) cue(t0 - 0.35, "swoosh_big", 0.8);
   });
   CK.sort((a, b) => a[0] - b[0]);
+  if (LK !== LOOKS.studio) {   // every look but the original: a long hold gets one gentle lean at its midpoint (never across a cut)
+    const cuts = new Set(CUTS.map(x => +x.toFixed(3))), add = [];
+    for (let i = 0; i + 1 < CK.length; i++) { const [ta, ca] = CK[i], [tb, cb] = CK[i + 1];
+      if (tb - ta > 1.1 && ![...cuts].some(c => c > ta - 0.01 && c < tb + 0.01)) { const side = i % 2 ? 1 : -1;
+        add.push([(ta + tb) / 2, { ...ca, x: (ca.x + cb.x) / 2, y: (ca.y + cb.y) / 2, z: (ca.z + cb.z) / 2, yaw: (ca.yaw + cb.yaw) / 2 + side * 8 * ST.sign, D: Math.max(ca.D, cb.D) }]); } }
+    CK.push(...add); CK.sort((a, b) => a[0] - b[0]);
+  }
   CUTS.forEach(tc => cue(tc - 0.12, "whoosh", 0.45));
   CUES.sort((a, b) => a.t - b.t);
 }
 function camAtKeyLast() { return CK.length ? { ...CK[CK.length - 1][1] } : cam({ x: 0, y: 0, z: 0 }, 0, 0, 0, 0, 0, 900); }
 
+
+// ============================================================ worlds: pictures that fit the topic
+// Each world is one picture in its own place; consecutive lines of the same type keep adding to it (rows, steps,
+// messages, bars...), so the picture grows with the explanation. Items are revealed across the line, landing on
+// the words named in "word" fields when given.
+const WK = {};   // per world type: its scenes, and every item with the scene it belongs to
+function worldItems(type, key) { const out = []; SC.filter(s => s.type === type).forEach(s => (s.p[key] || []).forEach((x, j, arr) => out.push({ s, x, j, n: arr.length }))); return out; }
+function revealAt(it) { const s = it.s, w = it.x && it.x.word;
+  if (w) { const wt = W(s.line, w, 0.3);   // the first item of a world's first line never leaves the screen empty: it appears as the scene opens
+    if (it.j === 0 && !SC.some(x => x.type === s.type && x.i < s.i)) return Math.min(wt, s.t0 + 0.3);
+    return wt; } return lerp(s.t0 + 0.15, Math.max(s.t0 + 0.3, s.t1 - 0.5), it.n > 1 ? it.j / it.n : 0); }
+function buildWorlds() {
+  const cell = (x, b, k) => `<div style="flex:${k === 0 ? 1.8 : 1};min-width:0;padding:11px 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;${b ? "font-weight:700;color:var(--tx)" : ""}">${esc(x)}</div>`;
+  if (first("table_grid")) {
+    const s0 = first("table_grid"), cols = (s0.p.columns || ["name", "value"]).slice(0, 4), rows = worldItems("table_grid", "rows").slice(-8);
+    WK.table = rows;
+    mk("tg", winHtml(s0.p.title || "table", `<div style="display:flex;font:700 13px JBM;color:var(--acc);text-transform:uppercase;letter-spacing:.06em;background:var(--field,#0c0d11)">${cols.map((c, k) => cell(c, false, k)).join("")}</div>
+      ${rows.map((r, i) => `<div class="tr" data-i="${i}" style="position:relative;display:flex;font:500 19px JBM;color:var(--tx2);border-top:1px solid var(--line)">${cols.map((_, k) => cell((r.x || [])[k] ?? "", k === 0, k)).join("")}<i class="lk" style="position:absolute;left:0;top:-100%;width:4px;height:200%;background:var(--acc);transform-origin:50% 0;box-shadow:0 0 12px rgba(var(--accRGB),.8)"></i></div>`).join("")}`, 480));
+  }
+  if (first("timeline")) {
+    const its = worldItems("timeline", "items").slice(0, 9); WK.time = its;
+    mk("tl_line", `<div class="ln" style="width:${(its.length - 1) * 230 + 200}px;height:4px;border-radius:3px;background:linear-gradient(90deg,rgba(var(--accRGB),.9),rgba(var(--accRGB),.35))"></div>`);
+    mk("tl_head", `<div style="width:20px;height:20px;border-radius:50%;background:var(--acc);box-shadow:0 0 22px 8px rgba(var(--accRGB),.75)"></div>`);
+    its.forEach((it, i) => mk("tl" + i, `<div style="display:flex;flex-direction:column;align-items:center;gap:12px;width:210px;text-align:center">
+      <div style="height:66px;display:flex;align-items:flex-end;justify-content:center;font:800 26px/1.15 Inter;color:var(--tx)">${esc(it.x.label || it.x)}</div>
+      <div style="width:34px;height:34px;border-radius:50%;border:5px solid var(--acc);background:var(--bg);box-shadow:0 0 24px rgba(var(--accRGB),.7)"></div>
+      <div style="height:66px;font:500 17px/1.3 Inter;color:var(--tx2)">${esc(it.x.sub || "")}</div></div>`));
+  }
+  if (first("flow_steps")) {
+    const st = worldItems("flow_steps", "steps").slice(0, 6); WK.flow = st;
+    st.forEach((it, i) => mk("fs" + i, `<div class="card" style="width:380px;padding:16px 20px;display:flex;align-items:center;gap:16px"><div style="width:44px;height:44px;flex:none;border-radius:12px;background:rgba(var(--accRGB),.18);color:var(--acc);font:800 21px Inter;display:flex;align-items:center;justify-content:center">${i + 1}</div><div style="font:650 23px/1.25 Inter;color:var(--tx)">${esc(it.x.label || it.x)}</div></div>`));
+    st.slice(1).forEach((_, i) => mk("fa" + i, `<div style="position:relative;width:4px;height:44px"><div class="d" style="position:absolute;inset:0;transform-origin:50% 0;background:linear-gradient(180deg,rgba(var(--accRGB),.25),rgba(var(--accRGB),.95))"></div><div class="h" style="position:absolute;left:-7px;width:18px;height:18px;border-radius:50%;background:var(--acc);box-shadow:0 0 16px 5px rgba(var(--accRGB),.7)"></div></div>`));
+    mk("ftok", `<div style="width:22px;height:22px;border-radius:50%;background:var(--acc);box-shadow:0 0 20px 6px rgba(var(--accRGB),.6)"></div>`);
+  }
+  if (first("browser_page")) {
+    const s0 = first("browser_page"), bl = worldItems("browser_page", "blocks").slice(0, 5); WK.web = bl;
+    mk("bp", `<div class="win" style="width:480px"><div class="bar"><i></i><i></i><i></i><div style="flex:1;margin:0 10px 0 14px;height:22px;border-radius:7px;background:var(--field,#0c0d11);font:500 12px JBM;color:var(--tx2);display:flex;align-items:center;padding:0 10px;overflow:hidden;white-space:nowrap"><span class="url"></span></div></div>
+      <div style="padding:22px 24px 24px"><div class="bt" style="font:800 30px/1.1 Inter;letter-spacing:-.03em;color:var(--tx);margin-bottom:16px">${esc(s0.p.title || "")}</div>
+      ${bl.map((it, i) => `<div class="bb" data-i="${i}" style="position:relative;margin-top:12px;border-radius:10px;padding:13px 15px;background:var(--panelHi,#262832);font:500 17px/1.35 Inter;color:var(--tx2)"><span class="tx">${esc(it.x.text || it.x)}</span><div class="sk" style="position:absolute;inset:0;border-radius:10px;background:linear-gradient(90deg,var(--panelHi,#262832),rgba(255,255,255,.12),var(--panelHi,#262832));background-size:200% 100%"></div></div>`).join("")}
+      ${s0.p.button ? `<div class="bbtn" style="margin-top:18px;display:inline-block;background:var(--acc);color:#111;border-radius:999px;padding:11px 22px;font:750 16px Inter">${esc(s0.p.button)}</div>` : ""}</div></div>`);
+  }
+  if (first("chat_thread")) {
+    const ms = worldItems("chat_thread", "messages").slice(-6); WK.chat = ms;
+    mk("ch", `<div class="win" style="width:470px"><div class="bar"><i></i><i></i><i></i><b>${esc(first("chat_thread").p.title || "chat")}</b></div><div class="msgs" style="padding:16px 16px 20px;display:flex;flex-direction:column;gap:12px">
+      ${ms.map((it, i) => { const me = (it.x.from || "you") !== "ai"; return `<div class="mg" data-i="${i}" style="align-self:${me ? "flex-end" : "flex-start"};max-width:82%;padding:12px 16px;border-radius:18px;${me ? "border-bottom-right-radius:5px;background:var(--acc);color:#111" : "border-bottom-left-radius:5px;background:var(--panelHi,#262832);color:var(--tx)"};font:550 18px/1.35 Inter"><span class="tx">${esc(it.x.text || it.x)}</span><span class="dots" style="display:none;letter-spacing:3px;font-weight:900">•••</span></div>`; }).join("")}</div></div>`);
+  }
+  if (first("bar_chart")) {
+    const s0 = first("bar_chart"), bs = worldItems("bar_chart", "bars").slice(0, 6), mx = Math.max(...bs.map(b => +((b.x || [])[1]) || 0), 1); WK.chart = bs;
+    mk("bc", `<div class="card" style="width:480px;padding:22px 24px 18px"><div style="font:800 24px/1.2 Inter;color:var(--tx);margin-bottom:16px">${esc(s0.p.title || "")}</div>
+      ${bs.map((it, i) => `<div class="br" style="margin:12px 0"><div style="display:flex;justify-content:space-between;font:600 16px Inter;color:var(--tx2);margin-bottom:6px"><span>${esc(it.x[0])}</span><span class="bv mono" style="color:var(--tx)">0</span></div><div style="height:22px;border-radius:7px;background:var(--field,#0c0d11);overflow:hidden"><div class="bf" style="position:relative" data-w="${(100 * (+it.x[1] || 0) / mx).toFixed(1)}" style="height:100%;width:0;border-radius:7px;background:${+it.x[1] === mx ? "var(--acc)" : "rgba(var(--accRGB),.45)"}"></div></div></div>`).join("")}
+      ${s0.p.source ? `<div style="font:500 13px Inter;color:var(--tx3);margin-top:12px">Source: ${esc(s0.p.source)}</div>` : ""}</div>`);
+  }
+  if (first("phone_screen")) {
+    const s0 = first("phone_screen"), rs = worldItems("phone_screen", "rows").slice(0, 5); WK.phone = rs;
+    mk("ph", `<div style="width:300px;height:600px;border-radius:46px;background:#0b0b0d;border:10px solid #2b2c31;box-shadow:0 40px 80px rgba(0,0,0,.55),inset 0 0 0 2px #45464d;position:relative;overflow:hidden">
+      <div style="position:absolute;top:10px;left:50%;width:90px;height:24px;margin-left:-45px;border-radius:14px;background:#000"></div>
+      <div style="position:absolute;inset:0;padding:56px 18px 18px;background:var(--ps,linear-gradient(180deg,#1c1d22,#121317))"><div style="font:600 13px Inter;color:#9a9eaa;text-transform:uppercase;letter-spacing:.12em">${esc(s0.p.app || "")}</div><div style="font:800 28px/1.15 Inter;color:#fff;margin:6px 0 14px">${esc(s0.p.title || "")}</div>
+      ${rs.map((it, i) => `<div class="pr" data-i="${i}" style="margin-top:10px;border-radius:14px;padding:13px 14px;background:rgba(255,255,255,.08);font:550 16px/1.3 Inter;color:#e9ebf1">${esc(it.x.text || it.x)}</div>`).join("")}</div>
+      ${SC.some(x => x.type === "phone_screen" && x.p.notify) ? `<div class="pn" style="position:absolute;left:12px;right:12px;top:44px;border-radius:18px;padding:12px 14px;background:rgba(245,245,247,.96);color:#111;font:600 15px/1.3 Inter;box-shadow:0 10px 30px rgba(0,0,0,.4)">${esc(SC.find(x => x.type === "phone_screen" && x.p.notify).p.notify)}</div>` : ""}</div>`);
+  }
+  if (first("stack_layers")) {
+    const ls = worldItems("stack_layers", "layers").slice(0, 5); WK.stack = ls;
+    ls.slice(1).forEach((_, i) => mk("sc" + i, `<div style="position:relative;width:5px;height:92px"><div class="d" style="position:absolute;inset:0;transform-origin:50% 0;background:var(--acc);box-shadow:0 0 14px rgba(var(--accRGB),.8)"></div><div class="h" style="position:absolute;left:-8px;width:21px;height:21px;border-radius:50%;background:var(--acc);box-shadow:0 0 18px 6px rgba(var(--accRGB),.7)"></div></div>`));
+    ls.forEach((it, i) => mk("sl" + i, `<div style="width:420px;height:150px;border-radius:18px;background:linear-gradient(135deg,rgba(var(--accRGB),${(0.55 - i * 0.08).toFixed(2)}),rgba(var(--accRGB),.12));border:2px solid rgba(var(--accRGB),.8);display:flex;align-items:center;justify-content:center;font:800 30px Inter;color:var(--tx);box-shadow:0 30px 60px rgba(0,0,0,.4)">${esc(it.x.label || it.x)}</div>`));
+  }
+}
+function renderWorlds(t, vis) {
+  const V = id => vis(id);
+  if (OBJ.tg) { const o = POS.w_table, v = V("w_table"), k = spring((t - first("table_grid").t0 + 0.2) / 0.7);
+    put("tg", v, o.x, o.y + 80 + (1 - k) * 60, o.z, (1 - k) * 18 * ST.sign, (1 - k) * 25, 0, 1, dof(o.x, o.y + 80, o.z, 0.4));
+    OBJ.tg.querySelectorAll(".tr").forEach((r, i) => { const it = WK.table[i], a = revealAt(it), kk = clamp((t - a) / 0.35), hw = it.s.p.highlight_word, hr = it.s.p.highlight_row ?? -1;
+      const pk = spring((t - a) / 0.5), lk = r.querySelector(".lk"), dr = ease((t - a + 0.35) / 0.35);   // the link draws down to the new row's slot, then the row pops
+      lk.style.transform = `scaleY(${dr.toFixed(3)})`; lk.style.opacity = (dr > 0 ? 1 - ramp(t, a + 0.5, .4) : 0).toFixed(3);
+      r.style.opacity = kk.toFixed(3); r.style.transformOrigin = "0 50%"; r.style.transform = `scale(${(0.8 + 0.2 * pk).toFixed(4)})`;
+      const ty = clamp((t - a) / 0.9); [...r.children].forEach((c, ci) => { if (c.dataset.f == null) c.dataset.f = c.textContent;   // the row is written cell by cell
+        const f = c.dataset.f, part = clamp(ty * r.children.length - ci); c.textContent = f.slice(0, Math.round(f.length * part)); });
+      const hl = hw && it.j === hr ? win(t, W(it.s.line, hw, 0.5), it.s.t1 + 0.2, .2, .3) : (kk < 1 && kk > 0 ? 0.6 * (1 - kk) : 0);
+      r.style.background = `rgba(${ST.accent_rgb},${(0.22 * hl).toFixed(3)})`; }); }
+  if (OBJ.tl_line) { const o = POS.w_time, v = V("w_time"), n = WK.time.length;
+    const shown = WK.time.filter(it => t >= revealAt(it) - 0.1).length, k = ease((t - (revealAt(WK.time[Math.max(0, shown - 1)]) - 0.1)) / 0.5);
+    put("tl_line", v, o.x + ((n - 1) * 230) / 2, o.y + 60, o.z, 0, 0, 0, 1);
+    const ln = OBJ.tl_line.firstElementChild.firstElementChild; ln.style.transformOrigin = "0 50%"; ln.style.transform = `scaleX(${clamp((100 + (Math.max(0, shown - 2) + k) * 230) / ((n - 1) * 230 + 200)).toFixed(4)})`;
+    { const tip = o.x - 100 + (100 + (Math.max(0, shown - 2) + k) * 230), mov = k > 0.02 && k < 0.98 ? 1 : 0; put("tl_head", v * mov, tip, o.y + 60, o.z + 2); }
+    WK.time.forEach((it, i) => { const a = revealAt(it), kk = spring((t - a) / 0.6); put("tl" + i, v * clamp((t - a) * 5), o.x + i * 230, o.y + 60 + (1 - kk) * 40, o.z, 0, 0, 0, 0.7 + 0.3 * kk); }); }
+  if (OBJ.ftok) { const o = POS.w_flow, v = V("w_flow"), n = WK.flow.length, top = -((n - 1) * 118) / 2 + 80;
+    WK.flow.forEach((it, i) => { const a = revealAt(it), kk = spring((t - a) / 0.55); put("fs" + i, v * clamp((t - a) * 6), o.x, o.y + top + i * 118, o.z, 0, 0, 0, 0.6 + 0.4 * kk);
+      if (i) { const dr = ease((t - a + 0.4) / 0.38), e = OBJ["fa" + (i - 1)]; put("fa" + (i - 1), v * (dr > 0 ? 1 : 0), o.x, o.y + top + i * 118 - 59, o.z);
+        e.querySelector(".d").style.transform = `scaleY(${dr.toFixed(3)})`; const h = e.querySelector(".h"); h.style.top = (dr * 44 - 9).toFixed(1) + "px"; h.style.opacity = dr > 0 && dr < 1 ? 1 : 0; } });
+    const shown = WK.flow.filter(it => t >= revealAt(it)).length, p = (t * 0.6) % 1, span = Math.max(0, shown - 1) * 118;
+    put("ftok", v * (shown > 1 ? Math.sin(Math.PI * p) : 0), o.x - 215, o.y + top + p * span, o.z + 10); }
+  if (OBJ.bp) { const s0 = first("browser_page"), o = POS.w_web, v = V("w_web"), k = spring((t - s0.t0 + 0.2) / 0.7);
+    put("bp", v, o.x, o.y + 80 + (1 - k) * 60, o.z, (1 - k) * -16 * ST.sign, (1 - k) * 20, 0, 1, dof(o.x, o.y + 80, o.z, 0.4));
+    type(q("bp", ".url"), s0.p.url || "https://example.com", t, s0.t0, s0.t0 + 0.7);
+    OBJ.bp.querySelectorAll(".bb").forEach((b, i) => { const a = revealAt(WK.web[i]), kk = clamp((t - a) / 0.3); b.style.opacity = clamp((t - a + 0.5) * 3).toFixed(3); const sk = b.querySelector(".sk"); sk.style.opacity = (1 - kk).toFixed(3); sk.style.backgroundPosition = `${(-t * 200) % 200}% 0`; });
+    const btn = q("bp", ".bbtn"); if (btn) btn.style.transform = `scale(${(1 + 0.06 * Math.max(0, Math.sin((t - s0.t0) * 5))).toFixed(3)})`; }
+  if (OBJ.ch) { const s0 = first("chat_thread"), o = POS.w_chat, v = V("w_chat"), k = spring((t - s0.t0 + 0.2) / 0.7);
+    let shownH = 0; OBJ.ch.querySelectorAll(".mg").forEach((m, i) => { const it = WK.chat[i], a = revealAt(it), ai = (it.x.from || "you") === "ai", typing = ai && t >= a - 0.6 && t < a;
+      m.style.display = t >= a - (ai ? 0.6 : 0) ? "" : "none"; m.querySelector(".tx").style.display = typing ? "none" : ""; m.querySelector(".dots").style.display = typing ? "" : "none";
+      const kk = spring((t - a + (ai ? 0.6 : 0)) / 0.45); m.style.transformOrigin = ai ? "0 100%" : "100% 100%"; m.style.transform = `scale(${(0.55 + 0.45 * kk).toFixed(4)})`; if (m.style.display === "") shownH += m.offsetHeight + 12; });
+    put("ch", v, o.x, o.y + 60 - Math.max(0, shownH - 300) * 0.5 + (1 - k) * 60, o.z, (1 - k) * 14 * ST.sign, 0, 0, 1, dof(o.x, o.y, o.z, 0.4)); }
+  if (OBJ.bc) { const s0 = first("bar_chart"), o = POS.w_chart, v = V("w_chart"), k = spring((t - s0.t0 + 0.2) / 0.7);
+    put("bc", v, o.x, o.y + 80 + (1 - k) * 50, o.z, (1 - k) * 12 * ST.sign, (1 - k) * 18, 0, 1, dof(o.x, o.y + 80, o.z, 0.4));
+    OBJ.bc.querySelectorAll(".br").forEach((r, i) => { const it = WK.chart[i], a = revealAt(it), kk = eout((t - a) / 0.9), f = r.querySelector(".bf"); f.style.width = (+f.dataset.w * kk).toFixed(1) + "%"; f.style.boxShadow = kk > 0.02 && kk < 0.97 ? `6px 0 18px 4px rgba(${ST.accent_rgb},.75)` : "none"; r.querySelector(".bv").textContent = fmtNum(+it.x[1] * kk, it.x[1]) + (it.s.p.unit || ""); r.style.opacity = clamp((t - a + 0.3) * 4).toFixed(3); }); }
+  if (OBJ.ph) { const s0 = first("phone_screen"), o = POS.w_phone, v = V("w_phone"), k = spring((t - s0.t0 + 0.2) / 0.8);
+    put("ph", v, o.x, o.y + 40 + (1 - k) * 120, o.z, lerp(-30 * ST.sign, -8 * ST.sign, k) + 3 * Math.sin(t * 0.9), lerp(20, 4, k), 0, 1, dof(o.x, o.y, o.z, 0.4));
+    OBJ.ph.querySelectorAll(".pr").forEach((r, i) => { const a = revealAt(WK.phone[i]), kk = spring((t - a) / 0.5); r.style.opacity = clamp((t - a) * 5).toFixed(3); r.style.transformOrigin = "50% 50%"; r.style.transform = `scale(${(0.7 + 0.3 * kk).toFixed(4)})`; });
+    const pn = q("ph", ".pn"), sn = SC.find(x => x.type === "phone_screen" && x.p.notify); if (pn && sn) { const a = W(sn.line, sn.p.notify_word, 0.5), kk = spring((t - a) / 0.5); pn.style.transform = `translateY(${((1 - kk) * -120).toFixed(1)}px)`; pn.style.opacity = t >= a ? 1 : 0; } }
+  if (OBJ.sl0) { const o = POS.w_stack, v = V("w_stack"), n = WK.stack.length;
+    WK.stack.forEach((it, i) => { const a = revealAt(it), kk = spring((t - a) / 0.7), spread = 1 + 0.35 * ramp(t, revealAt(WK.stack[n - 1]) + 0.4, .8);
+      const hw = it.x.word, hl = hw ? win(t, W(it.s.line, hw, 0.5), it.s.t1, .2, .3) : 0;
+      put("sl" + i, v * clamp((t - a) * 4), o.x, o.y + 120 + (i - (n - 1) / 2) * 92 * spread - (1 - kk) * 60, o.z + i * 4, 0, 58, 0, (0.7 + 0.3 * kk) * (1 + 0.08 * hl));
+      if (i) { const dr = ease((t - a + 0.4) / 0.38), e = OBJ["sc" + (i - 1)], y0 = o.y + 120 + (i - 1 - (n - 1) / 2) * 92 * spread;
+        put("sc" + (i - 1), v * (dr > 0 ? 1 - 0.7 * ramp(t, a + 0.5, .4) : 0), o.x - 230, y0 + 46 * spread, o.z + 30, 0, 0, 0, spread);
+        e.querySelector(".d").style.transform = `scaleY(${dr.toFixed(3)})`; const h = e.querySelector(".h"); h.style.top = (dr * 92 - 10).toFixed(1) + "px"; h.style.opacity = dr > 0 && dr < 1 ? 1 : 0; } }); }
+}
+function directWorld(s, o, prev, newSet, sg) {
+  // entering: a hard cut from wherever the camera is; keys the previous scene set after the cut are dropped (no fly-through)
+  const enter = c => { if (newSet && prev) { const tc = t0 - 0.12; for (let i = CK.length - 1; i >= 0; i--) if (CK[i][0] >= tc - 0.001) CK.splice(i, 1);
+    let last = CK[0]; for (const k of CK) if (k[0] > last[0]) last = k; cut(tc, last ? { ...last[1] } : c, c); } else key(t0 - 0.05, c); };
+  const t0 = s.t0, t1 = s.t1, C = (dx, dy, dz, yaw, pitch, D) => cam(o, dx, dy, dz, yaw, pitch, D * 1.0);   // worlds: one big subject, with room at the edges for the camera to turn
+  const pop = (items) => items.filter(it => it.s === s).forEach(it => { cue(revealAt(it) - 0.38, "zip", 0.25); cue(revealAt(it), "pop", 0.55); });
+  // follow: as each item of this line appears, the camera turns toward it (where the voice is), alternating sides; it never slides a panel off screen
+  const follow = (items, dyOf, base, D) => { let k = 0; items.forEach((it, i) => { if (it.s !== s) return; const a = revealAt(it) + 0.3;
+    if (a > t0 + 0.2 && a < t1 - 0.45) { k++; key(a, C(0, base + 0.7 * dyOf(i, items.length), 0, (k % 2 ? 19 : -19) * sg, 8, D * (k % 2 ? 0.95 : 1.06))); } }); };
+  switch (s.type) {
+    case "table_grid": { const n = WK.table.length; enter(C(0, 80, 0, -14 * sg, 10, 960 + n * 20)); follow(WK.table, (i, m) => (i - (m - 1) / 2) * 46, 80, 900 + n * 20); key(t1 - 0.1, C(30 * sg, 90, 0, -4 * sg, 6, 840 + n * 20)); WK.table.filter(it => it.s === s).forEach(it => cue(revealAt(it), "tick", 0.6)); break; }
+    case "timeline": { const mine = WK.time.filter(it => it.s === s), last = WK.time.indexOf(mine[mine.length - 1]), firstI = WK.time.indexOf(mine[0]); enter(C(Math.max(0, firstI - 0.5) * 230, 60, 0, 16 * sg, 6, 860));   // start where this line's first point appears, then travel along
+      mine.forEach(it => { const i = WK.time.indexOf(it); key(revealAt(it) + 0.45, C(i * 230 - 40 * sg, 60, 0, 10 * sg, 4, 820)); cue(revealAt(it), "pop", 0.6); }); key(t1 - 0.05, C(last * 230 - 60 * sg, 60, 0, 4 * sg, 3, 880)); break; }
+    case "flow_steps": { const n = WK.flow.length; enter(C(0, 80, 0, 18 * sg, 8, 900 + n * 60)); follow(WK.flow, (i, m) => (i - (m - 1) / 2) * 118, 80, 880 + n * 60); key(t1 - 0.1, C(-20 * sg, 80, 0, 6 * sg, 4, 860 + n * 60)); pop(WK.flow); cue(t0 + 0.3, "zip", 0.4); break; }
+    case "browser_page": enter(C(0, 80, 0, -18 * sg, 10, 1000)); follow(WK.web, (i) => i * 60 - 40, 80, 940); key(t1 - 0.1, C(20 * sg, 90, 0, -4 * sg, 4, 860)); cue(t0, "whoosh", 0.6); WK.web.filter(it => it.s === s).forEach(it => cue(revealAt(it), "blip", 0.4)); break;
+    case "chat_thread": enter(C(0, 60, 0, 14 * sg, 6, 940)); follow(WK.chat, (i, m) => (i - (m - 1) / 2) * 50, 60, 900); key(t1 - 0.1, C(-20 * sg, 60, 0, 4 * sg, 3, 860)); WK.chat.filter(it => it.s === s).forEach(it => cue(revealAt(it), "pop", 0.6)); break;
+    case "bar_chart": enter(C(0, 80, 0, -12 * sg, 12, 980)); follow(WK.chart, (i, m) => (i - (m - 1) / 2) * 56, 80, 920); key(t1 - 0.1, C(0, 90, 0, 4 * sg, 6, 880)); cue(t0, "riser", 0.5); WK.chart.filter(it => it.s === s).forEach(it => cue(revealAt(it), "tick", 0.6)); break;
+    case "phone_screen": enter(C(0, 40, 0, 22 * sg, 8, 1040)); follow(WK.phone, (i) => i * 56 - 60, 40, 980); key(t1 - 0.1, C(-10 * sg, 40, 0, 8 * sg, 4, 900)); pop(WK.phone); if (s.p.notify) cue(W(s.line, s.p.notify_word, 0.5), "ding", 0.7); break;
+    case "stack_layers": { const n = WK.stack.length; enter(C(0, 120, 0, -24 * sg, 26, 1150 + n * 40)); follow(WK.stack, (i, m) => (i - (m - 1) / 2) * 92, 120, 1100 + n * 40); key(t1 - 0.1, C(0, 120, 0, 10 * sg, 18, 1050 + n * 40)); pop(WK.stack); break; }
+  }
+  // a long hold inside a world gets one gentle lean at its midpoint (the shot breathes like the reference; never a new angle)
+  const mine = CK.filter(k => k[0] >= t0 - 0.06 && k[0] <= t1 + 0.01).sort((a, b) => a[0] - b[0]);
+  for (let i = 0; i + 1 < mine.length; i++) { const [ta, ca] = mine[i], [tb, cb] = mine[i + 1];
+    if (tb - ta > 1.1) { const m = (ta + tb) / 2, side = i % 2 ? 1 : -1;
+      key(m, { ...ca, x: (ca.x + cb.x) / 2, y: (ca.y + cb.y) / 2, yaw: (ca.yaw + cb.yaw) / 2 + side * 15 * sg, D: Math.max(ca.D, cb.D) * 1.05 }); } }
+}
 // ============================================================ the frame
 function type(el, text, t, a, b) { const n = Math.round(String(text).length * clamp((t - a) / (b - a))); el.textContent = String(text).slice(0, n); }
 const q = (id, sel) => OBJ[id] && OBJ[id].querySelector(sel);
@@ -321,14 +528,16 @@ function render(t) {
   $("flash").style.opacity = (0.35 * fl).toFixed(3);
   // which sets are on screen: a set is visible from its first scene to the last, with fades
   const span = {}; SC.forEach(s => { const sp = span[s.sid] || (span[s.sid] = [s.t0, s.t1]); sp[0] = Math.min(sp[0], s.t0); sp[1] = Math.max(sp[1], s.t1); });
-  const vis = id => span[id] ? win(t, span[id][0] - 0.35, span[id][1] - 0.15, .4, .35) : 0;
-  for (const [id, o] of Object.entries(POS)) { const v = vis(id); put("g_" + id, 0.9 * v + 0.1 * v * Math.sin(t * 1.3), o.x, o.y + 40, o.z - 500, CAM.yaw, CAM.pitch, 0, 1 + 0.05 * Math.sin(t * 0.8)); put("f_" + id, v, o.x, o.y + (id === "story" ? 600 : 400), o.z, 0, 90, 0, 1); }
+  const vis = id => !span[id] ? 0 : id.startsWith("w_") ? SC.reduce((m, s) => s.sid === id ? Math.max(m, win(t, s.t0 - 0.35, s.t1 - 0.15, .4, .35)) : m, 0)   // worlds show only while their lines play
+    : win(t, span[id][0] - 0.35, span[id][1] - 0.15, .4, .35);
+  for (const [id, o] of Object.entries(POS)) { const v = vis(id); put("g_" + id, LK.glow * (0.9 * v + 0.1 * v * Math.sin(t * 1.3)), o.x, o.y + 40, o.z - 500, CAM.yaw, CAM.pitch, 0, 1 + 0.05 * Math.sin(t * 0.8)); put("f_" + id, Math.min(1, LK.floor * v), o.x, o.y + (id === "story" ? 600 : 400), o.z, 0, 90, 0, 1); }
   // light streaks run across whichever floor is most visible
   let best = null, bv = 0; for (const id of Object.keys(POS)) { const v = vis(id); if (v > bv) { bv = v; best = id; } }
   for (let i = 0; i < 46; i++) { const lane = (i * 7) % 19 - 9, sp = 900 + (i * 131) % 700, ph = (t * sp / 3400 + i * 0.217) % 1, o = POS[best] || { x: 0, y: 0, z: 0 };
-    put("st" + i, bv * 0.8 * Math.sin(Math.PI * ph), o.x + lane * 120, o.y + (best === "story" ? 598 : 398), o.z - 1300 + ph * 2600, 0, 90, 0, 0.8); }
+    put("st" + i, Math.min(1, LK.streak * bv * 0.8 * Math.sin(Math.PI * ph)), o.x + lane * 120, o.y + (best === "story" ? 598 : 398), o.z - 1300 + ph * 2600, 0, 90, 0, 0.8); }
   for (const s of SC) RENDER[s.type] && RENDER[s.type](t, s, POS[s.sid], vis(s.sid));
   if (POS.story) renderStory(t, POS.story, vis("story"));
+  renderWorlds(t, vis);
   // window sheen when panels arrive
   document.querySelectorAll(".win").forEach(w => { const a = +(w.dataset.a || -1); if (a < 0) return; const k = clamp((t - a) / 0.8); w.style.setProperty("--sheen", k > 0 && k < 1 ? 0.10 : 0); w.style.setProperty("--sx", `${lerp(120, -20, k)}%`); });
 }
@@ -427,7 +636,12 @@ function renderStory(t, O, v) {
       $("slotRow").style.boxShadow = okG > 0 ? `inset 4px 0 0 rgba(63,185,80,${okG}),0 0 30px rgba(63,185,80,${0.3 * okG})` : "none";
     }
   }
-  if (!dia) return;
+  if (!dia) {   // no app/server diagram: the side-by-side comparison still plays (it used to be skipped)
+    for (const s of SC) if (s.type === "compare") { const o = O, k = spring((t - s.t0 + 0.05) / 0.7), k2 = spring((t - s.t0 - 0.15) / 0.7), on = sv * win(t, s.t0 - 0.05, s.t1 - 0.05, .25, .25);
+      put("cA" + s.i, on, o.x - lerp(400, 0, k), o.y + 70, o.z + 160, lerp(-60, -8, k)); put("cB" + s.i, on * ramp(t, s.t0 + 0.15, .2), o.x + lerp(400, 0, k2), o.y + 250, o.z + 160, lerp(60, 8, k2));
+      put("cE" + s.i, on * ramp(t, s.t0 + 0.35, .2), o.x, o.y + 162, o.z + 180, 0, 0, 0, spring((t - s.t0 - 0.35) / .5)); }
+    return;
+  }
   const srv = spring((t - dia.t0 - 0.1) / 0.8), SY = O.y + 330, SZ = O.z - 140;
   put("server", sv * ramp(t, dia.t0 + 0.05, .3), O.x, lerp(SY + 260, SY, srv), lerp(SZ - 400, SZ, srv), lerp(-20, 0, srv) * ST.sign);
   OBJ.server.querySelector(".front").style.filter = `brightness(${dimL})`;
@@ -495,8 +709,9 @@ window.init = function (data) {
   let seed = ST.seed >>> 0; ST.r = n => { let x = (seed + n * 2654435761) >>> 0; x ^= x << 13; x >>>= 0; x ^= x >>> 17; x ^= x << 5; x >>>= 0; return (x % 100000) / 100000; };
   L = T.lines.map(l => l.start); LE = T.lines.map(l => l.end); DUR = T.duration;
   WD = T.lines.map((_, i) => T.words.filter(w => w.line === i));
+  const lk = LOOKS[P.look] ? P.look : "studio"; LK = LOOKS[lk]; document.body.className = "look-" + lk;
   layout(); build(); buildCaptions(); direct(); render(0);
-  return { duration: DUR, cues: CUES, sections: sections() };
+  return { duration: DUR, cues: CUES, sections: sections(), look: lk };
 };
 // music arrangement, read by the mixer (studio/motion/sound.py)
 function sections() {

@@ -74,6 +74,11 @@ def test_voice_is_locked():
     v = channel()["voice"]
     check((v["voice"], v["speed"], v["pace"]["gap_line"], v["pace"]["gap_beat"]) == ("am_fenrir", 1.0, 0.12, 0.3),
           "TE voice = Franklin's locked choice (am_fenrir 1.0, gaps 0.12/0.3)")
+    check(v["pace"] == {"gap_line": 0.12, "gap_beat": 0.3, "lead_in": 0.15, "tail": 0.4, "trim_tail": None},
+          "every pacing value of the locked voice is set in the channel file (as approved on 11 Nov)")
+    src = (ROOT / "studio" / "motion" / "narrate.py").read_text(encoding="utf-8")
+    check(all(f'pace["{k}"]' in src for k in v["pace"]) and all(f"voice.{k}" in src for k in ("GAP_LINE", "GAP_BEAT", "LEAD_IN", "TAIL", "TRIM_TAIL")),
+          "narrate.py sets all five pacing values itself (shared voice defaults can't change the locked voice)")
     check("rubberband" not in v["eq"] and "aecho" not in v["eq"] and "asetrate" not in v["eq"],
           "no pitch shift or echo in the voice chain (rejected on 11 Nov)")
 
@@ -85,10 +90,29 @@ def test_never_imports_the_story_engine():
 
 
 def test_isolated_from_hidden_reasons():
-    hits = [str(p.relative_to(ROOT)) for p in list((ROOT / "studio").rglob("*.py")) + list((ROOT / ".github" / "workflows").glob("*.yml"))
-            if "studio.motion" in p.read_text(encoding="utf-8", errors="ignore") or "studio/motion" in p.read_text(encoding="utf-8", errors="ignore")]
-    hits = [h for h in hits if not h.startswith("studio/motion/") and h not in (".github/workflows/make-motion.yml", ".github/workflows/pipeline-tests.yml")]
-    check(hits == [], f"nothing outside the motion engine uses it {hits}")
+    files = list((ROOT / "studio").rglob("*.py")) + list((ROOT / ".github" / "workflows").glob("*.yml")) + list((ROOT / "tools").glob("*"))
+    for sub in ("src", "scripts"):
+        files += [p for p in (ROOT / "web" / sub).rglob("*") if p.suffix in (".js", ".mjs", ".ts", ".tsx")]
+    files += list((ROOT / "pipeline").rglob("*.py")) if (ROOT / "pipeline").exists() else []
+    words = ("studio.motion", "studio/motion", "tech_education", "channels/te")
+    hits = [str(p.relative_to(ROOT)) for p in files if p.is_file() and any(w in p.read_text(encoding="utf-8", errors="ignore") for w in words)]
+    own = (".github/workflows/make-motion.yml", ".github/workflows/motion-review.yml", ".github/workflows/pipeline-tests.yml")
+    hits = [h for h in hits if not h.startswith("studio/motion/") and h not in own]
+    check(hits == [], f"nothing outside the motion engine uses it: studio, workflows, tools, website {hits}")
+
+
+def test_workflows_do_not_share_with_films():
+    wf = ROOT / ".github" / "workflows"
+    mm, mr = (wf / "make-motion.yml").read_text(encoding="utf-8"), (wf / "motion-review.yml").read_text(encoding="utf-8")
+    check("assets-kokoro-v1.1-tabler" not in mm, "make-motion never touches the Hidden Reasons cache key")
+    check("--label review-motion" in mm and not re.search(r"--label review(\s|$)", mm, re.M), "motion review issues use their own label")
+    check("group: make-motion" in mm and "KAGGLE_" not in mm and "pip install kaggle" not in mm and "release download channel-memory" not in mm,
+          "own queue, no Kaggle keys or tool, no channel memory download")
+    check("'review-motion'" in mr and "repository_owner" in mr, "motion-review answers only the owner on review-motion issues")
+    check("<!-- motion-review: tag=" in mm and "motion-review: tag=" in mr, "the review issue carries the marker the review workflow reads")
+    rr = (wf / "review-reply.yml").read_text(encoding="utf-8")
+    check("contains(github.event.issue.labels.*.name, 'review')" in rr, "the film review workflow matches the exact label 'review' (not review-motion)")
+    check("episodes/tech_education/" in mm and "commit_to_main.sh" in mm, "AI-written episodes are saved to the repo")
 
 
 class _R:
@@ -112,6 +136,10 @@ def test_writer_offline():
                           ask_fn=lambda *a, **k: _R(broken), research_fn=lambda t: srcs, fact_fn=fact)
         check(f2.name.startswith("002-") and (f2 / "NEEDS_REVIEW.md").exists(), "writer: a broken plan is flagged for review")
         check(json.loads((f2 / "plan.json").read_text()).get("auto") is True, "writer: a broken plan falls back to the plain plan")
+        f3 = writer.write("What is an API?", Path(tmp), channel(), log=lambda *a: None,
+                          ask_fn=lambda *a, **k: _R(good), research_fn=lambda t: srcs, fact_fn=fact)
+        p1, p3 = json.loads((f / "plan.json").read_text()), json.loads((f3 / "plan.json").read_text())
+        check((f3 / "NEEDS_REVIEW.md").exists() and p1["look"] != p3["look"], "writer: a draft that repeats a recent episode is flagged, and the look rotates")
 
 
 def test_render_smoke():
@@ -145,6 +173,63 @@ def test_render_smoke():
         r3 = subprocess.run(["node", str(motion / "render.js"), str(dp), "--cues", str(Path(tmp) / "c.json")], capture_output=True, text=True, timeout=300)
         info = json.loads((Path(tmp) / "c.json").read_text()) if r3.returncode == 0 else {}
         check(len(info.get("cues", [])) > 50 and info.get("sections", {}).get("break_from") is not None, "sound cues and music sections come out of the plan")
+
+
+def test_variety_guard():
+    """12 Nov 2026: videos must not look like one template (YouTube's inauthentic-content policy)."""
+    from studio.motion import variety as V
+    s, p = ep()
+    fp = V.fingerprint(p)
+    check(fp["world"] == "story" and fp["look"] == "studio", "fingerprint: the API episode is the app/server diagram in the original look")
+    hist = [{"episode": "001-a", **fp}]
+    check(len(V.check(p, hist)) >= 3, "the same plan again is flagged (look, main picture, opener, scene types)")
+    looks, h = [], []
+    for i in range(6):
+        lk = V.choose_look(h, i); looks.append(lk); h.append({"episode": f"{i:03d}", "look": lk, "world": None, "worlds": [], "opener": None, "types": []})
+    check(sorted(looks) == sorted(PL.LOOKS), f"six episodes in a row get six different looks ({looks})")
+    check("DIFFERENT" in V.brief(hist) and "story" in V.brief(hist), "the writer is told what to avoid")
+    db = json.loads((ROOT / "episodes/tech_education/002-what-is-a-database/plan.json").read_text())
+    check(V.check(db, V.history(ROOT / "episodes/tech_education", before="002")) == [], "episode 002 is different enough from 001")
+    html = (ROOT / "studio/motion/web/engine.html").read_text(encoding="utf-8")
+    check(all(f"body.look-{lk}" in html for lk in PL.LOOKS if lk != "studio") and "studio:    { drift: 1,   dof: 1,   orbit: 1,   P: 1,   floor: 1,   streak: 1,   glow: 1 }" in html,
+          "every look is defined, and the original look changes nothing")
+
+
+WORLD_DEMO = [
+    ("table_grid", {"title": "habits", "columns": ["habit", "done"], "rows": [["Read", "yes"], ["Walk", "no"]]}),
+    ("timeline", {"items": [{"label": "2005", "sub": "first"}, {"label": "2008", "sub": "second"}]}),
+    ("flow_steps", {"steps": [{"label": "Ask"}, {"label": "Answer"}]}),
+    ("browser_page", {"title": "Hello", "url": "example.com", "blocks": [{"text": "one block"}, {"text": "two block"}], "button": "Go"}),
+    ("chat_thread", {"messages": [{"from": "you", "text": "hi there"}, {"from": "ai", "text": "hello back"}]}),
+    ("bar_chart", {"title": "Numbers", "bars": [["a", 3], ["b", 5]], "unit": "%"}),
+    ("phone_screen", {"title": "Today", "rows": [{"text": "one row"}], "notify": "A banner", "notify_word": "banner"}),
+    ("stack_layers", {"layers": [{"label": "Top"}, {"label": "Bottom"}]}),
+]
+
+
+def test_worlds_and_looks_render():
+    motion = ROOT / "studio" / "motion"
+    if not (motion / "node_modules" / "playwright").exists() or not shutil.which("node"):
+        print("skip worlds render (renderer not installed)")
+        return
+    lines = ["this is a table of habits today", "this is a timeline of years", "these are the steps to follow", "this is a web page loading",
+             "this is a chat with the ai", "these bars grow from the data", "a phone shows a banner now", "these layers stack in place", "follow for more build basics"]
+    s = {"title": "Worlds", "beats": [{"lines": lines}], "key_words": ["table"]}
+    plan = {"seed": 3, "scenes": [{"line": i, "type": t, "p": p} for i, (t, p) in enumerate(WORLD_DEMO)] + [{"line": 8, "type": "end_card", "p": {"series": "x", "title": "Worlds"}}]}
+    check(PL.validate(s, plan) == [], f"a plan using every world is valid {PL.validate(s, plan)[:3]}")
+    words, tl, t = [], [], 0.2
+    for i, l in enumerate(lines):
+        st = t
+        for w in l.split():
+            words.append({"w": w, "start": round(t, 3), "end": round(t + 0.3, 3), "line": i}); t += 0.34
+        tl.append({"text": l, "start": st, "end": t}); t += 0.15
+    with tempfile.TemporaryDirectory() as tmp:
+        for lk in PL.LOOKS:
+            dp = Path(tmp) / f"{lk}.json"
+            dp.write_text(json.dumps({"timing": {"duration": t + 0.5, "lines": tl, "words": words}, "script": s, "plan": {**plan, "look": lk}, "style": style_for(3, None, lk)}))
+            times = ",".join(str(round(x["start"] + 1.0, 2)) for x in tl)
+            r = subprocess.run(["node", str(motion / "render.js"), str(dp), "--stills", times, str(Path(tmp) / lk)], capture_output=True, text=True, timeout=300)
+            check(r.returncode == 0 and len(list((Path(tmp) / lk).glob("*.jpg"))) == len(tl), f"look '{lk}' draws every world without page errors {r.stderr[-200:]}")
 
 
 if __name__ == "__main__":

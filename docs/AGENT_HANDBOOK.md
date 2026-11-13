@@ -83,6 +83,8 @@ Story clock ──(at each slot)──> Story schedule ──(guardrails ok)─�
   v1 -> v3 against a measured quality bar, then generalised: script.json + plan.json (one scene per line from 22 scene
   types) -> deterministic render in headless Chromium. Manual workflow "Make a motion video (Tech Education)" only;
   isolated from Hidden Reasons (own concurrency group, no Kaggle, no memory; `tests/test_motion.py` checks the isolation).
+- Review of that PR the same day: own cache key, own `review-motion` label + `motion-review.yml` (approve / remake), every
+  voice pacing value pinned in the channel file, AI-written episodes saved to main, and automatic coverage cuts in the engine.
 - TE voice locked by Franklin: Kokoro `am_fenrir` 1.0 + gentle EQ (`channels/te/channel.json`). Rejected: voice
   blends, pitch shifting, echo.
 
@@ -104,6 +106,8 @@ Story clock ──(at each slot)──> Story schedule ──(guardrails ok)─�
 | 10 Nov | Pipeline save crashed: `Committer identity unknown` | the rebase retry had no git identity (found by Codex) | identity for commit and rebase (#65) + `tests/test_git_identity.py` |
 | 10 Nov | Tests hung 10 min | apt mirror stall in the test workflow, tests twice per push | apt 3-min timeout + retry, man-db/needrestart off, push runs only on main (#65) |
 | 10 Nov | Films sounded rushed | voice forced to 1.38-1.6x with 0.08/0.2 s gaps | `STORY_VOICE` (#71); voice lab re-baselined (#76) |
+
+| 11 Nov | A Tech Education video reached Franklin with panels cut off, overlapping and under the captions | automatic camera cuts were judged by motion numbers only; nobody measured the frames | engine fits every shot to its subjects and audits its own frames; gate `layout_ok`; tests run the audit for 4 voices/seeds and the fallback plan |
 
 ## 6. Known issues and open questions (verify before acting)
 

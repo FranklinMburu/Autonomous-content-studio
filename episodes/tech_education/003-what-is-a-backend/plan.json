@@ -1,0 +1,219 @@
+{
+ "seed": 61,
+ "look": "glass",
+ "scenes": [
+  {
+   "line": 0,
+   "type": "browser_page",
+   "p": {
+    "url": "pizza-shop.app",
+    "title": "Order a pizza",
+    "blocks": [
+     {
+      "text": "Margherita · $9"
+     },
+     {
+      "text": "Pepperoni · $11"
+     }
+    ],
+    "button": "Order"
+   }
+  },
+  {
+   "line": 1,
+   "type": "big_word",
+   "p": {
+    "text": "Backend",
+    "sub": "the part of every app you never see"
+   }
+  },
+  {
+   "line": 2,
+   "type": "browser_page",
+   "p": {
+    "blocks": [
+     {
+      "text": "Buttons, text and pictures",
+      "word": "buttons"
+     }
+    ]
+   }
+  },
+  {
+   "line": 3,
+   "type": "stack_layers",
+   "p": {
+    "layers": [
+     {
+      "label": "Frontend · your phone",
+      "word": "frontend"
+     }
+    ]
+   }
+  },
+  {
+   "line": 4,
+   "type": "app_window",
+   "p": {
+    "url": "pizza-shop.app",
+    "title": "Pizza shop",
+    "subtitle": "Your order",
+    "rows": [
+     [
+      "Margherita",
+      "x 1"
+     ],
+     [
+      "Total",
+      "$9"
+     ]
+    ],
+    "slot": "Status",
+    "unknown": true,
+    "unknown_word": "somewhere"
+   }
+  },
+  {
+   "line": 5,
+   "type": "flow_steps",
+   "p": {
+    "steps": [
+     {
+      "label": "Your tap",
+      "word": "tap"
+     },
+     {
+      "label": "travels to a server",
+      "word": "server"
+     }
+    ]
+   }
+  },
+  {
+   "line": 6,
+   "type": "stack_layers",
+   "p": {
+    "layers": [
+     {
+      "label": "Backend · a server",
+      "word": "backend"
+     }
+    ]
+   }
+  },
+  {
+   "line": 7,
+   "type": "flow_steps",
+   "p": {
+    "steps": [
+     {
+      "label": "Check who you are",
+      "word": "checks"
+     }
+    ]
+   }
+  },
+  {
+   "line": 8,
+   "type": "flow_steps",
+   "p": {
+    "steps": [
+     {
+      "label": "Save the order in a database",
+      "word": "saves"
+     }
+    ]
+   }
+  },
+  {
+   "line": 9,
+   "type": "flow_steps",
+   "p": {
+    "steps": [
+     {
+      "label": "Charge the card",
+      "word": "charges"
+     }
+    ]
+   }
+  },
+  {
+   "line": 10,
+   "type": "timeline",
+   "p": {
+    "items": [
+     {
+      "label": "Tap",
+      "sub": "you"
+     },
+     {
+      "label": "Work",
+      "sub": "the backend"
+     },
+     {
+      "label": "Answer",
+      "sub": "about a second later",
+      "word": "answer"
+     }
+    ]
+   }
+  },
+  {
+   "line": 11,
+   "type": "compare",
+   "p": {
+    "a_label": "Frontend is the",
+    "a_value": "shop window",
+    "b_label": "Backend is the",
+    "b_value": "kitchen",
+    "sign": "vs"
+   }
+  },
+  {
+   "line": 12,
+   "type": "cta_terminal",
+   "p": {
+    "title": "claude · pizza-shop",
+    "prompt": "keep the payment key and checks on the backend",
+    "result": "Moved the payment key to the server. The app has no secrets."
+   }
+  },
+  {
+   "line": 13,
+   "type": "file_tree",
+   "p": {
+    "title": "pizza-shop",
+    "files": [
+     [
+      "server/pay.js",
+      "runs on the backend",
+      "ok"
+     ],
+     [
+      ".env 🔒",
+      "PAYMENT_KEY=••••",
+      "accent"
+     ],
+     [
+      "app/Order.jsx",
+      "no secrets here",
+      ""
+     ]
+    ],
+    "code": [
+     "fetch('/api/pay')  // the app only asks",
+     "// the key stays on the server"
+    ]
+   }
+  },
+  {
+   "line": 14,
+   "type": "end_card",
+   "p": {
+    "series": "Build Basics · Part 3",
+    "title": "What actually is a backend?",
+    "next": "what is an API key?"
+   }
+  }
+ ]
+}
