@@ -20,41 +20,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Kick, last 24 h
-        run: |
-          python - <<'PY'
-          import sys, collections, urllib.parse
-          sys.path.insert(0, "third_party")
-          from clipit import kick
-          views, clips, cursor = collections.Counter(), collections.defaultdict(list), ""
-          for _ in range(10):
-              d = kick.get(f"https://kick.com/api/v2/clips?sort=view&time=day{cursor}")
-              for c in d.get("clips") or []:
-                  s = (c.get("channel") or {}).get("slug") or "?"
-                  views[s] += c["views"]; clips[s].append((c["views"], c.get("title") or "", c.get("duration")))
-              if not d.get("nextCursor"): break
-              cursor = "&cursor=" + urllib.parse.quote(d["nextCursor"])
-          print("== Kick streamers by views on their clips of the last 24 h")
-          for s, n in views.most_common(25):
-              top = sorted(clips[s], reverse=True)[:3]
-              print(f"{n:>9,}  {s:22s} " + " | ".join(f"{v:,} {t[:60]}" for v, t, _ in top))
-          try:
-              live = kick.live_streams()[:25]
-              print("\n== Kick live now, most viewers")
-              for s, v, lang in live: print(f"{v:>8,}  {s:22s} {lang}")
-          except Exception as e:
-              print("live list failed:", e)
-          PY
-      - name: What the top clip channels posted lately (YouTube, public list)
+      - name: Streamers lane
         run: |
           pip install -q "yt-dlp==2026.10.26"
-          for ch in UCIPD8q8n3Vy7Qfz59RTc1Jg UCxlQSBBswmNP-wFDkcFrDBw; do
-            echo "== https://www.youtube.com/channel/$ch/shorts (newest 40)"
-            yt-dlp -q --flat-playlist --playlist-end 40 -J "https://www.youtube.com/channel/$ch/shorts" > list.json || continue
-            python - <<'PY'
-          import json
-          d = json.load(open("list.json"))
-          for i, e in enumerate(d.get("entries") or []):
-              print(f"{i+1:>3}. {e.get('view_count') or 0:>10,}  {(e.get('title') or '')[:100]}")
-          PY
-          done
+          python -m studio.clips.hot streamers --out hot_streamers.json
+      - name: World lane
+        run: python -m studio.clips.hot world --out hot_world.json --topics 25
+      - name: LivestreamFail page shape (debug, for the parser)
+        run: curl -sL -A "Mozilla/5.0" https://livestreamfail.tv/clips/today | grep -o '"[a-zA-Z_]*\(roadcaster\|iew\)[a-zA-Z_]*"' | sort | uniq -c | head -20
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hot
+          path: hot_*.json
