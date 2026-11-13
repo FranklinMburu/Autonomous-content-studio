@@ -751,3 +751,4 @@ a.btn{text-decoration:none!important}
 .public-guide .pg{overflow:visible}
 @media(max-width:1000px){.lch-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.lch{padding:72px 16px 48px}.lch-t{font-size:34px}.lch-p{font-size:15px}.lch-grid{gap:10px}.lch-b{padding:10px 12px 12px}.lch-b b{font-size:14px}}
+.chstats .txt b{font-size:14px;font-weight:600;line-height:1.35}

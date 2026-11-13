@@ -3,13 +3,16 @@ import { createRoot } from 'react-dom/client';
 import './styles/candela.css';
 import { StudioProvider, useStudio } from './context/StudioContext';
 import { ActionsProvider } from './context/ActionsContext';
-import { LandingPage } from './landing/LandingPage';
-import { AppShell } from './app/AppShell';
-import { FilmsGalleryPage } from './public_pages/FilmsGalleryPage';
-import { FilmPublicPage } from './public_pages/FilmPublicPage';
-import { HowItWorksPage } from './public_pages/HowItWorksPage';
-import { PricingPage } from './public_pages/PricingPage';
 import { NotFoundView } from './app/views/NotFoundView';
+
+// Split: the studio app never downloads the landing page's globe and videos, and the landing loads the app only once.
+const LandingPage = React.lazy(() => import('./landing/LandingPage').then(m => ({ default: m.LandingPage })));
+const AppShell = React.lazy(() => import('./app/AppShell').then(m => ({ default: m.AppShell })));
+const FilmsGalleryPage = React.lazy(() => import('./public_pages/FilmsGalleryPage').then(m => ({ default: m.FilmsGalleryPage })));
+const FilmPublicPage = React.lazy(() => import('./public_pages/FilmPublicPage').then(m => ({ default: m.FilmPublicPage })));
+const HowItWorksPage = React.lazy(() => import('./public_pages/HowItWorksPage').then(m => ({ default: m.HowItWorksPage })));
+const PricingPage = React.lazy(() => import('./public_pages/PricingPage').then(m => ({ default: m.PricingPage })));
+const Loading: React.FC = () => <div style={{ position: 'fixed', inset: 0, display: 'grid', placeItems: 'center', color: 'var(--tx3)', fontSize: 13 }}>Loading…</div>;
 
 const Router: React.FC = () => {
   const { currentPath } = useStudio();
@@ -59,7 +62,9 @@ const App: React.FC = () => {
   return (
     <StudioProvider>
       <ActionsProvider>
-        <Router />
+        <React.Suspense fallback={<Loading />}>
+          <Router />
+        </React.Suspense>
       </ActionsProvider>
     </StudioProvider>
   );

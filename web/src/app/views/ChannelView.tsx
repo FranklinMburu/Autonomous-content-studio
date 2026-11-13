@@ -127,7 +127,7 @@ export const ChannelView: React.FC<{ code: string; onNavigate: (r: string) => vo
             <div><b>{videos.length}</b><span>videos made</span></div>
             <div className={need.length ? 'hot' : ''}><b>{need.length}</b><span>need you</span></div>
             <div><b>{myRuns.filter((r: any) => r.state === 'running' || r.state === 'queued').length}</b><span>running now</span></div>
-            <div><b>{ch.cadence}</b><span>how often</span></div>
+            <div className="txt"><b>{ch.cadence}</b><span>how often</span></div>
           </div>
           {need.length > 0 && <Section title="Needs you"><div className="vlist">{need.slice(0, 6).map(i => <VideoCard key={i.key} item={i} onOpen={onNavigate} showLane={false} />)}</div></Section>}
           <Section title="How a video is made here" hint={`One ${ch.makes}.`}>
