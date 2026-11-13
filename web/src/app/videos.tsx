@@ -49,7 +49,7 @@ export const VideoCard: React.FC<{ item: Item; onOpen: (route: string) => void; 
         </div>
       )}
       <div className="vbody">
-        <div className="vmeta">{showLane && <LaneBadge code={item.lane} />}{showStage && <StageChip stage={item.stage} />}{item.at && <span className="faint">{ago(item.at)}</span>}</div>
+        <div className="vmeta">{showLane && <LaneBadge code={item.lane} />}{showStage && (item.kind === 'lab' ? <span className="chip mute">Lab</span> : <StageChip stage={item.stage} />)}{item.at && <span className="faint">{ago(item.at)}</span>}</div>
         <div className="vtitle">{item.title}</div>
         {item.sub && <div className="vsub">{item.sub}</div>}
         {item.needsYou && <div className="vneed"><ArrowRight size={12} /> {item.needsYou}</div>}

@@ -22,6 +22,7 @@ export interface StudioContextValue {
   board: any[] | null;
   hot: any;
   motionVideos: any[];
+  labVideos: any[];
   feedBuilt: string | null;
   loading: boolean;
   error: { kind: string; message: string } | null;
@@ -59,6 +60,7 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [board, setBoard] = useState<any[] | null>(null);
   const [hot, setHot] = useState<any>(null);
   const [motionVideos, setMotionVideos] = useState<any[]>([]);
+  const [labVideos, setLabVideos] = useState<any[]>([]);
   const [feedBuilt, setFeedBuilt] = useState<string | null>(null);
 
   const [loading, setLoading] = useState<boolean>(true);
@@ -192,6 +194,7 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       studio.board().then(setBoard).catch(() => {});
       studio.hot().then(setHot).catch(() => {});
       studio.motionVideos().then(setMotionVideos).catch(() => {});
+      studio.labVideos().then(setLabVideos).catch(() => {});
       studio.feedInfo().then(f => setFeedBuilt(f ? f.built : null)).catch(() => {});
     } catch (err: any) {
       setError({ kind: err?.kind || 'network', message: err?.message || 'Could not reach GitHub' });
@@ -242,6 +245,7 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       board,
       hot,
       motionVideos,
+      labVideos,
       feedBuilt,
       loading,
       error,
@@ -275,6 +279,7 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       board,
       hot,
       motionVideos,
+      labVideos,
       feedBuilt,
       loading,
       error,
