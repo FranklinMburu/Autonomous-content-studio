@@ -15,7 +15,7 @@ def _cfg():
     return cfg.get("story_script_models") or cfg.get("draft_models") or ["groq:openai/gpt-oss-120b"]
 
 
-def repair_draft(prompt, models, check, ask, log, rounds=3, budget_s=900):
+def repair_draft(prompt, models, check, ask, log, rounds=3, budget_s=900, max_tokens=3000):
     """Fallback when no model's first draft passes the rules: each model drafts once without the rule gate, then
     the best draft (fewest problems) is repaired round by round with its exact problems. Returns (draft, problems);
     problems may be non-empty (then the copy-paste polish finishes the script)."""
@@ -25,7 +25,7 @@ def repair_draft(prompt, models, check, ask, log, rounds=3, budget_s=900):
         if time.time() - t0 > budget_s:
             break
         try:
-            r = ask(prompt, models=[m], json_out=True, temperature=0.7, max_tokens=3000, time_budget_s=300)
+            r = ask(prompt, models=[m], json_out=True, temperature=0.7, max_tokens=max_tokens, time_budget_s=300)
         except Exception as e:  # noqa: BLE001
             log(f"    {m}: no draft ({str(e)[:120]})"); continue
         pr = check(r.data)
@@ -37,11 +37,11 @@ def repair_draft(prompt, models, check, ask, log, rounds=3, budget_s=900):
     for rnd in range(rounds):
         if not best_p or best is None or time.time() - t0 > budget_s:
             break
-        fix = (prompt + "\n\nYOUR DRAFT:\n" + json.dumps(best, ensure_ascii=False)[:9000] + "\n\nIt breaks these rules. "
+        fix = (prompt + "\n\nYOUR DRAFT:\n" + json.dumps(best, ensure_ascii=False)[:max(9000, max_tokens * 4)] + "\n\nIt breaks these rules. "
                "Fix every one and return the complete corrected JSON only:\n" + "\n".join(f"- {x}" for x in best_p))
         for m in models:
             try:
-                r = ask(fix, models=[m], json_out=True, temperature=0.4, max_tokens=3000, time_budget_s=300)
+                r = ask(fix, models=[m], json_out=True, temperature=0.4, max_tokens=max_tokens, time_budget_s=300)
             except Exception:  # noqa: BLE001
                 continue
             pr = check(r.data)

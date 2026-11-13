@@ -74,6 +74,16 @@ def test_voice_is_locked():
     v = channel()["voice"]
     check((v["engine"], v["qwen3"]["ref_audio"], v["qwen3"]["ref_text"]) == ("qwen3", "channels/te/voice_ref_qwen3.wav", "What actually is a database,"),
           "TE voice = Franklin's locked choice (13 Nov: Qwen3-TTS cloned from one fixed reference recording)")
+    # 13 Nov 2026: the new scenes and the long-form healer
+    _s = {"beats": [{"lines": ["Every page load wakes four layers up.", "The fetch line asks the server.", "Follow for more."]}]}
+    _p = {"scenes": [{"line": 0, "type": "depth_stack", "p": {"layers": [{"label": "Browser", "word": "page"}, {"label": "Server"}]}},
+                     {"line": 1, "type": "screen_zoom", "p": {"lines": ["a", "const r = await fetch('/api')"], "focus": 1, "word": "asks", "note": "here"}},
+                     {"line": 2, "type": "end_card", "p": {"title": "x"}}]}
+    check(PL.validate(_s, _p) == [], "depth_stack and screen_zoom pass the contract")
+    _bad = {"scenes": [dict(_p["scenes"][0]), {"line": 1, "type": "screen_zoom", "p": {"lines": ["a"], "focus": 4}}, _p["scenes"][2]]}
+    from studio.motion.longform import heal
+    check(PL.validate(_s, _bad) != [] and PL.validate(_s, heal(_s, _bad, log=lambda *a: None)) == [] and _bad["scenes"][1]["type"] == "headline_build",
+          "long-form healer: a broken scene becomes a headline, the rest of the plan is kept")
     from studio.motion.narrate_qwen3 import _word_times
     wt, exact = _word_times("The API, in 2023 moved.".split(), [(" The", 0.1, 0.3), (" API", 0.3, 0.7), (" twenty", 0.9, 1.1),
                             (" twenty-three", 1.1, 1.5), (" moved.", 1.6, 1.9)], 10.0, 2.0)
@@ -110,7 +120,7 @@ def test_isolated_from_hidden_reasons():
         return any(w in txt for w in words)
     hits = [str(p.relative_to(ROOT)) for p in files if p.is_file() and uses(p)]
     own = (".github/workflows/make-motion.yml", ".github/workflows/motion-review.yml", ".github/workflows/pipeline-tests.yml",
-           ".github/workflows/studio-action.yml")   # the app's checked door: edits episodes/tech_education/topics.txt only
+           ".github/workflows/studio-action.yml", "tools/motion_preview.py")   # the app's checked door: edits episodes/tech_education/topics.txt only
     hits = [h for h in hits if not h.startswith("studio/motion/") and h not in own]
     check(hits == [], f"nothing outside the motion engine uses it: studio, workflows, tools, website {hits}")
 

@@ -8,7 +8,8 @@ const { chromium } = require('playwright'); const fs = require('fs'); const path
   const [dataPath, a2, a3, a4, a5] = process.argv.slice(2);
   const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
   const b = await chromium.launch();
-  const p = await b.newPage({ viewport: { width: 540, height: 960 }, deviceScaleFactor: 2 });
+  const long = (data.plan || {}).format === 'long';   // 13 Nov: long-form videos are 16:9 (1920x1080), Shorts 9:16
+  const p = await b.newPage({ viewport: long ? { width: 960, height: 540 } : { width: 540, height: 960 }, deviceScaleFactor: 2 });
   const errs = []; p.on('pageerror', e => errs.push(e.message)); p.on('console', m => m.type() === 'error' && errs.push(m.text()));
   await p.goto('file://' + path.join(__dirname, 'web', 'engine.html'));
   await p.evaluate(() => document.fonts.ready);

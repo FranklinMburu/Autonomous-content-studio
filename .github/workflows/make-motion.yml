@@ -2,7 +2,10 @@ name: Make a motion video (Tech Education)
 
 # The motion engine (studio/motion, docs/MOTION_ENGINE.md): real-looking software in a moving 3D world.
 # Separate from every Hidden Reasons workflow: its own concurrency group, no Kaggle GPU, no channel memory, no schedule.
-# Runs only when started by hand (Actions -> this workflow -> Run workflow). Free on GitHub for public repositories.
+# Runs only when started by hand (Actions -> this workflow -> Run workflow, or the Studio app). Free for public repos.
+#
+# 13 Nov 2026: parallel. write -> voice (6 jobs, the Qwen3 voice is slow on CPU) -> prep (word times, cues, music)
+# -> frames (up to 16 jobs, each draws its own part) -> finish (join, mix, checks, release). Short (9:16) or long (16:9).
 run-name: "${{ inputs.request_id && format('{0} [{1}]', github.workflow, inputs.request_id) || github.event.head_commit.message || github.workflow }}"
 on:
   workflow_dispatch:
@@ -15,6 +18,14 @@ on:
         description: "NEW video: a topic, and the AI writes the script + visual plan (e.g. What is a database?)"
         required: false
         default: ""
+      long:
+        description: "Long video (16:9, chapters, about 6 minutes) instead of a Short"
+        type: boolean
+        default: false
+      minutes:
+        description: "Long video: about how many minutes (4-8)"
+        required: false
+        default: "6"
       episode:
         description: "OR an existing episode folder (default: the approved API episode)"
         required: false
@@ -28,26 +39,23 @@ concurrency:
   group: make-motion        # never shares a queue with make-story / film-queue / the story schedule
   cancel-in-progress: false
 
+env:
+  VOICE_SHARDS: 6
+
 jobs:
-  make:
+  write:
     runs-on: ubuntu-latest
-    timeout-minutes: 150    # writing (<45 min) + about 15-25 min of frames + mixing
+    timeout-minutes: 90
+    outputs:
+      episode: ${{ steps.ep.outputs.episode }}
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-          cache: npm
-          cache-dependency-path: studio/motion/package-lock.json
-
       # The brain (private repo FranklinMburu/AI-layer), only needed when the AI writes a new episode.
       - name: Get the brain
-        if: github.event.inputs.topic != ''
+        if: inputs.topic != ''
         continue-on-error: true
         uses: actions/checkout@v4
         with:
@@ -55,27 +63,14 @@ jobs:
           ssh-key: ${{ secrets.AILAYER_DEPLOY_KEY }}
           path: .brain
           persist-credentials: false
-
-      # Its own cache (only the voice model). It never reads or writes the Hidden Reasons cache key, so it can't
-      # replace that cache with one that lacks the icon set.
-      - name: Voice model cache (motion only)
-        uses: actions/cache@v4
-        with:
-          path: cache/models
-          key: motion-kokoro-v1.1
-
-      - name: Install
-        run: |
-          sudo rm -f /var/lib/man-db/auto-update; echo '$nrconf{restart} = "l";' | sudo tee /etc/needrestart/conf.d/ci.conf > /dev/null 2>&1 || true
-          for i in 1 2; do timeout 180 sh -c 'sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg > /dev/null' && break; echo "apt try $i was slow, retrying"; done
-          pip install -q kokoro-onnx==0.6.1 "onnxruntime>=1.20" "soundfile>=0.12" "numpy>=1.26" scipy pillow
-          cd studio/motion && npm ci --no-audit --no-fund && npx playwright install --with-deps chromium
-
+      - name: Install (writer)
+        run: pip install -q kokoro-onnx==0.6.1 "onnxruntime>=1.20" "soundfile>=0.12" "numpy>=1.26" scipy pillow
       - name: Write a new episode (AI)
-        id: write
-        if: github.event.inputs.topic != ''
+        if: inputs.topic != ''
         env:
-          TOPIC_RAW: ${{ github.event.inputs.topic }}
+          TOPIC_RAW: ${{ inputs.topic }}
+          LONG: ${{ inputs.long }}
+          MINUTES_RAW: ${{ inputs.minutes }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
@@ -85,42 +80,198 @@ jobs:
         run: |
           [ -f .brain/ailayer/__init__.py ] && export PYTHONPATH=$GITHUB_WORKSPACE/.brain
           topic=$(printf '%s' "$TOPIC_RAW" | tr -d '\n\r')   # passed as data, never pasted into the script
-          python -m studio.motion write --topic "$topic" | tee write.log
+          extra=""; if [ "$LONG" = true ]; then m=$(printf '%s' "$MINUTES_RAW" | tr -cd '0-9.'); extra="--long --minutes ${m:-6}"; fi
+          python -m studio.motion write --topic "$topic" $extra | tee write.log
           grep '^EPISODE=' write.log | tail -1 >> "$GITHUB_ENV"
-
       # Keep the new episode in the repo (like Hidden Reasons drafts), so it can be fixed and re-made later and the
       # next episode gets the next number. Only this one folder is written; a failed save does not stop the video.
       - name: Save the new episode to the repo
-        if: github.event.inputs.topic != ''
+        if: inputs.topic != ''
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           case "$EPISODE" in episodes/tech_education/[0-9][0-9][0-9]-*) ;; *) echo "unexpected episode path: $EPISODE"; exit 1;; esac
           tools/commit_to_main.sh "Motion episode: $(basename "$EPISODE")" "$EPISODE" || echo "::warning::could not save the episode to main; it is still in the release zip"
-
       - name: Choose the episode
+        id: ep
         env:
-          EP_RAW: ${{ github.event.inputs.episode }}
+          EP_RAW: ${{ inputs.episode }}
         run: |
           if [ -z "${EPISODE:-}" ]; then
             ep=$(printf '%s' "$EP_RAW" | tr -d '\n\r')
             case "$ep" in episodes/tech_education/*) ;; *) echo "episode must be under episodes/tech_education/"; exit 1;; esac
-            echo "EPISODE=$ep" >> "$GITHUB_ENV"
+            EPISODE=$ep
           fi
-
+          [ -f "$EPISODE/script.json" ] || { echo "no episode at $EPISODE"; exit 1; }
+          echo "episode=$EPISODE" >> "$GITHUB_OUTPUT"
       - name: Check the plan (offline)
-        run: |
-          python -m studio.motion check "$EPISODE" || echo "plan problems - the engine will use the fallback plan and flag the video"
+        run: python -m studio.motion check "${{ steps.ep.outputs.episode }}" || echo "plan problems - the engine will use the fallback plan and flag the video"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: episode
+          path: ${{ steps.ep.outputs.episode }}
 
-      - name: Make the video
+  voice:
+    needs: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5]
+    env:
+      HF_HOME: ${{ github.workspace }}/hf
+      EPISODE: ${{ needs.write.outputs.episode }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          name: episode
+          path: ${{ needs.write.outputs.episode }}
+      - name: Voice model cache (motion only)
+        uses: actions/cache@v4
+        with:
+          path: hf
+          key: motion-qwen3-v1
+      - name: Voice these lines (Qwen3-TTS, the locked TE voice)
         run: |
+          sudo apt-get install -y -qq --no-install-recommends ffmpeg > /dev/null
+          pip install -q --extra-index-url https://download.pytorch.org/whl/cpu torch torchaudio
+          pip install -q qwen-tts==0.1.1 soundfile kokoro-onnx==0.6.1 "onnxruntime>=1.20"
+          python -m studio.motion voice "$EPISODE" --out out --shard ${{ matrix.shard }}/$VOICE_SHARDS
+          mkdir -p out/lines && ls out/lines | wc -l
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lines-${{ matrix.shard }}
+          path: out/lines
+          if-no-files-found: warn
+
+  prep:
+    needs: [write, voice]
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    outputs:
+      parts: ${{ steps.p.outputs.parts }}
+      n: ${{ steps.p.outputs.n }}
+    env:
+      HF_HOME: ${{ github.workspace }}/hf
+      EPISODE: ${{ needs.write.outputs.episode }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: studio/motion/package-lock.json
+      - uses: actions/download-artifact@v4
+        with:
+          name: episode
+          path: ${{ needs.write.outputs.episode }}
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: lines-*
+          path: out/lines
+          merge-multiple: true
+      - name: Voice model cache (motion only)
+        uses: actions/cache@v4
+        with:
+          path: hf
+          key: motion-qwen3-v1
+      - name: Install
+        run: |
+          sudo rm -f /var/lib/man-db/auto-update
+          for i in 1 2; do timeout 180 sh -c 'sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg > /dev/null' && break; echo "apt try $i was slow, retrying"; done
+          pip install -q --extra-index-url https://download.pytorch.org/whl/cpu torch torchaudio
+          pip install -q qwen-tts==0.1.1 faster-whisper kokoro-onnx==0.6.1 "onnxruntime>=1.20" "soundfile>=0.12" "numpy>=1.26" scipy pillow
+          cd studio/motion && npm ci --no-audit --no-fund && npx playwright install --with-deps chromium
+      - name: Word times, cues and music (any line a voice job missed is made here)
+        id: p
+        run: |
+          python -m studio.motion prep "$EPISODE" --out out | tee prep.log
+          d=$(grep '^DURATION=' prep.log | tail -1 | cut -d= -f2)
+          n=$(python -c "import math,sys; print(max(1, min(16, math.ceil(float(sys.argv[1]) / 30))))" "$d")
+          echo "n=$n" >> "$GITHUB_OUTPUT"
+          echo "parts=$(python -c "import json,sys; print(json.dumps(list(range(int(sys.argv[1])))))" "$n")" >> "$GITHUB_OUTPUT"
+          echo "Voice + cues ready: $d s, frames in $n parallel parts" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prep
+          path: |
+            out
+            !out/lines
+
+  frames:
+    needs: [write, prep]
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: true
+      matrix:
+        part: ${{ fromJSON(needs.prep.outputs.parts) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: studio/motion/package-lock.json
+      - uses: actions/download-artifact@v4
+        with:
+          name: prep
+          path: out
+      - name: Draw this part
+        run: |
+          sudo apt-get install -y -qq --no-install-recommends ffmpeg > /dev/null
+          (cd studio/motion && npm ci --no-audit --no-fund && npx playwright install --with-deps chromium) > /dev/null
+          python -m studio.motion frames out --part ${{ matrix.part }}/${{ needs.prep.outputs.n }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: part-${{ matrix.part }}
+          path: out/silent_*.mp4
+
+  finish:
+    needs: [write, prep, frames]
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      EPISODE: ${{ needs.write.outputs.episode }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          name: episode
+          path: ${{ needs.write.outputs.episode }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: prep
+          path: out/motion
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: part-*
+          path: out/motion
+          merge-multiple: true
+      - name: Join, mix and check
+        run: |
+          sudo apt-get install -y -qq --no-install-recommends ffmpeg > /dev/null
+          pip install -q "soundfile>=0.12" "numpy>=1.26" scipy pillow
           set +e
-          python -m studio.motion make "$EPISODE" --out out/motion | tee make.log
+          python -m studio.motion finish "$EPISODE" out/motion --parts ${{ needs.prep.outputs.n }} | tee make.log
           code=${PIPESTATUS[0]}
           [ -f "$EPISODE/NEEDS_REVIEW.md" ] && [ "$code" = 0 ] && code=2
           echo "MAKE_CODE=$code" >> "$GITHUB_ENV"
           [ "$code" = 0 ] || [ "$code" = 2 ]
-
       - name: Publish as a release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -131,7 +282,7 @@ jobs:
           cp "$d/video.mp4" "$name.mp4"
           (cd "$(dirname "$EPISODE")" && zip -qr "$GITHUB_WORKSPACE/episode-files.zip" "$name")
           { echo "Motion video (Tech Education): $title"; echo; echo "Episode: $EPISODE"; echo;
-            echo "Checks:"; python -c "import json,sys; r=json.load(open(sys.argv[1])); print(json.dumps({'measures': r['measures'], 'gates': r['gates']}, indent=1))" "$d/report.json";
+            echo "Checks:"; python -c "import json,sys; r=json.load(open(sys.argv[1])); print(json.dumps({'format': r.get('format'), 'measures': r['measures'], 'gates': r['gates']}, indent=1))" "$d/report.json";
             echo; cat "$d/sources.md"; [ -f "$EPISODE/NEEDS_REVIEW.md" ] && { echo; cat "$EPISODE/NEEDS_REVIEW.md"; }; } > notes.md
           files=("$name.mp4" "$d/report.json" episode-files.zip); [ -f "$d/contact.png" ] && files+=("$d/contact.png")
           if [ "$MAKE_CODE" = 0 ]; then

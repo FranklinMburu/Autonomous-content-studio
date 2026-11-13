@@ -44,13 +44,17 @@ TYPES = {
     "bar_chart":      {"bars": (L, True), "title": (S, True), "unit": (S, False), "source": (S, False)},
     "phone_screen":   {"app": (S, False), "title": (S, False), "rows": (L, True), "notify": (S, False), "notify_word": (S, False)},
     "stack_layers":   {"layers": (L, True)},
+    # 13 Nov 2026 (benchmark: Maitis' 3D panels with depth of field, Griffin's zoomed screen recordings)
+    "depth_stack":    {"layers": (L, True), "title": (S, False)},      # an exploded 3D view: slabs floating in depth, each lands on its word
+    "screen_zoom":    {"lines": (L, True), "focus": (N, True), "word": (S, False), "note": (S, False), "title": (S, False), "url": (S, False)},
+    "chapter_card":   {"number": (N, True), "title": (S, True), "sub": (S, False)},   # long-form: a new chapter (and a new accent colour)
 }
 LOOKS = ["studio", "paper", "blueprint", "neon", "glass", "bold"]          # design families, one per episode (plan.look)
 WORLDS = ["story", "table_grid", "timeline", "flow_steps", "browser_page", "chat_thread", "bar_chart", "phone_screen", "stack_layers"]
 # Scenes that need the story set's pieces drawn first (the engine draws nothing for them otherwise).
 NEEDS = {"compare": "app_window", "door": "diagram_link", "packet": "diagram_link", "question": "diagram_link", "key_fly": "question",
          "leak": "question", "badges_intro": "diagram_link", "badge": "diagram_link", "data_card": "diagram_link"}
-LIMITS = {"keywords": 3, "items": 8, "rows": 14, "files": 5, "code": 3, "pairs": 6, "marks": 2, "columns": 4, "steps": 6, "blocks": 5, "messages": 6, "bars": 6, "layers": 5}
+LIMITS = {"lines": 8, "keywords": 3, "items": 8, "rows": 14, "files": 5, "code": 3, "pairs": 6, "marks": 2, "columns": 4, "steps": 6, "blocks": 5, "messages": 6, "bars": 6, "layers": 5}
 TEXT_MAX = 64
 
 
@@ -109,7 +113,8 @@ def validate(script, plan):
         if t == "file_tree" and any(not isinstance(x, list) or not 1 <= len(x) <= 3 for x in p.get("files", [])): probs.append(f"{where}: files are [name, note, tone]")
         if t == "stat_wall" and any(not isinstance(x, list) or len(x) > 3 for x in p.get("rows", [])): probs.append(f"{where}: rows are [id, text, tag]")
         shape = {"timeline": ("items", "label"), "flow_steps": ("steps", "label"), "browser_page": ("blocks", "text"), "chat_thread": ("messages", "text"),
-                 "phone_screen": ("rows", "text"), "stack_layers": ("layers", "label")}.get(t)
+                 "phone_screen": ("rows", "text"), "stack_layers": ("layers", "label"),
+                 "depth_stack": ("layers", "label")}.get(t)
         if shape:   # world items: {label|text, word?, ...}; "word" lands the item on that spoken word
             for x in p.get(shape[0], []) if isinstance(p.get(shape[0]), list) else []:
                 if not isinstance(x, dict) or not isinstance(x.get(shape[1]), str) or not x[shape[1]].strip():
@@ -121,6 +126,10 @@ def validate(script, plan):
         if t == "table_grid" and "table_grid" not in seen and not p.get("columns"): probs.append(f"{where}: the first table_grid needs columns")
         if t == "table_grid" and any(not isinstance(x, list) or not 1 <= len(x) <= 4 for x in p.get("rows", [])): probs.append(f"{where}: rows are lists of up to 4 cells")
         if t == "bar_chart" and any(not isinstance(x, list) or len(x) != 2 or not isinstance(x[1], (int, float)) for x in p.get("bars", [])): probs.append(f"{where}: bars are [label, number]")
+        if t == "screen_zoom" and (any(not isinstance(x, str) or len(x) > 70 for x in p.get("lines", []) or [])
+                                   or not isinstance(p.get("focus"), int) or not 0 <= p.get("focus", -1) < len(p.get("lines") or [])):
+            probs.append(f"{where}: lines are short texts (<=70) and focus is the index of one of them")
+        if t == "chapter_card" and not (isinstance(p.get("number"), int) and 1 <= p["number"] <= 12): probs.append(f"{where}: number is the chapter number 1-12")
         if t in NEEDS and NEEDS[t] not in seen: probs.append(f"{where}: needs a {NEEDS[t]} scene before it")
         seen.add(t)
     if sc and sc[-1].get("type") != "end_card": probs.append("the last scene must be end_card")
