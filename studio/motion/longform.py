@@ -118,11 +118,26 @@ def heal(script, plan, log=print):
     return plan
 
 
-def write_long(topic, sources_text, ask_fn, models, log=print, minutes=6):
-    """Returns (script, plan, claims, problems_left). sources_text = the SOURCE MATERIAL block."""
+def _patient_draft(prompt, models, check, ask_fn, log, label, max_tokens, tries=4):
+    """repair_draft, but when no model answered at all (every free model cooling down, a request too large for one
+    provider), wait and try again instead of losing the whole video (13 Nov: part 1 failed at a cooldown minute)."""
+    import time
     from .calls import repair_draft
+    for i in range(tries):
+        d, left = repair_draft(prompt, models, check, ask_fn, log, max_tokens=max_tokens)
+        if isinstance(d, dict) and d:
+            return d, left
+        wait = 90 * (i + 1)
+        log(f"  {label}: no model answered; waiting {wait}s and trying again ({i + 1}/{tries})")
+        time.sleep(wait)
+    return None, ["no model answered"]
+
+
+def write_long(topic, sources_fn, ask_fn, models, log=print, minutes=6):
+    """Returns (script, plan, claims, problems_left). sources_fn(focus, size) = a SOURCE MATERIAL block focused on
+    `focus` (small enough that one chapter request fits every free provider's request limit)."""
     words = int(minutes * 165)
-    o_prompt = OUTLINE.format(minutes=minutes, words=words) + f"\n\nTOPIC: {topic}\n\n" + sources_text
+    o_prompt = OUTLINE.format(minutes=minutes, words=words) + f"\n\nTOPIC: {topic}\n\n" + sources_fn(topic, 7000)
 
     def o_check(d):
         p = [] if isinstance(d, dict) else ["return JSON"]
@@ -134,7 +149,7 @@ def write_long(topic, sources_text, ask_fn, models, log=print, minutes=6):
                 if not d.get(k): p.append(f"missing {k}")
         return p
     log(f"[long] outline for {topic!r} ({minutes} min, ~{words} words)")
-    outline, left = repair_draft(o_prompt, models, o_check, ask_fn, log, max_tokens=2500)
+    outline, left = _patient_draft(o_prompt, models, o_check, ask_fn, log, "outline", 2500)
     if o_check(outline):
         raise RuntimeError("no usable outline: " + "; ".join(o_check(outline)))
     chapters = outline["chapters"]
@@ -148,10 +163,13 @@ def write_long(topic, sources_text, ask_fn, models, log=print, minutes=6):
             c = chapters[k - 1]
             rules = (LAST if k == n - 1 else MIDDLE).format(c=k, ctitle=c["title"][:40], csub=str(c.get("sub", ""))[:60], title=outline["title"])
         from .writer import PLAN_RULES
+        focus = topic if k == 0 else f"{chapters[k - 1]['title']}: {chapters[k - 1].get('idea', '')}"
+        slim = {key: outline.get(key) for key in ("title", "running_example", "cold_open", "promise", "open_loop", "action")}
+        slim["chapters"] = [{x: c.get(x) for x in ("title", "question", "idea")} for c in chapters]
         prompt = CHAPTER.format(k=k + 1, n=n, title=outline["title"], words=per[k], part_rules=rules, before=before,
-                                outline=json.dumps(outline, ensure_ascii=False)[:5000], plan_rules=PLAN_RULES) + "\n\n" + sources_text
+                                outline=json.dumps(slim, ensure_ascii=False)[:3000], plan_rules=PLAN_RULES) + "\n\n" + sources_fn(focus, 4500)
         log(f"[long] part {k + 1}/{n} (~{per[k]} words)")
-        part, pl = repair_draft(prompt, models, lambda d, k=k: _part_problems(d, k, n, k, per[k]), ask_fn, log, max_tokens=7000)
+        part, pl = _patient_draft(prompt, models, lambda d, k=k: _part_problems(d, k, n, k, per[k]), ask_fn, log, f"part {k + 1}", 4000)
         if not isinstance(part, dict) or not part.get("beats"):
             raise RuntimeError(f"part {k + 1}: no usable draft")
         left += [f"part {k + 1}: {x}" for x in pl]
@@ -170,6 +188,7 @@ def write_long(topic, sources_text, ask_fn, models, log=print, minutes=6):
     if scenes and scenes[-1]["type"] != "end_card":
         scenes[-1] = {"line": scenes[-1]["line"], "type": "end_card", "p": {"series": "Build Basics", "title": outline["title"][:60]}}
     plan = heal(script, plan, log)
+    left = [x for x in left if not re.match(r"part \d+: scene \d+ ", x)]    # scene problems were healed above
     w = sum(len(l.split()) for l in PL.lines_of(script))
     log(f"[long] {len(PL.lines_of(script))} lines, {w} words, {len(chapters)} chapters")
     if not WORDS[0] <= w <= WORDS[1]:

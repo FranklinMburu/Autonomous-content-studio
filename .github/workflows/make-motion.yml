@@ -92,6 +92,7 @@ jobs:
           [ -f .brain/ailayer/__init__.py ] && export PYTHONPATH=$GITHUB_WORKSPACE/.brain
           topic=$(printf '%s' "$TOPIC_RAW" | tr -d '\n\r')   # passed as data, never pasted into the script
           extra=""; if [ "$LONG" = true ]; then m=$(printf '%s' "$MINUTES_RAW" | tr -cd '0-9.'); extra="--long --minutes ${m:-6}"; fi
+          set -o pipefail   # a writer that fails must stop the run (13 Nov: it fell back to the default episode)
           python -m studio.motion write --topic "$topic" $extra | tee write.log
           grep '^EPISODE=' write.log | tail -1 >> "$GITHUB_ENV"
       # Keep the new episode in the repo (like Hidden Reasons drafts), so it can be fixed and re-made later and the
@@ -106,6 +107,7 @@ jobs:
       - name: Choose the episode
         id: ep
         run: |
+          if [ -n "$TOPIC_RAW" ] && [ -z "${EPISODE:-}" ]; then echo "the writer made no episode"; exit 1; fi
           if [ -z "${EPISODE:-}" ]; then
             ep=$(printf '%s' "$EP_RAW" | tr -d '\n\r')
             case "$ep" in episodes/tech_education/*) ;; *) echo "episode must be under episodes/tech_education/"; exit 1;; esac
