@@ -93,6 +93,7 @@ try {
     const stage = STAGE[f.status]; if (!stage) continue;
     const note = { polish: "Needs your polish (Studio app: Hidden Reasons -> Polish).", review: "Needs your review: approve or repaint.",
                    ready: "Ready to upload.", draft: "Written and checked; waiting for the polish." }[f.status] || "";
+    if (f.lane !== "HR") continue;   // Body Science explainers stay off the board (paused pilot; BS is not a board lane)
     mirror.push({ lane: "HR", video_id: `HR-${f.id}`, title: f.title, stage, note, clip: f.video?.url || "", source: f.release?.url || "" });
   }
   for (const r of (await s.releases()).filter(r => r.kind === "motion")) {

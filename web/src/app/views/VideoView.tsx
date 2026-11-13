@@ -12,14 +12,28 @@ const SCORE_WORDS: Record<string, string> = { moment: 'The moment itself', hook:
 const CHECK_WORDS: Record<string, string> = { hook: 'Grabs you in 3 seconds', tension: 'Real stakes or surprise', real: 'Real people, not a game',
   share: 'Worth sending to a friend', minors: 'No minors shown wrongly', honest: 'Title matches what happens', layout: 'Clear on a phone' };
 
+/** Copy that always gives an answer: the clipboard API, else the older copy command, else select the text for the person. */
+async function copyText(text: string, el: HTMLElement | null): Promise<boolean> {
+  try { if (navigator.clipboard && window.isSecureContext) { await navigator.clipboard.writeText(text); return true; } } catch { /* fall through */ }
+  try {
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select(); const ok = document.execCommand('copy'); document.body.removeChild(ta);
+    if (ok) return true;
+  } catch { /* fall through */ }
+  if (el) { const r = document.createRange(); r.selectNodeContents(el); const sel = window.getSelection(); sel?.removeAllRanges(); sel?.addRange(r); }
+  return false;
+}
+
 const Copyable: React.FC<{ label: string; text: string }> = ({ label, text }) => {
-  const [ok, setOk] = useState(false);
+  const [msg, setMsg] = useState('');
+  const ref = React.useRef<HTMLDivElement>(null);
   return (
     <div className="copy">
       <div className="copy-h"><span className="faint">{label}</span>
-        <button className="lnk" onClick={() => { navigator.clipboard?.writeText(text).then(() => { setOk(true); setTimeout(() => setOk(false), 1500); }); }}>
-          <Copy size={13} /> {ok ? 'Copied' : 'Copy'}</button></div>
-      <div className="copy-b">{text}</div>
+        <button className="lnk" onClick={async () => { const ok = await copyText(text, ref.current); setMsg(ok ? 'Copied' : 'Selected: copy it now'); setTimeout(() => setMsg(''), 2500); }}>
+          <Copy size={13} /> {msg || 'Copy'}</button></div>
+      <div className="copy-b" ref={ref}>{text}</div>
     </div>
   );
 };
