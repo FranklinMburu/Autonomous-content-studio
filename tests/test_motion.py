@@ -95,8 +95,17 @@ def test_isolated_from_hidden_reasons():
         files += [p for p in (ROOT / "web" / sub).rglob("*") if p.suffix in (".js", ".mjs", ".ts", ".tsx")]
     files += list((ROOT / "pipeline").rglob("*.py")) if (ROOT / "pipeline").exists() else []
     words = ("studio.motion", "studio/motion", "tech_education", "channels/te")
-    hits = [str(p.relative_to(ROOT)) for p in files if p.is_file() and any(w in p.read_text(encoding="utf-8", errors="ignore") for w in words)]
-    own = (".github/workflows/make-motion.yml", ".github/workflows/motion-review.yml", ".github/workflows/pipeline-tests.yml")
+    # The Studio app (web/) may NAME the channel's folders and start its workflow (it shows TE videos, starts TE runs,
+    # edits TE topics), but must never use the engine's code; so for website files only the engine paths count.
+    engine_code = re.compile(r"studio[./]motion\b")   # whole word: "studio.motionVideos" (a data call) is not the engine
+    def uses(p):
+        txt = p.read_text(encoding="utf-8", errors="ignore")
+        if str(p.relative_to(ROOT)).startswith("web/"):
+            return bool(engine_code.search(txt))
+        return any(w in txt for w in words)
+    hits = [str(p.relative_to(ROOT)) for p in files if p.is_file() and uses(p)]
+    own = (".github/workflows/make-motion.yml", ".github/workflows/motion-review.yml", ".github/workflows/pipeline-tests.yml",
+           ".github/workflows/studio-action.yml")   # the app's checked door: edits episodes/tech_education/topics.txt only
     hits = [h for h in hits if not h.startswith("studio/motion/") and h not in own]
     check(hits == [], f"nothing outside the motion engine uses it: studio, workflows, tools, website {hits}")
 
