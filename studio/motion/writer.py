@@ -144,7 +144,7 @@ def write(topic, channel_dir, ch, log=print, ask_fn=None, research_fn=None, fact
     models = _cfg()
     if fmt == "long":   # 16:9 chapters (studio/motion/longform.py): outline first, then one chapter at a time
         from .longform import write_long
-        s, plan, _claims, left = write_long(topic, sources_block(sources, topic, 9000), ask_fn, models, log=log, minutes=minutes)
+        s, plan, _claims, left = write_long(topic, lambda focus, size: sources_block(sources, focus, size), ask_fn, models, log=log, minutes=minutes)
         return _finish(s, plan, left, sources, srcs_raw, topic, channel_dir, ch, look, fact_fn, log, patient, _timed)
     same = lambda d: [x for x in vcheck({**(d.get("plan") or {}), "look": look}, hist) if not x.startswith("look")] if isinstance(d, dict) and isinstance(d.get("plan"), dict) else []  # noqa: E731
     check = lambda d: problems(d, sources) + same(d)  # noqa: E731
