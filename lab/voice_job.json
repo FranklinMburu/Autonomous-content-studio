@@ -1,6 +1,11 @@
 {
- "_why": "Settings for a voice-lab run started by pushing a voice-lab/** branch (13 Nov 2026: Tech Education long-form voice test, research doc RESEARCH_longform_voice_pipelines_presenters.md).",
+ "_why": "13 Nov 2026: Franklin chose Qwen3-TTS for Tech Education and asked to hear a female version. Three female designs, Qwen3 only, named samples at their own speed.",
  "episode": "episodes/tech_education/002-what-is-a-database",
  "kokoro_voice": "am_fenrir",
- "voice_design": "A calm, deep male narrator in his thirties, clear neutral American accent, confident and friendly, measured explainer pace, like a good tech teacher."
+ "voice_design": "A calm, deep male narrator in his thirties, clear neutral American accent, confident and friendly, measured explainer pace, like a good tech teacher.",
+ "qwen3_designs": {
+  "qwen3_female_1_warm_teacher": "A calm, warm female narrator in her early thirties, clear neutral American accent, confident and friendly, measured explainer pace, like a good tech teacher.",
+  "qwen3_female_2_bright_storyteller": "A bright, engaging young woman in her late twenties, clear American accent, curious and upbeat but never rushed, a storyteller explaining technology to a friend.",
+  "qwen3_female_3_documentary": "A composed, lower-pitched female voice in her early forties, clear neutral accent, authoritative and reassuring, like a documentary narrator explaining how software works."
+ }
 }

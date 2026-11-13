@@ -104,18 +104,29 @@ def qwen3(script_path, out):
     _, lines = lines_of(script_path)
     design = os.environ.get("LAB_VOICE_DESIGN", "A calm, deep male narrator in his thirties, clear neutral American accent, "
                             "confident and friendly, measured explainer pace, like a good tech teacher.")
+    name = os.environ.get("LAB_QWEN3_NAME", "qwen3")      # several designed voices in one run: qwen3_f1, qwen3_f2 ...
     m = Qwen3TTSModel.from_pretrained("Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign", device_map="cpu", dtype=torch.float32)
     wavs, sr = m.generate_voice_design(text=lines[0], language="English", instruct=design)
-    sf.write(out / "qwen3_ref.wav", wavs[0], sr)
+    sf.write(out / f"{name}_ref.wav", wavs[0], sr)
     chunks = [wavs[0]]
     del m; gc.collect()
     m = Qwen3TTSModel.from_pretrained("Qwen/Qwen3-TTS-12Hz-1.7B-Base", device_map="cpu", dtype=torch.float32)
-    prompt = m.create_voice_clone_prompt(ref_audio=str(out / "qwen3_ref.wav"), ref_text=lines[0], x_vector_only_mode=False)
+    prompt = m.create_voice_clone_prompt(ref_audio=str(out / f"{name}_ref.wav"), ref_text=lines[0], x_vector_only_mode=False)
     for i, l in enumerate(lines[1:], 2):     # always the ORIGINAL reference (never the previous line): no drift
         w, sr = m.generate_voice_clone(text=l, language="English", voice_clone_prompt=prompt)
         chunks.append(w[0])
-        print(f"qwen3 line {i}/{len(lines)}", flush=True)
-    join(chunks, sr, out / "qwen3.wav")
+        print(f"{name} line {i}/{len(lines)}", flush=True)
+    join(chunks, sr, out / f"{name}.wav")
+
+
+def plain(out):
+    """Named, not blind, at each voice's OWN speed (no fitting to Kokoro's length): for hearing variants of one
+    engine side by side (13 Nov: female Qwen3 voices). Same loudness for all."""
+    for src in sorted(out.glob("*.wav")):
+        if src.stem.endswith("_ref"):
+            continue
+        ff("-i", str(src), "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", "44100", "-b:a", "192k", str(out / f"{src.stem}.mp3"))
+        print(f"{src.stem}.mp3: {seconds(src):.1f} s")
 
 
 def blind(out):
@@ -183,6 +194,8 @@ if __name__ == "__main__":
     cmd = sys.argv[1]
     if cmd == "blind":
         blind(Path(sys.argv[2]))
+    elif cmd == "plain":
+        plain(Path(sys.argv[2]))
     elif cmd == "score":
         score(sys.argv[2], Path(sys.argv[3]))
     else:

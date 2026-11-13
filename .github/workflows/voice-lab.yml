@@ -28,7 +28,7 @@ permissions:
 jobs:
   voices:
     runs-on: ubuntu-latest
-    timeout-minutes: 150
+    timeout-minutes: 180
     env:
       GH_TOKEN: ${{ github.token }}
 
@@ -46,6 +46,10 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" = push ]; then E=$(jq -r .episode lab/voice_job.json); K=$(jq -r .kokoro_voice lab/voice_job.json); V=$(jq -r .voice_design lab/voice_job.json); fi
           [ -f "$E/script.json" ] || { echo "no script at $E"; exit 1; }
+          # "qwen3_designs" {name: description} in the job file = only Qwen3, one voice per description, named (not blind)
+          if [ "${{ github.event_name }}" = push ] && [ "$(jq -r '.qwen3_designs // empty | length' lab/voice_job.json)" != "" ]; then
+            echo "ONLY=qwen3" >> "$GITHUB_ENV"; jq -c '.qwen3_designs' lab/voice_job.json > /tmp/designs.json; cat /tmp/designs.json
+          fi
           { echo "SCRIPT=$E/script.json"; echo "KV=$K"; echo "LAB_VOICE_DESIGN=$V"; echo "EPISODE=$E"; } >> "$GITHUB_ENV"
       - name: System tools
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg libcairo2-dev pkg-config espeak-ng > /dev/null
@@ -58,6 +62,7 @@ jobs:
           key: voice-lab-models-v1
 
       - name: A voice we have now (Kokoro)
+        if: env.ONLY == ''
         run: |
           pip install -q -r requirements.txt
           python -m studio setup
@@ -65,6 +70,7 @@ jobs:
           python tools/voice_lab.py kokoro "$SCRIPT" out
 
       - name: Chatterbox (MIT)
+        if: env.ONLY == ''
         continue-on-error: true
         run: |
           python -m venv /tmp/cb && . /tmp/cb/bin/activate
@@ -73,6 +79,7 @@ jobs:
           time python tools/voice_lab.py chatterbox "$SCRIPT" out
 
       - name: VoxCPM2 (Apache-2.0, designed voice)
+        if: env.ONLY == ''
         continue-on-error: true
         timeout-minutes: 80
         run: |
@@ -83,15 +90,23 @@ jobs:
 
       - name: Qwen3-TTS 1.7B (Apache-2.0, designed voice, then cloned)
         continue-on-error: true
-        timeout-minutes: 90
+        timeout-minutes: 140
         run: |
           python -m venv /tmp/qw && . /tmp/qw/bin/activate
           pip install -q --extra-index-url https://download.pytorch.org/whl/cpu torch torchaudio
           pip install -q qwen-tts==0.1.1 soundfile
           [ -z "$LAB_VOICE_DESIGN" ] && unset LAB_VOICE_DESIGN
-          time python tools/voice_lab.py qwen3 "$SCRIPT" out
+          if [ -f /tmp/designs.json ]; then
+            for n in $(jq -r 'keys[]' /tmp/designs.json); do
+              LAB_QWEN3_NAME="$n" LAB_VOICE_DESIGN="$(jq -r --arg n "$n" '.[$n]' /tmp/designs.json)" \
+                python tools/voice_lab.py qwen3 "$SCRIPT" out || echo "$n failed"
+            done
+          else
+            time python tools/voice_lab.py qwen3 "$SCRIPT" out
+          fi
 
       - name: Measure every voice (naturalness, clarity, liveliness)
+        if: env.ONLY == ''
         continue-on-error: true
         run: |
           python -m venv /tmp/score && . /tmp/score/bin/activate   # its own env: Chatterbox pins an old "av"
@@ -102,12 +117,14 @@ jobs:
           { echo "## Measured scores"; cat out/scores.md; } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Make the blind samples
+        if: env.ONLY == ''
         run: |
           pip install -q soundfile numpy
           python tools/voice_lab.py blind out
           ls -la out
 
       - name: Keep the key separate (open only after rating)
+        if: env.ONLY == ''
         uses: actions/upload-artifact@v4
         with:
           name: blind-key
@@ -117,10 +134,22 @@ jobs:
             out/*.wav
 
       - name: Publish the samples
+        if: env.ONLY == ''
         run: |
           tag="voice-lab-${{ github.run_number }}"
           gh release create "$tag" out/sample_*.mp3 --prerelease --title "Voice lab ${{ github.run_number }}: blind test" \
             --notes "Same script ($(basename "$EPISODE")), read by different free voice engines, in random order.
           Listen to each sample, then rate it 1-5 (and say which you'd use for the channel). The key is in this run's
           'blind-key' artifact: don't open it before rating. Samples are levelled to the same loudness and length."
+          echo "Samples: https://github.com/${{ github.repository }}/releases/tag/$tag" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish the named voices (a Qwen3-only run)
+        if: env.ONLY == 'qwen3'
+        run: |
+          pip install -q soundfile numpy
+          python tools/voice_lab.py plain out
+          tag="voice-lab-${{ github.run_number }}"
+          gh release create "$tag" out/*.mp3 --prerelease --title "Voice lab ${{ github.run_number }}: Qwen3 voices" \
+            --notes "Same script ($(basename "$EPISODE")), Qwen3-TTS voices designed from these descriptions, at their own speed:
+          $(jq -r 'to_entries[]|"- \(.key): \(.value)"' /tmp/designs.json)"
           echo "Samples: https://github.com/${{ github.repository }}/releases/tag/$tag" >> "$GITHUB_STEP_SUMMARY"
