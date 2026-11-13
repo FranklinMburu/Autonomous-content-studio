@@ -1,0 +1,6 @@
+{
+ "_why": "Settings for a voice-lab run started by pushing a voice-lab/** branch (13 Nov 2026: Tech Education long-form voice test, research doc RESEARCH_longform_voice_pipelines_presenters.md).",
+ "episode": "episodes/tech_education/002-what-is-a-database",
+ "kokoro_voice": "am_fenrir",
+ "voice_design": "A calm, deep male narrator in his thirties, clear neutral American accent, confident and friendly, measured explainer pace, like a good tech teacher."
+}

@@ -13,6 +13,7 @@ time and are cached by the workflow; nothing is stored in the repo. Each engine 
 (their packages pin different versions). Every sample is levelled to -14 LUFS and fitted to the current voice's
 length (the films are timed to it), so the test compares the voices, not loudness or speed.
 """
+import os
 import json
 import random
 import subprocess
@@ -49,7 +50,11 @@ def join(chunks, sr, out_wav):
 
 def kokoro(script_path, out):
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-    from studio.story.__main__ import narrate   # the current story voice (STORY_VOICE), the one to beat
+    import studio.story.__main__ as story   # the current story voice (STORY_VOICE), the one to beat
+    narrate = story.narrate
+    if os.environ.get("LAB_KOKORO_VOICE"):    # another channel's locked Kokoro voice, e.g. am_fenrir at speed 1.0
+        story.STORY_VOICE = {**story.STORY_VOICE, "voice": os.environ["LAB_KOKORO_VOICE"],
+                             "speed": float(os.environ.get("LAB_KOKORO_SPEED", "1.0"))}
     s, _ = lines_of(script_path)
     narrate(s, out)
     (out / "narration.wav").replace(out / "kokoro.wav"); (out / "timing.json").replace(out / "kokoro_timing.json")
@@ -75,7 +80,7 @@ def voxcpm(script_path, out):
     _, lines = lines_of(script_path)
     m = VoxCPM.from_pretrained("openbmb/VoxCPM2", load_denoiser=False)
     sr = m.tts_model.sample_rate
-    design = ("(A warm, deep male documentary narrator in his forties, calm and gripping, clear British-neutral accent, "
+    design = (f"({os.environ['LAB_VOICE_DESIGN']})" if os.environ.get("LAB_VOICE_DESIGN") else None) or ("(A warm, deep male documentary narrator in his forties, calm and gripping, clear British-neutral accent, "
               "measured storytelling pace)")
     first = m.generate(text=design + lines[0], cfg_value=2.0, inference_timesteps=10)
     sf.write(out / "voxcpm_ref.wav", first, sr)
@@ -88,9 +93,34 @@ def voxcpm(script_path, out):
     join(chunks, sr, out / "voxcpm.wav")
 
 
+def qwen3(script_path, out):
+    """Qwen3-TTS 1.7B (Alibaba, Apache-2.0 code and weights): a voice designed from a description for the first line,
+    then that voice cloned for every other line (Base model), so the whole script is one person. CPU: float32, no
+    FlashAttention (GPU only). Usage from the qwen-tts 0.1.1 model card."""
+    import gc, torch
+    import soundfile as sf
+    from qwen_tts import Qwen3TTSModel
+    torch.set_num_threads(4)
+    _, lines = lines_of(script_path)
+    design = os.environ.get("LAB_VOICE_DESIGN", "A calm, deep male narrator in his thirties, clear neutral American accent, "
+                            "confident and friendly, measured explainer pace, like a good tech teacher.")
+    m = Qwen3TTSModel.from_pretrained("Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign", device_map="cpu", dtype=torch.float32)
+    wavs, sr = m.generate_voice_design(text=lines[0], language="English", instruct=design)
+    sf.write(out / "qwen3_ref.wav", wavs[0], sr)
+    chunks = [wavs[0]]
+    del m; gc.collect()
+    m = Qwen3TTSModel.from_pretrained("Qwen/Qwen3-TTS-12Hz-1.7B-Base", device_map="cpu", dtype=torch.float32)
+    prompt = m.create_voice_clone_prompt(ref_audio=str(out / "qwen3_ref.wav"), ref_text=lines[0], x_vector_only_mode=False)
+    for i, l in enumerate(lines[1:], 2):     # always the ORIGINAL reference (never the previous line): no drift
+        w, sr = m.generate_voice_clone(text=l, language="English", voice_clone_prompt=prompt)
+        chunks.append(w[0])
+        print(f"qwen3 line {i}/{len(lines)}", flush=True)
+    join(chunks, sr, out / "qwen3.wav")
+
+
 def blind(out):
     target = seconds(out / "kokoro.wav")
-    made = [p.stem for p in sorted(out.glob("*.wav")) if p.stem in ("kokoro", "chatterbox", "voxcpm")]
+    made = [p.stem for p in sorted(out.glob("*.wav")) if p.stem in ("kokoro", "chatterbox", "voxcpm", "qwen3")]
     random.shuffle(made)
     key = {}
     for letter, eng in zip("ABCDEF", made):
@@ -119,7 +149,7 @@ def score(script_path, out):
     mos = torch.hub.load("tarepan/SpeechMOS:v1.2.0", "utmos22_strong", trust_repo=True)
     asr = WhisperModel("small.en", device="cpu", compute_type="int8")
     res = {}
-    for eng in ("kokoro", "chatterbox", "voxcpm"):
+    for eng in ("kokoro", "chatterbox", "voxcpm", "qwen3"):
         w = out / f"{eng}.wav"
         if not w.exists():
             continue
@@ -157,4 +187,4 @@ if __name__ == "__main__":
         score(sys.argv[2], Path(sys.argv[3]))
     else:
         o = Path(sys.argv[3]); o.mkdir(parents=True, exist_ok=True)
-        {"kokoro": kokoro, "chatterbox": chatterbox, "voxcpm": voxcpm}[cmd](sys.argv[2], o)
+        {"kokoro": kokoro, "chatterbox": chatterbox, "voxcpm": voxcpm, "qwen3": qwen3}[cmd](sys.argv[2], o)
