@@ -67,7 +67,8 @@ def main():
     chat = load_chat(a.chat)
     if chat:
         cv.update(S.chat_curves(chat, n))
-        lag, _ = S.estimate_lag(cv["chat_rate"], cv["audio_burst"])
+        lag, share = S.estimate_lag(cv["chat_rate"], cv["audio_burst"])
+        print(f"chat: {len(chat):,} messages, lag {lag} s (matched {share:.0%} of chat bursts to a loud moment)")
         for k in ("chat_rate", "chat_short", "chat_emote", "chat_dup"):
             cv[k] = S.shift_back(cv[k], lag)
     pic = [k for k in cv if k not in ("audio_db", "audio_burst", "bright_hi", "cues", "speech") and not k.startswith("chat")]
@@ -89,9 +90,17 @@ def main():
         fams["AI eyes (vision on low-res frames)"] = ec
     fams["ALL TOGETHER"] = sum(np.clip(v if not k.startswith("AI eyes") else (v - 5), -2, 6) for k, v in fams.items())
     if a.cands_out:
-        base = peaks(fams["ALL TOGETHER"], 40)
-        strong = [int(m["t"]) for m in sorted(eyes, key=lambda m: -m["score"]) if m["score"] >= 6][:30]
-        cands = sorted(set(base) | {t for t in strong if all(abs(t - b) > 45 for b in base)})
+        # signals are for RECALL, the judge for PRECISION: the judge sees what ANY signal flags, not only the fused top
+        pool = list(peaks(fams["ALL TOGETHER"], 30))
+        for name, sc in fams.items():
+            if name != "ALL TOGETHER":
+                pool += peaks(sc, 12)
+        pool += [int(m["t"]) for m in sorted(eyes, key=lambda m: -m["score"]) if m["score"] >= 7][:40]
+        cands = []
+        for t in pool:                      # first come first kept (fused, then each family, then eyes), 30 s apart
+            if all(abs(t - c) > 30 for c in cands):
+                cands.append(t)
+        cands = sorted(cands)
         Path(a.cands_out).write_text(json.dumps([{"t": t} for t in cands]))
         print(f"candidates for the AI judge: {len(cands)}")
     judged = json.loads(Path(a.judged).read_text())["judged"] if a.judged and Path(a.judged).exists() else []
@@ -121,6 +130,16 @@ def main():
         print(f"{name:40s} {len(hit):>4d} of {len(key):<4d} {res[name]['view_share']:>14.0%}")
     best = "ALL + AI JUDGE" if judged else "ALL TOGETHER"
     allpk = res[best]["picks"]
+    # how close each signal came: the percentile of its best second inside each fan clip's window (100 = the stream's peak)
+    print("\nHow strongly each signal fired on each fan clip (percentile of its best second in the clip's window):")
+    print("  " + " ".join(f"{n.split(' (')[0][:9]:>9s}" for n in fams) + "  clip")
+    for k in sorted(key, key=lambda k: -k["views"]):
+        lo, hi = max(0, k["offset"] - 30), min(n, k["offset"] + (k.get("duration") or 30) + 15)
+        row = []
+        for name, sc in fams.items():
+            v = sc[lo:hi].max() if hi > lo else -1e9
+            row.append(f"{100 * (sc < v).mean():>9.0f}" if v > -1e8 else f"{'-':>9s}")
+        print("  " + " ".join(row) + f"  {k['views']:>6,} {k['title'][:40]}")
     print(f"\nPer fan clip (found by {best}?):")
     for k in sorted(key, key=lambda k: -k["views"]):
         print(f"  {'YES' if found(allpk, k) else 'no '}  {k['views']:>7,} views  @{k['offset']//60:>3d}:{k['offset']%60:02d}  {k['title'][:60]}")

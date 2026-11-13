@@ -166,7 +166,8 @@ def judge(a):
             said = " ".join(w["w"] for w in words if t - 60 <= w["start"] <= t + 30)[:900]
             saw = "; ".join(f"{m['t']:.0f}s {m['what']}" for m in seen if t - 60 <= m["t"] <= t + 30)[:500]
             blocks.append(f"MOMENT t={t}\nSAID (t-60..t+30): {said or '-'}\nSEEN: {saw or '-'}")
-        parts = [{"text": f"You are the best clip-channel editor alive. {TASTE}\n{RUBRIC}\n\n" + "\n\n".join(blocks)}]
+        who = f"The streamer is {a.streamer}: name him in titles (fans' name), never 'the streamer'.\n" if getattr(a, "streamer", None) else ""
+        parts = [{"text": f"You are the best clip-channel editor alive. {TASTE}\n{RUBRIC}\n{who}\n" + "\n\n".join(blocks)}]
         if watch:   # SliceQ / clipit lesson: let the judge watch and hear the moment, not only read it
             t = batch[0]["t"]
             a0 = max(0, t - 60)
@@ -232,7 +233,7 @@ def main():
     e.add_argument("--step", type=int, default=6); e.add_argument("--batch", type=int, default=100)
     j = sub.add_parser("judge"); j.add_argument("--cands", required=True); j.add_argument("--words"); j.add_argument("--eyes")
     j.add_argument("--out", required=True)
-    j.add_argument("--video", help="low-res stream video: the judge watches each moment"); j.add_argument("--audio", help="stream audio")
+    j.add_argument("--streamer"); j.add_argument("--video", help="low-res stream video: the judge watches each moment"); j.add_argument("--audio", help="stream audio")
     sh = sub.add_parser("show"); sh.add_argument("--eyes", required=True)
     pr = sub.add_parser("probe"); pr.add_argument("--video"); pr.add_argument("--model"); pr.add_argument("--pause", type=float, default=0)
     for x in (e, j):
