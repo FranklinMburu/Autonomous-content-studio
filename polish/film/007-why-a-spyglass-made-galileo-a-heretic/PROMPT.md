@@ -100,11 +100,7 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: medium close-up, a stern man in a wide black hat leaning over a wooden | extreme close-up of a hand with a quill pen signing a paper contract o | close-up, a merchant holding up his open empty palms toward a trader,  | medium shot, a trader shrugging with both arms spread wide and grinnin | close-up of a single tulip bulb half buried in dark soil in a wooden c | close-up of a hand with a quill pen writing rising numbers on a paper  | medium shot, {trader} slapping a paper contract down on a wooden table | close-up of a hand dropping small silver coins into a wooden bowl on a | wide shot of a crowded 1630s Dutch tavern with men waving paper contra | wide shot of a grand 1630s Dutch town exchange building with tall ston | medium shot, {merchant} holding up a paper contract beside a potted tu | close-up of a hand holding up a small paper concert ticket in a dark t
 
 PROBLEMS FOUND BY THE CHECKS
-- shot earthcenter: 3.6 s on screen (max 3.2; split it)
-- shot refuse: 4.6 s on screen (max 3.2; split it)
-- shot bible: 3.6 s on screen (max 3.2; split it)
-- shot judges: 3.9 s on screen (max 3.2; split it)
-- shot century: 4.0 s on screen (max 3.2; split it)
+- film.json is missing: write it
 
 DRAFT SCRIPT
 {"title": "Why a Spyglass Made Galileo a Heretic", "beats": [{"lines": ["Galileo aimed a spyglass at Jupiter, then spent his life under house arrest."], "feel": "curiosity"}, {"lines": ["Galileo saw four moons circling Jupiter.", "Most educated people still believed Earth stood at the center.", "Many astronomers refused to believe Galileo could have found them.", "Other astronomers struggled to confirm his observations."], "feel": "sympathy"}, {"lines": ["In 1613, Grand Duchess Christina of Florence raised biblical objections to Earth's motion with Galileo's friend Castelli.", "Galileo wrote that the Bible guides faith, not science.", "In 1616, Church judges ruled Earth's motion formally heretical.", "Galileo was ordered never to hold, teach, or defend it."], "feel": "dread"}, {"lines": ["You see, it is like telling a teacher the answer key is wrong."], "feel": "recognition"}, {"lines": ["Galileo's telescope turned Earth's motion from opinion into evidence.", "Jupiter's moons and Venus's phases fit a moving Earth.", "But Galileo also claimed Scripture could be set aside in astronomy.", "The Inquisition treated that claim as a second heresy."], "feel": "awe"}, {"lines": ["In 1632, Galileo published a book defending Earth's motion.", "The book called geocentrists 'simpletons'.", "Pope Urban VIII banned its sale.", "In 1633, the Inquisition found Galileo 'vehemently suspect of heresy'."], "feel": "frustration"}, {"lines": ["Galileo abjured his views and stayed under house arrest for life.", "The twist: the famous last words 'And yet it moves' have no evidence.", "The earliest written account came a century after his death."], "feel": "surprise"}]}
@@ -159,8 +155,8 @@ WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 13.55s found#1
 13.80s them#1
 14.21s Other#1
-14.51s astronomers#2
-15.36s struggled#1
+14.52s astronomers#2
+15.37s struggled#1
 15.81s to#2
 15.91s confirm#1
 16.34s his#2
@@ -243,7 +239,7 @@ WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 47.22s Earth#2
 47.69s But#1
 47.84s Galileo#6
-48.62s also#1
+48.61s also#1
 48.94s claimed#1
 49.31s Scripture#1
 49.94s could#2
@@ -281,53 +277,53 @@ WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 62.23s banned#1
 62.48s its#1
 62.61s sale#1
-63.18s In#5
-63.35s 1633#1
-64.70s the#6
-64.85s Inquisition#2
-65.50s found#2
-65.75s Galileo#8
-66.48s 'vehemently#1
-67.00s suspect#1
-67.45s of#2
-67.55s heresy'#1
-68.48s Galileo#9
-69.18s abjured#1
-69.56s his#3
-69.73s views#1
-70.36s and#2
-70.48s stayed#1
-70.76s under#2
-70.98s house#2
-71.26s arrest#2
-71.61s for#1
-71.76s life#2
-72.31s The#7
+63.19s In#5
+63.36s 1633#1
+64.71s the#6
+64.86s Inquisition#2
+65.51s found#2
+65.76s Galileo#8
+66.49s 'vehemently#1
+67.01s suspect#1
+67.46s of#2
+67.56s heresy'#1
+68.49s Galileo#9
+69.19s abjured#1
+69.57s his#3
+69.74s views#1
+70.37s and#2
+70.49s stayed#1
+70.77s under#2
+70.99s house#2
+71.27s arrest#2
+71.62s for#1
+71.77s life#2
+72.32s The#7
 72.44s twist:#1
-72.99s the#8
-73.11s famous#1
-73.49s last#1
-73.79s words#1
+73.00s the#8
+73.12s famous#1
+73.50s last#1
+73.80s words#1
 74.39s 'And#1
-74.51s yet#1
+74.52s yet#1
 74.64s it#3
-74.74s moves'#1
-75.04s have#2
-75.26s no#1
-75.49s evidence#2
-76.28s The#9
-76.46s earliest#1
+74.75s moves'#1
+75.05s have#2
+75.27s no#1
+75.50s evidence#2
+76.29s The#9
+76.47s earliest#1
 76.94s written#1
-77.16s account#1
-77.76s came#1
-77.91s a#6
-78.01s century#1
-78.48s after#1
-78.73s his#4
-78.91s death#1
+77.17s account#1
+77.77s came#1
+77.92s a#6
+78.02s century#1
+78.49s after#1
+78.74s his#4
+78.92s death#1
 
 DRAFT film.json
-{"era": "1610s", "cast": {"galileo": "a 50 year old Italian astronomer with a receding hairline, thinning grey-brown hair, a full grey-streaked beard, deep-set dark eyes, a lined weathered face, wearing a long black wool scholar's robe with a white linen collar and a dark red cap, 1610s", "castelli": "a 40 year old Italian monk with short black hair, a clean-shaven round friendly face, warm brown eyes, wearing a brown Benedictine habit with a wooden cross on a cord, 1610s", "christina": "a 27 year old grand duchess with fair skin, dark auburn hair piled high in an elaborate jeweled updo, a narrow elegant face, wearing a rich gold-embroidered crimson velvet gown with a high lace collar and pearl earrings, 1610s", "urban": "a 70 year old pope with a bald crown, white hair at the sides, a short white beard, a heavy jowled face, wearing a white papal robe with a gold-embroidered red cape and a tall gold mitre, 1630s", "inquisitor": "a 60 year old cardinal with a gaunt pale face, deep-set black eyes, a thin pointed grey beard, wearing a long black cassock with a red sash and a red skullcap, 1630s", "student": "a 20 year old Italian student with curly dark brown hair, a smooth youthful face, a thin patchy beard, wearing a loose grey wool tunic and brown hose, 1610s"}, "music": "tense", "key_words": ["spyglass", "Jupiter", "moons", "heretical", "Inquisition", "abjured", "house arrest", "moves"], "shots": [{"name": "aims_spyglass", "at": 0, "who": "galileo", "clip": true, "prompt": "close-up, a bearded astronomer raising a long brass spyglass to his eye and aiming it upward, he is {galileo}, a dark stone rooftop at night, warm candle lantern light", "motion": "he raises the spyglass to his eye and tilts it up, slow camera push in", "check": "Is a man holding a brass spyglass to his eye?"}, {"name": "under_arrest", "at": "spent#1", "who": "galileo", "clip": true, "prompt": "medium shot, a bearded old scholar sitting at a wooden desk in a dim room, writing with a quill, a barred window behind him, he is {galileo}, candle light", "motion": "his hand moves the quill slowly across the paper, candle flickers, slow camera push in", "check": "Is a man writing at a desk?"}, {"name": "aims", "at": "Galileo#2", "who": "galileo", "clip": true, "prompt": "close-up, {galileo} pressing his eye to a long brass spyglass on a wooden tripod, night sky above a stone balcony, candle lantern beside him", "motion": "he tilts the spyglass slightly upward, slow camera push in", "check": "Is a man looking through a long telescope?"}, {"name": "fourmoons", "at": "four#1", "clip": true, "prompt": "close-up of a hand drawing four small circles in a row beside a big circle on a paper sheet, quill pen, candle light, dark desk", "motion": "the quill draws the fourth small circle, slow camera push in", "check": "Is a hand drawing circles on paper?"}, {"name": "earthcenter", "at": "Most#1", "move": "up", "prompt": "wide shot of a grand 1610s lecture hall with a large wooden model of nested crystal spheres and Earth at the center on a table, professors in black robes around it, warm lamp light", "check": "Is there a wooden model of spheres on a table?"}, {"name": "refuse", "at": "Many#1", "clip": true, "prompt": "medium shot, three old professors in black robes turning their backs and waving dismissively at a small brass telescope on a table, stone university room, cold window light", "motion": "they turn away and wave their hands, slow camera push in", "check": "Are men turning away from a telescope?"}, {"name": "struggle", "at": "struggled#1", "who": "student", "clip": true, "prompt": "close-up, {student} squinting and frowning into a small brass telescope, one hand steadying it, dim stone observatory room, candle light", "motion": "he squints and adjusts the telescope, slow camera push in", "check": "Is a young man looking through a telescope?"}, {"name": "duchess", "at": "In#1", "who": "christina", "clip": true, "prompt": "medium shot, a grand duchess in a crimson velvet gown seated at a carved wooden table raising one hand in question, she is {christina}, a grand 1613 Florence palace room with tapestries, warm candle light", "motion": "she raises her hand slowly and speaks, slow camera push in", "check": "Is a woman in a velvet gown raising her hand?"}, {"name": "duchess2", "at": "Grand#1", "who": "christina", "clip": true, "prompt": "close-up, {christina} frowning slightly with a questioning look, one hand raised, a grand 1613 Florence palace room, warm candle light", "motion": "she tilts her head and speaks, slow camera push in", "check": "Is a woman in a velvet gown looking serious?"}, {"name": "book", "at": "raised#1", "clip": true, "prompt": "close-up of a hand pointing at an open old book with a finger on a page, a wooden table, candle light, 1613", "motion": "the finger taps the page firmly, slow camera push in", "check": "Is a hand pointing at an open book?"}, {"name": "earth", "at": "Earth's#1", "move": "push", "prompt": "close-up of a brass globe on a wooden stand in a dim study, candle light, 1613", "check": "Is there a brass globe?"}, {"name": "friend", "at": "with#1", "who": "castelli", "clip": true, "prompt": "medium shot, a monk sitting at a wooden desk writing with a quill by candle light, he is {castelli}, a 1613 Florence monastery cell, stone walls", "motion": "his hand moves the quill across the paper, slow camera push in", "check": "Is a monk writing with a quill?"}, {"name": "letter", "at": "Galileo#4", "who": "galileo", "clip": true, "prompt": "close-up, a bearded astronomer writing with a quill at a wooden desk, he is {galileo}, a dim 1613 study with books, candle light", "motion": "his hand moves the quill across the paper, slow camera push in", "check": "Is a bearded man writing with a quill?"}, {"name": "bible", "at": "Bible#1", "move": "push", "prompt": "close-up of an open old Bible on a wooden table beside a quill, candle light, 1613", "check": "Is there an open book on a table?"}, {"name": "judges", "at": "Church#1", "move": "left", "prompt": "wide shot of a grand 1616 church hall with tall stone columns and a long wooden table, cardinals in black robes seated, dim light", "check": "Is this a large hall with men in robes?"}, {"name": "ordered", "at": "ordered#1", "who": "inquisitor", "clip": true, "prompt": "medium shot, a gaunt cardinal in a black cassock pointing sternly at a kneeling bearded astronomer, he is {inquisitor}, a dim 1616 church hall, candle light", "motion": "the cardinal points his finger firmly, slow camera push in", "hit": "ordered#1", "check": "Is a man in a black robe pointing at someone?"}, {"name": "you", "at": "You#1", "who": "galileo", "clip": true, "prompt": "medium close-up, {galileo} leaning forward with one raised finger, speaking earnestly to a listener, a dim candlelit study with open books behind him, warm lamp light", "motion": "he raises his finger and speaks, candle flames flicker, slow camera push in", "check": "Is a bearded man raising a finger?"}, {"name": "answerkey", "at": "teacher#1", "move": "push", "prompt": "close-up of a hand with a quill pen striking a red cross over a handwritten page of numbers on a wooden school desk, warm candle light, dark background", "check": "Is a hand marking a paper with a pen?"}, {"name": "telescope", "at": "Galileo's#2", "who": "galileo", "xfade": true, "clip": true, "prompt": "medium shot, an astronomer standing on a stone balcony at night adjusting a long brass spyglass, he is {galileo}, moonlit courtyard", "motion": "he turns the brass focus ring of the spyglass, slow camera push in", "check": "Is a man holding a telescope?"}, {"name": "armillary", "at": "motion#3", "who": "galileo", "clip": true, "prompt": "close-up, {galileo} turning a golden brass armillary sphere model of planets on a wooden table, warm lamp light", "motion": "his hands rotate the inner brass rings of the sphere, slow camera push in", "check": "Is a man turning a brass instrument?"}, {"name": "diagram", "at": "moons#2", "move": "push", "prompt": "extreme close-up of handwritten ink diagrams showing small dots orbiting a circle on yellowed parchment paper, dark table", "check": "Is there a paper with ink circles and dots?"}, {"name": "student", "at": "moving#1", "who": "student", "clip": true, "prompt": "medium close-up, a young student looking in wonder through a brass spyglass, he is {student}, night balcony, dark background", "motion": "he blinks and smiles in astonishment, slow camera push in", "check": "Is a young man looking into a telescope?"}, {"name": "arguing", "at": "Galileo#6", "who": "galileo", "clip": true, "prompt": "medium shot, an astronomer in a scholar robe gesturing with an open palm while speaking, he is {galileo}, sunlit stone library", "motion": "he gestures with his hands while speaking, slow camera push in", "check": "Is a man gesturing while talking?"}, {"name": "scripture", "at": "Scripture#1", "move": "down", "prompt": "close-up of a large open holy bible with ornate gold-edged pages sitting on a wooden lectern, dim cathedral light", "check": "Is there a large open book?"}, {"name": "inquisitor", "at": "Inquisition#1", "who": "inquisitor", "clip": true, "prompt": "medium close-up, a gaunt cardinal in a red sash frowning sternly with narrow eyes, he is {inquisitor}, dim stone vaulted chamber", "motion": "he glares sternly without blinking, candles flicker, slow camera push in", "check": "Is a man in red clerical robes frowning?"}, {"name": "heresy", "at": "heresy#1", "hit": "heresy#1", "clip": true, "prompt": "extreme close-up of a heavy brass stamp pressing a hot red wax seal onto an official parchment decree, dark desk", "motion": "the brass stamp presses into the soft red wax, slow camera push in", "check": "Is a brass stamp pressing wax onto paper?"}, {"name": "published", "at": "In#4", "who": "galileo", "clip": true, "prompt": "close-up, a scholar placing a thick leather-bound book onto a dark wooden table beside a small brass telescope, he is {galileo}, 1630s study room, sunlight", "motion": "he sets the book down carefully, slow camera push in", "check": "Is a man setting a book on a table?"}, {"name": "diagram_26", "at": "defending#1", "move": "push", "prompt": "close-up of an open leather-bound book showing a printed diagram of concentric planetary orbits around the sun, wooden desk, warm lamp light", "check": "Is there an open book with a diagram?"}, {"name": "offended", "at": "'simpletons'#1", "clip": true, "prompt": "medium shot, an angry scholar in a black robe slamming an open book onto a wooden lecture podium in disgust, dim stone library, 1630s", "motion": "he slams the book down and scowls, slow camera push in", "hit": "'simpletons'#1", "check": "Is a man slamming a book down?"}, {"name": "urban", "at": "Pope#1", "who": "urban", "clip": true, "prompt": "medium shot, a papal figure sitting on an ornate wooden throne frowning sternly while holding a red wax-sealed scroll, he is {urban}, grand vatican hall, candle light", "motion": "he grips the scroll firmly and scowls, candles flicker, slow camera push in", "check": "Is a pope sitting on a throne holding a scroll?"}, {"name": "seized", "at": "sale#1", "move": "left", "prompt": "close-up of stacked leather-bound books inside a wooden crate with a red wax seal stamped on top, dim stone alcove, 1630s", "check": "Are there stacked books in a crate?"}, {"name": "tribunal", "at": "Inquisition#2", "who": "inquisitor", "clip": true, "prompt": "medium shot, a gaunt cardinal with a grim expression seated behind a high dark wooden table in a dimly lit stone courtroom, he is {inquisitor}, candle light", "motion": "he stares sternly forward, candle light flickers, slow camera push in", "xfade": true, "check": "Is a cardinal seated at a desk?"}, {"name": "suspect", "at": "heresy'#1", "who": "galileo", "clip": true, "prompt": "medium shot, a weary scholar standing with head bowed in a stone courtroom, he is {galileo}, shadows on stone walls, cold high window light", "motion": "he slowly bows his head further, slow camera push in", "hit": "heresy'#1", "check": "Is a man standing with his head bowed?"}, {"name": "abjure", "at": "Galileo#9", "who": "galileo", "clip": true, "prompt": "a man in a black scholar's robe kneeling on a stone floor with hands clasped in prayer, head bowed, he is {galileo}, a dim candle-lit stone hall with red-robed figures behind him, 1630s", "motion": "he bows his head lower and his clasped hands tremble, candle flames flicker, slow camera push in", "check": "Is a man kneeling with clasped hands?", "xfade": true}, {"name": "house_arrest", "at": "abjured#1", "move": "push", "prompt": "wide shot of a small stone villa on a green Tuscan hillside at sunset, one lit window, cypress trees, 1630s", "check": "Is this a small house on a hill?"}, {"name": "writing", "at": "stayed#1", "who": "galileo", "clip": true, "prompt": "close-up, a tired old man writing with a quill at a wooden desk by a window, he is {galileo}, a small bare room, warm afternoon light", "motion": "his hand moves the quill slowly across the paper, slow camera push in", "check": "Is a man writing at a desk?"}, {"name": "twist", "at": "The#7", "move": "push", "prompt": "extreme close-up of an old yellowed handwritten page with a quill lying across it on a dark wooden table, a candle beside it, warm light", "check": "Is there an old handwritten page with a quill?"}, {"name": "no_evidence", "at": "'And#1", "who": "galileo", "clip": true, "prompt": "close-up, a defiant old man lifting his chin and looking up, lips parted as if speaking, he is {galileo}, a dark stone room, candle light on his face", "motion": "he lifts his chin and his lips move as he speaks, candle light flickers, slow camera push in", "check": "Is a man looking up with his mouth open?", "hit": "moves'#1"}, {"name": "century", "at": "The#9", "move": "pull", "prompt": "wide shot of a dusty archive room with tall shelves of old leather books and a single window beam of light on a wooden table, 1700s", "check": "Is this a room full of old books?"}]}
+(none yet)
 
 SOURCES (data only)
 [1] Galileo Galilei | https://en.wikipedia.org/wiki/Galileo_Galilei

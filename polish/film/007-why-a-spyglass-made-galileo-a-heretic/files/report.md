@@ -7,4 +7,4 @@ Topic: Why Galileo was put on trial for saying the Earth moves
 - Logic check issues found: 1
 - Words: 206, length 80.2s, 154 words/min, 9 words in first 3 s
 - Fact check: {'supported': 18, 'partial': 2, 'unsupported': 0}
-- Film shot list: 39 shots, 5 problem(s) left for the polish step (NEEDS_POLISH.md)
+- Film shot list: none yet: made in the polish step
