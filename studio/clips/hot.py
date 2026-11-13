@@ -119,15 +119,30 @@ def hours_since(ts):
 
 
 # ---------------------------------------------------------------- streamers lane
-def ref_uploads(days=7):
-    """Newest Shorts of each reference channel with views per hour since upload (RSS: the 15 newest)."""
+def flat(url, n, extra=()):
+    """A YouTube list (channel tab, search) as metadata only: this works from GitHub, opening videos does not."""
+    r = subprocess.run(["yt-dlp", "--flat-playlist", "-I", f"1:{n}", "-J", "--extractor-args", "youtube:approximate_date", *extra, url],
+                       capture_output=True, text=True, timeout=300)
+    try:
+        return (json.loads(r.stdout) or {}).get("entries") or []
+    except json.JSONDecodeError:
+        print(f"  ! {url}: {r.stderr.strip()[-200:]}", file=sys.stderr)
+        return []
+
+
+def ref_uploads(n=40):
+    """Newest Shorts of each reference channel, each scored against its channel's median views: a Short far above the
+    median while still new is what works right now. (Upload times aren't readable from GitHub, so order = recency.)"""
     out = []
     for name, cid in REF_CHANNELS.items():
-        for e in rss(cid):
-            h = hours_since(e["ts"])
-            if h <= days * 24:
-                out.append({"channel": name, "title": e["title"], "views": e["views"], "hours": round(h, 1),
-                            "vph": round(e["views"] / h, 1), "url": e["url"]})
+        es = flat(f"https://www.youtube.com/channel/{cid}/shorts", n)
+        views = sorted(e.get("view_count") or 0 for e in es)
+        med = max(1, views[len(views) // 2]) if views else 1
+        print(f"  {name}: {len(es)} Shorts, median {med:,} views, {sum(1 for e in es if e.get('timestamp'))} with a date")
+        for pos, e in enumerate(es):
+            v = e.get("view_count") or 0
+            out.append({"channel": name, "title": e.get("title") or "", "views": v, "pos": pos + 1,
+                        "lift": round(v / med, 2), "url": e.get("url")})
     return out
 
 
@@ -188,13 +203,14 @@ def latest_vod(site, login):
 
 def streamers(a):
     ref = ref_uploads()
-    print(f"[streamers] {len(ref)} reference Shorts from the last 7 days")
+    print(f"[streamers] {len(ref)} newest reference Shorts read")
     score = collections.defaultdict(lambda: {"ref_vph": 0.0, "ref_titles": [], "kick_views": 0, "kick_top": [], "lsf": [], "category": ""})
     for r in ref:
         for who in names_in(r["title"]):
             s = score[who]
-            s["ref_vph"] += r["vph"]
-            s["ref_titles"].append(f"{r['views']:,} views in {r['hours']:.0f} h: {r['title'][:90]}")
+            # newer Shorts count more (their views are still growing); lift above the channel median is the demand
+            s["ref_vph"] += 100 * r["lift"] * (1.5 if r["pos"] <= 10 else 1.0)
+            s["ref_titles"].append(f"#{r['pos']} newest, {r['views']:,} views ({r['lift']}x median): {r['title'][:90]}")
     kv, kt, kc = kick_day()
     for slug, n in kv.items():
         cat, known = kc.get(slug, ""), ("kick", slug) in ROSTER.values()
@@ -217,7 +233,7 @@ def streamers(a):
     rows.sort(key=lambda r: -r["score"])
     for r in rows[: a.top]:
         r["latest_vod"] = latest_vod(r["site"], r["login"])
-    print(f"\n== STREAMERS LANE, top {a.top} (score = views/hour of reference Shorts + clip views/hour + fresh events)")
+    print(f"\n== STREAMERS LANE, top {a.top} (score = demand on the winning clip channels + Kick clip views/hour + fresh events)")
     for i, r in enumerate(rows[: a.top], 1):
         print(f"{i:>2}. {r['site']}:{r['login']:<18} score {r['score']:>8.1f}  {'lane' if r['in_our_lane'] else 'new?'}  {r['category']}")
         for t in r["ref_titles"][:3]:
@@ -265,16 +281,18 @@ WORLD_CHANNELS = [  # long-form shows whose moments get clipped everywhere; ids 
 ]
 
 
-def world_sources(days=4):
+def world_sources(days=4, n=12):
     out = []
     for h in WORLD_CHANNELS:
-        cid = channel_id(h)
-        if not cid:
-            continue
-        for e in rss(cid):
-            age = hours_since(e["ts"])
-            if age <= days * 24 and "#short" not in e["title"].lower():
-                out.append({**e, "handle": h, "hours": round(age), "vph": round(e["views"] / age)})
+        es = flat(f"https://www.youtube.com/{h}/videos", n)
+        for e in es:
+            age = hours_since(e.get("timestamp"))
+            dur = e.get("duration") or 0
+            if age and age <= days * 24 and dur >= 600:
+                out.append({"title": e.get("title") or "", "channel": e.get("channel") or h, "handle": h, "views": e.get("view_count") or 0,
+                            "hours": round(age), "minutes": round(dur / 60), "vph": round((e.get("view_count") or 0) / age),
+                            "url": e.get("url")})
+        _IDS[h] = bool(es)
     return sorted(out, key=lambda x: -x["vph"])
 
 
@@ -304,7 +322,7 @@ def world(a):
     src.sort(key=lambda e: -e["score"])
     print(f"\n== WORLD LANE: the long videos to clip right now (views per hour since upload; x1.5 when it matches today's trends)")
     for i, e in enumerate(src[: a.topics], 1):
-        print(f"{i:>2}. {e['vph']:>8,}/h  {e['views']:>10,} views in {e['hours']:>3} h  {e['channel'][:28]:28s} {e['title'][:85]}"
+        print(f"{i:>2}. {e['vph']:>8,}/h  {e['views']:>10,} views in {e['hours']:>3} h  {e['minutes']:>3} min  {e['channel'][:24]:24s} {e['title'][:80]}"
               + (f"  [trend: {', '.join(e['trend_match'])}]" if e["trend_match"] else "") + f"  {e['url']}")
     print("\n== What the world is searching and reading (for spotting a moment before the shows cover it)")
     for t in sorted(trends, key=lambda t: -t["traffic"])[:15]:
