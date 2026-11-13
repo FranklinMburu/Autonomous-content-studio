@@ -28,7 +28,7 @@ from studio.clips.__main__ import bar  # noqa: E402
 from studio.clips.edit import make_clip  # noqa: E402
 from studio.clips.render import render  # noqa: E402
 
-PRE, POST = 75, 45
+PRE, POST = 60, 90   # 13 Nov run 1: 45 s after the moment cut off payoffs and aftermaths; 90 s keeps them
 
 EDITOR = """You are the editor of a top streamer-clip Shorts channel (@Kick_Clippers / Clipatra style). Below is a
 {dur:.0f} s piece of {streamer}'s live stream "{stream}" (low quality, with sound). The moment we want is around
@@ -102,8 +102,9 @@ def one(m, a, model, b, out):
     log = lambda *x: print(f"[{m['id']}]", *x, flush=True)  # noqa: E731
     if not src.exists():
         t0 = time.time()
-        sh("yt-dlp", "-q", "--no-warnings", "-f", "bv*[height<=1080]+ba/b[height<=1080]/b", "--merge-output-format", "mp4",
-           "--download-sections", f"*{a0:.0f}-{t + POST:.0f}", "--force-keyframes-at-cuts", "-o", str(src), a.vod)
+        # no --force-keyframes-at-cuts (it re-encoded the whole section: ~155 s each on 13 Nov); 30 fps is all a Short uses
+        sh("yt-dlp", "-q", "--no-warnings", "-f", "bv*[height<=1080][fps<=30]+ba/bv*[height<=1080]+ba/b[height<=1080]/b",
+           "--merge-output-format", "mp4", "--download-sections", f"*{a0:.0f}-{t + POST:.0f}", "-o", str(src), a.vod)
         log(f"section {a0:.0f}-{t + POST:.0f} s downloaded in {time.time() - t0:.0f} s ({src.stat().st_size / 1e6:.0f} MB)")
     dur = float(sh("ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(src)).stdout)
     # 2. the AI editor watches the section
@@ -116,6 +117,9 @@ def one(m, a, model, b, out):
         log("editor: not usable:", ed.get("why") if ed else "no answer")
         return None
     start, peak, end = (float(ed.get(k, v)) for k, v in (("start", t - a0 - 20), ("peak", t - a0), ("end", t - a0 + 10)))
+    peak = min(max(peak, 2.0), dur - 2.0)                       # the editor's peak can fall outside the piece (13 Nov)
+    if end <= start or end <= peak:                             # an end before the start/peak = a bad answer: rebuild it
+        end = peak + 6
     start, end = max(0, min(start, peak - 2)), min(dur - 0.5, max(end, peak + 2))
     if end - start > b["duration_s"]["max"] + 15:
         start = max(start, peak - 25)
@@ -177,7 +181,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--vod", required=True); ap.add_argument("--streamer", required=True); ap.add_argument("--lane", default="SC")
     ap.add_argument("--stream-title", default=""); ap.add_argument("--moments", required=True); ap.add_argument("--out", required=True)
-    ap.add_argument("--model")
+    ap.add_argument("--model"); ap.add_argument("--only", type=int, help="make only moment number N (1-based): one job per Short")
     a = ap.parse_args()
     out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
     b = bar()
@@ -187,6 +191,8 @@ def main():
     posts = []
     for i, m in enumerate(ms, 1):
         m["id"] = m.get("id") or f"{a.lane}-{day}-{i:02d}"
+        if a.only and i != a.only:
+            continue
         try:
             p = one(m, a, model, b, out)
             if p:

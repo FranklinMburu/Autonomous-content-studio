@@ -294,8 +294,8 @@ def render(clip, out_mp4, log=print, threads=2):
     loudnorm(str(tmp) + ".mix.wav", str(tmp) + ".norm.wav", clip["style"].get("lufs", -14), clip["style"].get("true_peak", -1.5))
     total = sum(max(1, int(round((e["src"][1] - e["src"][0]) * FPS))) for e in clip["edl"])
     ff = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{OW}x{OH}",
-                           "-r", str(FPS), "-i", "-", "-i", str(tmp) + ".norm.wav", "-c:v", "libx264", "-preset", "medium",
-                           "-crf", "20", "-threads", str(threads), "-x264-params", "sliced-threads=1", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k",
+                           "-r", str(FPS), "-i", "-", "-i", str(tmp) + ".norm.wav", "-c:v", "libx264", "-preset", "veryfast",
+                           "-crf", "18", "-threads", str(threads), "-x264-params", "sliced-threads=1", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k",
                            "-movflags", "+faststart", "-frames:v", str(total), str(out_mp4)], stdin=subprocess.PIPE)
     fi = 0
     for e in clip["edl"]:

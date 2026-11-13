@@ -171,7 +171,7 @@ def judge(a):
     out = []
     watch = a.video and a.audio and Path(a.video).exists() and Path(a.audio).exists()
     step = 1 if watch else 8
-    for i in range(0, len(cands), step):
+    def one_batch(i):
         batch = cands[i:i + step]
         blocks = []
         for c in batch:
@@ -195,11 +195,19 @@ def judge(a):
                                      "are a rough transcript. Return a JSON list with one entry.")
                 parts.append({"inline_data": {"mime_type": "video/mp4", "data": base64.b64encode(clip.read_bytes()).decode()}})
         r = call(model, parts) or []
-        for m in r if isinstance(r, list) else r.get("moments", [r] if isinstance(r, dict) else []):
-            if isinstance(m, dict) and "t" in m:
-                out.append({k: m.get(k) for k in ("t", "score", "kind", "title", "why")})
-        print(f"[judge] {min(len(cands), i + step)}/{len(cands)}" + (" (watched)" if watch else ""), flush=True)
+        got = [{k: m.get(k) for k in ("t", "score", "kind", "title", "why")}
+               for m in (r if isinstance(r, list) else r.get("moments", [r] if isinstance(r, dict) else []))
+               if isinstance(m, dict) and "t" in m]
         time.sleep(a.pause)
+        return got
+
+    # 3 candidates at a time (13 Nov: 83 one after another took ~15 min); call() already backs off on 429
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(int(os.environ.get("CLIPS_JUDGE_PARALLEL", "3"))) as ex:
+        for k, got in enumerate(ex.map(one_batch, range(0, len(cands), step)), 1):
+            out.extend(got)
+            if k % 10 == 0 or k * step >= len(cands):
+                print(f"[judge] {min(len(cands), k * step)}/{len(cands)}" + (" (watched)" if watch else ""), flush=True)
     # Global ranking pass (Hooky): the model orders the best candidates against each other, which is steadier than
     # separate 0-10 scores. The rank becomes the final score; the per-moment score stays as "score_alone".
     top = sorted([m for m in out if isinstance(m.get("score"), (int, float))], key=lambda m: -m["score"])[:30]

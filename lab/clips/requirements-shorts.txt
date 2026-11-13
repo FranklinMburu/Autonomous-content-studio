@@ -1,0 +1,6 @@
+numpy>=1.26
+pillow
+soundfile>=0.12
+opencv-python-headless==4.10.0.84
+faster-whisper==1.2.1
+yt-dlp==2026.10.26
