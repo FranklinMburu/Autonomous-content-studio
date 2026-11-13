@@ -47,7 +47,7 @@ env:
 jobs:
   write:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 180     # a long video is 5-7 model calls; free models can be busy (13 Nov: 90 was not enough)
     outputs:
       episode: ${{ steps.ep.outputs.episode }}
     steps:
