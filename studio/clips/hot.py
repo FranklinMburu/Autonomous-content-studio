@@ -290,7 +290,9 @@ def world_sources(n=12, keep=4):
         _IDS[h] = bool(es)
         if not es:
             continue
-        views = sorted(e.get("view_count") or 0 for e in es)
+        views = sorted(v for v in (e.get("view_count") or 0 for e in es) if v > 0)   # members-only/premieres show 0
+        if not views:
+            continue
         med = max(1, views[len(views) // 2])
         for pos, e in enumerate(es[:keep]):
             v = e.get("view_count") or 0
@@ -301,9 +303,9 @@ def world_sources(n=12, keep=4):
 
 def topic_videos(topic, n=10):
     """Newest long YouTube videos about a trending topic (interviews, podcasts, hearings), metadata only."""
-    es = flat(f"ytsearchdate{n}:{topic} interview OR podcast OR full", n)
+    es = flat(f"ytsearch{n}:{topic} interview", n)
     return [{"title": e.get("title") or "", "channel": e.get("channel") or "", "views": e.get("view_count") or 0,
-             "minutes": round((e.get("duration") or 0) / 60), "url": e.get("url")} for e in es if (e.get("duration") or 0) >= 600]
+             "minutes": round((e.get("duration") or 0) / 60), "url": e.get("url")} for e in es if (e.get("duration") or 0) >= 600 or not e.get("duration")]
 
 
 def long_videos(topic, days=4, n=12):
