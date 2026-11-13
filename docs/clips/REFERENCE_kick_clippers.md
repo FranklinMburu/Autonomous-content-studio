@@ -67,3 +67,18 @@ Shorts views: median 21,000, top 32,000,000, top 10% from 248,000
 | 3,400,000 |  | [IShowSpeed got MAD at his NEW Cameraman after He didn’t know how to film him 💔😳 #ishowspeed](https://www.youtube.com/shorts/koyDtmw2MZI) |
 | 3,300,000 |  | [The moment Iggy Azalea Started to get N3on more COMFORTABLE during their DATE on her Yacht 😮❤️‍🩹](https://www.youtube.com/shorts/gRN8NGJ-Zo0) |
 | 3,100,000 |  | [No way Lefty Relised N3on is Set Him Up after NAMING his OPS 😮😳](https://www.youtube.com/shorts/kZ4oanEbQV0) |
+
+## Measured look of the winners (13 Nov 2026, 6 top Shorts downloaded by the laptop helper)
+
+Shorts: Speed strongman (32M), Speed pint (32M), N3on × Iggy phone (28M), Speed backflip (16M), Slipz pizza (9.7M),
+N3on × Colby bar (12M). Delivered at 608×1080, 30 fps.
+
+- **Length 11–38 s** (median about 18 s).
+- **No word-by-word captions** in any of them. **No jump cuts**: 0–1 scene cuts in the whole clip; raw continuous footage.
+- **Framing:** the 16:9 stream picture cropped at the sides and zoomed about 1.6× into a big band filling about half
+  the screen (rows ~22%–75%), on a blurred, lightly darkened copy of itself.
+- **Title box:** the YouTube title itself (with its emojis) in a white rounded box with black bold text, just above
+  the picture, **on screen for the whole clip**.
+- **Loudness not normalised:** −14.6 to −37.2 LUFS.
+- Lesson: the winners are simple; the moment and the title carry them. Our SC style now copies this (`--style
+  reference` in `lab/clips/shorts.py`, layout `band` in `studio/clips/render.py`).

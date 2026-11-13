@@ -96,3 +96,8 @@ Run 2 (43331217075, commit f8f4cdd): exact key + AI eyes + AI judge. Read its lo
   `gh api -H "Accept: application/octet-stream" repos/.../releases/assets/<id>` (gh release download uses GraphQL, blocked).
 - **Next:** judge fix + re-test; first real SC Shorts from the board picks; WC after; Notion token for automatic board.
 - **Notion board automatic (13 Nov 06:53):** secret `NOTION_TOKEN` (connection "Studio Board bot", board only). Proven by run 43361862139 (card "Board connection test"). `studio/clips/board.py`; `clips-hot.yml` posts top 5 SC + WC picks each run.
+- **13 Nov 07:30–08:30:** mentor agent (`.claude/agents/mentor.md`); first 5 real Shorts (scores 7, 7, 4, 3, 3);
+  judge with real-winner anchors + crew/cameraman class (run 6: top 20 = 6/10, top 30 = 8/10 = 96% of views; camera
+  man rank 53 → 20); the winners' look measured (above, REFERENCE_kick_clippers.md) and copied; Shorts in parallel
+  jobs; research on voice / pipelines / presenters in `docs/lanes/`; reference breakdown of Maitis and Griffin in
+  `docs/lanes/REFERENCE_maitis_griffin.md`.
