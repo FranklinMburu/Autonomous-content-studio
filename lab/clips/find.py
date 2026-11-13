@@ -40,6 +40,8 @@ def resolve(a):
         if not vods:
             sys.exit(f"no Kick VODs for {a.slug}")
         vods.sort(key=lambda v: v.get("start_time") or "", reverse=True)
+        for v in vods[:5]:
+            print(f"  VOD {v.get('start_time')} {v['duration']/3.6e6:.1f} h  {(v.get('video') or {}).get('uuid')}  {(v.get('session_title') or '')[:60]}")
         v = next((v for v in vods if a.uuid and a.uuid in json.dumps(v)), None) if a.uuid else vods[0]
         if not v:
             sys.exit(f"VOD {a.uuid} not in {a.slug}'s list ({len(vods)} VODs)")
