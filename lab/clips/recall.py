@@ -140,6 +140,18 @@ def main():
             v = sc[lo:hi].max() if hi > lo else -1e9
             row.append(f"{100 * (sc < v).mean():>9.0f}" if v > -1e8 else f"{'-':>9s}")
         print("  " + " ".join(row) + f"  {k['views']:>6,} {k['title'][:40]}")
+    if judged:
+        print("\nALL + AI JUDGE by number of picks (a 3 h IRL stream can carry 20-40 Shorts):")
+        for kk in (10, 20, 30, 40, 60):
+            pk = peaks(fams["ALL + AI JUDGE"], kk)
+            hit = [k for k in key if found(pk, k)]
+            print(f"  top {kk:>2}: {len(hit):>2} of {len(key)} fan clips, {sum(k['views'] for k in hit)/max(1,total_views):.0%} of their views")
+        order = sorted(((float(m["score"]), int(float(m["t"]))) for m in judged if isinstance(m.get("score"), (int, float)) and m.get("t") is not None), reverse=True)
+        print("\nWhere the judge put each fan clip (its best-scored candidate inside the clip's window):")
+        for k in sorted(key, key=lambda k: -k["views"]):
+            inwin = [(i + 1, sc, t) for i, (sc, t) in enumerate(order) if k["offset"] - 120 <= t <= k["offset"] + (k.get("duration") or 30) + 60]
+            r = f"rank {inwin[0][0]} of {len(order)}, score {inwin[0][1]}" if inwin else "never reached the judge"
+            print(f"  {k['views']:>7,}  {k['title'][:45]:45s} {r}")
     print(f"\nPer fan clip (found by {best}?):")
     for k in sorted(key, key=lambda k: -k["views"]):
         print(f"  {'YES' if found(allpk, k) else 'no '}  {k['views']:>7,} views  @{k['offset']//60:>3d}:{k['offset']%60:02d}  {k['title'][:60]}")
