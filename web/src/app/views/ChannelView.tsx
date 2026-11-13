@@ -12,7 +12,7 @@ import { BoardView } from './BoardView';
 export const ChannelView: React.FC<{ code: string; onNavigate: (r: string) => void }> = ({ code, onNavigate }) => {
   const ch = channelOf(code);
   const items = useItems();
-  const { runs, topics, isTopicMade, hot, nextSlots, scheduleData, board } = useStudio();
+  const { runs, topics, isTopicMade, hot, radar, nextSlots, scheduleData, board } = useStudio();
   const { start } = useActions();
   const q = new URLSearchParams(window.location.search);
   const [tab, setTabState] = useState(q.get('tab') || 'overview');
@@ -99,15 +99,42 @@ export const ChannelView: React.FC<{ code: string; onNavigate: (r: string) => vo
         </>
       );
     }
-    if (ch.code === 'TE') return (
-      <Section title="Episodes" hint="Each episode is a folder with its script and visual plan. Start a new one from Make.">
-        <div className="rows">
-          <div className="row"><LaneBadge code="TE" /><div className="row-b"><b>001 · What is an API?</b><span className="faint">The approved first episode (engine v3)</span></div>
-            <ActButton variant="sec" small onRun={() => start('Make: What is an API? (Tech Education)', 'make-motion.yml', { episode: 'episodes/tech_education/001-what-is-an-api' }, { next: 'The video appears in Tech Education → Videos.' })}>Make it</ActButton></div>
-        </div>
-        <button className="btn pri" style={{ marginTop: 12 }} onClick={() => onNavigate('/app/make?lane=TE')}><Plus size={15} /> New episode from a topic</button>
-      </Section>
-    );
+    if (ch.code === 'TE') {
+      const topics = radar?.topics || [];
+      const eps = [['001-what-is-an-api', 'What is an API?', 'The approved first episode (engine v3)'],
+                   ['002-what-is-a-database', 'What is a database?', 'Written; made in the lab in four looks'],
+                   ['003-what-is-a-backend', 'What is a backend?', 'Written, not made yet']];
+      return (
+        <>
+          <Section title="Tech radar: what to make next" hint={radar?.built ? `Ranked ${ago(radar.built)} from what tech viewers reward right now (reference channels' winning videos, GitHub, Hacker News, Hugging Face, Google Trends).` : 'Run the radar to rank today\'s topics.'}
+            right={<ActButton variant="sec" onRun={() => start('Tech radar: rank today\'s topics', 'tech-radar.yml', {}, { next: 'Fresh topics are here and on the board (Picked).', target: '/app/c/TE?tab=ideas' })}><Fire size={15} /> Run the radar</ActButton>}>
+            {topics.length ? (
+              <div className="radar">
+                {topics.map((t: any, i: number) => (
+                  <div key={i} className="rt">
+                    <div className="rt-h"><span className="qn">{i + 1}</span><b>{t.topic}</b><span className="chip">{t.format}</span></div>
+                    <p className="muted">{t.why_now}</p>
+                    {t.angle && <p><span className="faint">Our angle: </span>{t.angle}</p>}
+                    <ul className="rt-titles">{(t.titles || []).map((x: string) => <li key={x}>{x}</li>)}</ul>
+                    {t.thumbnail && <p className="small"><span className="faint">Thumbnail: </span>{t.thumbnail}</p>}
+                    {t.evidence && <details className="raw-steps"><summary>Evidence</summary><p className="small muted">{typeof t.evidence === 'string' ? t.evidence : JSON.stringify(t.evidence)}</p></details>}
+                    <button className="btn pri sm" onClick={() => onNavigate(`/app/make?lane=TE&topic=${encodeURIComponent((t.titles && t.titles[0]) || t.topic)}`)}>Make this <ArrowRight size={13} /></button>
+                  </div>
+                ))}
+              </div>
+            ) : <Empty icon={<Fire size={20} weight="duotone" />} title="No radar yet" text="Run it once (about 5 minutes); then it is here and on the board." />}
+          </Section>
+          <Section title="Written episodes" hint="Episodes already written (script and visual plan). Making one renders it on GitHub.">
+            <div className="rows">
+              {eps.map(([dir, title, note]) => (
+                <div key={dir} className="row"><LaneBadge code="TE" /><div className="row-b"><b>{dir.slice(0, 3)} · {title}</b><span className="faint">{note}</span></div>
+                  <ActButton variant="sec" small onRun={() => start(`Make: ${title} (Tech Education)`, 'make-motion.yml', { episode: `episodes/tech_education/${dir}` }, { next: 'The video appears in Tech Education → Videos.' })}>Make it</ActButton></div>
+              ))}
+            </div>
+          </Section>
+        </>
+      );
+    }
     return <Empty title="Paused" text="The Body Science pilot is paused; its finished videos are under Videos." />;
   };
 

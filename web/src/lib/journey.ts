@@ -42,6 +42,12 @@ export const WORKFLOWS: Record<string, WorkflowInfo> = {
              'Cards on the Studio Board (Review)': 'Adding cards to the Studio Board' },
   },
   'Clips, review Shorts again': { lane: 'SC', what: 'The AI reviewer watches Shorts it never reviewed', plain: { 'Review again': 'Reviewing the Shorts again' } },
+  'Tech radar (what Tech Education should make next)': {
+    lane: 'TE', what: 'Reads what tech viewers reward right now and ranks topics for Tech Education',
+    plain: { 'Read the market and rank topics': 'Reading tech channels, GitHub, Hacker News, Hugging Face and Google Trends',
+             'Keep it for the Studio app (release "tech-radar", replaced each run)': 'Saving the topics for the app',
+             'Top topics onto the Studio Board (Picked, lane TE)': 'Adding the top 5 to the board' },
+  },
   'Make a story video': {
     lane: 'HR', what: 'Makes one Hidden Reasons film (or its draft for your polish)',
     plain: { 'Choose what to make': 'Choosing the topic', 'AI writes a new episode': 'AI researches and writes the episode',

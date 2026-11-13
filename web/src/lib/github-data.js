@@ -326,6 +326,7 @@ export function createStudio(opts = {}) {
   }
   const board = async () => { const f = await loadFeed(); return f && Array.isArray(f.board) ? f.board : null; };
   const hot = async () => { const f = await loadFeed(); return (f && f.hot) || null; };
+  const techRadar = async () => { const f = await loadFeed(); return (f && f.radar) || null; };
   const motionVideos = async () => (await releases()).filter(r => r.kind === "motion");
   // lab videos (lab-archive-<lane> releases): early versions made before the workflows; shown marked "Lab"
   async function labVideos() {
@@ -345,7 +346,7 @@ export function createStudio(opts = {}) {
   }
   const feedInfo = async () => { const f = await loadFeed(); return f ? { built: f.built } : null; };
 
-  return { cfg, feedInfo, usedMemory, shorts, board, hot, motionVideos, labVideos, releases, films, runs, runSteps, reviewQueue, polishQueue, uploadQueue, uploaded, alerts, statusBoard,
+  return { cfg, feedInfo, usedMemory, shorts, board, hot, techRadar, motionVideos, labVideos, releases, films, runs, runSteps, reviewQueue, polishQueue, uploadQueue, uploaded, alerts, statusBoard,
            topics, schedule, nextSlots, episode, memorySeed, models, labRuns, links };
 }
 

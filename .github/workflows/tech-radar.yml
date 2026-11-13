@@ -1,0 +1,55 @@
+name: Tech radar (what Tech Education should make next)
+
+# Reads what the market rewards right now (reference tech channels' lift, GitHub, Hacker News, Hugging Face, Google
+# Trends), lets the free AI turn it into ranked topics with format, angle, titles and a thumbnail idea, saves the list
+# for the Studio app (release "tech-radar") and puts the top 5 on the Studio Board as Picked (lane TE). Free.
+run-name: "${{ inputs.request_id && format('{0} [{1}]', github.workflow, inputs.request_id) || github.event.head_commit.message || github.workflow }}"
+on:
+  push:
+    branches: ["tech-radar/**"]
+  workflow_dispatch:
+    inputs:
+      request_id:
+        description: "Set by the Studio app to follow this run (leave empty)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  radar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Read the market and rank topics
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          pip install -q "yt-dlp==2026.10.26"
+          python -m studio.radar.tech --out tech_radar.json
+      - name: Keep it for the Studio app (release "tech-radar", replaced each run)
+        run: |
+          gh release view tech-radar > /dev/null 2>&1 || gh release create tech-radar --prerelease --title "Tech radar: the latest topics" \
+            --notes "Written by the 'Tech radar' workflow each run. The Studio app reads tech_radar.json. Not a video."
+          gh release upload tech-radar tech_radar.json --clobber
+      - name: Top topics onto the Studio Board (Picked, lane TE)
+        continue-on-error: true
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: |
+          python - <<'PY'
+          import json, subprocess
+          r = json.load(open("tech_radar.json"))
+          for t in r["topics"][:5]:
+              why = f"{t.get('why_now', '')} | Format: {t.get('format')}. Titles: " + " / ".join(t.get("titles") or [])
+              note = f"Angle: {t.get('angle', '')} | Thumbnail: {t.get('thumbnail', '')} | Risk: {t.get('risk', '')}"
+              subprocess.run(["python", "-m", "studio.clips.board", "add", "--lane", "TE", "--title", t["topic"][:150], "--stage", "Picked",
+                              "--who", f"Tech radar ({t.get('format')})", "--why", why[:1900], "--note", note[:1900]], check=False)
+          PY

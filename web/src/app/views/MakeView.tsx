@@ -22,7 +22,7 @@ export const MakeView: React.FC<{ onNavigate: (r: string) => void }> = ({ onNavi
   const src = q.get('src') || '';
   const kickFromSrc = (src.match(/kick\.com\/([A-Za-z0-9_-]+)/) || [])[1] || '';
   const [hrTopic, setHrTopic] = useState('');
-  const [teTopic, setTeTopic] = useState('');
+  const [teTopic, setTeTopic] = useState(lane === 'TE' ? q.get('topic') || '' : '');
   const [platform, setPlatform] = useState<'kick' | 'twitch'>(/twitch\.tv/.test(src) ? 'twitch' : 'kick');
   const [channel, setChannel] = useState(platform === 'twitch' ? src : kickFromSrc);
   const [streamer, setStreamer] = useState(q.get('who') || kickFromSrc);

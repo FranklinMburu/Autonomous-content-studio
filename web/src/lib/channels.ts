@@ -38,7 +38,7 @@ export const CHANNELS: Channel[] = [
     code: 'TE', name: 'Tech Education', short: 'Build Basics: how software really works',
     makes: 'a motion explainer with real-looking software in a moving 3D world', format: 'Explainer',
     status: 'Engine approved; videos made when you start them', cadence: 'When you start one',
-    color: '#58A6FF', makeWorkflow: 'make-motion.yml', ideasLabel: 'Episodes',
+    color: '#58A6FF', makeWorkflow: 'make-motion.yml', ideasLabel: 'Radar',
     steps: [
       { name: 'Topic', who: 'you', text: 'You give a topic (for example "What is a database?").' },
       { name: 'Script', who: 'ai', text: 'The AI writes the script and a visual plan, one scene per line.' },
