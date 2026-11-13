@@ -103,7 +103,7 @@ def one(m, a, model, b, out):
     if not src.exists():
         t0 = time.time()
         # no --force-keyframes-at-cuts (it re-encoded the whole section: ~155 s each on 13 Nov); 30 fps is all a Short uses
-        sh("yt-dlp", "-q", "--no-warnings", "-f", "bv*[height<=1080][fps<=30]+ba/bv*[height<=1080]+ba/b[height<=1080]/b",
+        sh("yt-dlp", "-q", "--no-warnings", "-f", a.fmt,
            "--merge-output-format", "mp4", "--download-sections", f"*{a0:.0f}-{t + POST:.0f}", "-o", str(src), a.vod)
         log(f"section {a0:.0f}-{t + POST:.0f} s downloaded in {time.time() - t0:.0f} s ({src.stat().st_size / 1e6:.0f} MB)")
     dur = float(sh("ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(src)).stdout)
@@ -130,7 +130,7 @@ def one(m, a, model, b, out):
         from studio.clips.transcribe import transcribe
         transcribe(src, words_p, model="small.en", log=log)
     (d / "rights.json").write_text(json.dumps({"source": "unverified", "streamer": a.streamer, "title": a.stream_title,
-                                               "vod": a.vod, "note": "Rights not checked yet: see the before-you-post note."}))
+                                               "vod": a.page, "note": "Rights not checked yet: see the before-you-post note."}))
     # 4. edit, render, gates
     S = sources.load(d)
     cv, _ = signals.curves(S, dur, log=lambda *x: None)
@@ -179,11 +179,11 @@ def one(m, a, model, b, out):
         "hashtags": tags, "duration_s": round(clip["duration"], 1), "layout": lay["kind"],
         "gates_failed": failed, "checks": rv.get("checks", []), "checks_passed": f"{len(passed)}/{len(CHECKS)}",
         "scores": sc, "fix": rv.get("fix", ""), "predicted_views": band(sc["overall"]),
-        "before_you_post": (f"Rights NOT verified: this is {a.streamer}'s stream ({a.vod}). Check whether {a.streamer} runs a "
+        "before_you_post": (f"Rights NOT verified: this is {a.streamer}'s stream ({a.page}). Check whether {a.streamer} runs a "
                             "clipping program or campaign, and its rules, before posting. The predicted views are the "
                             "reviewer's guess, not a measurement. " + ("Checks failed: " + ", ".join(k for k in CHECKS if k not in passed) + ". " if len(passed) < len(CHECKS) else "")
                             + ("Gates failed: " + ", ".join(failed) + "." if failed else "")),
-        "source": {"vod": a.vod, "start": round(a0 + start, 1), "peak": round(a0 + peak, 1), "end": round(a0 + end, 1)},
+        "source": {"vod": a.page, "start": round(a0 + start, 1), "peak": round(a0 + peak, 1), "end": round(a0 + end, 1)},
         "editor": ed,
     }
     (d / "post.json").write_text(json.dumps(post, indent=1, ensure_ascii=False))
@@ -197,8 +197,13 @@ def main():
     ap.add_argument("--vod", required=True); ap.add_argument("--streamer", required=True); ap.add_argument("--lane", default="SC")
     ap.add_argument("--stream-title", default=""); ap.add_argument("--moments", required=True); ap.add_argument("--out", required=True)
     ap.add_argument("--model"); ap.add_argument("--style", default="reference", choices=("reference", "engine"), help="reference = the measured Kick_Clippers look")
+    ap.add_argument("--vod-page", help="the public page of the stream (for the board and credits); default --vod")
+    ap.add_argument("--fmt", default="bv*[height<=1080][fps<=30]+ba/bv*[height<=1080]+ba/b[height<=1080]/b",
+                    help="yt-dlp format; Kick's 30 fps renditions stop at 480p, so Kick uses b[height<=1080]/b (60 fps, rendered at 30)")
+    ap.add_argument("--id-tag", default="", help="inserted in Video IDs (e.g. n3on -> SC-20261113-n3on-01) so runs never collide")
     ap.add_argument("--only", type=int, help="make only moment number N (1-based): one job per Short")
     a = ap.parse_args()
+    a.page = a.vod_page or a.vod
     out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
     b = bar()
     model = a.model or AI.pick_model()
@@ -206,7 +211,7 @@ def main():
     day = time.strftime("%Y%m%d")
     posts = []
     for i, m in enumerate(ms, 1):
-        m["id"] = m.get("id") or f"{a.lane}-{day}-{i:02d}"
+        m["id"] = m.get("id") or f"{a.lane}-{day}-" + (f"{a.id_tag}-" if a.id_tag else "") + f"{i:02d}"
         if a.only and i != a.only:
             continue
         try:
