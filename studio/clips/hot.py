@@ -281,19 +281,29 @@ WORLD_CHANNELS = [  # long-form shows whose moments get clipped everywhere; ids 
 ]
 
 
-def world_sources(days=4, n=12):
+def world_sources(n=12, keep=4):
+    """Each show's newest long videos, scored by views against that show's own median (dates aren't readable from
+    GitHub; the newest few are what's fresh)."""
     out = []
     for h in WORLD_CHANNELS:
-        es = flat(f"https://www.youtube.com/{h}/videos", n)
-        for e in es:
-            age = hours_since(e.get("timestamp"))
-            dur = e.get("duration") or 0
-            if age and age <= days * 24 and dur >= 600:
-                out.append({"title": e.get("title") or "", "channel": e.get("channel") or h, "handle": h, "views": e.get("view_count") or 0,
-                            "hours": round(age), "minutes": round(dur / 60), "vph": round((e.get("view_count") or 0) / age),
-                            "url": e.get("url")})
+        es = [e for e in flat(f"https://www.youtube.com/{h}/videos", n) if (e.get("duration") or 0) >= 600]
         _IDS[h] = bool(es)
-    return sorted(out, key=lambda x: -x["vph"])
+        if not es:
+            continue
+        views = sorted(e.get("view_count") or 0 for e in es)
+        med = max(1, views[len(views) // 2])
+        for pos, e in enumerate(es[:keep]):
+            v = e.get("view_count") or 0
+            out.append({"title": e.get("title") or "", "channel": e.get("channel") or h, "handle": h, "views": v, "pos": pos + 1,
+                        "lift": round(v / med, 2), "minutes": round((e.get("duration") or 0) / 60), "url": e.get("url")})
+    return out
+
+
+def topic_videos(topic, n=10):
+    """Newest long YouTube videos about a trending topic (interviews, podcasts, hearings), metadata only."""
+    es = flat(f"ytsearchdate{n}:{topic} interview OR podcast OR full", n)
+    return [{"title": e.get("title") or "", "channel": e.get("channel") or "", "views": e.get("view_count") or 0,
+             "minutes": round((e.get("duration") or 0) / 60), "url": e.get("url")} for e in es if (e.get("duration") or 0) >= 600]
 
 
 def long_videos(topic, days=4, n=12):
@@ -316,20 +326,31 @@ def world(a):
     hot_words |= {w for t in wk[:25] for w in re.findall(r"[a-z][a-z0-9']{3,}", t["topic"].lower())}
     src = world_sources()
     print(f"[world] {len(src)} new long-form uploads from {sum(1 for h in WORLD_CHANNELS if _IDS.get(h))}/{len(WORLD_CHANNELS)} shows")
+    import math
     for e in src:
         e["trend_match"] = sorted(hot_words & set(re.findall(r"[a-z][a-z0-9']{3,}", e["title"].lower())))
-        e["score"] = e["vph"] * (1.5 if e["trend_match"] else 1.0)
+        # how far above the show's usual it is, times how big it is, newer first; x1.5 on today's trends
+        e["score"] = round(e["lift"] * math.log10(max(10, e["views"])) * (1.3 if e["pos"] == 1 else 1.0) * (1.5 if e["trend_match"] else 1.0), 2)
     src.sort(key=lambda e: -e["score"])
-    print(f"\n== WORLD LANE: the long videos to clip right now (views per hour since upload; x1.5 when it matches today's trends)")
+    print(f"\n== WORLD LANE: the long videos to clip right now (lift = views vs the show's usual; #1 = its newest)")
     for i, e in enumerate(src[: a.topics], 1):
-        print(f"{i:>2}. {e['vph']:>8,}/h  {e['views']:>10,} views in {e['hours']:>3} h  {e['minutes']:>3} min  {e['channel'][:24]:24s} {e['title'][:80]}"
+        print(f"{i:>2}. {e['lift']:>5}x usual  {e['views']:>10,} views  #{e['pos']} newest  {e['minutes']:>3} min  {e['channel'][:24]:24s} {e['title'][:80]}"
               + (f"  [trend: {', '.join(e['trend_match'])}]" if e["trend_match"] else "") + f"  {e['url']}")
     print("\n== What the world is searching and reading (for spotting a moment before the shows cover it)")
     for t in sorted(trends, key=lambda t: -t["traffic"])[:15]:
         print(f"   Google {t['geo']} {t['traffic']:>7,}+  {t['topic']}" + (f"  ({t['news'][0][:70]})" if t["news"] else ""))
     for w in wk[:15]:
         print(f"   Wikipedia {w['views']:>9,}  {w['topic']}")
-    Path(a.out).write_text(json.dumps({"sources": src[:60], "trends": trends, "wikipedia": wk}, indent=1))
+    people = [w["topic"] for w in wk[:20] if not re.search(r"\b(list|deaths|season|film|series|part|ss |\.xxx)\b", w["topic"].lower()) and not w["topic"].startswith(".")][:8]
+    print("\n== Long videos about today's most-read people and stories (newest first)")
+    topics_out = []
+    for t in people:
+        vids = topic_videos(t)[:3]
+        topics_out.append({"topic": t, "videos": vids})
+        print(f"   {t}")
+        for v in vids:
+            print(f"      {v['views']:>10,} views  {v['minutes']:>3} min  {v['channel'][:24]:24s} {v['title'][:80]}  {v['url']}")
+    Path(a.out).write_text(json.dumps({"sources": src[:60], "trends": trends, "wikipedia": wk, "topics": topics_out}, indent=1))
 
 
 def main():
