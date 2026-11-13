@@ -18,16 +18,29 @@ TASTE = """What wins on the best clip channels (real view counts, @Kick_Clippers
 IRL and celebrity encounters (a famous or surprising person appears or interacts); someone gets SHOCKED, EXPOSED,
 HUMBLED, CAUGHT or left speechless; relationship and flirting drama; emotional beats (crying, a parent, a gift);
 money and flex (expensive things, big bets, giving money away); physical surprises (a fall, a slap, a stunt, a fight);
+the streamer's CREW and CAMERAMAN (they get hit, quit, fired, rehired, steal food, get roasted: a proven 7-10M class);
 a funny or awkward reaction anyone understands with the sound off. Titles: "The moment / No way [streamer]
 [REALIZED / was SHOCKED / EXPOSED / couldn't believe] [situation]". Boring: menus, loading, quiet walking, chatting
-about nothing, reading donations, gameplay without a reaction."""
+about nothing, reading donations, gameplay without a reaction.
+Real winners to compare against (views on @Kick_Clippers):
+- 32M "IShowSpeed EXPOSED the strongest man in Africa for CHEATING"
+- 32M "IShowSpeed just RUINED a guy's pint & then gave him $500"
+- 28M "The moment N3on realized Iggy Azalea hasn't used her phone since starting the stream 6 hours ago"
+- 16M "IShowSpeed was left speechless after his fan landed a smoother backflip than him"
+- 13M "IShowSpeed had to hold someone's pocket in prison for protection"
+- 9.7M "IShowSpeed's cameraman Slipz couldn't resist and stole a pizza slice"
+- 8.3M "IShowSpeed was SHOCKED seeing how hard his cameraman worked and got REHIRED"
+- 7.2M "IShowSpeed made his production team quit their game so he could sit down"
+- 7.8M "IShowSpeed runs into a Messi fan in Senegal"
+The channel's MEDIAN Short gets 21K: generic reactions, calm chatting, small talk with fans."""
 
 
 RUBRIC = """Judge each MOMENT (what was said and seen around it) like this. Adapted from ClippyMe (MIT), tuned to clip channels.
 GATE first: a moment is a clip only if it hits at least one HARD: an unexpected turn (a reveal, someone appears, a
 pattern break); strong emotion (instant laugh, shock, rage, secondhand embarrassment, tears); conflict or drama; a
 money/flex or celebrity moment. Pleasant, on-topic or merely loud is NOT a clip: score it 0-3.
-Then score 0-10 = how likely a Short cut from it reaches 250K+ views, weighing: hook (the payoff can open the Short
+Then score 0-10 = how likely a Short cut from it reaches 250K+ views: first ask "is this as strong as one of the
+real winners above, or more like the 21K median?" and score from that comparison, weighing: hook (the payoff can open the Short
 in the first second), emotional payoff (the reaction lands on screen), quotability, self-contained (needs no setup
 from earlier), density (no dead air). The reaction beat is part of the clip. Be harsh: most moments are 2-5.
 Never name who speaks unless the name is said; the streamer may be named as the subject.
