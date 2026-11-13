@@ -66,12 +66,14 @@ export const CHANNELS: Channel[] = [
   {
     code: 'WC', name: 'World Clips', short: 'What the world is talking about: CEOs, news, culture',
     makes: 'a Short from a show or interview that is spiking today', format: 'Short',
-    status: "Who's hot working; Shorts making comes next", cadence: "Picks with every who's-hot run",
-    color: '#3FB950', ideasLabel: "Who's hot",
+    status: 'Working when your laptop is on', cadence: 'When you start one (needs the laptop on)',
+    color: '#3FB950', makeWorkflow: 'clips-world.yml', ideasLabel: "Who's hot",
     steps: [
       { name: "Who's hot", who: 'ai', text: '27 shows, Google Trends and Wikipedia are read; videos far above their usual views are picked.' },
-      { name: 'Fetch', who: 'laptop', text: 'Your laptop helper downloads only the needed minutes from YouTube (YouTube blocks cloud servers).' },
-      { name: 'Make', who: 'ai', text: 'The same Short maker as Streamer Clips (being connected for this lane).' },
+      { name: 'Details', who: 'laptop', text: "Your laptop reads each picked video's public details: YouTube's \"most replayed\" curve and subtitles." },
+      { name: 'Find', who: 'ai', text: 'The moments viewers replay most, with what is said there, go to the AI judge, which picks and titles the best.' },
+      { name: 'Fetch', who: 'laptop', text: 'Your laptop downloads only those minutes (YouTube blocks cloud servers).' },
+      { name: 'Make', who: 'ai', text: 'The same Short maker as Streamer Clips: edit, render, AI reviewer.' },
       { name: 'Review', who: 'you', text: 'Approve or skip on the board.' },
     ],
   },

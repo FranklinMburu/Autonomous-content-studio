@@ -83,7 +83,7 @@ export const ChannelView: React.FC<{ code: string; onNavigate: (r: string) => vo
       const list = (hot?.world?.sources || []).slice(0, 15);
       return (
         <>
-          <div className="banner"><Laptop size={18} weight="duotone" /><div><b>World Clips needs your laptop on.</b> <span className="muted">YouTube blocks cloud servers, so your laptop helper downloads only the minutes we need (every 10 minutes when on). Making Shorts for this lane is the next step being connected.</span></div></div>
+          <div className="banner"><Laptop size={18} weight="duotone" /><div><b>World Clips needs your laptop on.</b> <span className="muted">YouTube blocks cloud servers, so your laptop helper downloads only the minutes we need (every 10 minutes when on). Start World Clips Shorts from Make; the run waits for your laptop and says so if it is off.</span></div></div>
           <Section title="What the world is watching" hint={hot?.at ? `Ranked ${ago(hot.at)}: videos far above their show's usual views, plus Google Trends and Wikipedia.` : ''}
             right={<ActButton variant="sec" onRun={() => start("Who's hot: rank today's streams and stories", 'clips-hot.yml', {}, { next: 'New picks are on the board and here.' })}><Fire size={15} /> Run who's hot</ActButton>}>
             {list.length ? (
@@ -146,7 +146,7 @@ export const ChannelView: React.FC<{ code: string; onNavigate: (r: string) => vo
           )}
           <Section title="Latest videos" right={<button className="lnk" onClick={() => setTab('videos')}>All {videos.length} <ArrowRight size={13} /></button>}>
             {videos.length ? <div className="vgrid">{videos.slice(0, 4).map(i => <VideoCard key={i.key} item={i} onOpen={onNavigate} showLane={false} />)}</div>
-              : <Empty title="No videos yet" text={ch.code === 'WC' ? 'This lane makes picks so far; Shorts come next.' : 'Start one with Make.'} />}
+              : <Empty title="No videos yet" text="Start one with Make." />}
           </Section>
         </>
       )}

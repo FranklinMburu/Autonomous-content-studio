@@ -32,6 +32,16 @@ export const WORKFLOWS: Record<string, WorkflowInfo> = {
              "Today's picks onto the Studio Board (Notion)": 'Adding the top picks to the board',
              'Keep the latest lists for the Studio app (release "clips-hot", replaced each run)': 'Saving the lists for the app' },
   },
+  'Clips, World Clips Shorts (needs the laptop on)': {
+    lane: 'WC', what: "World Clips: today's world picks to Shorts (your laptop fetches from YouTube)",
+    plain: { "Today's world picks": "Reading today's world picks", "Ask the laptop for each video's details": 'Asking your laptop for each video\'s details',
+             'Wait for the details (the laptop picks requests up every 10 minutes while it is on)': 'Waiting for your laptop (it checks every 10 minutes)',
+             'Pick the moments (most replayed + what was said + the AI judge)': 'Finding the moments viewers replay most',
+             'Ask the laptop for just those minutes, then wait for them': 'Your laptop downloads just those minutes',
+             'Make Short': 'Making this Short', 'Publish for review (GitHub pre-release, not YouTube)': 'Putting the Shorts up for review',
+             'Cards on the Studio Board (Review)': 'Adding cards to the Studio Board' },
+  },
+  'Clips, review Shorts again': { lane: 'SC', what: 'The AI reviewer watches Shorts it never reviewed', plain: { 'Review again': 'Reviewing the Shorts again' } },
   'Make a story video': {
     lane: 'HR', what: 'Makes one Hidden Reasons film (or its draft for your polish)',
     plain: { 'Choose what to make': 'Choosing the topic', 'AI writes a new episode': 'AI researches and writes the episode',

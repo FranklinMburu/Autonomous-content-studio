@@ -1,0 +1,197 @@
+name: Clips, World Clips Shorts (needs the laptop on)
+
+# World Clips end to end (13 Nov 2026): today's world picks (release clips-hot) -> the laptop helper fetches each
+# video's public details (most-replayed heatmap, chapters, subtitles) -> the AI judge picks the moments -> the laptop
+# downloads only those minutes -> one parallel job per Short -> a review release + Review cards (lane WC).
+# YouTube blocks cloud servers, so every YouTube download happens on Franklin's laptop (helper every 10 minutes while on).
+run-name: "${{ inputs.request_id && format('{0} [{1}]', github.workflow, inputs.request_id) || github.event.head_commit.message || github.workflow }}"
+on:
+  push:
+    branches: ["clips-world/**"]
+  workflow_dispatch:
+    inputs:
+      stories:
+        description: "How many of today's world picks (1-5)"
+        required: false
+        default: "2"
+      per_story:
+        description: "Shorts per story (1-4)"
+        required: false
+        default: "2"
+      request_id:
+        description: "Set by the Studio app to follow this run (leave empty)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: clips-world
+  cancel-in-progress: false
+
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    outputs:
+      moments: ${{ steps.out.outputs.moments }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GITHUB_TOKEN: ${{ github.token }}
+      R: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Today's world picks
+        env:
+          N: ${{ inputs.stories || '2' }}
+        run: |
+          mkdir -p w/details
+          gh release download clips-hot -R "$R" -p hot_world.json -D w || { echo "No who's-hot lists yet: run 'Clips, who's hot today' first."; exit 1; }
+          python lab/clips/world.py plan --hot w/hot_world.json --top "$(( N > 5 ? 5 : (N < 1 ? 1 : N) ))" --out w/stories.json
+      - name: Ask the laptop for each video's details
+        run: |
+          for vid in $(jq -r '.[].vid' w/stories.json); do
+            python -m studio.clips.yt_sections request --kind info --id "$vid" --url "https://www.youtube.com/watch?v=$vid"
+          done
+      - name: Wait for the details (the laptop picks requests up every 10 minutes while it is on)
+        run: |
+          for vid in $(jq -r '.[].vid' w/stories.json); do
+            python -m studio.clips.yt_sections fetch --id "$vid" --name "$vid.info.json" --out "w/details/$vid.info.json" --wait 3000 || echo "no details for $vid"
+            python -m studio.clips.yt_sections fetch --id "$vid" --name "$vid.en.json3" --out "w/details/$vid.en.json3" --wait 60 || echo "no subtitles for $vid"
+          done
+          ls w/details | grep -q info.json || { echo "The laptop did not answer: is it on, with the helper installed (and updated, see tools/laptop_agent)?"; exit 1; }
+      - name: Pick the moments (most replayed + what was said + the AI judge)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PER: ${{ inputs.per_story || '2' }}
+        run: |
+          python lab/clips/world.py find --stories w/stories.json --dir w/details --per "$(( PER > 4 ? 4 : (PER < 1 ? 1 : PER) ))" --out w/moments.json
+      - name: Ask the laptop for just those minutes, then wait for them
+        run: |
+          jq -c '.[]' w/moments.json | while read m; do
+            python -m studio.clips.yt_sections request --id "$(echo "$m" | jq -r .section.id)" --url "$(echo "$m" | jq -r .url)" \
+              --start "$(echo "$m" | jq -r .section.start)" --end "$(echo "$m" | jq -r .section.end)"
+          done
+          for id in $(jq -r '.[].section.id' w/moments.json); do
+            python -m studio.clips.yt_sections fetch --id "$id" --out "w/$id.mp4" --wait 3000 && rm -f "w/$id.mp4" || echo "section $id not uploaded"
+          done
+      - id: out
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request
+          ms = json.load(open("w/moments.json")); keep = []
+          for m in ms:   # only the moments whose minutes the laptop really uploaded
+              url = f"https://github.com/{os.environ['R']}/releases/download/yt-sections/{m['section']['id']}.mp4"
+              try:
+                  urllib.request.urlopen(urllib.request.Request(url, method="HEAD"), timeout=60); m["vod"] = url; keep.append(m)
+              except Exception:
+                  print("missing section", m["section"]["id"])
+          json.dump(keep, open("w/moments.json", "w"), indent=1, ensure_ascii=False)
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write("moments=" + json.dumps(list(range(1, len(keep) + 1))) + "\n")
+          print(len(keep), "moments ready")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: world
+          path: w/*.json
+
+  short:
+    needs: find
+    if: needs.find.outputs.moments != '[]' && needs.find.outputs.moments != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        n: ${{ fromJSON(needs.find.outputs.moments) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: world
+          path: w
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: lab/clips/requirements-shorts.txt
+      - name: Speech model cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: whisper-small-en-v1
+      - name: Tools
+        run: |
+          for i in 1 2; do timeout 180 sh -c 'sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg tesseract-ocr fonts-noto-color-emoji > /dev/null' && break; done
+          pip install -q -r lab/clips/requirements-shorts.txt
+      - name: Make Short ${{ matrix.n }}
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          m=$(jq -c ".[${{ matrix.n }} - 1]" w/moments.json)
+          echo "$m" | jq '[{t: .t, title: .title, why: .why, score: .score}]' > w/one.json
+          python lab/clips/shorts.py --vod "$(echo "$m" | jq -r .vod)" --vod-page "$(echo "$m" | jq -r .url)&t=$(echo "$m" | jq -r '.section.start|floor')" \
+            --streamer "$(echo "$m" | jq -r '.who')" --lane WC --stream-title "$(echo "$m" | jq -r .show)" --moments w/one.json \
+            --fmt "b" --id-tag "w${{ github.run_number }}-${{ matrix.n }}" --out shorts --only 1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: short-${{ matrix.n }}
+          path: |
+            shorts/*/short.mp4
+            shorts/*/poster.jpg
+            shorts/*/post.json
+            shorts/*/clip.json
+          if-no-files-found: ignore
+
+  publish:
+    needs: short
+    if: always() && needs.short.result != 'skipped'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: short-*
+          path: shorts
+          merge-multiple: true
+      - name: Publish for review (GitHub pre-release, not YouTube)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import json, glob, os
+          posts = [json.load(open(p)) for p in sorted(glob.glob("shorts/*/post.json"))]
+          for p in posts:
+              p["run"] = int(os.environ["GITHUB_RUN_ID"])
+          json.dump(posts, open("shorts/posts.json", "w"), indent=1, ensure_ascii=False)
+          for p in posts:
+              print(p["id"], p["scores"].get("overall"), p["title"])
+          PY
+          [ "$(jq length shorts/posts.json)" -gt 0 ] || { echo "no Short was made"; exit 1; }
+          tag="shorts-wc-r${{ github.run_number }}-$(date +%Y%m%d-%H%M)"; echo "TAG=$tag" >> $GITHUB_ENV
+          files=$(ls shorts/*/short.mp4 | while read f; do d=$(dirname $f); cp $f "$d/$(basename $d).mp4"; echo "$d/$(basename $d).mp4"; [ -f "$d/poster.jpg" ] && cp "$d/poster.jpg" "$d/$(basename $d).jpg" && echo "$d/$(basename $d).jpg"; done)
+          gh release create "$tag" --prerelease --title "World Clips Shorts for review: $tag" --notes "Made by the clipping engine from today's world picks. Not published anywhere." $files shorts/posts.json
+      - name: Cards on the Studio Board (Review)
+        continue-on-error: true
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: |
+          python - <<'PY'
+          import json, os, subprocess
+          posts = json.load(open("shorts/posts.json")); tag = os.environ["TAG"]; repo = os.environ["GITHUB_REPOSITORY"]
+          for p in posts:
+              s = p["scores"]; ok = p.get("reviewed", True) and s.get("overall") is not None
+              why = (f"Reviewer: overall {s['overall']:g}/10, checks {p['checks_passed']}. Fix next: {p['fix']}") if ok else "Not reviewed by the AI (its free quota ran out). Watch it and decide."
+              subprocess.run(["python", "-m", "studio.clips.board", "add", "--lane", "WC", "--title", p["title"], "--stage", "Review" if (not ok or s["overall"] >= 6) else "Skipped",
+                              "--video-id", p["id"], "--who", "World Clips", "--why", why[:1900],
+                              "--source", p["source"]["vod"], "--clip-file", f"https://github.com/{repo}/releases/download/{tag}/{p['id']}.mp4",
+                              *(["--score", str(s["overall"]), "--views-band", p["predicted_views"]] if ok else []), "--note", p["before_you_post"][:1900]], check=False)
+          PY
