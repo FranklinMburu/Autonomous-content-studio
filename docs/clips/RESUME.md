@@ -95,3 +95,4 @@ Run 2 (43331217075, commit f8f4cdd): exact key + AI eyes + AI judge. Read its lo
   `yt-sections`. Requests go on branch `clips-jobs`. Downloading release assets from Claude's workspace: use
   `gh api -H "Accept: application/octet-stream" repos/.../releases/assets/<id>` (gh release download uses GraphQL, blocked).
 - **Next:** judge fix + re-test; first real SC Shorts from the board picks; WC after; Notion token for automatic board.
+- **Notion board automatic (13 Nov 06:53):** secret `NOTION_TOKEN` (connection "Studio Board bot", board only). Proven by run 43361862139 (card "Board connection test"). `studio/clips/board.py`; `clips-hot.yml` posts top 5 SC + WC picks each run.
