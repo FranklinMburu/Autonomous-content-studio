@@ -146,7 +146,7 @@ jobs:
           cd repo
           A="--key ../key/twitch.json --audio ../key/audio.m4a --video ../key/low.mp4 --words ../key/words.json --chat ../key/chat.json --eyes ../key/eyes.json --top 20"
           python lab/clips/recall.py $A --cands-out ../key/cands.json --out ../key/recall_signals.json
-          python lab/clips/ai_pass.py judge --cands ../key/cands.json --words ../key/words.json --eyes ../key/eyes.json --out ../key/judged.json --pause 7 || true
+          python lab/clips/ai_pass.py judge --cands ../key/cands.json --words ../key/words.json --eyes ../key/eyes.json --video ../key/low.mp4 --audio ../key/audio.m4a --out ../key/judged.json --pause 5 || true
           echo "================ WITH THE AI JUDGE ================"
           python lab/clips/recall.py $A --judged ../key/judged.json --out ../key/recall_twitch.json
       - uses: actions/upload-artifact@v4

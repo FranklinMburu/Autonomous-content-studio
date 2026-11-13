@@ -109,20 +109,35 @@ def judge(a):
     words = json.loads(Path(a.words).read_text())["words"] if a.words and Path(a.words).exists() else []
     seen = json.loads(Path(a.eyes).read_text())["moments"] if a.eyes and Path(a.eyes).exists() else []
     out = []
-    for i in range(0, len(cands), 8):
-        batch = cands[i:i + 8]
+    watch = a.video and a.audio and Path(a.video).exists() and Path(a.audio).exists()
+    step = 1 if watch else 8
+    for i in range(0, len(cands), step):
+        batch = cands[i:i + step]
         blocks = []
         for c in batch:
             t = c["t"]
             said = " ".join(w["w"] for w in words if t - 60 <= w["start"] <= t + 30)[:900]
             saw = "; ".join(f"{m['t']:.0f}s {m['what']}" for m in seen if t - 60 <= m["t"] <= t + 30)[:500]
             blocks.append(f"MOMENT t={t}\nSAID (t-60..t+30): {said or '-'}\nSEEN: {saw or '-'}")
-        prompt = f"You are the best clip-channel editor alive. {TASTE}\n{RUBRIC}\n\n" + "\n\n".join(blocks)
-        r = call(model, [{"text": prompt}]) or []
-        for m in r if isinstance(r, list) else r.get("moments", []):
+        parts = [{"text": f"You are the best clip-channel editor alive. {TASTE}\n{RUBRIC}\n\n" + "\n\n".join(blocks)}]
+        if watch:   # SliceQ / clipit lesson: let the judge watch and hear the moment, not only read it
+            t = batch[0]["t"]
+            a0 = max(0, t - 60)
+            clip = Path(tempfile.mkdtemp()) / "m.mp4"
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(a0), "-t", "90", "-i", a.video, "-ss", str(a0), "-t", "90",
+                            "-i", a.audio, "-map", "0:v:0", "-map", "1:a:0", "-vf", "fps=2,scale=284:160", "-c:v", "libx264",
+                            "-crf", "34", "-preset", "veryfast", "-ac", "1", "-ar", "16000", "-c:a", "aac", "-b:a", "32k", str(clip)],
+                           check=False)
+            if clip.exists() and clip.stat().st_size > 1000:
+                parts[0]["text"] += (f"\n\nThe video below is the moment itself, low quality, from {a0} s to {a0 + 90} s of the "
+                                     f"stream (so t={t} is {t - a0} s into it). Judge from what you SEE and HEAR; the words above "
+                                     "are a rough transcript. Return a JSON list with one entry.")
+                parts.append({"inline_data": {"mime_type": "video/mp4", "data": base64.b64encode(clip.read_bytes()).decode()}})
+        r = call(model, parts) or []
+        for m in r if isinstance(r, list) else r.get("moments", [r] if isinstance(r, dict) else []):
             if isinstance(m, dict) and "t" in m:
                 out.append({k: m.get(k) for k in ("t", "score", "kind", "title", "why")})
-        print(f"[judge] {min(len(cands), i + 8)}/{len(cands)}", flush=True)
+        print(f"[judge] {min(len(cands), i + step)}/{len(cands)}" + (" (watched)" if watch else ""), flush=True)
         time.sleep(a.pause)
     # Global ranking pass (Hooky): the model orders the best candidates against each other, which is steadier than
     # separate 0-10 scores. The rank becomes the final score; the per-moment score stays as "score_alone".
@@ -156,6 +171,7 @@ def main():
     e.add_argument("--step", type=int, default=4); e.add_argument("--batch", type=int, default=60)
     j = sub.add_parser("judge"); j.add_argument("--cands", required=True); j.add_argument("--words"); j.add_argument("--eyes")
     j.add_argument("--out", required=True)
+    j.add_argument("--video", help="low-res stream video: the judge watches each moment"); j.add_argument("--audio", help="stream audio")
     sh = sub.add_parser("show"); sh.add_argument("--eyes", required=True)
     for x in (e, j):
         x.add_argument("--model"); x.add_argument("--pause", type=float, default=6)
