@@ -42,6 +42,15 @@ Read these, in this order:
 - **Next:** when 43327666336 finishes, force-push `clips-engine` to `clips-recall/1` to run eyes + judge, then
   report the table to Franklin.
 
+## Result of run 1 (43327666336, signals only; sent to Franklin)
+
+Audio 2/10 (9% of views), speech 4/10 (14%), picture 3/10 (6%), ALL 5/10 (32%). Missed the top clip (camera man,
+27.5K) because its estimated offset (12036) is past the VOD end (11805): creation-time offsets are unreliable.
+Fix: `lab/clips/align.py` matches each fan clip's sound to the stream (offline test: exact to 0.1 s).
+New finds worth judging: Drake on the phone (~0:36:48), fan from Uzbekistan (2:24:37).
+
+Run 2 (43331217075, commit f8f4cdd): exact key + AI eyes + AI judge. Read its log for the table.
+
 ## Next step, exactly
 
 1. Pick 2 real streams: a recent Kai Cenat Twitch VOD (`clips-probe` listed `https://www.twitch.tv/videos/2924282282`
