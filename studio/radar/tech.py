@@ -194,11 +194,25 @@ def main():
             bad = [t for t in ts if not isinstance(t, dict) or not t.get("topic") or not isinstance(t.get("titles"), list)]
             if bad:
                 return [f"{len(bad)} topics lack a name or a titles list"]
-            copies = [x for t in ts for x in t["titles"] if too_close(x)]
-            return [f"these titles re-word a reference video; write new ones from this week's news: {copies[:4]}"] if copies else []
-        res = ask(prompt, tier="critical", validate=ok, temperature=0.4)
+            return []
+        res = None
+        for tier in ("critical", "standard"):     # the best free models first, then more of them
+            try:
+                res = ask(prompt, tier=tier, validate=ok, temperature=0.4)
+                break
+            except Exception as e:  # noqa: BLE001
+                print(f"  brain tier {tier}: {str(e)[:200]}")
+        if res is None:
+            raise RuntimeError("no tier answered")
         r = res.data
-        print(f"topics by the brain ({getattr(res, 'ref', 'brain')})")
+        # titles that only re-word a reference video are dropped (and topics left without titles)
+        dropped = 0
+        for t in r.get("topics", []):
+            keep = [x for x in t.get("titles") or [] if not too_close(x)]
+            dropped += len(t.get("titles") or []) - len(keep)
+            t["titles"] = keep
+        r["topics"] = [t for t in r.get("topics", []) if t.get("titles")]
+        print(f"topics by the brain ({getattr(res, 'ref', 'brain')}); {dropped} re-worded reference titles dropped")
     except Exception as e:  # noqa: BLE001
         print(f"  brain unavailable ({str(e)[:160]}): asking Gemini directly")
         r = call_gemini(prompt, a.model) or {}
