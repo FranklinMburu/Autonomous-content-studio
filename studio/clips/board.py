@@ -114,6 +114,46 @@ def picks(a):
                                clip_file=None, youtube=None, score=None, views=None, views_band=None))
 
 
+def all_cards():
+    out, cursor = [], None
+    for _ in range(20):
+        r = call("POST", f"/databases/{DATABASE}/query", {"page_size": 100, **({"start_cursor": cursor} if cursor else {})})
+        out += r.get("results", [])
+        if not r.get("has_more"):
+            break
+        cursor = r.get("next_cursor")
+    return out
+
+
+def mirror(a):
+    """Hidden Reasons and Tech Education live on GitHub; their board cards follow them (written by the Site feed
+    workflow from mirror.json). A card is created when missing; its stage is written only when the GitHub state
+    changed since the last feed ("changed"), so a move made by hand in Notion stays until something real happens."""
+    items = json.loads(Path(a.file).read_text())
+    by_id = {}
+    for c in all_cards():
+        vid = "".join(t.get("plain_text", "") for t in c["properties"].get("Video ID", {}).get("rich_text", []))
+        if vid:
+            by_id[vid] = c
+    made = moved = 0
+    for m in items:
+        if m.get("lane") not in ("HR", "TE"):
+            continue
+        ns = argparse.Namespace(lane=m["lane"], title=m["title"][:200], stage=m["stage"], video_id=m["video_id"], who=None,
+                                why=None, source=m.get("source") or None, clip_file=m.get("clip") or None, youtube=None,
+                                score=None, views=None, views_band=None, note=m.get("note") or None)
+        card = by_id.get(m["video_id"])
+        if not card:
+            p = props(ns)
+            p["Date"] = {"date": {"start": dt.date.today().isoformat()}}
+            call("POST", "/pages", {"parent": {"database_id": DATABASE}, "properties": p})
+            made += 1
+        elif m.get("changed"):
+            call("PATCH", f"/pages/{card['id']}", {"properties": props(ns)})
+            moved += 1
+    print(f"mirror: {made} new cards, {moved} moved, {len(items)} items")
+
+
 def test(a):
     cid = add(argparse.Namespace(lane="SC", title="Board connection test (GitHub can write here)", who="pipeline",
                                  why=f"written by GitHub Actions at {dt.datetime.now(dt.timezone.utc):%Y-%m-%d %H:%M} UTC",
@@ -135,10 +175,11 @@ def main():
     pk = sub.add_parser("picks"); pk.add_argument("--lane", choices=("SC", "WC"), required=True)
     pk.add_argument("--file", required=True); pk.add_argument("--top", type=int, default=5)
     sub.add_parser("test")
+    mi = sub.add_parser("mirror"); mi.add_argument("--file", required=True)
     a = ap.parse_args()
     if a.cmd == "add" and not (a.lane and a.title):
         sys.exit("add needs --lane and --title")
-    {"add": add, "move": move, "picks": picks, "test": test}[a.cmd](a)
+    {"add": add, "move": move, "picks": picks, "test": test, "mirror": mirror}[a.cmd](a)
 
 
 if __name__ == "__main__":

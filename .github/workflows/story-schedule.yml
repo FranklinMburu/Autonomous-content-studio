@@ -9,11 +9,16 @@ name: Story schedule
 # wakes every hour and starts a film only if fewer films have started today than slots have passed (catch-up),
 # never more than the 5 slots a day, never two waiting at once, never more than 36 a week.
 # GitHub still ran the hourly timer only ~2 times a day, so the "Story clock" workflow now wakes this on time.
+run-name: "${{ inputs.request_id && format('{0} [{1}]', github.workflow, inputs.request_id) || github.event.head_commit.message || github.workflow }}"
 on:
   schedule:
     - cron: "23 * * * *"
   workflow_dispatch:
     inputs:
+      request_id:
+        description: "Set by the Studio app to follow this run (leave empty)"
+        required: false
+        default: ""
       topic:
         description: "Optional: make this topic now instead of the next one in the queue"
         required: false

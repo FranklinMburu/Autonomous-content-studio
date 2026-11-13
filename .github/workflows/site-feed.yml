@@ -4,16 +4,24 @@ name: Site feed (data for the website)
 # file on the branch "site-data". The website reads that file from raw.githubusercontent.com, so visitors never hit
 # GitHub's limit of 60 API calls an hour (the site falls back to live calls if the feed is missing or > 6 h old).
 # Public data only; the token is used to read, never written into the file. Free: about 30 s per run.
+run-name: "${{ inputs.request_id && format('{0} [{1}]', github.workflow, inputs.request_id) || github.event.head_commit.message || github.workflow }}"
 on:
   schedule:
     - cron: "7,37 * * * *"
   workflow_run:
     workflows: ["Make a story video", "Polish return (paste Claude's answer)", "Review reply (approve or repaint)",
-                "Story schedule", "Pipeline 3: produce", "Pipeline 1: draft"]
+                "Story schedule", "Pipeline 3: produce", "Pipeline 1: draft", "Make a motion video (Tech Education)",
+                "Clips, a fresh stream to Shorts (find -> make -> review)", "Clips, make Shorts from chosen moments",
+                "Clips, who's hot today", "Studio action (from the Studio app)", "Film queue (make accepted polishes into videos)"]
     types: [completed]
   issues:
     types: [opened, closed, reopened, labeled, unlabeled]
   workflow_dispatch:
+    inputs:
+      request_id:
+        description: "Set by the Studio app to follow this run (leave empty)"
+        required: false
+        default: ""
 
 permissions:
   contents: write   # to publish feed.json on the site-data branch
@@ -38,7 +46,17 @@ jobs:
         with:
           node-version: "22"
       - name: Build the feed
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}   # read the Studio Board; never written into the file
         run: node web/scripts/build-feed.mjs feed.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Mirror Hidden Reasons and Tech Education onto the Studio Board (Notion)
+        continue-on-error: true
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: '[ -n "$NOTION_TOKEN" ] && python -m studio.clips.board mirror --file mirror.json || echo "no NOTION_TOKEN: mirror skipped"'
       - name: Publish it on the site-data branch (one commit, replaced each time)
         run: |
           dir=$(mktemp -d)

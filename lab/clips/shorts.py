@@ -174,8 +174,10 @@ def one(m, a, model, b, out):
         rv = rv[0] if rv else {}
     checks = {c.get("name"): bool(c.get("passed") is True) for c in rv.get("checks", []) if isinstance(c, dict)}
     passed = [k for k in CHECKS if checks.get(k)]
-    sc = {k: float((rv.get("scores") or {}).get(k, 0) or 0) for k in SCORES}
-    log(f"review: {len(passed)}/{len(CHECKS)} checks; overall {sc['overall']}; fix: {rv.get('fix', '')[:120]}")
+    reviewed = bool(rv.get("scores")) and bool(rv.get("checks"))   # 13 Nov: a spent free quota gave empty answers, read as 0/10
+    sc = {k: float((rv.get("scores") or {}).get(k, 0) or 0) for k in SCORES} if reviewed else {k: None for k in SCORES}
+    log(f"review: {len(passed)}/{len(CHECKS)} checks; overall {sc['overall']}; fix: {rv.get('fix', '')[:120]}" if reviewed
+        else "review: NOT REVIEWED (the AI reviewer gave no answer: free quota spent?); it goes to you unscored")
     # 6. the post package
     tags = [re.sub(r"[^A-Za-z0-9_]", "", h) for h in (ed.get("hashtags") or [])][:5] or [a.streamer.replace(" ", "").lower()]
     post = {
@@ -183,11 +185,12 @@ def one(m, a, model, b, out):
         "description": f"{clip['title']}\n\nFrom {a.streamer}'s stream \"{a.stream_title}\".\n" + " ".join(f"#{h}" for h in tags + ["shorts"]),
         "hashtags": tags, "duration_s": round(clip["duration"], 1), "layout": lay["kind"],
         "gates_failed": failed, "checks": rv.get("checks", []), "checks_passed": f"{len(passed)}/{len(CHECKS)}",
-        "scores": sc, "fix": rv.get("fix", ""), "predicted_views": band(sc["overall"]),
+        "scores": sc, "reviewed": reviewed, "fix": rv.get("fix", ""), "predicted_views": band(sc["overall"]) if reviewed else "",
         "before_you_post": (f"Rights NOT verified: this is {a.streamer}'s stream ({a.page}). Check whether {a.streamer} runs a "
                             "clipping program or campaign, and its rules, before posting. The predicted views are the "
                             "reviewer's guess, not a measurement. " + ("Checks failed: " + ", ".join(k for k in CHECKS if k not in passed) + ". " if len(passed) < len(CHECKS) else "")
-                            + ("Gates failed: " + ", ".join(failed) + "." if failed else "")),
+                            + ("Gates failed: " + ", ".join(failed) + "." if failed else "")
+                            + ("" if reviewed else " NOT REVIEWED by the AI (its free quota ran out): judge it yourself.")),
         "source": {"vod": a.page, "start": round(a0 + start, 1), "peak": round(a0 + peak, 1), "end": round(a0 + end, 1)},
         "editor": ed,
     }
@@ -227,8 +230,8 @@ def main():
             print(f"[{m['id']}] FAILED: {type(e).__name__}: {str(e)[-300:]}", flush=True)
     (out / "posts.json").write_text(json.dumps(posts, indent=1, ensure_ascii=False))
     print("\n== SHORTS")
-    for p in sorted(posts, key=lambda p: -p["scores"]["overall"]):
-        print(f"{p['id']}  overall {p['scores']['overall']:.1f}  checks {p['checks_passed']}  {p['duration_s']} s  {p['layout']}  "
+    for p in sorted(posts, key=lambda p: -(p["scores"]["overall"] or 0)):
+        print(f"{p['id']}  overall {p['scores']['overall'] or 0:.1f}  checks {p['checks_passed']}  {p['duration_s']} s  {p['layout']}  "
               f"band {p['predicted_views']}\n   {p['title']}\n   hook: {p['hook']}\n   scores: "
               + " ".join(f"{k} {v:g}" for k, v in p["scores"].items()) + f"\n   fix: {p['fix'][:160]}")
 

@@ -80,11 +80,14 @@ jobs:
           ls -R shorts | head -40
           python3 - <<'PY'
           import json, glob
+          import os
           posts = [json.load(open(p)) for p in sorted(glob.glob("shorts/*/post.json"))]
+          for p in posts:
+              p["run"] = int(os.environ["GITHUB_RUN_ID"]); p["streamer"] = json.load(open("lab/clips/clips_shorts.json"))["streamer"]
           json.dump(posts, open("shorts/posts.json", "w"), indent=1, ensure_ascii=False)
           print("\n== SHORTS")
-          for p in sorted(posts, key=lambda p: -p["scores"]["overall"]):
-              print(f"{p['id']}  overall {p['scores']['overall']:.1f}  checks {p['checks_passed']}  {p['duration_s']} s  {p['layout']}  band {p['predicted_views']}\n   {p['title']}\n   hook: {p['hook']}\n   scores: "
+          for p in sorted(posts, key=lambda p: -(p["scores"]["overall"] or 0)):
+              print(f"{p['id']}  overall {p['scores']['overall'] or 0:.1f}  checks {p['checks_passed']}  {p['duration_s']} s  {p['layout']}  band {p['predicted_views']}\n   {p['title']}\n   hook: {p['hook']}\n   scores: "
                     + " ".join(f"{k} {v:g}" for k, v in p["scores"].items()) + f"\n   fix: {p['fix'][:160]}")
           PY
           [ -s shorts/posts.json ] || { echo "no Short was made"; exit 1; }
@@ -103,11 +106,12 @@ jobs:
           cfg = json.load(open("lab/clips/clips_shorts.json"))
           for p in posts:
               s = p["scores"]
+              ok = p.get("reviewed", True) and s["overall"] is not None
               why = (f"Reviewer: overall {s['overall']:g}/10, checks {p['checks_passed']}. Scores: " + ", ".join(f"{k} {v:g}" for k, v in s.items())
-                     + f". Fix next: {p['fix']}")
-              subprocess.run(["python", "-m", "studio.clips.board", "add", "--lane", cfg["lane"], "--title", p["title"], "--stage", "Review" if s["overall"] >= 6 else "Skipped",
+                     + f". Fix next: {p['fix']}") if ok else "Not reviewed by the AI (its free quota ran out). Watch it and decide."
+              subprocess.run(["python", "-m", "studio.clips.board", "add", "--lane", cfg["lane"], "--title", p["title"], "--stage", "Review" if (not ok or s["overall"] >= 6) else "Skipped",
                               "--video-id", p["id"], "--who", cfg["streamer"], "--why", why[:1900],
                               "--source", f"{p['source']['vod']}?t={int(p['source']['start'])}s",
                               "--clip-file", f"https://github.com/{repo}/releases/download/{tag}/{p['id']}.mp4",
-                              "--score", str(s["overall"]), "--views-band", p["predicted_views"], "--note", p["before_you_post"][:1900]], check=False)
+                              *(["--score", str(s["overall"]), "--views-band", p["predicted_views"]] if ok else []), "--note", p["before_you_post"][:1900]], check=False)
           PY

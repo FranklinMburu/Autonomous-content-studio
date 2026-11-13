@@ -1,0 +1,110 @@
+name: Studio action (from the Studio app)
+
+# The one door the Studio app (web/) uses to change things that are not a video run. The app's token can only start
+# workflows and comment on issues (never write files), so every change goes through here, where it is checked first:
+#   board-move   move a Studio Board card (Notion) to another stage            args: {"video_id": "...", "stage": "Approved"}
+#   topic-add    add a topic to a channel's queue (episodes/<channel>/topics.txt) args: {"channel": "HR", "topic": "..."}
+#   topic-remove remove a topic from that queue                                 args: {"channel": "HR", "topic": "..."}
+# request_id lets the app find this exact run and show its progress live.
+run-name: "Studio action: ${{ inputs.action }} [${{ inputs.request_id }}]"
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "board-move, topic-add or topic-remove"
+        required: true
+        type: choice
+        options: [board-move, topic-add, topic-remove]
+      args:
+        description: "JSON arguments (see the top of this file)"
+        required: true
+        default: "{}"
+      request_id:
+        description: "set by the Studio app to follow this run"
+        required: false
+        default: ""
+
+permissions:
+  contents: write   # topic changes are a commit on main by this workflow (checked input only)
+
+concurrency:
+  group: studio-action-${{ inputs.action }}
+  cancel-in-progress: false
+
+jobs:
+  act:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check the request
+        id: req
+        env:
+          ACTION: ${{ inputs.action }}
+          ARGS: ${{ inputs.args }}
+        run: |
+          python - <<'PY'
+          import json, os, re, sys
+          a, raw = os.environ["ACTION"], os.environ["ARGS"]
+          try:
+              args = json.loads(raw)
+          except ValueError:
+              sys.exit("args is not JSON")
+          out = {}
+          if a == "board-move":
+              stages = ("Picked", "Making", "Review", "Approved", "Posted", "Skipped")
+              vid, st = str(args.get("video_id", "")), str(args.get("stage", ""))
+              if not re.fullmatch(r"[A-Za-z0-9._-]{3,80}", vid): sys.exit(f"bad video_id {vid!r}")
+              if st not in stages: sys.exit(f"stage must be one of {stages}")
+              out = {"video_id": vid, "stage": st}
+          else:
+              dirs = {"HR": "episodes/hidden_reasons/topics.txt", "TE": "episodes/tech_education/topics.txt"}
+              ch, topic = str(args.get("channel", "")), " ".join(str(args.get("topic", "")).split())
+              if ch not in dirs: sys.exit(f"channel must be one of {list(dirs)}")
+              if not (3 <= len(topic) <= 160) or topic.startswith("#"): sys.exit("a topic is 3-160 characters, not a comment")
+              out = {"file": dirs[ch], "topic": topic}
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              for k, v in out.items():
+                  f.write(f"{k}={v}\n")
+          print("request ok:", a, out)
+          PY
+      - name: Move the board card (Notion)
+        if: inputs.action == 'board-move'
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: python -m studio.clips.board move --video-id "${{ steps.req.outputs.video_id }}" --stage "${{ steps.req.outputs.stage }}"
+      - name: Change the topic queue
+        if: inputs.action != 'board-move'
+        env:
+          FILE: ${{ steps.req.outputs.file }}
+          TOPIC: ${{ steps.req.outputs.topic }}
+          ACTION: ${{ inputs.action }}
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          p, t, a = Path(os.environ["FILE"]), os.environ["TOPIC"], os.environ["ACTION"]
+          lines = p.read_text().splitlines() if p.exists() else ["# One topic per line. The channel makes them in order."]
+          key = lambda s: " ".join(s.lower().split())
+          have = [l for l in lines if l.strip() and not l.startswith("#")]
+          if a == "topic-add":
+              if any(key(l) == key(t) for l in have):
+                  print("already queued:", t); raise SystemExit(0)
+              lines.append(t)
+          else:
+              n = len(lines); lines = [l for l in lines if key(l) != key(t)]
+              if len(lines) == n:
+                  print("not in the queue:", t); raise SystemExit(0)
+          p.parent.mkdir(parents=True, exist_ok=True)
+          p.write_text("\n".join(lines).rstrip() + "\n")
+          print(a, t)
+          PY
+          if git diff --quiet; then echo "nothing to change"; exit 0; fi
+          git config user.name "content-studio-bot"; git config user.email "actions@users.noreply.github.com"
+          git commit -qam "Topics ($ACTION from the Studio app): $TOPIC"
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done

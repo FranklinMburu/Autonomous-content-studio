@@ -5,8 +5,14 @@ name: Film queue (make accepted polishes into videos)
 # and starts this; each run makes the oldest accepted film, saves the outcome in its ticket and starts the next run.
 # Failed videos are retried automatically (3 tries, 20 minutes apart); a run that dies is picked up again.
 # The hourly timer is only a fallback for retries and for a chain that GitHub did not start.
+run-name: "${{ inputs.request_id && format('{0} [{1}]', github.workflow, inputs.request_id) || github.event.head_commit.message || github.workflow }}"
 on:
   workflow_dispatch:
+    inputs:
+      request_id:
+        description: "Set by the Studio app to follow this run (leave empty)"
+        required: false
+        default: ""
   schedule:
     - cron: "47 * * * *"
 

@@ -3,9 +3,14 @@ name: Make a motion video (Tech Education)
 # The motion engine (studio/motion, docs/MOTION_ENGINE.md): real-looking software in a moving 3D world.
 # Separate from every Hidden Reasons workflow: its own concurrency group, no Kaggle GPU, no channel memory, no schedule.
 # Runs only when started by hand (Actions -> this workflow -> Run workflow). Free on GitHub for public repositories.
+run-name: "${{ inputs.request_id && format('{0} [{1}]', github.workflow, inputs.request_id) || github.event.head_commit.message || github.workflow }}"
 on:
   workflow_dispatch:
     inputs:
+      request_id:
+        description: "Set by the Studio app to follow this run (leave empty)"
+        required: false
+        default: ""
       topic:
         description: "NEW video: a topic, and the AI writes the script + visual plan (e.g. What is a database?)"
         required: false

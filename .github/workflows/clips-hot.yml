@@ -3,13 +3,19 @@ name: Clips, who's hot today
 # Who to clip today, from real numbers (clipit's idea, extended): Kick streamers ranked by the views on their clips of
 # the last day, the biggest Kick live streams, and what the top clip channels posted in the last days with their views.
 # Read-only: public pages and Kick's own website API, no keys. Results are printed to the log.
+run-name: "${{ inputs.request_id && format('{0} [{1}]', github.workflow, inputs.request_id) || github.event.head_commit.message || github.workflow }}"
 on:
   push:
     branches: ["clips-hot/**"]
   workflow_dispatch:
+    inputs:
+      request_id:
+        description: "Set by the Studio app to follow this run (leave empty)"
+        required: false
+        default: ""
 
 permissions:
-  contents: read
+  contents: write   # the clips-hot release (latest lists for the Studio app)
 
 jobs:
   hot:
@@ -39,3 +45,10 @@ jobs:
         with:
           name: hot
           path: hot_*.json
+      - name: Keep the latest lists for the Studio app (release "clips-hot", replaced each run)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view clips-hot > /dev/null 2>&1 || gh release create clips-hot --prerelease --title "Who's hot: the latest lists" \
+            --notes "Written by the 'Clips, who's hot today' workflow each run. The Studio app reads these two files. Not videos."
+          gh release upload clips-hot hot_streamers.json hot_world.json --clobber

@@ -18,6 +18,11 @@ export interface StudioContextValue {
   isTopicMade: (topic: string) => boolean;   // done per the pipeline's memory, else an episode folder for it
   labRunsData: any[];
   statusBoardData: any;
+  shorts: any[];
+  board: any[] | null;
+  hot: any;
+  motionVideos: any[];
+  feedBuilt: string | null;
   loading: boolean;
   error: { kind: string; message: string } | null;
   theme: 'dark' | 'light' | 'system';
@@ -33,7 +38,8 @@ export interface StudioContextValue {
 const StudioContext = createContext<StudioContextValue | null>(null);
 
 export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [studio] = useState(() => createStudio());
+  // VITE_FEED_URL: a local feed for testing (npm run dev); the published site reads the site-data branch
+  const [studio] = useState(() => createStudio(import.meta.env.VITE_FEED_URL ? { feedUrl: import.meta.env.VITE_FEED_URL, feedMaxAgeHours: 1e6 } : {}));
   const [films, setFilms] = useState<any[]>([]);
   const [runs, setRuns] = useState<any[]>([]);
   const [topics, setTopics] = useState<string[]>([]);
@@ -49,6 +55,11 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [usedData, setUsedData] = useState<any>(null);
   const [labRunsData, setLabRunsData] = useState<any[]>([]);
   const [statusBoardData, setStatusBoardData] = useState<any>(null);
+  const [shorts, setShorts] = useState<any[]>([]);
+  const [board, setBoard] = useState<any[] | null>(null);
+  const [hot, setHot] = useState<any>(null);
+  const [motionVideos, setMotionVideos] = useState<any[]>([]);
+  const [feedBuilt, setFeedBuilt] = useState<string | null>(null);
 
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<{ kind: string; message: string } | null>(null);
@@ -177,6 +188,11 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       studio.usedMemory().then(setUsedData).catch(() => {});
       setLabRunsData(rLab);
       setStatusBoardData(rStatus);
+      studio.shorts().then(setShorts).catch(() => {});
+      studio.board().then(setBoard).catch(() => {});
+      studio.hot().then(setHot).catch(() => {});
+      studio.motionVideos().then(setMotionVideos).catch(() => {});
+      studio.feedInfo().then(f => setFeedBuilt(f ? f.built : null)).catch(() => {});
     } catch (err: any) {
       setError({ kind: err?.kind || 'network', message: err?.message || 'Could not reach GitHub' });
     } finally {
@@ -222,6 +238,11 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       isTopicMade,
       labRunsData,
       statusBoardData,
+      shorts,
+      board,
+      hot,
+      motionVideos,
+      feedBuilt,
       loading,
       error,
       theme,
@@ -250,6 +271,11 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       isTopicMade,
       labRunsData,
       statusBoardData,
+      shorts,
+      board,
+      hot,
+      motionVideos,
+      feedBuilt,
       loading,
       error,
       theme,
