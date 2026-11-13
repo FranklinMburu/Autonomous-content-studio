@@ -126,7 +126,15 @@ Below is today's evidence. Group it into the 8 best TOPICS for us to make next. 
 - "thumbnail": one concrete idea (main image + at most 4 words of text);
 - "risk": anything that could make it wrong or stale.
 Return JSON: {"topics": [ ... ]}. Prefer topics with evidence from more than one source; a reference video with a
-high lift counts most."""
+high lift counts most.
+
+Hard rules (13 Nov 2026):
+- The reference videos show which PATTERNS win; never re-word one of their titles or re-make their exact video. Each
+  topic must be driven by something NEW in the evidence this week (a GitHub repository, a Hacker News story, a trending
+  Hugging Face model or a search spike), framed with a winning pattern.
+- Facts only from the evidence: never attribute a product to the wrong company or country, never invent numbers,
+  versions or features. If unsure, leave it out.
+- Every title must be honest about what the video shows."""
 
 
 def call_gemini(text, model):
@@ -173,12 +181,21 @@ def main():
     try:   # the brain first (free Groq / NVIDIA / Gemini with fallbacks and its own allowances), then Gemini directly
         from ailayer import ask
 
+        ref_titles = [set(re.findall(r"[a-z0-9]+", e["title"].lower())) for e in hot_yt]
+
+        def too_close(title):   # a re-worded reference title: most of its words come from one reference video
+            w = set(re.findall(r"[a-z0-9]+", str(title).lower())) - {"the", "a", "to", "for", "and", "with", "of", "in", "is", "your", "this", "how"}
+            return bool(w) and any(len(w & r) / len(w) >= 0.6 for r in ref_titles)
+
         def ok(d):
             ts = d.get("topics") if isinstance(d, dict) else None
             if not isinstance(ts, list) or len(ts) < 3:
                 return ["'topics' must be a list of at least 3"]
             bad = [t for t in ts if not isinstance(t, dict) or not t.get("topic") or not isinstance(t.get("titles"), list)]
-            return [f"{len(bad)} topics lack a name or a titles list"] if bad else []
+            if bad:
+                return [f"{len(bad)} topics lack a name or a titles list"]
+            copies = [x for t in ts for x in t["titles"] if too_close(x)]
+            return [f"these titles re-word a reference video; write new ones from this week's news: {copies[:4]}"] if copies else []
         res = ask(prompt, tier="critical", validate=ok, temperature=0.4)
         r = res.data
         print(f"topics by the brain ({getattr(res, 'ref', 'brain')})")
