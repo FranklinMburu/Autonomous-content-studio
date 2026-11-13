@@ -41,7 +41,7 @@ const Copyable: React.FC<{ label: string; text: string }> = ({ label, text }) =>
 export const VideoView: React.FC<{ id: string; onNavigate: (r: string) => void }> = ({ id, onNavigate }) => {
   const { studio, runs, loading } = useStudio();
   const items = useItems();
-  const item = items.find(i => (i.kind === 'short' && i.raw.id === id) || (i.kind === 'motion' && i.raw.tag === id));
+  const item = items.find(i => (i.kind === 'short' && i.raw.id === id) || (i.kind === 'motion' && i.raw.tag === id) || (i.kind === 'lab' && i.raw.id === id));
   const moves = useItemMoves(item || ({ kind: 'none', raw: {} } as any));
   const [steps, setSteps] = useState<any[] | null>(null);
 
@@ -71,7 +71,7 @@ export const VideoView: React.FC<{ id: string; onNavigate: (r: string) => void }
   return (
     <Page wide
       title={<span className="vv-title">{item.title}</span>}
-      sub={<span className="vmeta"><LaneBadge code={item.lane} full /><StageChip stage={item.stage} />{item.at && <span className="faint">made {ago(item.at)}</span>}</span>}
+      sub={<span className="vmeta"><LaneBadge code={item.lane} full />{item.kind === 'lab' ? <span className="chip mute" title="Made in the lab before the GitHub workflow existed">Lab</span> : <StageChip stage={item.stage} />}{item.at && <span className="faint">made {ago(item.at)}</span>}</span>}
 >
       <button className="lnk back" onClick={() => window.history.length > 1 ? window.history.back() : onNavigate(`/app/c/${item.lane}`)}><ArrowLeft size={14} /> Back</button>
       <div className={`vv${vertical ? ' v' : ''}`}>
@@ -101,7 +101,7 @@ export const VideoView: React.FC<{ id: string; onNavigate: (r: string) => void }
             {item.kind === 'short' && <p className="fine">Approve, skip and posted move the card here and on the Notion board. Nothing is posted to YouTube by the app: you post approved Shorts yourself.</p>}
           </div>
 
-          {s.note && <div className="note"><Info size={15} /><div><b>Before you post</b><p>{s.note}</p></div></div>}
+          {s.note && <div className="note"><Info size={15} /><div><b>{item.kind === 'lab' ? 'About this version (made in the lab, before the GitHub workflow existed)' : 'Before you post'}</b><p>{s.note}</p></div></div>}
 
           {item.kind === 'short' && (
             <>

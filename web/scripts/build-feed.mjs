@@ -54,6 +54,15 @@ try {
   }
 } catch (e) { console.log("clips: " + e.message); }
 
+// Lab videos: made in Claude's workspace before the workflows existed, kept in releases lab-archive-<lane> with a list
+const lab = {};
+try {
+  for (const r of (await s.releases()).filter(r => /^lab-archive-/.test(r.tag))) {
+    const a = r.assets.find(x => /^lab-[a-z]+\.json$/.test(x.name));
+    if (a) try { const x = await realFetch(a.url); if (x.ok) lab[r.tag] = await x.json(); } catch { /* skip */ }
+  }
+} catch (e) { console.log("lab: " + e.message); }
+
 // The Notion Studio Board (read with the NOTION_TOKEN secret; the token never goes into the file)
 const NOTION = process.env.NOTION_TOKEN || "";
 const BOARD_DB = process.env.STUDIO_BOARD_DB || "654c7f0514f0448f8c8e79752c604dbc";
@@ -112,7 +121,7 @@ const prune = v => Array.isArray(v) ? v.map(prune) : v && typeof v === "object"
   ? Object.fromEntries(Object.entries(v).filter(([k]) => !DROP.has(k) && !(k.endsWith("_url") && !KEEP_URL.has(k)) && k !== "url").map(([k, x]) => [k, prune(x)]))
   : v;
 for (const k of Object.keys(responses)) responses[k] = prune(responses[k]);
-const feed = { built: new Date().toISOString(), note: "Built by the Site feed workflow. Public data only.", responses, memory, clips, hot, board, mirror };
+const feed = { built: new Date().toISOString(), note: "Built by the Site feed workflow. Public data only.", responses, memory, clips, hot, board, mirror, lab };
 writeFileSync(out, JSON.stringify(feed));
 writeFileSync("mirror.json", JSON.stringify(mirror));
 console.log(`clips releases ${Object.keys(clips).length}, hot ${hot ? "yes" : "no"}, board ${board ? board.length + " cards" : "not read"}, mirror ${mirror.length} (${mirror.filter(m => m.changed).length} changed)`);
