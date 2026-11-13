@@ -77,6 +77,28 @@ LAST = """- This is CHAPTER {c}: "{ctitle}" and the END. Line 0 is the re-hook q
   {{"series": "Build Basics", "title": "{title}"}}."""
 
 
+ANCHORS = ("word", "glow_word", "unknown_word", "meter_word", "notify_word", "highlight_word")
+
+
+def soften(script, plan):
+    """A timing word that is not in its line is dropped (the engine then spaces the moment evenly) instead of costing
+    a whole repair round (13 Nov: most repair rounds were spent on 'word X is not in line N')."""
+    lines = PL.lines_of(script)
+    for sc in plan.get("scenes") or []:
+        p, i = sc.get("p"), sc.get("line")
+        if not isinstance(p, dict) or not isinstance(i, int) or not 0 <= i < len(lines):
+            continue
+        for k in ANCHORS:
+            if isinstance(p.get(k), str) and not PL._has_word(lines[i], p[k]):
+                p.pop(k)
+        for v in p.values():
+            if isinstance(v, list):
+                for x in v:
+                    if isinstance(x, dict) and x.get("word") and not PL._has_word(lines[i], x["word"]):
+                        x.pop("word")
+    return plan
+
+
 def _part_problems(d, k, n, chapter_no, words_target):
     if not isinstance(d, dict) or not d.get("beats") or not isinstance(d.get("plan"), dict):
         return ["return beats and plan"]
@@ -84,7 +106,10 @@ def _part_problems(d, k, n, chapter_no, words_target):
     lines = PL.lines_of(s)
     if not lines:
         return ["no lines"]
-    probs = [p for p in PL.validate(s, d["plan"]) if not (p == "the last scene must be end_card" and k < n - 1)]
+    soften(s, d["plan"])
+    # scene-level problems are healed after assembly (heal()), so only the structure costs a repair round here
+    probs = [p for p in PL.validate(s, d["plan"]) if not (p == "the last scene must be end_card" and k < n - 1)
+             and not re.match(r"scene \d+ ", p)]
     sc = d["plan"].get("scenes") or []
     w = sum(len(l.split()) for l in lines)
     if not 0.6 * words_target <= w <= 1.5 * words_target:
@@ -187,7 +212,7 @@ def write_long(topic, sources_fn, ask_fn, models, log=print, minutes=6):
     plan = {"format": "long", "scenes": scenes}
     if scenes and scenes[-1]["type"] != "end_card":
         scenes[-1] = {"line": scenes[-1]["line"], "type": "end_card", "p": {"series": "Build Basics", "title": outline["title"][:60]}}
-    plan = heal(script, plan, log)
+    plan = heal(script, soften(script, plan), log)
     left = [x for x in left if not re.match(r"part \d+: scene \d+ ", x)]    # scene problems were healed above
     w = sum(len(l.split()) for l in PL.lines_of(script))
     log(f"[long] {len(PL.lines_of(script))} lines, {w} words, {len(chapters)} chapters")
