@@ -11,7 +11,7 @@ permissions:
   actions: read
 
 env:
-  REUSE_RUN: "43327666336"   # an earlier run whose transcript (words.json) can be reused; "" = transcribe again
+  REUSE_RUN: "43331217075"   # an earlier run whose transcript and AI eyes (words.json, eyes.json) are reused; "" = redo
 
 jobs:
   recon:
@@ -86,6 +86,17 @@ jobs:
           path: prev
           run-id: ${{ env.REUSE_RUN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Chat replay (TwitchDownloaderCLI, open source; Franklin approved 13 Nov)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p tdl && gh release download -R lay295/TwitchDownloader -p "TwitchDownloaderCLI-*-Linux-x64.zip" -D tdl
+          ls tdl; (cd tdl && unzip -q -o ./*.zip && chmod +x TwitchDownloaderCLI)
+          vid=$(python -c "import json; print(json.load(open('key/twitch.json'))['vod']['url'].rstrip('/').split('/')[-1])")
+          s0=$(date +%s); ./tdl/TwitchDownloaderCLI chatdownload --id "$vid" -o key/chat.json --collision Overwrite > tdl/log.txt 2>&1 || tail -5 tdl/log.txt
+          echo "chat $(( $(date +%s)-s0 )) s"
+          python -c "import json; c=json.load(open('key/chat.json'))['comments']; print('chat messages', len(c), 'last at', c[-1]['content_offset_seconds'] if c else None)"
       - name: Media (audio only + 160p, whole stream) and transcript
         run: |
           sudo apt-get install -y -qq ffmpeg > /dev/null 2>&1
@@ -94,7 +105,8 @@ jobs:
           s0=$(date +%s); yt-dlp -q -f "Audio_Only" -o key/audio.m4a "$v"; echo "audio $(( $(date +%s)-s0 )) s"; ls -la key/audio.m4a
           s0=$(date +%s); yt-dlp -q -f "160p/worst" -o key/low.mp4 "$v"; echo "160p $(( $(date +%s)-s0 )) s"; ls -la key/low.mp4
           # chat: chat-downloader 0.2.8 is broken for Twitch VODs (KeyError 'data', 13 Nov 2026); a working tool is a separate task
-          if [ -s prev/words.json ]; then cp prev/words.json key/words.json; echo "transcript reused from run $REUSE_RUN"; exit 0; fi
+          ls -R prev 2>/dev/null | head; w=$(find prev -name words.json 2>/dev/null | head -1)
+          if [ -n "$w" ] && [ -s "$w" ]; then cp "$w" key/words.json; echo "transcript reused from run $REUSE_RUN"; exit 0; fi
           echo "== transcript"; s0=$(date +%s)
           python - <<'PY'
           import json, subprocess, numpy as np
@@ -122,6 +134,8 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
+          e=$(find prev -name eyes.json 2>/dev/null | head -1)
+          if [ -n "$e" ] && [ -s "$e" ]; then cp "$e" key/eyes.json; echo "eyes reused from run $REUSE_RUN"; python repo/lab/clips/ai_pass.py show --eyes key/eyes.json; exit 0; fi
           s0=$(date +%s); python repo/lab/clips/ai_pass.py eyes --video key/low.mp4 --out key/eyes.json --step 4 --batch 60 --pause 7
           echo "eyes $(( $(date +%s)-s0 )) s"
           python repo/lab/clips/ai_pass.py show --eyes key/eyes.json
@@ -130,7 +144,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           cd repo
-          A="--key ../key/twitch.json --audio ../key/audio.m4a --video ../key/low.mp4 --words ../key/words.json --eyes ../key/eyes.json --top 20"
+          A="--key ../key/twitch.json --audio ../key/audio.m4a --video ../key/low.mp4 --words ../key/words.json --chat ../key/chat.json --eyes ../key/eyes.json --top 20"
           python lab/clips/recall.py $A --cands-out ../key/cands.json --out ../key/recall_signals.json
           python lab/clips/ai_pass.py judge --cands ../key/cands.json --words ../key/words.json --eyes ../key/eyes.json --out ../key/judged.json --pause 7 || true
           echo "================ WITH THE AI JUDGE ================"
