@@ -42,7 +42,16 @@ def key():
     return k
 
 
+FALLBACK = []      # other models to switch to when one hits its free daily quota (filled by pick_model)
+DEAD = set()
+STATS = {"calls": 0, "429": 0}
+
+
 def call(model, parts, want_json=True, tries=6):
+    if model in DEAD:
+        model = next((m for m in FALLBACK if m not in DEAD), None)
+        if model is None:
+            return None
     body = {"contents": [{"role": "user", "parts": parts}],
             "generationConfig": {"temperature": 0.2, **({"responseMimeType": "application/json"} if want_json else {}),
                                  "mediaResolution": "MEDIA_RESOLUTION_LOW"}}
@@ -50,11 +59,25 @@ def call(model, parts, want_json=True, tries=6):
                                  headers={"Content-Type": "application/json", "x-goog-api-key": key()})
     for i in range(tries):
         try:
+            STATS["calls"] += 1
             d = json.load(urllib.request.urlopen(req, timeout=180))
             txt = "".join(p.get("text", "") for p in d["candidates"][0]["content"]["parts"])
             return json.loads(txt) if want_json else txt
         except urllib.error.HTTPError as e:
-            msg = e.read().decode()[:200]
+            full = e.read().decode()
+            msg = full[:200]
+            if e.code == 429:
+                STATS["429"] += 1
+                if STATS["429"] <= 3 or "PerDay" in full or "per day" in full.lower():
+                    print(f"[gemini] 429 on {model}: {' '.join(full.split())[:300]}", flush=True)
+                if "PerDay" in full or "per day" in full.lower():      # daily quota gone: switch model, don't wait
+                    DEAD.add(model)
+                    nxt = next((m for m in FALLBACK if m not in DEAD), None)
+                    if not nxt:
+                        print("[gemini] every model is out of daily quota", flush=True)
+                        return None
+                    print(f"[gemini] switching to {nxt}", flush=True)
+                    return call(nxt, parts, want_json, tries)
             if e.code in (429, 500, 503):
                 time.sleep(min(90, 10 * (i + 1)))
                 continue
@@ -74,7 +97,9 @@ def pick_model():
     good = [n for n in names if "flash" in n and not any(b in n for b in ("lite", "image", "tts", "live", "audio", "exp", "preview", "thinking"))]
     good = good or [n for n in names if "flash" in n] or names
     good.sort(key=lambda n: [int(x) if x.isdigit() else 0 for x in n.replace("-", ".").split(".")], reverse=True)
-    print("models available:", ", ".join(names[:20]), "| using", good[0])
+    lite = sorted([n for n in names if "flash-lite" in n and not any(b in n for b in ("image", "tts", "live", "audio"))], reverse=True)
+    FALLBACK[:] = [n for n in good[1:3] + lite[:2] if n != good[0]]
+    print("models available:", ", ".join(names[:20]), "| using", good[0], "| fallbacks", FALLBACK)
     return good[0]
 
 
@@ -168,7 +193,7 @@ def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     e = sub.add_parser("eyes"); e.add_argument("--video", required=True); e.add_argument("--out", required=True)
-    e.add_argument("--step", type=int, default=4); e.add_argument("--batch", type=int, default=60)
+    e.add_argument("--step", type=int, default=6); e.add_argument("--batch", type=int, default=100)
     j = sub.add_parser("judge"); j.add_argument("--cands", required=True); j.add_argument("--words"); j.add_argument("--eyes")
     j.add_argument("--out", required=True)
     j.add_argument("--video", help="low-res stream video: the judge watches each moment"); j.add_argument("--audio", help="stream audio")
