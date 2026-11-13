@@ -57,13 +57,25 @@ CHECKS = {  # clipit (MIT) ai.py CHECKS, adapted
     "share": "A 19 year old would comment on it or send it to a friend.",
     "minors": "Nobody who is or might be under 18 is shown in a sexual or body-focused way. Any doubt fails.",
     "honest": "The on-screen hook and the title match what actually happens in the video.",
-    "layout": "The people and the action are visible and big enough on a phone; nothing important is cut off; captions are readable.",
+    "layout": "The people and the action are visible and big enough on a phone; nothing important is cut off; the title box is readable.",
 }
 SCORES = ["moment", "hook", "title", "framing", "captions", "audio", "pacing", "ending", "originality", "overall"]
 
 REVIEW = """You watch YouTube Shorts all day and you review clips for a top streamer-clip channel. Someone else made this
 Short. Watch the whole video (with sound) and judge it against the best clips on @Kick_Clippers and Clipatra, harshly:
 a raw, chaotic clip with something real beats a tidy calm one.
+
+THE FORMAT (measured on @Kick_Clippers' 32M, 28M and 9.7M Shorts, 13 Nov 2026): one continuous piece, no jump cuts, a
+big zoomed band of the stream over a blurred copy, and the TITLE in a white box above it for the whole clip. The winners
+have NO word-by-word captions and no subtitles. So never ask for captions, subtitles, sound effects or faster cuts, and
+never score down for their absence: judge the moment itself, the first second, the title box, the framing (are the
+people big and clear), the sound and the ending. ("captions" below = the title box: readable, honest, intriguing.)
+
+The channel owner approved these Shorts made in this format (anchors for your scale, reviewer scores in brackets):
+"The moment Kai Cenat got HUMBLED by a sumo wrestler" [9]; "The moment Kai Cenat got HUMBLED in Japan" [8];
+"The moment Kai Cenat was SHOCKED by a fan in Japan" [8]; "No way Kai Cenat got his cameraman to quit on the spot" [7];
+"The moment Kai Cenat was SHOCKED meeting NIGO and getting rare BAPE" [7]; "The moment Kai Cenat was SHOCKED running
+into a Nigerian in Japan" [7]. A clip as strong as these deserves 7+; one clearly weaker, less.
 
 Title: {title}
 On-screen hook: {hook}
@@ -156,7 +168,8 @@ def one(m, a, model, b, out):
         clip["captions"], clip["zooms"], clip["framing"] = [], [], []
         title_box = re.sub(r"\s*#\S+", "", clip["title"]).strip()
         clip["hook"] = {"text": title_box, "until": dur_c + 1}
-        clip["style"] = {**clip["style"], "hook_px": 50, "hook_y_by_layout": {"band": 0.115}, "band_y": 0.47, "band_zoom": 1.6}
+        clip["style"] = {**clip["style"], "hook_px": 50, "hook_y_by_layout": {"band": 0.115}, "band_y": 0.47, "band_zoom": 1.6,
+                         "hook_zone_top": b["ui_safe"].get("hook_top_reference", b["ui_safe"]["top"])}
     (d / "clip.json").write_text(json.dumps(clip, indent=1, ensure_ascii=False))
     video = render(clip, d / "short.mp4", log=lambda *x: None)
     rep = gates.check(clip, video, S["words"], b)
@@ -186,7 +199,7 @@ def one(m, a, model, b, out):
     post = {
         "id": m["id"], "title": clip["title"], "hook": clip["hook"]["text"],
         "description": f"{clip['title']}\n\nFrom {a.streamer}'s stream \"{a.stream_title}\".\n" + " ".join(f"#{h}" for h in tags + ["shorts"]),
-        "hashtags": tags, "duration_s": round(clip["duration"], 1), "layout": lay["kind"],
+        "hashtags": tags, "duration_s": round(clip["duration"], 1), "layout": clip["layout"]["kind"],
         "gates_failed": failed, "checks": rv.get("checks", []), "checks_passed": f"{len(passed)}/{len(CHECKS)}",
         "scores": sc, "reviewed": reviewed, "fix": rv.get("fix", ""), "predicted_views": band(sc["overall"]) if reviewed else "",
         "before_you_post": (f"Rights NOT verified: this is {a.streamer}'s stream ({a.page}). Check whether {a.streamer} runs a "

@@ -1,0 +1,78 @@
+name: Clips, review Shorts again
+
+# Runs the AI reviewer again on Shorts that are already made: by default only those it never reviewed (a spent free
+# quota), in every shorts-* release, or in one release. Updates posts.json in the release and the Studio Board cards
+# (Review if the score is 6 or more, else Skipped; a card Franklin already moved to Approved/Posted is left alone).
+run-name: "${{ inputs.request_id && format('{0} [{1}]', github.workflow, inputs.request_id) || github.event.head_commit.message || github.workflow }}"
+on:
+  push:
+    branches: ["clips-rereview/**"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "One release (shorts-...), or empty for all"
+        required: false
+        default: ""
+      all:
+        description: "Review every Short again, not only the unreviewed ones"
+        type: boolean
+        default: false
+      request_id:
+        description: "Set by the Studio app to follow this run (leave empty)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  rereview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GH_TOKEN: ${{ github.token }}
+      R: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: lab/clips/requirements-shorts.txt
+      - name: Tools
+        run: |
+          sudo apt-get install -y -qq --no-install-recommends ffmpeg > /dev/null
+          pip install -q -r lab/clips/requirements-shorts.txt
+      - name: Review again
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          TAG: ${{ inputs.tag }}
+          ALL: ${{ inputs.all }}
+        run: |
+          tags="$TAG"; [ -z "$tags" ] && tags=$(gh api "repos/$R/releases?per_page=100" --jq '.[] | select(.tag_name|startswith("shorts-")) | .tag_name')
+          for t in $tags; do
+            echo "== $t"; d="rel/$t"; mkdir -p "$d"
+            gh release download "$t" -R "$R" -p posts.json -D "$d" || continue
+            need=$(python3 -c "import json,sys; sys.path.insert(0,'lab/clips'); from rereview import unreviewed; ps=json.load(open('$d/posts.json')); print(' '.join(p['id'] for p in ps if '$ALL'=='true' or unreviewed(p)))")
+            [ -z "$need" ] && { echo "nothing to review"; continue; }
+            for id in $need; do gh release download "$t" -R "$R" -p "$id.mp4" -D "$d" --clobber || true; done
+            python lab/clips/rereview.py --dir "$d" $([ "$ALL" = true ] && echo --all)
+            gh release upload "$t" -R "$R" --clobber "$d/posts.json"
+            python3 - "$d/posts.json" <<'PY'
+          import json, os, subprocess, sys
+          for p in json.load(open(sys.argv[1])):
+              if not p.get("rereviewed"):
+                  continue
+              s = p["scores"]
+              why = (f"Reviewer (again): overall {s['overall']:g}/10, checks {p['checks_passed']}. Scores: " + ", ".join(f"{k} {v:g}" for k, v in s.items())
+                     + f". Fix next: {p['fix']}")
+              args = ["python", "-m", "studio.clips.board", "move", "--video-id", p["id"], "--why", why[:1900], "--score", str(s["overall"]),
+                      "--views-band", p["predicted_views"], "--note", p["before_you_post"][:1900]]
+              cur = subprocess.run(["python", "-c", f"import studio.clips.board as b; c=b.find('{p['id']}'); print((c or {{}}).get('properties',{{}}).get('Stage',{{}}).get('status',{{}}).get('name',''))"],
+                                   capture_output=True, text=True).stdout.strip()
+              if cur in ("Review", "Skipped", "Picked", "Making", ""):
+                  args += ["--stage", "Review" if s["overall"] >= 6 else "Skipped"]
+              subprocess.run(args, check=False)
+          PY
+          done
