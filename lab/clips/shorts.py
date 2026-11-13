@@ -165,6 +165,9 @@ def one(m, a, model, b, out):
         failed = [k for k in failed if k not in ("captions_visible", "captions_in_sync", "pace_at_least_bar")]
     log(f"rendered {clip['duration']:.1f} s, layout {lay['kind']}; gates: {'all passed' if not failed else 'REVIEW ' + ', '.join(failed)}")
     # 5. the reviewer watches the finished Short
+    # a poster for the Studio app (the frame just after the payoff, 540x960 JPEG)
+    sh("ffmpeg", "-v", "error", "-y", "-ss", f"{max(0.0, peak - start + 0.6):.2f}", "-i", str(video), "-frames:v", "1",
+       "-vf", "scale=540:-2", "-q:v", "4", str(d / "poster.jpg"))
     small = lowres(video, d / "short_low.mp4", scale="360:640", fps=2)
     spoken = clip.get("transcript", "")[:1500]
     rv = AI.call(model, [{"text": REVIEW.format(title=clip["title"], hook=clip["hook"]["text"], spoken=spoken,

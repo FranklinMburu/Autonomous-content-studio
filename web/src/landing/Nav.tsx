@@ -101,7 +101,7 @@ export const Nav: React.FC<NavProps> = ({ onSelectFamily }) => {
                       if (onSelectFamily) {
                         onSelectFamily(item.key);
                       } else {
-                        navigate('/app/' + (item.key === 'studio' ? 'films' : item.key));
+                        navigate(item.key === 'studio' ? '/app' : item.key === 'channels' ? '/app/board' : '/app/' + item.key);
                       }
                     }}
                     style={{

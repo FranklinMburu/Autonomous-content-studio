@@ -203,6 +203,7 @@ jobs:
           name: short-${{ matrix.n }}
           path: |
             shorts/*/short.mp4
+            shorts/*/poster.jpg
             shorts/*/post.json
             shorts/*/clip.json
           if-no-files-found: ignore
@@ -241,7 +242,7 @@ jobs:
           [ -s shorts/posts.json ] && [ "$(jq length shorts/posts.json)" -gt 0 ] || { echo "no Short was made"; exit 1; }
           tag="shorts-$(jq -r .lane f/shorts_job.json | tr A-Z a-z)-$(jq -r .tag f/shorts_job.json)-$(date +%Y%m%d-%H%M)"
           echo "TAG=$tag" >> $GITHUB_ENV
-          files=$(ls shorts/*/short.mp4 | while read f; do d=$(dirname $f); cp $f "$d/$(basename $d).mp4"; echo "$d/$(basename $d).mp4"; done)
+          files=$(ls shorts/*/short.mp4 | while read f; do d=$(dirname $f); cp $f "$d/$(basename $d).mp4"; echo "$d/$(basename $d).mp4"; [ -f "$d/poster.jpg" ] && cp "$d/poster.jpg" "$d/$(basename $d).jpg" && echo "$d/$(basename $d).jpg"; done)
           gh release create "$tag" --prerelease --title "Shorts for review: $tag" --notes "Made by the clipping engine from $(jq -r .page f/shorts_job.json) for Franklin's review. Not published anywhere. Titles, descriptions, scores and before-you-post notes are in posts.json." $files shorts/posts.json f/moments.json
       - name: Cards on the Studio Board (Review)
         continue-on-error: true

@@ -298,16 +298,20 @@ export function createStudio(opts = {}) {
     const f = await loadFeed();
     const posts = (f && f.clips) || {};
     const cards = new Map(((f && f.board) || []).map(c => [c.videoId, c]));
-    const out = [];
-    for (const r of (await releases()).filter(r => r.kind === "shorts")) {
+    const out = [], seen = new Set();
+    for (const r of (await releases()).filter(r => r.kind === "shorts")) {   // newest release first
       const list = posts[r.tag] || [];
       const byId = new Map(list.map(p => [p.id, p]));
       for (const a of r.assets.filter(a => /\.mp4$/i.test(a.name))) {
-        const id = a.name.replace(/\.mp4$/i, "");
-        const p = byId.get(id) || {};
-        const card = cards.get(id) || null;
+        const videoId = a.name.replace(/\.mp4$/i, "");
+        const p = byId.get(videoId) || {};
+        // 13 Nov: two runs reused the same ids; the board card belongs to the newest, older ones get their own id here
+        const dup = seen.has(videoId); seen.add(videoId);
+        const id = dup ? `${videoId}~${r.tag}` : videoId;
+        const card = dup ? null : cards.get(videoId) || null;
         out.push({
-          id, lane: r.lane, tag: r.tag, at: r.at, release: r.url, video: { url: a.url, bytes: a.bytes },
+          id, videoId, dup, lane: r.lane, tag: r.tag, at: r.at, release: r.url, video: { url: a.url, bytes: a.bytes },
+          poster: (r.assets.find(x => x.name === `${videoId}.jpg`) || {}).url || null,
           title: p.title || card?.title || id, hook: p.hook || "", description: p.description || "",
           hashtags: p.hashtags || [], seconds: p.duration_s || null, streamer: p.streamer || card?.who || "",
           scores: p.scores || null, overall: p.scores ? p.scores.overall : card?.score ?? null,

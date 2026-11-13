@@ -24,8 +24,8 @@ export const Page: React.FC<{ title: React.ReactNode; sub?: React.ReactNode; act
 
 export const Section: React.FC<{ title: React.ReactNode; hint?: React.ReactNode; right?: React.ReactNode; children: React.ReactNode }> =
   ({ title, hint, right, children }) => (
-    <section className="sec">
-      <div className="sec-h"><div><h2 className="sec-t">{title}</h2>{hint && <div className="sec-hint">{hint}</div>}</div>{right}</div>
+    <section className="ps">
+      <div className="ps-h"><div><h2 className="ps-t">{title}</h2>{hint && <div className="ps-hint">{hint}</div>}</div>{right}</div>
       {children}
     </section>
   );
@@ -40,7 +40,7 @@ export const Empty: React.FC<{ icon?: React.ReactNode; title: string; text?: Rea
 );
 
 export const Tabs: React.FC<{ tabs: { key: string; label: string; count?: number }[]; value: string; onChange: (k: string) => void }> = ({ tabs, value, onChange }) => (
-  <div className="tabs" role="tablist">
+  <div className="tabset" role="tablist">
     {tabs.map(t => (
       <button key={t.key} role="tab" aria-selected={value === t.key} className={value === t.key ? 'on' : ''} onClick={() => onChange(t.key)}>
         {t.label}{t.count != null && <span className="n">{t.count}</span>}
@@ -76,11 +76,11 @@ export const Score: React.FC<{ v?: number | null; size?: 'sm' | 'lg' }> = ({ v, 
 export const Player: React.FC<{ src?: string | null; vertical?: boolean; poster?: string | null; title?: string }> = ({ src, vertical, poster, title }) => {
   const [failed, setFailed] = useState(false);
   const [on, setOn] = useState(false);
-  if (!src) return <div className={`player none${vertical ? ' v' : ''}`}><span>No video file yet</span></div>;
+  if (!src) return <div className={`vplayer none${vertical ? ' v' : ''}`}><span>No video file yet</span></div>;
   return (
-    <div className={`player${vertical ? ' v' : ''}`}>
+    <div className={`vplayer${vertical ? ' v' : ''}`}>
       {failed ? (
-        <div className="player-fail">
+        <div className="vplayer-fail">
           <WarningCircle size={22} />
           <p>This browser won't play the file here.</p>
           <a className="btn sec" href={src} target="_blank" rel="noopener noreferrer"><DownloadSimple size={16} /> Open or download</a>
@@ -88,7 +88,7 @@ export const Player: React.FC<{ src?: string | null; vertical?: boolean; poster?
       ) : on ? (
         <video src={src} controls autoPlay playsInline preload="metadata" poster={poster || undefined} aria-label={title} onError={() => setFailed(true)} />
       ) : (
-        <button className="player-start" onClick={() => setOn(true)} aria-label={`Play ${title || 'video'}`}
+        <button className="vplayer-start" onClick={() => setOn(true)} aria-label={`Play ${title || 'video'}`}
                 style={poster ? { backgroundImage: `url(${poster})` } : undefined}>
           <span className="pl"><Play size={22} weight="fill" /></span>
         </button>
@@ -190,7 +190,7 @@ export const ConnectPanel: React.FC<{ compact?: boolean }> = ({ compact }) => {
   return (
     <div className="connect">
       {!compact && <p className="muted" style={{ marginBottom: 12 }}>Watching needs nothing. To <b>act</b> from here (start a video, approve, move a card), connect GitHub once on this device. It takes about 2 minutes.</p>}
-      <ol className="steps">
+      <ol className="csteps">
         <li>Open <ExtLink href="https://github.com/settings/personal-access-tokens/new">GitHub → new fine-grained token</ExtLink> (sign in if asked).</li>
         <li>Name it <b>Studio app</b>. Expiration: <b>90 days</b>.</li>
         <li>Repository access: <b>Only select repositories</b> → <b>Autonomous-content-studio</b>.</li>
@@ -215,9 +215,9 @@ export const ConnectSheet: React.FC = () => {
   const { needToken, setNeedToken, hasToken, connection } = useActions();
   if (!needToken || (hasToken && connection?.canAct)) return null;
   return (
-    <div className="sheet-bg" onClick={() => setNeedToken(false)}>
-      <div className="sheet" role="dialog" aria-modal="true" aria-label="Connect GitHub" onClick={e => e.stopPropagation()}>
-        <div className="sheet-h"><b>Connect GitHub to do this from here</b><button aria-label="Close" onClick={() => setNeedToken(false)}><X size={16} /></button></div>
+    <div className="msheet-bg" onClick={() => setNeedToken(false)}>
+      <div className="msheet" role="dialog" aria-modal="true" aria-label="Connect GitHub" onClick={e => e.stopPropagation()}>
+        <div className="msheet-h"><b>Connect GitHub to do this from here</b><button aria-label="Close" onClick={() => setNeedToken(false)}><X size={16} /></button></div>
         <ConnectPanel compact />
         <p className="fine">Prefer not to? Every action can also be done on <ExtLink href={githubUrl('/actions')}>GitHub</ExtLink>.</p>
       </div>

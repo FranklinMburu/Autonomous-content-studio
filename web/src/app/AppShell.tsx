@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import {
-  FilmStrip,
-  Path,
-  Eye,
-  Broadcast,
+  House,
+  Kanban,
+  Plus,
+  Books,
   DotsThreeOutline,
   WarningCircle,
+  X,
 } from '@phosphor-icons/react';
 import { Sidebar } from './Sidebar';
 import { Topbar } from './Topbar';
@@ -16,19 +17,24 @@ import { RunsView } from './views/RunsView';
 import { ReviewView } from './views/ReviewView';
 import { PolishView } from './views/PolishView';
 import { UploadView } from './views/UploadView';
-import { ChannelsView } from './views/ChannelsView';
-import { ChannelDetailView } from './views/ChannelDetailView';
 import { TopicsView } from './views/TopicsView';
 import { ScheduleView } from './views/ScheduleView';
 import { MemoryView } from './views/MemoryView';
 import { BrainView } from './views/BrainView';
 import { LabView } from './views/LabView';
 import { GuardView } from './views/GuardView';
-import { SoonView } from './views/SoonView';
 import { SettingsView } from './views/SettingsView';
 import { NotFoundView } from './views/NotFoundView';
 import { useStudio } from '../context/StudioContext';
-import { Mark } from '../ui/Mark';
+import { HomeView } from './views/HomeView';
+import { BoardView } from './views/BoardView';
+import { LibraryView } from './views/LibraryView';
+import { MakeView } from './views/MakeView';
+import { GuideView } from './views/GuideView';
+import { ChannelView } from './views/ChannelView';
+import { VideoView } from './views/VideoView';
+import { ActivityTray, ConnectSheet } from './kit';
+import { CHANNELS, channelOf } from '../lib/channels';
 
 export interface AppShellProps {
   embedded?: boolean;
@@ -44,7 +50,7 @@ export const AppShell: React.FC<AppShellProps> = ({
   onFirstInteraction,
 }) => {
   const { currentPath, navigate, error, refresh } = useStudio();
-  const [internalRoute, setInternalRoute] = useState<string>(embeddedRoute || '/app/films');
+  const [internalRoute, setInternalRoute] = useState<string>(embeddedRoute || '/app');
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [moreSheetOpen, setMoreSheetOpen] = useState(false);
 
@@ -55,9 +61,11 @@ export const AppShell: React.FC<AppShellProps> = ({
     }
   }, [embedded, embeddedRoute]);
 
-  const activeRoute = embedded ? internalRoute : (currentPath.startsWith('/app') ? currentPath : '/app/films');
+  const fullRoute = embedded ? internalRoute : (currentPath.startsWith('/app') ? currentPath : '/app');
+  const activeRoute = fullRoute.split('?')[0].replace(/\/$/, '') || '/app';
 
   const handleNavigate = (route: string) => {
+    setMoreSheetOpen(false);
     if (onFirstInteraction) onFirstInteraction();
     if (embedded) {
       setInternalRoute(route);
@@ -81,6 +89,15 @@ export const AppShell: React.FC<AppShellProps> = ({
 
   // Determine which page view to render
   const renderView = () => {
+    // a video of any channel (Shorts, motion videos)
+    if (activeRoute.startsWith('/app/v/')) {
+      return <VideoView key={activeRoute} id={decodeURIComponent(activeRoute.replace('/app/v/', ''))} onNavigate={handleNavigate} />;
+    }
+    // a channel
+    if (activeRoute.startsWith('/app/c/')) {
+      const code = activeRoute.replace('/app/c/', '').toUpperCase();
+      return <ChannelView key={code + fullRoute} code={code} onNavigate={handleNavigate} />;
+    }
     // Films detail
     if (activeRoute.startsWith('/app/films/')) {
       const filmId = activeRoute.replace('/app/films/', '');
@@ -88,15 +105,8 @@ export const AppShell: React.FC<AppShellProps> = ({
     }
     // Channel detail
     if (activeRoute.startsWith('/app/channels/')) {
-      const chCode = activeRoute.replace('/app/channels/', '');
-      return (
-        <ChannelDetailView
-          channelCode={chCode}
-          onBack={() => handleNavigate('/app/channels')}
-          onSelectFilm={id => handleNavigate(`/app/films/${id}`)}
-          onNavigate={handleNavigate}
-        />
-      );
+      const code = activeRoute.replace('/app/channels/', '').toUpperCase();
+      return <ChannelView key={code} code={channelOf(code) ? code : 'HR'} onNavigate={handleNavigate} />;
     }
     // Runs detail
     if (activeRoute.startsWith('/app/runs/')) {
@@ -123,6 +133,15 @@ export const AppShell: React.FC<AppShellProps> = ({
 
     switch (activeRoute) {
       case '/app':
+        return <HomeView onNavigate={handleNavigate} />;
+      case '/app/board':
+        return <BoardView key={fullRoute} onNavigate={handleNavigate} />;
+      case '/app/library':
+        return <LibraryView key={fullRoute} onNavigate={handleNavigate} />;
+      case '/app/make':
+        return <MakeView key={fullRoute} onNavigate={handleNavigate} />;
+      case '/app/guide':
+        return <GuideView onNavigate={handleNavigate} />;
       case '/app/films':
         return (
           <FilmsView
@@ -139,7 +158,7 @@ export const AppShell: React.FC<AppShellProps> = ({
       case '/app/upload':
         return <UploadView />;
       case '/app/channels':
-        return <ChannelsView onSelectChannel={code => handleNavigate(`/app/channels/${code}`)} />;
+        return <HomeView onNavigate={handleNavigate} />;
       case '/app/topics':
         return <TopicsView />;
       case '/app/schedule':
@@ -152,18 +171,6 @@ export const AppShell: React.FC<AppShellProps> = ({
         return <LabView />;
       case '/app/guard':
         return <GuardView />;
-      case '/app/analytics':
-        return <SoonView page="analytics" onBackToFilms={() => handleNavigate('/app/films')} />;
-      case '/app/trends':
-        return <SoonView page="trends" onBackToFilms={() => handleNavigate('/app/films')} />;
-      case '/app/publish':
-        return <SoonView page="publish" onBackToFilms={() => handleNavigate('/app/films')} />;
-      case '/app/thumbnails':
-        return <SoonView page="thumbnails" onBackToFilms={() => handleNavigate('/app/films')} />;
-      case '/app/voices':
-        return <SoonView page="voices" onBackToFilms={() => handleNavigate('/app/films')} />;
-      case '/app/languages':
-        return <SoonView page="languages" onBackToFilms={() => handleNavigate('/app/films')} />;
       case '/app/settings':
         return <SettingsView />;
       default:
@@ -172,15 +179,23 @@ export const AppShell: React.FC<AppShellProps> = ({
   };
 
   // Compute page display name for topbar breadcrumb
-  const getPageName = () => {
-    if (activeRoute.startsWith('/app/films/')) return 'Film Detail';
-    if (activeRoute.startsWith('/app/channels/')) return 'Channel Detail';
-    if (activeRoute.startsWith('/app/runs/')) return 'Run Detail';
-    if (activeRoute.startsWith('/app/review/')) return 'Review';
-    const sub = activeRoute.replace('/app/', '');
-    if (!sub || sub === '/app') return 'Films';
-    return sub.charAt(0).toUpperCase() + sub.slice(1);
+  const getPageName = (): [string, string | undefined] => {
+    const r = activeRoute;
+    if (r.startsWith('/app/v/')) return ['Video', undefined];
+    if (r.startsWith('/app/c/')) { const c = channelOf(r.replace('/app/c/', '').toUpperCase()); return [c ? c.name : 'Channel', 'Channels']; }
+    if (r.startsWith('/app/films/')) return ['Film', 'Hidden Reasons'];
+    if (r.startsWith('/app/runs/')) return ['Run', 'Runs'];
+    if (r.startsWith('/app/review/')) return ['Review', 'Hidden Reasons'];
+    const names: Record<string, [string, string | undefined]> = {
+      '/app': ['Home', undefined], '/app/board': ['Board', undefined], '/app/library': ['Library', undefined], '/app/make': ['Make', undefined],
+      '/app/guide': ['How it works', undefined], '/app/runs': ['Runs', 'System'], '/app/brain': ['Brain', 'System'], '/app/lab': ['Lab', 'System'],
+      '/app/guard': ['Guard', 'System'], '/app/settings': ['Settings', undefined], '/app/films': ['Films', 'Hidden Reasons'],
+      '/app/review': ['Review', 'Hidden Reasons'], '/app/polish': ['Polish', 'Hidden Reasons'], '/app/upload': ['Upload', 'Hidden Reasons'],
+      '/app/topics': ['Topics', 'Hidden Reasons'], '/app/schedule': ['Schedule', 'Hidden Reasons'], '/app/memory': ['Memory', 'Hidden Reasons'],
+    };
+    return names[r] || ['Studio', undefined];
   };
+  const [pageName, section] = getPageName();
 
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
 
@@ -244,67 +259,41 @@ export const AppShell: React.FC<AppShellProps> = ({
 
       {/* Main Layout Area */}
       <div className="main" style={{ marginTop: error ? '32px' : 0 }}>
-        <Topbar pageName={getPageName()} />
+        <Topbar pageName={pageName} section={section} onNavigate={handleNavigate} />
         <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', position: 'relative' }}>
           {renderView()}
         </div>
       </div>
 
-      {/* Mobile Bottom Tab Bar (shown when screen is mobile width < 640px) */}
-      <div
-        className="mobile-tab-bar"
-        style={{
-          display: 'none', // Controlled via media query in candela.css / inline style
-          position: embedded ? 'absolute' : 'fixed',   // inside the landing preview it stays in its frame
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: '56px',
-          background: 'rgba(14,14,18,0.92)',
-          backdropFilter: 'blur(16px)',
-          borderTop: '1px solid var(--line)',
-          zIndex: 50,
-          justifyContent: 'space-around',
-          alignItems: 'center',
-          paddingBottom: 'env(safe-area-inset-bottom, 0px)',
-        }}
-      >
-        <button
-          onClick={() => handleNavigate('/app/films')}
-          style={{ background: 'none', border: 'none', color: activeRoute.startsWith('/app/films') ? 'var(--amber2)' : 'var(--tx3)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px', cursor: 'pointer' }}
-        >
-          <FilmStrip size={20} weight="duotone" />
-          <span style={{ fontSize: '10px' }}>Films</span>
-        </button>
-        <button
-          onClick={() => handleNavigate('/app/runs')}
-          style={{ background: 'none', border: 'none', color: activeRoute.startsWith('/app/runs') ? 'var(--amber2)' : 'var(--tx3)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px', cursor: 'pointer' }}
-        >
-          <Path size={20} weight="duotone" />
-          <span style={{ fontSize: '10px' }}>Runs</span>
-        </button>
-        <button
-          onClick={() => handleNavigate('/app/review')}
-          style={{ background: 'none', border: 'none', color: activeRoute.startsWith('/app/review') ? 'var(--amber2)' : 'var(--tx3)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px', cursor: 'pointer' }}
-        >
-          <Eye size={20} weight="duotone" />
-          <span style={{ fontSize: '10px' }}>Review</span>
-        </button>
-        <button
-          onClick={() => handleNavigate('/app/channels')}
-          style={{ background: 'none', border: 'none', color: activeRoute.startsWith('/app/channels') ? 'var(--amber2)' : 'var(--tx3)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px', cursor: 'pointer' }}
-        >
-          <Broadcast size={20} weight="duotone" />
-          <span style={{ fontSize: '10px' }}>Channels</span>
-        </button>
-        <button
-          onClick={() => setMoreSheetOpen(!moreSheetOpen)}
-          style={{ background: 'none', border: 'none', color: 'var(--tx3)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px', cursor: 'pointer' }}
-        >
-          <DotsThreeOutline size={20} weight="duotone" />
-          <span style={{ fontSize: '10px' }}>More</span>
-        </button>
-      </div>
+      {/* Phone tab bar: the 4 places people use most + More (everything else) */}
+      <nav className="mobile-tab-bar" aria-label="Main" style={{ position: embedded ? 'absolute' : 'fixed' }}>
+        <button className={`mtab${activeRoute === '/app' ? ' on' : ''}`} onClick={() => handleNavigate('/app')}><House size={20} weight="duotone" /><span>Home</span></button>
+        <button className={`mtab${activeRoute === '/app/board' ? ' on' : ''}`} onClick={() => handleNavigate('/app/board')}><Kanban size={20} weight="duotone" /><span>Board</span></button>
+        <button className={`mtab${activeRoute === '/app/make' ? ' on' : ''}`} onClick={() => handleNavigate('/app/make')}><Plus size={20} weight="duotone" /><span>Make</span></button>
+        <button className={`mtab${activeRoute === '/app/library' || activeRoute.startsWith('/app/v/') ? ' on' : ''}`} onClick={() => handleNavigate('/app/library')}><Books size={20} weight="duotone" /><span>Library</span></button>
+        <button className={`mtab${moreSheetOpen ? ' on' : ''}`} onClick={() => setMoreSheetOpen(!moreSheetOpen)} aria-expanded={moreSheetOpen}><DotsThreeOutline size={20} weight="duotone" /><span>More</span></button>
+      </nav>
+      {moreSheetOpen && (
+        <div className="msheet-bg" onClick={() => setMoreSheetOpen(false)}>
+          <div className="msheet more" role="dialog" aria-label="Everything" onClick={e => e.stopPropagation()}>
+            <div className="msheet-h"><b>Everything</b><button aria-label="Close" onClick={() => setMoreSheetOpen(false)}><X size={16} /></button></div>
+            <div className="more-g"><span>Channels</span>
+              {CHANNELS.map(c => <button key={c.code} onClick={() => handleNavigate(`/app/c/${c.code}`)}><i style={{ background: c.color }}>{c.code}</i>{c.name}</button>)}
+            </div>
+            <div className="more-g"><span>Hidden Reasons desk</span>
+              {[['Review', '/app/review'], ['Polish', '/app/polish'], ['Upload', '/app/upload'], ['Topics', '/app/topics'], ['Schedule', '/app/schedule'], ['Memory', '/app/memory']].map(([l, r]) =>
+                <button key={r} onClick={() => handleNavigate(r)}>{l}</button>)}
+            </div>
+            <div className="more-g"><span>System</span>
+              {[['Runs', '/app/runs'], ['Brain', '/app/brain'], ['Lab', '/app/lab'], ['Guard', '/app/guard'], ['How it works', '/app/guide'], ['Settings', '/app/settings']].map(([l, r]) =>
+                <button key={r} onClick={() => handleNavigate(r)}>{l}</button>)}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {!embedded && <ActivityTray onOpen={handleNavigate} />}
+      {!embedded && <ConnectSheet />}
 
       {/* Command Palette */}
       <CommandPalette

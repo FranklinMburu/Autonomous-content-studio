@@ -7,10 +7,11 @@ import { HowItWorks } from './HowItWorks';
 import { StudioWorld } from './StudioWorld';
 import { FilmsTrust } from './FilmsTrust';
 import { Footer } from './Footer';
+import { Channels } from './Channels';
 import { startSmoothScroll } from '../lib/smooth-scroll.js';
 
 export const LandingPage: React.FC = () => {
-  const [panelRoute, setPanelRoute] = useState('/app/films');
+  const [panelRoute, setPanelRoute] = useState('/app');
   const [activeFamilyKey, setActiveFamilyKey] = useState('studio');
 
   // Smooth scroll init from kit/smooth-scroll.js
@@ -25,7 +26,7 @@ export const LandingPage: React.FC = () => {
     setActiveFamilyKey(key);
     switch (key) {
       case 'studio':
-        setPanelRoute('/app/films');
+        setPanelRoute('/app');
         break;
       case 'brain':
         setPanelRoute('/app/brain');
@@ -37,7 +38,7 @@ export const LandingPage: React.FC = () => {
         setPanelRoute('/app/guard');
         break;
       case 'channels':
-        setPanelRoute('/app/channels');
+        setPanelRoute('/app/board');
         break;
       default:
         setPanelRoute('/app/films');
@@ -66,6 +67,9 @@ export const LandingPage: React.FC = () => {
         embeddedRoute={panelRoute}
         onEmbeddedRouteChange={setPanelRoute}
       />
+
+      {/* 4.25 One studio, four channels (13 Nov 2026) */}
+      <Channels />
 
       {/* 4.3 Section 3: The family (5 parts) */}
       <Family activeKey={activeFamilyKey} onSelectFamily={handleSelectFamily} />

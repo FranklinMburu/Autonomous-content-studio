@@ -258,10 +258,10 @@ export const Hero: React.FC<HeroProps> = ({ onSelectFilmForPanel }) => {
           <h1>
             History,<br className="mobile-break" /> <span className="serif">in motion.</span>
           </h1>
-          <p>Short films about true stories. Researched, checked and painted for you.</p>
+          <p>A studio of free AI that makes four YouTube channels: true-story films, tech explainers and the best stream moments. You only decide.</p>
           <div className="ctas">
             <button onClick={() => navigate('/app')} className="btn pri" style={{ height: 44, padding: '0 22px', fontSize: 15, borderRadius: 999, cursor: 'pointer' }}>
-              Make a film
+              Open the studio
             </button>
             <a
               href={newestFilm ? `/films/${newestFilm.id}` : '/films'}

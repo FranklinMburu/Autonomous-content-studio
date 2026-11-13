@@ -1,31 +1,10 @@
-import React, { useState } from 'react';
-import {
-  FilmStrip,
-  Path,
-  Eye,
-  MagicWand,
-  UploadSimple,
-  Broadcast,
-  LightbulbFilament,
-  CalendarDots,
-  Archive,
-  Brain,
-  Flask,
-  ShieldCheck,
-  ChartLineUp,
-  TrendUp,
-  PaperPlaneTilt,
-  ImageSquare,
-  MicrophoneStage,
-  Translate,
-  GearSix,
-  CaretUpDown,
-  CaretDown,
-  CaretRight,
-  MagnifyingGlass,
-} from '@phosphor-icons/react';
+import React from 'react';
+import { House, Kanban, Books, Plus, Path, Brain, Flask, ShieldCheck, BookOpenText, GearSix, MagnifyingGlass } from '@phosphor-icons/react';
 import { Mark } from '../ui/Mark';
 import { useStudio } from '../context/StudioContext';
+import { useActions } from '../context/ActionsContext';
+import { useItems } from '../lib/items';
+import { CHANNELS } from '../lib/channels';
 
 interface SidebarProps {
   currentRoute: string;
@@ -33,373 +12,79 @@ interface SidebarProps {
   onOpenCommandPalette: () => void;
 }
 
+// The map of the app (13 Nov 2026 redesign): the work first (Home, Board, Library, Make), then one entry per channel,
+// then the system. Same order as the Notion workspace: project -> channels -> board.
 export const Sidebar: React.FC<SidebarProps> = ({ currentRoute, onNavigate, onOpenCommandPalette }) => {
-  const {
-    runs,
-    reviewItems,
-    polishItems,
-    uploadItems,
-    topics,
-    alerts,
-    nextSlots,
-    scheduleData,
-    isTopicMade,
-  } = useStudio();
+  const { runs, alerts, nextSlots, scheduleData } = useStudio();
+  const { connection, hasToken } = useActions();
+  const items = useItems();
+  const route = currentRoute.split('?')[0];
+  const needs = items.filter(i => i.needsYou);
+  const running = runs.filter((r: any) => r.state === 'running' || r.state === 'queued').length;
 
-  const growPages = [
-    '/app/analytics',
-    '/app/trends',
-    '/app/publish',
-    '/app/thumbnails',
-    '/app/voices',
-    '/app/languages',
-  ];
+  const is = (p: string) => (p === '/app' ? route === '/app' || route === '/app/' : route === p || route.startsWith(p + '/'));
+  const chOn = (code: string) => route === `/app/c/${code}` || (code === 'HR' && /^\/app\/(films|review|polish|upload|topics|schedule|memory)/.test(route));
 
-  const isGrowActive = growPages.some(p => currentRoute.startsWith(p));
-  const [growExpanded, setGrowExpanded] = useState<boolean>(isGrowActive);
-  const [channelMenuOpen, setChannelMenuOpen] = useState(false);
+  const Item: React.FC<{ to: string; icon: React.ReactNode; label: string; badge?: number | string; dot?: boolean; on?: boolean; hot?: boolean }> =
+    ({ to, icon, label, badge, dot, on, hot }) => (
+      <button className={`ni${(on ?? is(to)) ? ' on' : ''}`} onClick={() => onNavigate(to)} aria-current={(on ?? is(to)) ? 'page' : undefined}>
+        {icon}<span>{label}</span>
+        {badge ? <span className={`nb${hot ? ' hot' : ''}`}>{badge}</span> : null}
+        {dot && <span className="ndot" />}
+      </button>
+    );
 
-  // Compute live badges
-  const runningCount = runs.filter(
-    r => r.state === 'running' || r.state === 'queued' || r.state === 'in_progress'
-  ).length;
-  const reviewCount = reviewItems.length;
-  const polishCount = polishItems.length;
-  const uploadCount = uploadItems.length;
-  const topicsCount = topics.filter((t: string) => !isTopicMade(t)).length;   // still to make
-  const hasAlerts = alerts.length > 0;
-
-  // Next film calculation
-  const rawNext: any = nextSlots[0];
-  const nextTime =
-    rawNext instanceof Date
-      ? rawNext.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })
-      : (rawNext ? String(rawNext) : '—');
-  // Runs started today:
-  // films started today (your local day): runs of the "Make a story video" workflow
-  const todayStr = new Date().toDateString();
-  const startedToday = runs.filter(r => r.workflow === 'Make a story video' && r.started && new Date(r.started).toDateString() === todayStr).length;
-  const slotsPerDay = scheduleData?.utc?.length || 5;
-  const startedFraction = Math.min(1, startedToday / slotsPerDay);
-
-  const isActive = (path: string) => {
-    if (path === '/app/films') {
-      return currentRoute === '/app' || currentRoute === '/app/films' || currentRoute.startsWith('/app/films/');
-    }
-    return currentRoute.startsWith(path);
-  };
-
+  const next = nextSlots[0];
   return (
-    <aside className="side">
-      {/* Brand & Channel switcher */}
+    <aside className="side" aria-label="Main">
       <div className="brandrow">
         <Mark size={26} />
         <b>Candela</b>
         <span className="ws">Studio</span>
-        <div style={{ position: 'relative' }}>
-          <button
-            onClick={() => setChannelMenuOpen(!channelMenuOpen)}
-            style={{
-              background: 'transparent',
-              border: 'none',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              color: 'inherit',
-              padding: 0,
-            }}
-            title="Switch channel"
-          >
-            <CaretUpDown size={14} className="ic faint" />
-          </button>
-          {channelMenuOpen && (
-            <div
-              style={{
-                position: 'absolute',
-                top: '26px',
-                right: '0',
-                background: 'var(--s1)',
-                boxShadow: '0 0 0 1px var(--line2), 0 12px 30px rgba(0,0,0,0.6)',
-                borderRadius: '8px',
-                padding: '6px',
-                zIndex: 100,
-                width: '180px',
-              }}
-            >
-              <div
-                onClick={() => {
-                  onNavigate('/app/channels');
-                  setChannelMenuOpen(false);
-                }}
-                style={{
-                  padding: '8px 10px',
-                  borderRadius: '6px',
-                  fontSize: '12.5px',
-                  color: 'var(--tx)',
-                  cursor: 'pointer',
-                  background: 'rgba(245,165,36,0.1)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                }}
-              >
-                <Broadcast size={14} color="var(--amber2)" />
-                <span>Hidden Reasons</span>
-              </div>
-            </div>
-          )}
-        </div>
       </div>
-
-      {/* Search / Command palette trigger */}
-      <div className="search" onClick={onOpenCommandPalette} style={{ cursor: 'pointer' }}>
+      <button className="search" onClick={onOpenCommandPalette}>
         <MagnifyingGlass size={15} className="ic" />
         <span>Search or jump to…</span>
         <span className="kbd">⌘K</span>
-      </div>
+      </button>
 
-      <div style={{ flex: 1, overflowY: 'auto', margin: '0 -6px', padding: '0 6px' }}>
-        {/* WORKSPACE GROUP */}
-        <div className="group">Workspace</div>
+      <nav className="side-nav">
+        <Item to="/app" icon={<House size={19} weight="duotone" className="ic" />} label="Home" badge={needs.length || undefined} hot />
+        <Item to="/app/board" icon={<Kanban size={19} weight="duotone" className="ic" />} label="Board" />
+        <Item to="/app/library" icon={<Books size={19} weight="duotone" className="ic" />} label="Library" />
+        <Item to="/app/make" icon={<Plus size={19} weight="bold" className="ic" />} label="Make" />
 
-        <div
-          className={`ni ${isActive('/app/films') ? 'on' : ''}`}
-          onClick={() => onNavigate('/app/films')}
-          style={{ cursor: 'pointer' }}
-        >
-          <FilmStrip size={19} weight="duotone" className="ic" />
-          <span>Films</span>
-        </div>
+        <div className="group">Channels</div>
+        {CHANNELS.map(c => {
+          const n = items.filter(i => i.lane === c.code && i.needsYou).length;
+          return (
+            <Item key={c.code} to={`/app/c/${c.code}`} on={chOn(c.code)} label={c.name} badge={n || undefined} hot
+                  icon={<span className="chdot" style={{ background: c.color }} aria-hidden>{c.code}</span>} />
+          );
+        })}
 
-        <div
-          className={`ni ${isActive('/app/runs') ? 'on' : ''}`}
-          onClick={() => onNavigate('/app/runs')}
-          style={{ cursor: 'pointer' }}
-        >
-          <Path size={19} weight="duotone" className="ic" />
-          <span>Runs</span>
-          {runningCount > 0 && <span className="nb">{runningCount}</span>}
-        </div>
+        <div className="group">System</div>
+        <Item to="/app/runs" icon={<Path size={19} weight="duotone" className="ic" />} label="Runs" badge={running || undefined} />
+        <Item to="/app/brain" icon={<Brain size={19} weight="duotone" className="ic" />} label="Brain" />
+        <Item to="/app/lab" icon={<Flask size={19} weight="duotone" className="ic" />} label="Lab" />
+        <Item to="/app/guard" icon={<ShieldCheck size={19} weight="duotone" className="ic" />} label="Guard" dot={alerts.length > 0} />
+        <Item to="/app/guide" icon={<BookOpenText size={19} weight="duotone" className="ic" />} label="How it works" />
+      </nav>
 
-        <div
-          className={`ni ${isActive('/app/review') ? 'on' : ''}`}
-          onClick={() => onNavigate('/app/review')}
-          style={{ cursor: 'pointer' }}
-        >
-          <Eye size={19} weight="duotone" className="ic" />
-          <span>Review</span>
-          {reviewCount > 0 && <span className="nb">{reviewCount}</span>}
-        </div>
-
-        <div
-          className={`ni ${isActive('/app/polish') ? 'on' : ''}`}
-          onClick={() => onNavigate('/app/polish')}
-          style={{ cursor: 'pointer' }}
-        >
-          <MagicWand size={19} weight="duotone" className="ic" />
-          <span>Polish</span>
-          {polishCount > 0 && <span className="nb">{polishCount}</span>}
-        </div>
-
-        <div
-          className={`ni ${isActive('/app/upload') ? 'on' : ''}`}
-          onClick={() => onNavigate('/app/upload')}
-          style={{ cursor: 'pointer' }}
-        >
-          <UploadSimple size={19} weight="duotone" className="ic" />
-          <span>Upload</span>
-          {uploadCount > 0 && <span className="nb">{uploadCount}</span>}
-        </div>
-
-        {/* STUDIO GROUP */}
-        <div className="group">Studio</div>
-
-        <div
-          className={`ni ${isActive('/app/channels') ? 'on' : ''}`}
-          onClick={() => onNavigate('/app/channels')}
-          style={{ cursor: 'pointer' }}
-        >
-          <Broadcast size={19} weight="duotone" className="ic" />
-          <span>Channels</span>
-        </div>
-
-        <div
-          className={`ni ${isActive('/app/topics') ? 'on' : ''}`}
-          onClick={() => onNavigate('/app/topics')}
-          style={{ cursor: 'pointer' }}
-        >
-          <LightbulbFilament size={19} weight="duotone" className="ic" />
-          <span>Topics</span>
-          {topicsCount > 0 && <span className="nb">{topicsCount}</span>}
-        </div>
-
-        <div
-          className={`ni ${isActive('/app/schedule') ? 'on' : ''}`}
-          onClick={() => onNavigate('/app/schedule')}
-          style={{ cursor: 'pointer' }}
-        >
-          <CalendarDots size={19} weight="duotone" className="ic" />
-          <span>Schedule</span>
-        </div>
-
-        <div
-          className={`ni ${isActive('/app/memory') ? 'on' : ''}`}
-          onClick={() => onNavigate('/app/memory')}
-          style={{ cursor: 'pointer' }}
-        >
-          <Archive size={19} weight="duotone" className="ic" />
-          <span>Memory</span>
-        </div>
-
-        {/* ENGINE GROUP */}
-        <div className="group">Engine</div>
-
-        <div
-          className={`ni ${isActive('/app/brain') ? 'on' : ''}`}
-          onClick={() => onNavigate('/app/brain')}
-          style={{ cursor: 'pointer' }}
-        >
-          <Brain size={19} weight="duotone" className="ic" />
-          <span>Brain</span>
-        </div>
-
-        <div
-          className={`ni ${isActive('/app/lab') ? 'on' : ''}`}
-          onClick={() => onNavigate('/app/lab')}
-          style={{ cursor: 'pointer' }}
-        >
-          <Flask size={19} weight="duotone" className="ic" />
-          <span>Lab</span>
-        </div>
-
-        <div
-          className={`ni ${isActive('/app/guard') ? 'on' : ''}`}
-          onClick={() => onNavigate('/app/guard')}
-          style={{ cursor: 'pointer' }}
-        >
-          <ShieldCheck size={19} weight="duotone" className="ic" />
-          <span>Guard</span>
-          {hasAlerts && (
-            <span
-              style={{
-                marginLeft: 'auto',
-                width: '7px',
-                height: '7px',
-                borderRadius: '50%',
-                background: '#F85149',
-              }}
-            />
-          )}
-        </div>
-
-        {/* GROW GROUP (COLLAPSED / EXPANDED) */}
-        <div
-          className="group grow"
-          onClick={() => setGrowExpanded(!growExpanded)}
-          style={{ cursor: 'pointer', userSelect: 'none' }}
-        >
-          <span>Grow</span>
-          {!growExpanded && <span className="soon">6 soon</span>}
-          {growExpanded ? (
-            <CaretDown size={11} className="ic faint" />
-          ) : (
-            <CaretRight size={11} className="ic faint" />
-          )}
-        </div>
-
-        {growExpanded && (
-          <div>
-            <div
-              className={`ni ${isActive('/app/analytics') ? 'on' : ''}`}
-              onClick={() => onNavigate('/app/analytics')}
-              style={{ cursor: 'pointer' }}
-            >
-              <ChartLineUp size={19} weight="duotone" className="ic" />
-              <span>Analytics</span>
-              <span className="nb soonb">Soon</span>
-            </div>
-
-            <div
-              className={`ni ${isActive('/app/trends') ? 'on' : ''}`}
-              onClick={() => onNavigate('/app/trends')}
-              style={{ cursor: 'pointer' }}
-            >
-              <TrendUp size={19} weight="duotone" className="ic" />
-              <span>Trends</span>
-              <span className="nb soonb">Soon</span>
-            </div>
-
-            <div
-              className={`ni ${isActive('/app/publish') ? 'on' : ''}`}
-              onClick={() => onNavigate('/app/publish')}
-              style={{ cursor: 'pointer' }}
-            >
-              <PaperPlaneTilt size={19} weight="duotone" className="ic" />
-              <span>Publish</span>
-              <span className="nb soonb">Soon</span>
-            </div>
-
-            <div
-              className={`ni ${isActive('/app/thumbnails') ? 'on' : ''}`}
-              onClick={() => onNavigate('/app/thumbnails')}
-              style={{ cursor: 'pointer' }}
-            >
-              <ImageSquare size={19} weight="duotone" className="ic" />
-              <span>Thumbnails</span>
-              <span className="nb soonb">Soon</span>
-            </div>
-
-            <div
-              className={`ni ${isActive('/app/voices') ? 'on' : ''}`}
-              onClick={() => onNavigate('/app/voices')}
-              style={{ cursor: 'pointer' }}
-            >
-              <MicrophoneStage size={19} weight="duotone" className="ic" />
-              <span>Voices</span>
-              <span className="nb soonb">Soon</span>
-            </div>
-
-            <div
-              className={`ni ${isActive('/app/languages') ? 'on' : ''}`}
-              onClick={() => onNavigate('/app/languages')}
-              style={{ cursor: 'pointer' }}
-            >
-              <Translate size={19} weight="duotone" className="ic" />
-              <span>Languages</span>
-              <span className="nb soonb">Soon</span>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* SIDEBAR FOOTER: NEXT FILM & OWNER */}
       <div className="side-foot">
-        <div className="quota">
-          <div className="qrow">
-            <span>Next film</span>
-            <b>{nextTime}</b>
-          </div>
-          <div className="bar">
-            <i style={{ width: `${Math.round(startedFraction * 100)}%` }} />
-          </div>
-          <div className="qrow faint">
-            <span>{startedToday} of {slotsPerDay} started today · $0</span>
-          </div>
-        </div>
-
+        {next && (
+          <button className="quota" onClick={() => onNavigate('/app/schedule')}>
+            <div className="qrow"><span>Next Hidden Reasons film</span><b>{next.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })}</b></div>
+            <div className="qrow faint"><span>{scheduleData?.utc?.length || 5} a day at most · $0</span></div>
+          </button>
+        )}
         <div className="me">
           <div className="av">F</div>
           <div>
             <b>Franklin</b>
-            <span>Owner</span>
+            <span>{hasToken && connection?.canAct ? 'Owner · can act' : 'Watching · connect to act'}</span>
           </div>
-          <div
-            onClick={() => onNavigate('/app/settings')}
-            style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
-            title="Settings"
-          >
-            <GearSix size={17} className="ic" />
-          </div>
+          <button onClick={() => onNavigate('/app/settings')} title="Settings" aria-label="Settings" className="ib"><GearSix size={17} className="ic" /></button>
         </div>
       </div>
     </aside>

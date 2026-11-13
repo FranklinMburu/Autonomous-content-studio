@@ -4,9 +4,11 @@ import { useStudio } from '../context/StudioContext';
 
 interface TopbarProps {
   pageName: string;
+  section?: string;
+  onNavigate: (r: string) => void;
 }
 
-export const Topbar: React.FC<TopbarProps> = ({ pageName }) => {
+export const Topbar: React.FC<TopbarProps> = ({ pageName, section, onNavigate }) => {
   const { studio, alerts } = useStudio();
   const [alertsOpen, setAlertsOpen] = useState(false);
 
@@ -16,8 +18,7 @@ export const Topbar: React.FC<TopbarProps> = ({ pageName }) => {
     <header className="top">
       <div className="crumb">
         <Broadcast size={16} weight="duotone" className="ic" color="var(--amber2)" />
-        <span className="crumb-ch">Hidden Reasons</span>
-        <span className="faint crumb-ch">/</span>
+        {section && <><span className="crumb-ch">{section}</span><span className="faint crumb-ch">/</span></>}
         <b>{pageName}</b>
       </div>
 
@@ -112,17 +113,10 @@ export const Topbar: React.FC<TopbarProps> = ({ pageName }) => {
         )}
       </div>
 
-      {/* New Film CTA */}
-      <a
-        href={studio.links.newFilm()}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="btn pri"
-        style={{ height: '34px', fontSize: '13px', textDecoration: 'none' }}
-      >
+      <button className="btn pri" style={{ height: '34px', fontSize: '13px' }} onClick={() => onNavigate('/app/make')}>
         <Plus size={15} weight="bold" className="ic" />
-        <span>New film</span>
-      </a>
+        <span>Make</span>
+      </button>
     </header>
   );
 };

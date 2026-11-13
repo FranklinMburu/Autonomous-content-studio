@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles/candela.css';
 import { StudioProvider, useStudio } from './context/StudioContext';
+import { ActionsProvider } from './context/ActionsContext';
 import { LandingPage } from './landing/LandingPage';
 import { AppShell } from './app/AppShell';
 import { FilmsGalleryPage } from './public_pages/FilmsGalleryPage';
@@ -57,7 +58,9 @@ const Router: React.FC = () => {
 const App: React.FC = () => {
   return (
     <StudioProvider>
-      <Router />
+      <ActionsProvider>
+        <Router />
+      </ActionsProvider>
     </StudioProvider>
   );
 };
