@@ -33,6 +33,7 @@ TYPES = {
     "file_tree":      {"files": (L, True), "code": (L, False), "title": (S, False)},
     "end_card":       {"series": (S, False), "title": (S, True), "next": (S, False)},
     "big_word":       {"text": (S, True), "sub": (S, False)},
+    "headline_build": {"keywords": (L, False)},     # the spoken line itself, built word by word as a big headline (Maitis' look)
     "bullets":        {"items": (L, True)},
     # worlds: one picture that fits the topic; consecutive lines of the same type keep adding to it
     "table_grid":     {"columns": (L, False), "rows": (L, True), "title": (S, False), "highlight_word": (S, False), "highlight_row": (N, False)},
@@ -49,7 +50,7 @@ WORLDS = ["story", "table_grid", "timeline", "flow_steps", "browser_page", "chat
 # Scenes that need the story set's pieces drawn first (the engine draws nothing for them otherwise).
 NEEDS = {"compare": "app_window", "door": "diagram_link", "packet": "diagram_link", "question": "diagram_link", "key_fly": "question",
          "leak": "question", "badges_intro": "diagram_link", "badge": "diagram_link", "data_card": "diagram_link"}
-LIMITS = {"items": 8, "rows": 14, "files": 5, "code": 3, "pairs": 6, "marks": 2, "columns": 4, "steps": 6, "blocks": 5, "messages": 6, "bars": 6, "layers": 5}
+LIMITS = {"keywords": 3, "items": 8, "rows": 14, "files": 5, "code": 3, "pairs": 6, "marks": 2, "columns": 4, "steps": 6, "blocks": 5, "messages": 6, "bars": 6, "layers": 5}
 TEXT_MAX = 64
 
 
