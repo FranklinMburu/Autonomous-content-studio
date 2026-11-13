@@ -236,3 +236,25 @@ On GitHub, run **Actions → "Make a motion video (Tech Education)"**:
 - Only one approved episode so far. The AI writer is tested offline with fake models, and the two workflows have never
   run on GitHub (they can't until they are on main). Their first real run is the next proof; expect small fixes.
 - No schedule for TE yet. Add one only after Franklin approves a few AI-written episodes.
+
+## 13 Nov 2026: level-up toward the benchmark (Maitis, Griffin Wooldridge)
+
+Measured first (project doc `REFERENCE_maitis_griffin.md`), then built:
+
+- **Voice:** Qwen3-TTS 1.7B (Apache-2.0) replaced Kokoro am_fenrir, Franklin's yes after the blind voice lab
+  (voice-lab-3) and the AI listening panel (`tools/voice_judge.py`: Qwen3 8.0/10, Kokoro 6.5). One fixed reference
+  recording (`channels/te/voice_ref_qwen3.wav`) is cloned for every line, so every episode is the same person;
+  atempo 1.15 (about 165 words a minute, pitch kept). Word times: faster-whisper per line, matched to the script.
+  Code: `studio/motion/narrate_qwen3.py`. Lines are cached by text, so voice jobs can run in parallel shards.
+- **Long-form (16:9):** `plan.format = "long"`. No subtitles (neither benchmark uses them; `headline_build` carries
+  the words). The engine frames each scene itself (`frameScenes()`: renders the scene's middle and end, measures what
+  is on screen, sets a zoom and a pan; glides between scenes, jumps on cuts). `chapter_card` switches the accent.
+- **Long-form writer** (`studio/motion/longform.py`): outline (cold open, promise, open loop, 3-5 chapters with a
+  re-hook question, the action), then one chapter per call, each checked; `heal()` turns a scene that still breaks
+  the contract into a headline of its own line instead of dropping the whole plan.
+- **New scenes:** `depth_stack` (parallel slabs receding in depth, each lands on its word), `screen_zoom` (a
+  real-looking editor; the camera pushes into the line that matters, a note pops beside it), `chapter_card`.
+- **Parallel making** (`make-motion.yml`): write -> 6 voice jobs -> prep (word times, cues, music) -> up to 16 frame
+  jobs (each draws whole frame numbers i0..i1, so the parts join with `-c copy`, no gap) -> finish (join, mix,
+  checks, release). The same stages in one process: `python -m studio.motion make`.
+- **Preview without the voice:** `python tools/motion_preview.py <episode> <out> [times] --long --every 2`.
