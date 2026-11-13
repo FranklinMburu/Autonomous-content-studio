@@ -86,6 +86,17 @@ jobs:
           path: prev
           run-id: ${{ env.REUSE_RUN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Kick chat replay test (clipit's method, no key)
+        continue-on-error: true
+        run: |
+          python - <<'PY'
+          import json, subprocess
+          v = json.load(open("key/kick.json"))["vod"]
+          subprocess.run(["python", "repo/lab/clips/kick_chat.py", "--slug", "n3on", "--start", v["start"].replace(" ", "T") + ("" if "Z" in v["start"] or "+" in v["start"] else "Z"),
+                          "--duration", str(v["duration"]), "--out", "key/kick_chat.json"], timeout=900)
+          c = json.load(open("key/kick_chat.json"))
+          print("first:", c[:3]); print("last:", c[-2:])
+          PY
       - name: Chat replay (TwitchDownloaderCLI, open source; Franklin approved 13 Nov)
         continue-on-error: true
         env:
