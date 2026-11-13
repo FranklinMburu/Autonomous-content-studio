@@ -1,3 +1,46 @@
-{"requests": [
- {"id": "WC-test-aligvslogan", "url": "https://www.youtube.com/watch?v=HBURqwzzPd4", "start": 120, "end": 160, "asked": 1763005000}
-]}
+{
+ "requests": [
+  {
+   "id": "WC-test-aligvslogan",
+   "url": "https://www.youtube.com/watch?v=HBURqwzzPd4",
+   "start": 120,
+   "end": 160,
+   "asked": 1763005000
+  },
+  {
+   "id": "REF-maitis-rea-open",
+   "url": "https://www.youtube.com/watch?v=KscFyux4dVk",
+   "start": 0,
+   "end": 180,
+   "asked": 1794543956
+  },
+  {
+   "id": "REF-maitis-rea-mid",
+   "url": "https://www.youtube.com/watch?v=KscFyux4dVk",
+   "start": 600,
+   "end": 690,
+   "asked": 1794543956
+  },
+  {
+   "id": "REF-maitis-voice-open",
+   "url": "https://www.youtube.com/watch?v=qKsMQg4WB6s",
+   "start": 0,
+   "end": 150,
+   "asked": 1794543956
+  },
+  {
+   "id": "REF-griffin-skills-open",
+   "url": "https://www.youtube.com/watch?v=Iup1WlUyj9M",
+   "start": 0,
+   "end": 180,
+   "asked": 1794543956
+  },
+  {
+   "id": "REF-griffin-uilib-open",
+   "url": "https://www.youtube.com/watch?v=zsCGS-Yzjnw",
+   "start": 0,
+   "end": 120,
+   "asked": 1794543956
+  }
+ ]
+}
