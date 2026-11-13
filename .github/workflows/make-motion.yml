@@ -8,6 +8,8 @@ name: Make a motion video (Tech Education)
 # -> frames (up to 16 jobs, each draws its own part) -> finish (join, mix, checks, release). Short (9:16) or long (16:9).
 run-name: "${{ inputs.request_id && format('{0} [{1}]', github.workflow, inputs.request_id) || github.event.head_commit.message || github.workflow }}"
 on:
+  push:
+    branches: ["make-motion/**"]   # a test run before a merge: settings from lab/motion_job.json
   workflow_dispatch:
     inputs:
       request_id:
@@ -53,9 +55,21 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: The job (the Run form, or lab/motion_job.json for a push)
+        env:
+          T_IN: ${{ inputs.topic }}
+          L_IN: ${{ inputs.long }}
+          M_IN: ${{ inputs.minutes }}
+          E_IN: ${{ inputs.episode }}
+        run: |
+          if [ "${{ github.event_name }}" = push ]; then
+            T_IN=$(jq -r '.topic // ""' lab/motion_job.json); L_IN=$(jq -r '.long // false' lab/motion_job.json)
+            M_IN=$(jq -r '.minutes // 6' lab/motion_job.json); E_IN=$(jq -r '.episode // "episodes/tech_education/001-what-is-an-api"' lab/motion_job.json)
+          fi
+          { echo "TOPIC_RAW<<EOF_T"; printf '%s\n' "$T_IN" | tr -d '\r' | head -1; echo "EOF_T"; echo "LONG=$L_IN"; echo "MINUTES_RAW=$(printf '%s' "$M_IN" | tr -cd '0-9.')"; echo "EP_RAW=$(printf '%s' "$E_IN" | tr -d '\n\r')"; } >> "$GITHUB_ENV"
       # The brain (private repo FranklinMburu/AI-layer), only needed when the AI writes a new episode.
       - name: Get the brain
-        if: inputs.topic != ''
+        if: env.TOPIC_RAW != ''
         continue-on-error: true
         uses: actions/checkout@v4
         with:
@@ -66,11 +80,8 @@ jobs:
       - name: Install (writer)
         run: pip install -q kokoro-onnx==0.6.1 "onnxruntime>=1.20" "soundfile>=0.12" "numpy>=1.26" scipy pillow
       - name: Write a new episode (AI)
-        if: inputs.topic != ''
+        if: env.TOPIC_RAW != ''
         env:
-          TOPIC_RAW: ${{ inputs.topic }}
-          LONG: ${{ inputs.long }}
-          MINUTES_RAW: ${{ inputs.minutes }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
@@ -86,7 +97,7 @@ jobs:
       # Keep the new episode in the repo (like Hidden Reasons drafts), so it can be fixed and re-made later and the
       # next episode gets the next number. Only this one folder is written; a failed save does not stop the video.
       - name: Save the new episode to the repo
-        if: inputs.topic != ''
+        if: env.TOPIC_RAW != '' && github.event_name != 'push'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -94,8 +105,6 @@ jobs:
           tools/commit_to_main.sh "Motion episode: $(basename "$EPISODE")" "$EPISODE" || echo "::warning::could not save the episode to main; it is still in the release zip"
       - name: Choose the episode
         id: ep
-        env:
-          EP_RAW: ${{ inputs.episode }}
         run: |
           if [ -z "${EPISODE:-}" ]; then
             ep=$(printf '%s' "$EP_RAW" | tr -d '\n\r')
