@@ -115,7 +115,9 @@ def narrate(script, out_dir, cfg, log=print):
         p = out_dir / "lines" / f"{_key(text, q)}.wav"
         a, _ = sf.read(p, dtype="float32")
         dur = len(a) / SR
-        segs, _info = asr.transcribe(str(p), language="en", word_timestamps=True, beam_size=1)
+        from scipy.signal import resample_poly      # hand Whisper the samples (16 kHz): its own file decoder (PyAV)
+        a16 = resample_poly(a, 2, 3).astype(np.float32)   # clashes with the av version qwen-tts installs (13 Nov run)
+        segs, _info = asr.transcribe(a16, language="en", word_timestamps=True, beam_size=1)
         heard = [(w.word, w.start, w.end) for s in segs for w in (s.words or [])]
         wt, exact = _word_times(text.split(), heard, t, dur)
         exact_all &= exact
