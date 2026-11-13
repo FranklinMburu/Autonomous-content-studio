@@ -1,0 +1,27 @@
+name: Voice lock (one-off, Tech Education reference recording)
+# One-off (13 Nov 2026): copies the Qwen3 reference recording Franklin chose (voice lab run 43418258522) into the
+# te-level-up branch, so every episode clones the same person. Lives only on the trigger branch.
+on:
+  push:
+    branches: ["voice-lock/**"]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  lock:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: te-level-up
+      - run: |
+          gh run download 43418258522 -R "$GITHUB_REPOSITORY" -n blind-key -D key
+          ls -la key
+          cp key/qwen3_ref.wav channels/te/voice_ref_qwen3.wav
+          python3 -c "import wave;w=wave.open('channels/te/voice_ref_qwen3.wav');print(w.getframerate(), w.getnframes()/w.getframerate(),'s')"
+          git config user.name "Franklin Mburu"; git config user.email "184284364+FranklinMburu@users.noreply.github.com"
+          git add channels/te/voice_ref_qwen3.wav
+          git commit -m "Tech Education voice: the Qwen3 reference recording Franklin chose (voice-lab-3)"
+          git push origin HEAD:te-level-up
