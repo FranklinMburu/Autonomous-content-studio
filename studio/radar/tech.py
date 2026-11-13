@@ -13,7 +13,7 @@ Then the AI (free Gemini) groups the evidence into topics and, for each, propose
 1-minute explainer, or a long walkthrough), the angle, three titles in the winning patterns, and a thumbnail idea.
 The output ranks topics by evidence (reference lift weighs most: it is what YouTube rewards), never by the AI alone.
 """
-import argparse, base64, datetime as dt, json, os, re, subprocess, sys, time, urllib.request
+import argparse, datetime as dt, json, os, re, subprocess, sys, time, urllib.error, urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -134,14 +134,23 @@ def call_gemini(text, model):
     if not key:
         return None
     body = {"contents": [{"parts": [{"text": text}]}], "generationConfig": {"responseMimeType": "application/json", "temperature": 0.4}}
-    for m in [model] + [x for x in ("gemini-flash-latest", "gemini-flash-lite-latest") if x != model]:
-        req = urllib.request.Request(f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent",
-                                     data=json.dumps(body).encode(), headers={"x-goog-api-key": key, "Content-Type": "application/json"})
-        try:
-            d = json.loads(urllib.request.urlopen(req, timeout=180).read())
-            return json.loads(d["candidates"][0]["content"]["parts"][0]["text"])
-        except Exception as e:  # noqa: BLE001
-            print(f"  ! gemini {m}: {str(e)[:160]}", file=sys.stderr)
+    # 13 Nov: a 503 (overloaded) on both models gave an empty radar: retry patiently, then try other free models
+    models = [model] + [x for x in ("gemini-2.5-flash", "gemini-flash-latest", "gemini-flash-lite-latest", "gemini-2.5-flash-lite") if x != model]
+    for m in models:
+        for wait in (0, 20, 60):
+            time.sleep(wait)
+            req = urllib.request.Request(f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent",
+                                         data=json.dumps(body).encode(), headers={"x-goog-api-key": key, "Content-Type": "application/json"})
+            try:
+                d = json.loads(urllib.request.urlopen(req, timeout=180).read())
+                return json.loads(d["candidates"][0]["content"]["parts"][0]["text"])
+            except urllib.error.HTTPError as e:
+                print(f"  ! gemini {m}: HTTP {e.code}", file=sys.stderr)
+                if e.code not in (429, 500, 503):
+                    break                       # not a busy/quota error: next model
+            except Exception as e:  # noqa: BLE001
+                print(f"  ! gemini {m}: {str(e)[:160]}", file=sys.stderr)
+                break
     return None
 
 
@@ -164,6 +173,8 @@ def main():
     out = {"built": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "topics": topics,
            "evidence": {"youtube": hot_yt, "other": rest}, "seconds": round(time.time() - t0)}
     Path(a.out).write_text(json.dumps(out, indent=1, ensure_ascii=False))
+    if not topics:
+        sys.exit("the AI gave no topics (see the gemini lines): the previous radar is kept")
     print(f"\n== {len(topics)} TOPICS")
     for i, t in enumerate(topics, 1):
         print(f"{i}. [{t.get('format')}] {t['topic']}: {t.get('why_now', '')}\n   " + "\n   ".join(t.get("titles") or [])
