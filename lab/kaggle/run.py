@@ -11,6 +11,9 @@ fetch_only = sys.argv[1].startswith("fetch:")
 names = [n for n in sys.argv[1].replace("fetch:", "").split(",") if n]
 wait_min = int(sys.argv[sys.argv.index("--wait-min") + 1]) if "--wait-min" in sys.argv else 180
 user = os.environ["KAGGLE_USERNAME"]
+# 14 Nov 2026: a lab can ask for a TPU (lab/ACCELERATOR, e.g. TpuV6E8); the default stays the T4 GPU
+_acc = Path(__file__).resolve().parents[1] / "ACCELERATOR"
+ACC = (_acc.read_text().strip() if _acc.exists() else "") or "NvidiaTeslaT4"
 
 
 def run(*a):
@@ -34,12 +37,13 @@ for name in names:
         (work / "lab.py").write_text(f"FILES = {json.dumps(data)}\n" + code, encoding="utf-8")
     (work / "kernel-metadata.json").write_text(json.dumps({
         "id": f"{user}/{slug}", "title": slug, "code_file": "lab.py", "language": "python", "kernel_type": "script",
-        "is_private": True, "enable_gpu": True, "enable_internet": True, "dataset_sources": [],
+        "is_private": True, "enable_gpu": not ACC.lower().startswith("tpu"), "enable_tpu": ACC.lower().startswith("tpu"),
+        "enable_internet": True, "dataset_sources": [],
         "competition_sources": [], "kernel_sources": []}, indent=1))
     if not fetch_only:
         # Kaggle runs at most 2 GPU sessions per account; wait for a free slot instead of failing (same as main)
         for attempt in range(int(os.environ.get("KAGGLE_SLOT_WAIT_MIN", 90)) // 3 + 1):
-            out = run("kernels", "push", "-p", str(work), "--accelerator", "NvidiaTeslaT4")
+            out = run("kernels", "push", "-p", str(work), "--accelerator", ACC)
             print(name, "->", out, flush=True)
             if "session count" not in out.lower():
                 break
