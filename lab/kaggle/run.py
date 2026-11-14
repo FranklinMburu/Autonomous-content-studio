@@ -24,6 +24,7 @@ def run(*a):
     return out
 
 
+print("weekly quota:", run("quota"), flush=True)   # GPU and TPU hours left this week (no secrets)
 slugs = {}
 for name in names:
     src = Path(__file__).parent / name
@@ -39,7 +40,7 @@ for name in names:
         "id": f"{user}/{slug}", "title": slug, "code_file": "lab.py", "language": "python", "kernel_type": "script",
         "is_private": True, "enable_gpu": not ACC.lower().startswith("tpu"), "enable_tpu": ACC.lower().startswith("tpu"),
         "enable_internet": True, "dataset_sources": [],
-        "competition_sources": [], "kernel_sources": []}, indent=1))
+        "competition_sources": [], "kernel_sources": [], **({"machine_shape": ACC} if ACC.lower().startswith("tpu") else {})}, indent=1))
     if not fetch_only:
         # Kaggle runs at most 2 GPU sessions per account; wait for a free slot instead of failing (same as main)
         for attempt in range(int(os.environ.get("KAGGLE_SLOT_WAIT_MIN", 90)) // 3 + 1):
