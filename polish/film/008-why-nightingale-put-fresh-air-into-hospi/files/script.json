@@ -1,0 +1,107 @@
+{
+ "title": "Why Nightingale Put Fresh Air Into Hospital Design",
+ "channel": "Hidden Reasons",
+ "topic": "Why Florence Nightingale instituted the “sanitary pavilion” design for hospitals in London (1854) after observing ventilation effects on soldiers’ recovery",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "lines": [
+    "Florence Nightingale walked crowded wards at night, lamp in hand.",
+    "Soldiers lay packed together in stale air."
+   ],
+   "feel": "curiosity"
+  },
+  {
+   "lines": [
+    "In 1854, the war hospital at Scutari had overcrowding, defective sewers, and poor ventilation.",
+    "During her first winter there, 4,077 British soldiers died.",
+    "Ten times more soldiers died from illness than from battle wounds."
+   ],
+   "feel": "dread"
+  },
+  {
+   "lines": [
+    "Nightingale blamed poor nutrition, missing supplies, stale air, and overworked soldiers.",
+    "She sent a plea to The Times, begging the government to fix the hospitals.",
+    "The new Renkioi Hospital had a death rate less than one tenth of Scutari's.",
+    "The Sanitary Commission reached Scutari in March 1855, almost six months after Nightingale arrived."
+   ],
+   "feel": "frustration"
+  },
+  {
+   "lines": [
+    "You see, a packed ward with no fresh air feels like a stuffy room you cannot escape."
+   ],
+   "feel": "recognition"
+  },
+  {
+   "lines": [
+    "Nightingale concluded that poor living conditions killed most soldiers at the hospital.",
+    "She collected evidence for the Royal Commission on the Health of the Army.",
+    "Her Notes on Nursing turned ventilation lessons into practical advice.",
+    "Then she turned to sanitary hospital design, including the pavilion model."
+   ],
+   "feel": "awe"
+  },
+  {
+   "lines": [
+    "The Sanitary Commission flushed the sewers and improved ventilation.",
+    "Death rates fell sharply. Nightingale never claimed credit for the change.",
+    "The lamp made her famous. Clean sewers and fresh air cut the deaths."
+   ],
+   "feel": "surprise"
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Nightingale became famous as the Lady with the Lamp, making ward rounds for wounded soldiers at night.",
+   "url": "https://en.wikipedia.org/wiki/Florence_Nightingale"
+  },
+  {
+   "claim": "Scutari hospital had overcrowding, defective sewers and lack of ventilation; 4,077 British soldiers died during Nightingale's first winter, and ten times more soldiers died from illness than from battle wounds.",
+   "url": "https://en.wikipedia.org/wiki/Florence_Nightingale"
+  },
+  {
+   "claim": "The Sanitary Commission was sent to Scutari in March 1855, almost six months after Nightingale arrived, and it flushed out the sewers and improved ventilation, sharply reducing death rates.",
+   "url": "https://en.wikipedia.org/wiki/Florence_Nightingale"
+  },
+  {
+   "claim": "Nightingale never claimed credit for helping to reduce the death rate.",
+   "url": "https://en.wikipedia.org/wiki/Florence_Nightingale"
+  },
+  {
+   "claim": "After returning to Britain, Nightingale collected evidence before the Royal Commission on the Health of the Army and then turned to the sanitary design of hospitals.",
+   "url": "https://en.wikipedia.org/wiki/Florence_Nightingale"
+  },
+  {
+   "claim": "Renkioi Hospital, built after Nightingale sent her plea to The Times, had a death rate less than one tenth of that of Scutari.",
+   "url": "https://en.wikipedia.org/wiki/Florence_Nightingale"
+  },
+  {
+   "claim": "Nightingale's Notes on Nursing turned the Crimean war hospital defects, notably ventilation, into lessons, and the pavilion model of hospital design was central to her hospital reform.",
+   "url": "https://doi.org/10.1177/1937586720918239"
+  }
+ ],
+ "key_words": [
+  "Nightingale",
+  "lamp",
+  "wards",
+  "Scutari",
+  "ventilation",
+  "sewers",
+  "soldiers",
+  "Commission",
+  "Renkioi",
+  "pavilion",
+  "deaths",
+  "hospitals"
+ ]
+}
