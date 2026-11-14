@@ -1,0 +1,70 @@
+{
+ "title": "Gray hulls hidden purpose",
+ "channel": "Hidden Reasons",
+ "topic": "Why the United States Navy painted its ship hulls gray during the Civil War (1861) to reduce visibility against the sea’s horizon",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "lines": [
+    "A Union sailor slathers fresh paint on his ship’s side, sweat dripping."
+   ],
+   "feel": "curiosity"
+  },
+  {
+   "lines": [
+    "His comrades snicker, saying the color is just for show."
+   ],
+   "feel": "sympathy"
+  },
+  {
+   "lines": [
+    "At sunrise the fleet rolls out, cannon smoke rising, eyes scanning the horizon.",
+    "Confederate guns flash back, searching for any silhouette."
+   ],
+   "feel": "dread"
+  },
+  {
+   "lines": [
+    "You see, it’s like wearing a gray hoodie on a foggy morning—hard to spot."
+   ],
+   "feel": "recognition"
+  },
+  {
+   "lines": [
+    "The Navy painted hulls gray to blend with the sea’s edge, making ships vanish against the distant line.",
+    "That camouflage reduced the chance of being sighted by enemy lookouts."
+   ],
+   "feel": "awe"
+  },
+  {
+   "lines": [
+    "Ironically, the same shade helped friendly pilots find the fleet at night, because the gray reflected moonlight."
+   ],
+   "feel": "surprise"
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Camouflage on ships has been used since ancient times and continued into modern naval warfare.",
+   "url": "https://doi.org/10.25071/2561-5467.452"
+  }
+ ],
+ "key_words": [
+  "sailor",
+  "paint",
+  "comrades",
+  "sunrise",
+  "horizon",
+  "gray",
+  "camouflage",
+  "moonlight"
+ ]
+}

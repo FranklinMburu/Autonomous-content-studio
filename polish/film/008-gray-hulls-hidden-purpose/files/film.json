@@ -1,0 +1,226 @@
+{
+ "era": "1860s",
+ "cast": {
+  "sailor": "a 24 year old Union Navy sailor with a lean build, short curly light brown hair, a clean-shaven face, bright blue eyes, wearing a navy blue cotton sailor shirt with a white-trimmed collar and light grey canvas trousers, 1860s",
+  "comrade": "a 35 year old Union Navy sailor with a thick dark brown moustache, messy dark hair, a sturdy build, wearing a sleeveless cream cotton work shirt and dark blue trousers, 1860s",
+  "lookout": "a 29 year old Confederate lookout officer with a lean face, short straight black hair, sharp grey eyes, wearing a grey wool military jacket with brass buttons and a matching grey kepi hat, 1860s"
+ },
+ "music": "tense",
+ "key_words": [
+  "Union",
+  "sailor",
+  "slathers",
+  "paint",
+  "ship's",
+  "side",
+  "sweat",
+  "comrades",
+  "snicker",
+  "color",
+  "show",
+  "sunrise",
+  "fleet",
+  "cannon",
+  "smoke",
+  "horizon",
+  "Confederate",
+  "guns",
+  "flash",
+  "silhouette",
+  "gray",
+  "hoodie",
+  "foggy",
+  "morning",
+  "Navy",
+  "hulls",
+  "blend",
+  "sea's",
+  "edge",
+  "vanish",
+  "camouflage",
+  "sighted",
+  "lookouts",
+  "pilots",
+  "night",
+  "reflected",
+  "moonlight"
+ ],
+ "shots": [
+  {
+   "name": "slathers",
+   "at": 0,
+   "who": "sailor",
+   "clip": true,
+   "prompt": "medium shot, brushing thick grey paint onto a wooden ship hull, a sailor standing on a hanging wooden scaffold, he is {sailor}, bright morning sunlight",
+   "motion": "he sweeps the paintbrush back and forth across the wood, slow camera push in",
+   "check": "Is a man painting a ship?"
+  },
+  {
+   "name": "sweat",
+   "at": "sweat#1",
+   "who": "sailor",
+   "clip": true,
+   "prompt": "close-up, wiping sweat from his forehead with his forearm, a sailor pausing his work, he is {sailor}, bright sunlight reflecting on wooden deck",
+   "motion": "he wipes his brow with his arm, slow camera push in",
+   "check": "Is a man wiping sweat from his face?"
+  },
+  {
+   "name": "snicker",
+   "at": "His#2",
+   "who": "comrade",
+   "clip": true,
+   "prompt": "medium close-up, a sailor snickering with a sly grin and one hand raised near his mouth, he is {comrade}, a harbor dock with a gray warship hull behind him, 1860s, bright morning light",
+   "motion": "he grins and covers his mouth while snickering, slow camera push in",
+   "hit": "snicker#1",
+   "check": "Is a sailor snickering?"
+  },
+  {
+   "name": "mock",
+   "at": "color#1",
+   "who": "comrade",
+   "clip": true,
+   "prompt": "medium shot, a sailor pointing mockingly at the smooth gray painted side of a wooden warship, he is {comrade}, a harbor dock with rigging and masts, 1860s, bright morning light",
+   "motion": "he points at the gray hull and shrugs, slow camera push in",
+   "check": "Is a sailor pointing at a gray ship hull?"
+  },
+  {
+   "name": "sunrise_fleet",
+   "at": "At#1",
+   "move": "push",
+   "xfade": true,
+   "prompt": "wide shot, a line of gray-hulled wooden warships sailing out to sea at sunrise, tall masts and rigging against golden clouds, calm blue water, warm dawn light",
+   "check": "Are there sailing ships on the sea?"
+  },
+  {
+   "name": "cannon_smoke",
+   "at": "cannon#1",
+   "clip": true,
+   "hit": "cannon#1",
+   "prompt": "close-up, a black iron cannon firing on a wooden warship deck, bright orange muzzle flash and thick grey smoke billowing upward, cold dawn light",
+   "motion": "the cannon fires and smoke billows upward, slow camera push in",
+   "check": "Is there a cannon firing with smoke?"
+  },
+  {
+   "name": "scanning",
+   "at": "eyes#1",
+   "who": "lookout",
+   "clip": true,
+   "prompt": "medium close-up, a man raising a brass telescope to his eye and scanning the horizon, he is {lookout}, on a Confederate warship deck, pale morning light",
+   "motion": "he lowers the telescope slightly and peers ahead, slow camera push in",
+   "check": "Is a man looking through a telescope?"
+  },
+  {
+   "name": "guns_flash",
+   "at": "guns#1",
+   "clip": true,
+   "hit": "guns#1",
+   "prompt": "medium shot, Confederate sailors in grey wool uniforms firing a cannon from a wooden ship deck, bright muzzle flash and rolling smoke, dawn light",
+   "motion": "the cannon fires and smoke bursts outward, slow camera push in",
+   "check": "Are sailors firing a cannon?"
+  },
+  {
+   "name": "hoodie",
+   "at": "You#1",
+   "xfade": true,
+   "modern": true,
+   "clip": true,
+   "prompt": "medium shot, a person in a gray hooded sweatshirt turning their head slowly in thick morning fog on a modern street, seen from behind, pale grey daylight",
+   "motion": "the hooded figure turns their head slowly, fog drifts, slow camera push in",
+   "check": "Is there a person in a gray hoodie in the fog?"
+  },
+  {
+   "name": "hood_fog",
+   "at": "hoodie#1",
+   "modern": true,
+   "move": "push",
+   "prompt": "close-up of a soft gray hooded sweatshirt hood in thick pale morning fog, its edges fading into the mist, modern street, flat grey daylight",
+   "check": "Is a gray hood in the fog?"
+  },
+  {
+   "name": "vanish",
+   "at": "spot#1",
+   "modern": true,
+   "clip": true,
+   "prompt": "wide shot, a person in a gray hoodie walking away down a modern foggy sidewalk, almost swallowed by the pale mist, soft grey daylight",
+   "motion": "the figure takes slow steps into the fog, mist drifts, slow camera pull back",
+   "check": "Is a person in a gray hoodie walking into the fog?"
+  },
+  {
+   "name": "paint",
+   "at": "The#4",
+   "who": "sailor",
+   "clip": true,
+   "prompt": "close-up, a Union sailor slathering fresh gray paint on the wooden side of a warship hull with a wide brush, he is {sailor}, 1860s shipyard dock, warm morning light",
+   "motion": "he drags the brush down the hull, wet paint glistens, slow camera push in",
+   "check": "Is a man painting a ship hull?"
+  },
+  {
+   "name": "blend",
+   "at": "blend#1",
+   "move": "push",
+   "prompt": "wide shot, a gray-painted warship hull sitting low against a flat gray sea and misty horizon line, cold overcast light",
+   "check": "Is a gray ship on a gray sea?"
+  },
+  {
+   "name": "vanish_12",
+   "at": "vanish#1",
+   "hit": "vanish#1",
+   "move": "pull",
+   "prompt": "wide shot, a distant gray warship almost disappearing against the pale horizon line of a calm sea, thin mist, early morning light",
+   "check": "Is there a ship on the horizon?"
+  },
+  {
+   "name": "camouflage",
+   "at": "camouflage#1",
+   "xfade": true,
+   "who": "sailor",
+   "clip": true,
+   "prompt": "medium shot, a Union sailor leaning over the rail of a gray warship and watching the misty horizon, he is {sailor}, cold morning light",
+   "motion": "he leans on the rail and stares into the mist, slow camera push in",
+   "check": "Is a man leaning over a ship rail?"
+  },
+  {
+   "name": "lookouts",
+   "at": "lookouts#1",
+   "who": "lookout",
+   "clip": true,
+   "prompt": "medium close-up, a Confederate lookout officer scanning an empty gray horizon through a brass spyglass, he is {lookout}, a ship deck at sea, cold overcast light",
+   "motion": "he lowers the spyglass and squints at the empty horizon, slow camera push in",
+   "check": "Is a man looking through a spyglass?"
+  },
+  {
+   "name": "irony",
+   "at": "Ironically#1",
+   "who": "comrade",
+   "clip": true,
+   "xfade": true,
+   "prompt": "medium close-up, a sailor standing on a wooden ship deck at night looking up at the pale grey hull with a wry smirk, he is {comrade}, cold moonlight, dark rigging",
+   "motion": "he tilts his head back and smirks, slow camera push in",
+   "check": "Is a sailor looking up at a ship hull?"
+  },
+  {
+   "name": "lantern",
+   "at": "friendly#1",
+   "who": "sailor",
+   "clip": true,
+   "prompt": "medium shot, a sailor standing in a small steam launch at night holding up a brass lantern to search the dark water, he is {sailor}, distant warships on the horizon, moonlight",
+   "motion": "he raises the lantern and scans the horizon, slow camera push in",
+   "check": "Is a man holding up a lantern?"
+  },
+  {
+   "name": "fleet_night",
+   "at": "night#1",
+   "move": "push",
+   "prompt": "wide shot, a line of grey warships sailing on a calm dark sea under a bright full moon, pale moonlight shimmering on the water, 1860s",
+   "check": "Are there grey ships on the sea at night?"
+  },
+  {
+   "name": "reflection",
+   "at": "gray#3",
+   "hit": "gray#3",
+   "move": "push",
+   "prompt": "close-up of pale moonlight glinting on the wet grey wooden hull of a warship at night, dark sea behind, cold silver light",
+   "check": "Is moonlight glinting on a grey ship hull?"
+  }
+ ]
+}
