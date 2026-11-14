@@ -1,0 +1,75 @@
+{
+ "title": "Why Yokohama Marine Tower was built",
+ "channel": "Hidden Reasons",
+ "topic": "Why the Japanese government ordered the construction of the “Yokohama Marine Tower” in 1910 to serve as a weather‑observation lighthouse and a propaganda beacon",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A naval officer hoisted a massive lantern atop a rusted pole.",
+    "He balanced the weight, sweat dripping, while the sea roared."
+   ]
+  },
+  {
+   "feel": "skepticism",
+   "lines": [
+    "His crew laughed, saying a tower would never change the storm.",
+    "They muttered that a wooden pier could do the job."
+   ]
+  },
+  {
+   "feel": "tension",
+   "lines": [
+    "The government orders the tower’s steel skeleton to rise in 1910.",
+    "Engineers sketch blueprints on cramped desks.",
+    "Workers weld the frame while ships wait for safe passage.",
+    "Every night the unfinished tower glints in fog."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it’s like putting a bright sign on a dark road you travel every day."
+   ]
+  },
+  {
+   "feel": "clarity",
+   "lines": [
+    "The real reason: the state needed a high‑point to record weather.",
+    "The lighthouse would measure wind, rain, and tides for the port.",
+    "At the same time it broadcast a glowing symbol of modern Japan.",
+    "Foreign visitors would see the flash and think Japan was advanced."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "Ironically, the lighthouse’s flash later guided not only ships, but also the nation’s own propaganda ships.",
+    "The tower became a beacon for both safety and pride."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "The Japanese government ordered the construction of the Yokohama Marine Tower in 1910 as a weather‑observation lighthouse and propaganda beacon.",
+   "url": "https://en.wikipedia.org/wiki/Yokohama"
+  }
+ ],
+ "key_words": [
+  "naval officer",
+  "steel skeleton",
+  "weather",
+  "propaganda",
+  "bright sign",
+  "flashing beacon"
+ ]
+}
