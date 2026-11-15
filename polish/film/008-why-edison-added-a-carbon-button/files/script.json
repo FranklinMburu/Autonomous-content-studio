@@ -1,0 +1,85 @@
+{
+ "title": "Why Edison Added a Carbon Button",
+ "channel": "Hidden Reasons",
+ "topic": "Why Thomas Edison built a “carbon microphone” with a thin carbon button in 1877 to improve telephone signal strength",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "Thomas Edison slammed a tiny carbon button into his telegraph.",
+    "He hoped the speck could carry a voice across town."
+   ]
+  },
+  {
+   "feel": "skepticism",
+   "lines": [
+    "His lab mates scoffed, insisting the steel diaphragm was sufficient.",
+    "They warned him he’d waste time on a useless gimmick."
+   ]
+  },
+  {
+   "feel": "tension",
+   "lines": [
+    "Early telephone calls were faint, often disappearing mid‑sentence.",
+    "Customers complained they could barely hear each other.",
+    "Edison tightened the button, pressed the granules harder, and tried again.",
+    "Each tweak made the signal a little louder."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it’s like whispering into a tin can.",
+    "Versus shouting through a megaphone."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "When sound hits the thin diaphragm, it squeezes carbon granules.",
+    "The pressure lowers the granules’ electrical resistance.",
+    "A steady current then varies, creating a strong electric pulse.",
+    "That pulse travels the whole line without extra batteries."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "That tiny button let phones ring miles on a single wire.",
+    "It became the standard for a whole century of telephony.",
+    "Even after vacuum tubes arrived, the carbon transmitter still ruled."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Edison filed a patent on a carbon (graphite) transmitter on 27 April 1877.",
+   "url": "https://en.wikipedia.org/wiki/History_of_the_telephone"
+  },
+  {
+   "claim": "A carbon microphone uses granules whose pressure‑dependent resistance creates a varying current that reproduces sound.",
+   "url": "https://en.wikipedia.org/wiki/Carbon_microphone"
+  },
+  {
+   "claim": "Carbon transmitters produced much louder signals, letting telephones work over long lines without extra power.",
+   "url": "https://en.wikipedia.org/wiki/History_of_the_telephone"
+  }
+ ],
+ "key_words": [
+  "carbon button",
+  "resistance",
+  "electric pulse",
+  "telephone",
+  "signal strength",
+  "long lines"
+ ]
+}

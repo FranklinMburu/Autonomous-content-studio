@@ -1,0 +1,263 @@
+{
+ "era": "1870s",
+ "cast": {
+  "edison": "a 29 year old American inventor with short dark brown hair, a clean shaven narrow face, sharp grey eyes, a dark grey wool sack coat, a white shirt with a high collar and a black bow tie, 1870s",
+  "assistant": "a 24 year old lab assistant with messy sandy blond hair, round spectacles, a thin pale face, a brown tweed waistcoat over rolled-up white shirt sleeves, 1870s",
+  "skeptic": "a 52 year old engineer with a bald crown, grey hair at the sides, a thick grey moustache, a heavy build, a black frock coat and a dark green cravat, 1870s",
+  "operator": "a 35 year old telephone operator woman with dark hair pinned in a neat bun, a plain grey high-collared dress with white cuffs, 1870s",
+  "customer": "a 45 year old businessman with a ruddy face, short black hair, a neat black beard, a brown three-piece suit and a gold watch chain, 1870s"
+ },
+ "shots": [
+  {
+   "name": "hook",
+   "at": 0,
+   "who": "edison",
+   "clip": true,
+   "prompt": "close-up, a determined man slamming a tiny black carbon button into a metal telegraph device on a wooden workbench, he is {edison}, 1870s laboratory, warm lamp light",
+   "motion": "he slams the button down hard, slow camera push in",
+   "check": "Is a man pressing a small button into a device?"
+  },
+  {
+   "name": "button",
+   "at": "carbon#1",
+   "move": "push",
+   "prompt": "extreme close-up of a small black carbon button being pressed into a brass telegraph key, tiny wires, wooden workbench, warm lamp light",
+   "check": "Is there a small black button on a metal device?"
+  },
+  {
+   "name": "voice",
+   "at": "voice#1",
+   "who": "edison",
+   "clip": true,
+   "prompt": "medium shot, a hopeful man speaking into a brass telephone mouthpiece, his hand on a wooden box, he is {edison}, 1870s laboratory, warm lamp light",
+   "motion": "he speaks into the mouthpiece, slow camera push in",
+   "check": "Is a man speaking into a telephone?"
+  },
+  {
+   "name": "scoff",
+   "at": "His#2",
+   "who": "skeptic",
+   "clip": true,
+   "prompt": "medium shot, {skeptic} laughing and shaking his head while pointing at a small metal disc on a workbench, a cluttered 1870s laboratory with glass jars behind him, warm lamp light",
+   "motion": "he laughs and shakes his head while pointing, slow camera push in",
+   "check": "Is a man laughing and pointing?"
+  },
+  {
+   "name": "steel",
+   "at": "insisting#1",
+   "who": "skeptic",
+   "clip": true,
+   "prompt": "close-up, {skeptic} tapping a shiny steel diaphragm with one finger, a wooden workbench, 1870s laboratory, warm lamp light",
+   "motion": "his finger taps the steel diaphragm, slow camera push in",
+   "check": "Is a man tapping a metal disc?"
+  },
+  {
+   "name": "warn",
+   "at": "They#1",
+   "who": "skeptic",
+   "clip": true,
+   "prompt": "medium shot, {skeptic} raising a warning finger at {edison} across a workbench covered in wire coils, 1870s laboratory, warm lamp light",
+   "motion": "he raises his finger and frowns, slow camera push in",
+   "check": "Is a man raising his finger at another man?"
+  },
+  {
+   "name": "gimmick",
+   "at": "useless#1",
+   "move": "push",
+   "prompt": "close-up of a small carbon button transmitter lying on a wooden workbench beside a tangled coil of copper wire, 1870s laboratory, warm lamp light",
+   "check": "Is there a small round object on a workbench?"
+  },
+  {
+   "name": "faint_call",
+   "at": "Early#1",
+   "who": "customer",
+   "clip": true,
+   "prompt": "close-up, a businessman pressing a black rubber telephone mouthpiece hard against his ear with a frown, he is {customer}, a dim 1870s office with dark wood panelling, warm lamp light",
+   "motion": "he presses the earpiece harder and frowns, slow camera push in",
+   "check": "Is a man holding a telephone to his ear?"
+  },
+  {
+   "name": "mid_sentence",
+   "at": "disappearing#1",
+   "who": "operator",
+   "clip": true,
+   "prompt": "medium shot, a telephone operator woman pulling a cord from a wooden switchboard and shaking her head, she is {operator}, a dim 1870s exchange room with rows of brass sockets, gas lamp light",
+   "motion": "she pulls the cord out and shakes her head, slow camera push in",
+   "check": "Is a woman at a switchboard?"
+  },
+  {
+   "name": "complaints",
+   "at": "Customers#1",
+   "who": "customer",
+   "clip": true,
+   "prompt": "medium close-up, a red faced businessman shouting angrily into a black telephone mouthpiece on a wooden desk, he is {customer}, a cluttered 1870s office, warm lamp light",
+   "motion": "he shouts into the mouthpiece and bangs the desk, slow camera push in",
+   "check": "Is a man shouting into a telephone?"
+  },
+  {
+   "name": "barely_hear",
+   "at": "barely#1",
+   "who": "customer",
+   "clip": true,
+   "prompt": "close-up, a businessman leaning his whole head against a black telephone earpiece with his eyes squeezed shut, he is {customer}, dark 1870s office, single lamp light",
+   "motion": "he leans closer and squeezes his eyes shut, slow camera push in",
+   "check": "Is a man pressing a telephone to his ear?"
+  },
+  {
+   "name": "tighten",
+   "at": "Edison#2",
+   "who": "edison",
+   "clip": true,
+   "prompt": "close-up, a determined inventor tightening a small brass screw on a black telephone transmitter with a tiny screwdriver, he is {edison}, a cluttered 1870s laboratory bench, warm lamp light",
+   "motion": "he turns the screwdriver carefully, slow camera push in",
+   "check": "Is a man turning a screwdriver on a device?"
+  },
+  {
+   "name": "press_granules",
+   "at": "pressed#1",
+   "clip": true,
+   "prompt": "extreme close-up of a thumb pressing black carbon granules down inside a small brass cup on a wooden workbench, warm lamp light, dark background",
+   "motion": "the thumb presses the black granules down firmly, slow camera push in",
+   "check": "Is a thumb pressing black granules?"
+  },
+  {
+   "name": "louder",
+   "at": "louder#1",
+   "who": "edison",
+   "clip": true,
+   "prompt": "medium shot, an inventor smiling with relief as he holds a black telephone earpiece away from his ear, he is {edison}, a cluttered 1870s laboratory with glass jars, warm lamp light",
+   "motion": "he smiles and nods while holding the earpiece, slow camera push in",
+   "check": "Is a man smiling while holding a telephone earpiece?"
+  },
+  {
+   "name": "whisper",
+   "at": "You#1",
+   "who": "assistant",
+   "clip": true,
+   "prompt": "close-up, a young lab assistant with round spectacles whispering into a small dented tin can held close to his mouth, he is {assistant}, a dim 1870s laboratory with glass jars behind him, warm lamp light",
+   "motion": "his lips move as he whispers into the can, the lamp flickers, slow camera push in",
+   "check": "Is a man whispering into a tin can?"
+  },
+  {
+   "name": "megaphone",
+   "at": "Versus#1",
+   "who": "edison",
+   "clip": true,
+   "prompt": "medium shot, a man shouting into a large brass megaphone held up with both hands, mouth wide open, he is {edison}, a cluttered 1870s workshop with coils and wires, bright lamp light",
+   "motion": "he shouts into the megaphone and leans forward, slow camera push in",
+   "check": "Is a man shouting into a megaphone?"
+  },
+  {
+   "name": "diaphragm",
+   "at": "When#1",
+   "xfade": true,
+   "clip": true,
+   "prompt": "close-up of a circular metal disc vibrating inside a dark wooden cone, workshop bench in background, warm 1870s lamp light",
+   "motion": "the metal disc vibrates gently, slow camera push in",
+   "check": "Is there a circular metal disc?"
+  },
+  {
+   "name": "squeezes",
+   "at": "squeezes#1",
+   "clip": true,
+   "prompt": "extreme close-up of a thumb pressing black carbon powder inside a small brass cup, wooden laboratory table, warm lamp light",
+   "motion": "the thumb presses firmly into the black powder, slow camera push in",
+   "check": "Is a thumb pressing black powder?"
+  },
+  {
+   "name": "meter",
+   "at": "pressure#1",
+   "clip": true,
+   "prompt": "close-up of a thin needle swinging on a brass electrical meter on a dark wooden table, warm lamp light",
+   "motion": "the needle swings across the meter dial, slow camera push in",
+   "check": "Is there a needle on a brass meter?"
+  },
+  {
+   "name": "assistant",
+   "at": "current#1",
+   "who": "assistant",
+   "clip": true,
+   "prompt": "medium shot, a young lab assistant leaning forward and watching an electrical meter with wide eyes, he is {assistant}, clutter of wires on a desk, warm light",
+   "motion": "he leans closer to inspect the meter, slow camera push in",
+   "check": "Is a young man leaning forward?"
+  },
+  {
+   "name": "pulse",
+   "at": "creating#1",
+   "hit": "pulse#1",
+   "move": "push",
+   "prompt": "extreme close-up of a dark copper wire connected to a brass terminal on a wooden board, warm oil lamp light",
+   "check": "Is there a wire connected to a brass terminal?"
+  },
+  {
+   "name": "poles",
+   "at": "travels#1",
+   "move": "right",
+   "prompt": "wide shot of tall wooden telegraph poles carrying black wires along a dirt road, 1870s countryside, warm late afternoon light",
+   "check": "Are there wooden telegraph poles?"
+  },
+  {
+   "name": "batteries",
+   "at": "without#1",
+   "who": "edison",
+   "clip": true,
+   "prompt": "medium close-up, a man in a dark grey coat sliding a heavy glass chemical battery jar to the side on a cluttered desk, he is {edison}, 1870s lab light",
+   "motion": "he pushes the heavy glass jar across the desk, slow camera push in",
+   "check": "Is a man sliding a glass jar?"
+  },
+  {
+   "name": "carbon_button",
+   "at": "That#2",
+   "clip": true,
+   "prompt": "extreme close-up, a hand pressing a tiny round carbon button into a brass telephone transmitter on a wooden workbench, warm lamp light, 1870s workshop",
+   "motion": "the finger presses the small button down, slow camera push in",
+   "xfade": true,
+   "check": "Is a hand pressing a small round button?"
+  },
+  {
+   "name": "single_wire",
+   "at": "miles#1",
+   "move": "push",
+   "prompt": "wide shot, a single telephone wire sagging between wooden poles across a wide 1870s farm field toward distant blue hills, wind rippling the wire, bright afternoon light",
+   "check": "Is there a single wire between wooden poles?"
+  },
+  {
+   "name": "standard_phone",
+   "at": "standard#1",
+   "clip": true,
+   "prompt": "close-up, an old wooden-cased telephone ringing on a desk, a round carbon transmitter mounted on its side, warm 1870s lamp light",
+   "motion": "the bell shakes and rings, slow camera push in",
+   "check": "Is an old telephone ringing?"
+  },
+  {
+   "name": "century_phone",
+   "at": "century#1",
+   "clip": true,
+   "prompt": "close-up, a hand lifting the receiver of a black rotary desk telephone in a 1970s office, warm daylight through a window",
+   "motion": "the hand lifts the receiver, slow camera push in",
+   "xfade": true,
+   "modern": true,
+   "check": "Is a hand lifting a telephone receiver?"
+  },
+  {
+   "name": "vacuum_tube",
+   "at": "vacuum#1",
+   "clip": false,
+   "prompt": "extreme close-up, a glowing glass vacuum tube in a metal telephone amplifier rack, orange filament shining in a 1930s exchange room",
+   "motion": "the filament brightens and glows, slow camera push in",
+   "xfade": true,
+   "modern": true,
+   "check": "Is there a glowing glass vacuum tube?",
+   "move": "push"
+  },
+  {
+   "name": "carbon_again",
+   "at": "carbon#3",
+   "clip": true,
+   "prompt": "close-up, a hand pressing a round carbon transmitter button on a polished black telephone, warm 1930s light",
+   "motion": "the finger presses the round button, slow camera push in",
+   "hit": "carbon#3",
+   "check": "Is a hand pressing a round button?"
+  }
+ ]
+}
