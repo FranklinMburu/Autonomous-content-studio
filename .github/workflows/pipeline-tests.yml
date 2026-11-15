@@ -48,7 +48,7 @@ jobs:
           node-version: "22"
           cache: npm
           cache-dependency-path: studio/motion/package-lock.json
-      - run: pip install -q numpy pillow
+      - run: pip install -q numpy pillow "soundfile>=0.12"
       - run: cd studio/motion && npm ci --no-audit --no-fund && npx playwright install --with-deps chromium
       - run: python tests/test_motion.py
 
