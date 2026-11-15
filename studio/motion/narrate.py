@@ -1,9 +1,12 @@
-"""The channel's locked voice (channels/te/channel.json "voice"): Kokoro + the shared word-timing code in
+"""The channel's locked voice (channels/te/channel.json "voice"): Qwen3-TTS when "engine" is "qwen3", else Kokoro + the shared word-timing code in
 studio/voice.py, then only the gentle EQ Franklin approved. Restores the shared defaults afterwards."""
 import shutil, subprocess
 
 
 def narrate(script, out_dir, voice_cfg):
+    if voice_cfg.get("engine") == "qwen3":      # the locked TE voice since 13 Nov 2026 (studio/motion/narrate_qwen3.py)
+        from .narrate_qwen3 import narrate as qwen3
+        return qwen3(script, out_dir, voice_cfg)
     from .. import voice
     keep = (voice.GAP_LINE, voice.GAP_BEAT, voice.LEAD_IN, voice.TAIL, voice.TRIM_TAIL)
     s = dict(script, voice=voice_cfg["voice"], speed=voice_cfg["speed"])

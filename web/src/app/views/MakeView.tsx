@@ -23,6 +23,8 @@ export const MakeView: React.FC<{ onNavigate: (r: string) => void }> = ({ onNavi
   const kickFromSrc = (src.match(/kick\.com\/([A-Za-z0-9_-]+)/) || [])[1] || '';
   const [hrTopic, setHrTopic] = useState('');
   const [teTopic, setTeTopic] = useState(lane === 'TE' ? q.get('topic') || '' : '');
+  const [teLong, setTeLong] = useState(false);
+  const [teMin, setTeMin] = useState('6');
   const [platform, setPlatform] = useState<'kick' | 'twitch'>(/twitch\.tv/.test(src) ? 'twitch' : 'kick');
   const [channel, setChannel] = useState(platform === 'twitch' ? src : kickFromSrc);
   const [streamer, setStreamer] = useState(q.get('who') || kickFromSrc);
@@ -72,11 +74,19 @@ export const MakeView: React.FC<{ onNavigate: (r: string) => void }> = ({ onNavi
         </Card>
 
         <Card id="mk-TE" icon={<Code size={22} weight="duotone" />} lane="TE" title="A Tech Education video"
-          text="Give a topic; the AI writes the script and a visual plan and the motion engine renders it with the channel's locked voice."
-          time="About 1-2 hours. A failed check holds it for your review.">
-          <div className="form one"><label>Topic<input value={teTopic} onChange={e => setTeTopic(e.target.value)} placeholder="What is a database?" maxLength={120} /></label></div>
-          <ActButton variant="pri" disabled={teTopic.trim().length < 4 || busy('make-motion.yml')} onRun={() => start(`Tech Education: ${teTopic.trim().slice(0, 60)}`, 'make-motion.yml',
-            { topic: teTopic.trim() }, { next: 'The video appears under Tech Education → Videos.', target: '/app/c/TE?tab=videos' })}>Make the video</ActButton>
+          text="Give a topic; the AI writes the script and a visual plan and the motion engine renders it with the channel's locked voice (Qwen3). A long video is 16:9 with chapters, like the best channels in this niche."
+          time={teLong ? 'About 1.5-2.5 hours: 6 machines make the voice and up to 16 draw the picture at once. A failed check holds it for your review.' : 'About 45-90 minutes. A failed check holds it for your review.'}>
+          <div className="form">
+            <label>Topic<input value={teTopic} onChange={e => setTeTopic(e.target.value)} placeholder="What is a database?" maxLength={120} /></label>
+            <label>Kind
+              <select value={teLong ? 'long' : 'short'} onChange={e => setTeLong(e.target.value === 'long')}><option value="short">Short (9:16, about 1 min)</option><option value="long">Long (16:9, chapters)</option></select>
+            </label>
+            {teLong && <label>About how long
+              <select value={teMin} onChange={e => setTeMin(e.target.value)}>{['4', '5', '6', '7', '8'].map(n => <option key={n} value={n}>{n} minutes</option>)}</select>
+            </label>}
+          </div>
+          <ActButton variant="pri" disabled={teTopic.trim().length < 4 || busy('make-motion.yml')} onRun={() => start(`Tech Education${teLong ? ' (long)' : ''}: ${teTopic.trim().slice(0, 60)}`, 'make-motion.yml',
+            { topic: teTopic.trim(), long: teLong ? 'true' : 'false', minutes: teMin }, { next: 'The video appears under Tech Education → Videos.', target: '/app/c/TE?tab=videos' })}>Make the video</ActButton>
         </Card>
 
         <Card icon={<Fire size={22} weight="duotone" />} title="Who's hot today"

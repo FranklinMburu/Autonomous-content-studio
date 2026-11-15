@@ -7,9 +7,17 @@
  "audience": "people who build with AI tools but were never taught the developer basics",
  "quality_bar": "Notion: YouTube Creator Studio · Tech Education, section 'Quality bar' (reference: Vibe Coding Essentials, Part 2)",
  "voice": {
-  "locked": "2026-11-11, Franklin",
-  "voice": "am_fenrir",
-  "speed": 1.0,
+  "locked": "2026-11-13, Franklin: Qwen3-TTS (chosen after the blind voice lab voice-lab-3, the AI listening panel and his own listen)",
+  "engine": "qwen3",
+  "qwen3": {
+   "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+   "ref_audio": "channels/te/voice_ref_qwen3.wav",
+   "ref_text": "What actually is a database,",
+   "design": "A calm, deep male narrator in his thirties, clear neutral American accent, confident and friendly, measured explainer pace, like a good tech teacher.",
+   "tempo": 1.15,
+   "asr": "base.en",
+   "why_tempo": "Qwen3 reads this voice at about 144 words a minute; 1.15 puts it at about 165, inside Maitis' 153-176 (ffmpeg atempo keeps the pitch)."
+  },
   "pace": {
    "gap_line": 0.12,
    "gap_beat": 0.3,
@@ -17,14 +25,26 @@
    "tail": 0.4,
    "trim_tail": null
   },
-  "eq": "highpass=f=60,lowshelf=f=140:g=3.5,equalizer=f=220:t=q:w=1.2:g=1,equalizer=f=3800:t=q:w=1.5:g=-1.5,equalizer=f=7500:t=q:w=2:g=-2.5,acompressor=threshold=0.15:ratio=2:attack=8:release=150:makeup=1.2,loudnorm=I=-16:TP=-1",
+  "eq": "highpass=f=60,acompressor=threshold=0.15:ratio=2:attack=8:release=150:makeup=1.2,loudnorm=I=-16:TP=-1",
   "never": [
    "blend a second voice",
    "pitch shift (sounds like two stacked voices)",
-   "add room echo",
-   "mix in am_puck (too high)"
+   "add room echo"
   ],
-  "note": "Every pacing value is set here on purpose: studio/voice.py defaults may change for other channels."
+  "note": "The reference recording is the voice: never regenerate it from the description (a new design is a new person).",
+  "previous": {
+   "locked": "2026-11-11, Franklin",
+   "voice": "am_fenrir",
+   "speed": 1.0,
+   "pace": {
+    "gap_line": 0.12,
+    "gap_beat": 0.3,
+    "lead_in": 0.15,
+    "tail": 0.4,
+    "trim_tail": null
+   },
+   "eq": "highpass=f=60,lowshelf=f=140:g=3.5,equalizer=f=220:t=q:w=1.2:g=1,equalizer=f=3800:t=q:w=1.5:g=-1.5,equalizer=f=7500:t=q:w=2:g=-2.5,acompressor=threshold=0.15:ratio=2:attack=8:release=150:makeup=1.2,loudnorm=I=-16:TP=-1"
+  }
  },
  "look": {
   "accents": [

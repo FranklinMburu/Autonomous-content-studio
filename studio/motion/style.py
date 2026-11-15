@@ -28,7 +28,7 @@ def style_for(seed, ch=None, look_name=None):
     acc = look["accents"][_pick(seed, "accent", len(look["accents"]))]
     rgb = [int(acc[i:i + 2], 16) for i in (1, 3, 5)]
     lo, hi = mus["bpm"]
-    return {"seed": int(seed) % 2_147_483_647, "accent": acc, "accent_rgb": rgb,
+    return {"seed": int(seed) % 2_147_483_647, "accent": acc, "accent_rgb": rgb, "accents": look["accents"],
             "cool_rgb": look["cool"][_pick(seed, "cool", len(look["cool"]))],
             "sign": 1 if _pick(seed, "sign", 2) else -1,
             "drift": [round(_pick(seed, f"drift{i}", 628) / 100, 2) for i in range(4)],
