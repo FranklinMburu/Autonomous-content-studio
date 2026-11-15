@@ -1,0 +1,297 @@
+{
+ "era": "1940s",
+ "cast": {
+  "gunner": "a 26 year old Soviet artillery sergeant with a soot-smudged round face, short black hair under a grey wool pilotka cap, dark brown eyes, a padded olive-brown telogreika jacket, a canvas belt and grey mittens, 1940s",
+  "commander": "a 48 year old Soviet artillery colonel with a weathered narrow face, grey-streaked hair, a thick grey moustache, a dark green officer's tunic with red collar tabs, gold shoulder boards and a black leather belt, 1940s",
+  "loader": "a 19 year old Soviet soldier, thin and boyish, with fair hair cropped short, pale blue eyes, a grey ushanka fur hat with the flaps down, a white sheepskin coat and black felt boots, 1940s",
+  "driver": "a 34 year old Soviet truck driver with a broad flat face, a broken nose, a stubbly chin, a brown leather tanker helmet, a dark blue padded jacket and a red neck scarf, 1940s",
+  "woman": "a 30 year old Soviet village woman with a tired lined face, a brown headscarf tied under the chin, a worn grey quilted jacket and a long dark skirt, 1940s"
+ },
+ "music": "tense",
+ "key_words": [
+  "top secret",
+  "24 rockets",
+  "50 minutes",
+  "howitzer",
+  "fragile",
+  "move",
+  "counter-battery fire",
+  "trucks",
+  "artillery tractors",
+  "tanks",
+  "armoured trains",
+  "deep snow",
+  "sled",
+  "sledges",
+  "across snow",
+  "cheap",
+  "any chassis",
+  "mobility",
+  "large blow",
+  "located"
+ ],
+ "shots": [
+  {
+   "name": "secret_gun",
+   "at": 0,
+   "who": "gunner",
+   "clip": true,
+   "prompt": "close-up, a soldier pulling a grey canvas cover off a rack of rocket tubes on a truck bed, he is {gunner}, dark winter forest, cold blue dawn light",
+   "motion": "he yanks the canvas cover back, slow camera push in",
+   "check": "Is a soldier pulling a cover off a weapon?"
+  },
+  {
+   "name": "fast_move",
+   "at": "move#1",
+   "who": "driver",
+   "clip": true,
+   "prompt": "medium shot, a driver gripping the steering wheel and flooring the pedal of a truck, he is {driver}, snowy forest road, headlights on, dark blue dusk",
+   "motion": "the truck lurches forward and snow sprays, slow camera push in",
+   "check": "Is a man driving a truck?"
+  },
+  {
+   "name": "hated",
+   "at": "The#2",
+   "who": "commander",
+   "clip": true,
+   "prompt": "medium shot, a stern colonel slamming his fist down on a wooden field table covered with maps, he is {commander}, a canvas command tent with a hanging lantern, 1940s",
+   "motion": "he slams his fist and glares, the lantern sways, slow camera push in",
+   "check": "Is a man hitting a table?",
+   "xfade": true
+  },
+  {
+   "name": "launchers",
+   "at": "these#1",
+   "move": "push",
+   "prompt": "low angle close-up of a truck-mounted Katyusha rocket launcher, a rack of empty rails pointing at the sky, snow on the metal, 1940s",
+   "check": "Is there a rocket launcher on a truck?"
+  },
+  {
+   "name": "loading",
+   "at": "Loading#1",
+   "who": "loader",
+   "clip": true,
+   "prompt": "medium shot, a young soldier in a sheepskin coat pushing a long rocket up a steel rail on a launcher, he is {loader}, snowy field, grey winter light",
+   "motion": "he slides the rocket up the rail, slow camera push in",
+   "check": "Is a man loading a rocket?"
+  },
+  {
+   "name": "loading_2",
+   "at": "rockets#1",
+   "who": "loader",
+   "clip": true,
+   "prompt": "close-up, a young soldier's gloved hands sliding a long rocket onto a steel launcher rail, he is {loader}, snowy field, grey winter light",
+   "motion": "his hands push the rocket along the rail, slow camera push in",
+   "check": "Are hands loading a rocket onto a rail?"
+  },
+  {
+   "name": "howitzer",
+   "at": "A#1",
+   "who": "gunner",
+   "clip": true,
+   "prompt": "medium shot, a gunner in a padded jacket swinging a heavy shell into the open breech of a howitzer, he is {gunner}, snow around the gun, cold light",
+   "motion": "he rams the shell into the breech, slow camera push in",
+   "check": "Is a man loading a big gun?"
+  },
+  {
+   "name": "rounds",
+   "at": "95#1",
+   "move": "push",
+   "prompt": "close-up of a tall stack of brass artillery shells beside a smoking howitzer barrel in the snow, 1940s, cold grey light",
+   "check": "Is there a stack of artillery shells?"
+  },
+  {
+   "name": "rounds_2",
+   "at": "rounds#1",
+   "move": "right",
+   "prompt": "medium shot of a long row of brass artillery shells laid out in the snow beside a howitzer, 1940s, cold grey light",
+   "check": "Is there a row of artillery shells in snow?"
+  },
+  {
+   "name": "fragile",
+   "at": "The#4",
+   "who": "gunner",
+   "clip": true,
+   "prompt": "close-up, a soldier's bare hand resting on the thin metal frame of a rocket launcher, he is {gunner}, snowy 1940s field, cold grey light",
+   "motion": "his hand taps the thin metal frame gently, slow camera push in",
+   "check": "Is a hand touching a metal frame?",
+   "xfade": true
+  },
+  {
+   "name": "compared",
+   "at": "compared#1",
+   "move": "right",
+   "prompt": "wide shot of a massive long-barreled artillery howitzer standing beside a small truck-mounted rocket launcher in a snowy field, 1940s, grey winter light",
+   "check": "Is there a big gun next to a small truck?"
+  },
+  {
+   "name": "fire",
+   "at": "fire#2",
+   "who": "gunner",
+   "clip": true,
+   "prompt": "medium shot, a soldier pressing a firing switch on a rocket launcher, he is {gunner}, snowy 1940s field, bright flash of light",
+   "motion": "he presses the switch and flinches, slow camera push in",
+   "check": "Is a soldier pressing a switch?"
+  },
+  {
+   "name": "blow",
+   "at": "blow#1",
+   "move": "up",
+   "prompt": "wide shot of a huge wall of orange fire and smoke rising from a rocket launcher salvo in a snowy field, 1940s, dark winter sky",
+   "check": "Is there a wall of fire and smoke?"
+  },
+  {
+   "name": "move",
+   "at": "then#1",
+   "who": "driver",
+   "clip": true,
+   "prompt": "medium shot, a driver starting a truck engine and gripping the steering wheel, he is {driver}, snowy 1940s field, cold grey light",
+   "motion": "he turns the key and grips the wheel, slow camera push in",
+   "check": "Is a man sitting at a steering wheel?"
+  },
+  {
+   "name": "located",
+   "at": "located#1",
+   "move": "pull",
+   "prompt": "wide shot of a Soviet truck with a rocket launcher driving away through deep snow, fresh tracks behind it, 1940s, grey winter light",
+   "check": "Is a truck driving through snow?"
+  },
+  {
+   "name": "attacked",
+   "at": "attacked#1",
+   "move": "push",
+   "prompt": "wide shot of a snowy field erupting in black dirt and smoke from an artillery shell explosion, empty 1940s landscape, cold light",
+   "check": "Is there an explosion in a snowy field?"
+  },
+  {
+   "name": "platforms",
+   "at": "platforms#1",
+   "move": "right",
+   "prompt": "wide shot of a row of different vehicles with rocket launchers: a truck, an artillery tractor, a tank and an armoured train, snowy 1940s depot, grey light",
+   "check": "Are there several vehicles with rocket launchers?"
+  },
+  {
+   "name": "trucks",
+   "at": "trucks#1",
+   "move": "push",
+   "prompt": "medium shot of a truck with a Katyusha rocket launcher parked in a snowy 1940s depot, grey winter light",
+   "check": "Is there a truck with a rocket launcher?"
+  },
+  {
+   "name": "tractors",
+   "at": "tractors#1",
+   "move": "left",
+   "prompt": "medium shot of an artillery tractor with a rocket launcher frame on its back in a snowy 1940s depot, grey winter light",
+   "check": "Is there a tractor with a rocket launcher?"
+  },
+  {
+   "name": "trains",
+   "at": "trains#1",
+   "who": "loader",
+   "clip": true,
+   "prompt": "medium shot, a young soldier loading a rocket onto a launcher mounted on an armoured train car, he is {loader}, snowy 1940s railway siding, cold light",
+   "motion": "he slides the rocket onto the rail, slow camera push in",
+   "check": "Is a soldier loading a rocket onto a train?"
+  },
+  {
+   "name": "push_cart",
+   "at": "You#1",
+   "who": "gunner",
+   "clip": true,
+   "prompt": "medium shot, a man leaning forward with both arms braced against the handles of a heavy wooden cart, straining to push it, he is {gunner}, deep snow on a village road, grey winter light",
+   "motion": "he pushes hard and the cart inches forward, snow sprays, slow camera push in",
+   "check": "Is a man pushing a wooden cart?",
+   "xfade": true
+  },
+  {
+   "name": "cart_stuck",
+   "at": "heavy#1",
+   "move": "push",
+   "prompt": "close-up of a wooden cart wheel sunk deep in white snow up to its axle, packed snow around the rim, grey winter daylight",
+   "check": "Is a cart wheel sunk in snow?"
+  },
+  {
+   "name": "sled",
+   "at": "sled#1",
+   "who": "loader",
+   "clip": true,
+   "prompt": "medium shot, a young soldier kneeling beside a low wooden sled loaded with a heavy crate, gripping its rope, he is {loader}, snowy village road, grey winter light",
+   "motion": "he pulls the rope and the sled slides forward over the snow, slow camera push in",
+   "check": "Is a man kneeling beside a wooden sled?"
+  },
+  {
+   "name": "sledge_mount",
+   "at": "So#1",
+   "who": "gunner",
+   "clip": true,
+   "prompt": "medium shot, a soldier kneeling in deep snow beside a wooden sledge with a rocket launcher frame on it, tightening a rope, he is {gunner}, a snowy pine forest, pale winter light",
+   "motion": "he pulls the rope tight and tugs it, slow camera push in",
+   "check": "Is a soldier kneeling beside a wooden sledge?",
+   "xfade": true
+  },
+  {
+   "name": "sledge_wide",
+   "at": "sledges#1",
+   "move": "left",
+   "prompt": "wide shot of a wooden sledge carrying a Katyusha rocket launcher frame, dragged by soldiers across a snowy field, low winter sun, pine trees",
+   "check": "Is a wooden sledge carrying a rocket launcher?"
+  },
+  {
+   "name": "crew_drag",
+   "at": "crew#1",
+   "who": "loader",
+   "clip": true,
+   "prompt": "medium shot, three soldiers in sheepskin coats pulling ropes to drag a sledge with a rocket launcher through deep snow, one is {loader}, snowy forest, cold blue light",
+   "motion": "they lean forward and haul the ropes, snow sprays, slow camera push in",
+   "check": "Are soldiers pulling a sledge through snow?"
+  },
+  {
+   "name": "snow_trail",
+   "at": "snow#2",
+   "move": "down",
+   "prompt": "high angle of a long sledge track cut through fresh deep snow beside a rocket launcher frame, pine forest, winter morning light",
+   "check": "Is there a sledge track in the snow?"
+  },
+  {
+   "name": "cheap_build",
+   "at": "cheap#1",
+   "who": "driver",
+   "clip": true,
+   "prompt": "medium shot, a worker in a padded jacket hammering a wooden beam onto a truck bed, he is {driver}, a rough 1940s workshop, sparks and wood shavings, warm lamp light",
+   "motion": "he swings the hammer down on the beam, slow camera push in",
+   "check": "Is a man hammering a wooden beam?"
+  },
+  {
+   "name": "chassis",
+   "at": "chassis#1",
+   "move": "right",
+   "prompt": "wide shot of a bare truck chassis in a workshop with a rocket launcher frame being lowered onto it by a crane, workers below, 1940s, dusty light",
+   "check": "Is a rocket launcher frame being lowered onto a truck chassis?"
+  },
+  {
+   "name": "volley",
+   "at": "large#2",
+   "clip": true,
+   "prompt": "wide shot, a Katyusha launcher on a truck firing a huge volley of rockets at night, bright orange flames and smoke, soldiers crouching behind, snow on the ground",
+   "motion": "the rockets streak away in a burst of flame, smoke billows, slow camera push in",
+   "hit": "blow#2",
+   "check": "Is a truck firing rockets at night?"
+  },
+  {
+   "name": "move_out",
+   "at": "move#4",
+   "who": "commander",
+   "clip": true,
+   "prompt": "medium shot, an officer in a dark green tunic waving his arm urgently, shouting to a truck driver, he is {commander}, a snowy road at dawn, smoke behind",
+   "motion": "he waves his arm forward and shouts, slow camera push in",
+   "check": "Is an officer waving his arm?"
+  },
+  {
+   "name": "escape",
+   "at": "located#2",
+   "move": "pull",
+   "prompt": "wide shot of a Katyusha truck driving away down a snowy forest road, smoke rising from the empty firing position behind, dawn light, deep snow",
+   "check": "Is a truck driving away on a snowy road?"
+  }
+ ]
+}

@@ -1,0 +1,110 @@
+{
+ "title": "Why Katyushas Rode Wooden Sleds",
+ "channel": "Hidden Reasons",
+ "topic": "Why the Soviet Union launched the “Katyusha” rocket launchers on wooden sleds in 1941 to facilitate rapid mobility across snowy terrain",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "lines": [
+    "The weapon was top secret, and it had to move fast."
+   ],
+   "feel": "curiosity"
+  },
+  {
+   "lines": [
+    "The artillery branch hated these launchers.",
+    "Loading and firing 24 rockets took up to 50 minutes.",
+    "A conventional howitzer could fire 95 to 150 rounds in the same time."
+   ],
+   "feel": "frustration"
+  },
+  {
+   "lines": [
+    "The Katyusha was fragile compared to artillery guns.",
+    "It had to fire a large blow all at once, then move before being located and attacked with counter-battery fire.",
+    "It was mounted on many platforms during World War II, including trucks, artillery tractors, tanks, and armoured trains."
+   ],
+   "feel": "dread"
+  },
+  {
+   "lines": [
+    "You see, it’s like trying to push a heavy cart through deep snow.",
+    "A sled spreads the weight and slides over the top."
+   ],
+   "feel": "recognition"
+  },
+  {
+   "lines": [
+    "So the Katyusha was mounted on many platforms, including sledges.",
+    "The sledges let the crew move the launcher across snow to a new spot.",
+    "The Katyusha was cheap, easy to produce, and usable on almost any chassis.",
+    "That mobility let it deliver a large blow all at once, then move before being located."
+   ],
+   "feel": "awe"
+  }
+ ],
+ "claims": [
+  {
+   "claim": "The weapon was top secret, and it had to move fast.",
+   "url": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+  },
+  {
+   "claim": "The artillery branch hated these launchers.",
+   "url": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+  },
+  {
+   "claim": "Loading and firing 24 rockets took up to 50 minutes.",
+   "url": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+  },
+  {
+   "claim": "A conventional howitzer could fire 95 to 150 rounds in the same time.",
+   "url": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+  },
+  {
+   "claim": "The Katyusha was fragile compared to artillery guns.",
+   "url": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+  },
+  {
+   "claim": "It had to fire a large blow all at once, then move before being located and attacked with counter-battery fire.",
+   "url": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+  },
+  {
+   "claim": "It was mounted on many platforms during World War II, including trucks, artillery tractors, tanks, and armoured trains.",
+   "url": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+  },
+  {
+   "claim": "So the Katyusha was mounted on many platforms, including sledges.",
+   "url": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+  },
+  {
+   "claim": "The sledges let the crew move the launcher across snow to a new spot.",
+   "url": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+  },
+  {
+   "claim": "The Katyusha was cheap, easy to produce, and usable on almost any chassis.",
+   "url": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+  },
+  {
+   "claim": "That mobility let it deliver a large blow all at once, then move before being located.",
+   "url": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+  }
+ ],
+ "key_words": [
+  "sleds",
+  "snow",
+  "Katyusha",
+  "secret",
+  "mobility",
+  "howitzer",
+  "counter-battery",
+  "wood"
+ ]
+}
