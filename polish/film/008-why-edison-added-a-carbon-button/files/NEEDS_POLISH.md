@@ -9,4 +9,3 @@ Problems left by the free models (the copy-paste polish fixes them):
 - script: not supported by the sources, fix or remove: Edison tightened the button, pressed the granules harder, and tried again.
 - script: not supported by the sources, fix or remove: Each tweak made the signal a little louder.
 - script: not supported by the sources, fix or remove: That tiny button let phones ring miles on a single wire.
-- shot press_granules: 3.8 s on screen (max 3.2; split it)
