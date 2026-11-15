@@ -5,7 +5,6 @@ reports phoneme durations, so word times come from the model itself, not from gu
 """
 import json, re
 import numpy as np, soundfile as sf
-from kokoro_onnx import Kokoro
 from .paths import models_dir
 
 GAP_LINE, GAP_BEAT, LEAD_IN, TAIL = 0.22, 0.45, 0.15, 0.4
@@ -20,6 +19,7 @@ def engine():
     global _engine
     if _engine is None:
         d = models_dir()
+        from kokoro_onnx import Kokoro      # imported here so the year-to-words helper works without the TTS engine
         _engine = Kokoro(str(d / "kokoro-v1.0.onnx"), str(d / "voices-v1.0.bin"))
     return _engine
 
