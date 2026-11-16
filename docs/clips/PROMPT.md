@@ -39,6 +39,37 @@ what works, try it, keep only what makes us better, and bring him real clips and
   (to drop roleplay). Ask Franklin once whether to open it for those streamers from 19 Nov to 3 Dec, then act on his
   answer.
 
+## 1b. Think like the viewer (the money comes from them)
+
+Money comes from views; views come from strangers who stop scrolling, watch to the end, rewatch, share and comment.
+Before any clip ships, look at it as that stranger on a phone, sound on or off, who has never heard of the streamer:
+
+- **Stop:** does the first second make me stop? (a face reacting, a line, a visible conflict, a "wait, what?")
+- **Get it:** do I understand what's happening in 2 seconds without knowing the streamer? If context is needed, the
+  hook line or caption gives it.
+- **Stay:** is there a reason to keep watching (a question, tension, a build to a payoff)? No dead air, no setup that
+  drags.
+- **Pay off:** does the ending land (the reaction after the beat, the punchline, the reveal), then end fast or loop?
+- **Feel:** what will I feel? Clips win through different angles, and the engine must know which one each clip uses
+  and lean into it: **funny** (prank, roast, fail, awkward), **shock** (a slap, a stunt, a reveal), **drama**
+  (argument, exposed, caught, relationship), **celebrity or rare encounter**, **wholesome or emotional** (a fan, a
+  gift, family), **money and flex**, **skill or "how did he do that"**, **cringe and relatable**. Each angle needs a
+  different cut, caption and title.
+- **Act:** would I share it with a friend, tag someone, comment an opinion, or watch it twice? Those are what the
+  algorithm rewards.
+
+How to use this:
+- Build a **viewer panel**: an AI judge (not the one that made the clip) that watches each finished Short as a
+  stranger and answers the six questions above, with the angle and a one-line reason. Calibrate it against Franklin's
+  keeps and skips and against real top and median Shorts of the same streamer (the top ones should pass, the median
+  ones should show why they didn't).
+- Learn which angles win for which streamer and platform from real view counts (the reference channels' lists),
+  and keep that table up to date.
+- Once posting starts, the viewers' real answers replace the panel's guesses: **swipe-away rate, average view
+  duration, rewatches, shares and comments** per Short (YouTube Studio / TikTok analytics, read by Franklin or
+  exported). These become scoreboard numbers and the panel is re-calibrated against them.
+- Variety matters across a channel too: don't post five clips of the same angle in a row.
+
 ## 2. Priorities, in order (do them in this order unless a number says otherwise)
 
 1. **Fix ranking** (scoreboard #2): teach the judge the moments it underrates (physical surprises with the crew,
@@ -47,13 +78,14 @@ what works, try it, keep only what makes us better, and bring him real clips and
 2. **Make runs reliable** (#6): get the AI eyes off the shared Gemini quota (an open vision model on Kaggle's free GPU,
    or fewer, smarter frames), so a daily run always finishes.
 3. **Prove it isn't tuned to one stream** (#1): a second recall test (N3on on Kick or another big IRL stream).
-4. **Shorts that look like the winners** (#3): measure 20 top Kick_Clippers/Clipatra Shorts frame by frame (payoff
+4. **The viewer panel** (section 1b), calibrated, so every Short is checked from the viewer's side before it ships.
+5. **Shorts that look like the winners** (#3): measure 20 top Kick_Clippers/Clipatra Shorts frame by frame (payoff
    in the first second, framing, captions, cut rate, zooms, sound, length, ending, title) and match them, plus one
    clearly-ours touch (hook line or context) so YouTube counts it as transformed.
-5. **Campaign packaging:** for each live campaign that fits, its rules turned into checks (required tags, length,
+6. **Campaign packaging:** for each live campaign that fits, its rules turned into checks (required tags, length,
    watermark, streamer allow-list), and each Short packaged with title, description, hashtags, the campaign, a
    predicted view band with the reason, and a "before you post" note.
-6. **Several accounts, safely:** a different cut, caption and title of the same moment for each of Franklin's
+7. **Several accounts, safely:** a different cut, caption and title of the same moment for each of Franklin's
    accounts (never the same exported file twice), once he decides how many accounts.
 
 ## 3. How to work (the daily loop, also run by the scheduled "Clipping improver")
