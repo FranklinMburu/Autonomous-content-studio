@@ -1,0 +1,101 @@
+{
+ "title": "Lead Coffins? Why Rome Really Burned Its Dead",
+ "channel": "Hidden Reasons",
+ "topic": "Why the ancient Romans used “lead coffins” for elite burials in the 1st century CE to protect bodies from grave robbers and soil acidity",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A Roman undertaker painted a dead noble's face, then burned him.",
+    "The body lay on a funeral couch, posed like someone eating dinner.",
+    "The family kept it at home for seven or more days."
+   ]
+  },
+  {
+   "feel": "unease",
+   "lines": [
+    "In 79 BC, Sulla was the first from his noble Roman family to be cremated.",
+    "His family had buried its dead instead of burning them.",
+    "Sulla feared Marius's supporters would deface his body."
+   ]
+  },
+  {
+   "feel": "dread",
+   "lines": [
+    "By the 1st and 2nd centuries, cremation was Rome's most common practice.",
+    "Only a few noble families still chose burial.",
+    "The dead were thought to pollute the living.",
+    "For commoners, disposal took less than one day."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, honoring the dead was like keeping a promise to family.",
+    "Romans believed proper rites made ancestors protect their descendants."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "Fire left ashes, not a body for enemies to deface.",
+    "The family buried those ashes beside the cremation site.",
+    "Relatives still visited the family tomb with food and wine."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "The sealed lead coffin was English law, not Roman custom.",
+    "Rome's elite chose fire; English lead could ripple and tear."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Elite Roman bodies were arranged on funeral couches in a lifelike posture, undertakers disguised the death-pallor with cosmetics, and the body lay in state in the family home for seven or more days.",
+   "url": "https://en.wikipedia.org/wiki/Roman_funerary_practices"
+  },
+  {
+   "claim": "Sulla became the first patrician Cornelius to be cremated in 79 BC, perhaps because he feared his body would be defaced by supporters of his enemy Gaius Marius.",
+   "url": "https://en.wikipedia.org/wiki/Roman_funerary_practices"
+  },
+  {
+   "claim": "Cremation became the most common burial practice in the Empire in the 1st and 2nd centuries, while a few noble families continued inhumation; for most commoners, the time between death and disposal was less than 24 hours.",
+   "url": "https://en.wikipedia.org/wiki/Roman_funerary_practices"
+  },
+  {
+   "claim": "In Greco-Roman antiquity the dead were regarded as polluting, and when properly honoured with funeral rites and memorials the spirits of the dead were thought to become benevolent ancestors and protect their descendants.",
+   "url": "https://en.wikipedia.org/wiki/Roman_funerary_practices"
+  },
+  {
+   "claim": "Cremated ashes were interred at or next to the cremation site, and family tombs were visited regularly by living relatives with offerings of food and wine.",
+   "url": "https://en.wikipedia.org/wiki/Roman_funerary_practices"
+  },
+  {
+   "claim": "In England, a coffin for interment above ground had long been required by law to be sealed, traditionally a wooden outer coffin around a lead lining around an inner shell, and after some decades the lead may ripple and tear.",
+   "url": "https://en.wikipedia.org/wiki/Coffin"
+  }
+ ],
+ "key_words": [
+  "undertaker",
+  "noble",
+  "couch",
+  "Sulla",
+  "Marius",
+  "cremated",
+  "cremation",
+  "ashes",
+  "tombs",
+  "lead"
+ ]
+}
