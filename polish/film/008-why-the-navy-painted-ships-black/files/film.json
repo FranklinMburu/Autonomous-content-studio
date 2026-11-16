@@ -1,0 +1,226 @@
+{
+ "era": "1750s",
+ "cast": {
+  "carpenter": "a 22 year old ship carpenter with a lean build, a freckled sun-tanned face, tousled brown hair, a clean-shaven chin, a faded blue wool shirt with rolled sleeves, a brown leather apron and canvas trousers, 1750s",
+  "mate": "a 31 year old Royal Navy sailor with a stocky build, a ruddy round face, a bushy ginger beard, a blue and white striped shirt, a faded red waistcoat, a navy wool cap and blue trousers, 1750s",
+  "captain": "a 46 year old Royal Navy captain with a square-jawed face, short grey hair, heavy dark eyebrows, a clean-shaven chin, a dark navy blue coat with brass buttons and gold trim, a white waistcoat and a black bicorne hat, 1750s",
+  "deckhand": "a 19 year old deckhand with a thin pale face, short sandy hair, freckles, a loose white linen shirt, a blue waistcoat and brown trousers, 1750s",
+  "shipboy": "a 14 year old shipboy with a round freckled face, short dark brown hair, a loose white shirt, a red neckerchief and dark trousers, 1750s"
+ },
+ "music": "curious",
+ "key_words": [
+  "carpenter#1",
+  "slathers#1",
+  "tar#1",
+  "brand‑new#1",
+  "hull#1",
+  "hands#1",
+  "trembling#1",
+  "mates#1",
+  "snicker#1",
+  "black#1",
+  "paint#1",
+  "looks#1",
+  "Weeks#1",
+  "ship#1",
+  "drifts#1",
+  "slower#1",
+  "wake#1",
+  "thick#1",
+  "slime#1",
+  "crew#1",
+  "grumbles#1",
+  "voyage#1",
+  "longer#1",
+  "promised#1",
+  "You#1",
+  "like#1",
+  "wet#1",
+  "sweater#1",
+  "extra#1",
+  "drag#1",
+  "hurts#1",
+  "mixture#1",
+  "black#2",
+  "pitch#1",
+  "seals#1",
+  "wood#1",
+  "hiding#1",
+  "barnacles#1",
+  "algae#1",
+  "hiding#2",
+  "biofouling#1",
+  "smooth#1",
+  "stays#1",
+  "keeps#1",
+  "speed#1",
+  "Ironically#1",
+  "darkness#1",
+  "menacing#1",
+  "simple#1",
+  "hack#1"
+ ],
+ "shots": [
+  {
+   "name": "tar_hull",
+   "at": 0,
+   "who": "carpenter",
+   "clip": true,
+   "prompt": "medium close-up, a young ship carpenter slathering thick black tar onto a brand-new pale wooden ship hull with a wide brush, he is {carpenter}, a wooden shipyard slipway, grey daylight",
+   "motion": "the brush sweeps slowly across the hull, slow camera push in",
+   "check": "Is a man painting a ship hull with black tar?"
+  },
+  {
+   "name": "new_hull",
+   "at": "hull#1",
+   "clip": true,
+   "prompt": "close-up, a wide brush spreading thick black tar over the pale planking of a brand-new wooden ship hull, 1750s shipyard slipway, grey daylight",
+   "motion": "the brush sweeps tar across the pale planking, slow camera push in",
+   "check": "Is a brush spreading black tar on a wooden hull?"
+  },
+  {
+   "name": "trembling_hands",
+   "at": "trembling#1",
+   "clip": true,
+   "prompt": "extreme close-up, a young man's trembling hands gripping a wide tar brush over fresh pale ship planking, black tar dripping from the bristles, wooden shipyard, soft daylight",
+   "motion": "his hands tremble slightly and tar drips slowly, slow camera push in",
+   "hit": "trembling#1",
+   "check": "Are trembling hands holding a tar brush?"
+  },
+  {
+   "name": "mates_snicker",
+   "at": "His#2",
+   "who": "mate",
+   "clip": true,
+   "xfade": true,
+   "prompt": "medium close-up, a stocky ginger-bearded sailor laughing and pointing at a wooden ship hull, he is {mate}, two other sailors snickering behind him, 1750s dockyard, bright morning light",
+   "motion": "he laughs and points at the hull, slow camera push in",
+   "check": "Is a man pointing and laughing?"
+  },
+  {
+   "name": "black_paint",
+   "at": "paint#1",
+   "clip": true,
+   "prompt": "close-up, a hand pointing a finger at glossy black tarred hull planks of a wooden ship, 1750s dockyard, bright daylight",
+   "motion": "the finger taps the glossy black planking, slow camera push in",
+   "check": "Is a finger pointing at black hull planks?"
+  },
+  {
+   "name": "weeks_later",
+   "at": "Weeks#1",
+   "xfade": true,
+   "move": "left",
+   "prompt": "wide shot, a large wooden sailing ship with full white sails gliding slowly across a calm grey sea, 1750s, overcast daylight",
+   "check": "Is a sailing ship on the sea?"
+  },
+  {
+   "name": "slimy_wake",
+   "at": "wake#1",
+   "hit": "wake#1",
+   "move": "push",
+   "prompt": "close-up of dark green slimy foam churning in the wake behind a wooden ship hull on a grey sea, overcast daylight",
+   "check": "Is there green slime in the water?"
+  },
+  {
+   "name": "grumbling_crew",
+   "at": "grumbles#1",
+   "who": "mate",
+   "clip": true,
+   "prompt": "medium shot, a stocky ginger-bearded sailor leaning over the wooden rail and pointing back at the wake, he is {mate}, deck of a 1750s Royal Navy ship, grey daylight",
+   "motion": "he points back and mutters, slow camera push in",
+   "check": "Is a man pointing over a ship rail?"
+  },
+  {
+   "name": "late_voyage",
+   "at": "longer#1",
+   "who": "captain",
+   "clip": true,
+   "prompt": "medium shot, a captain holding up an open brass pocket watch and frowning toward the horizon, he is {captain}, quarterdeck of a 1750s Royal Navy ship, grey daylight",
+   "motion": "he opens the watch and lowers it slowly, slow camera push in",
+   "check": "Is a man holding a pocket watch?"
+  },
+  {
+   "name": "wetsweater",
+   "at": "You#1",
+   "who": "deckhand",
+   "clip": true,
+   "xfade": true,
+   "prompt": "a man in a soaking wet wool sweater straining to run on a wet wooden ship deck, water dripping from his sleeves, he is {deckhand}, grey overcast daylight",
+   "motion": "he tugs at the heavy wet sweater and strains forward, slow camera push in",
+   "check": "Is a man in a wet sweater?"
+  },
+  {
+   "name": "drag",
+   "at": "drag#1",
+   "move": "right",
+   "prompt": "close-up of a black wooden ship hull dragging slowly through thick green seawater, a heavy trail of slime and seaweed streaming behind the hull, dull grey daylight",
+   "hit": "drag#1",
+   "check": "Is a black ship hull in green water?"
+  },
+  {
+   "name": "tarcoat",
+   "at": "The#6",
+   "xfade": true,
+   "clip": true,
+   "prompt": "close-up, a hand spreading thick glossy black tar over a pale wooden ship hull plank with a wide brush, 1750s shipyard, warm daylight",
+   "motion": "the brush drags tar across the plank, slow camera push in",
+   "check": "Is a hand spreading black tar on a wooden hull?"
+  },
+  {
+   "name": "sealing",
+   "at": "seals#1",
+   "clip": true,
+   "prompt": "extreme close-up, a hand pressing a ribbon of black tar into the seam between two wooden hull planks, 1750s shipyard, warm daylight",
+   "motion": "the hand presses the tar firmly into the seam, slow camera push in",
+   "check": "Is a hand pressing tar into a seam between planks?"
+  },
+  {
+   "name": "fouling",
+   "at": "barnacles#1",
+   "move": "right",
+   "prompt": "close-up, a ship's underwater hull covered in pale barnacles and green algae fronds swaying in the current, blue-green sea light",
+   "check": "Is the hull covered in barnacles and green algae?"
+  },
+  {
+   "name": "smoothhull",
+   "at": "biofouling#1",
+   "clip": true,
+   "prompt": "close-up, a sailor's hand sliding over a smooth glossy black ship hull, water streaming past the wood, 1750s at sea, bright daylight",
+   "motion": "the hand slides along the smooth hull, slow camera push in",
+   "check": "Is a hand sliding over a smooth black hull?"
+  },
+  {
+   "name": "speed",
+   "at": "speed#1",
+   "move": "right",
+   "prompt": "wide shot, a black-hulled 1750s sailing ship racing across a blue sea with full white sails and a long clean white wake, bright daylight",
+   "hit": "speed#1",
+   "check": "Is a black sailing ship with white sails on the sea?"
+  },
+  {
+   "name": "menacing_sail",
+   "at": "Ironically#1",
+   "who": "captain",
+   "clip": true,
+   "xfade": true,
+   "prompt": "low angle, a captain gripping the rail of a black-painted warship with towering black sails behind him, he is {captain}, stormy dusk light, dark clouds",
+   "motion": "his coat and hat brim flutter in the wind, slow camera push in",
+   "check": "Is a captain gripping a rail on a ship?"
+  },
+  {
+   "name": "black_ship",
+   "at": "menacing#1",
+   "hit": "menacing#1",
+   "move": "push",
+   "prompt": "wide shot, a black-hulled warship with tall black sails cutting across a grey choppy sea, dark storm clouds, cold dim light",
+   "check": "Is there a black ship on the sea?"
+  },
+  {
+   "name": "clean_wake",
+   "at": "speed#2",
+   "move": "right",
+   "prompt": "close-up, a smooth glossy black ship hull slicing through dark blue sea water, a clean narrow white wake trailing behind, cold silver light",
+   "check": "Is a black hull moving through water?"
+  }
+ ]
+}

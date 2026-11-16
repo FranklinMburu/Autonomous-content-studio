@@ -1,0 +1,76 @@
+{
+ "title": "Why the Navy Painted Ships Black",
+ "channel": "Hidden Reasons",
+ "topic": "Why the British Royal Navy painted the hulls of its ships black in the early 18th century (to conceal biofouling and improve speed)",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A young carpenter slathers tar on a brand‑new hull, his hands trembling."
+   ]
+  },
+  {
+   "feel": "skepticism",
+   "lines": [
+    "His mates snicker, saying the black paint is just for looks."
+   ]
+  },
+  {
+   "feel": "tension",
+   "lines": [
+    "Weeks later, the ship drifts slower, its wake thick with slime.",
+    "The crew grumbles as the voyage takes longer than promised."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it’s like trying to run in a wet sweater – the extra drag hurts."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "The black mixture of tar and pitch actually seals the wood, hiding barnacles and algae.",
+    "By hiding biofouling, the hull stays smooth and the ship keeps its speed."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "Ironically, the very darkness that made the ships look menacing was a simple speed hack."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Biofouling can increase hull drag up to sixty percent, reducing speed by ten percent and requiring up to forty percent more fuel.",
+   "url": "https://en.wikipedia.org/wiki/Biofouling"
+  },
+  {
+   "claim": "Before the eighteenth century, ships were coated with \"Black stuff\" – a mixture of tar and pitch – to protect the hull.",
+   "url": "https://en.wikipedia.org/wiki/Biofouling"
+  }
+ ],
+ "key_words": [
+  "tar",
+  "pitch",
+  "biofouling",
+  "drag",
+  "speed",
+  "hull",
+  "black",
+  "seal",
+  "barnacles",
+  "slime"
+ ]
+}
