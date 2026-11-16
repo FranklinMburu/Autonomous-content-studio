@@ -11,7 +11,7 @@ permissions:
   actions: read
 
 env:
-  REUSE_RUN: "43366288431"   # run 6 (judge with real-winner anchors): transcript, chat, AI eyes and judge scores reused
+  REUSE_RUN: "43825687434"   # run 6 (judge with real-winner anchors): transcript, chat, AI eyes and judge scores reused
   REJUDGE: ""                # reuse run 6 judge scores (13 Nov: measuring the agreement bonus, no new Gemini calls)
   EYES_REDO: ""             # "1" = run the AI eyes again even when an earlier run's eyes could be reused
   EYES_MODEL: ""            # e.g. gemma-4-26b-a4b-it: the eyes on Gemma's own daily allowance; "" = the Gemini Flash default
