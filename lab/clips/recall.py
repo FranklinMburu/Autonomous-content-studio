@@ -167,6 +167,18 @@ def main():
                 pk = peaks(fams[fin], kk)
                 hit = [k for k in key if found(pk, k)]
                 print(f"  top {kk:>2}: {len(hit):>2} of {len(key)} fan clips, {sum(k['views'] for k in hit)/max(1,total_views):.0%} of their views")
+        # 16 Nov: did the judge actually WATCH the fan's moment? It watches [t-60, t+30] around its candidate t.
+        print("\nDid the judge's 90 s window contain the fan clip? (fan clip span vs the window of its best candidate)")
+        for k in sorted(key, key=lambda k: -k["views"]):
+            s0, s1 = k["offset"], k["offset"] + (k.get("duration") or 30)
+            inw = [m for m in judged if m.get("t") is not None and k["offset"] - 120 <= float(m["t"]) <= s1 + 60]
+            if not inw:
+                print(f"  {k['views']:>7,}  {k['title'][:40]:40s} no candidate near it"); continue
+            m = max(inw, key=lambda m: float(m.get("score") or 0))
+            t = float(m["t"]); w0, w1 = t - 60, t + 30
+            cov = max(0.0, min(s1, w1) - max(s0, w0)) / max(1, s1 - s0)
+            print(f"  {k['views']:>7,}  {k['title'][:40]:40s} clip {s0:.0f}-{s1:.0f}  judged t={t:.0f} window {w0:.0f}-{w1:.0f}  "
+                  f"covers {cov:.0%} of the clip; {len(inw)} candidates near it")
         cr = sorted(((float(m["score"]) + 3.0 * m.get("crowd", 0), int(float(m["t"]))) for m in judged if isinstance(m.get("score"), (int, float)) and m.get("t") is not None), reverse=True)
         print("\nWith the crowd added, where each fan clip lands (and what the judge said about it):")
         for k in sorted(key, key=lambda k: -k["views"]):
