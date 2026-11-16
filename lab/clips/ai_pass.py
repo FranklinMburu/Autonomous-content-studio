@@ -208,6 +208,12 @@ def judge(a):
         got = [{k: m.get(k) for k in ("t", "score", "kind", "title", "why", "peak")}
                for m in (r if isinstance(r, list) else r.get("moments", [r] if isinstance(r, dict) else []))
                if isinstance(m, dict) and "t" in m]
+        for m in got:   # 16 Nov: the pick (and the Short) goes to the payoff the judge saw, not to the candidate's t
+            try:
+                if watch and m.get("peak") is not None and abs(float(m["peak"]) - float(m["t"])) <= 120:
+                    m["t_cand"], m["t"] = m["t"], round(float(m["peak"]), 1)
+            except (TypeError, ValueError):
+                pass
         time.sleep(a.pause)
         return got
 

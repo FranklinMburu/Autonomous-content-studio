@@ -118,7 +118,7 @@ def main():
     # 16 Nov: when the judge says where the payoff really is ("peak"), the pick goes there, not to the candidate's t
     for m in judged:
         try:
-            if m.get("peak") is not None and abs(float(m["peak"]) - float(m["t"])) <= 120:
+            if "t_cand" not in m and m.get("peak") is not None and abs(float(m["peak"]) - float(m["t"])) <= 120:
                 m["t_cand"], m["t"] = m["t"], float(m["peak"])
         except (TypeError, ValueError, KeyError):
             pass
