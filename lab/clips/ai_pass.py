@@ -88,7 +88,15 @@ def call(model, parts, want_json=True, tries=6):
                           f"feedback={d.get('promptFeedback')} usage={d.get('usageMetadata')}", flush=True)
                 continue
             txt = re.sub(r"^```(?:json)?\s*|\s*```$", "", txt.strip())
-            return json.loads(txt) if want_json else txt
+            if want_json:
+                try:
+                    return json.loads(txt)
+                except json.JSONDecodeError:
+                    m = re.search(r"(\[.*\]|\{.*\})", txt, re.S)   # text-mode models wrap the JSON in words
+                    if not m:
+                        raise
+                    return json.loads(m.group(1))
+            return txt
         except urllib.error.HTTPError as e:
             full = e.read().decode()
             msg = full[:200]
@@ -109,6 +117,11 @@ def call(model, parts, want_json=True, tries=6):
                 continue
             if e.code == 400 and "mediaResolution" in msg:          # older model: no media-resolution field
                 body["generationConfig"].pop("mediaResolution", None)
+                req.data = json.dumps(body).encode()
+                continue
+            if e.code == 400 and ("json mode" in full.lower() or "responsemimetype" in full.lower()) and \
+                    "responseMimeType" in body["generationConfig"]:   # Gemma: no JSON mode; the answer is parsed from text
+                body["generationConfig"].pop("responseMimeType", None)
                 req.data = json.dumps(body).encode()
                 continue
             print(f"[gemini] error {e.code} on {model}: {' '.join(full.split())[:300]}", flush=True)
@@ -141,7 +154,9 @@ def pick_model():
 
 
 def eyes(a):
-    model = a.model or pick_model()
+    # 16 Nov (Clipping Lab #6): the eyes can run on a Gemma 4 model (same free key, its own much larger daily
+    # allowance) so the judge keeps all of Gemini Flash's small daily quota.
+    model = a.model or os.environ.get("CLIPS_EYES_MODEL") or pick_model()
     tmp = Path(tempfile.mkdtemp())
     subprocess.run(["ffmpeg", "-v", "error", "-i", a.video, "-vf", f"fps=1/{a.step},scale=284:160", "-q:v", "6", str(tmp / "f%05d.jpg")], check=True)
     frames = sorted(tmp.glob("f*.jpg"))
