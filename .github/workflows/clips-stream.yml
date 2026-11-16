@@ -127,6 +127,8 @@ jobs:
         continue-on-error: true
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CLIPS_EYES_MODEL: gemma-4-26b-a4b-it   # 16 Nov: eyes on Gemma's own allowance; same recall as Gemini (7/10 on Kai's stream)
+          CLIPS_EYES_PARALLEL: "4"
         run: |
           python lab/clips/ai_pass.py probe --video f/low.mp4
           s0=$(date +%s); python lab/clips/ai_pass.py eyes --video f/low.mp4 --out f/eyes.json --step 6 --batch 100 --pause 7

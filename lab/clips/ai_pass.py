@@ -161,8 +161,7 @@ def eyes(a):
     subprocess.run(["ffmpeg", "-v", "error", "-i", a.video, "-vf", f"fps=1/{a.step},scale=284:160", "-q:v", "6", str(tmp / "f%05d.jpg")], check=True)
     frames = sorted(tmp.glob("f*.jpg"))
     print(f"[eyes] {len(frames)} frames, one every {a.step} s; batches of {a.batch}")
-    out = []
-    for b in range(0, len(frames), a.batch):
+    def one(b):
         chunk = frames[b:b + a.batch]
         t0 = b * a.step
         parts = [{"text": f"You are watching a live stream like a top clip-channel editor. These are {len(chunk)} frames, one every "
@@ -172,14 +171,22 @@ def eyes(a):
         for i, f in enumerate(chunk):
             parts += [{"text": f"t={t0 + i * a.step}"}, {"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(f.read_bytes()).decode()}}]
         r = call(model, parts)
-        if r is None and b >= 2 * a.batch and not out:
-            raise SystemExit("[eyes] the first batches all failed: stopping instead of burning the run (see [gemini] lines)")
-        r = r or []
-        for m in r if isinstance(r, list) else r.get("moments", []):
-            if isinstance(m, dict) and "t" in m:
-                out.append({"t": float(m["t"]), "score": float(m.get("score", 0)), "what": str(m.get("what", ""))[:200]})
-        print(f"[eyes] {min(len(frames), b + a.batch)}/{len(frames)} frames, {len(out)} notable so far", flush=True)
         time.sleep(a.pause)
+        return b, r
+    # 16 Nov: Gemma's eyes took 42 min one batch at a time; its allowance (30 requests/min) allows several at once
+    par = max(1, int(os.environ.get("CLIPS_EYES_PARALLEL", "1")))
+    out, done, failed = [], 0, 0
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(par) as ex:
+        for b, r in ex.map(one, range(0, len(frames), a.batch)):
+            done += 1
+            failed += r is None
+            if failed >= 2 and not out and done >= 2:
+                raise SystemExit("[eyes] the first batches all failed: stopping instead of burning the run (see [gemini] lines)")
+            for m in (r or []) if isinstance(r or [], list) else (r or {}).get("moments", []):
+                if isinstance(m, dict) and "t" in m:
+                    out.append({"t": float(m["t"]), "score": float(m.get("score", 0)), "what": str(m.get("what", ""))[:200]})
+            print(f"[eyes] {min(len(frames), b + a.batch)}/{len(frames)} frames, {len(out)} notable so far", flush=True)
     Path(a.out).write_text(json.dumps({"model": model, "step": a.step, "moments": out}, indent=0))
 
 

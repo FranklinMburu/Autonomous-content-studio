@@ -193,6 +193,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           CLIPS_EYES_MODEL: ${{ env.EYES_MODEL }}
+          CLIPS_EYES_PARALLEL: ${{ env.EYES_MODEL != '' && '4' || '1' }}
         run: |
           e=$(find prev -name eyes.json 2>/dev/null | head -1)
           if [ -n "$e" ] && [ -s "$e" ] && [ -z "$EYES_REDO" ]; then cp "$e" key/eyes.json; echo "eyes reused from run $REUSE_RUN"; python repo/lab/clips/ai_pass.py show --eyes key/eyes.json; exit 0; fi
