@@ -5,6 +5,8 @@ The code of **YouTube Creator Studio** (also called Youtube-creator-system, YouT
 Autonomous Content Studio). One system, many channels.
 
 ## Read first (Notion)
+**How Franklin thinks — lessons every agent must apply** (YouTube Creator Studio page): apply it, and add a dated line
+when Franklin corrects how we work.
 Projects table → **YouTube Creator Studio** → Project Control Centre. Also read its Drift Guard.
 Channels are the **Sub-item** records of that page. They are parts of this project, never separate projects.
 
