@@ -7,7 +7,7 @@ plan.json = {"seed": 17, "scenes": [{"line": 0, "type": "hook_orbit", "p": {...}
 - "p" holds the scene's own text: labels, numbers, rows. Word anchors ("word") name a word in that line; the animation
   lands on it (captions and visuals stay in sync with the voice, never with fixed seconds).
 """
-import re
+import json, re
 
 S, N, L, B = "text", "number", "list", "bool"
 # type -> {param: (kind, required)}. Kinds: text, number, list, bool. Keep in step with BUILD/RENDER in web/engine.html.
@@ -84,6 +84,10 @@ def validate(script, plan):
             probs.append(f"{where}: unknown type; use one of {', '.join(TYPES)}"); continue
         if not isinstance(p, dict):
             probs.append(f"{where}: p must be an object"); continue
+        # 16 Nov: "<<SERVER_CODE>>" reached the screen in the long video; template placeholders are never shown
+        ph = re.search(r"<<[^>]*>>|\{\{[^}]*\}\}|\[(?:TODO|PLACEHOLDER|INSERT)[^\]]*\]", json.dumps(p, ensure_ascii=False), re.I)
+        if ph:
+            probs.append(f"{where}: placeholder text {ph.group(0)!r}: write the real words or code")
         for k, (kind, req) in TYPES[t].items():
             v = p.get(k)
             if v is None:
