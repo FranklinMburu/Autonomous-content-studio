@@ -1,333 +1,298 @@
 {
  "era": "1st century BC",
  "cast": {
-  "undertaker": "a 45 year old Roman funeral undertaker with a lean weathered face, deep-set brown eyes, short black hair, a clean-shaven jaw, a dark brown wool tunic under a blackened leather apron and a small red felt cap, 1st century BC",
-  "noble": "a 62 year old Roman patrician with a broad ruddy face, heavy brows, short cropped grey hair, a clean-shaven chin, wearing a white toga with a broad purple stripe over a red tunic and bronze sandals, 1st century BC",
-  "matron": "a 55 year old Roman noblewoman with a lined oval face, dark brown hair pinned up under a cream mantle, a deep green stola fastened with a round gold brooch, 1st century BC",
-  "rival": "a 40 year old Roman legionary with a square jaw, black curly hair, dark stubble, a red wool cloak fastened over a bronze breastplate and a leather belt, 1st century BC",
-  "laborer": "a 26 year old Roman commoner with a wiry thin build, sun-darkened skin, messy black curls, a dirt-stained off-white linen tunic and rough rope belt, 1st century BC",
-  "englishman": "a 45 year old English undertaker with a heavy ginger beard, a broad red face, a black wool coat with a stiff white ruff collar and a black broad-brimmed hat, 1600s"
+  "undertaker": "a 45 year old Roman undertaker, stocky build, olive skin, short dark curly hair, clean-shaven, wearing a plain brown wool tunic and leather sandals, 1st century BC",
+  "noble": "a 50 year old Roman patrician nobleman, thin lined face, short greying dark hair, clean-shaven, wearing a white toga with a broad purple border over a cream linen tunic, 1st century BC",
+  "sulla": "a 58 year old Roman ruler, stern rugged face with mottled pale skin, sharp grey eyes, short grey hair, clean-shaven, wearing a dark red cloak over a bronze chestplate, 1st century BC",
+  "mourner": "a 35 year old Roman noblewoman, pale serene face, dark brown hair in braided coils, wearing a dark blue stola dress with a charcoal grey veil draped over her head, 1st century BC",
+  "soldier": "a 28 year old Roman soldier, tanned muscular build, short black hair, stubble on his jaw, wearing a leather tunic with iron shoulder guards and a red sash, 1st century BC"
  },
  "music": "mysterious",
  "key_words": [
-  "Roman",
   "undertaker",
   "painted",
-  "dead",
-  "noble",
-  "face",
   "burned",
-  "body",
-  "funeral",
   "couch",
-  "posed",
-  "dinner",
   "family",
-  "seven",
   "Sulla",
-  "first",
   "cremated",
   "buried",
-  "burning",
-  "feared",
-  "Marius",
-  "supporters",
   "deface",
-  "centuries",
   "cremation",
-  "Rome",
-  "practice",
-  "chose",
-  "burial",
   "pollute",
-  "living",
   "commoners",
-  "disposal",
-  "day",
-  "honoring",
-  "promise",
-  "Romans",
-  "rites",
   "ancestors",
-  "protect",
-  "descendants",
-  "Fire",
   "ashes",
-  "enemies",
-  "site",
-  "Relatives",
-  "visited",
   "tomb",
-  "food",
-  "wine",
-  "sealed",
-  "lead",
   "coffin",
-  "English",
-  "law",
-  "custom",
-  "elite",
-  "fire",
-  "ripple",
-  "tear"
+  "elite"
  ],
  "shots": [
   {
-   "name": "paint",
+   "name": "paint_face",
    "at": 0,
+   "who": "undertaker",
    "clip": true,
-   "prompt": "medium close-up, a funeral undertaker painting a dead patrician's face with a fine brush, he is {undertaker}, the body lies on a funeral couch in a Roman atrium, warm oil lamp light",
-   "motion": "he dabs the brush in small strokes on the cheek, the lamp flame flickers, slow camera push in",
-   "check": "Is a man painting a face with a brush?"
+   "prompt": "close-up, a man applying pale cosmetics with a small brush onto a still nobleman's cheek, he is {undertaker}, dim Roman atrium, warm lamp light",
+   "motion": "his hand moves the brush gently across the cheek, slow camera push in",
+   "check": "Is a man applying paint with a brush?"
   },
   {
-   "name": "burn",
+   "name": "pyre_burn",
    "at": "burned#1",
    "clip": true,
    "hit": "burned#1",
-   "prompt": "medium shot, a funeral undertaker touching a burning torch to a wooden pyre where a white-wrapped body lies, he is {undertaker}, a Roman stone courtyard, dusk firelight",
-   "motion": "the torch flame catches and grey smoke rises, slow camera push in",
-   "check": "Is a man lighting a wooden pyre with a torch?"
+   "prompt": "wide shot of a large wooden pyre engulfed in bright orange flames and smoke under a dark evening sky, Roman stone monuments in background, warm firelight",
+   "motion": "flames lap upward and smoke drifts slowly, slow camera move right",
+   "check": "Is a wooden pyre burning with flames?"
   },
   {
-   "name": "paintedface",
+   "name": "funeral_couch",
    "at": "couch#1",
    "who": "noble",
    "move": "push",
-   "xfade": true,
-   "prompt": "close-up, a dead patrician's painted face resting on a cushion, eyes closed, white toga with a purple stripe, he is {noble}, a Roman funeral couch, warm oil lamp light",
-   "check": "Is a dead man's face lying on a cushion?"
+   "prompt": "medium shot, a deceased man lying reclined on a carved wooden funeral couch with red velvet pillows, he is {noble}, Roman stone hall with tall columns, daylight",
+   "check": "Is a man lying on a couch?"
   },
   {
-   "name": "banquet",
-   "at": "dinner#1",
-   "move": "pull",
-   "prompt": "wide shot, a dead man in a white toga with a purple stripe reclining on a cushioned funeral couch in a Roman atrium, a low table of bowls and cups before him, warm lamp light",
-   "check": "Is a body reclining on a couch beside a table of food?"
-  },
-  {
-   "name": "vigil",
-   "at": "seven#1",
-   "who": "matron",
+   "name": "banquet_pose",
+   "at": "eating#1",
+   "who": "noble",
    "clip": true,
-   "xfade": true,
-   "prompt": "medium shot, a Roman noblewoman setting down a bowl of food on a small table beside a funeral couch with a body, she is {matron}, Roman family atrium, warm lamp light",
-   "motion": "she sets the bowl down and looks down at the body, slow camera push in",
-   "check": "Is a woman placing a bowl of food beside a body?"
+   "prompt": "close-up, a man resting his arm on a decorated bolster pillow near a bronze platter of fruit, posed as if dining, he is {noble}, warm oil lamp light",
+   "motion": "oil lamp flames flicker gently, slow camera push in",
+   "check": "Is a man resting his arm near a platter of fruit?"
   },
   {
-   "name": "rome79",
+   "name": "family_vigil",
+   "at": "kept#1",
+   "who": "mourner",
+   "clip": true,
+   "prompt": "medium shot, a sorrowful veiled woman standing beside a wooden couch with clasped hands, she is {mourner}, grand Roman atrium with a central pool, soft morning light",
+   "motion": "she stands still and slowly lowers her head, slow camera push in",
+   "check": "Is a woman standing beside a couch?"
+  },
+  {
+   "name": "sulla_ruler",
    "at": "In#1",
-   "xfade": true,
+   "who": "sulla",
+   "clip": true,
+   "prompt": "medium shot, a stern ruler in a dark red cloak standing in a stone atrium, he is {sulla}, warm morning sunlight",
+   "motion": "he turns his head slowly with a harsh frown, slow camera push in",
+   "check": "Is a man in a red cloak standing in a stone atrium?"
+  },
+  {
+   "name": "family_line",
+   "at": "noble#1",
+   "move": "left",
+   "prompt": "medium shot, noble Romans in fine white togas standing in a formal stone courtyard, solemn expressions, warm sunlight",
+   "check": "Are there people in white togas?"
+  },
+  {
+   "name": "cremation_pyre",
+   "at": "cremated#1",
    "move": "push",
-   "prompt": "wide shot of a Roman funeral procession walking along a sunlit stone street in 79 BC Rome, white-robed mourners carrying torches beside a wooden bier, red-tiled roofs and columns, warm morning light",
-   "check": "Are white-robed people walking with torches in a street?"
+   "prompt": "close-up of tall wooden logs stacked into a funeral pyre with bright orange flames rising, grey smoke, dusk light",
+   "check": "Are there burning wooden logs?"
   },
   {
-   "name": "firstpyre",
-   "at": "first#1",
-   "who": "noble",
-   "clip": true,
-   "prompt": "medium shot, a Roman patrician in a white toga with a purple stripe standing before a burning funeral pyre, he is {noble}, tall stone columns and smoke behind him, orange firelight",
-   "motion": "he raises his chin and stares into the flames, slow camera push in",
-   "hit": "first#1",
-   "check": "Is a man in a white toga standing before a burning pyre?"
-  },
-  {
-   "name": "familytomb",
-   "at": "family#2",
-   "who": "matron",
-   "clip": true,
-   "prompt": "medium shot, a Roman noblewoman in a deep green stola raising her hand toward a carved stone family tomb, she is {matron}, a sunlit Roman cemetery wall behind her, warm light",
-   "motion": "she raises her hand to the carved stone niche, slow camera push in",
-   "check": "Is a woman raising her hand to a stone tomb?"
-  },
-  {
-   "name": "burial",
+   "name": "ancient_tomb",
    "at": "buried#1",
-   "move": "push",
-   "prompt": "close-up of a dead man in a white shroud lying in an open stone sarcophagus inside a Roman family tomb chamber, an oil lamp glowing on carved stone walls",
-   "check": "Is a body lying in a stone sarcophagus?"
-  },
-  {
-   "name": "fear",
-   "at": "feared#1",
-   "who": "noble",
+   "who": "undertaker",
    "clip": true,
-   "prompt": "medium close-up, a Roman patrician in a white toga with a purple stripe looking anxiously over his shoulder, he is {noble}, a torchlit villa corridor, warm firelight",
-   "motion": "he turns his head and looks over his shoulder, slow camera push in",
-   "check": "Is a man in a white toga looking over his shoulder?"
+   "prompt": "medium shot, an undertaker sliding a heavy stone lid onto a carved marble sarcophagus, he is {undertaker}, dim stone tomb, flickering torch light",
+   "motion": "he slides the stone lid into place firmly, torch light flickers, slow camera push in",
+   "check": "Is a man moving a stone lid on a sarcophagus?"
   },
   {
-   "name": "deface",
+   "name": "fear_enemies",
+   "at": "Sulla#2",
+   "who": "sulla",
+   "clip": true,
+   "prompt": "close-up, a harsh Roman leader narrowing his eyes suspiciously, he is {sulla}, dim stone hallway, warm torch light",
+   "motion": "his eyes shift side to side with suspicion, torch flames flicker, slow camera push in",
+   "check": "Is a man looking suspicious?"
+  },
+  {
+   "name": "angry_mob",
    "at": "deface#1",
-   "who": "rival",
+   "who": "soldier",
    "clip": true,
-   "prompt": "medium shot, an armoured Roman legionary in a red cloak standing over a body on a bier with a white cloth over its face, gripping a sword, he is {rival}, a torchlit Roman street at night",
-   "motion": "he grips his sword and leans over the covered body, torch flames flicker, slow camera push in",
+   "prompt": "medium shot, an angry soldier swinging an iron hammer to smash a marble statue in a street, he is {soldier}, daylight",
+   "motion": "he swings the hammer down forcefully, slow camera push in",
    "hit": "deface#1",
-   "check": "Is an armoured man standing over a covered body?"
+   "check": "Is a man swinging a hammer at a statue?"
   },
   {
    "name": "pyres",
    "at": "By#1",
-   "xfade": true,
    "move": "push",
-   "prompt": "wide shot, a crowded Roman cremation ground with several tall wooden pyres burning, white-robed mourners and slaves moving between them, smoke and bright daylight, 1st century BC",
-   "check": "Are several wooden pyres burning?"
+   "prompt": "wide shot of several smoke plumes rising from stone cremation pyres outside ancient Rome at dusk, olive trees on rolling hills, warm orange sunset light",
+   "check": "Is there smoke rising from stone pyres?"
   },
   {
-   "name": "torch",
-   "at": "most#1",
+   "name": "urn",
+   "at": "cremation#1",
    "who": "undertaker",
    "clip": true,
-   "prompt": "medium shot, a Roman undertaker in a blackened leather apron and small red felt cap holding a long torch to a burning funeral pyre, he is {undertaker}, warm firelight, stone courtyard",
-   "motion": "he presses the torch to the flames and the fire flares, slow camera push in",
-   "check": "Is a man holding a torch to a fire?"
+   "prompt": "a man kneeling and pouring glowing embers into a terracotta urn with a small iron shovel, he is {undertaker}, dark stone tomb background, fire light",
+   "motion": "he carefully scoops glowing embers into the urn, sparks flicker, slow camera push in",
+   "check": "Is a man pouring embers into an urn?"
   },
   {
-   "name": "burial_13",
-   "at": "chose#1",
-   "who": "noble",
+   "name": "burial",
+   "at": "Only#1",
+   "who": "mourner",
    "clip": true,
+   "prompt": "medium shot, a noblewoman in a dark veil watching as workers lower a wooden coffin into a stone tomb, she is {mourner}, stone vault, soft torch light",
+   "motion": "she watches solemnly as the coffin descends, torch flame flickers, slow camera push in",
    "xfade": true,
-   "prompt": "medium shot, a Roman patrician in a white toga with a broad purple stripe gesturing toward a dark open stone burial chamber in a hillside rock tomb, he is {noble}, clear daylight",
-   "motion": "he raises his hand toward the dark opening, slow camera push in",
-   "hit": "burial#1",
-   "check": "Is a man in a white toga beside a stone tomb?"
+   "check": "Is a woman watching a coffin being lowered?"
   },
   {
    "name": "pollute",
-   "at": "pollute#1",
-   "who": "matron",
+   "at": "The#5",
+   "who": "mourner",
    "clip": true,
-   "prompt": "medium shot, a Roman noblewoman in a deep green stola lifting her sleeve over her nose and stepping back from a funeral couch with a white-shrouded body, she is {matron}, sunlit Roman atrium",
-   "motion": "she draws her sleeve over her nose and recoils, slow camera push in",
+   "prompt": "close-up, a Roman woman stepping back and holding a dark veil over her nose, she is {mourner}, dimly lit stone hallway, cool blue window light",
+   "motion": "she steps back slowly and pulls her veil closer, slow camera push in",
    "hit": "pollute#1",
-   "check": "Is a woman covering her nose near a body?"
+   "check": "Is a woman holding a veil over her face?"
   },
   {
-   "name": "commoners",
-   "at": "commoners#1",
-   "who": "laborer",
-   "clip": true,
-   "prompt": "medium shot, a thin Roman laborer in a dirt-stained off-white linen tunic carrying a wooden stretcher with a cloth-wrapped body toward a small pyre in a dusty yard, he is {laborer}, bright daylight",
-   "motion": "he shifts the stretcher on his shoulder and takes a step, slow camera push in",
-   "check": "Is a man carrying a stretcher with a wrapped body?"
-  },
-  {
-   "name": "day",
-   "at": "day#1",
+   "name": "stretcher",
+   "at": "For#2",
    "move": "pull",
-   "prompt": "wide shot, the terracotta rooftops of ancient Rome at late afternoon with thin smoke rising from distant funeral pyres, golden sunlight, cypress trees",
-   "check": "Is smoke rising over Roman rooftops?"
+   "prompt": "a body wrapped in a plain coarse linen sheet lying on a simple wooden stretcher, a flickering candle nearby, dim stone room",
+   "check": "Is a wrapped body on a wooden stretcher?"
   },
   {
-   "name": "offering",
-   "at": "You#1",
-   "who": "matron",
+   "name": "quick_disposal",
+   "at": "disposal#1",
    "clip": true,
-   "prompt": "medium shot, a woman kneeling beside a stone family tomb setting down a clay bowl of fruit and a cup of wine, she is {matron}, a Roman cemetery outside the city walls, warm morning light",
-   "motion": "she sets the bowl down gently, slow camera push in",
+   "prompt": "medium shot, two men carrying a simple wooden stretcher with a wrapped body down a narrow Roman street at dusk, oil lamps",
+   "motion": "they carry the stretcher briskly down the street, oil lamps flicker, slow camera move right",
+   "check": "Are men carrying a stretcher with a body?"
+  },
+  {
+   "name": "vow",
+   "at": "You#1",
+   "who": "mourner",
+   "clip": true,
+   "prompt": "medium shot, a Roman noblewoman kneeling on both knees at a stone family tomb, setting down a bowl of fruit and a cup of wine, she is {mourner}, a Roman necropolis outside the city walls, warm late afternoon light",
+   "motion": "she places the bowl and cup on the tomb, slow camera push in",
    "xfade": true,
    "check": "Is a woman kneeling beside a stone tomb?"
   },
   {
-   "name": "vow",
+   "name": "offering",
    "at": "keeping#1",
-   "who": "noble",
    "clip": true,
-   "prompt": "medium close-up, a man raising a small clay cup of wine before a household shrine with painted wax ancestor masks, he is {noble}, a Roman atrium, warm lamp light",
-   "motion": "he raises the cup slightly and lowers his eyes, slow camera push in",
-   "check": "Is a man holding up a cup?"
+   "prompt": "close-up, two hands pouring dark wine from a clay jug into a small cup on a stone tomb altar, Roman necropolis, warm sunset light",
+   "motion": "the wine pours steadily into the cup, slow camera push in",
+   "check": "Is wine pouring into a cup?"
   },
   {
-   "name": "ancestor_masks",
+   "name": "rites",
    "at": "Romans#1",
-   "move": "push",
-   "prompt": "wide shot, a row of painted wax ancestor masks on a wooden shelf above a stone altar with smoking incense in a Roman atrium, daylight from an open door",
-   "hit": "Romans#1",
-   "xfade": true,
-   "check": "Are there painted ancestor masks on a shelf?"
+   "who": "noble",
+   "clip": true,
+   "prompt": "medium shot, a Roman patrician lighting a small clay oil lamp before a wooden shrine of painted ancestor masks, he is {noble}, a Roman home atrium, warm lamplight",
+   "motion": "he lights the lamp and raises his hand toward the masks, slow camera push in",
+   "check": "Is a man lighting an oil lamp?"
   },
   {
    "name": "protect",
    "at": "protect#1",
-   "who": "matron",
    "clip": true,
-   "prompt": "medium shot, a woman holding a small child close against her chest in a Roman atrium, painted ancestor masks on the wall behind, she is {matron}, warm lamplight",
-   "motion": "she holds the child close and turns her head toward the masks, slow camera push in",
-   "hit": "protect#1",
-   "check": "Is a woman holding a child?"
+   "prompt": "medium shot, a tall bronze statue of a helmeted Roman ancestor holding a spear above a small child clinging to its leg, a stone family tomb behind, Roman necropolis, warm dawn light",
+   "motion": "the child shifts closer and the bronze spear glints, slow camera push in",
+   "check": "Is a child beside a bronze statue?"
   },
   {
    "name": "pyre",
    "at": "Fire#1",
    "who": "undertaker",
    "clip": true,
-   "prompt": "medium close-up, an undertaker stoking a burning funeral pyre with a long iron poker, he is {undertaker}, Roman funeral ground outside the city walls, orange firelight",
-   "motion": "he pushes the poker into the flames, sparks rise, slow camera push in",
    "xfade": true,
-   "check": "Is an undertaker stoking a burning pyre?"
+   "prompt": "medium shot, an undertaker pushing a long iron poker into a blazing funeral pyre where a wrapped body burns, he is {undertaker}, a Roman funeral ground at dusk, orange firelight",
+   "motion": "he pushes the poker into the flames and the flames flare, slow camera push in",
+   "check": "Is a man pushing a poker into a burning pyre?"
   },
   {
-   "name": "buried",
-   "at": "buried#2",
-   "who": "matron",
+   "name": "ashes",
+   "at": "enemies#1",
+   "who": "soldier",
    "clip": true,
-   "prompt": "medium shot, a noblewoman lowering a clay urn of ashes into a stone burial niche in a tomb wall beside a smoking cremation pyre, she is {matron}, Roman cemetery outside the city walls, warm afternoon light",
-   "motion": "she lowers the urn carefully, smoke drifts, slow camera push in",
-   "check": "Is a woman lowering an urn into a stone niche?"
+   "prompt": "medium shot, a Roman soldier kicking a heap of grey ashes scattered on a stone funeral platform, he is {soldier}, a Roman forum, harsh daylight",
+   "motion": "he kicks the ashes and they scatter in the air, slow camera push in",
+   "check": "Is a man kicking grey ashes?"
+  },
+  {
+   "name": "burial_23",
+   "at": "The#8",
+   "move": "pull",
+   "prompt": "wide shot of a Roman family burial ground with a fresh mound of earth, a small clay urn resting on it and a stone cremation pyre beside, smoke drifting, golden hour light",
+   "hit": "buried#2",
+   "check": "Is there a clay urn on a fresh mound of earth?"
+  },
+  {
+   "name": "site",
+   "at": "beside#1",
+   "move": "push",
+   "prompt": "close-up of a soot-blackened stone cremation pyre with glowing orange embers and a low stone-lined ash trench, a Roman cremation site, late afternoon light",
+   "check": "Is there a stone pyre with glowing embers?"
   },
   {
    "name": "relatives",
    "at": "Relatives#1",
-   "move": "push",
-   "prompt": "medium shot, Roman relatives in white togas standing inside a stone family tomb chamber with painted wall frescoes, offering bowls of fruit and wine at a stone altar, warm torchlight",
-   "check": "Are Roman relatives standing inside a stone tomb?"
-  },
-  {
-   "name": "wine",
-   "at": "wine#1",
    "clip": true,
-   "prompt": "close-up, a hand pouring dark red wine from a clay jug into a small cup on a weathered stone tomb, Roman cemetery outside the city walls, golden late light",
-   "motion": "the wine pours steadily into the cup, slow camera push in",
-   "check": "Is wine being poured into a cup?"
+   "prompt": "medium shot, three robed Roman relatives pausing before a carved stone family tomb and raising their hands in greeting, hillside Roman necropolis, warm morning light",
+   "motion": "they raise their hands slowly in greeting, slow camera push in",
+   "check": "Are three robed people standing before a stone tomb?"
   },
   {
-   "name": "english_law",
+   "name": "tomb_visit",
+   "at": "visited#1",
+   "who": "mourner",
+   "clip": true,
+   "prompt": "medium close-up, a veiled Roman noblewoman bowing her head over a carved stone family tomb, she is {mourner}, warm morning light",
+   "motion": "she bows her head slowly, slow camera push in",
+   "check": "Is a veiled woman bowing over a stone tomb?"
+  },
+  {
+   "name": "lead_coffin",
    "at": "The#11",
-   "who": "englishman",
    "xfade": true,
-   "clip": true,
-   "prompt": "close-up, a bearded man in a white ruff collar hammering iron fasteners into a heavy grey lead coffin, he is {englishman}, dark 17th century workshop, lantern light",
-   "motion": "he strikes the metal fastener with a mallet, slow camera push in",
-   "check": "Is a man hammering a lead coffin?"
-  },
-  {
-   "name": "roman_custom",
-   "at": "not#2",
-   "who": "matron",
-   "clip": true,
-   "prompt": "medium shot, a noblewoman in a deep green stola looking at bright flames from a funeral pyre, she is {matron}, marble columbarium, golden firelight",
-   "motion": "she turns her face slowly toward the blazing fire, slow camera push in",
-   "check": "Is a woman watching a fire?"
-  },
-  {
-   "name": "lead_ripple",
-   "at": "English#2",
    "move": "push",
-   "prompt": "close-up of a dull grey lead metal sheet bending and wrinkling under stress on a wooden table, dark workshop background, dim lamp light",
-   "check": "Is sheet metal bending?"
+   "prompt": "close-up of a heavy grey lead coffin with a sealed lid resting on a stone slab, a dim English stone church behind, cold grey window light",
+   "check": "Is there a heavy grey lead coffin?"
   },
   {
-   "name": "lead_tear",
-   "at": "tear#1",
-   "hit": "tear#1",
+   "name": "roman_pyre",
+   "at": "Roman#3",
+   "who": "undertaker",
    "clip": true,
-   "prompt": "extreme close-up of a jagged tear splitting open across a soft grey lead panel, dark gap inside, harsh side light",
-   "motion": "the tear in the metal widens slightly, slow camera push in",
-   "check": "Is there a tear in a metal panel?"
+   "prompt": "medium shot, a stocky man stoking a burning funeral pyre with a long wooden pole, he is {undertaker}, a sunlit Roman courtyard with stone walls, warm firelight",
+   "motion": "he pushes a log into the flames, flames flicker, slow camera push in",
+   "check": "Is a man stoking a burning funeral pyre?"
+  },
+  {
+   "name": "elite_fire",
+   "at": "fire;#1",
+   "who": "noble",
+   "clip": true,
+   "prompt": "medium close-up, a Roman patrician nobleman standing before roaring orange flames, he is {noble}, a Roman funeral courtyard, firelight on his face",
+   "motion": "the flames surge and his toga stirs, slow camera push in",
+   "check": "Is a patrician nobleman standing before flames?"
+  },
+  {
+   "name": "torn_lead",
+   "at": "ripple#1",
+   "move": "right",
+   "prompt": "extreme close-up of a badly rippled grey lead coffin lid with a long torn edge peeled upward, cold grey light in an English stone church",
+   "check": "Is there a rippled lead coffin lid with a torn edge?",
+   "hit": "tear#1"
   }
  ]
 }

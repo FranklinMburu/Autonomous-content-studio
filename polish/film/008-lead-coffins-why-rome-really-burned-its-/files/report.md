@@ -7,4 +7,4 @@ Topic: Why the ancient Romans used “lead coffins” for elite burials in the 1
 - Logic check issues found: 4
 - Words: 173, length 59.0s, 176 words/min, 9 words in first 3 s
 - Fact check: {'partial': 3, 'supported': 9, 'unsupported': 3}
-- Film shot list: 29 shots, 5 problem(s) left for the polish step (NEEDS_POLISH.md)
+- Film shot list: 31 shots, 3 problem(s) left for the polish step (NEEDS_POLISH.md)
