@@ -187,20 +187,25 @@ def judge(a):
         who = f"The streamer is {a.streamer}: name him in titles (fans' name), never 'the streamer'.\n" if getattr(a, "streamer", None) else ""
         parts = [{"text": f"You are the best clip-channel editor alive. {TASTE}\n{RUBRIC}\n{who}\n" + "\n\n".join(blocks)}]
         if watch:   # SliceQ / clipit lesson: let the judge watch and hear the moment, not only read it
+            # 16 Nov (Clipping Lab #2): the old window [t-60, t+30] covered 0% of the top fan clip (the candidate sat
+            # 108 s before it). Now the judge watches t +- WIN s and says where the payoff really is ("peak").
             t = batch[0]["t"]
-            a0 = max(0, t - 60)
+            WIN = int(os.environ.get("CLIPS_JUDGE_WIN", "75"))
+            a0 = max(0, t - WIN)
             clip = Path(tempfile.mkdtemp()) / "m.mp4"
-            subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(a0), "-t", "90", "-i", a.video, "-ss", str(a0), "-t", "90",
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(a0), "-t", str(2 * WIN), "-i", a.video, "-ss", str(a0), "-t", str(2 * WIN),
                             "-i", a.audio, "-map", "0:v:0", "-map", "1:a:0", "-vf", "fps=2,scale=284:160", "-c:v", "libx264",
                             "-crf", "34", "-preset", "veryfast", "-ac", "1", "-ar", "16000", "-c:a", "aac", "-b:a", "32k", str(clip)],
                            check=False)
             if clip.exists() and clip.stat().st_size > 1000:
-                parts[0]["text"] += (f"\n\nThe video below is the moment itself, low quality, from {a0} s to {a0 + 90} s of the "
-                                     f"stream (so t={t} is {t - a0} s into it). Judge from what you SEE and HEAR; the words above "
-                                     "are a rough transcript. Return a JSON list with one entry.")
+                parts[0]["text"] += (f"\n\nThe video below is low quality, from {a0} s to {a0 + 2 * WIN} s of the stream (t={t} is "
+                                     f"{t - a0} s into it). The best moment may be anywhere in it, not only at t. Judge the STRONGEST "
+                                     "moment you SEE and HEAR in the whole video; the words above are a rough transcript. Return a JSON "
+                                     "list with one entry, including \"peak\": the stream time in seconds (a number between "
+                                     f"{a0} and {a0 + 2 * WIN}) where that moment's payoff happens.")
                 parts.append({"inline_data": {"mime_type": "video/mp4", "data": base64.b64encode(clip.read_bytes()).decode()}})
         r = call(model, parts) or []
-        got = [{k: m.get(k) for k in ("t", "score", "kind", "title", "why")}
+        got = [{k: m.get(k) for k in ("t", "score", "kind", "title", "why", "peak")}
                for m in (r if isinstance(r, list) else r.get("moments", [r] if isinstance(r, dict) else []))
                if isinstance(m, dict) and "t" in m]
         time.sleep(a.pause)
