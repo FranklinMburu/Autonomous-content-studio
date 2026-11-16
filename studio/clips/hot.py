@@ -44,6 +44,19 @@ ROSTER = {
     "dub": ("kick", "notquitelikedub"), "bendadonnn": ("kick", "bendadonnn"), "clavicular": ("kick", "clavicular"),
 }
 BAD_CATEGORY = re.compile(r"slots|casino|gambl|roleplay|\brp\b|grand theft auto|gta|rob run", re.I)
+# Franklin, 16 Nov 2026: GTA 6 launches 19 Nov. From 19 Nov to 3 Dec the big streamers we already know (KNOWN) may be
+# clipped while playing GTA; roleplay servers, gambling and unknown GTA streamers stay out.
+GTA_WINDOW = ("2026-11-19", "2026-12-03")
+GTA_CATEGORY = re.compile(r"grand theft auto|gta", re.I)
+ROLEPLAY = re.compile(r"roleplay|\brp\b", re.I)
+
+
+def gta_allowed(cat, known, today=None):
+    today = today or time.strftime("%Y-%m-%d", time.gmtime())
+    return bool(known) and GTA_WINDOW[0] <= today <= GTA_WINDOW[1] and bool(GTA_CATEGORY.search(cat or "")) \
+        and not ROLEPLAY.search(cat or "") and not re.search(r"slots|casino|gambl", cat or "", re.I)
+
+
 LANE_CATEGORY = re.compile(r"just chatting|irl|chat roulette|pools|hot tubs|music|sports|food|travel", re.I)
 
 
@@ -232,7 +245,7 @@ def streamers(a):
     kv, kt, kc = kick_day()
     for slug, n in kv.items():
         cat, known = kc.get(slug, ""), ("kick", slug) in ROSTER.values()
-        if BAD_CATEGORY.search(cat) or (not known and (not LANE_CATEGORY.search(cat) or not all(englishish(t) for _, t in kt[slug][:3]))):
+        if (BAD_CATEGORY.search(cat) and not gta_allowed(cat, known)) or (not known and (not LANE_CATEGORY.search(cat) or not all(englishish(t) for _, t in kt[slug][:3]))):
             continue
         s = score[("kick", slug)]
         s["kick_views"], s["kick_top"], s["category"] = n, [f"{v:,} {t[:70]}" for v, t in sorted(kt[slug], reverse=True)[:2]], kc.get(slug, "")
