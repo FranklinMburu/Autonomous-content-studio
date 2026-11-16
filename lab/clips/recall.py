@@ -115,6 +115,26 @@ def main():
             if 0 <= i < n:
                 jc[i] = sc * 10 + float(allz[i])
         fams["ALL + AI JUDGE"] = jc
+        # 16 Nov (Clipping Lab #2, ranking): a human clipper also feels the crowd. "crowd" = how unanimously the
+        # independent signals fire around a moment: the mean, over the signal families, of the percentile of each
+        # family's best second within +-15 s (0..1). Final = judge score (0-10) + CROWD_W * crowd. The weight is set
+        # before looking at the result (3 = up to three judge points when every signal is at the stream's peak).
+        CROWD_W = 3.0
+        sig = {k: v for k, v in fams.items() if k not in ("ALL TOGETHER", "ALL + AI JUDGE")}
+        srt = {k: np.sort(v) for k, v in sig.items()}
+        def crowd(i):
+            lo, hi = max(0, i - 15), min(n, i + 16)
+            return float(np.mean([np.searchsorted(srt[k], v[lo:hi].max()) / len(v) for k, v in sig.items()])) if sig else 0.0
+        jc2 = np.full(n, -1e9)
+        for m in judged:
+            try:
+                i, sc = int(float(m["t"])), float(m["score"])
+            except (TypeError, ValueError, KeyError):
+                continue
+            if 0 <= i < n:
+                m["crowd"] = round(crowd(i), 3)
+                jc2[i] = (sc + CROWD_W * m["crowd"]) * 10 + float(allz[i]) * 0.01
+        fams["ALL + AI JUDGE + CROWD"] = jc2
     total_views = sum(k["views"] for k in key)
 
     def found(pk, k):
@@ -141,11 +161,19 @@ def main():
             row.append(f"{100 * (sc < v).mean():>9.0f}" if v > -1e8 else f"{'-':>9s}")
         print("  " + " ".join(row) + f"  {k['views']:>6,} {k['title'][:40]}")
     if judged:
-        print("\nALL + AI JUDGE by number of picks (a 3 h IRL stream can carry 20-40 Shorts):")
-        for kk in (10, 20, 30, 40, 60):
-            pk = peaks(fams["ALL + AI JUDGE"], kk)
-            hit = [k for k in key if found(pk, k)]
-            print(f"  top {kk:>2}: {len(hit):>2} of {len(key)} fan clips, {sum(k['views'] for k in hit)/max(1,total_views):.0%} of their views")
+        for fin in ("ALL + AI JUDGE", "ALL + AI JUDGE + CROWD"):
+            print(f"\n{fin} by number of picks (a 3 h IRL stream can carry 20-40 Shorts):")
+            for kk in (10, 20, 30, 40, 60):
+                pk = peaks(fams[fin], kk)
+                hit = [k for k in key if found(pk, k)]
+                print(f"  top {kk:>2}: {len(hit):>2} of {len(key)} fan clips, {sum(k['views'] for k in hit)/max(1,total_views):.0%} of their views")
+        cr = sorted(((float(m["score"]) + 3.0 * m.get("crowd", 0), int(float(m["t"]))) for m in judged if isinstance(m.get("score"), (int, float)) and m.get("t") is not None), reverse=True)
+        print("\nWith the crowd added, where each fan clip lands (and what the judge said about it):")
+        for k in sorted(key, key=lambda k: -k["views"]):
+            inwin = [(i + 1, s, t) for i, (s, t) in enumerate(cr) if k["offset"] - 120 <= t <= k["offset"] + (k.get("duration") or 30) + 60]
+            jm = next((m for m in judged if inwin and int(float(m["t"])) == inwin[0][2]), {})
+            print(f"  {k['views']:>7,}  {k['title'][:40]:40s} " + (f"rank {inwin[0][0]} of {len(cr)} (crowd {jm.get('crowd')}, judge {jm.get('score')}) "
+                  f"| {str(jm.get('kind'))[:20]} | {str(jm.get('why'))[:160]}" if inwin else "never reached the judge"))
         order = sorted(((float(m["score"]), int(float(m["t"]))) for m in judged if isinstance(m.get("score"), (int, float)) and m.get("t") is not None), reverse=True)
         print("\nWhere the judge put each fan clip (its best-scored candidate inside the clip's window):")
         for k in sorted(key, key=lambda k: -k["views"]):

@@ -11,8 +11,8 @@ permissions:
   actions: read
 
 env:
-  REUSE_RUN: "43358915880"   # an earlier run whose transcript, chat and AI eyes are reused; "" = redo
-  REJUDGE: "1"               # judge again: real winners as anchors + the crew/cameraman class (13 Nov)
+  REUSE_RUN: "43366288431"   # run 6 (13 Nov): transcript, chat, AI eyes and judge scores reused; "" = redo
+  REJUDGE: ""                # "" = reuse run 6's judge scores (no Gemini calls); "1" = judge again
   KEY_RUN: "43327666336"     # the run whose answer key still had all 10 fan clips (they age out of Twitch's 30-day list)
 
 jobs:
