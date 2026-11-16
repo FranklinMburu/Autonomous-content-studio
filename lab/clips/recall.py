@@ -123,16 +123,22 @@ def main():
         except (TypeError, ValueError, KeyError):
             pass
     if judged:
-        jc = np.full(n, -1e9)
         allz = fams["ALL TOGETHER"]
-        for m in judged:
-            try:
-                i, sc = int(float(m["t"])), float(m["score"])
-            except (TypeError, ValueError, KeyError):
-                continue
-            if 0 <= i < n:
-                jc[i] = sc * 10 + float(allz[i])
-        fams["ALL + AI JUDGE"] = jc
+        # 16 Nov (Clipping Lab #2): the judge's own WATCHED score ranks the moments. The old text-only global ranking
+        # re-ordered the top 30 by the judge's titles (no video) and replaced the score; it rewarded invented celebrity
+        # titles on the party stream. Older judged.json files keep the watched score as "score_alone": use it.
+        # The old ranking stays measured side by side ("global rank, old") until this is settled.
+        for name, field in (("ALL + AI JUDGE (global rank, old)", "score"), ("ALL + AI JUDGE", "watched")):
+            jc = np.full(n, -1e9)
+            for m in judged:
+                try:
+                    i = int(float(m["t"]))
+                    sc = float(m["score"] if field == "score" else m.get("score_alone", m["score"]))
+                except (TypeError, ValueError, KeyError):
+                    continue
+                if 0 <= i < n:
+                    jc[i] = sc * 10 + float(allz[i])
+            fams[name] = jc
     total_views = sum(k["views"] for k in key)
 
     def found(pk, k):
@@ -159,7 +165,7 @@ def main():
             row.append(f"{100 * (sc < v).mean():>9.0f}" if v > -1e8 else f"{'-':>9s}")
         print("  " + " ".join(row) + f"  {k['views']:>6,} {k['title'][:40]}")
     if judged:
-        for fin in ("ALL + AI JUDGE",):
+        for fin in ("ALL + AI JUDGE (global rank, old)", "ALL + AI JUDGE"):
             print(f"\n{fin} by number of picks (a 3 h IRL stream can carry 20-40 Shorts):")
             for kk in (10, 20, 30, 40, 60):
                 pk = peaks(fams[fin], kk)
@@ -186,7 +192,7 @@ def main():
             cov = max(0.0, min(s1, w1) - max(s0, w0)) / max(1, s1 - s0)
             print(f"  {k['views']:>7,}  {k['title'][:40]:40s} clip {s0:.0f}-{s1:.0f}  judged t={t:.0f} window {w0:.0f}-{w1:.0f}  "
                   f"covers {cov:.0%} of the clip; {len(inw)} candidates near it")
-        order = sorted(((float(m["score"]), int(float(m["t"]))) for m in judged if isinstance(m.get("score"), (int, float)) and m.get("t") is not None), reverse=True)
+        order = sorted(((float(m.get("score_alone", m["score"])), int(float(m["t"]))) for m in judged if isinstance(m.get("score"), (int, float)) and m.get("t") is not None), reverse=True)
         print("\nWhere the judge put each fan clip (its best-scored candidate inside the clip's window):")
         for k in sorted(key, key=lambda k: -k["views"]):
             inwin = [(i + 1, sc, t) for i, (sc, t) in enumerate(order) if k["offset"] - 120 <= t <= k["offset"] + (k.get("duration") or 30) + 60]

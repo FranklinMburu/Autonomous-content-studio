@@ -246,10 +246,12 @@ def judge(a):
             out.extend(got)
             if k % 10 == 0 or k * step >= len(cands):
                 print(f"[judge] {min(len(cands), k * step)}/{len(cands)}" + (" (watched)" if watch else ""), flush=True)
-    # Global ranking pass (Hooky): the model orders the best candidates against each other, which is steadier than
-    # separate 0-10 scores. The rank becomes the final score; the per-moment score stays as "score_alone".
+    # Global ranking pass (Hooky): the model orders the best candidates against each other from their TITLES only (no
+    # video). 16 Nov (Clipping Lab #2): it no longer replaces the watched score, because on the party stream it put
+    # invented celebrity titles on top ("LeBron James actually showed up"); the rank is kept as "rank_global" for
+    # reference only. CLIPS_GLOBAL_RANK=1 brings the old behaviour back for a comparison.
     top = sorted([m for m in out if isinstance(m.get("score"), (int, float))], key=lambda m: -m["score"])[:30]
-    if len(top) > 3:
+    if len(top) > 3 and os.environ.get("CLIPS_GLOBAL_RANK", "") == "1":
         ev = [{"i": i, "t": m["t"], "kind": m.get("kind"), "title": m.get("title"), "why": m.get("why")} for i, m in enumerate(top)]
         r = call(model, [{"text": f"{TASTE}\nThese are the strongest candidate moments of one stream. Order ALL of them from most "
                                   "to least likely to reach 250K+ views as a Short. Return JSON: a list of the \"i\" values, best "
@@ -259,8 +261,7 @@ def judge(a):
         order = [x for x in order if not (x in seen_i or seen_i.add(x))]
         order += [i for i in range(len(top)) if i not in seen_i]
         for rank, i in enumerate(order):
-            top[i]["score_alone"] = top[i]["score"]
-            top[i]["score"] = round(10 - 7 * rank / max(1, len(order) - 1), 2)   # best 10 ... last of the top 30: 3
+            top[i]["rank_global"] = rank + 1
         print("[judge] global ranking:", " ".join(str(top[i]["t"]) for i in order[:10]))
     Path(a.out).write_text(json.dumps({"model": model, "judged": out}, indent=1))
 
