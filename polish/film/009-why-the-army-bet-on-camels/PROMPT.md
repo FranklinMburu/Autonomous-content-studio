@@ -74,10 +74,6 @@ Return JSON only: {"era": "...", "cast": {...}, "key_words": [...], "music": "<o
            {"name": ..., "at": ..., "prompt": ..., "check": "Is ...?", "move": "push"}, ...]}
 
 CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid these exact scenes):
-- 005-why-barry-marshall-swallowed-bacteria: cast marshall = a 33 year old Australian doctor, lean build, curly dark brown hair, a full dark brown beard, brown eyes, thin wire-rimmed glasses, a white short-sleeved shirt under a pale blue lab coat and khaki trousers, 1980s; warren = a 46 year old Australian pathologist with short receding grey hair, a clean-shaven square face, heavy black-framed glasses, a white lab coat over a brown checked shirt, 1980s; skeptic = a 48 year old British gastroenterologist, stocky build, balding with short grey hair at the sides, heavy dark eyebrows, clean shaven, a charcoal grey suit jacket, a burgundy patterned tie and white shirt, 1980s; nurse = a 35 year old nurse, sturdy build, dark brown hair in a ponytail, teal scrubs, 1980s; wife = a 32 year old woman with shoulder-length wavy blond hair, a sun-tanned face and a yellow sleeveless summer dress, 1980s
-  scenes: close-up, a bearded doctor drinking cloudy brown liquid from a glass b | medium close-up, a doctor wincing and pressing a hand on his stomach,  | medium shot, a stressed businessman in a brown suit clutching his stom | close-up of a plate of bright red chilli peppers next to a bowl of spi | wide shot of a sunny 1980s Australian city hospital with palm trees in | medium shot, a pathologist looking into a microscope, he is {warren},  | medium shot, a balding doctor laughing and shaking his head at a meeti | extreme close-up of clear liquid bubbling in a glass beaker on a lab b | close-up, a hand dropping a stapled paper into a metal wastebasket, 19 | medium close-up, a doctor reading a letter and slumping back in his ch | medium shot, pink piglets sniffing around a clean straw pen, bright da | close-up, a doctor rolling up his sleeves with a determined face, he i
-- 005-why-goldberger-swallowed-scabs: cast goldberger = a 42 year old lean American physician with short wavy dark brown hair, a neat small moustache, deep-set brown eyes and a long serious face, wearing a charcoal three-piece suit, a white wing-collar shirt and a dark tie, 1910s; wife = a 38 year old woman with dark auburn hair pinned up high, a narrow freckled face, a high-collared cream lace blouse and a long navy blue skirt, 1910s; orphan = a 9 year old thin girl with long blond braids, big grey eyes and a faded pink cotton dress with a white collar, 1910s; prisoner = a 27 year old lean prisoner with a tanned face, short dark hair and stubble on his chin, wearing a blue and white striped prison shirt with rolled sleeves, 1910s; critic = a 60 year old stout doctor with a bald head, bushy white side whiskers, small gold pince-nez and a black frock coat with a watch chain, 1910s; chemist = a 36 year old laboratory chemist with thinning blond hair, round black spectacles and a clean-shaven round face, wearing a white lab coat over a dark tie, 1930s
-  scenes: close-up, a doctor pushing a glass syringe needle into his own forearm | medium shot, a woman rolling up her blouse sleeve beside a table with  | extreme close-up of a man's forearm covered in a dark red peeling rash | wide shot of a dusty 1910s Southern farm with a small wooden shack and | wide shot of a long 1910s hospital ward full of iron beds with sick pa | medium shot, three doctors in dark suits peering into microscopes on a | medium close-up, a doctor standing with folded arms and watching a hos | medium shot, a healthy smiling nurse in a white apron carrying a tray  | medium shot, a strong healthy orderly in a white jacket mopping a hosp | close-up, a thin woman stirring a pot of yellow cornmeal mush over an  | wide shot of a big white wooden orphanage with a long porch and childr | close-up, hands setting plates of meat, eggs and green vegetables on a
 - 005-why-he-scratched-cow-pus-into-a-boy: cast jenner = a 47 year old English country doctor with receding grey-brown hair tied back, a long thin nose, a clean shaven lined face, kind tired eyes, a dark green wool frock coat, a cream waistcoat, a white cravat and brown breeches, 1790s; james = an eight year old English boy with short light brown hair, round rosy cheeks, a gap-toothed grin, a loose grey linen shirt and brown wool breeches, 1790s; sarah = a 24 year old English milkmaid with fair skin, reddish blond hair in a loose bun under a white linen cap, a faded blue cotton dress, a cream apron and rolled sleeves, 1790s
   scenes: close-up, a doctor pressing a small silver lancet to a boy's bare uppe | wide shot of green rolling English hills with a small stone village an | close-up of a pale sick child covered in red spots lying on a white pi | wide shot of a crowded narrow 1790s English town street packed with pe | medium shot, an old doctor in a black coat opening a leather case of s | extreme close-up of a small blade scratching a thin line on a pale for | close-up, a young woman resting in a wooden bed with a few red spots o | a wooden bed with a white sheet pulled over a still shape, one candle  | medium shot, a small boy lying sick in a narrow bed with a wet cloth o | close-up, a doctor rolling up his sleeve and looking at an old scar on | medium shot, a tired doctor pressing one hand to his chest and leaning | medium shot, a doctor leaning on a wooden fence and watching cows clos
 - 005-how-london-s-great-stink-built-its-sewer: cast disraeli = a 53 year old British politician with a pale face, a small black goatee, a single black curl on his forehead, a black frock coat and a bright patterned waistcoat, 1850s; bazalgette = a 39 year old Victorian engineer with thick dark mutton-chop sideburns, a long nose, a dark grey frock coat and a black cravat, 1850s
@@ -98,6 +94,10 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: close-up, an astronomer squinting up at the starry sky while holding a | wide shot of a magnificent red-brick Renaissance castle with tall copp | medium shot, an astronomer turning a brass divider compass over a parc | extreme close-up of a quill pen dipping into a small dark glass inkwel | medium close-up, a bearded king in a red velvet coat leaning forward o | medium shot, an astronomer gazing out a tall arched stone window towar | medium shot, an elderly nobleman in a black robe pushing a heavy leath | medium close-up, a man lifting a brass armillary sphere up to his eye  | close-up, a man frowning and turning an hourglass upside down on a woo | medium shot, a bearded king in a velvet coat listening intently with h | wide shot of heavy wooden travel trunks and tied leather bags sitting  | medium shot, {king} unrolling a large parchment map of an island onto 
 - 008-why-china-s-paper-money-wasn-t-tang: cast merchant = a 45 year old Sichuan merchant with a round weathered face, a thin grey-streaked beard, a black silk cap, a long dark blue silk robe with wide sleeves and a brown leather belt, 11th century; official = a 50 year old Song government official with a long thin face, a neat black moustache, a tall black gauze hat with stiff wings, a long crimson robe with a gold-embroidered square badge, 11th century; clerk = a 30 year old thin clerk with a pale narrow face, small round spectacles, a grey cotton robe and a black cloth cap, 11th century; smith = a 35 year old burly iron smith with a soot-darkened face, a short black beard, a leather apron over a rough brown tunic, 11th century; wife = a 35 year old Sichuan woman with a round face, black hair in a neat bun, a small gold hairpin, a green cotton jacket and a long dark skirt, 11th century
   scenes: medium shot, a merchant in a long dark blue silk robe and black cap ha | extreme close-up of two hands lifting a stack of thick heavy iron coin | close-up, a merchant holding up one folded paper note with both hands, | close-up, a merchant pressing a red seal stamp onto a paper note on a  | medium shot, a thin clerk holding up a paper note in one hand and poin | close-up of two hands placing a folded paper note on top of a heavy st | wide shot of a crowded 11th century Sichuan market street with wooden  | close-up of two hands holding up two different paper notes side by sid | medium shot, {merchant} standing and pointing at a large paper map on  | close-up, {merchant} leaning over a wooden table and pointing at a pap | wide shot of a large wooden gate of a merchant guild house with a hang | extreme close-up of a carved wooden printing block being pressed onto 
+- 006-why-braille-made-night-writing-simple: cast louis = a 12 year old thin French boy with straight short black hair and a fringe, a pale narrow face, eyes half closed and unfocused, a navy blue wool school jacket with a high collar over a white shirt, 1820s; child = a 4 year old small boy with blond curly hair, chubby pink cheeks and a loose white linen smock, 1810s; barbier = a 54 year old tall lean retired French artillery captain with swept-back silver hair, long grey sideburns, a hawk nose and a faded dark blue military coat with red cuffs and brass buttons, 1820s; teacher = a 40 year old thin stern French teacher with dark hair slicked flat, a pointed black chin beard and a black frock coat with a tall white collar, 1840s
+  scenes: close-up, a blind boy running his fingertip slowly across thick paper  | extreme close-up of a fingertip pressing on rows of small raised dots  | medium shot, a thin boy tapping a wooden cane along a stone school cor | close-up, a small boy squinting and pushing a sharp awl into a thick p | wide shot of a small country harness workshop with horse saddles and l | medium shot, a little blind boy feeling his way along a country path w | wide shot of a tall old grey stone school building on a narrow Paris s | close-up of an enormous thick heavy book lying open on a worn wooden d | medium shot, three blind children slowly tracing their fingers across  | close-up of a blind boy's empty hands resting on a blank sheet of pape | medium shot, a lean old army captain carrying a small wooden case into | close-up of a metal ruler slate with grooves lying on thick paper next
+- 006-why-curie-s-notebooks-stay-locked: cast marie = a 31 year old Polish French scientist with ash blond hair pulled back in a loose bun, a high forehead, grey eyes, a plain long black dress with a high collar and rolled cuffs, 1890s; pierre = a 39 year old French physicist with a full dark brown beard, receding dark hair, gentle dark eyes and a rumpled black jacket over a white shirt, 1890s; old = a 66 year old frail woman with thin white hair in a bun, a pale lined face, tired grey eyes and a plain grey wool cardigan, 1930s
+  scenes: close-up, a woman slipping a small glowing glass test tube into her dr | extreme close-up of a small glass test tube glowing faint blue-green a | medium shot, a young woman looking up from a notebook at a cluttered l | wide shot of a cramped wooden shed laboratory with glass bottles, an i | close-up, a man grinding dark rock with a heavy pestle in a big stone  | medium shot, a woman stirring a big iron pot of bubbling dark sludge w | wide shot, a worker shovelling dark brown rock from a huge heap into s | close-up of a heavy sack of dark rock tipping onto a wooden table, dus | close-up of a tiny pinch of white powder in a small glass dish on a wo | medium shot, a man and a woman smiling at each other over a tiny glowi | close-up of a bright beam of sunlight shining through a dusty laborato | close-up, a woman writing quickly in a notebook by lamplight, she is {
 
 PROBLEMS FOUND BY THE CHECKS
 - script: not supported by the sources, fix or remove: Soldiers stared at the humped beasts arriving from the Mediterranean.
@@ -139,7 +139,7 @@ WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 8.71s beasts#1
 9.33s arriving#1
 9.81s from#1
-9.93s the#3
+9.92s the#3
 10.03s Mediterranean#1
 11.05s Mules#1
 11.50s were#1
@@ -163,26 +163,26 @@ WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 17.88s in#1
 18.00s 1856#1
 19.25s A#2
-19.37s second#1
+19.38s second#1
 19.70s voyage#1
-20.17s brought#1
+20.18s brought#1
 20.45s 41#1
-20.87s more#1
-21.41s The#5
+20.88s more#1
+21.42s The#5
 21.52s herd#1
 21.82s reached#1
 22.04s 70#1
-23.03s In#2
+23.02s In#2
 23.18s 1857#1
-24.58s Edward#1
+24.57s Edward#1
 24.93s Beale#1
 25.23s led#1
 25.43s 25#1
-26.03s camels#4
+26.02s camels#4
 26.48s on#1
-26.58s a#3
+26.57s a#3
 26.68s wagon#1
-27.03s road#1
+27.02s road#1
 27.30s survey#1
 27.93s Each#1
 28.21s camel#1
@@ -191,75 +191,75 @@ WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 29.38s pounds#1
 30.10s Beale#2
 30.40s said#1
-30.63s one#1
-30.83s camel#2
+30.62s one#1
+30.82s camel#2
 31.20s beat#1
 31.45s four#1
 31.65s mules#2
-32.55s You#1
-32.70s see#1
+32.54s You#1
+32.69s see#1
 33.07s a#4
 33.17s mule#1
-33.45s needs#1
-33.75s water#1
-34.05s and#1
+33.44s needs#1
+33.74s water#1
+34.04s and#1
 34.17s rest#1
 34.81s Camels#5
-35.24s drink#1
+35.23s drink#1
 35.51s once#1
-36.04s then#1
+36.03s then#1
 36.21s keep#1
 36.46s walking#1
 36.81s for#2
-36.94s days#1
+36.93s days#1
 37.86s In#3
 38.01s 1859#1
 39.26s Lieutenant#1
 39.61s Hartz#1
 39.96s marched#1
-40.29s camels#6
+40.28s camels#6
 40.81s 85#1
-41.39s miles#1
-41.79s with#1
+41.38s miles#1
+41.78s with#1
 41.96s no#1
-42.19s water#2
+42.18s water#2
 42.77s They#1
-42.95s showed#1
-43.25s no#2
-43.50s thirst#1
-44.21s Horses#1
-44.63s and#2
-44.76s mules#3
-45.11s arrived#1
-45.46s distressed;#1
-46.28s camels#7
-46.71s did#1
+42.94s showed#1
+43.24s no#2
+43.49s thirst#1
+44.20s Horses#1
+44.62s and#2
+44.75s mules#3
+45.10s arrived#1
+45.45s distressed;#1
+46.27s camels#7
+46.70s did#1
 46.94s not#1
-47.69s The#6
-47.84s Army#2
-48.14s still#1
+47.68s The#6
+47.83s Army#2
+48.13s still#1
 48.41s said#2
-48.62s no#3
-49.22s Then#2
+48.61s no#3
+49.21s Then#2
 49.39s the#7
 49.54s Civil#1
-49.87s War#2
-50.12s hit#1
-50.66s Camels#8
-51.06s were#2
+49.86s War#2
+50.11s hit#1
+50.65s Camels#8
+51.05s were#2
 51.18s sold#1
 51.43s at#2
 51.53s auction#1
 52.13s in#4
-52.26s 1864#1
+52.25s 1864#1
 53.54s The#8
 53.64s last#1
-53.92s one#2
+53.91s one#2
 54.04s was#1
 54.19s seen#1
 54.49s in#5
 54.59s Arizona#1
-55.37s in#6
+55.36s in#6
 55.49s 1891#1
 
 DRAFT film.json
