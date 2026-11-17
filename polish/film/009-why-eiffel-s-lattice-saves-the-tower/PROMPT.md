@@ -74,8 +74,6 @@ Return JSON only: {"era": "...", "cast": {...}, "key_words": [...], "music": "<o
            {"name": ..., "at": ..., "prompt": ..., "check": "Is ...?", "move": "push"}, ...]}
 
 CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid these exact scenes):
-- 005-messy-lab-miracle-cure: cast fleming = a 47 year old Scottish scientist with short grey-brown hair, pale blue eyes, a slightly flattened nose, a grey tweed suit and a dark blue bow tie, 1920s; chain = a 34 year old scientist with a thick black moustache, wild dark wavy hair and a white lab coat over a dark waistcoat, 1940s
-  scenes: close-up, a scientist holding up a glass petri dish and peering at a p | extreme close-up of a glass petri dish with a fuzzy blue-green mould s | medium shot, a man setting down a leather suitcase in a laboratory doo | close-up of a dusty laboratory bench with stacked glass petri dishes a | close-up, a hand streaking a thin wire loop across yellow jelly in a p | extreme close-up of tiny golden dots of bacteria growing on yellow jel | wide shot of a cluttered laboratory corner bench stacked with glass di | medium shot, a scientist in a tweed suit closing a laboratory door beh | extreme close-up of a petri dish with a large blue-green mould patch o | extreme close-up of a petri dish with a clear empty ring around a blue | close-up, a scientist leaning in with a magnifying glass over a petri  | wide shot, a person under a black umbrella in heavy rain on a 1920s Lo
 - 005-why-ships-waited-forty-days-before-enter: cast sailor = a 30 year old Venetian sailor with a sunburnt face, curly black hair, a red wool cap and a loose white linen shirt, 1400s; doctor = a 55 year old medieval physician with a long grey beard, a long dark brown robe and a round black cap, 1400s
   scenes: medium shot, sailors leaning on the rail of a wooden sailing ship and  | close-up, a sailor gripping a ship's wooden rail and gazing at land, h | close-up of a pale sick man lying on straw with dark swollen marks on  | wide shot of a medieval town street with closed shutters and a cart co | close-up, a weeping woman in a medieval hood kneeling beside a bed, ca | wide shot of medieval Venice with canals, gondolas and stone palaces,  | medium shot, three Venetian officials in long red robes and black caps | wide shot of a walled stone harbour city on the Adriatic coast with re | close-up of stone city walls and a tower above the sea with waves brea | medium shot, travellers in medieval cloaks stepping off a small rowing | wide shot of a small rocky island with a few stone huts in a blue sea, | close-up, a worried traveller pulling down his collar to look at his n
 - 005-why-the-radium-girls-licked-poison: cast painter = a 19 year old woman with dark brown bobbed hair, freckles, bright hazel eyes, a white cotton work smock over a navy blouse, 1910s; supervisor = a 45 year old factory supervisor with slicked grey hair, a thin moustache, a brown three-piece suit and a gold watch chain, 1910s; president = a 50 year old company president with a bald head, round gold spectacles, a heavy jaw and a dark grey double-breasted suit, 1920s; inventor = a 45 year old scientist with a high forehead, swept-back black hair, a short pointed black beard and a black suit with a white collar, 1920s
@@ -98,6 +96,8 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: close-up, a bearded astronomer raising a long brass spyglass to his ey | medium shot, a bearded old scholar sitting at a wooden desk in a dim r | close-up, {galileo} pressing his eye to a long brass spyglass on a woo | close-up of a hand drawing four small circles in a row beside a big ci | wide shot of a grand 1610s lecture hall with a large wooden model of n | close-up of a wooden model with a small painted globe at its center an | medium shot, three old professors in black robes turning their backs a | close-up, an old professor in a black robe shaking his head and foldin | close-up, {student} squinting and frowning into a small brass telescop | medium shot, a grand duchess in a crimson velvet gown seated at a carv | close-up, {christina} frowning slightly with a questioning look, one h | close-up of a hand pointing at an open old book with a finger on a pag
 - 007-why-tycho-brahe-built-uraniborg-on-hven: cast tycho = a 26 year old Danish nobleman with reddish blond hair, a long drooping reddish moustache, a broad scar across his forehead, a black doublet with a white ruff collar and a gold chain, 1570s; king = a 40 year old Danish king with short dark brown hair, a full dark beard, a heavy brown fur-trimmed red robe and a gold crown, 1570s; kepler = a 30 year old thin German mathematician with dark hair, a short dark pointed beard, a narrow pale face and a plain black coat with a small white ruff, 1600s
   scenes: close-up, a young nobleman staring up at the night sky in amazement, b | wide shot of a night sky over dark Danish fields with one blazing star | medium shot, a young nobleman pointing up at the sky from a stone cast | close-up of a single dazzling white star among many faint stars, deep  | close-up, a man squinting one bare eye along a long wooden sighting ar | medium shot, three workmen lifting a huge curved wooden measuring arc  | close-up of a large polished brass arc with fine notches along its edg | medium shot, a king in a fur-trimmed robe gesturing grandly toward a c | wide shot of a grand stone castle with towers on a cliff above the sea | close-up, a young nobleman shaking his head firmly, he is {tycho}, pal | wide shot of a crowded noisy royal banquet hall with nobles feasting a | close-up, a young nobleman writing a letter by candlelight and glancin
+- 008-why-nightingale-put-fresh-air-into-hospi: cast florence = a 34 year old slim English nurse with dark brown hair parted in the middle under a white cap, a calm oval face, a plain black wool dress with a white collar and a grey shawl, 1850s; soldier = a 20 year old thin British soldier with short sandy hair, freckles, a pale sweaty face and an open red army jacket over a dirty white shirt, 1850s
+  scenes: medium shot, a nurse walking between rows of hospital beds at night ho | close-up of a hand holding a small brass oil lamp glowing in a dark ho | wide shot of wounded soldiers lying packed side by side on thin mats a | wide shot of a huge square stone barracks hospital beside the sea with | close-up of a cracked stone floor drain overflowing with dark water in | close-up of a small shut window with grimy glass in a gloomy hospital  | wide shot of snow falling over a stone hospital courtyard in winter, g | medium shot, two soldiers carrying a stretcher covered with a grey bla | close-up, a pale young soldier sweating with fever on a cot, he is {so | close-up of a white bandage wrapped around a soldier's arm, lamp light | medium shot, a nurse frowning as she writes in a notebook at a small t | close-up of empty wooden supply shelves and an empty open crate in a s
 
 PROBLEMS FOUND BY THE CHECKS
 - script: not supported by the sources, fix or remove: Gustave Eiffel hoisted a massive iron beam, then tossed it aside.
@@ -169,37 +169,37 @@ WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 16.66s spaced#1
 17.38s not#1
 17.63s solid#2
-18.54s Eiffel#3
+18.55s Eiffel#3
 18.87s designs#1
-19.49s a#6
+19.50s a#6
 19.59s lattice#1
-19.94s of#1
+19.95s of#1
 20.07s criss‑crossing#1
 20.87s iron#2
 21.17s girders#1
 21.85s The#3
 22.00s open#1
-22.37s web#1
-22.67s lets#1
-22.87s air#1
+22.38s web#1
+22.68s lets#1
+22.88s air#1
 23.07s flow#1
-23.37s through#1
+23.38s through#1
 23.90s cutting#1
-24.22s pressure#1
+24.23s pressure#1
 24.55s on#1
-24.67s every#1
-24.97s point#1
+24.68s every#1
+24.98s point#1
 25.61s At#1
-25.70s the#4
+25.71s the#4
 25.83s same#1
 26.13s time#1
 26.63s the#5
-26.75s empty#1
-27.05s spaces#1
+26.76s empty#1
+27.06s spaces#1
 27.58s shave#1
 27.83s off#1
 28.03s tons#1
-28.30s of#2
+28.31s of#2
 28.41s weight#1
 29.05s Because#1
 29.30s of#3
