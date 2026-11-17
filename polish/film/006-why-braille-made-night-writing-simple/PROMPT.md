@@ -74,12 +74,6 @@ Return JSON only: {"era": "...", "cast": {...}, "key_words": [...], "music": "<o
            {"name": ..., "at": ..., "prompt": ..., "check": "Is ...?", "move": "push"}, ...]}
 
 CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid these exact scenes):
-- 002-why-doctors-were-ordered-to-wash-their-h: cast hero = a 29 year old doctor with black slicked hair, a black mustache and a long dark green coat with gold buttons; mother = a young mother with brown hair in a bun and a long dark red 19th century dress; friend = a kind 43 year old professor with grey hair, grey sideburns and small round glasses in a brown coat; elder = a stern old professor with white hair and white whiskers in a black frock coat; pasteur = an old French scientist with a short grey beard and a black velvet cap
-  scenes: medium close-up, a stern man pointing his finger firmly at a white por | extreme close-up of two hands rubbing thick white soap foam together o | a young woman lying in an iron hospital bed looking up worried, head o | medium shot, {elder} and two other old doctors in black coats with arm | low angle, proud elegant old doctors in top hats and fine black coats  | extreme close-up of a doctor's pale hands with dark dried stains under | wide shot of a long gloomy 1847 maternity ward with two rows of iron b | close-up, a pale sick sweating young woman in a dark red dress lying i | two hospital doors side by side in a stone corridor, the left door dar | medium shot, a desperate young woman kneeling with both knees on stone | a woman sitting on a cobblestone street at night holding a newborn bab | medium shot, {friend} smiling and teaching young students in an 1847 a
-- 003-why-joseph-lister-sprayed-carbolic-acid-: cast lister = a 38 year old Victorian surgeon with bushy brown mutton-chop sideburns, short side-parted dark brown hair, focused blue eyes, wearing a dark blue waistcoat over a rolled-up white linen shirt and dark trousers, 1860s; boy = an 11 year old Victorian boy with messy auburn hair, a freckled pale face, wearing a patched grey woolen vest over a dirty cream linen shirt, 1860s; pasteur = a 43 year old French scientist with a short neatly trimmed dark brown beard and mustache, sharp brown eyes, wearing a dark maroon frock coat with a black silk cravat, 1860s; patient = a 45 year old sickly Victorian workman with thin balding greyish hair, stubble on his cheeks, wearing a worn beige hospital nightshirt, 1860s
-  scenes: medium close-up, {lister} pressing white cloth towels into a glass dis | close-up, {boy} resting his head on a flat white pillow, looking scare | low angle medium shot, {patient} sitting nervously on a tall wooden op | wide shot of a large grey Victorian stone hospital building with tall  | medium close-up, {patient} lying weakly in an iron hospital bed under  | extreme close-up of an open inflamed wound on a pale forearm leaking t | medium shot, {lister} standing in a dim surgical theatre gripping a lo | medium shot, {boy} standing just inside a Victorian hospital doorway,  | extreme close-up of two surgeon's hands holding a boy's broken lower l | medium shot, carefully adjusting the broken leg of {boy} on a wooden c | close-up of hands pouring clear carbolic liquid from a glass bottle on | medium shot, wrapping a shiny sheet of tin foil over a bound leg, {lis
-- 004-why-john-snow-removed-a-london-pump-hand: cast snow = a 41 year old English doctor with short dark wavy hair, a clean shaven narrow face, thin lips, deep-set grey eyes, a black frock coat, a grey waistcoat, a white high collar and a black necktie, 1850s; whitehead = a 28 year old English vicar with fair curly hair, a round friendly face, rosy cheeks, a black clerical coat and a white clerical collar, 1850s; simon = a 38 year old London health official with a neat full black beard, a high bald forehead, a brown overcoat with a fur collar and a grey top hat, 1850s; mother = a 30 year old poor London woman with red hair tied under a white cotton cap, a faded blue cotton dress and a brown wool shawl, 1850s; brewer = a burly 50 year old brewery worker with a thick ginger beard, a flat cloth cap, rolled-up shirt sleeves and a grey canvas apron, 1850s
-  scenes: medium shot, two men in black top hats pulling the long iron handle of | medium close-up, a doctor pointing firmly at an iron street water pump | wide shot of a crowded narrow 1850s London street with laundry hanging | close-up, a pale sweating man lying sick on a straw mattress in a dark | high angle, men carrying plain wooden coffins out of narrow brick hous | medium shot, three doctors in black coats pressing white handkerchiefs | wide shot, thick greenish yellow fog drifting over a rubbish-strewn mu | medium shot, a bearded official shaking his head while reading a lette | close-up, a doctor frowning as he reads a letter by a rainy window, he | medium shot, {snow} and {whitehead} knocking on the wooden door of a n | medium close-up, a crying woman in a doorway answering questions, she  | extreme close-up, a hand with a quill pen marking small black dots on 
 - 005-why-barry-marshall-swallowed-bacteria: cast marshall = a 33 year old Australian doctor, lean build, curly dark brown hair, a full dark brown beard, brown eyes, thin wire-rimmed glasses, a white short-sleeved shirt under a pale blue lab coat and khaki trousers, 1980s; warren = a 46 year old Australian pathologist with short receding grey hair, a clean-shaven square face, heavy black-framed glasses, a white lab coat over a brown checked shirt, 1980s; skeptic = a 48 year old British gastroenterologist, stocky build, balding with short grey hair at the sides, heavy dark eyebrows, clean shaven, a charcoal grey suit jacket, a burgundy patterned tie and white shirt, 1980s; nurse = a 35 year old nurse, sturdy build, dark brown hair in a ponytail, teal scrubs, 1980s; wife = a 32 year old woman with shoulder-length wavy blond hair, a sun-tanned face and a yellow sleeveless summer dress, 1980s
   scenes: close-up, a bearded doctor drinking cloudy brown liquid from a glass b | medium close-up, a doctor wincing and pressing a hand on his stomach,  | medium shot, a stressed businessman in a brown suit clutching his stom | close-up of a plate of bright red chilli peppers next to a bowl of spi | wide shot of a sunny 1980s Australian city hospital with palm trees in | medium shot, a pathologist looking into a microscope, he is {warren},  | medium shot, a balding doctor laughing and shaking his head at a meeti | extreme close-up of clear liquid bubbling in a glass beaker on a lab b | close-up, a hand dropping a stapled paper into a metal wastebasket, 19 | medium close-up, a doctor reading a letter and slumping back in his ch | medium shot, pink piglets sniffing around a clean straw pen, bright da | close-up, a doctor rolling up his sleeves with a determined face, he i
 - 005-why-goldberger-swallowed-scabs: cast goldberger = a 42 year old lean American physician with short wavy dark brown hair, a neat small moustache, deep-set brown eyes and a long serious face, wearing a charcoal three-piece suit, a white wing-collar shirt and a dark tie, 1910s; wife = a 38 year old woman with dark auburn hair pinned up high, a narrow freckled face, a high-collared cream lace blouse and a long navy blue skirt, 1910s; orphan = a 9 year old thin girl with long blond braids, big grey eyes and a faded pink cotton dress with a white collar, 1910s; prisoner = a 27 year old lean prisoner with a tanned face, short dark hair and stubble on his chin, wearing a blue and white striped prison shirt with rolled sleeves, 1910s; critic = a 60 year old stout doctor with a bald head, bushy white side whiskers, small gold pince-nez and a black frock coat with a watch chain, 1910s; chemist = a 36 year old laboratory chemist with thinning blond hair, round black spectacles and a clean-shaven round face, wearing a white lab coat over a dark tie, 1930s
@@ -92,180 +86,245 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: medium shot, a cook lunging forward with a long two-pronged kitchen fo | extreme close-up of the sharp prongs of a long iron kitchen fork point | medium shot, a cook stirring a big copper pot on an iron stove, she is | wide shot of a street of grand 1900s New York brownstone houses with h | medium close-up, a man studying a list in a small notebook, he is {sop | close-up of a hand pushing small red pins into a cork board on a woode | close-up, a feverish young woman lying in a white bed with a wet cloth | medium shot, a strong cook laughing while kneading dough at a kitchen  | medium shot, a man holding out a small glass jar in a kitchen doorway, | close-up, a furious cook gripping a long carving fork, she is {mary},  | medium close-up, a determined woman knocking hard on a wooden front do | medium shot, a woman peeking out of a wooden garden shed door with a l
 - 005-why-miners-took-canaries-underground: cast miner = a 34 year old Welsh coal miner with a soot-blackened face, a short dark beard, a flat cloth cap, a grey wool jacket and a red neck scarf, 1900s; haldane = a 35 year old Scottish scientist with a thick dark moustache, neat side-parted dark hair, a brown tweed jacket and a white wing collar, 1890s
   scenes: medium shot, a coal miner carrying a small brass birdcage with a yello | close-up of a yellow canary on a perch inside a small brass cage, dark | wide shot of a long dark coal mine tunnel with wooden beams and a fain | medium shot, two coal miners with blackened faces holding up an oil la | close-up of pale grey haze drifting across a black coal wall, lamp lig | close-up, a coal miner coughing and holding his chest in a dark tunnel | wide shot of thick black smoke pouring out of a coal mine entrance und | medium shot, women in dark shawls waiting anxiously at a coal mine gat | wide shot of a mining town churchyard with many fresh graves and a gre | close-up of a miner's dusty cap and oil lamp resting on a wooden bench | medium shot, a scientist holding a glass flask up to the light, he is  | close-up, hands placing a small brass birdcage with a canary on a wood
+- 005-messy-lab-miracle-cure: cast fleming = a 47 year old Scottish scientist with short grey-brown hair, pale blue eyes, a slightly flattened nose, a grey tweed suit and a dark blue bow tie, 1920s; chain = a 34 year old scientist with a thick black moustache, wild dark wavy hair and a white lab coat over a dark waistcoat, 1940s
+  scenes: close-up, a scientist holding up a glass petri dish and peering at a p | extreme close-up of a glass petri dish with a fuzzy blue-green mould s | medium shot, a man setting down a leather suitcase in a laboratory doo | close-up of a dusty laboratory bench with stacked glass petri dishes a | close-up, a hand streaking a thin wire loop across yellow jelly in a p | extreme close-up of tiny golden dots of bacteria growing on yellow jel | wide shot of a cluttered laboratory corner bench stacked with glass di | medium shot, a scientist in a tweed suit closing a laboratory door beh | extreme close-up of a petri dish with a large blue-green mould patch o | extreme close-up of a petri dish with a clear empty ring around a blue | close-up, a scientist leaning in with a magnifying glass over a petri  | wide shot, a person under a black umbrella in heavy rain on a 1920s Lo
+- 005-why-ships-waited-forty-days-before-enter: cast sailor = a 30 year old Venetian sailor with a sunburnt face, curly black hair, a red wool cap and a loose white linen shirt, 1400s; doctor = a 55 year old medieval physician with a long grey beard, a long dark brown robe and a round black cap, 1400s
+  scenes: medium shot, sailors leaning on the rail of a wooden sailing ship and  | close-up, a sailor gripping a ship's wooden rail and gazing at land, h | close-up of a pale sick man lying on straw with dark swollen marks on  | wide shot of a medieval town street with closed shutters and a cart co | close-up, a weeping woman in a medieval hood kneeling beside a bed, ca | wide shot of medieval Venice with canals, gondolas and stone palaces,  | medium shot, three Venetian officials in long red robes and black caps | wide shot of a walled stone harbour city on the Adriatic coast with re | close-up of stone city walls and a tower above the sea with waves brea | medium shot, travellers in medieval cloaks stepping off a small rowing | wide shot of a small rocky island with a few stone huts in a blue sea, | close-up, a worried traveller pulling down his collar to look at his n
+- 005-why-the-radium-girls-licked-poison: cast painter = a 19 year old woman with dark brown bobbed hair, freckles, bright hazel eyes, a white cotton work smock over a navy blouse, 1910s; supervisor = a 45 year old factory supervisor with slicked grey hair, a thin moustache, a brown three-piece suit and a gold watch chain, 1910s; president = a 50 year old company president with a bald head, round gold spectacles, a heavy jaw and a dark grey double-breasted suit, 1920s; inventor = a 45 year old scientist with a high forehead, swept-back black hair, a short pointed black beard and a black suit with a white collar, 1920s
+  scenes: close-up, a young woman touching a thin paintbrush tip to her lips, a  | extreme close-up of a thin brush dipping into a tiny pot of glowing gr | extreme close-up of a thin brush painting glowing green lines on a sma | wide shot of a big 1910s brick factory with tall windows and a smokest | wide shot, rows of young women in white smocks bent over long tables p | close-up of a row of small watch faces glowing green in a dark room | close-up, a young woman's open hand receiving a few copper coins at a  | extreme close-up of a camel hair paintbrush with a frayed splayed tip, | medium shot, a stern man in a suit pointing at a worker's paint table, | medium close-up, a smiling young woman putting a paintbrush to her lip | close-up, young women laughing and holding up fingernails painted glow | close-up, a laughing young woman with a faint green glow on her teeth 
+- 006-why-dutch-merchants-paid-fortunes-for-a-: cast merchant = a 44 year old Dutch merchant with a ruddy weathered face, a thick grey-streaked brown beard, heavy brows, a wide black felt hat, a long dark burgundy wool coat with silver buttons, a white linen collar and cuffs, 1630s; trader = a 31 year old Dutch tulip trader with a thin pale face, a small pointed black moustache, sharp dark eyes, shoulder-length light brown hair, a bright mustard yellow doublet, a white ruff collar and a brown leather belt, 1630s; grower = a 52 year old Dutch bulb grower with a sunburnt wrinkled face, a bald crown with grey hair at the sides, a short grey stubble beard, a rough brown linen smock, muddy wooden clogs and a grey wool cap, 1630s; wife = a 29 year old Dutch woman with fair skin, blond hair pinned under a white lace cap, a high forehead, a dark green bodice with a white apron over a long brown skirt, 1630s; tavernkeeper = a stout 48 year old Dutch tavern keeper with a red flushed face, a big belly, a clean-shaven chin, a white apron over a dark blue shirt, a brown cap, 1630s
+  scenes: medium close-up, a stern man in a wide black hat leaning over a wooden | extreme close-up of a hand with a quill pen signing a paper contract o | close-up, a merchant holding up his open empty palms toward a trader,  | medium shot, a trader shrugging with both arms spread wide and grinnin | close-up of a single tulip bulb half buried in dark soil in a wooden c | close-up of a hand with a quill pen writing rising numbers on a paper  | medium shot, {trader} slapping a paper contract down on a wooden table | close-up of a hand dropping small silver coins into a wooden bowl on a | wide shot of a crowded 1630s Dutch tavern with men waving paper contra | wide shot of a grand 1630s Dutch town exchange building with tall ston | medium shot, {merchant} holding up a paper contract beside a potted tu | close-up of a hand holding up a small paper concert ticket in a dark t
+- 007-why-tycho-brahe-built-uraniborg-on-hven: cast tycho = a 30 year old Danish astronomer with short reddish-brown hair, dark eyes, a small brass nose bridge piece, a dark green velvet doublet with gold embroidery and a white ruff collar, 1570s; king = a 42 year old Danish king with a thick blond beard, sharp blue eyes, a dark red velvet coat with white fur collar and a heavy gold chain, 1570s; farmer = a 35 year old Danish farmer with a sunburnt face, messy brown hair, stubble beard, a coarse brown wool tunic and grey trousers, 1570s; judge = a 55 year old judge with long grey hair, a bushy grey beard, a long black robe over a white ruff collar, 1570s; kepler = a 30 year old astronomer with short dark hair, a neat pointed black beard, small spectacles, a dark brown doublet with a flat white collar, 1600s
+  scenes: close-up, an astronomer squinting up at the starry sky while holding a | wide shot of a magnificent red-brick Renaissance castle with tall copp | medium shot, an astronomer turning a brass divider compass over a parc | extreme close-up of a quill pen dipping into a small dark glass inkwel | medium close-up, a bearded king in a red velvet coat leaning forward o | medium shot, an astronomer gazing out a tall arched stone window towar | medium shot, an elderly nobleman in a black robe pushing a heavy leath | medium close-up, a man lifting a brass armillary sphere up to his eye  | close-up, a man frowning and turning an hourglass upside down on a woo | medium shot, a bearded king in a velvet coat listening intently with h | wide shot of heavy wooden travel trunks and tied leather bags sitting  | medium shot, {king} unrolling a large parchment map of an island onto 
+- 008-why-china-s-paper-money-wasn-t-tang: cast merchant = a 45 year old Sichuan merchant with a round weathered face, a thin grey-streaked beard, a black silk cap, a long dark blue silk robe with wide sleeves and a brown leather belt, 11th century; official = a 50 year old Song government official with a long thin face, a neat black moustache, a tall black gauze hat with stiff wings, a long crimson robe with a gold-embroidered square badge, 11th century; clerk = a 30 year old thin clerk with a pale narrow face, small round spectacles, a grey cotton robe and a black cloth cap, 11th century; smith = a 35 year old burly iron smith with a soot-darkened face, a short black beard, a leather apron over a rough brown tunic, 11th century; wife = a 35 year old Sichuan woman with a round face, black hair in a neat bun, a small gold hairpin, a green cotton jacket and a long dark skirt, 11th century
+  scenes: medium shot, a merchant in a long dark blue silk robe and black cap ha | extreme close-up of two hands lifting a stack of thick heavy iron coin | close-up, a merchant holding up one folded paper note with both hands, | close-up, a merchant pressing a red seal stamp onto a paper note on a  | medium shot, a thin clerk holding up a paper note in one hand and poin | close-up of two hands placing a folded paper note on top of a heavy st | wide shot of a crowded 11th century Sichuan market street with wooden  | close-up of two hands holding up two different paper notes side by sid | medium shot, {merchant} standing and pointing at a large paper map on  | close-up, {merchant} leaning over a wooden table and pointing at a pap | wide shot of a large wooden gate of a merchant guild house with a hang | extreme close-up of a carved wooden printing block being pressed onto 
 
 PROBLEMS FOUND BY THE CHECKS
-- script: not supported by the sources, fix or remove: His comrades laugh, saying the code is useless and too slow.
-- script: not supported by the sources, fix or remove: He spends months feeling each pattern.
-- script: not supported by the sources, fix or remove: Six dots sit comfortably under a single finger.
-- script: not supported by the sources, fix or remove: Writers can punch the dots faster than they could trace letters.
-- shot sixdots: 5.5 s on screen (max 3.2; split it)
+- shot millions: 3.5 s on screen (max 3.2; split it)
+- script: numbers not in the sources: ['forty']; remove them or use the sources' numbers
+- script: every beat needs a "feel": the one emotion the viewer should have there
+- script: not supported by the sources: Barbier's grid is six dots tall, too tall for one fingertip.
 
 DRAFT SCRIPT
-{"title": "Why Braille Made Night Writing Simple", "beats": [{"feel": "curiosity", "lines": ["A soldier punches twelve tiny dots into paper in the dead of night."]}, {"feel": "skepticism", "lines": ["His comrades laugh, saying the code is useless and too slow."]}, {"feel": "determination", "lines": ["Blind teen Louis Braille watches the demo at his school.", "He grabs the same slate and stylus.", "He spends months feeling each pattern.", "Then he halves the grid to three high and two wide."]}, {"feel": "recognition", "lines": ["You see, it’s like turning a bulky novel into a pocket‑size cheat sheet you can feel with one fingertip."]}, {"feel": "understanding", "lines": ["Barbier’s army night‑writing used twelve raised points to spell sounds, but soldiers could not master it.", "Braille cut the pattern in half, using only six dots to stand for letters, numbers and punctuation.", "Six dots sit comfortably under a single finger.", "A reader can feel a whole character in one quick touch.", "Writers can punch the dots faster than they could trace letters."]}, {"feel": "surprise", "lines": ["Ironically, the system meant for soldiers became the world’s universal language for the blind."]}]}
+{"title": "Why Braille Made Night Writing Simple", "beats": [{"lines": ["A blind twelve-year-old runs his fingertip over an army code of dots."]}, {"lines": ["His name is Louis Braille.", "At three, he stabbed his eye with an awl in his father's harness shop.", "By five, he was blind in both eyes.", "At school in Paris, books have huge raised letters.", "Students trace them slowly. They cannot write."]}, {"lines": ["Then retired army captain Charles Barbier brings his night writing.", "It was a code for soldiers to read in the dark.", "Twelve raised dots stand for sounds.", "But soldiers found it too hard."]}, {"lines": ["You see, it's like knowing a friend's face at a glance, not inch by inch."]}, {"lines": ["Barbier's grid is six dots tall, too tall for one fingertip.", "So Louis spends two years improving it.", "He cuts it to six dots, three high and two wide.", "Each pattern now stands for a letter, not a sound.", "It fits under one fingertip, so a reader feels a whole letter at once.", "With Barbier's own slate and stylus, students can finally write."]}, {"lines": ["But the teachers refuse his code.", "Louis dies at forty-three.", "Two years later, his students finally get the school to adopt it.", "A sharp point took his sight. Six tiny points gave millions a way to read."]}]}
 CLAIMS IN THE DRAFT
-- {'claim': 'Charles Barbier, a retired artillery captain, invented night writing with twelve raised dots for soldiers to communicate in the dark.', 'url': 'https://en.wikipedia.org/wiki/Night_writing'}
-- {'claim': 'Soldiers found Barbier’s twelve‑dot code too hard and it was never accepted.', 'url': 'https://en.wikipedia.org/wiki/Night_writing'}
-- {'claim': 'Louis Braille reduced the code to six dots (three high, two wide) and simplified it to represent letters rather than sounds.', 'url': 'https://doi.org/10.4103/ijo.ijo_3048_21'}
-- {'claim': 'The six‑dot cell fits in a fingertip, allowing reading with a single touch.', 'url': 'https://doi.org/10.4103/ijo.ijo_3048_21'}
+- {'claim': "At age three Louis Braille stabbed his eye with an awl in his father's harness shop and was blind in both eyes by five.", 'url': 'https://en.wikipedia.org/wiki/Louis_Braille'}
+- {'claim': "The school's books used large raised letters that students traced slowly, and students could not write with them.", 'url': 'https://en.wikipedia.org/wiki/Louis_Braille'}
+- {'claim': 'Charles Barbier, a retired artillery captain, made night writing: a code of twelve raised dots representing sounds so soldiers could communicate in the dark; soldiers found it too hard and it was never accepted.', 'url': 'https://doi.org/10.4103/ijo.ijo_3048_21'}
+- {'claim': 'Barbier presented his invention to the school for the blind; twelve-year-old Louis spent the next two years improving it.', 'url': 'https://doi.org/10.4103/ijo.ijo_3048_21'}
+- {'claim': "Barbier's 2 x 6 grid was too tall to read in a single go with one finger.", 'url': 'https://en.wikipedia.org/wiki/Night_writing'}
+- {'claim': 'Braille reduced it to six dots, three high and two wide, representing letters rather than sounds, small enough to fit in a fingertip.', 'url': 'https://doi.org/10.4103/ijo.ijo_3048_21'}
+- {'claim': "Braille's cells could be recognized as letters with a single touch of a finger, and he built the system using Barbier's slate and stylus.", 'url': 'https://en.wikipedia.org/wiki/Louis_Braille'}
+- {'claim': "Teachers refused to recognize the code; Braille died at 43 in 1852; the Institute adopted it in 1854 because of the blind pupils' insistence.", 'url': 'https://en.wikipedia.org/wiki/Louis_Braille'}
+- {'claim': 'Braille brought education to millions across the globe.', 'url': 'https://doi.org/10.4103/ijo.ijo_3048_21'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 0.14s A#1
-0.27s soldier#1
-0.74s punches#1
-1.17s twelve#1
-1.52s tiny#1
-1.87s dots#1
-2.19s into#1
-2.40s paper#1
-2.87s in#1
-2.94s the#1
-3.07s dead#1
-3.22s of#1
-3.32s night#1
-3.99s His#1
-4.19s comrades#1
-4.69s laugh#1
-5.24s saying#1
-5.49s the#2
-5.59s code#1
-5.84s is#1
-5.99s useless#1
-6.47s and#1
-6.59s too#1
-6.79s slow#1
-7.56s Blind#1
-7.99s teen#1
-8.29s Louis#1
-8.51s Braille#1
-8.96s watches#1
-9.34s the#3
-9.44s demo#1
-9.71s at#1
-9.79s his#2
-9.91s school#1
-10.54s He#1
-10.66s grabs#1
-10.99s the#4
-11.09s same#1
-11.39s slate#1
-11.71s and#2
-11.84s stylus#1
-12.66s He#2
-12.78s spends#1
-13.11s months#1
-13.43s feeling#1
-13.71s each#1
-13.96s pattern#1
-14.66s Then#1
-14.79s he#3
-14.91s halves#1
-15.19s the#5
-15.29s grid#1
-15.54s to#1
-15.66s three#1
-15.88s high#1
-16.39s and#3
-16.51s two#1
-16.68s wide#1
-17.52s You#1
-17.69s see#1
-18.12s it’s#1
-18.24s like#1
-18.42s turning#1
-18.72s a#2
-18.79s bulky#1
-19.17s novel#1
-19.57s into#2
-19.77s a#3
-19.84s pocket‑size#1
-20.59s cheat#1
-20.89s sheet#1
-21.39s you#2
-21.49s can#1
-21.69s feel#1
-21.92s with#1
-22.09s one#1
-22.32s fingertip#1
-23.27s Barbier’s#1
-23.77s army#1
-24.07s night‑writing#1
-24.95s used#1
-25.22s twelve#2
-25.60s raised#1
-25.97s points#1
-26.32s to#2
-26.42s spell#1
-26.72s sounds#1
-27.55s but#1
-27.72s soldiers#1
-28.22s could#1
-28.35s not#1
-28.55s master#1
-28.95s it#1
-29.27s Braille#2
-29.62s cut#1
-29.79s the#6
-29.89s pattern#2
-30.22s in#2
-30.32s half#1
-30.94s using#1
-31.24s only#1
-31.57s six#1
-31.82s dots#2
-32.19s to#3
-32.29s stand#1
-32.62s for#1
-32.77s letters#1
-33.44s numbers#1
-33.94s and#4
-34.07s punctuation#1
-35.09s Six#2
-35.37s dots#3
-35.72s sit#1
-35.87s comfortably#1
-36.49s under#1
-36.67s a#4
-36.74s single#1
-37.02s finger#1
-37.63s A#5
-37.73s reader#1
-38.00s can#2
-38.15s feel#2
-38.33s a#6
-38.40s whole#1
-38.65s character#1
-39.25s in#3
-39.40s one#2
-39.63s quick#1
-39.88s touch#1
-40.52s Writers#1
-41.00s can#3
-41.12s punch#1
-41.40s the#7
-41.50s dots#4
-41.87s faster#1
-42.40s than#1
-42.50s they#1
-42.62s could#2
-42.75s trace#1
-43.05s letters#2
-43.95s Ironically#1
-44.85s the#8
-45.00s system#1
-45.35s meant#1
-45.58s for#2
-45.73s soldiers#2
-46.43s became#1
-46.80s the#9
-46.90s world’s#1
-47.28s universal#1
-47.83s language#1
-48.28s for#3
-48.48s the#10
-48.59s blind#2
+0.27s blind#1
+0.69s twelve-year-old#1
+1.59s runs#1
+1.82s his#1
+2.00s fingertip#1
+2.52s over#1
+2.72s an#1
+2.87s army#1
+3.17s code#1
+3.44s of#1
+3.54s dots#1
+4.47s His#2
+4.67s name#1
+4.95s is#1
+5.10s Louis#1
+5.33s Braille#1
+5.98s At#1
+6.16s three#1
+6.63s he#1
+6.76s stabbed#1
+7.08s his#3
+7.23s eye#1
+7.48s with#1
+7.58s an#2
+7.73s awl#1
+7.98s in#1
+8.06s his#4
+8.23s father's#1
+8.58s harness#1
+8.93s shop#1
+9.53s By#1
+9.73s five#1
+10.19s he#2
+10.29s was#1
+10.44s blind#2
+10.82s in#2
+10.92s both#1
+11.19s eyes#1
+11.87s At#2
+11.99s school#1
+12.22s in#3
+12.32s Paris#1
+12.87s books#1
+13.09s have#1
+13.32s huge#1
+13.69s raised#1
+14.04s letters#1
+14.74s Students#1
+15.09s trace#1
+15.34s them#1
+15.54s slowly#1
+16.26s They#1
+16.39s cannot#1
+16.71s write#1
+17.50s Then#1
+17.72s retired#1
+18.27s army#2
+18.62s captain#1
+19.00s Charles#1
+19.35s Barbier#1
+19.97s brings#1
+20.27s his#5
+20.45s night#1
+20.70s writing#1
+21.35s It#1
+21.42s was#2
+21.53s a#2
+21.67s code#2
+22.02s for#1
+22.17s soldiers#1
+22.67s to#1
+22.80s read#1
+23.02s in#4
+23.09s the#1
+23.20s dark#1
+23.84s Twelve#1
+24.19s raised#2
+24.49s dots#2
+24.79s stand#1
+25.02s for#2
+25.17s sounds#1
+25.89s But#1
+26.09s soldiers#2
+26.61s found#1
+26.81s it#2
+26.91s too#1
+27.09s hard#1
+27.92s You#1
+28.07s see#1
+28.47s it's#1
+28.59s like#1
+28.77s knowing#1
+29.02s a#3
+29.09s friend's#1
+29.39s face#1
+29.64s at#3
+29.68s a#4
+29.77s glance#1
+30.47s not#1
+30.67s inch#1
+30.92s by#2
+31.12s inch#2
+31.88s Barbier's#1
+32.38s grid#1
+32.65s is#2
+32.80s six#1
+33.05s dots#3
+33.38s tall#1
+33.95s too#2
+34.13s tall#2
+34.45s for#3
+34.60s one#1
+34.83s fingertip#2
+35.65s So#1
+35.80s Louis#2
+36.02s spends#1
+36.37s two#1
+36.55s years#1
+36.77s improving#1
+37.27s it#3
+37.64s He#3
+37.77s cuts#1
+37.99s it#4
+38.09s to#2
+38.22s six#2
+38.47s dots#4
+39.06s three#2
+39.29s high#1
+39.62s and#1
+39.74s two#2
+39.91s wide#1
+40.55s Each#1
+40.83s pattern#1
+41.15s now#1
+41.35s stands#1
+41.65s for#4
+41.80s a#5
+41.94s letter#1
+42.28s not#2
+42.39s a#6
+42.50s sound#1
+43.14s It#5
+43.29s fits#1
+43.52s under#1
+43.74s one#2
+43.97s fingertip#3
+44.74s so#2
+44.87s a#7
+44.94s reader#1
+45.22s feels#1
+45.44s a#8
+45.54s whole#1
+45.82s letter#2
+46.07s at#4
+46.23s once#1
+46.82s With#2
+46.99s Barbier's#2
+47.42s own#1
+47.64s slate#1
+47.94s and#2
+48.07s stylus#1
+48.87s students#2
+49.29s can#1
+49.47s finally#1
+49.89s write#2
+50.57s But#2
+50.69s the#2
+50.82s teachers#1
+51.32s refuse#1
+51.67s his#6
+51.84s code#3
+52.56s Louis#3
+52.79s dies#1
+53.06s at#5
+53.16s forty-three#1
+54.02s Two#3
+54.20s years#2
+54.42s later#1
+54.95s his#7
+55.12s students#3
+55.55s finally#2
+56.00s get#1
+56.15s the#3
+56.25s school#2
+56.62s to#3
+56.75s adopt#1
+57.15s it#6
+57.50s A#9
+57.63s sharp#1
+57.93s point#1
+58.20s took#1
+58.35s his#8
+58.48s sight#1
+59.20s Six#3
+59.50s tiny#1
+59.85s points#1
+60.23s gave#1
+60.48s millions#1
+60.88s a#10
+60.95s way#1
+61.18s to#4
+61.30s read#2
 
 DRAFT film.json
-{"era": "1820s", "cast": {"louis": "a 15 year old blind French boy with soft light brown hair falling over his forehead, a pale round face, calm sightless eyes, a dark grey wool jacket, a white shirt with a high collar and dark trousers, 1820s", "barbier": "a 35 year old French army officer with short black hair, a thin black moustache, a sharp narrow face, a dark blue military coat with brass buttons, white crossbelts and grey trousers, 1820s", "soldier": "a 28 year old rough French soldier with a weathered red face, a thick brown beard, a shako cap, a blue army coat with red cuffs and muddy boots, 1820s", "teacher": "a 50 year old French schoolmaster with grey hair combed back, small round spectacles, a clean shaven lined face, a black frock coat and a white cravat, 1820s", "boy": "a 14 year old sighted schoolboy with curly ginger hair, freckles, a cheeky grin, a brown wool jacket and a grey shirt, 1820s"}, "music": "curious", "key_words": ["twelve", "dots", "night", "six", "finger", "blind", "halves", "useless"], "shots": [{"name": "soldier_night", "at": 0, "who": "barbier", "clip": true, "prompt": "close-up, a French army officer in a dark blue coat leaning low over a wooden table, punching a metal stylus into thick paper by candlelight, he is {barbier}, a dark army tent at night, deep shadows", "motion": "he presses the stylus down hard and leans closer, candle flame flickers, slow camera push in", "check": "Is a man pressing a tool into paper?"}, {"name": "dots_paper", "at": "punches#1", "clip": true, "prompt": "extreme close-up of two hands punching a metal stylus into thick paper, rows of small raised dots forming under the tip, candle light, dark background", "motion": "the stylus punches one dot then another, slow camera push in", "check": "Are hands punching dots into paper?"}, {"name": "laugh", "at": "His#1", "clip": false, "prompt": "medium shot, a rough bearded soldier in a blue army coat and shako cap laughing and pointing at a small punched paper sheet on a wooden table, he is {soldier}, two other soldiers grinning behind him, dim 1820s barracks room at night, candle light", "motion": "he laughs and points at the paper, the candle flickers, slow camera push in", "check": "Is a soldier laughing and pointing?", "move": "push"}, {"name": "useless", "at": "useless#1", "clip": true, "prompt": "close-up, a soldier tossing a punched paper sheet onto a wooden table and turning away with a sneer, he is {soldier}, dim 1820s barracks room at night, candle light", "motion": "the paper flutters onto the table as he turns away, slow camera push in", "hit": "useless#1", "check": "Is a soldier dropping a paper on a table?"}, {"name": "watches", "at": "Blind#1", "who": "louis", "clip": true, "prompt": "close-up, a blind teenage boy tilting his head and listening intently, eyes calm and sightless, he is {louis}, a dim 1820s schoolroom with a wooden bench, candle light", "motion": "he tilts his head and listens closely, candle flame flickers, slow camera push in", "check": "Is a boy listening closely?"}, {"name": "demo", "at": "watches#1", "who": "barbier", "clip": true, "prompt": "medium shot, an army officer in a dark blue coat holding up a punched paper sheet to show rows of students, he is {barbier}, a crowded 1820s schoolroom, warm lamp light", "motion": "he holds up the paper and turns it, slow camera push in", "check": "Is a man in a blue coat holding up a paper?"}, {"name": "slate", "at": "He#1", "who": "louis", "clip": true, "prompt": "close-up, a blind boy's hands gripping a wooden writing slate and a metal stylus on a school desk, he is {louis}, dim 1820s schoolroom, candle light", "motion": "his hands grip the slate and stylus firmly, slow camera push in", "check": "Are hands holding a slate and a stylus?"}, {"name": "feeling", "at": "spends#1", "who": "louis", "clip": true, "prompt": "extreme close-up of a boy's fingertips slowly tracing raised dots on thick paper, he is {louis}, a dark 1820s schoolroom, candle light", "motion": "his fingertips slowly trace the raised dots, slow camera push in", "check": "Are fingertips touching raised dots on paper?"}, {"name": "halves", "at": "Then#1", "who": "louis", "clip": true, "prompt": "close-up, a blind boy pressing a stylus into a slate with a grid of six punched dots, he is {louis}, a dim 1820s schoolroom, candle light, paper and stylus on the desk", "motion": "he presses the stylus and punches a dot, slow camera push in", "check": "Is a boy punching dots into a slate?"}, {"name": "novel", "at": "You#1", "clip": true, "prompt": "close-up of two hands holding a thick heavy leather book open, fingers pressing the bulky pages down on a wooden desk, candle light, dark room", "motion": "the hands press the thick pages down and turn one, slow camera push in", "check": "Are hands holding a thick book?"}, {"name": "pocket", "at": "pocket‑size#1", "clip": false, "prompt": "close-up of a hand lifting a small thin paper booklet out of a coat pocket, the tiny booklet held up beside a huge thick book on a wooden table, warm lamp light", "motion": "the hand lifts the small booklet up slowly, slow camera push in", "check": "Is a hand holding a small booklet?", "move": "push"}, {"name": "fingertip", "at": "fingertip#1", "who": "louis", "clip": true, "prompt": "extreme close-up of a single fingertip sliding slowly across a page of raised paper dots, a blind boy's calm face blurred behind, he is {louis}, warm candle light", "motion": "the fingertip slides across the raised dots, slow camera push in", "check": "Is a fingertip touching raised dots on paper?"}, {"name": "barbier", "at": "Barbier’s#1", "who": "barbier", "clip": true, "prompt": "medium shot, {barbier} holding up a sheet of paper covered in rows of raised dots beside a candle, a dark army tent at night, warm light", "motion": "he holds the paper up and turns it slowly, candle flickers, slow camera push in", "check": "Is a man holding up a sheet of paper?"}, {"name": "twelve", "at": "twelve#2", "move": "push", "prompt": "extreme close-up of a thick paper sheet with a grid of twelve raised dots punched in it, a metal stylus resting beside it, candle light, dark table", "check": "Are there raised dots on paper?"}, {"name": "soldiers", "at": "soldiers#1", "who": "soldier", "clip": true, "prompt": "close-up, {soldier} frowning and scratching his head over a paper with raised dots, a dim army barrack room at night, a lantern", "motion": "he scratches his head and frowns at the paper, slow camera push in", "check": "Is a soldier frowning at a paper?"}, {"name": "fail", "at": "master#1", "who": "soldier", "clip": true, "prompt": "medium shot, {soldier} throwing a paper down on a wooden table in frustration, other soldiers shaking their heads behind him, dim barrack room, lantern light", "motion": "he throws the paper down and turns away, slow camera push in", "check": "Is a man throwing paper on a table?"}, {"name": "louis", "at": "Braille#2", "who": "louis", "clip": true, "prompt": "close-up, {louis} sitting with his fingertips resting on a paper of raised dots, his blind eyes calm, a school room, warm lamp light", "motion": "his fingertips slide slowly across the dots, slow camera push in", "xfade": true, "check": "Is a boy touching raised dots on paper?"}, {"name": "halve", "at": "half#1", "who": "louis", "clip": true, "prompt": "extreme close-up of two hands punching six raised dots into thick paper with a metal stylus, a wooden slate frame, warm lamp light", "motion": "the stylus punches a dot into the paper, slow camera push in", "check": "Is a hand punching dots into paper?"}, {"name": "sixdots", "at": "six#1", "move": "push", "prompt": "extreme close-up of a paper card showing a neat six dot pattern in two columns of three, a fingertip resting on it, warm lamp light, dark background", "check": "Are there six raised dots on paper?"}, {"name": "finger", "at": "finger#1", "who": "louis", "clip": true, "prompt": "close-up, {louis} pressing one fingertip gently on a six dot pattern, his face calm and focused, warm lamp light, dark school room", "motion": "his fingertip presses and slides over the dots, slow camera push in", "check": "Is a fingertip touching raised dots?"}, {"name": "touch", "at": "touch#1", "who": "louis", "clip": true, "prompt": "medium close-up, {louis} smiling as his fingertip moves quickly across a page of raised dots, warm lamp light, a wooden desk", "motion": "his fingertip moves quickly across the page, slow camera push in", "check": "Is a boy smiling while touching dots?"}, {"name": "punch", "at": "punch#1", "clip": true, "prompt": "close-up of a hand gripping a metal stylus and punching dots fast into thick paper on a wooden slate, warm lamp light, dark table", "motion": "the stylus punches dots quickly into the paper, slow camera push in", "check": "Is a hand punching dots with a stylus?"}, {"name": "faster", "at": "faster#1", "move": "push", "prompt": "wide shot of a quiet 1820s school room at night with rows of wooden desks, a single oil lamp glowing, papers and slates on the desks", "check": "Is this a school room at night?"}, {"name": "ironically", "at": "Ironically#1", "who": "barbier", "clip": true, "prompt": "medium shot, {barbier} holding up a sheet of punched paper beside a candle, frowning at it, a dark 1820s army barracks room with wooden bunks behind him, warm lamp light", "motion": "he turns the punched paper slowly in his hand and frowns, candle flickers, slow camera push in", "xfade": true, "check": "Is a man holding a sheet of paper?"}, {"name": "world", "at": "world’s#1", "move": "pull", "prompt": "wide shot of a bright 1820s schoolroom full of blind children sitting at long wooden desks, each child's fingers on a slate with raised dots, tall sunny windows", "check": "Are children sitting at desks with their hands on slates?"}, {"name": "blind", "at": "blind#2", "who": "louis", "clip": true, "prompt": "close-up, {louis} smiling gently as his fingertip rests on a page of raised dots, his sightless eyes calm, a warm sunlit 1820s schoolroom, soft golden light", "motion": "his fingertip slides slowly across the raised dots and he smiles, slow camera push in", "hit": "blind#2", "check": "Is a boy touching raised dots on a page?"}]}
+{"era": "1820s", "music": "curious", "cast": {"louis": "a 12 year old thin French boy with straight short black hair and a fringe, a pale narrow face, eyes half closed and unfocused, a navy blue wool school jacket with a high collar over a white shirt, 1820s", "child": "a 4 year old small boy with blond curly hair, chubby pink cheeks and a loose white linen smock, 1810s", "barbier": "a 54 year old tall lean retired French artillery captain with swept-back silver hair, long grey sideburns, a hawk nose and a faded dark blue military coat with red cuffs and brass buttons, 1820s", "teacher": "a 40 year old thin stern French teacher with dark hair slicked flat, a pointed black chin beard and a black frock coat with a tall white collar, 1840s"}, "key_words": ["blind", "fingertip", "dots", "barbier", "soldiers", "six", "letter", "write"], "shots": [{"name": "hook", "at": 0, "prompt": "close-up, a blind boy running his fingertip slowly across thick paper covered in raised dots, he is {louis}, eyes half closed, dim stone classroom, warm window light", "check": "Is a boy touching paper with his fingertip?", "who": "louis", "clip": true, "motion": "his fingertip slides slowly along the paper, slow camera push in"}, {"name": "dots", "at": "army#1", "prompt": "extreme close-up of a fingertip pressing on rows of small raised dots punched into thick cream paper, soft side light", "check": "Is a fingertip touching raised dots?", "clip": true, "motion": "the fingertip moves slowly across the dots, slow camera push in"}, {"name": "name", "at": "louis#1", "prompt": "medium shot, a thin boy tapping a wooden cane along a stone school corridor, he is {louis}, tall arched windows, morning light", "check": "Is a boy holding a wooden cane?", "who": "louis", "clip": true, "motion": "he taps the cane forward once, slow camera pan left"}, {"name": "awl", "at": "stabbed#1", "prompt": "close-up, a small boy squinting and pushing a sharp awl into a thick piece of brown leather, he is {child}, cluttered workshop table, lamp light", "check": "Is a small boy holding an awl?", "who": "child", "clip": true, "motion": "he presses the awl down hard, slow camera push in", "hit": "stabbed#1"}, {"name": "shop", "at": "father's#1", "prompt": "wide shot of a small country harness workshop with horse saddles and leather straps hanging on wooden walls, a man cutting leather at a bench, 1810s, dusty sunlight", "check": "Is this a workshop with saddles?", "move": "push"}, {"name": "cane", "at": "five#1", "prompt": "medium shot, a little blind boy feeling his way along a country path with a short wooden cane, he is {child}, green vineyard behind, soft daylight", "check": "Is a small boy holding a cane?", "who": "child", "clip": true, "motion": "he sweeps the cane gently in front of him, slow camera push in"}, {"name": "paris", "at": "at#2", "prompt": "wide shot of a tall old grey stone school building on a narrow Paris street, horse carriage passing, 1820s, overcast light", "check": "Is this a tall stone building?", "move": "right", "xfade": true}, {"name": "books", "at": "books#1", "prompt": "close-up of an enormous thick heavy book lying open on a worn wooden desk, its pages bumpy and stiff, dusty classroom, window light", "check": "Is there a huge open book?", "move": "push"}, {"name": "trace", "at": "students#1", "prompt": "medium shot, three blind children slowly tracing their fingers across the pages of one giant book on a long table, plain grey school uniforms, window light", "check": "Are children touching a big book?", "clip": true, "motion": "their fingers creep slowly across the page, slow camera pull back"}, {"name": "nowrite", "at": "cannot#1", "prompt": "close-up of a blind boy's empty hands resting on a blank sheet of paper beside an unused quill pen, wooden desk, grey light", "check": "Is there a blank sheet of paper?", "move": "down"}, {"name": "captain", "at": "then#1", "prompt": "medium shot, a lean old army captain carrying a small wooden case into a school hall, he is {barbier}, tall windows, 1820s, bright morning light", "check": "Is a man carrying a wooden case?", "who": "barbier", "clip": true, "motion": "he sets the case down on a table, slow camera push in", "xfade": true}, {"name": "slate", "at": "night#1", "prompt": "close-up of a metal ruler slate with grooves lying on thick paper next to a short pointed steel stylus, wooden table, warm light", "check": "Is there a pointed metal stylus?", "move": "push"}, {"name": "camp", "at": "code#2", "prompt": "medium shot, a soldier crouching in a dark army camp at night feeling a sheet of paper with his fingers, tall shako hat, faint moonlight, 1810s", "check": "Is a soldier holding a sheet of paper?", "clip": true, "motion": "his fingers move across the paper, slow camera push in"}, {"name": "twelve", "at": "twelve#1", "prompt": "extreme close-up of two tall columns of raised dots punched into stiff paper, long narrow pattern, side light", "check": "Are there raised dots on paper?", "move": "up"}, {"name": "hard", "at": "but#1", "prompt": "close-up, a young soldier frowning and shaking his head over a dotted sheet of paper by a campfire, blue uniform, orange firelight", "check": "Is a soldier frowning?", "clip": true, "motion": "he shakes his head slowly, slow camera push in", "hit": "hard#1"}, {"name": "glance", "at": "you#1", "prompt": "medium shot, a girl in a market lighting up with a smile as she spots her friend across the crowd, 1820s dresses, bright afternoon light", "check": "Is a girl smiling?", "clip": true, "motion": "her face breaks into a smile, slow camera push in", "xfade": true}, {"name": "friend", "at": "face#1", "prompt": "close-up, a girl in a straw bonnet waving back with a big smile in a busy market street, 1820s, warm sunlight", "check": "Is a girl waving?", "clip": true, "motion": "she waves her hand once, slow camera push in"}, {"name": "inch", "at": "not#1", "prompt": "close-up, an old man peering through a magnifying glass at a painted portrait, moving it slowly, dim study, candle light", "check": "Is a man holding a magnifying glass?", "clip": true, "motion": "he moves the magnifying glass slowly down, slow camera pan right"}, {"name": "tall", "at": "barbier's#1", "prompt": "extreme close-up of a long narrow strip of thick paper with a tall column of punched dots, much longer than a fingertip, side light", "check": "Is there a strip of paper with dots?", "move": "up"}, {"name": "frown", "at": "too#2", "prompt": "close-up, a frustrated blind boy sliding his finger up and down a long strip of dotted paper, he is {louis}, classroom desk, grey light", "check": "Is a boy touching a strip of paper?", "who": "louis", "clip": true, "motion": "his finger slides up and down the strip, slow camera push in"}, {"name": "years", "at": "so#1", "prompt": "medium shot, a boy bent over a desk at night pressing a stylus into paper on a metal slate, he is {louis}, quiet dormitory, single oil lamp", "check": "Is a boy pressing a stylus into paper?", "who": "louis", "clip": true, "motion": "he presses the stylus down again and again, slow camera push in", "xfade": true}, {"name": "punch", "at": "cuts#1", "prompt": "extreme close-up of a steel stylus punching a small dot into thick paper on a grooved metal slate, lamp light", "check": "Is a stylus pressing into paper?", "clip": true, "motion": "the stylus taps down into the paper, slow camera push in"}, {"name": "cell", "at": "three#2", "prompt": "close-up of a small neat cluster of six raised dots in thick cream paper, sharp side light, soft shadows", "check": "Are there raised dots on paper?", "move": "push"}, {"name": "pattern", "at": "each#1", "prompt": "close-up, a smiling blind boy tapping his fingertip along a line of small dot patterns, he is {louis}, classroom desk, morning window light", "check": "Is a boy smiling?", "who": "louis", "clip": true, "motion": "his fingertip hops along the line, slow camera pan right"}, {"name": "proud", "at": "letter#1", "prompt": "medium shot, a boy holding up a sheet of dotted paper proudly in a stone classroom, he is {louis}, bright window light", "check": "Is a boy holding up a sheet of paper?", "who": "louis", "clip": true, "motion": "he lifts the sheet a little higher, slow camera push in"}, {"name": "fits", "at": "it#5", "prompt": "extreme close-up of a fingertip resting on a tiny cluster of raised dots that fits fully under it, cream paper, soft light", "check": "Is a fingertip touching paper?", "move": "push"}, {"name": "reader", "at": "reader#1", "prompt": "medium shot, a blind girl reading fast with her fingers across a dotted page and smiling, grey school dress, long wooden table, window light", "check": "Is a girl touching a page?", "clip": true, "motion": "her fingers glide across the page, slow camera push in"}, {"name": "tools", "at": "with#2", "prompt": "close-up of a metal writing slate with soldered strips across it and a stylus lying on top, wooden desk, warm lamp light", "check": "Is there a metal slate?", "move": "left"}, {"name": "writing", "at": "students#2", "prompt": "medium shot, rows of blind students at long desks punching dots into paper with styluses, busy schoolroom, 1820s, daylight", "check": "Are students writing at desks?", "clip": true, "motion": "their hands tap the styluses down, slow camera pan right"}, {"name": "refuse", "at": "but#2", "prompt": "medium shot, a stern teacher pushing a sheet of dotted paper away across a desk, he is {teacher}, dark office, grey light", "check": "Is a man pushing a paper away?", "who": "teacher", "clip": true, "motion": "he pushes the paper away with one hand, slow camera push in", "xfade": true, "hit": "refuse#1"}, {"name": "candle", "at": "louis#3", "prompt": "close-up of a candle burning low beside a closed book on a small bedside table, dark infirmary room, 1850s, dim light", "check": "Is there a burning candle?", "move": "pull"}, {"name": "insist", "at": "two#3", "prompt": "medium shot, a crowd of blind students holding up sheets of dotted paper in a school hall, 1850s uniforms, bright window light", "check": "Are students holding up papers?", "clip": true, "motion": "they raise the papers higher, slow camera push in"}, {"name": "adopt", "at": "school#2", "prompt": "close-up, a teacher handing a dotted book to a smiling blind girl in a classroom, 1850s, warm light", "check": "Is a girl taking a book?", "clip": true, "motion": "she takes the book in both hands, slow camera push in"}, {"name": "sharp", "at": "a#9", "prompt": "extreme close-up of an old sharp iron awl lying on a scarred leather workbench, single beam of light, dust in the air", "check": "Is there a sharp awl?", "move": "push", "xfade": true, "hit": "sharp#1"}, {"name": "millions", "at": "six#3", "prompt": "close-up of many children's hands moving across dotted pages on a long table, fingertips on raised dots, warm golden light", "check": "Are hands touching pages?", "clip": true, "motion": "the fingers glide across the pages, slow camera pull back"}]}
 
 SOURCES (data only)
 [1] Louis Braille | https://en.wikipedia.org/wiki/Louis_Braille
