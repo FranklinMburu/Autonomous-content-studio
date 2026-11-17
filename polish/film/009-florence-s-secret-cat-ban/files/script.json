@@ -1,0 +1,55 @@
+{
+ "title": "Florence's Secret Cat Ban",
+ "channel": "Hidden Reasons",
+ "topic": "Why the medieval city of Florence banned cats in the 14th century (to protect silk production from rodent damage)",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "lines": [
+    "A silk weaver chased a mouse through his workshop, claws flashing."
+   ]
+  },
+  {
+   "lines": [
+    "His neighbors laughed, saying a cat would solve it."
+   ]
+  },
+  {
+   "lines": [
+    "The mouse multiplies, gnaws bolts of silk, the loom stops."
+   ]
+  },
+  {
+   "lines": [
+    "You see, it’s like a pantry raid when you leave crumbs out."
+   ]
+  },
+  {
+   "lines": [
+    "Florence bans cats to protect its valuable silk from rodent damage."
+   ]
+  },
+  {
+   "lines": [
+    "Ironically, the ban hurt the weavers more than the mice."
+   ]
+  }
+ ],
+ "claims": [],
+ "key_words": [
+  "silk",
+  "cat",
+  "ban",
+  "mouse",
+  "loom",
+  "Florence"
+ ]
+}
