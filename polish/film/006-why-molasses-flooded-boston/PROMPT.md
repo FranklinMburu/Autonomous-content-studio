@@ -74,12 +74,6 @@ Return JSON only: {"era": "...", "cast": {...}, "key_words": [...], "music": "<o
            {"name": ..., "at": ..., "prompt": ..., "check": "Is ...?", "move": "push"}, ...]}
 
 CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid these exact scenes):
-- 002-why-doctors-were-ordered-to-wash-their-h: cast hero = a 29 year old doctor with black slicked hair, a black mustache and a long dark green coat with gold buttons; mother = a young mother with brown hair in a bun and a long dark red 19th century dress; friend = a kind 43 year old professor with grey hair, grey sideburns and small round glasses in a brown coat; elder = a stern old professor with white hair and white whiskers in a black frock coat; pasteur = an old French scientist with a short grey beard and a black velvet cap
-  scenes: medium close-up, a stern man pointing his finger firmly at a white por | extreme close-up of two hands rubbing thick white soap foam together o | a young woman lying in an iron hospital bed looking up worried, head o | medium shot, {elder} and two other old doctors in black coats with arm | low angle, proud elegant old doctors in top hats and fine black coats  | extreme close-up of a doctor's pale hands with dark dried stains under | wide shot of a long gloomy 1847 maternity ward with two rows of iron b | close-up, a pale sick sweating young woman in a dark red dress lying i | two hospital doors side by side in a stone corridor, the left door dar | medium shot, a desperate young woman kneeling with both knees on stone | a woman sitting on a cobblestone street at night holding a newborn bab | medium shot, {friend} smiling and teaching young students in an 1847 a
-- 003-why-joseph-lister-sprayed-carbolic-acid-: cast lister = a 38 year old Victorian surgeon with bushy brown mutton-chop sideburns, short side-parted dark brown hair, focused blue eyes, wearing a dark blue waistcoat over a rolled-up white linen shirt and dark trousers, 1860s; boy = an 11 year old Victorian boy with messy auburn hair, a freckled pale face, wearing a patched grey woolen vest over a dirty cream linen shirt, 1860s; pasteur = a 43 year old French scientist with a short neatly trimmed dark brown beard and mustache, sharp brown eyes, wearing a dark maroon frock coat with a black silk cravat, 1860s; patient = a 45 year old sickly Victorian workman with thin balding greyish hair, stubble on his cheeks, wearing a worn beige hospital nightshirt, 1860s
-  scenes: medium close-up, {lister} pressing white cloth towels into a glass dis | close-up, {boy} resting his head on a flat white pillow, looking scare | low angle medium shot, {patient} sitting nervously on a tall wooden op | wide shot of a large grey Victorian stone hospital building with tall  | medium close-up, {patient} lying weakly in an iron hospital bed under  | extreme close-up of an open inflamed wound on a pale forearm leaking t | medium shot, {lister} standing in a dim surgical theatre gripping a lo | medium shot, {boy} standing just inside a Victorian hospital doorway,  | extreme close-up of two surgeon's hands holding a boy's broken lower l | medium shot, carefully adjusting the broken leg of {boy} on a wooden c | close-up of hands pouring clear carbolic liquid from a glass bottle on | medium shot, wrapping a shiny sheet of tin foil over a bound leg, {lis
-- 004-why-john-snow-removed-a-london-pump-hand: cast snow = a 41 year old English doctor with short dark wavy hair, a clean shaven narrow face, thin lips, deep-set grey eyes, a black frock coat, a grey waistcoat, a white high collar and a black necktie, 1850s; whitehead = a 28 year old English vicar with fair curly hair, a round friendly face, rosy cheeks, a black clerical coat and a white clerical collar, 1850s; simon = a 38 year old London health official with a neat full black beard, a high bald forehead, a brown overcoat with a fur collar and a grey top hat, 1850s; mother = a 30 year old poor London woman with red hair tied under a white cotton cap, a faded blue cotton dress and a brown wool shawl, 1850s; brewer = a burly 50 year old brewery worker with a thick ginger beard, a flat cloth cap, rolled-up shirt sleeves and a grey canvas apron, 1850s
-  scenes: medium shot, two men in black top hats pulling the long iron handle of | medium close-up, a doctor pointing firmly at an iron street water pump | wide shot of a crowded narrow 1850s London street with laundry hanging | close-up, a pale sweating man lying sick on a straw mattress in a dark | high angle, men carrying plain wooden coffins out of narrow brick hous | medium shot, three doctors in black coats pressing white handkerchiefs | wide shot, thick greenish yellow fog drifting over a rubbish-strewn mu | medium shot, a bearded official shaking his head while reading a lette | close-up, a doctor frowning as he reads a letter by a rainy window, he | medium shot, {snow} and {whitehead} knocking on the wooden door of a n | medium close-up, a crying woman in a doorway answering questions, she  | extreme close-up, a hand with a quill pen marking small black dots on 
 - 005-why-barry-marshall-swallowed-bacteria: cast marshall = a 33 year old Australian doctor, lean build, curly dark brown hair, a full dark brown beard, brown eyes, thin wire-rimmed glasses, a white short-sleeved shirt under a pale blue lab coat and khaki trousers, 1980s; warren = a 46 year old Australian pathologist with short receding grey hair, a clean-shaven square face, heavy black-framed glasses, a white lab coat over a brown checked shirt, 1980s; skeptic = a 48 year old British gastroenterologist, stocky build, balding with short grey hair at the sides, heavy dark eyebrows, clean shaven, a charcoal grey suit jacket, a burgundy patterned tie and white shirt, 1980s; nurse = a 35 year old nurse, sturdy build, dark brown hair in a ponytail, teal scrubs, 1980s; wife = a 32 year old woman with shoulder-length wavy blond hair, a sun-tanned face and a yellow sleeveless summer dress, 1980s
   scenes: close-up, a bearded doctor drinking cloudy brown liquid from a glass b | medium close-up, a doctor wincing and pressing a hand on his stomach,  | medium shot, a stressed businessman in a brown suit clutching his stom | close-up of a plate of bright red chilli peppers next to a bowl of spi | wide shot of a sunny 1980s Australian city hospital with palm trees in | medium shot, a pathologist looking into a microscope, he is {warren},  | medium shot, a balding doctor laughing and shaking his head at a meeti | extreme close-up of clear liquid bubbling in a glass beaker on a lab b | close-up, a hand dropping a stapled paper into a metal wastebasket, 19 | medium close-up, a doctor reading a letter and slumping back in his ch | medium shot, pink piglets sniffing around a clean straw pen, bright da | close-up, a doctor rolling up his sleeves with a determined face, he i
 - 005-why-goldberger-swallowed-scabs: cast goldberger = a 42 year old lean American physician with short wavy dark brown hair, a neat small moustache, deep-set brown eyes and a long serious face, wearing a charcoal three-piece suit, a white wing-collar shirt and a dark tie, 1910s; wife = a 38 year old woman with dark auburn hair pinned up high, a narrow freckled face, a high-collared cream lace blouse and a long navy blue skirt, 1910s; orphan = a 9 year old thin girl with long blond braids, big grey eyes and a faded pink cotton dress with a white collar, 1910s; prisoner = a 27 year old lean prisoner with a tanned face, short dark hair and stubble on his chin, wearing a blue and white striped prison shirt with rolled sleeves, 1910s; critic = a 60 year old stout doctor with a bald head, bushy white side whiskers, small gold pince-nez and a black frock coat with a watch chain, 1910s; chemist = a 36 year old laboratory chemist with thinning blond hair, round black spectacles and a clean-shaven round face, wearing a white lab coat over a dark tie, 1930s
@@ -98,235 +92,242 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: medium shot, sailors leaning on the rail of a wooden sailing ship and  | close-up, a sailor gripping a ship's wooden rail and gazing at land, h | close-up of a pale sick man lying on straw with dark swollen marks on  | wide shot of a medieval town street with closed shutters and a cart co | close-up, a weeping woman in a medieval hood kneeling beside a bed, ca | wide shot of medieval Venice with canals, gondolas and stone palaces,  | medium shot, three Venetian officials in long red robes and black caps | wide shot of a walled stone harbour city on the Adriatic coast with re | close-up of stone city walls and a tower above the sea with waves brea | medium shot, travellers in medieval cloaks stepping off a small rowing | wide shot of a small rocky island with a few stone huts in a blue sea, | close-up, a worried traveller pulling down his collar to look at his n
 - 005-why-the-radium-girls-licked-poison: cast painter = a 19 year old woman with dark brown bobbed hair, freckles, bright hazel eyes, a white cotton work smock over a navy blouse, 1910s; supervisor = a 45 year old factory supervisor with slicked grey hair, a thin moustache, a brown three-piece suit and a gold watch chain, 1910s; president = a 50 year old company president with a bald head, round gold spectacles, a heavy jaw and a dark grey double-breasted suit, 1920s; inventor = a 45 year old scientist with a high forehead, swept-back black hair, a short pointed black beard and a black suit with a white collar, 1920s
   scenes: close-up, a young woman touching a thin paintbrush tip to her lips, a  | extreme close-up of a thin brush dipping into a tiny pot of glowing gr | extreme close-up of a thin brush painting glowing green lines on a sma | wide shot of a big 1910s brick factory with tall windows and a smokest | wide shot, rows of young women in white smocks bent over long tables p | close-up of a row of small watch faces glowing green in a dark room | close-up, a young woman's open hand receiving a few copper coins at a  | extreme close-up of a camel hair paintbrush with a frayed splayed tip, | medium shot, a stern man in a suit pointing at a worker's paint table, | medium close-up, a smiling young woman putting a paintbrush to her lip | close-up, young women laughing and holding up fingernails painted glow | close-up, a laughing young woman with a faint green glow on her teeth 
+- 006-why-dutch-merchants-paid-fortunes-for-a-: cast merchant = a 44 year old Dutch merchant with a ruddy weathered face, a thick grey-streaked brown beard, heavy brows, a wide black felt hat, a long dark burgundy wool coat with silver buttons, a white linen collar and cuffs, 1630s; trader = a 31 year old Dutch tulip trader with a thin pale face, a small pointed black moustache, sharp dark eyes, shoulder-length light brown hair, a bright mustard yellow doublet, a white ruff collar and a brown leather belt, 1630s; grower = a 52 year old Dutch bulb grower with a sunburnt wrinkled face, a bald crown with grey hair at the sides, a short grey stubble beard, a rough brown linen smock, muddy wooden clogs and a grey wool cap, 1630s; wife = a 29 year old Dutch woman with fair skin, blond hair pinned under a white lace cap, a high forehead, a dark green bodice with a white apron over a long brown skirt, 1630s; tavernkeeper = a stout 48 year old Dutch tavern keeper with a red flushed face, a big belly, a clean-shaven chin, a white apron over a dark blue shirt, a brown cap, 1630s
+  scenes: medium close-up, a stern man in a wide black hat leaning over a wooden | extreme close-up of a hand with a quill pen signing a paper contract o | close-up, a merchant holding up his open empty palms toward a trader,  | medium shot, a trader shrugging with both arms spread wide and grinnin | close-up of a single tulip bulb half buried in dark soil in a wooden c | close-up of a hand with a quill pen writing rising numbers on a paper  | medium shot, {trader} slapping a paper contract down on a wooden table | close-up of a hand dropping small silver coins into a wooden bowl on a | wide shot of a crowded 1630s Dutch tavern with men waving paper contra | wide shot of a grand 1630s Dutch town exchange building with tall ston | medium shot, {merchant} holding up a paper contract beside a potted tu | close-up of a hand holding up a small paper concert ticket in a dark t
+- 007-why-tycho-brahe-built-uraniborg-on-hven: cast tycho = a 30 year old Danish astronomer with short reddish-brown hair, dark eyes, a small brass nose bridge piece, a dark green velvet doublet with gold embroidery and a white ruff collar, 1570s; king = a 42 year old Danish king with a thick blond beard, sharp blue eyes, a dark red velvet coat with white fur collar and a heavy gold chain, 1570s; farmer = a 35 year old Danish farmer with a sunburnt face, messy brown hair, stubble beard, a coarse brown wool tunic and grey trousers, 1570s; judge = a 55 year old judge with long grey hair, a bushy grey beard, a long black robe over a white ruff collar, 1570s; kepler = a 30 year old astronomer with short dark hair, a neat pointed black beard, small spectacles, a dark brown doublet with a flat white collar, 1600s
+  scenes: close-up, an astronomer squinting up at the starry sky while holding a | wide shot of a magnificent red-brick Renaissance castle with tall copp | medium shot, an astronomer turning a brass divider compass over a parc | extreme close-up of a quill pen dipping into a small dark glass inkwel | medium close-up, a bearded king in a red velvet coat leaning forward o | medium shot, an astronomer gazing out a tall arched stone window towar | medium shot, an elderly nobleman in a black robe pushing a heavy leath | medium close-up, a man lifting a brass armillary sphere up to his eye  | close-up, a man frowning and turning an hourglass upside down on a woo | medium shot, a bearded king in a velvet coat listening intently with h | wide shot of heavy wooden travel trunks and tied leather bags sitting  | medium shot, {king} unrolling a large parchment map of an island onto 
+- 008-why-china-s-paper-money-wasn-t-tang: cast merchant = a 45 year old Sichuan merchant with a round weathered face, a thin grey-streaked beard, a black silk cap, a long dark blue silk robe with wide sleeves and a brown leather belt, 11th century; official = a 50 year old Song government official with a long thin face, a neat black moustache, a tall black gauze hat with stiff wings, a long crimson robe with a gold-embroidered square badge, 11th century; clerk = a 30 year old thin clerk with a pale narrow face, small round spectacles, a grey cotton robe and a black cloth cap, 11th century; smith = a 35 year old burly iron smith with a soot-darkened face, a short black beard, a leather apron over a rough brown tunic, 11th century; wife = a 35 year old Sichuan woman with a round face, black hair in a neat bun, a small gold hairpin, a green cotton jacket and a long dark skirt, 11th century
+  scenes: medium shot, a merchant in a long dark blue silk robe and black cap ha | extreme close-up of two hands lifting a stack of thick heavy iron coin | close-up, a merchant holding up one folded paper note with both hands, | close-up, a merchant pressing a red seal stamp onto a paper note on a  | medium shot, a thin clerk holding up a paper note in one hand and poin | close-up of two hands placing a folded paper note on top of a heavy st | wide shot of a crowded 11th century Sichuan market street with wooden  | close-up of two hands holding up two different paper notes side by sid | medium shot, {merchant} standing and pointing at a large paper map on  | close-up, {merchant} leaning over a wooden table and pointing at a pap | wide shot of a large wooden gate of a merchant guild house with a hang | extreme close-up of a carved wooden printing block being pressed onto 
 
 PROBLEMS FOUND BY THE CHECKS
-- film.json is missing: write it
+- script: numbers not in the sources: ['fifty', 'thirty']; remove them or use the sources' numbers
+- script: every beat needs a "feel": the one emotion the viewer should have there
 
 DRAFT SCRIPT
-{"title": "Why Molasses Flooded Boston", "beats": [{"feel": "curiosity + dread", "lines": ["A steel tank burst and a wall of syrup swallowed a Boston street.", "People in the North End heard a roar like an elevated train."]}, {"feel": "sympathy", "lines": ["It was January 15, 1919.", "That tank held 2.3 million gallons of molasses.", "It stood 50 feet tall and 90 feet wide."]}, {"feel": "shock", "lines": ["The tank collapsed at about 12:30 in the afternoon.", "Rivets shot out like machine gun fire.", "A wave of molasses 25 feet high raced through the streets."]}, {"feel": "horror", "lines": ["It moved at 35 miles per hour.", "It swept buildings off their foundations.", "It tipped a streetcar off its tracks.", "It picked up a truck and threw it into the harbor.", "The molasses killed 21 people and injured 150."]}, {"feel": "recognition", "lines": ["You see, molasses is 40% denser than water.", "It's like trying to swim through warm honey that gets thicker as you struggle."]}, {"feel": "awe + understanding", "lines": ["The real reason: the day before, a ship delivered warm molasses.", "That warm molasses thinned the older, colder molasses already inside.", "The tank couldn't hold the pressure.", "When it burst, the molasses flowed fast, then cooled and thickened.", "That sticky goo trapped people before rescuers could pull them free."]}, {"feel": "surprise", "lines": ["For decades after, Bostonians swore the North End still smelled of molasses on hot summer days.", "The tank was never rebuilt."]}]}
+{"title": "Why Molasses Flooded Boston", "beats": [{"lines": ["Workers paint a giant leaking tank brown to hide the drips."]}, {"lines": ["The tank stands by Boston Harbor, fifty feet tall.", "It holds up to two point three million gallons of molasses.", "Neighbors even collect the leaking syrup for their homes.", "Each time the tank is filled, it groans.", "The man in charge, Arthur Jell, has no engineering experience.", "He never fills it with water to test for leaks."]}, {"lines": ["In January 1919, a ship pumps in warm molasses.", "The next day, the air warms up fast.", "At half past noon, the tank bursts.", "Its rivets shoot out like machine gun fire.", "A wave twenty-five feet high rushes out at thirty-five miles per hour.", "It sweeps buildings off their foundations.", "It tips a streetcar off its tracks."]}, {"lines": ["You see, it's like warm honey. Heat it, and it runs fast. Let it cool, and it turns thick."]}, {"lines": ["Molasses gets thinner when it is warm or pushed hard.", "So the wave races out fast.", "Then it hits the winter cold and turns thick as glue.", "People are trapped in the sticky mass.", "Twenty-one people die."]}, {"lines": ["Later, experts found the steel was only half as thick as it should have been.", "The leaks were painted over. The smell of molasses stayed for decades."]}]}
 CLAIMS IN THE DRAFT
-- {'claim': 'The disaster occurred on January 15, 1919, in the North End neighborhood of Boston.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
-- {'claim': 'The tank contained 2.3 million US gallons of molasses, stood 50 feet tall and 90 feet in diameter.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
-- {'claim': 'The tank burst at approximately 12:30 p.m.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
-- {'claim': 'Witnesses reported hearing a roar similar to an elevated train and rivets shooting out like machine gun fire.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
-- {'claim': 'A wave of molasses 25 feet high at its peak moved at 35 mph.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
-- {'claim': 'The wave swept buildings off their foundations, tipped a streetcar off its tracks, and threw a truck into the harbor.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
-- {'claim': 'The disaster killed 21 people and injured 150.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
-- {'claim': 'Molasses is about 40% denser than water.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
-- {'claim': 'On the previous day, a ship had delivered a fresh load of molasses, which had been warmed to decrease its viscosity for transfer.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
-- {'claim': 'When the tank collapsed, the fluid cooled quickly as it spread, and the viscosity increased dramatically, hampering efforts to free victims before they suffocated.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
-- {'claim': 'Residents reported for decades afterwards that the area still smelled of molasses on hot summer days.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
-- {'claim': 'USIA did not rebuild the tank.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
+- {'claim': 'When filled with molasses, the tank leaked so badly that it was painted brown to hide the leakage; local residents collected leaked molasses for their homes.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
+- {'claim': 'The tank, adjacent to Boston Harbor, stood 50 feet tall and held as much as 2.3 million US gallons of molasses.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
+- {'claim': 'Arthur Jell, who had no architectural or engineering experience, neglected basic safety tests such as filling the tank with water to check for leaks, and ignored groaning noises each time it was filled.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
+- {'claim': 'The day before the January 15, 1919 disaster, a ship delivered a fresh load of warmed molasses; temperatures climbed rapidly.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
+- {'claim': 'The tank collapsed at about 12:30 p.m.; witnesses heard a sound like a machine gun as the rivets shot out.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
+- {'claim': 'A wave of molasses 25 feet high moved at 35 mph, swept buildings off their foundations and tipped a streetcar off its tracks.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
+- {'claim': 'Molasses thins and flows quickly under pressure and heat; it then cooled and thickened, trapping victims.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
+- {'claim': '21 people were killed.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
+- {'claim': 'A 2014 investigation found the steel was half as thick as it should have been; residents reported the area smelled of molasses for decades.', 'url': 'https://en.wikipedia.org/wiki/Great_Molasses_Flood'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
-0.14s A#1
-0.24s steel#1
-0.55s tank#1
-0.80s burst#1
-1.34s and#1
-1.45s a#2
-1.52s wall#1
-1.72s of#1
-1.82s syrup#1
-2.19s swallowed#1
-2.52s a#3
-2.60s Boston#1
-3.02s street#1
-3.57s People#1
-3.90s in#1
-3.96s the#1
-4.07s North#1
-4.34s End#1
-4.87s heard#1
-5.04s a#4
-5.17s roar#1
-5.50s like#1
-5.64s an#1
-5.79s elevated#1
-6.27s train#1
-7.11s It#1
-7.19s was#1
-7.31s January#1
-7.76s 15#1
-8.41s 1919#1
-9.46s That#1
-9.66s tank#2
-9.88s held#1
-10.16s 2.3#1
-10.83s million#1
-11.21s gallons#1
-11.58s of#2
-11.66s molasses#1
-12.49s It#2
-12.59s stood#1
-12.84s 50#1
-13.14s feet#1
-13.32s tall#1
-13.87s and#2
-13.99s 90#1
-14.29s feet#2
-14.47s wide#1
-15.31s The#2
-15.41s tank#3
-15.71s collapsed#1
-16.16s at#1
-16.24s about#1
-16.46s 12:30#1
-17.39s in#2
-17.44s the#3
-17.54s afternoon#1
-18.37s Rivets#1
-18.77s shot#1
-18.99s out#1
-19.19s like#2
-19.34s machine#1
-19.74s gun#1
-19.97s fire#1
-20.58s A#5
-20.70s wave#1
-20.95s of#3
-21.03s molasses#2
-21.78s 25#1
-22.35s feet#3
-22.55s high#1
-23.05s raced#1
-23.40s through#1
-23.53s the#4
-23.63s streets#1
-24.55s It#3
-24.68s moved#1
-24.98s at#2
-25.12s 35#1
-25.62s miles#1
-25.95s per#1
-26.10s hour#1
-26.67s It#4
-26.82s swept#1
-27.12s buildings#1
-27.50s off#1
-27.67s their#1
-27.80s foundations#1
-28.79s It#5
-28.92s tipped#1
-29.12s a#6
-29.19s streetcar#1
-29.69s off#2
-29.84s its#1
-29.97s tracks#1
-30.70s It#6
-30.83s picked#1
-31.05s up#1
-31.18s a#7
-31.25s truck#1
-31.75s and#3
-31.90s threw#1
-32.08s it#7
-32.15s into#1
-32.33s the#5
-32.43s harbor#1
-33.07s The#6
-33.15s molasses#3
-33.77s killed#1
-34.07s 21#1
-34.49s people#2
-35.17s and#4
-35.30s injured#1
-35.72s 150#1
-37.03s You#1
-37.18s see#1
-37.56s molasses#4
-38.11s is#1
-38.28s 40%#1
-38.93s denser#1
-39.33s than#1
-39.46s water#1
-40.02s It's#1
-40.14s like#3
-40.29s trying#1
-40.52s to#1
-40.64s swim#1
-40.99s through#2
-41.27s warm#1
-41.57s honey#1
-42.17s that#2
-42.32s gets#1
-42.59s thicker#1
-42.99s as#1
-43.12s you#2
-43.24s struggle#1
-44.13s The#7
-44.26s real#1
-44.53s reason:#1
-45.26s the#8
-45.36s day#1
-45.53s before#1
-46.09s a#8
-46.24s ship#1
-46.49s delivered#1
-46.92s warm#2
-47.14s molasses#5
-47.97s That#3
-48.20s warm#3
-48.42s molasses#6
-48.92s thinned#1
-49.07s the#9
-49.17s older#1
-49.82s colder#1
-50.15s molasses#7
-50.65s already#1
-50.97s inside#1
-51.75s The#10
-51.85s tank#4
-52.18s couldn't#1
-52.40s hold#1
-52.60s the#11
-52.70s pressure#1
-53.38s When#1
-53.51s it#8
-53.61s burst#2
-54.06s the#12
-54.14s molasses#8
-54.62s flowed#1
-54.94s fast#1
-55.56s then#1
-55.79s cooled#1
-56.16s and#5
-56.29s thickened#1
-56.95s That#4
-57.17s sticky#1
-57.47s goo#1
-57.70s trapped#1
-58.02s people#3
-58.42s before#2
-58.67s rescuers#1
-59.37s could#1
-59.50s pull#1
-59.67s them#1
-59.87s free#1
-60.66s For#1
-60.81s decades#1
-61.26s after#1
-61.91s Bostonians#1
-62.58s swore#1
-62.81s the#13
-62.91s North#2
-63.13s End#2
-63.43s still#1
-63.71s smelled#1
-64.01s of#4
-64.08s molasses#9
-64.73s on#1
-64.91s hot#1
-65.16s summer#1
-65.38s days#1
-66.01s The#14
-66.14s tank#5
-66.44s was#2
-66.64s never#1
-66.91s rebuilt#1
+0.17s Workers#1
+0.67s paint#1
+0.90s a#1
+0.99s giant#1
+1.40s leaking#1
+1.72s tank#1
+2.00s brown#1
+2.40s to#1
+2.50s hide#1
+2.72s the#1
+2.82s drips#1
+3.71s The#2
+3.81s tank#2
+4.06s stands#1
+4.34s by#1
+4.51s Boston#1
+4.91s Harbor#1
+5.51s fifty#1
+5.81s feet#1
+6.01s tall#1
+6.60s It#1
+6.72s holds#1
+7.02s up#1
+7.15s to#2
+7.30s two#1
+7.52s point#1
+7.80s three#1
+8.02s million#1
+8.40s gallons#1
+8.77s of#1
+8.85s molasses#1
+9.70s Neighbors#1
+10.23s even#1
+10.53s collect#1
+10.88s the#3
+10.98s leaking#2
+11.33s syrup#1
+11.70s for#1
+11.83s their#1
+11.98s homes#1
+12.66s Each#1
+12.86s time#1
+13.09s the#4
+13.19s tank#3
+13.41s is#1
+13.56s filled#1
+13.99s it#2
+14.09s groans#1
+14.84s The#5
+14.94s man#1
+15.17s in#1
+15.29s charge#1
+15.87s Arthur#1
+16.14s Jell#1
+16.74s has#1
+16.97s no#1
+17.19s engineering#1
+17.77s experience#1
+18.72s He#1
+18.84s never#1
+19.14s fills#1
+19.37s it#3
+19.45s with#1
+19.62s water#1
+19.92s to#3
+20.02s test#1
+20.30s for#2
+20.45s leaks#1
+21.27s In#2
+21.40s January#1
+21.85s 1919#1
+22.95s a#2
+23.10s ship#1
+23.35s pumps#1
+23.70s in#3
+23.85s warm#1
+24.07s molasses#2
+24.92s The#6
+25.00s next#1
+25.25s day#1
+25.62s the#7
+25.77s air#1
+25.97s warms#1
+26.24s up#2
+26.42s fast#1
+27.11s At#1
+27.21s half#1
+27.46s past#1
+27.73s noon#1
+28.08s the#8
+28.18s tank#4
+28.46s bursts#1
+29.16s Its#1
+29.36s rivets#1
+29.81s shoot#1
+29.98s out#1
+30.16s like#1
+30.31s machine#1
+30.71s gun#1
+30.93s fire#1
+31.54s A#3
+31.67s wave#1
+31.99s twenty-five#1
+32.57s feet#2
+32.74s high#1
+33.34s rushes#1
+33.69s out#2
+33.87s at#2
+34.02s thirty-five#1
+34.62s miles#1
+34.94s per#1
+35.09s hour#1
+35.66s It#4
+35.81s sweeps#1
+36.13s buildings#1
+36.58s off#1
+36.76s their#2
+36.88s foundations#1
+37.87s It#5
+38.00s tips#1
+38.20s a#4
+38.27s streetcar#1
+38.77s off#2
+38.92s its#2
+39.05s tracks#1
+39.98s You#1
+40.11s see#1
+40.33s it's#1
+40.43s like#2
+40.63s warm#2
+40.88s honey#1
+41.50s Heat#1
+41.72s it#6
+41.85s and#1
+41.95s it#7
+42.05s runs#1
+42.32s fast#2
+42.97s Let#1
+43.10s it#8
+43.20s cool#1
+43.60s and#2
+43.70s it#9
+43.80s turns#1
+44.15s thick#1
+44.88s Molasses#3
+45.40s gets#1
+45.68s thinner#1
+45.98s when#1
+46.08s it#10
+46.15s is#2
+46.33s warm#3
+46.73s or#1
+46.85s pushed#1
+47.13s hard#1
+47.76s So#1
+47.88s the#9
+47.98s wave#2
+48.31s races#1
+48.66s out#3
+48.86s fast#3
+49.54s Then#1
+49.66s it#11
+49.76s hits#1
+49.99s the#10
+50.09s winter#1
+50.39s cold#1
+50.91s and#3
+51.04s turns#2
+51.44s thick#2
+51.59s as#1
+51.74s glue#1
+52.32s People#1
+52.65s are#1
+52.77s trapped#1
+53.10s in#4
+53.16s the#11
+53.27s sticky#1
+53.60s mass#1
+54.27s Twenty-one#1
+54.82s people#2
+55.19s die#1
+56.01s Later#1
+56.51s experts#1
+56.98s found#1
+57.18s the#12
+57.28s steel#1
+57.68s was#1
+57.78s only#1
+58.06s half#2
+58.28s as#2
+58.43s thick#3
+58.81s as#3
+58.91s it#12
+59.01s should#1
+59.08s have#1
+59.21s been#1
+59.74s The#13
+59.86s leaks#2
+60.16s were#1
+60.29s painted#1
+60.64s over#1
+61.29s The#14
+61.44s smell#1
+61.71s of#2
+61.79s molasses#4
+62.31s stayed#1
+62.59s for#3
+62.74s decades#1
 
 DRAFT film.json
-(none yet)
+{"era": "1919", "music": "tense", "cast": {"painter": "a 30 year old lanky dockside worker with a narrow face, ginger stubble, a grey flat cap and brown paint-stained canvas overalls over a red flannel shirt, 1919", "jell": "a 45 year old portly American company treasurer with round gold spectacles, a thick brown moustache, a black bowler hat and a tight tan three-piece suit, 1919", "neighbor": "a 40 year old Italian American woman with black hair in a low bun, a round olive face, a black knitted shawl over a dark green dress and a white apron, 1919"}, "key_words": ["tank", "molasses", "leaking", "brown", "warm", "wave", "thick", "Boston"], "shots": [{"name": "hook", "at": 0, "prompt": "medium shot, a worker on a ladder painting a huge round steel tank brown with a long brush, dark syrup dripping down the wall, he is {painter}, winter daylight", "check": "Is a man painting a big tank?", "who": "painter", "clip": true, "motion": "he sweeps the brush across the steel, slow camera push in"}, {"name": "drip", "at": "brown#1", "prompt": "extreme close-up of a wide paint brush covering a sticky dark drip running down riveted steel with brown paint", "check": "Is a paint brush on steel?", "clip": true, "motion": "the brush strokes over the drip, slow camera push in"}, {"name": "tank", "at": "the#2", "prompt": "wide shot of a giant round steel storage tank beside a harbor with ships and an elevated railway behind it, 1919, grey winter light", "check": "Is there a giant round tank?", "move": "up"}, {"name": "tall", "at": "fifty#1", "prompt": "low angle of a towering riveted steel tank wall rising into a grey sky", "check": "Is there a tall steel wall?", "move": "up"}, {"name": "fill", "at": "it#1", "prompt": "close-up of thick dark brown molasses pouring from a wide pipe into a tank hatch", "check": "Is dark syrup pouring from a pipe?", "clip": true, "motion": "the syrup keeps pouring, slow camera push in"}, {"name": "pool", "at": "million#1", "prompt": "high angle looking down into a vast dark pool of molasses inside a steel tank, faint light from above", "check": "Is there a dark pool of syrup?", "move": "push"}, {"name": "bucket", "at": "neighbors#1", "prompt": "medium shot, a woman filling a tin bucket from a sticky dark drip at the base of a steel tank, she is {neighbor}, cobblestone street", "check": "Is a woman holding a bucket?", "who": "neighbor", "clip": true, "motion": "she tilts the bucket under the drip, slow camera push in"}, {"name": "lick", "at": "syrup#1", "prompt": "close-up, two small children dipping their fingers into a tin can of dark syrup and licking them, kitchen table, warm light", "check": "Are children licking their fingers?", "clip": true, "motion": "a child licks a finger and grins, slow camera push in"}, {"name": "hose", "at": "each#1", "prompt": "close-up of a thick hose pumping into a valve on top of a steel tank, steam rising in the cold", "check": "Is there a thick hose?", "clip": true, "motion": "the hose shudders as it pumps, slow camera pan up"}, {"name": "groan", "at": "groans#1", "prompt": "close-up, a worker pressing his ear against a riveted steel tank wall and frowning, he is {painter}, cold daylight", "check": "Is a man pressing his ear to a wall?", "who": "painter", "clip": true, "motion": "his eyes widen as he listens, slow camera push in", "hit": "groans#1"}, {"name": "jell", "at": "arthur#1", "prompt": "medium shot, a portly businessman in a bowler hat waving his hand dismissively in front of a huge tank, he is {jell}, winter daylight", "check": "Is a man in a bowler hat waving his hand?", "who": "jell", "clip": true, "motion": "he flicks his hand away, slow camera push in"}, {"name": "refuse", "at": "he#1", "prompt": "close-up, a businessman shaking his head with a smug face, he is {jell}, cold harbor street", "check": "Is a man shaking his head?", "who": "jell", "clip": true, "motion": "he shakes his head, slow camera push in"}, {"name": "unused", "at": "water#1", "prompt": "close-up of a coiled canvas water hose lying unused and dusty beside a steel tank wall", "check": "Is there a coiled hose?", "move": "push"}, {"name": "ship", "at": "in#2", "prompt": "wide shot of a rusty cargo steamship docked in a winter harbor, steam rising from her pipes, 1919", "check": "Is there a ship at a dock?", "move": "right", "xfade": true}, {"name": "warm", "at": "pumps#1", "prompt": "close-up of steaming warm molasses gushing out of the end of a pipe, cold air", "check": "Is steaming syrup gushing from a pipe?", "clip": true, "motion": "the steaming syrup gushes out, slow camera push in"}, {"name": "thaw", "at": "the#6", "prompt": "wide shot of melting snow dripping from rooftops over a sunny Boston street, 1919", "check": "Is snow melting from rooftops?", "move": "push"}, {"name": "lunch", "at": "at#1", "prompt": "medium shot, workers eating lunch on wooden crates near a huge steel tank in the sunshine, laughing, 1919", "check": "Are men eating lunch?", "clip": true, "motion": "one man laughs and takes a bite, slow camera pan right"}, {"name": "burst", "at": "tank#4", "prompt": "low angle of a riveted steel tank wall splitting open with dark syrup bursting out, harbor sky", "check": "Is a steel wall splitting open?", "clip": true, "motion": "the crack bursts wider, slow camera push in", "hit": "bursts#1"}, {"name": "rivets", "at": "shoot#1", "prompt": "extreme close-up of iron rivets popping out of a splitting steel seam, dark syrup behind", "check": "Are rivets popping out of steel?", "clip": true, "motion": "rivets pop out one after another, slow camera push in"}, {"name": "wave", "at": "a#3", "prompt": "wide shot of a towering wave of dark brown molasses rolling down a city street between brick buildings", "check": "Is there a wave of brown syrup?", "clip": true, "motion": "the wave rolls forward, slow camera pull back", "hit": "wave#1"}, {"name": "rush", "at": "rushes#1", "prompt": "low angle, a glossy dark brown syrup wave crashing toward the camera along cobblestones, brick warehouses, winter light", "check": "Is a brown wave coming at the camera?", "clip": true, "motion": "the wave surges closer, slow camera pull back"}, {"name": "building", "at": "it#4", "prompt": "wide shot of a wooden building being knocked off its base by a flood of brown syrup, planks splintering", "check": "Is a wooden building in brown syrup?", "clip": true, "motion": "the building tilts slowly, slow camera push in"}, {"name": "streetcar", "at": "it#5", "prompt": "medium shot, a streetcar tipping sideways on its tracks as brown syrup surges around its wheels, 1919", "check": "Is a streetcar tipping over?", "clip": true, "motion": "the streetcar tilts a little more, slow camera push in"}, {"name": "honey", "at": "you#1", "prompt": "close-up of warm runny golden honey pouring from a spoon into a cup of tea, cosy kitchen, warm light", "check": "Is honey pouring from a spoon?", "clip": true, "motion": "the honey streams down, slow camera push in", "xfade": true}, {"name": "heat", "at": "heat#1", "prompt": "close-up of a small pot of honey warming on an iron stove, bubbling gently", "check": "Is there a small pot on a stove?", "clip": true, "motion": "small bubbles rise, slow camera push in"}, {"name": "cold", "at": "let#1", "prompt": "close-up of thick stiff cold honey clinging to a wooden spoon by a frosty window", "check": "Is thick honey on a wooden spoon?", "move": "push"}, {"name": "thin", "at": "molasses#3", "prompt": "close-up of dark molasses streaming fast and thin from a tipped wooden barrel", "check": "Is dark syrup pouring from a barrel?", "clip": true, "motion": "the syrup streams faster, slow camera push in"}, {"name": "pushed", "at": "warm#3", "prompt": "close-up, a man leaning hard on a big iron pump handle as dark syrup squirts out of a spout", "check": "Is a man pressing on a pump handle?", "clip": true, "motion": "he pushes the handle down, slow camera push in"}, {"name": "races", "at": "so#1", "prompt": "wide shot of a dark syrup flood racing across a cobblestone square, overturned carts, winter light", "check": "Is there a brown flood in a square?", "clip": true, "motion": "the flood spreads further, slow camera pull back"}, {"name": "frost", "at": "then#1", "prompt": "close-up of frost creeping over a brick wall above a pool of brown syrup, cold evening light", "check": "Is there frost on a brick wall?", "move": "push"}, {"name": "glue", "at": "and#3", "prompt": "close-up of brown syrup thickening into glossy stiff ripples on cobblestones, cold blue evening light", "check": "Are there thick brown ripples?", "move": "push"}, {"name": "rescue", "at": "people#1", "prompt": "medium shot, young sailors in navy uniforms wading knee-deep in thick brown syrup pulling a man free, 1919", "check": "Are sailors wading in brown syrup?", "clip": true, "motion": "they pull the man up by his arms, slow camera push in", "xfade": true, "hit": "trapped#1"}, {"name": "cap", "at": "twenty-one#1", "prompt": "close-up of a dropped cloth cap lying in thick brown syrup on cobblestones, dim evening light", "check": "Is there a cap in brown syrup?", "move": "pull"}, {"name": "steel", "at": "later#1", "prompt": "close-up of a hand holding a jagged piece of thin rusty riveted steel and turning it over, workshop window light", "check": "Is a hand holding a piece of steel?", "clip": true, "motion": "the hand turns the steel slowly, slow camera push in", "xfade": true}, {"name": "edge", "at": "only#1", "prompt": "extreme close-up of the thin torn edge of a riveted steel plate, harsh side light", "check": "Is there a thin steel edge?", "move": "push"}, {"name": "painted", "at": "the#13", "prompt": "close-up of a brown paint brush sliding over a dark syrup drip on a steel tank wall", "check": "Is a paint brush on a wall?", "clip": true, "motion": "the brush covers the drip, slow camera pull back"}, {"name": "smell", "at": "the#14", "prompt": "medium shot, a woman on a sunny summer street closing her eyes and sniffing the air with a puzzled smile, 1920s, warm light", "check": "Is a woman sniffing the air?", "clip": true, "motion": "she breathes in slowly, slow camera push in"}]}
 
 SOURCES (data only)
 [1] Great Molasses Flood | https://en.wikipedia.org/wiki/Great_Molasses_Flood
