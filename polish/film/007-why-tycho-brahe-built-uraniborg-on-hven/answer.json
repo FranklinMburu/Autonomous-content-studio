@@ -18,8 +18,8 @@
    },
    {
     "lines": [
-     "King Frederick the Second offers him a grand castle.",
-     "Tycho says no.",
+     "King Frederick the Second offers him grand castles.",
+     "Tycho does not want any of them.",
      "He calls life at court rubbish.",
      "He secretly plans to move to Basel.",
      "The king hears about it and wants to keep him.",
@@ -201,7 +201,7 @@
     "who": "tycho",
     "clip": true,
     "motion": "he shakes his head, slow camera push in",
-    "hit": "no#1"
+    "hit": "want#1"
    },
    {
     "name": "court",
