@@ -405,13 +405,6 @@
     "check": "Are notebooks inside a box?",
     "clip": true,
     "motion": "the lid closes over the notebooks, slow camera push in"
-   },
-   {
-    "name": "vault",
-    "at": "notebooks#2",
-    "prompt": "wide shot of a quiet archive vault with rows of grey metal boxes on shelves, dim light",
-    "check": "Are there rows of metal boxes?",
-    "move": "pull"
    }
   ]
  }

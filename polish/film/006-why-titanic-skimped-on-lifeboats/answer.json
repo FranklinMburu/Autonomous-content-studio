@@ -36,7 +36,6 @@
     "lines": [
      "In those days, lifeboats were not meant to hold everyone.",
      "They would ferry people to a rescue ship nearby.",
-     "That is exactly how it went when RMS Republic sank in 1909.",
      "And White Star wanted a wide deck with open views of the sea.",
      "A long row of lifeboats would have blocked them."
     ],
@@ -88,10 +87,6 @@
    {
     "claim": "The shortage of lifeboats was not because of a lack of space nor because of cost.",
     "url": "https://en.wikipedia.org/wiki/Sinking_of_the_Titanic"
-   },
-   {
-    "claim": "Lifeboats were intended to ferry survivors to a rescuing ship, as in the 1909 sinking of RMS Republic where this played out flawlessly.",
-    "url": "https://en.wikipedia.org/wiki/Titanic"
    },
    {
     "claim": "White Star wanted a wide promenade deck with uninterrupted views of the sea, which a continuous row of lifeboats would have obstructed.",
@@ -313,18 +308,10 @@
    },
    {
     "name": "republic",
-    "at": "that#1",
-    "prompt": "wide shot of a sinking steamship in thick fog with a second ship standing close beside it, small boats between them, grey morning",
-    "check": "Are there two ships in fog?",
+    "at": "rescue#1",
+    "prompt": "wide shot of a rescue steamship waiting close by on a calm sea at dawn, small boats rowing toward it",
+    "check": "Is there a steamship on a calm sea?",
     "move": "push"
-   },
-   {
-    "name": "ladder",
-    "at": "rms#1",
-    "prompt": "medium shot, relieved passengers in coats climbing a rope ladder up the side of a rescue ship, grey daylight",
-    "check": "Are people climbing a rope ladder?",
-    "clip": true,
-    "motion": "a man climbs one rung higher, slow camera tilt up"
    },
    {
     "name": "view",
