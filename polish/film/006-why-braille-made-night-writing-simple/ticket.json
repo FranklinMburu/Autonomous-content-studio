@@ -3,7 +3,8 @@
  "draft": "draft-006-why-braille-made-night-writing-simple-run44",
  "episode": "episodes/hidden_reasons/006-why-braille-made-night-writing-simple",
  "opened": "2026-11-10T21:32:10+00:00",
- "status": "needs-fix",
- "checked": "2026-11-17T02:07:57+00:00",
- "last_answer_by": "pull request #131 by FranklinMburu"
+ "status": "accepted",
+ "checked": "2026-11-17T02:17:26+00:00",
+ "last_answer_by": "pull request #131 by FranklinMburu",
+ "tries": 0
 }
