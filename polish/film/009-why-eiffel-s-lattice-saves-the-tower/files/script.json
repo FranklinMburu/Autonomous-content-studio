@@ -1,0 +1,87 @@
+{
+ "title": "Why Eiffel’s Lattice Saves the Tower",
+ "channel": "Hidden Reasons",
+ "topic": "Why the French engineer Gustave Eiffel built the internal lattice of the Eiffel Tower (to reduce wind resistance and material weight)",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "Gustave Eiffel hoisted a massive iron beam, then tossed it aside."
+   ]
+  },
+  {
+   "feel": "skepticism",
+   "lines": [
+    "Critics shouted, “It looks like a giant grill—useless and ugly!”"
+   ]
+  },
+  {
+   "feel": "tension",
+   "lines": [
+    "Eiffel watches the wind howl over Paris.",
+    "He knows the storm could snap a solid tower like a twig."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see how a bicycle’s frame feels lighter when its tubes are spaced, not solid."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "Eiffel designs a lattice of criss‑crossing iron girders.",
+    "The open web lets air flow through, cutting pressure on every point.",
+    "At the same time the empty spaces shave off tons of weight."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "Because of that airy skeleton, the tower sways only nine centimeters in a gale."
+   ]
+  },
+  {
+   "feel": "irony",
+   "lines": [
+    "The “ugly grill” became the world’s most celebrated wind‑proof monument."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Eiffel’s primary design concern was wind resistance, leading to the lattice structure.",
+   "url": "https://en.wikipedia.org/wiki/Eiffel_Tower"
+  },
+  {
+   "claim": "The lattice reduces wind pressure and material weight, allowing the tower to sway only about nine centimeters in strong winds.",
+   "url": "https://en.wikipedia.org/wiki/Eiffel_Tower"
+  },
+  {
+   "claim": "Eiffel presented the curved silhouette as a structural principle to handle wind loads efficiently.",
+   "url": "https://openalex.org/W3211338988"
+  }
+ ],
+ "key_words": [
+  "Eiffel",
+  "lattice",
+  "wind",
+  "resistance",
+  "weight",
+  "air",
+  "gale",
+  "sway",
+  "structure",
+  "efficiency"
+ ]
+}
