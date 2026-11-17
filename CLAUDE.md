@@ -10,6 +10,13 @@ when Franklin corrects how we work.
 Projects table → **YouTube Creator Studio** → Project Control Centre. Also read its Drift Guard.
 Channels are the **Sub-item** records of that page. They are parts of this project, never separate projects.
 
+## Standing brief (goal, scoreboard, boundaries) — added 17 Nov 2026
+- **Goal:** Franklin owns goals and taste; Claude does the loop. Gather context yourself (Notion, this repo, memory); ask Franklin only what only he can answer.
+- **Scoreboard:** Notion → Claude Mastery Lab → *Operator Scoreboard & Daily Loop*; clipping numbers in *Clipping Lab*. Every change must move a number; measure before and after; keep or drop and log it.
+- **Standing duty at the start of every session:** `ls polish/film/` — polish waiting tickets oldest first (principle 11 in *How Franklin thinks*).
+- **Enforced, not remembered:** `.claude/hooks/guard.py` blocks `.env` access, pushes to main, force-push, PR merges, manual workflow runs and YouTube upload/auth (`python tests/test_guard.py`). Usage credits must stay off (account setting, cannot be enforced here).
+- **Delivery:** branch + pull request only; Franklin merges. A fresh reviewer agent checks substantial work before it is reported.
+
 ## Channels
 | Code | Channel | Stage | Notion record |
 |---|---|---|---|
