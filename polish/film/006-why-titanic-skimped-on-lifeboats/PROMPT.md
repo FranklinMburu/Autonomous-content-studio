@@ -74,12 +74,6 @@ Return JSON only: {"era": "...", "cast": {...}, "key_words": [...], "music": "<o
            {"name": ..., "at": ..., "prompt": ..., "check": "Is ...?", "move": "push"}, ...]}
 
 CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid these exact scenes):
-- 002-why-doctors-were-ordered-to-wash-their-h: cast hero = a 29 year old doctor with black slicked hair, a black mustache and a long dark green coat with gold buttons; mother = a young mother with brown hair in a bun and a long dark red 19th century dress; friend = a kind 43 year old professor with grey hair, grey sideburns and small round glasses in a brown coat; elder = a stern old professor with white hair and white whiskers in a black frock coat; pasteur = an old French scientist with a short grey beard and a black velvet cap
-  scenes: medium close-up, a stern man pointing his finger firmly at a white por | extreme close-up of two hands rubbing thick white soap foam together o | a young woman lying in an iron hospital bed looking up worried, head o | medium shot, {elder} and two other old doctors in black coats with arm | low angle, proud elegant old doctors in top hats and fine black coats  | extreme close-up of a doctor's pale hands with dark dried stains under | wide shot of a long gloomy 1847 maternity ward with two rows of iron b | close-up, a pale sick sweating young woman in a dark red dress lying i | two hospital doors side by side in a stone corridor, the left door dar | medium shot, a desperate young woman kneeling with both knees on stone | a woman sitting on a cobblestone street at night holding a newborn bab | medium shot, {friend} smiling and teaching young students in an 1847 a
-- 003-why-joseph-lister-sprayed-carbolic-acid-: cast lister = a 38 year old Victorian surgeon with bushy brown mutton-chop sideburns, short side-parted dark brown hair, focused blue eyes, wearing a dark blue waistcoat over a rolled-up white linen shirt and dark trousers, 1860s; boy = an 11 year old Victorian boy with messy auburn hair, a freckled pale face, wearing a patched grey woolen vest over a dirty cream linen shirt, 1860s; pasteur = a 43 year old French scientist with a short neatly trimmed dark brown beard and mustache, sharp brown eyes, wearing a dark maroon frock coat with a black silk cravat, 1860s; patient = a 45 year old sickly Victorian workman with thin balding greyish hair, stubble on his cheeks, wearing a worn beige hospital nightshirt, 1860s
-  scenes: medium close-up, {lister} pressing white cloth towels into a glass dis | close-up, {boy} resting his head on a flat white pillow, looking scare | low angle medium shot, {patient} sitting nervously on a tall wooden op | wide shot of a large grey Victorian stone hospital building with tall  | medium close-up, {patient} lying weakly in an iron hospital bed under  | extreme close-up of an open inflamed wound on a pale forearm leaking t | medium shot, {lister} standing in a dim surgical theatre gripping a lo | medium shot, {boy} standing just inside a Victorian hospital doorway,  | extreme close-up of two surgeon's hands holding a boy's broken lower l | medium shot, carefully adjusting the broken leg of {boy} on a wooden c | close-up of hands pouring clear carbolic liquid from a glass bottle on | medium shot, wrapping a shiny sheet of tin foil over a bound leg, {lis
-- 004-why-john-snow-removed-a-london-pump-hand: cast snow = a 41 year old English doctor with short dark wavy hair, a clean shaven narrow face, thin lips, deep-set grey eyes, a black frock coat, a grey waistcoat, a white high collar and a black necktie, 1850s; whitehead = a 28 year old English vicar with fair curly hair, a round friendly face, rosy cheeks, a black clerical coat and a white clerical collar, 1850s; simon = a 38 year old London health official with a neat full black beard, a high bald forehead, a brown overcoat with a fur collar and a grey top hat, 1850s; mother = a 30 year old poor London woman with red hair tied under a white cotton cap, a faded blue cotton dress and a brown wool shawl, 1850s; brewer = a burly 50 year old brewery worker with a thick ginger beard, a flat cloth cap, rolled-up shirt sleeves and a grey canvas apron, 1850s
-  scenes: medium shot, two men in black top hats pulling the long iron handle of | medium close-up, a doctor pointing firmly at an iron street water pump | wide shot of a crowded narrow 1850s London street with laundry hanging | close-up, a pale sweating man lying sick on a straw mattress in a dark | high angle, men carrying plain wooden coffins out of narrow brick hous | medium shot, three doctors in black coats pressing white handkerchiefs | wide shot, thick greenish yellow fog drifting over a rubbish-strewn mu | medium shot, a bearded official shaking his head while reading a lette | close-up, a doctor frowning as he reads a letter by a rainy window, he | medium shot, {snow} and {whitehead} knocking on the wooden door of a n | medium close-up, a crying woman in a doorway answering questions, she  | extreme close-up, a hand with a quill pen marking small black dots on 
 - 005-why-barry-marshall-swallowed-bacteria: cast marshall = a 33 year old Australian doctor, lean build, curly dark brown hair, a full dark brown beard, brown eyes, thin wire-rimmed glasses, a white short-sleeved shirt under a pale blue lab coat and khaki trousers, 1980s; warren = a 46 year old Australian pathologist with short receding grey hair, a clean-shaven square face, heavy black-framed glasses, a white lab coat over a brown checked shirt, 1980s; skeptic = a 48 year old British gastroenterologist, stocky build, balding with short grey hair at the sides, heavy dark eyebrows, clean shaven, a charcoal grey suit jacket, a burgundy patterned tie and white shirt, 1980s; nurse = a 35 year old nurse, sturdy build, dark brown hair in a ponytail, teal scrubs, 1980s; wife = a 32 year old woman with shoulder-length wavy blond hair, a sun-tanned face and a yellow sleeveless summer dress, 1980s
   scenes: close-up, a bearded doctor drinking cloudy brown liquid from a glass b | medium close-up, a doctor wincing and pressing a hand on his stomach,  | medium shot, a stressed businessman in a brown suit clutching his stom | close-up of a plate of bright red chilli peppers next to a bowl of spi | wide shot of a sunny 1980s Australian city hospital with palm trees in | medium shot, a pathologist looking into a microscope, he is {warren},  | medium shot, a balding doctor laughing and shaking his head at a meeti | extreme close-up of clear liquid bubbling in a glass beaker on a lab b | close-up, a hand dropping a stapled paper into a metal wastebasket, 19 | medium close-up, a doctor reading a letter and slumping back in his ch | medium shot, pink piglets sniffing around a clean straw pen, bright da | close-up, a doctor rolling up his sleeves with a determined face, he i
 - 005-why-goldberger-swallowed-scabs: cast goldberger = a 42 year old lean American physician with short wavy dark brown hair, a neat small moustache, deep-set brown eyes and a long serious face, wearing a charcoal three-piece suit, a white wing-collar shirt and a dark tie, 1910s; wife = a 38 year old woman with dark auburn hair pinned up high, a narrow freckled face, a high-collared cream lace blouse and a long navy blue skirt, 1910s; orphan = a 9 year old thin girl with long blond braids, big grey eyes and a faded pink cotton dress with a white collar, 1910s; prisoner = a 27 year old lean prisoner with a tanned face, short dark hair and stubble on his chin, wearing a blue and white striped prison shirt with rolled sleeves, 1910s; critic = a 60 year old stout doctor with a bald head, bushy white side whiskers, small gold pince-nez and a black frock coat with a watch chain, 1910s; chemist = a 36 year old laboratory chemist with thinning blond hair, round black spectacles and a clean-shaven round face, wearing a white lab coat over a dark tie, 1930s
@@ -98,174 +92,242 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: medium shot, sailors leaning on the rail of a wooden sailing ship and  | close-up, a sailor gripping a ship's wooden rail and gazing at land, h | close-up of a pale sick man lying on straw with dark swollen marks on  | wide shot of a medieval town street with closed shutters and a cart co | close-up, a weeping woman in a medieval hood kneeling beside a bed, ca | wide shot of medieval Venice with canals, gondolas and stone palaces,  | medium shot, three Venetian officials in long red robes and black caps | wide shot of a walled stone harbour city on the Adriatic coast with re | close-up of stone city walls and a tower above the sea with waves brea | medium shot, travellers in medieval cloaks stepping off a small rowing | wide shot of a small rocky island with a few stone huts in a blue sea, | close-up, a worried traveller pulling down his collar to look at his n
 - 005-why-the-radium-girls-licked-poison: cast painter = a 19 year old woman with dark brown bobbed hair, freckles, bright hazel eyes, a white cotton work smock over a navy blouse, 1910s; supervisor = a 45 year old factory supervisor with slicked grey hair, a thin moustache, a brown three-piece suit and a gold watch chain, 1910s; president = a 50 year old company president with a bald head, round gold spectacles, a heavy jaw and a dark grey double-breasted suit, 1920s; inventor = a 45 year old scientist with a high forehead, swept-back black hair, a short pointed black beard and a black suit with a white collar, 1920s
   scenes: close-up, a young woman touching a thin paintbrush tip to her lips, a  | extreme close-up of a thin brush dipping into a tiny pot of glowing gr | extreme close-up of a thin brush painting glowing green lines on a sma | wide shot of a big 1910s brick factory with tall windows and a smokest | wide shot, rows of young women in white smocks bent over long tables p | close-up of a row of small watch faces glowing green in a dark room | close-up, a young woman's open hand receiving a few copper coins at a  | extreme close-up of a camel hair paintbrush with a frayed splayed tip, | medium shot, a stern man in a suit pointing at a worker's paint table, | medium close-up, a smiling young woman putting a paintbrush to her lip | close-up, young women laughing and holding up fingernails painted glow | close-up, a laughing young woman with a faint green glow on her teeth 
+- 006-why-dutch-merchants-paid-fortunes-for-a-: cast merchant = a 44 year old Dutch merchant with a ruddy weathered face, a thick grey-streaked brown beard, heavy brows, a wide black felt hat, a long dark burgundy wool coat with silver buttons, a white linen collar and cuffs, 1630s; trader = a 31 year old Dutch tulip trader with a thin pale face, a small pointed black moustache, sharp dark eyes, shoulder-length light brown hair, a bright mustard yellow doublet, a white ruff collar and a brown leather belt, 1630s; grower = a 52 year old Dutch bulb grower with a sunburnt wrinkled face, a bald crown with grey hair at the sides, a short grey stubble beard, a rough brown linen smock, muddy wooden clogs and a grey wool cap, 1630s; wife = a 29 year old Dutch woman with fair skin, blond hair pinned under a white lace cap, a high forehead, a dark green bodice with a white apron over a long brown skirt, 1630s; tavernkeeper = a stout 48 year old Dutch tavern keeper with a red flushed face, a big belly, a clean-shaven chin, a white apron over a dark blue shirt, a brown cap, 1630s
+  scenes: medium close-up, a stern man in a wide black hat leaning over a wooden | extreme close-up of a hand with a quill pen signing a paper contract o | close-up, a merchant holding up his open empty palms toward a trader,  | medium shot, a trader shrugging with both arms spread wide and grinnin | close-up of a single tulip bulb half buried in dark soil in a wooden c | close-up of a hand with a quill pen writing rising numbers on a paper  | medium shot, {trader} slapping a paper contract down on a wooden table | close-up of a hand dropping small silver coins into a wooden bowl on a | wide shot of a crowded 1630s Dutch tavern with men waving paper contra | wide shot of a grand 1630s Dutch town exchange building with tall ston | medium shot, {merchant} holding up a paper contract beside a potted tu | close-up of a hand holding up a small paper concert ticket in a dark t
+- 007-why-tycho-brahe-built-uraniborg-on-hven: cast tycho = a 30 year old Danish astronomer with short reddish-brown hair, dark eyes, a small brass nose bridge piece, a dark green velvet doublet with gold embroidery and a white ruff collar, 1570s; king = a 42 year old Danish king with a thick blond beard, sharp blue eyes, a dark red velvet coat with white fur collar and a heavy gold chain, 1570s; farmer = a 35 year old Danish farmer with a sunburnt face, messy brown hair, stubble beard, a coarse brown wool tunic and grey trousers, 1570s; judge = a 55 year old judge with long grey hair, a bushy grey beard, a long black robe over a white ruff collar, 1570s; kepler = a 30 year old astronomer with short dark hair, a neat pointed black beard, small spectacles, a dark brown doublet with a flat white collar, 1600s
+  scenes: close-up, an astronomer squinting up at the starry sky while holding a | wide shot of a magnificent red-brick Renaissance castle with tall copp | medium shot, an astronomer turning a brass divider compass over a parc | extreme close-up of a quill pen dipping into a small dark glass inkwel | medium close-up, a bearded king in a red velvet coat leaning forward o | medium shot, an astronomer gazing out a tall arched stone window towar | medium shot, an elderly nobleman in a black robe pushing a heavy leath | medium close-up, a man lifting a brass armillary sphere up to his eye  | close-up, a man frowning and turning an hourglass upside down on a woo | medium shot, a bearded king in a velvet coat listening intently with h | wide shot of heavy wooden travel trunks and tied leather bags sitting  | medium shot, {king} unrolling a large parchment map of an island onto 
+- 008-why-china-s-paper-money-wasn-t-tang: cast merchant = a 45 year old Sichuan merchant with a round weathered face, a thin grey-streaked beard, a black silk cap, a long dark blue silk robe with wide sleeves and a brown leather belt, 11th century; official = a 50 year old Song government official with a long thin face, a neat black moustache, a tall black gauze hat with stiff wings, a long crimson robe with a gold-embroidered square badge, 11th century; clerk = a 30 year old thin clerk with a pale narrow face, small round spectacles, a grey cotton robe and a black cloth cap, 11th century; smith = a 35 year old burly iron smith with a soot-darkened face, a short black beard, a leather apron over a rough brown tunic, 11th century; wife = a 35 year old Sichuan woman with a round face, black hair in a neat bun, a small gold hairpin, a green cotton jacket and a long dark skirt, 11th century
+  scenes: medium shot, a merchant in a long dark blue silk robe and black cap ha | extreme close-up of two hands lifting a stack of thick heavy iron coin | close-up, a merchant holding up one folded paper note with both hands, | close-up, a merchant pressing a red seal stamp onto a paper note on a  | medium shot, a thin clerk holding up a paper note in one hand and poin | close-up of two hands placing a folded paper note on top of a heavy st | wide shot of a crowded 11th century Sichuan market street with wooden  | close-up of two hands holding up two different paper notes side by sid | medium shot, {merchant} standing and pointing at a large paper map on  | close-up, {merchant} leaning over a wooden table and pointing at a pap | wide shot of a large wooden gate of a merchant guild house with a hang | extreme close-up of a carved wooden printing block being pressed onto 
 
 PROBLEMS FOUND BY THE CHECKS
-- script: not supported by the sources, fix or remove: A shipyard foreman hoists a massive wooden lifeboat onto a crane, sweat dripping.
-- script: not supported by the sources, fix or remove: The crew laughs, saying 'We have enough – the law only asks for this many.'
-- script: not supported by the sources, fix or remove: Only sixteen lifeboats can be launched from the davits.
-- script: not supported by the sources, fix or remove: Four collapsibles are stored upside‑down on the officers’ roof.
-- script: not supported by the sources, fix or remove: The lifeboat capacity was still only a third of the 2,200 aboard.
-- script: not supported by the sources, fix or remove: Because the law was so lax, the 'extra' boats were never fully integrated, leaving half the ship without a quick escape route.
-- script: sentences are too long on average; keep most under 12 words
+- shot rewrite: 3.4 s on screen (max 3.2; split it)
+- cast executive looks like supervisor from 005-why-the-radium-girls-licked-poison; give this person a new look
+- script: numbers not in the sources: ['hundred', 'nine', 'ninety', 'sixty']; remove them or use the sources' numbers
+- script: every beat needs a "feel": the one emotion the viewer should have there
+- script: not supported by the sources: Sailors lower a lifeboat built for sixty-five, carrying just twenty-eight people.
+- script: not supported by the sources: It is the first boat to leave the sinking Titanic.
+- script: not supported by the sources: In 1909, that worked perfectly when another liner, the Republic, sank.
+- script: not supported by the sources: So in 1914, the world rewrote the rules.
 
 DRAFT SCRIPT
-{"title": "Why Titanic Skimped on Lifeboats", "beats": [{"feel": "curiosity", "lines": ["A shipyard foreman hoists a massive wooden lifeboat onto a crane, sweat dripping."]}, {"feel": "skepticism", "lines": ["The crew laughs, saying “We have enough – the law only asks for this many.”"]}, {"feel": "dread", "lines": ["Titanic rolls out of Belfast with twenty boats, but only sixteen can be launched from the davits.", "Two emergency cutters sit hanging, ready, while four collapsibles are stored upside‑down on the officers’ roof."]}, {"feel": "recognition", "lines": ["You see, it’s like packing a school bus with only a few seat belts – you feel unsafe even before an accident."]}, {"feel": "awe", "lines": ["The Board of Trade required ships over ten‑thousand tons to carry just sixteen lifeboats for 990 people.", "White Star chose to exceed that rule, fitting twenty boats that could hold 1,178 souls – still only a third of the 2,200 aboard."]}, {"feel": "surprise", "lines": ["Because the law was so lax, the “extra” boats were never fully integrated, leaving half the ship without a quick escape route."]}]}
+{"title": "Why Titanic Skimped on Lifeboats", "beats": [{"lines": ["Sailors lower a lifeboat built for sixty-five, carrying just twenty-eight people."]}, {"lines": ["It is the first boat to leave the sinking Titanic.", "More than two thousand two hundred people are aboard.", "Her lifeboats can hold only one thousand one hundred seventy-eight."]}, {"lines": ["Back in Belfast, Titanic could have carried forty-eight wooden lifeboats.", "White Star chose sixteen wooden boats and four folding ones.", "The law asked for even less. Sixteen boats, for nine hundred ninety people.", "So Titanic actually carried more than the rules required.", "And the shortage was not about money or space."]}, {"lines": ["You see, it's like an umbrella. It's for a quick dash to the door, not a whole day in the rain."]}, {"lines": ["In those days, lifeboats were not meant to hold everyone.", "They would ferry people to a rescue ship nearby.", "In 1909, that worked perfectly when another liner, the Republic, sank.", "And White Star wanted a wide deck with open views of the sea.", "A long row of lifeboats would have blocked them."]}, {"lines": ["Then Titanic hits an iceberg in the dark.", "She sinks in two hours and forty minutes.", "Help is still hours away.", "About fifteen hundred people die."]}, {"lines": ["Titanic broke no rule. So in 1914, the world rewrote the rules."]}]}
 CLAIMS IN THE DRAFT
-- {'claim': 'Titanic carried twenty lifeboats: fourteen standard, two cutters, four collapsibles, four more than Board of Trade regulations.', 'url': 'https://en.wikipedia.org/wiki/Titanic'}
-- {'claim': 'The lifeboats could accommodate 1,178 people – about one‑third of those on board.', 'url': 'https://en.wikipedia.org/wiki/Titanic'}
-- {'claim': 'Board of Trade regulations at the time required only sixteen lifeboats for ships over 10,000 tons, enough for 990 occupants.', 'url': 'https://en.wikipedia.org/wiki/Sinking_of_the_Titanic'}
-- {'claim': 'Two emergency cutters were kept swung out for immediate use, while four collapsible boats were stored upside‑down and hard to launch.', 'url': 'https://en.wikipedia.org/wiki/Sinking_of_the_Titanic'}
+- {'claim': 'Lifeboat No. 7, the first lowered, left with an estimated 28 people despite a capacity of 65.', 'url': 'https://en.wikipedia.org/wiki/Sinking_of_the_Titanic'}
+- {'claim': 'Over 2,200 people were on board; the lifeboats could accommodate 1,178.', 'url': 'https://en.wikipedia.org/wiki/Sinking_of_the_Titanic'}
+- {'claim': 'Titanic, built in Belfast, could carry up to 48 wooden lifeboats, but White Star and Harland and Wolff chose 16 wooden lifeboats and four collapsibles.', 'url': 'https://en.wikipedia.org/wiki/Titanic'}
+- {'claim': 'Board of Trade rules required British vessels over 10,000 tonnes to carry only 16 lifeboats with a capacity of 990, so White Star provided more than legally required.', 'url': 'https://en.wikipedia.org/wiki/Titanic'}
+- {'claim': 'The shortage of lifeboats was not because of a lack of space nor because of cost.', 'url': 'https://en.wikipedia.org/wiki/Sinking_of_the_Titanic'}
+- {'claim': 'Lifeboats were intended to ferry survivors to a rescuing ship, as in the 1909 sinking of RMS Republic where this played out flawlessly.', 'url': 'https://en.wikipedia.org/wiki/Titanic'}
+- {'claim': 'White Star wanted a wide promenade deck with uninterrupted views of the sea, which a continuous row of lifeboats would have obstructed.', 'url': 'https://en.wikipedia.org/wiki/Sinking_of_the_Titanic'}
+- {'claim': 'Titanic struck an iceberg and sank two hours and forty minutes later with help hours away; around 1,500 people died.', 'url': 'https://en.wikipedia.org/wiki/Sinking_of_the_Titanic'}
+- {'claim': 'Inquiries led to the International Convention for the Safety of Life at Sea in 1914.', 'url': 'https://en.wikipedia.org/wiki/Sinking_of_the_Titanic'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
-0.14s A#1
-0.27s shipyard#1
-0.67s foreman#1
-1.04s hoists#1
-1.37s a#2
-1.50s massive#1
-1.92s wooden#1
-2.17s lifeboat#1
-2.67s onto#1
-2.87s a#3
-3.00s crane#1
-3.57s sweat#1
-3.82s dripping#1
-4.66s The#1
-4.76s crew#1
-4.96s laughs#1
-5.57s saying#1
-6.15s “We#1
-6.30s have#1
-6.45s enough#1
-6.63s –#1
-6.70s the#2
-6.80s law#1
-7.05s only#1
-7.32s asks#1
-7.62s for#1
-7.75s this#1
-7.92s many.”#1
-8.63s Titanic#1
-9.19s rolls#1
-9.54s out#1
-9.62s of#1
-9.73s Belfast#1
-10.26s with#1
-10.41s twenty#1
-10.71s boats#1
-11.34s but#1
-11.46s only#2
-11.76s sixteen#1
-12.29s can#1
-12.38s be#1
-12.51s launched#1
-12.79s from#1
-12.92s the#3
-13.04s davits#1
-13.81s Two#1
-14.06s emergency#1
-14.66s cutters#1
-15.23s sit#1
-15.41s hanging#1
-15.83s ready#1
-16.46s while#1
-16.66s four#1
-16.88s collapsibles#1
-17.51s are#1
-17.63s stored#1
-17.98s upside‑down#1
-18.43s on#1
-18.76s the#4
-18.93s officers’#1
-19.41s roof#1
-20.15s You#1
-20.30s see#1
-20.70s it’s#1
-20.82s like#1
-21.00s packing#1
-21.32s a#4
-21.40s school#1
-21.68s bus#1
-22.05s with#2
-22.20s only#3
-22.50s a#5
-22.62s few#1
-22.82s seat#1
-23.02s belts#1
-23.30s –#2
-23.40s you#2
-23.52s feel#1
-23.77s unsafe#1
-24.55s even#1
-24.82s before#1
-25.07s an#1
-25.18s accident#1
-26.18s The#5
-26.28s Board#1
-26.48s of#2
-26.58s Trade#1
-27.11s required#1
-27.66s ships#1
-27.93s over#1
-28.21s ten‑thousand#1
-28.86s tons#1
-29.56s to#1
-29.66s carry#1
-29.93s just#1
-30.21s sixteen#2
-30.63s lifeboats#1
-31.26s for#2
-31.41s 990#1
-32.38s people#1
-33.02s White#1
-33.29s Star#1
-33.69s chose#1
-34.04s to#2
-34.17s exceed#1
-34.54s that#1
-34.74s rule#1
-35.37s fitting#1
-35.64s twenty#2
-35.94s boats#2
-36.32s that#2
-36.47s could#1
-36.59s hold#1
-36.92s 1,178#1
-38.02s souls#1
-38.32s –#3
-38.57s still#1
-39.27s only#4
-39.54s a#6
-40.04s third#1
-40.39s of#3
-40.64s the#6
-40.87s 2,200#1
-41.79s aboard#1
-42.62s Because#1
-42.95s the#7
-43.07s law#2
-43.35s was#1
-43.47s so#1
-43.67s lax#1
-44.37s the#8
-44.52s “extra”#1
-45.00s boats#3
-45.30s were#1
-45.42s never#1
-45.72s fully#1
-46.00s integrated#1
-46.85s leaving#1
-47.15s half#1
-47.37s the#9
-47.50s ship#1
-47.77s without#1
-48.02s a#7
-48.10s quick#1
-48.32s escape#1
-48.75s route#1
+0.19s Sailors#1
+0.64s lower#1
+0.89s a#1
+0.97s lifeboat#1
+1.44s built#1
+1.67s for#1
+1.82s sixty-five#1
+2.82s carrying#1
+3.17s just#1
+3.42s twenty-eight#1
+3.87s people#1
+4.71s It#1
+4.88s is#1
+5.01s the#1
+5.13s first#1
+5.43s boat#1
+5.81s to#1
+5.91s leave#1
+6.11s the#2
+6.21s sinking#1
+6.56s Titanic#1
+7.46s More#1
+7.63s than#1
+7.83s two#1
+8.01s thousand#1
+8.33s two#2
+8.48s hundred#1
+8.73s people#2
+9.13s are#1
+9.26s aboard#1
+10.01s Her#1
+10.13s lifeboats#1
+10.76s can#1
+10.88s hold#1
+11.21s only#1
+11.51s one#1
+11.73s thousand#2
+12.06s one#2
+12.21s hundred#2
+12.59s seventy-eight#1
+13.62s Back#1
+13.87s in#1
+13.95s Belfast#1
+14.77s Titanic#2
+15.32s could#1
+15.40s have#1
+15.52s carried#1
+15.92s forty-eight#1
+16.47s wooden#1
+16.72s lifeboats#2
+17.60s White#1
+17.85s Star#1
+18.17s chose#1
+18.47s sixteen#1
+18.87s wooden#2
+19.12s boats#1
+19.62s and#1
+19.77s four#1
+20.02s folding#1
+20.40s ones#1
+20.97s The#3
+21.10s law#1
+21.40s asked#1
+21.72s for#2
+21.90s even#1
+22.20s less#1
+22.95s Sixteen#2
+23.37s boats#2
+23.82s for#3
+23.97s nine#1
+24.27s hundred#3
+24.55s ninety#1
+24.87s people#3
+25.54s So#1
+25.69s Titanic#3
+26.26s actually#1
+27.01s carried#2
+27.36s more#2
+27.54s than#2
+27.64s the#4
+27.74s rules#1
+28.09s required#1
+28.90s And#2
+29.00s the#5
+29.12s shortage#1
+29.72s was#1
+29.90s not#1
+30.07s about#1
+30.30s money#1
+30.65s or#1
+30.80s space#1
+31.70s You#1
+31.86s see#1
+32.27s it's#1
+32.40s like#1
+32.55s an#1
+32.65s umbrella#1
+33.49s It's#2
+33.65s for#4
+33.84s a#2
+33.91s quick#1
+34.09s dash#1
+34.42s to#2
+34.49s the#6
+34.59s door#1
+35.05s not#2
+35.20s a#3
+35.33s whole#1
+35.63s day#1
+35.80s in#2
+35.87s the#7
+35.98s rain#1
+36.81s In#3
+36.93s those#1
+37.23s days#1
+37.81s lifeboats#3
+38.38s were#1
+38.48s not#3
+38.66s meant#1
+38.81s to#3
+38.91s hold#2
+39.16s everyone#1
+39.90s They#1
+40.00s would#1
+40.20s ferry#1
+40.53s people#4
+41.00s to#4
+41.10s a#4
+41.18s rescue#1
+41.58s ship#1
+41.75s nearby#1
+42.45s In#4
+42.57s 1909#1
+43.62s that#1
+43.80s worked#1
+44.05s perfectly#1
+44.55s when#1
+44.65s another#1
+44.99s liner#1
+45.47s the#8
+45.57s Republic#1
+46.20s sank#1
+46.82s And#3
+46.95s White#2
+47.22s Star#2
+47.62s wanted#1
+47.87s a#5
+47.99s wide#1
+48.32s deck#1
+48.70s with#1
+48.87s open#1
+49.22s views#1
+49.45s of#1
+49.51s the#9
+49.65s sea#1
+50.23s A#6
+50.35s long#1
+50.67s row#1
+50.88s of#2
+50.98s lifeboats#4
+51.50s would#2
+51.58s have#2
+51.70s blocked#1
+52.00s them#1
+52.67s Then#1
+52.85s Titanic#4
+53.45s hits#1
+53.65s an#2
+53.77s iceberg#1
+54.22s in#5
+54.29s the#10
+54.40s dark#1
+55.07s She#1
+55.22s sinks#1
+55.47s in#6
+55.62s two#3
+55.79s hours#1
+56.19s and#4
+56.34s forty#1
+56.59s minutes#1
+57.28s Help#1
+57.50s is#2
+57.60s still#1
+57.85s hours#2
+58.18s away#1
+58.81s About#2
+59.11s fifteen#1
+59.43s hundred#4
+59.71s people#5
+60.08s die#1
+60.87s Titanic#5
+61.42s broke#1
+61.67s no#1
+61.89s rule#1
+62.57s So#2
+62.69s in#7
+62.79s 1914#1
+63.79s the#11
+63.92s world#1
+64.24s rewrote#1
+64.57s the#12
+64.67s rules#2
 
 DRAFT film.json
-{"era": "1910s", "cast": {"foreman": "a 42 year old burly shipyard foreman with a thick dark brown mustache, a soot-stained face, heavy eyebrows, wearing a dark grey wool flat cap, a worn brown leather vest over a rolled-up grey flannel shirt, and dark trousers, 1910s", "crew": "a 28 year old slim sailor with messy auburn hair, a clean-shaven face, bright blue eyes, wearing a dark navy blue woolen sweater with a high collar and dark navy trousers, 1910s", "official": "a 58 year old British Board of Trade official, portly build, bald top with silver side hair, bushy white eyebrows, wearing a charcoal black three-piece frock suit, a white stiff-collared shirt with a black necktie, and gold wire spectacles, 1910s", "officer": "a 35 year old ship officer with neat short dark hair, a clean-shaven stern face, wearing a black double-breasted naval officer uniform coat with gold brass buttons and gold sleeve stripes over a white shirt, 1910s"}, "music": "tense", "key_words": ["foreman", "hoists", "lifeboat", "crane", "crew", "laughs", "enough", "law", "Titanic", "Belfast", "twenty", "sixteen", "davits", "cutters", "collapsibles", "roof", "bus", "belts", "unsafe", "Board", "Trade", "ten-thousand", "tons", "souls", "third", "lax", "extra", "integrated", "escape"], "shots": [{"name": "hoist", "at": 0, "who": "foreman", "clip": true, "prompt": "medium close-up, a burly shipyard foreman hauling a thick rope over his shoulder, sweat dripping from his soot-stained face, he is {foreman}, a 1910s Belfast shipyard with steel hulls behind, grey overcast light", "motion": "he hauls the rope down hard and wipes his brow with his sleeve, slow camera push in", "hit": "hoists#1", "check": "Is a man pulling a thick rope?"}, {"name": "boat_lift", "at": "lifeboat#1", "move": "up", "prompt": "low angle wide shot, a massive wooden lifeboat hanging from a crane hook high above the shipyard dock, workers in flat caps looking up below, a steel ship hull behind, cold grey morning light", "check": "Is a large wooden lifeboat hanging from a crane?"}, {"name": "crew_laughing", "at": "The#1", "who": "crew", "clip": true, "prompt": "medium shot, a sailor laughing and pointing back over his shoulder toward a wooden lifeboat, he is {crew}, sunny 1910s shipyard deck", "motion": "he laughs heartily and points over his shoulder, slow camera push in", "check": "Is a sailor laughing?"}, {"name": "law_book", "at": "law#1", "who": "official", "clip": true, "xfade": true, "hit": "law#1", "prompt": "medium close-up, a portly man pointing at a neat row of small wooden lifeboat models on a mahogany desk, he is {official}, 1910s government office, warm lamp light", "motion": "he points along the row of models and nods, slow camera push in", "check": "Is a man pointing at small boat models?"}, {"name": "launch", "at": "Titanic#1", "move": "right", "prompt": "wide shot, a colossal dark ocean liner with tall funnels sliding down a wet slipway into the water, crowds of shipyard workers watching from the quay, grey morning light, Belfast shipyard", "check": "Is a huge ship sliding down a slipway?"}, {"name": "boats", "at": "twenty#1", "move": "push", "prompt": "medium wide shot, a long row of wooden lifeboats hanging from davit arms along the upper deck of a great ocean liner in a harbour, calm morning light", "check": "Are many lifeboats hanging along a ship's side?"}, {"name": "launched", "at": "launched#1", "who": "crew", "clip": true, "prompt": "medium shot, a lifeboat swinging down from a davit over the side of the ship, a sailor pulling a rope to lower it, he is {crew}, grey sea and sky", "motion": "the lifeboat swings down slightly and the sailor pulls the rope, slow camera push in", "hit": "launched#1", "check": "Is a sailor lowering a lifeboat?"}, {"name": "cutters", "at": "cutters#1", "who": "crew", "clip": true, "prompt": "medium close-up, two wooden emergency cutters hanging side by side in davits above the boat deck, a sailor below looking up at them, he is {crew}, overcast daylight", "motion": "the sailor tilts his head up and the cutters sway slightly, slow camera push in", "check": "Are two lifeboats hanging from davits?"}, {"name": "stored", "at": "stored#1", "who": "crew", "clip": true, "prompt": "medium shot, a sailor crouching and securing a rope around an upside-down white lifeboat stored on the officers' roof deck, he is {crew}, bright daylight above the ship", "motion": "the sailor pulls the rope tight and the boat rocks slightly, slow camera push in", "xfade": true, "hit": "stored#1", "check": "Is there an upside-down lifeboat?"}, {"name": "roof", "at": "roof#1", "who": "officer", "clip": true, "prompt": "wide shot, several white collapsible lifeboats stored upside-down in a row on the officers' roof deck, a naval officer pointing along the row, he is {officer}, calm sea and sky", "motion": "the officer points along the row and the boats sway slightly, slow camera pull back", "check": "Are several upside-down lifeboats on a deck?"}, {"name": "bus", "at": "You#1", "modern": true, "move": "push", "prompt": "wide shot inside a modern yellow school bus, rows of empty brown vinyl seats with only a few fastened seat belts, bright daylight through big windows, clean interior", "check": "Is there a school bus interior with empty seats?"}, {"name": "crowd", "at": "packing#1", "modern": true, "clip": true, "prompt": "medium shot, a schoolboy in a red hoodie standing in a crowded modern school bus aisle, gripping a seat back with both hands, other children pressed around him, daylight from the windows", "motion": "he shifts his weight and grips the seat back tighter, slow camera push in", "check": "Is a child standing in a crowded bus aisle?"}, {"name": "unsafe", "at": "unsafe#1", "modern": true, "clip": true, "prompt": "close-up, a worried schoolgirl in a yellow raincoat sitting in a modern school bus seat with a single seat belt fastened across her chest, hands gripping the seat edge, soft daylight", "motion": "she looks around uneasily and grips the seat edge, slow camera push in", "hit": "unsafe#1", "check": "Is a child sitting with a seat belt fastened?"}, {"name": "trade_office", "at": "The#5", "who": "official", "clip": true, "prompt": "medium close-up, a portly official writing in a large ledger at a heavy wooden desk, he is {official}, a 1910s British Board of Trade office with tall windows, cold daylight", "motion": "he writes a line and nods, slow camera push in", "check": "Is a man writing in a ledger at a desk?"}, {"name": "great_ship", "at": "required#1", "move": "push", "prompt": "wide shot, a huge four-funnel ocean liner steaming across a calm grey sea, low morning light and haze", "check": "Is there a huge ocean liner on the sea?"}, {"name": "heavy_rope", "at": "tons#1", "who": "crew", "clip": true, "prompt": "medium close-up, a slim sailor hauling a thick steel hawser over his shoulder on the deck of a giant liner, he is {crew}, shipyard morning light", "motion": "he pulls the rope taut, slow camera push in", "check": "Is a man pulling a heavy rope?"}, {"name": "davits", "at": "sixteen#2", "hit": "sixteen#2", "move": "left", "prompt": "medium shot, a row of wooden lifeboats hanging in davits along the white hull of an ocean liner, calm sea, overcast light", "check": "Are lifeboats hanging along the side of a ship?"}, {"name": "passengers", "at": "people#1", "clip": true, "prompt": "medium shot, several 1910s passengers in dark coats and hats crowding the rail of a ship deck, looking out to sea, grey daylight", "motion": "the passengers lean on the rail and wave, slow camera push in", "check": "Are several people leaning on a ship rail?"}, {"name": "twenty_boats", "at": "twenty#2", "who": "foreman", "hit": "twenty#2", "clip": true, "prompt": "medium shot, a burly foreman standing inside a wooden lifeboat suspended in davits beside a ship hull, he is {foreman}, shipyard daylight", "motion": "he steadies himself and grips the boat rim, slow camera push in", "check": "Is a man standing in a lifeboat?"}, {"name": "souls", "at": "souls#1", "clip": true, "prompt": "medium shot, a wooden lifeboat packed with seated passengers in 1910s coats and hats, one oar dipping into calm grey water, overcast light", "motion": "the boat rocks gently and an oar dips, slow camera push in", "check": "Is a lifeboat full of people?"}, {"name": "aboard", "at": "2,200#1", "hit": "2,200#1", "move": "pull", "prompt": "high angle wide shot, the open deck of a huge liner crowded with rows of passengers in dark coats, calm sea below, overcast light", "check": "Is a ship deck crowded with many people?"}, {"name": "lax_law", "at": "Because#1", "who": "official", "xfade": true, "clip": true, "prompt": "medium close-up, a portly official waving one hand dismissively over a stack of papers on a wooden desk, he is {official}, a 1910s Board of Trade office with tall windows, grey daylight", "motion": "he waves his hand dismissively and leans back, slow camera push in", "check": "Is a man waving his hand over papers?"}, {"name": "extra_boats", "at": "boats#3", "move": "push", "prompt": "extreme close-up of a wooden lifeboat stowed upside down on the white officers' roof of a great ocean liner, folded davit arms beside it, cold overcast sea light", "check": "Is a wooden lifeboat upside down on a roof?"}, {"name": "empty_deck", "at": "leaving#1", "move": "right", "prompt": "wide shot of a long empty stretch of a great ocean liner's boat deck, bare railings and empty davit arms with no lifeboats, grey North Atlantic sea, low clouds", "check": "Is the deck empty of lifeboats?"}, {"name": "no_route", "at": "route#1", "who": "officer", "clip": true, "prompt": "medium shot, a ship officer pointing down the long empty deck toward distant lifeboats, he is {officer}, the boat deck of a great ocean liner, cold grey daylight", "motion": "he points down the deck and turns his head, slow camera push in", "hit": "route#1", "check": "Is a man pointing down the deck?"}]}
+{"era": "1912", "music": "tense", "cast": {"officer": "a 38 year old British ship officer with short dark hair, a clean shaven lean face, a navy blue double-breasted uniform with gold buttons and a white-topped peaked cap, 1912", "passenger": "a 25 year old woman with auburn hair pinned up under a large black feathered hat, a long cream wool coat with a fur collar, 1912", "builder": "a 55 year old Irish shipyard manager with a thick grey walrus moustache, a brown bowler hat and a rumpled brown tweed suit, 1911", "executive": "a 48 year old tall British shipping businessman with slicked dark hair, a neat dark moustache and a dark grey three-piece suit with a gold watch chain, 1911"}, "key_words": ["lifeboat", "Titanic", "forty-eight", "law", "sixteen", "rescue", "views", "iceberg"], "shots": [{"name": "hook", "at": 0, "prompt": "medium shot, sailors lowering a wooden lifeboat on ropes down the side of a huge ocean liner at night, only a few people inside, deck lights glowing", "check": "Is a lifeboat hanging on ropes?", "clip": true, "motion": "the lifeboat sinks slowly down the ropes, slow camera tilt down"}, {"name": "empty", "at": "carrying#1", "prompt": "close-up of a half-empty wooden lifeboat at night, a few shivering passengers in coats among many empty benches, lantern light", "check": "Is there a lifeboat with empty benches?", "clip": true, "motion": "a woman pulls her coat tighter, slow camera push in"}, {"name": "officer", "at": "it#1", "prompt": "medium shot, a ship officer at the deck rail waving a lifeboat away, he is {officer}, night, electric deck lamps", "check": "Is a man in uniform waving?", "who": "officer", "clip": true, "motion": "he waves one arm down, slow camera push in"}, {"name": "liner", "at": "sinking#1", "prompt": "wide shot of a giant four-funnel ocean liner tilting forward on a calm black sea at night, all her portholes lit", "check": "Is there a huge ship at night?", "move": "pull"}, {"name": "crowd", "at": "two#1", "prompt": "wide shot of crowds of passengers in coats and white life jackets on a sloping ship deck at night, electric light", "check": "Is there a crowd on a ship deck?", "clip": true, "motion": "the crowd shifts and murmurs, slow camera pan right"}, {"name": "davits", "at": "her#1", "prompt": "close-up of a row of wooden lifeboats hanging from curved iron cranes along a ship deck at night", "check": "Are there lifeboats hanging in a row?", "move": "left"}, {"name": "worried", "at": "thousand#2", "prompt": "close-up, a worried young woman in a large feathered hat clutching her coat collar on a ship deck at night, she is {passenger}", "check": "Is a woman in a large hat looking worried?", "who": "passenger", "clip": true, "motion": "she glances from side to side, slow camera push in"}, {"name": "belfast", "at": "back#1", "prompt": "wide shot of a gigantic black ship hull inside a towering iron shipyard gantry, 1911, hazy daylight, tiny workers below", "check": "Is there a giant ship in a shipyard?", "move": "up", "xfade": true}, {"name": "builder", "at": "forty-eight#1", "prompt": "medium shot, a shipyard manager pointing up at a long row of empty curved iron cranes on a ship deck, he is {builder}, daylight", "check": "Is a man pointing up?", "who": "builder", "clip": true, "motion": "he raises his arm to point, slow camera push in"}, {"name": "chose", "at": "white#1", "prompt": "medium shot, a tall businessman tapping a pencil on large ship drawings spread across a desk, he is {executive}, wood-panelled office, window light", "check": "Is a man looking at large drawings?", "who": "executive", "clip": true, "motion": "he taps the pencil on the drawing, slow camera push in"}, {"name": "folding", "at": "four#1", "prompt": "close-up of a folded wooden boat with canvas sides lying upside down on a ship deck, daylight", "check": "Is there an upside-down boat?", "move": "push"}, {"name": "law", "at": "the#3", "prompt": "close-up of a heavy leather-bound rulebook with a red wax seal lying on a government desk, lamp light", "check": "Is there a leather book?", "move": "push"}, {"name": "inspector", "at": "sixteen#2", "prompt": "medium shot, a government inspector in a bowler hat counting lifeboats along a ship deck with a pencil and notebook, daylight", "check": "Is a man holding a notebook?", "clip": true, "motion": "he ticks the notebook with his pencil, slow camera pan right"}, {"name": "signs", "at": "so#1", "prompt": "medium shot, a businessman smiling as he signs a document at a desk, he is {executive}, wood-panelled office, warm light", "check": "Is a man signing a paper?", "who": "executive", "clip": true, "motion": "his pen moves across the paper, slow camera push in"}, {"name": "space", "at": "and#2", "prompt": "wide shot of a sailor sweeping a vast empty wooden boat deck with lots of free space, sunny day, open sea beyond", "check": "Is there a wide empty ship deck?", "clip": true, "motion": "he pushes the broom forward, slow camera pull back"}, {"name": "umbrella", "at": "you#1", "prompt": "medium shot, a woman opening a black umbrella in a doorway as rain begins, 1910s town street, grey light", "check": "Is a woman opening an umbrella?", "clip": true, "motion": "the umbrella pops open, slow camera push in", "xfade": true}, {"name": "dash", "at": "quick#1", "prompt": "medium shot, a man in a bowler hat under an umbrella hurrying up the steps to a front door in the rain, 1910s", "check": "Is a man holding an umbrella?", "clip": true, "motion": "he takes one step up, slow camera push in"}, {"name": "rain", "at": "not#2", "prompt": "wide shot of a grey town street under heavy pouring rain, puddles everywhere, nobody outside, 1910s", "check": "Is it raining hard on a street?", "move": "left"}, {"name": "hanging", "at": "in#3", "prompt": "close-up of one wooden lifeboat hanging from curved iron cranes on a ship deck, calm daylight", "check": "Is there a lifeboat hanging?", "move": "push", "xfade": true}, {"name": "squeezed", "at": "hold#2", "prompt": "medium shot, a crowd of passengers squeezed together along a ship rail, 1910s coats and hats, daylight", "check": "Is there a crowd at a ship rail?", "clip": true, "motion": "the crowd shuffles closer, slow camera pan left"}, {"name": "ferry", "at": "ferry#1", "prompt": "wide shot of a lifeboat full of passengers being rowed across calm sea toward a waiting steamship", "check": "Is there a lifeboat full of people?", "clip": true, "motion": "the oars dip into the water, slow camera push in"}, {"name": "republic", "at": "in#4", "prompt": "wide shot of a sinking steamship in thick fog with a second ship standing close beside it, small boats between them, grey morning", "check": "Are there two ships in fog?", "move": "push"}, {"name": "ladder", "at": "liner#1", "prompt": "medium shot, relieved passengers in coats climbing a rope ladder up the side of a rescue ship, grey daylight", "check": "Are people climbing a rope ladder?", "clip": true, "motion": "a man climbs one rung higher, slow camera tilt up"}, {"name": "view", "at": "and#3", "prompt": "medium shot, a tall businessman leaning on a ship rail gazing out at the open sea, he is {executive}, bright sunshine", "check": "Is a man leaning on a ship rail?", "who": "executive", "clip": true, "motion": "the wind moves his coat, slow camera push in"}, {"name": "promenade", "at": "deck#1", "prompt": "wide shot of an elegant couple leaning on the rail of a long sunny promenade deck, wide open blue sea beyond, 1910s", "check": "Is a couple at a ship rail?", "clip": true, "motion": "the lady holds her hat in the breeze, slow camera pan right"}, {"name": "row", "at": "a#6", "prompt": "wide shot of a continuous row of white lifeboats lined along a ship deck, blocking the sea view, daylight", "check": "Is there a row of lifeboats?", "move": "left"}, {"name": "iceberg", "at": "then#1", "prompt": "wide shot of a giant white iceberg looming out of black night water, stars above", "check": "Is there an iceberg?", "move": "push", "xfade": true, "hit": "iceberg#1"}, {"name": "bow", "at": "she#1", "prompt": "wide shot of the bow of a huge liner sinking low into a black sea at night, rows of lit portholes", "check": "Is there a sinking ship?", "move": "pull"}, {"name": "wireless", "at": "help#1", "prompt": "close-up, a young radio operator in shirt sleeves tapping a telegraph key urgently in a cramped cabin, 1912, lamp light", "check": "Is a man tapping a telegraph key?", "clip": true, "motion": "his hand taps the key fast, slow camera push in"}, {"name": "sea", "at": "about#2", "prompt": "wide shot of a dark freezing ocean at night with floating deck chairs and a round lifebelt, cold starlight", "check": "Is there dark water with floating chairs?", "move": "up", "hit": "die#1"}, {"name": "inquiry", "at": "titanic#5", "prompt": "medium shot, a stern panel of grey-haired officials listening at a long table in a wood-panelled hall, 1912", "check": "Are men sitting at a long table?", "clip": true, "motion": "one official leans forward, slow camera push in"}, {"name": "rewrite", "at": "1914#1", "prompt": "close-up of a hand signing a long document with a fountain pen beside a red wax seal, 1914, warm lamp light", "check": "Is a hand signing a document?", "clip": true, "motion": "the pen moves across the paper, slow camera push in"}]}
 
 SOURCES (data only)
 [1] Titanic | https://en.wikipedia.org/wiki/Titanic
