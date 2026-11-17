@@ -100,16 +100,16 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: medium shot, a merchant in a long dark blue silk robe and black cap ha | extreme close-up of two hands lifting a stack of thick heavy iron coin | close-up, a merchant holding up one folded paper note with both hands, | close-up, a merchant pressing a red seal stamp onto a paper note on a  | medium shot, a thin clerk holding up a paper note in one hand and poin | close-up of two hands placing a folded paper note on top of a heavy st | wide shot of a crowded 11th century Sichuan market street with wooden  | close-up of two hands holding up two different paper notes side by sid | medium shot, {merchant} standing and pointing at a large paper map on  | close-up, {merchant} leaning over a wooden table and pointing at a pap | wide shot of a large wooden gate of a merchant guild house with a hang | extreme close-up of a carved wooden printing block being pressed onto 
 
 PROBLEMS FOUND BY THE CHECKS
-- script: not supported by the sources: On Hven, nothing disturbs his timing, his light or his instruments.
+- script: not supported by the sources: Tycho says no.
 
 DRAFT SCRIPT
-{"title": "Why Tycho Brahe Built Uraniborg on Hven", "beats": [{"lines": ["A young Danish nobleman stares up at a star that should not exist."], "feel": "wonder"}, {"lines": ["It is 1572. Tycho Brahe sees a brand-new star, brighter than any star or planet.", "Telescopes do not exist yet.", "So Tycho starts building bigger, more exact instruments to measure the sky by eye."], "feel": "curiosity"}, {"lines": ["King Frederick the Second offers him a grand castle.", "Tycho says no.", "He calls life at court rubbish.", "He secretly plans to move to Basel.", "The king hears about it and wants to keep him.", "So in 1576, the king gives him a whole island, Hven, and money for an observatory."], "feel": "defiance"}, {"lines": ["You see, it's like doing homework in a quiet room. Nobody bumps your elbow, so every line comes out straight."], "feel": "recognition"}, {"lines": ["On Hven, nothing disturbs his timing, his light or his instruments.", "Tycho builds a castle called Uraniborg, packed with giant quadrants and sextants.", "Almost 100 students and craftsmen work there.", "The island's farmers must grow twice as much and help build it.", "They take Tycho to court, and they lose.", "Later, Tycho works in a second observatory underground.", "His castle instruments were not steady enough."], "feel": "awe"}, {"lines": ["Tycho never uses a telescope.", "But his naked-eye numbers let Johannes Kepler write three laws of how planets move."], "feel": "irony"}]}
+{"title": "Why Tycho Brahe Built Uraniborg on Hven", "beats": [{"lines": ["A young Danish nobleman stares up at a star that should not exist."], "feel": "wonder"}, {"lines": ["It is 1572. Tycho Brahe sees a brand-new star, brighter than any star or planet.", "Telescopes do not exist yet.", "So Tycho starts building bigger, more exact instruments to measure the sky by eye."], "feel": "curiosity"}, {"lines": ["King Frederick the Second offers him a grand castle.", "Tycho says no.", "He calls life at court rubbish.", "He secretly plans to move to Basel.", "The king hears about it and wants to keep him.", "So in 1576, the king gives him a whole island, Hven, and money for an observatory."], "feel": "defiance"}, {"lines": ["You see, it's like doing homework in a quiet room. Nobody bumps your elbow, so every line comes out straight."], "feel": "recognition"}, {"lines": ["On Hven, he can work without interruptions from other people.", "Tycho builds a castle called Uraniborg, packed with giant quadrants and sextants.", "Almost 100 students and craftsmen work there.", "The island's farmers must grow twice as much and help build it.", "They take Tycho to court, and they lose.", "Later, Tycho works in a second observatory underground.", "His castle instruments were not steady enough."], "feel": "awe"}, {"lines": ["Tycho never uses a telescope.", "But his naked-eye numbers let Johannes Kepler write three laws of how planets move."], "feel": "irony"}]}
 CLAIMS IN THE DRAFT
 - {'claim': 'In 1572 Tycho noticed a completely new star brighter than any star or planet and devoted himself to ever more accurate instruments of measurement.', 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
 - {'claim': 'Tycho was the last major astronomer before the invention of the telescope, observing with the naked eye.', 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
 - {'claim': "The king offered Tycho castles such as Hammershus or Helsingborg; Tycho declined, calling society there 'the whole rubbish', and secretly planned to move to Basel.", 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
 - {'claim': "The King heard of Tycho's plans and, desiring to keep him, in 1576 offered him the island of Hven and funding to set up an observatory.", 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
-- {'claim': 'Hven was chosen for seclusion, with nothing interfering with time, light or motion observations.', 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
+- {'claim': 'Hven was chosen for seclusion, letting Tycho focus on his work without interruptions from other people.', 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
 - {'claim': 'Uraniborg had quadrants, sextants and astronomical clocks; almost 100 students and artisans worked there.', 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
 - {'claim': 'Tycho required the peasants to cultivate twice as much and to labor on his castle; they took him to court and the court established his right to levy taxes and labor.', 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
 - {'claim': 'He later worked underground at Stjerneborg, where he realised his instruments in Uraniborg were not sufficiently steady.', 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
@@ -214,113 +214,112 @@ WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 31.26s for#1
 31.37s an#1
 31.46s observatory#1
-32.68s You#1
-32.83s see#1
+32.67s You#1
+32.82s see#1
 33.23s it's#1
-33.36s like#1
-33.53s doing#1
-33.78s homework#1
+33.35s like#1
+33.52s doing#1
+33.77s homework#1
 34.23s in#2
-34.31s a#6
+34.30s a#6
 34.38s quiet#1
-34.76s room#1
+34.75s room#1
 35.48s Nobody#1
-35.91s bumps#1
-36.13s your#1
-36.26s elbow#1
+35.90s bumps#1
+36.12s your#1
+36.25s elbow#1
 36.88s so#3
 37.08s every#1
 37.38s line#1
-37.68s comes#1
+37.67s comes#1
 37.88s out#1
 38.08s straight#1
-38.92s On#1
-39.12s Hven#2
-39.84s nothing#1
-40.17s disturbs#1
-40.59s his#1
-40.77s timing#1
-41.44s his#2
-41.67s light#1
-41.99s or#2
-42.12s his#3
-42.27s instruments#2
-43.10s Tycho#4
-43.55s builds#1
-43.80s a#7
-43.88s castle#2
-44.33s called#1
-44.60s Uraniborg#1
-45.50s packed#1
-45.80s with#1
-46.00s giant#1
-46.40s quadrants#1
-46.95s and#3
-47.08s sextants#1
-47.94s Almost#1
-48.42s 100#1
-48.82s students#1
-49.19s and#4
-49.32s craftsmen#1
-49.87s work#1
-50.12s there#1
-50.63s The#5
-50.78s island's#1
-51.18s farmers#1
-51.68s must#1
-51.88s grow#1
-52.15s twice#1
-52.48s as#1
-52.63s much#1
-52.88s and#5
-52.98s help#1
-53.23s build#1
-53.48s it#3
-53.84s They#1
-53.96s take#1
-54.14s Tycho#5
-54.49s to#5
-54.59s court#2
-55.09s and#6
-55.19s they#2
-55.34s lose#1
-56.04s Later#1
-56.54s Tycho#6
-56.96s works#1
-57.26s in#3
-57.34s a#8
-57.46s second#2
-57.76s observatory#2
-58.44s underground#1
-59.33s His#4
-59.52s castle#3
-59.88s instruments#3
-60.52s were#1
-60.65s not#3
-60.85s steady#1
-61.12s enough#1
-61.88s Tycho#7
-62.45s never#1
-62.73s uses#1
-62.98s a#9
-63.05s telescope#1
-63.92s But#1
-64.05s his#5
-64.22s naked-eye#1
-64.78s numbers#1
-65.22s let#1
-65.38s Johannes#1
-65.85s Kepler#1
-66.50s write#1
-66.80s three#1
-67.05s laws#1
-67.40s of#1
-67.50s how#1
-67.67s planets#1
-68.10s move#2
+38.91s On#1
+39.14s Hven#2
+39.99s he#3
+40.09s can#1
+40.21s work#1
+40.46s without#1
+40.69s interruptions#1
+41.36s from#1
+41.49s other#1
+41.69s people#1
+42.33s Tycho#4
+42.78s builds#1
+43.03s a#7
+43.10s castle#2
+43.55s called#1
+43.83s Uraniborg#1
+44.73s packed#1
+45.03s with#1
+45.23s giant#1
+45.63s quadrants#1
+46.18s and#3
+46.30s sextants#1
+47.17s Almost#1
+47.65s 100#1
+48.05s students#1
+48.42s and#4
+48.55s craftsmen#1
+49.09s work#2
+49.34s there#1
+49.85s The#5
+50.00s island's#1
+50.40s farmers#1
+50.90s must#1
+51.10s grow#1
+51.38s twice#1
+51.70s as#1
+51.85s much#1
+52.10s and#5
+52.20s help#1
+52.45s build#1
+52.70s it#3
+53.07s They#1
+53.19s take#1
+53.37s Tycho#5
+53.72s to#5
+53.82s court#2
+54.32s and#6
+54.42s they#2
+54.57s lose#1
+55.27s Later#1
+55.77s Tycho#6
+56.19s works#1
+56.49s in#3
+56.56s a#8
+56.69s second#2
+56.99s observatory#2
+57.66s underground#1
+58.55s His#1
+58.75s castle#3
+59.10s instruments#2
+59.75s were#1
+59.88s not#3
+60.08s steady#1
+60.35s enough#1
+61.08s Tycho#7
+61.66s never#1
+61.93s uses#1
+62.18s a#9
+62.26s telescope#1
+63.13s But#1
+63.25s his#2
+63.43s naked-eye#1
+63.98s numbers#1
+64.43s let#1
+64.58s Johannes#1
+65.05s Kepler#1
+65.70s write#1
+66.00s three#1
+66.25s laws#1
+66.60s of#1
+66.70s how#1
+66.88s planets#1
+67.30s move#2
 
 DRAFT film.json
-{"era": "1570s", "music": "curious", "cast": {"tycho": "a 26 year old Danish nobleman with reddish blond hair, a long drooping reddish moustache, a broad scar across his forehead, a black doublet with a white ruff collar and a gold chain, 1570s", "king": "a 40 year old Danish king with short dark brown hair, a full dark beard, a heavy brown fur-trimmed red robe and a gold crown, 1570s", "kepler": "a 30 year old thin German mathematician with dark hair, a short dark pointed beard, a narrow pale face and a plain black coat with a small white ruff, 1600s"}, "key_words": ["star", "Tycho", "island", "Hven", "castle", "instruments", "underground", "Kepler"], "shots": [{"name": "hook", "at": 0, "prompt": "close-up, a young nobleman staring up at the night sky in amazement, bright starlight on his face, he is {tycho}, 1570s, dark field", "check": "Is a man looking up in amazement?", "who": "tycho", "clip": true, "motion": "his eyes widen, slow camera push in"}, {"name": "sky", "at": "star#1", "prompt": "wide shot of a night sky over dark Danish fields with one blazing star far brighter than the rest", "check": "Is there one very bright star?", "move": "up"}, {"name": "point", "at": "it#1", "prompt": "medium shot, a young nobleman pointing up at the sky from a stone castle courtyard at night, he is {tycho}", "check": "Is a man pointing up?", "who": "tycho", "clip": true, "motion": "he raises his arm higher, slow camera push in"}, {"name": "newstar", "at": "brand-new#1", "prompt": "close-up of a single dazzling white star among many faint stars, deep blue night", "check": "Is there a bright star?", "move": "push"}, {"name": "eye", "at": "telescopes#1", "prompt": "close-up, a man squinting one bare eye along a long wooden sighting arm aimed at the sky, he is {tycho}, night", "check": "Is a man squinting along a wooden arm?", "who": "tycho", "clip": true, "motion": "he narrows his eye, slow camera push in"}, {"name": "build", "at": "so#1", "prompt": "medium shot, three workmen lifting a huge curved wooden measuring arc in a workshop, 1570s, lamp light", "check": "Are men lifting a big wooden arc?", "clip": true, "motion": "they raise the arc a little, slow camera push in"}, {"name": "scale", "at": "instruments#1", "prompt": "close-up of a large polished brass arc with fine notches along its edge, warm lamp light", "check": "Is there a brass arc?", "move": "left"}, {"name": "king", "at": "king#1", "prompt": "medium shot, a king in a fur-trimmed robe gesturing grandly toward a castle on a hill, he is {king}, 1570s, daylight", "check": "Is a king gesturing?", "who": "king", "clip": true, "motion": "he sweeps his hand toward the castle, slow camera push in"}, {"name": "castle", "at": "grand#1", "prompt": "wide shot of a grand stone castle with towers on a cliff above the sea, Denmark, 1570s, sunny day", "check": "Is there a stone castle on a cliff?", "move": "up"}, {"name": "no", "at": "tycho#3", "prompt": "close-up, a young nobleman shaking his head firmly, he is {tycho}, palace hall, window light", "check": "Is a man shaking his head?", "who": "tycho", "clip": true, "motion": "he shakes his head, slow camera push in", "hit": "no#1"}, {"name": "court", "at": "he#1", "prompt": "wide shot of a crowded noisy royal banquet hall with nobles feasting and laughing at long tables, 1570s, candle light", "check": "Is there a crowded banquet hall?", "clip": true, "motion": "the nobles raise their cups, slow camera pan right"}, {"name": "secret", "at": "he#2", "prompt": "close-up, a young nobleman writing a letter by candlelight and glancing over his shoulder, he is {tycho}, dark room", "check": "Is a man writing by candlelight?", "who": "tycho", "clip": true, "motion": "he glances over his shoulder, slow camera push in"}, {"name": "hears", "at": "the#3", "prompt": "close-up, a king frowning as he reads a letter, he is {king}, palace window light", "check": "Is a king reading a letter?", "who": "king", "clip": true, "motion": "he lowers the letter slowly, slow camera push in"}, {"name": "keep", "at": "wants#1", "prompt": "medium shot, a king stroking his beard as he thinks, standing by a palace window, he is {king}", "check": "Is a king stroking his beard?", "who": "king", "clip": true, "motion": "he strokes his beard, slow camera push in"}, {"name": "isle", "at": "so#2", "prompt": "wide shot of a small green island with low cliffs in a blue strait under a bright sky, sailing ships far off", "check": "Is there a small green island?", "move": "push", "xfade": true}, {"name": "arrive", "at": "island#1", "prompt": "medium shot, a young nobleman stepping off a rowing boat onto a pebble beach and grinning, he is {tycho}, sunny day", "check": "Is a man stepping off a boat?", "who": "tycho", "clip": true, "motion": "he steps onto the beach, slow camera push in"}, {"name": "door", "at": "you#1", "prompt": "close-up of a closed wooden door in a silent sunlit room, dust floating in the light", "check": "Is there a closed wooden door?", "move": "push", "xfade": true}, {"name": "homework", "at": "doing#1", "prompt": "medium shot, a boy writing at a wooden desk in a quiet sunlit room, 1570s clothes, calm light", "check": "Is a boy writing at a desk?", "clip": true, "motion": "his pen moves across the page, slow camera push in"}, {"name": "elbow", "at": "nobody#1", "prompt": "close-up of a boy's steady elbow and hand resting on a quiet wooden desk as he writes, soft light", "check": "Is a hand writing on a desk?", "clip": true, "motion": "the hand writes steadily, slow camera push in"}, {"name": "line", "at": "so#3", "prompt": "close-up of a pen drawing a long straight line along a wooden ruler on paper, soft light", "check": "Is a pen drawing along a ruler?", "move": "push"}, {"name": "calm", "at": "on#1", "prompt": "wide shot of a quiet island at night with calm dark water and a clear sky full of stars", "check": "Is there a starry sky over water?", "move": "up"}, {"name": "sight", "at": "his#2", "prompt": "close-up, an astronomer sighting a star along a giant brass instrument at night, he is {tycho}, rooftop", "check": "Is a man looking along a brass instrument?", "who": "tycho", "clip": true, "motion": "he leans closer to the sight, slow camera push in"}, {"name": "uraniborg", "at": "tycho#4", "prompt": "wide shot of a red brick castle with a green copper dome and towers on an island hill, neat gardens, sunny day", "check": "Is there a red brick castle with a dome?", "move": "push", "xfade": true}, {"name": "quadrant", "at": "giant#1", "prompt": "medium shot, two men aiming a giant brass wall quadrant inside a castle room, 1580s, window light", "check": "Are men using a giant brass instrument?", "clip": true, "motion": "they swing the pointer slowly, slow camera push in"}, {"name": "students", "at": "almost#1", "prompt": "medium shot, young students in white ruffs writing at long tables while a craftsman hammers brass behind them, castle workshop", "check": "Are students writing at tables?", "clip": true, "motion": "the craftsman taps his hammer, slow camera pan right"}, {"name": "farmers", "at": "the#5", "prompt": "medium shot, farmers ploughing a field with two horses on a windy island, 1580s, grey light", "check": "Are farmers ploughing a field?", "clip": true, "motion": "the horses pull the plough forward, slow camera pan left"}, {"name": "haul", "at": "help#1", "prompt": "medium shot, tired farmers pushing a cart of red bricks up a dirt hill toward a castle", "check": "Are men pushing a cart of bricks?", "clip": true, "motion": "they push the cart a step, slow camera push in"}, {"name": "trial", "at": "they#1", "prompt": "medium shot, angry farmers in rough clothes standing before judges in a wood-panelled courtroom, one shaking his fist, 1580s", "check": "Are angry farmers in a courtroom?", "clip": true, "motion": "one farmer shakes his fist, slow camera push in"}, {"name": "under", "at": "later#1", "prompt": "medium shot, an astronomer walking down stone steps into a round underground chamber full of instruments, he is {tycho}, lantern light", "check": "Is a man going down stone steps?", "who": "tycho", "clip": true, "motion": "he takes one step down, slow camera push in", "xfade": true}, {"name": "wobble", "at": "his#4", "prompt": "close-up of a tall wooden instrument shaking in the wind on a castle rooftop, grey sky", "check": "Is there a tall wooden instrument on a roof?", "clip": true, "motion": "the instrument shakes in the wind, slow camera push in"}, {"name": "naked", "at": "tycho#7", "prompt": "close-up, an older astronomer squinting through a plain metal sight with no glass, he is {tycho}, night", "check": "Is a man squinting through a metal sight?", "who": "tycho", "clip": true, "motion": "he closes one eye, slow camera push in"}, {"name": "notes", "at": "but#1", "prompt": "close-up of a thick stack of old leather notebooks tied with string on a desk, candle light", "check": "Is there a stack of old notebooks?", "move": "push"}, {"name": "kepler", "at": "johannes#1", "prompt": "medium shot, a young man reading old notebooks by candlelight with his eyes widening, he is {kepler}, 1600s study", "check": "Is a young man reading by candlelight?", "who": "kepler", "clip": true, "motion": "he leans in closer to the page, slow camera push in", "hit": "kepler#1"}, {"name": "planets", "at": "planets#1", "prompt": "wide shot of planets circling a bright sun in a starry sky, deep blue space", "check": "Are there planets around a sun?", "move": "pull"}]}
+{"era": "1570s", "music": "curious", "cast": {"tycho": "a 26 year old Danish nobleman with reddish blond hair, a long drooping reddish moustache, a broad scar across his forehead, a black doublet with a white ruff collar and a gold chain, 1570s", "king": "a 40 year old Danish king with short dark brown hair, a full dark beard, a heavy brown fur-trimmed red robe and a gold crown, 1570s", "kepler": "a 30 year old thin German mathematician with dark hair, a short dark pointed beard, a narrow pale face and a plain black coat with a small white ruff, 1600s"}, "key_words": ["star", "Tycho", "island", "Hven", "castle", "instruments", "underground", "Kepler"], "shots": [{"name": "hook", "at": 0, "prompt": "close-up, a young nobleman staring up at the night sky in amazement, bright starlight on his face, he is {tycho}, 1570s, dark field", "check": "Is a man looking up in amazement?", "who": "tycho", "clip": true, "motion": "his eyes widen, slow camera push in"}, {"name": "sky", "at": "star#1", "prompt": "wide shot of a night sky over dark Danish fields with one blazing star far brighter than the rest", "check": "Is there one very bright star?", "move": "up"}, {"name": "point", "at": "it#1", "prompt": "medium shot, a young nobleman pointing up at the sky from a stone castle courtyard at night, he is {tycho}", "check": "Is a man pointing up?", "who": "tycho", "clip": true, "motion": "he raises his arm higher, slow camera push in"}, {"name": "newstar", "at": "brand-new#1", "prompt": "close-up of a single dazzling white star among many faint stars, deep blue night", "check": "Is there a bright star?", "move": "push"}, {"name": "eye", "at": "telescopes#1", "prompt": "close-up, a man squinting one bare eye along a long wooden sighting arm aimed at the sky, he is {tycho}, night", "check": "Is a man squinting along a wooden arm?", "who": "tycho", "clip": true, "motion": "he narrows his eye, slow camera push in"}, {"name": "build", "at": "so#1", "prompt": "medium shot, three workmen lifting a huge curved wooden measuring arc in a workshop, 1570s, lamp light", "check": "Are men lifting a big wooden arc?", "clip": true, "motion": "they raise the arc a little, slow camera push in"}, {"name": "scale", "at": "instruments#1", "prompt": "close-up of a large polished brass arc with fine notches along its edge, warm lamp light", "check": "Is there a brass arc?", "move": "left"}, {"name": "king", "at": "king#1", "prompt": "medium shot, a king in a fur-trimmed robe gesturing grandly toward a castle on a hill, he is {king}, 1570s, daylight", "check": "Is a king gesturing?", "who": "king", "clip": true, "motion": "he sweeps his hand toward the castle, slow camera push in"}, {"name": "castle", "at": "grand#1", "prompt": "wide shot of a grand stone castle with towers on a cliff above the sea, Denmark, 1570s, sunny day", "check": "Is there a stone castle on a cliff?", "move": "up"}, {"name": "no", "at": "tycho#3", "prompt": "close-up, a young nobleman shaking his head firmly, he is {tycho}, palace hall, window light", "check": "Is a man shaking his head?", "who": "tycho", "clip": true, "motion": "he shakes his head, slow camera push in", "hit": "no#1"}, {"name": "court", "at": "he#1", "prompt": "wide shot of a crowded noisy royal banquet hall with nobles feasting and laughing at long tables, 1570s, candle light", "check": "Is there a crowded banquet hall?", "clip": true, "motion": "the nobles raise their cups, slow camera pan right"}, {"name": "secret", "at": "he#2", "prompt": "close-up, a young nobleman writing a letter by candlelight and glancing over his shoulder, he is {tycho}, dark room", "check": "Is a man writing by candlelight?", "who": "tycho", "clip": true, "motion": "he glances over his shoulder, slow camera push in"}, {"name": "hears", "at": "the#3", "prompt": "close-up, a king frowning as he reads a letter, he is {king}, palace window light", "check": "Is a king reading a letter?", "who": "king", "clip": true, "motion": "he lowers the letter slowly, slow camera push in"}, {"name": "keep", "at": "wants#1", "prompt": "medium shot, a king stroking his beard as he thinks, standing by a palace window, he is {king}", "check": "Is a king stroking his beard?", "who": "king", "clip": true, "motion": "he strokes his beard, slow camera push in"}, {"name": "isle", "at": "so#2", "prompt": "wide shot of a small green island with low cliffs in a blue strait under a bright sky, sailing ships far off", "check": "Is there a small green island?", "move": "push", "xfade": true}, {"name": "arrive", "at": "island#1", "prompt": "medium shot, a young nobleman stepping off a rowing boat onto a pebble beach and grinning, he is {tycho}, sunny day", "check": "Is a man stepping off a boat?", "who": "tycho", "clip": true, "motion": "he steps onto the beach, slow camera push in"}, {"name": "door", "at": "you#1", "prompt": "close-up of a closed wooden door in a silent sunlit room, dust floating in the light", "check": "Is there a closed wooden door?", "move": "push", "xfade": true}, {"name": "homework", "at": "doing#1", "prompt": "medium shot, a boy writing at a wooden desk in a quiet sunlit room, 1570s clothes, calm light", "check": "Is a boy writing at a desk?", "clip": true, "motion": "his pen moves across the page, slow camera push in"}, {"name": "elbow", "at": "nobody#1", "prompt": "close-up of a boy's steady elbow and hand resting on a quiet wooden desk as he writes, soft light", "check": "Is a hand writing on a desk?", "clip": true, "motion": "the hand writes steadily, slow camera push in"}, {"name": "line", "at": "so#3", "prompt": "close-up of a pen drawing a long straight line along a wooden ruler on paper, soft light", "check": "Is a pen drawing along a ruler?", "move": "push"}, {"name": "calm", "at": "on#1", "prompt": "wide shot of a quiet island at night with calm dark water and a clear sky full of stars", "check": "Is there a starry sky over water?", "move": "up"}, {"name": "sight", "at": "without#1", "prompt": "close-up, an astronomer sighting a star along a giant brass instrument at night, he is {tycho}, rooftop", "check": "Is a man looking along a brass instrument?", "who": "tycho", "clip": true, "motion": "he leans closer to the sight, slow camera push in"}, {"name": "uraniborg", "at": "tycho#4", "prompt": "wide shot of a red brick castle with a green copper dome and towers on an island hill, neat gardens, sunny day", "check": "Is there a red brick castle with a dome?", "move": "push", "xfade": true}, {"name": "quadrant", "at": "giant#1", "prompt": "medium shot, two men aiming a giant brass wall quadrant inside a castle room, 1580s, window light", "check": "Are men using a giant brass instrument?", "clip": true, "motion": "they swing the pointer slowly, slow camera push in"}, {"name": "students", "at": "almost#1", "prompt": "medium shot, young students in white ruffs writing at long tables while a craftsman hammers brass behind them, castle workshop", "check": "Are students writing at tables?", "clip": true, "motion": "the craftsman taps his hammer, slow camera pan right"}, {"name": "farmers", "at": "the#5", "prompt": "medium shot, farmers ploughing a field with two horses on a windy island, 1580s, grey light", "check": "Are farmers ploughing a field?", "clip": true, "motion": "the horses pull the plough forward, slow camera pan left"}, {"name": "haul", "at": "help#1", "prompt": "medium shot, tired farmers pushing a cart of red bricks up a dirt hill toward a castle", "check": "Are men pushing a cart of bricks?", "clip": true, "motion": "they push the cart a step, slow camera push in"}, {"name": "trial", "at": "they#1", "prompt": "medium shot, angry farmers in rough clothes standing before judges in a wood-panelled courtroom, one shaking his fist, 1580s", "check": "Are angry farmers in a courtroom?", "clip": true, "motion": "one farmer shakes his fist, slow camera push in"}, {"name": "under", "at": "later#1", "prompt": "medium shot, an astronomer walking down stone steps into a round underground chamber full of instruments, he is {tycho}, lantern light", "check": "Is a man going down stone steps?", "who": "tycho", "clip": true, "motion": "he takes one step down, slow camera push in", "xfade": true}, {"name": "wobble", "at": "his#1", "prompt": "close-up of a tall wooden instrument shaking in the wind on a castle rooftop, grey sky", "check": "Is there a tall wooden instrument on a roof?", "clip": true, "motion": "the instrument shakes in the wind, slow camera push in"}, {"name": "naked", "at": "tycho#7", "prompt": "close-up, an older astronomer squinting through a plain metal sight with no glass, he is {tycho}, night", "check": "Is a man squinting through a metal sight?", "who": "tycho", "clip": true, "motion": "he closes one eye, slow camera push in"}, {"name": "notes", "at": "but#1", "prompt": "close-up of a thick stack of old leather notebooks tied with string on a desk, candle light", "check": "Is there a stack of old notebooks?", "move": "push"}, {"name": "kepler", "at": "johannes#1", "prompt": "medium shot, a young man reading old notebooks by candlelight with his eyes widening, he is {kepler}, 1600s study", "check": "Is a young man reading by candlelight?", "who": "kepler", "clip": true, "motion": "he leans in closer to the page, slow camera push in", "hit": "kepler#1"}, {"name": "planets", "at": "planets#1", "prompt": "wide shot of planets circling a bright sun in a starry sky, deep blue space", "check": "Are there planets around a sun?", "move": "pull"}]}
 
 SOURCES (data only)
 [1] Tycho Brahe | https://en.wikipedia.org/wiki/Tycho_Brahe
