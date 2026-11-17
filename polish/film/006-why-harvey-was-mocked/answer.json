@@ -1,0 +1,391 @@
+{
+ "script": {
+  "title": "Why Harvey Was Mocked",
+  "beats": [
+   {
+    "lines": [
+     "A doctor ties a tight cord around a man's bare arm."
+    ]
+   },
+   {
+    "lines": [
+     "He is William Harvey, a London physician.",
+     "Doctors trust the ancient writer Galen.",
+     "Galen taught that the liver keeps making fresh blood.",
+     "Harvey does the math, keeping every number low on purpose.",
+     "Each heartbeat pushes out about a sixth of an ounce of blood.",
+     "The heart beats a thousand times every half hour.",
+     "In one day, the liver would need to make four hundred ninety-eight pounds of blood.",
+     "That is more than a whole body weighs."
+    ]
+   },
+   {
+    "lines": [
+     "You see, it's like a fountain in a town square. It doesn't make new water. The same water goes round and round."
+    ]
+   },
+   {
+    "lines": [
+     "So Harvey ties off the veins of snakes and fish. Their hearts go empty.",
+     "He ties the arteries. The hearts swell up.",
+     "On the man's arm, Harvey finds little bumps in the veins. They are valves.",
+     "Blood pushed toward the heart moves easily. Pushed the other way, it will not move.",
+     "Blood travels in a circle."
+    ]
+   },
+   {
+    "lines": [
+     "In 1628, Harvey publishes his book in Frankfurt.",
+     "Other physicians attack it.",
+     "So many patients leave that his practice falls mightily.",
+     "Slowly, his idea wins anyway.",
+     "Harvey lives to see his circle accepted, yet dies unsure of what he achieved."
+    ]
+   }
+  ],
+  "key_words": [
+   "cord",
+   "arm",
+   "liver",
+   "blood",
+   "valves",
+   "circle",
+   "fountain",
+   "Galen"
+  ],
+  "claims": [
+   {
+    "claim": "A physician tied a tight ligature onto the upper arm of a person; below it the arm was cool and pale.",
+    "url": "https://en.wikipedia.org/wiki/William_Harvey"
+   },
+   {
+    "claim": "Harvey was an English physician who established himself in London.",
+    "url": "https://en.wikipedia.org/wiki/William_Harvey"
+   },
+   {
+    "claim": "Galen's accepted view held the liver as the origin of venous blood; scientists studied the writings of Galen and it was almost an impiety to question them.",
+    "url": "https://en.wikipedia.org/wiki/William_Harvey"
+   },
+   {
+    "claim": "Harvey's estimates were purposefully low: about 1/6 fluid ounce per beat, 1,000 beats every half hour, so the liver would have to produce 498 pounds of blood a day, more than the weight of the whole body.",
+    "url": "https://en.wikipedia.org/wiki/William_Harvey"
+   },
+   {
+    "claim": "Tying the veins of serpents and fish emptied the heart; tying the arteries made it swell.",
+    "url": "https://en.wikipedia.org/wiki/William_Harvey"
+   },
+   {
+    "claim": "Harvey noticed little bumps in the veins, the valves; blood pushed down the arm would not move but moved easily up toward the heart, so blood travels in a circle.",
+    "url": "https://en.wikipedia.org/wiki/William_Harvey"
+   },
+   {
+    "claim": "In 1628 he published De Motu Cordis in Frankfurt; after negative comments by other physicians he 'fell mightily in his practice'.",
+    "url": "https://en.wikipedia.org/wiki/William_Harvey"
+   },
+   {
+    "claim": "His ideas met vociferous opposition but eventually triumphed; he lived to see his theory gain wide currency and died uncertain of his achievement.",
+    "url": "https://doi.org/10.5860/choice.50-6219"
+   }
+  ]
+ },
+ "film": {
+  "era": "1620s",
+  "music": "mysterious",
+  "cast": {
+   "harvey": "a 50 year old short English physician with a round face, small very black eyes and curling raven-black hair to his collar, a small black pointed beard, a black doublet with a wide white falling-band collar, 1620s",
+   "old": "a 78 year old frail English physician with thin white curling hair, a short white beard, a round wrinkled face, a black velvet skullcap and a black gown with a plain white collar, 1650s"
+  },
+  "key_words": [
+   "cord",
+   "arm",
+   "liver",
+   "blood",
+   "valves",
+   "circle",
+   "fountain",
+   "Galen"
+  ],
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "prompt": "close-up, a doctor tying a tight cord around a man's bare upper arm, he is {harvey}, dark wood-panelled room, 1620s, warm candle light",
+    "check": "Is a man tying a cord around an arm?",
+    "who": "harvey",
+    "clip": true,
+    "motion": "he pulls the cord tight, slow camera push in"
+   },
+   {
+    "name": "arm",
+    "at": "man's#1",
+    "prompt": "extreme close-up of a bare muscular arm with a tight brown cord tied above the elbow, the skin below pale, candle light",
+    "check": "Is there a cord around an arm?",
+    "move": "push"
+   },
+   {
+    "name": "london",
+    "at": "he#1",
+    "prompt": "medium shot, a short round-faced doctor walking along a muddy 1620s London street carrying a leather bag, he is {harvey}, timber houses, grey morning",
+    "check": "Is a man carrying a leather bag?",
+    "who": "harvey",
+    "clip": true,
+    "motion": "he walks a step forward, slow camera pan left",
+    "xfade": true
+   },
+   {
+    "name": "doctors",
+    "at": "doctors#1",
+    "prompt": "medium shot, four old physicians in long black gowns and white ruffs nodding over a huge old book in a library, 1620s, candle light",
+    "check": "Are old men reading a big book?",
+    "clip": true,
+    "motion": "one turns a heavy page, slow camera push in"
+   },
+   {
+    "name": "galen",
+    "at": "galen#2",
+    "prompt": "close-up of a white marble bust of an ancient bearded man on a shelf in a dim library, dust in the air",
+    "check": "Is there a marble bust?",
+    "move": "push"
+   },
+   {
+    "name": "liver",
+    "at": "liver#1",
+    "prompt": "close-up of a dark red animal liver lying on a wooden anatomy table beside old iron tools, dim lamp light",
+    "check": "Is there a dark red liver?",
+    "move": "left"
+   },
+   {
+    "name": "math",
+    "at": "harvey#2",
+    "prompt": "close-up, a doctor scratching quickly with a quill on paper by candlelight, he is {harvey}, cluttered desk, night",
+    "check": "Is a man writing with a quill?",
+    "who": "harvey",
+    "clip": true,
+    "motion": "the quill moves across the paper, slow camera push in"
+   },
+   {
+    "name": "count",
+    "at": "number#1",
+    "prompt": "medium shot, a doctor counting on his fingers and frowning at his desk, he is {harvey}, study full of books, candle light",
+    "check": "Is a man counting on his fingers?",
+    "who": "harvey",
+    "clip": true,
+    "motion": "he taps one finger after another, slow camera push in"
+   },
+   {
+    "name": "pulse",
+    "at": "each#1",
+    "prompt": "close-up of a doctor's two fingers pressing on a man's bare wrist to feel the pulse, white linen sleeve, warm light",
+    "check": "Are fingers pressing on a wrist?",
+    "clip": true,
+    "motion": "the fingers press gently, slow camera push in"
+   },
+   {
+    "name": "spoon",
+    "at": "ounce#1",
+    "prompt": "extreme close-up of a small pewter spoon holding a few drops of dark red liquid, wooden table, candle light",
+    "check": "Is there a small spoon?",
+    "move": "push"
+   },
+   {
+    "name": "listen",
+    "at": "the#4",
+    "prompt": "close-up, a doctor pressing his ear against a man's bare chest to listen, he is {harvey}, dim room, warm light",
+    "check": "Is a man pressing his ear to a chest?",
+    "who": "harvey",
+    "clip": true,
+    "motion": "he closes his eyes to listen, slow camera push in"
+   },
+   {
+    "name": "hourglass",
+    "at": "half#1",
+    "prompt": "close-up of a brass hourglass with sand running down on a wooden desk, candle light",
+    "check": "Is there an hourglass?",
+    "move": "push"
+   },
+   {
+    "name": "pour",
+    "at": "in#1",
+    "prompt": "close-up of dark red liquid pouring endlessly from a clay jug into a wooden tub until it overflows, stone floor, lamp light",
+    "check": "Is liquid pouring from a jug?",
+    "clip": true,
+    "motion": "the liquid keeps pouring and spills over, slow camera push in"
+   },
+   {
+    "name": "barrels",
+    "at": "four#1",
+    "prompt": "wide shot of a long row of huge wooden barrels in a dark stone cellar, a single lantern, 1620s",
+    "check": "Are there big wooden barrels?",
+    "move": "left"
+   },
+   {
+    "name": "scale",
+    "at": "that#2",
+    "prompt": "medium shot, a big bearded man standing on a large wooden market scale while a merchant moves the weights, busy market, daylight",
+    "check": "Is a man standing on a scale?",
+    "clip": true,
+    "motion": "the merchant slides a weight, slow camera push in"
+   },
+   {
+    "name": "fountain",
+    "at": "you#1",
+    "prompt": "wide shot of a round stone fountain spraying water in a sunny old town square, pigeons on the cobblestones",
+    "check": "Is there a stone fountain?",
+    "move": "up",
+    "xfade": true
+   },
+   {
+    "name": "spout",
+    "at": "it#1",
+    "prompt": "close-up of clear water pouring from a stone spout into a fountain basin, bright sunlight, sparkles",
+    "check": "Is water pouring from a spout?",
+    "move": "push"
+   },
+   {
+    "name": "round",
+    "at": "same#1",
+    "prompt": "close-up of a child's hand trailing through water swirling round a stone fountain basin, sunlight",
+    "check": "Is a hand touching water?",
+    "clip": true,
+    "motion": "the water swirls around the hand, slow camera push in"
+   },
+   {
+    "name": "snake",
+    "at": "so#1",
+    "prompt": "medium shot, a doctor bending over a long brown snake on a wooden table holding a thread, he is {harvey}, workshop, lamp light",
+    "check": "Is a man bending over a snake?",
+    "who": "harvey",
+    "clip": true,
+    "motion": "he lowers the thread toward the snake, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "fish",
+    "at": "fish#1",
+    "prompt": "close-up of a large silver fish lying on a wooden board beside a coil of thread, lamp light",
+    "check": "Is there a silver fish?",
+    "move": "push"
+   },
+   {
+    "name": "empty",
+    "at": "empty#1",
+    "prompt": "close-up of a small pale limp animal heart lying on a white cloth on a wooden table, dim light",
+    "check": "Is there a small heart on a cloth?",
+    "move": "pull"
+   },
+   {
+    "name": "swell",
+    "at": "arteries#1",
+    "prompt": "medium shot, a doctor peering through a magnifying glass at a table with his eyebrows raised in surprise, he is {harvey}, lamp light",
+    "check": "Is a man holding a magnifying glass?",
+    "who": "harvey",
+    "clip": true,
+    "motion": "his eyebrows lift, slow camera push in",
+    "hit": "swell#1"
+   },
+   {
+    "name": "veins",
+    "at": "on#2",
+    "prompt": "close-up of a man's bare forearm with a cord tied above the elbow and swollen blue veins, warm candle light",
+    "check": "Is there an arm with swollen veins?",
+    "move": "push"
+   },
+   {
+    "name": "bumps",
+    "at": "little#1",
+    "prompt": "extreme close-up of a fingertip pressing on small bumps along a swollen vein on a forearm, warm light",
+    "check": "Is a finger pressing on an arm?",
+    "clip": true,
+    "motion": "the fingertip presses each bump in turn, slow camera pan up"
+   },
+   {
+    "name": "up",
+    "at": "blood#4",
+    "prompt": "close-up of a thumb sliding easily up a vein toward the elbow on a bare forearm, warm candle light",
+    "check": "Is a thumb pressing on an arm?",
+    "clip": true,
+    "motion": "the thumb slides up the arm, slow camera pan up"
+   },
+   {
+    "name": "stuck",
+    "at": "pushed#2",
+    "prompt": "close-up, a doctor frowning as he presses his thumb down on a vein on a man's arm, he is {harvey}, candle light",
+    "check": "Is a man frowning?",
+    "who": "harvey",
+    "clip": true,
+    "motion": "he presses harder and frowns, slow camera push in"
+   },
+   {
+    "name": "circle",
+    "at": "blood#5",
+    "prompt": "close-up of a hand drawing a large circle on paper with a quill, ink pot beside, candle light",
+    "check": "Is a hand drawing a circle?",
+    "clip": true,
+    "motion": "the quill sweeps round the circle, slow camera push in",
+    "hit": "circle#1"
+   },
+   {
+    "name": "press",
+    "at": "in#5",
+    "prompt": "medium shot, a printer pulling the long lever of a wooden printing press in a busy workshop, 1620s, window light",
+    "check": "Is a man pulling the lever of a printing press?",
+    "clip": true,
+    "motion": "he pulls the lever down, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "attack",
+    "at": "other#2",
+    "prompt": "medium shot, a group of angry old physicians in black gowns and white ruffs shouting and shaking a small book, wood-panelled hall",
+    "check": "Are old men shouting?",
+    "clip": true,
+    "motion": "one shakes the book angrily, slow camera push in",
+    "hit": "attack#1"
+   },
+   {
+    "name": "waiting",
+    "at": "so#2",
+    "prompt": "wide shot of an empty waiting room with bare wooden benches and a closed door, 1620s, cold grey light",
+    "check": "Is there an empty room with benches?",
+    "move": "push"
+   },
+   {
+    "name": "alone",
+    "at": "practice#1",
+    "prompt": "close-up, a lonely doctor rubbing his forehead at his desk, he is {harvey}, dim study, one candle",
+    "check": "Is a man rubbing his forehead?",
+    "who": "harvey",
+    "clip": true,
+    "motion": "he rubs his forehead slowly, slow camera push in"
+   },
+   {
+    "name": "wins",
+    "at": "slowly#1",
+    "prompt": "medium shot, young students in black gowns crowding around a wooden table nodding as a doctor points, he is {harvey}, bright anatomy hall",
+    "check": "Is a man pointing?",
+    "who": "harvey",
+    "clip": true,
+    "motion": "the students lean in closer, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "honour",
+    "at": "harvey#6",
+    "prompt": "medium shot, an old doctor being bowed to by younger physicians in a grand hall, he is {old}, 1650s, warm light",
+    "check": "Is an old man being bowed to?",
+    "who": "old",
+    "clip": true,
+    "motion": "the young men bow their heads, slow camera push in"
+   },
+   {
+    "name": "unsure",
+    "at": "dies#1",
+    "prompt": "close-up, an old man gazing out of a rainy window with a worried face, he is {old}, dark room, one candle",
+    "check": "Is an old man looking out a window?",
+    "who": "old",
+    "clip": true,
+    "motion": "rain runs down the glass as he lowers his eyes, slow camera pull back"
+   }
+  ]
+ }
+}
