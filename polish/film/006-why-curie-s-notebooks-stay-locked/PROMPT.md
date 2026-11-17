@@ -74,12 +74,6 @@ Return JSON only: {"era": "...", "cast": {...}, "key_words": [...], "music": "<o
            {"name": ..., "at": ..., "prompt": ..., "check": "Is ...?", "move": "push"}, ...]}
 
 CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid these exact scenes):
-- 002-why-doctors-were-ordered-to-wash-their-h: cast hero = a 29 year old doctor with black slicked hair, a black mustache and a long dark green coat with gold buttons; mother = a young mother with brown hair in a bun and a long dark red 19th century dress; friend = a kind 43 year old professor with grey hair, grey sideburns and small round glasses in a brown coat; elder = a stern old professor with white hair and white whiskers in a black frock coat; pasteur = an old French scientist with a short grey beard and a black velvet cap
-  scenes: medium close-up, a stern man pointing his finger firmly at a white por | extreme close-up of two hands rubbing thick white soap foam together o | a young woman lying in an iron hospital bed looking up worried, head o | medium shot, {elder} and two other old doctors in black coats with arm | low angle, proud elegant old doctors in top hats and fine black coats  | extreme close-up of a doctor's pale hands with dark dried stains under | wide shot of a long gloomy 1847 maternity ward with two rows of iron b | close-up, a pale sick sweating young woman in a dark red dress lying i | two hospital doors side by side in a stone corridor, the left door dar | medium shot, a desperate young woman kneeling with both knees on stone | a woman sitting on a cobblestone street at night holding a newborn bab | medium shot, {friend} smiling and teaching young students in an 1847 a
-- 003-why-joseph-lister-sprayed-carbolic-acid-: cast lister = a 38 year old Victorian surgeon with bushy brown mutton-chop sideburns, short side-parted dark brown hair, focused blue eyes, wearing a dark blue waistcoat over a rolled-up white linen shirt and dark trousers, 1860s; boy = an 11 year old Victorian boy with messy auburn hair, a freckled pale face, wearing a patched grey woolen vest over a dirty cream linen shirt, 1860s; pasteur = a 43 year old French scientist with a short neatly trimmed dark brown beard and mustache, sharp brown eyes, wearing a dark maroon frock coat with a black silk cravat, 1860s; patient = a 45 year old sickly Victorian workman with thin balding greyish hair, stubble on his cheeks, wearing a worn beige hospital nightshirt, 1860s
-  scenes: medium close-up, {lister} pressing white cloth towels into a glass dis | close-up, {boy} resting his head on a flat white pillow, looking scare | low angle medium shot, {patient} sitting nervously on a tall wooden op | wide shot of a large grey Victorian stone hospital building with tall  | medium close-up, {patient} lying weakly in an iron hospital bed under  | extreme close-up of an open inflamed wound on a pale forearm leaking t | medium shot, {lister} standing in a dim surgical theatre gripping a lo | medium shot, {boy} standing just inside a Victorian hospital doorway,  | extreme close-up of two surgeon's hands holding a boy's broken lower l | medium shot, carefully adjusting the broken leg of {boy} on a wooden c | close-up of hands pouring clear carbolic liquid from a glass bottle on | medium shot, wrapping a shiny sheet of tin foil over a bound leg, {lis
-- 004-why-john-snow-removed-a-london-pump-hand: cast snow = a 41 year old English doctor with short dark wavy hair, a clean shaven narrow face, thin lips, deep-set grey eyes, a black frock coat, a grey waistcoat, a white high collar and a black necktie, 1850s; whitehead = a 28 year old English vicar with fair curly hair, a round friendly face, rosy cheeks, a black clerical coat and a white clerical collar, 1850s; simon = a 38 year old London health official with a neat full black beard, a high bald forehead, a brown overcoat with a fur collar and a grey top hat, 1850s; mother = a 30 year old poor London woman with red hair tied under a white cotton cap, a faded blue cotton dress and a brown wool shawl, 1850s; brewer = a burly 50 year old brewery worker with a thick ginger beard, a flat cloth cap, rolled-up shirt sleeves and a grey canvas apron, 1850s
-  scenes: medium shot, two men in black top hats pulling the long iron handle of | medium close-up, a doctor pointing firmly at an iron street water pump | wide shot of a crowded narrow 1850s London street with laundry hanging | close-up, a pale sweating man lying sick on a straw mattress in a dark | high angle, men carrying plain wooden coffins out of narrow brick hous | medium shot, three doctors in black coats pressing white handkerchiefs | wide shot, thick greenish yellow fog drifting over a rubbish-strewn mu | medium shot, a bearded official shaking his head while reading a lette | close-up, a doctor frowning as he reads a letter by a rainy window, he | medium shot, {snow} and {whitehead} knocking on the wooden door of a n | medium close-up, a crying woman in a doorway answering questions, she  | extreme close-up, a hand with a quill pen marking small black dots on 
 - 005-why-barry-marshall-swallowed-bacteria: cast marshall = a 33 year old Australian doctor, lean build, curly dark brown hair, a full dark brown beard, brown eyes, thin wire-rimmed glasses, a white short-sleeved shirt under a pale blue lab coat and khaki trousers, 1980s; warren = a 46 year old Australian pathologist with short receding grey hair, a clean-shaven square face, heavy black-framed glasses, a white lab coat over a brown checked shirt, 1980s; skeptic = a 48 year old British gastroenterologist, stocky build, balding with short grey hair at the sides, heavy dark eyebrows, clean shaven, a charcoal grey suit jacket, a burgundy patterned tie and white shirt, 1980s; nurse = a 35 year old nurse, sturdy build, dark brown hair in a ponytail, teal scrubs, 1980s; wife = a 32 year old woman with shoulder-length wavy blond hair, a sun-tanned face and a yellow sleeveless summer dress, 1980s
   scenes: close-up, a bearded doctor drinking cloudy brown liquid from a glass b | medium close-up, a doctor wincing and pressing a hand on his stomach,  | medium shot, a stressed businessman in a brown suit clutching his stom | close-up of a plate of bright red chilli peppers next to a bowl of spi | wide shot of a sunny 1980s Australian city hospital with palm trees in | medium shot, a pathologist looking into a microscope, he is {warren},  | medium shot, a balding doctor laughing and shaking his head at a meeti | extreme close-up of clear liquid bubbling in a glass beaker on a lab b | close-up, a hand dropping a stapled paper into a metal wastebasket, 19 | medium close-up, a doctor reading a letter and slumping back in his ch | medium shot, pink piglets sniffing around a clean straw pen, bright da | close-up, a doctor rolling up his sleeves with a determined face, he i
 - 005-why-goldberger-swallowed-scabs: cast goldberger = a 42 year old lean American physician with short wavy dark brown hair, a neat small moustache, deep-set brown eyes and a long serious face, wearing a charcoal three-piece suit, a white wing-collar shirt and a dark tie, 1910s; wife = a 38 year old woman with dark auburn hair pinned up high, a narrow freckled face, a high-collared cream lace blouse and a long navy blue skirt, 1910s; orphan = a 9 year old thin girl with long blond braids, big grey eyes and a faded pink cotton dress with a white collar, 1910s; prisoner = a 27 year old lean prisoner with a tanned face, short dark hair and stubble on his chin, wearing a blue and white striped prison shirt with rolled sleeves, 1910s; critic = a 60 year old stout doctor with a bald head, bushy white side whiskers, small gold pince-nez and a black frock coat with a watch chain, 1910s; chemist = a 36 year old laboratory chemist with thinning blond hair, round black spectacles and a clean-shaven round face, wearing a white lab coat over a dark tie, 1930s
@@ -98,175 +92,241 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: medium shot, sailors leaning on the rail of a wooden sailing ship and  | close-up, a sailor gripping a ship's wooden rail and gazing at land, h | close-up of a pale sick man lying on straw with dark swollen marks on  | wide shot of a medieval town street with closed shutters and a cart co | close-up, a weeping woman in a medieval hood kneeling beside a bed, ca | wide shot of medieval Venice with canals, gondolas and stone palaces,  | medium shot, three Venetian officials in long red robes and black caps | wide shot of a walled stone harbour city on the Adriatic coast with re | close-up of stone city walls and a tower above the sea with waves brea | medium shot, travellers in medieval cloaks stepping off a small rowing | wide shot of a small rocky island with a few stone huts in a blue sea, | close-up, a worried traveller pulling down his collar to look at his n
 - 005-why-the-radium-girls-licked-poison: cast painter = a 19 year old woman with dark brown bobbed hair, freckles, bright hazel eyes, a white cotton work smock over a navy blouse, 1910s; supervisor = a 45 year old factory supervisor with slicked grey hair, a thin moustache, a brown three-piece suit and a gold watch chain, 1910s; president = a 50 year old company president with a bald head, round gold spectacles, a heavy jaw and a dark grey double-breasted suit, 1920s; inventor = a 45 year old scientist with a high forehead, swept-back black hair, a short pointed black beard and a black suit with a white collar, 1920s
   scenes: close-up, a young woman touching a thin paintbrush tip to her lips, a  | extreme close-up of a thin brush dipping into a tiny pot of glowing gr | extreme close-up of a thin brush painting glowing green lines on a sma | wide shot of a big 1910s brick factory with tall windows and a smokest | wide shot, rows of young women in white smocks bent over long tables p | close-up of a row of small watch faces glowing green in a dark room | close-up, a young woman's open hand receiving a few copper coins at a  | extreme close-up of a camel hair paintbrush with a frayed splayed tip, | medium shot, a stern man in a suit pointing at a worker's paint table, | medium close-up, a smiling young woman putting a paintbrush to her lip | close-up, young women laughing and holding up fingernails painted glow | close-up, a laughing young woman with a faint green glow on her teeth 
+- 006-why-dutch-merchants-paid-fortunes-for-a-: cast merchant = a 44 year old Dutch merchant with a ruddy weathered face, a thick grey-streaked brown beard, heavy brows, a wide black felt hat, a long dark burgundy wool coat with silver buttons, a white linen collar and cuffs, 1630s; trader = a 31 year old Dutch tulip trader with a thin pale face, a small pointed black moustache, sharp dark eyes, shoulder-length light brown hair, a bright mustard yellow doublet, a white ruff collar and a brown leather belt, 1630s; grower = a 52 year old Dutch bulb grower with a sunburnt wrinkled face, a bald crown with grey hair at the sides, a short grey stubble beard, a rough brown linen smock, muddy wooden clogs and a grey wool cap, 1630s; wife = a 29 year old Dutch woman with fair skin, blond hair pinned under a white lace cap, a high forehead, a dark green bodice with a white apron over a long brown skirt, 1630s; tavernkeeper = a stout 48 year old Dutch tavern keeper with a red flushed face, a big belly, a clean-shaven chin, a white apron over a dark blue shirt, a brown cap, 1630s
+  scenes: medium close-up, a stern man in a wide black hat leaning over a wooden | extreme close-up of a hand with a quill pen signing a paper contract o | close-up, a merchant holding up his open empty palms toward a trader,  | medium shot, a trader shrugging with both arms spread wide and grinnin | close-up of a single tulip bulb half buried in dark soil in a wooden c | close-up of a hand with a quill pen writing rising numbers on a paper  | medium shot, {trader} slapping a paper contract down on a wooden table | close-up of a hand dropping small silver coins into a wooden bowl on a | wide shot of a crowded 1630s Dutch tavern with men waving paper contra | wide shot of a grand 1630s Dutch town exchange building with tall ston | medium shot, {merchant} holding up a paper contract beside a potted tu | close-up of a hand holding up a small paper concert ticket in a dark t
+- 007-why-tycho-brahe-built-uraniborg-on-hven: cast tycho = a 30 year old Danish astronomer with short reddish-brown hair, dark eyes, a small brass nose bridge piece, a dark green velvet doublet with gold embroidery and a white ruff collar, 1570s; king = a 42 year old Danish king with a thick blond beard, sharp blue eyes, a dark red velvet coat with white fur collar and a heavy gold chain, 1570s; farmer = a 35 year old Danish farmer with a sunburnt face, messy brown hair, stubble beard, a coarse brown wool tunic and grey trousers, 1570s; judge = a 55 year old judge with long grey hair, a bushy grey beard, a long black robe over a white ruff collar, 1570s; kepler = a 30 year old astronomer with short dark hair, a neat pointed black beard, small spectacles, a dark brown doublet with a flat white collar, 1600s
+  scenes: close-up, an astronomer squinting up at the starry sky while holding a | wide shot of a magnificent red-brick Renaissance castle with tall copp | medium shot, an astronomer turning a brass divider compass over a parc | extreme close-up of a quill pen dipping into a small dark glass inkwel | medium close-up, a bearded king in a red velvet coat leaning forward o | medium shot, an astronomer gazing out a tall arched stone window towar | medium shot, an elderly nobleman in a black robe pushing a heavy leath | medium close-up, a man lifting a brass armillary sphere up to his eye  | close-up, a man frowning and turning an hourglass upside down on a woo | medium shot, a bearded king in a velvet coat listening intently with h | wide shot of heavy wooden travel trunks and tied leather bags sitting  | medium shot, {king} unrolling a large parchment map of an island onto 
+- 008-why-china-s-paper-money-wasn-t-tang: cast merchant = a 45 year old Sichuan merchant with a round weathered face, a thin grey-streaked beard, a black silk cap, a long dark blue silk robe with wide sleeves and a brown leather belt, 11th century; official = a 50 year old Song government official with a long thin face, a neat black moustache, a tall black gauze hat with stiff wings, a long crimson robe with a gold-embroidered square badge, 11th century; clerk = a 30 year old thin clerk with a pale narrow face, small round spectacles, a grey cotton robe and a black cloth cap, 11th century; smith = a 35 year old burly iron smith with a soot-darkened face, a short black beard, a leather apron over a rough brown tunic, 11th century; wife = a 35 year old Sichuan woman with a round face, black hair in a neat bun, a small gold hairpin, a green cotton jacket and a long dark skirt, 11th century
+  scenes: medium shot, a merchant in a long dark blue silk robe and black cap ha | extreme close-up of two hands lifting a stack of thick heavy iron coin | close-up, a merchant holding up one folded paper note with both hands, | close-up, a merchant pressing a red seal stamp onto a paper note on a  | medium shot, a thin clerk holding up a paper note in one hand and poin | close-up of two hands placing a folded paper note on top of a heavy st | wide shot of a crowded 11th century Sichuan market street with wooden  | close-up of two hands holding up two different paper notes side by sid | medium shot, {merchant} standing and pointing at a large paper map on  | close-up, {merchant} leaning over a wooden table and pointing at a pap | wide shot of a large wooden gate of a merchant guild house with a hang | extreme close-up of a carved wooden printing block being pressed onto 
 
 PROBLEMS FOUND BY THE CHECKS
-- script: not supported by the sources, fix or remove: An archivist lifts a dusty notebook, winces as a faint glow flickers.
-- script: not supported by the sources, fix or remove: Ironically, the notebooks that birthed radioactivity are now the most guarded artifacts.
-- script: not supported by the sources, fix or remove: The air in the vault is monitored for stray particles.
-- shot vault_monitoring: 3.7 s on screen (max 3.2; split it)
+- shot notebooks: 3.7 s on screen (max 3.2; split it)
+- script: numbers not in the sources: ['hundred', 'six']; remove them or use the sources' numbers
+- script: every beat needs a "feel": the one emotion the viewer should have there
 
 DRAFT SCRIPT
-{"title": "Why Curie's Notebooks Stay Locked", "beats": [{"lines": ["An archivist lifts a dusty notebook, winces as a faint glow flickers.", "Her colleagues laugh, saying the old papers are just ink stains."], "feel": "curiosity"}, {"lines": ["She places the notebook on a metal tray.", "A soft hiss escapes, invisible particles slipping out."], "feel": "dread"}, {"lines": ["She slides the tray into a lead‑lined box.", "The lid clangs, sealing the hiss inside."], "feel": "frustration"}, {"lines": ["You see, it’s like holding a candle in rain—without protection flame dies."], "feel": "recognition"}, {"lines": ["Curie's 1890s papers still contain radium‑226, whose half‑life is about 1,600 years.", "That makes the notebooks radioactive for well over a thousand years.", "Lead blocks the penetrating radiation, keeping the lab safe.", "Anyone who wants to read them must wear protective clothing."], "feel": "awe"}, {"lines": ["Ironically, the notebooks that birthed radioactivity are now the most guarded artifacts.", "Even her cookbooks glow with the same deadly ink."], "feel": "surprise"}, {"lines": ["Researchers don gloves, goggles, and thick lead aprons before opening a box.", "The air in the vault is monitored for stray particles."], "feel": "tension"}]}
+{"title": "Why Curie's Notebooks Stay Locked", "beats": [{"lines": ["A scientist carries glowing test tubes around in her pocket."]}, {"lines": ["Her name is Marie Curie.", "In 1898, in Paris, she and her husband Pierre grind up a dark rock called pitchblende.", "They hunt for something hidden inside.", "It takes tonnes of rock.", "From one tonne, they get just one tenth of a gram.", "They name it radium, from the Latin word for ray.", "Marie even invents the word radioactivity."]}, {"lines": ["She stores the tubes in her desk drawer.", "She loves the faint light they give off in the dark.", "Nobody yet knows how harmful the rays are.", "She works with no safety rules.", "Her papers from the 1890s become radioactive too."]}, {"lines": ["You see, it's like smoke soaking into your coat. Long after the fire is out, you still smell it."]}, {"lines": ["Radium takes about one thousand six hundred years to lose half its strength.", "So her notebooks will stay radioactive for well over a thousand years.", "Today they sit in lead-lined boxes.", "Anyone who wants to read them must wear protective clothing.", "Even her cookbooks are highly radioactive."]}, {"lines": ["In 1934, Marie dies at sixty-six, likely from the radiation.", "Sixty years later, her remains are moved to the Panthéon in Paris.", "They are sealed in lead, just like her notebooks."]}]}
 CLAIMS IN THE DRAFT
-- {'claim': 'Her papers from the 1890s are considered too dangerous to handle because of their radioactivity.', 'url': 'https://en.wikipedia.org/wiki/Marie_Curie'}
-- {'claim': 'Radium‑226 has a half‑life of about 1,600 years, so her notebooks remain radioactive for well over a thousand years.', 'url': 'https://en.wikipedia.org/wiki/Marie_Curie'}
-- {'claim': 'The papers are kept in lead‑lined boxes and require protective clothing to consult.', 'url': 'https://en.wikipedia.org/wiki/Marie_Curie'}
+- {'claim': 'Curie carried test tubes containing radioactive isotopes in her pocket and stored them in her desk drawer, remarking on the faint light they gave off in the dark.', 'url': 'https://en.wikipedia.org/wiki/Marie_Curie'}
+- {'claim': 'In 1898 the Curies ground a sample of pitchblende; they eventually had to process tonnes of the ore, and from a tonne of pitchblende one-tenth of a gram of radium chloride was separated.', 'url': 'https://en.wikipedia.org/wiki/Marie_Curie'}
+- {'claim': "They named radium from the Latin word for 'ray' and coined the word 'radioactivity'.", 'url': 'https://en.wikipedia.org/wiki/Marie_Curie'}
+- {'claim': 'The damaging effects of ionising radiation were not known at the time; her work was carried out without later safety measures.', 'url': 'https://en.wikipedia.org/wiki/Marie_Curie'}
+- {'claim': 'Her papers from the 1890s are too radioactive to handle; even her cookbooks are highly radioactive; they are kept in lead-lined boxes and those who consult them must wear protective clothing.', 'url': 'https://en.wikipedia.org/wiki/Marie_Curie'}
+- {'claim': 'Because radium-226 has a half-life of about 1,600 years, her notebooks are expected to remain radioactive for well over a thousand years.', 'url': 'https://en.wikipedia.org/wiki/Marie_Curie'}
+- {'claim': 'Curie died in 1934, aged 66, of aplastic anaemia likely from exposure to radiation.', 'url': 'https://en.wikipedia.org/wiki/Marie_Curie'}
+- {'claim': 'Sixty years later, in 1995, her remains were transferred to the Paris Panthéon and sealed in a lead lining because of the radioactivity.', 'url': 'https://en.wikipedia.org/wiki/Marie_Curie'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
-0.14s An#1
-0.24s archivist#1
-0.87s lifts#1
-1.09s a#1
-1.17s dusty#1
-1.52s notebook#1
-2.25s winces#1
-2.72s as#1
-2.82s a#2
-2.97s faint#1
-3.32s glow#1
-3.60s flickers#1
-4.36s Her#1
-4.49s colleagues#1
-4.96s laugh#1
-5.51s saying#1
-5.79s the#1
-5.86s old#1
-6.04s papers#1
-6.51s are#1
-6.61s just#1
-6.86s ink#1
-7.06s stains#1
-8.06s She#1
-8.21s places#1
-8.59s the#2
-8.69s notebook#2
-9.21s on#1
-9.31s a#3
-9.39s metal#1
-9.64s tray#1
-10.25s A#4
-10.37s soft#1
-10.65s hiss#1
-10.87s escapes#1
-11.62s invisible#1
-12.12s particles#1
-12.60s slipping#1
-12.92s out#1
-13.62s She#2
-13.74s slides#1
-14.12s the#3
-14.22s tray#2
-14.62s into#1
-14.85s a#5
-14.95s lead‑lined#1
-15.49s box#1
-16.17s The#4
-16.27s lid#1
-16.49s clangs#1
-17.14s sealing#1
-17.47s the#5
-17.57s hiss#2
-17.79s inside#1
-18.73s You#1
-18.91s see#1
-19.30s it’s#1
-19.43s like#1
-19.60s holding#1
-19.90s a#6
-19.98s candle#1
-20.35s in#1
-20.45s rain—without#1
-21.33s protection#1
-21.88s flame#1
-22.20s dies#1
-23.13s Curie's#1
-23.55s 1890s#1
-24.38s papers#2
-25.10s still#1
-25.38s contain#1
-25.88s radium‑226#1
-27.13s whose#1
-27.85s half‑life#1
-28.75s is#1
-28.85s about#1
-29.18s 1,600#1
-30.28s years#1
-30.89s That#1
-31.07s makes#1
-31.32s the#6
-31.42s notebooks#1
-31.89s radioactive#1
-32.95s for#1
-33.09s well#1
-33.40s over#1
-33.57s a#7
-33.70s thousand#1
-34.09s years#2
-34.77s Lead#1
-35.05s blocks#1
-35.40s the#7
-35.49s penetrating#1
-36.05s radiation#1
-36.95s keeping#1
-37.22s the#8
-37.32s lab#1
-37.59s safe#1
-38.19s Anyone#1
-38.62s who#1
-38.77s wants#1
-39.02s to#1
-39.14s read#1
-39.34s them#1
-39.82s must#1
-40.09s wear#1
-40.32s protective#1
-40.82s clothing#1
-41.77s Ironically#1
-42.64s the#9
-42.74s notebooks#2
-43.22s that#2
-43.39s birthed#1
-43.72s radioactivity#1
-44.89s are#2
-45.02s now#1
-45.27s the#10
-45.37s most#1
-45.67s guarded#1
-46.04s artifacts#1
-47.07s Even#1
-47.29s her#2
-47.42s cookbooks#1
-47.84s glow#2
-48.19s with#1
-48.31s the#11
-48.47s same#1
-48.77s deadly#1
-49.12s ink#2
-49.82s Researchers#1
-50.42s don#1
-50.75s gloves#1
-51.37s goggles#1
-52.12s and#1
-52.27s thick#1
-52.50s lead#2
-52.67s aprons#1
-53.12s before#1
-53.40s opening#1
-53.72s a#8
-53.80s box#2
-54.50s The#12
-54.68s air#1
-54.88s in#2
-54.94s the#13
-55.05s vault#1
-55.53s is#2
-55.68s monitored#1
-56.18s for#2
-56.33s stray#1
-56.65s particles#2
+0.12s A#1
+0.25s scientist#1
+0.92s carries#1
+1.35s glowing#1
+1.75s test#1
+2.00s tubes#1
+2.27s around#1
+2.55s in#1
+2.62s her#1
+2.75s pocket#1
+3.58s Her#2
+3.73s name#1
+4.06s is#1
+4.21s Marie#1
+4.46s Curie#1
+5.12s In#2
+5.27s 1898#1
+6.37s in#3
+6.49s Paris#1
+7.27s she#1
+7.39s and#1
+7.49s her#3
+7.62s husband#1
+8.02s Pierre#1
+8.39s grind#1
+8.77s up#1
+8.87s a#2
+8.97s dark#1
+9.27s rock#1
+9.59s called#1
+9.84s pitchblende#1
+10.70s They#1
+10.85s hunt#1
+11.08s for#1
+11.23s something#1
+11.55s hidden#1
+11.85s inside#1
+12.64s It#1
+12.77s takes#1
+13.04s tonnes#1
+13.31s of#1
+13.41s rock#2
+14.06s From#1
+14.24s one#1
+14.46s tonne#1
+14.99s they#2
+15.11s get#1
+15.26s just#1
+15.54s one#2
+15.79s tenth#1
+16.04s of#2
+16.09s a#3
+16.19s gram#1
+16.82s They#3
+16.97s name#2
+17.20s it#2
+17.32s radium#1
+18.05s from#2
+18.16s the#1
+18.27s Latin#1
+18.62s word#1
+18.90s for#2
+19.05s ray#1
+19.64s Marie#2
+20.04s even#1
+20.29s invents#1
+20.72s the#2
+20.82s word#2
+21.09s radioactivity#1
+22.45s She#2
+22.60s stores#1
+22.92s the#3
+23.02s tubes#2
+23.32s in#4
+23.40s her#4
+23.52s desk#1
+23.80s drawer#1
+24.49s She#3
+24.64s loves#1
+24.97s the#4
+25.12s faint#1
+25.37s light#1
+25.64s they#4
+25.77s give#1
+25.94s off#1
+26.14s in#5
+26.20s the#5
+26.32s dark#2
+26.99s Nobody#1
+27.49s yet#1
+27.69s knows#1
+27.94s how#1
+28.17s harmful#1
+28.54s the#6
+28.64s rays#1
+28.94s are#1
+29.39s She#4
+29.54s works#1
+29.81s with#1
+29.99s no#1
+30.21s safety#1
+30.59s rules#1
+31.26s Her#5
+31.38s papers#1
+31.86s from#3
+32.13s the#7
+32.41s 1890s#1
+33.08s become#1
+33.43s radioactive#1
+34.26s too#1
+34.99s You#1
+35.14s see#1
+35.47s it's#1
+35.59s like#1
+35.82s smoke#1
+36.22s soaking#1
+36.52s into#1
+36.69s your#1
+36.82s coat#1
+37.59s Long#1
+37.84s after#1
+38.09s the#8
+38.19s fire#1
+38.52s is#2
+38.64s out#1
+39.04s you#2
+39.17s still#1
+39.47s smell#1
+39.74s it#3
+40.29s Radium#2
+40.84s takes#2
+41.09s about#1
+41.34s one#3
+41.54s thousand#1
+41.81s six#1
+42.01s hundred#1
+42.31s years#1
+42.89s to#1
+43.01s lose#1
+43.29s half#1
+43.49s its#1
+43.61s strength#1
+44.23s So#1
+44.38s her#6
+44.51s notebooks#1
+45.01s will#1
+45.16s stay#1
+45.43s radioactive#2
+46.41s for#3
+46.56s well#1
+46.86s over#1
+47.06s a#4
+47.18s thousand#2
+47.61s years#2
+48.26s Today#1
+48.58s they#5
+48.76s sit#1
+49.01s in#6
+49.16s lead-lined#1
+49.66s boxes#1
+50.45s Anyone#1
+50.87s who#1
+51.02s wants#1
+51.27s to#2
+51.40s read#1
+51.60s them#1
+52.07s must#1
+52.35s wear#1
+52.57s protective#1
+53.07s clothing#1
+53.81s Even#2
+54.04s her#7
+54.16s cookbooks#1
+54.56s are#2
+54.74s highly#1
+55.12s radioactive#3
+56.36s In#7
+56.48s 1934#1
+57.68s Marie#3
+57.96s dies#1
+58.36s at#1
+58.48s sixty-six#1
+59.43s likely#1
+59.78s from#4
+59.92s the#9
+60.03s radiation#1
+61.03s Sixty#1
+61.41s years#3
+61.63s later#1
+62.21s her#8
+62.33s remains#1
+62.81s are#3
+62.93s moved#1
+63.23s to#3
+63.31s the#10
+63.41s Panthéon#1
+64.03s in#8
+64.16s Paris#2
+64.88s They#6
+64.97s are#4
+65.15s sealed#1
+65.45s in#9
+65.58s lead#1
+66.12s just#2
+66.38s like#2
+66.53s her#9
+66.65s notebooks#2
 
 DRAFT film.json
-{"era": "today", "cast": {"archivist": "a 34 year old female archivist with short dark hair in a bob, fair skin, oval face, wearing a dark navy wool cardigan over a light grey shirt, today", "colleague": "a 45 year old male archivist, tall build, short grey hair, wire-rimmed glasses, wearing a brown corduroy blazer over a cream buttoned shirt, today", "curie": "a 30 year old Marie Curie, slender build, intense grey eyes, dark hair pinned in a loose 1890s updo, wearing a long dark blue Victorian working dress with high collar, 1890s", "researcher": "a 28 year old male scientist, lean build, neat side-parted black hair, wearing heavy yellow lead apron over blue scrubs and clear safety goggles, today"}, "music": "mysterious", "key_words": ["archivist", "notebook", "glow", "colleagues", "metal", "hiss", "box", "clangs", "candle", "Curie's", "radium-226", "thousand", "Lead", "protective", "cookbooks", "vault"], "shots": [{"name": "lift_notebook", "at": 0, "who": "archivist", "clip": true, "prompt": "medium close-up, a woman lifting a thick dusty old notebook off a wooden desk, she is {archivist}, quiet archive vault room, dim lighting", "motion": "she lifts the notebook slowly as dust particles float, slow camera push in", "check": "Is a woman lifting a notebook?"}, {"name": "archivist_wince", "at": "winces#1", "who": "archivist", "clip": true, "prompt": "close-up, a woman squinting and wincing in surprise, she is {archivist}, faint greenish light flickering across her face, dark archive vault", "motion": "she winces and blinks back in surprise, slow camera push in", "check": "Is a woman wincing?"}, {"name": "colleague_laugh", "at": "colleagues#1", "who": "colleague", "clip": true, "prompt": "medium shot, a man in glasses laughing dismissively and shaking his head, he is {colleague}, archive room with tall wooden bookshelves, warm lighting", "motion": "he smiles and shakes his head, slow camera push in", "check": "Is a man laughing?"}, {"name": "ink_stains", "at": "ink#1", "move": "push", "prompt": "extreme close-up of open yellowed paper pages covered in dark ink stains and handwriting, wooden desk surface, warm lamp light", "check": "Are there paper pages with ink stains?"}, {"name": "place_tray", "at": "She#1", "who": "archivist", "clip": true, "prompt": "medium close-up, a woman setting a worn dark brown leather notebook onto a stainless steel tray on a table, she is {archivist}, archival vault, soft light", "motion": "she places the notebook gently on the tray, slow camera push in", "check": "Is a woman placing a book on a tray?"}, {"name": "metal_tray", "at": "metal#1", "move": "push", "prompt": "close-up of an old leather notebook sitting on a shiny stainless steel tray beside a metal air vent, quiet archival vault room, cool overhead light", "check": "Is there a notebook on a metal tray?"}, {"name": "hiss_escapes", "at": "hiss#1", "clip": true, "prompt": "close-up of a tiny wispy curl of faint grey smoke rising from a metal tray on a wooden desk, dark archival vault background, dim lamp light", "motion": "the grey smoke curls upward slowly, slow camera push in", "check": "Is faint smoke rising from a tray?"}, {"name": "particles_detector", "at": "particles#1", "clip": true, "prompt": "close-up of a hand holding a black handheld radiation probe over the open metal tray with an old notebook, bright vault workstation light", "motion": "a hand holds the probe steadily over the tray, slow camera push in", "check": "Is a hand holding a detector over a book?"}, {"name": "slide_tray", "at": "She#2", "who": "archivist", "clip": true, "prompt": "medium close-up, a woman sliding a flat metal tray with an old notebook into a dark lead box, she is {archivist}, sterile vault room, bright overhead lamp", "motion": "she carefully slides the metal tray into the container, slow camera push in", "check": "Is a woman sliding a tray into a box?"}, {"name": "lead_box_tray", "at": "lead‑lined#1", "move": "push", "prompt": "close-up of a dark metal tray inside a thick grey lead container on a workstation table, sterile vault room", "check": "Is there a metal tray inside a container?"}, {"name": "lid_clang", "at": "The#4", "clip": true, "prompt": "close-up of gloved hands slamming a thick lead lid shut over a heavy metallic box, bright overhead lighting, dark archive background", "motion": "the heavy lid shuts down firmly, slow camera push in", "hit": "clangs#1", "check": "Are hands closing a metal lid?"}, {"name": "sealed_box", "at": "sealing#1", "move": "push", "prompt": "medium shot, a thick dark lead storage box locked shut on a metal shelf, clean modern archive vault, cool blue side lighting", "check": "Is there a metal box on a shelf?"}, {"name": "candle_rain", "at": "You#1", "xfade": true, "clip": true, "prompt": "close-up of a hand holding a lit wax candle outside in dark rain, water drops splattering against the flickering flame, night, cold blue light", "motion": "rain falls around the flickering candle flame, slow camera push in", "check": "Is a hand holding a burning candle in the rain?"}, {"name": "flame_extinguished", "at": "protection#1", "clip": true, "prompt": "extreme close-up of a candle wick smoking after its small flame goes out, raindrops trickling down wet wax, dark background", "motion": "grey smoke rises slowly from the freshly extinguished wick, slow camera push in", "hit": "dies#1", "check": "Is smoke rising from an extinguished candle wick?"}, {"name": "curie_desk", "at": "Curie's#1", "who": "curie", "xfade": true, "clip": true, "prompt": "medium shot, a woman writing with a quill pen in a leather notebook, she is {curie}, wooden laboratory bench with glass beakers, warm lamp light, 1890s", "motion": "she writes in the notebook with a quill pen, lamp light flickers, slow camera push in", "check": "Is a woman writing with a pen?"}, {"name": "1890s_papers", "at": "papers#2", "move": "push", "prompt": "close-up of yellowed 1890s manuscript pages with handwritten mathematical formulas and chemical symbols, wooden lab desk, dim lamp light", "check": "Are there handwritten notes on yellowed paper?"}, {"name": "radium_vial", "at": "radium‑226#1", "move": "push", "prompt": "close-up of a small glass vial filled with glowing pale blue liquid resting on a dark wooden lab bench, 1890s", "check": "Is there a small glass vial?"}, {"name": "hourglass", "at": "half‑life#1", "clip": true, "prompt": "close-up of a wooden hourglass with fine sand running through the narrow glass neck, warm desk light", "motion": "the sand trickles down through the glass, slow camera push in", "hit": "half‑life#1", "check": "Is there an hourglass?"}, {"name": "notebook_cover", "at": "1,600#1", "move": "push", "prompt": "close-up of a dark leather notebook cover with gilded corners resting on a polished metal tray, bright modern lab light", "check": "Is there a dark leather notebook?"}, {"name": "vault_room", "at": "notebooks#1", "move": "left", "prompt": "wide shot of a silent modern archive vault with tall steel shelving units and sealed storage boxes, cool fluorescent light", "check": "Is this a room with steel shelves?"}, {"name": "lead_box", "at": "thousand#1", "move": "push", "prompt": "close-up of a heavy grey lead storage chest with thick metal latches sitting on a stainless steel table", "check": "Is there a metal chest on a table?"}, {"name": "shielding", "at": "Lead#1", "clip": true, "prompt": "close-up of gloved hands lowering a heavy lead lid onto a metal container, bright clean vault room", "motion": "the heavy lid settles onto the container, slow camera push in", "hit": "Lead#1", "check": "Is a lid being lowered onto a container?"}, {"name": "radiation_block", "at": "penetrating#1", "move": "push", "prompt": "close-up of a thick grey lead wall panel shielding a clean modern laboratory desk, cool overhead lighting", "check": "Is there a thick grey lead wall panel?"}, {"name": "vault_monitored", "at": "keeping#1", "who": "archivist", "clip": true, "prompt": "medium shot, a woman inspecting a heavy metal container on a stainless steel table, she is {archivist}, quiet archive vault room", "motion": "she looks closely at the metal container and nods, slow camera push in", "check": "Is a woman standing near a metal container?"}, {"name": "reading_notes", "at": "read#1", "clip": true, "prompt": "close-up of heavy blue-gloved hands turning a fragile yellowed manuscript page on a metal reading table", "motion": "the gloved hand gently lifts and turns the page, slow camera push in", "check": "Are gloved hands turning a paper page?"}, {"name": "protective_gear", "at": "protective#1", "who": "researcher", "clip": true, "prompt": "medium shot, a male scientist adjusting clear safety goggles over his face while wearing a yellow lead apron, he is {researcher}, modern lab room", "motion": "he adjusts his goggles firmly and looks ahead, slow camera push in", "check": "Is a man wearing safety goggles?"}, {"name": "curie_writing", "at": "Ironically#1", "who": "curie", "xfade": true, "clip": true, "prompt": "medium shot, a woman dipping a feather pen into black ink and writing in a leather journal, she is {curie}, dim 1890s laboratory with glass beakers and warm lamp light", "motion": "she writes in the notebook by lamp light, slow camera push in", "check": "Is a woman writing in a journal?"}, {"name": "radioactivity_birth", "at": "radioactivity#1", "move": "push", "prompt": "close-up of glowing blue liquid bubbling inside a glass laboratory flask on a brass tripod stand, 1890s laboratory", "check": "Is liquid bubbling inside a glass flask?"}, {"name": "guarded_artifacts", "at": "most#1", "move": "push", "prompt": "wide shot of a sealed glass display case holding an old leather manuscript inside a high-security vault, bright spotlight", "check": "Is there a book inside a glass case?"}, {"name": "cookbook_glow", "at": "cookbooks#1", "clip": true, "prompt": "close-up of hands turning a yellowed page of an old handwritten recipe book on a metal table, warm light", "motion": "hands slowly turn the vintage paper page, slow camera push in", "check": "Are hands turning a page of a book?"}, {"name": "deadly_ink", "at": "deadly#1", "clip": true, "prompt": "extreme close-up of dark handwritten ink lines on aged paper faintly shimmering under blue light, dark background", "motion": "the blue shimmer glints along the handwritten text, slow camera push in", "hit": "deadly#1", "check": "Is this a close-up of handwritten text on paper?"}, {"name": "donning_gloves", "at": "Researchers#1", "who": "researcher", "clip": true, "prompt": "close-up, a man pulling a thick dark rubber glove over his right hand, he is {researcher}, clean modern lab workstation", "motion": "he pulls the thick glove tightly onto his hand, slow camera push in", "check": "Is a man putting on a glove?"}, {"name": "wearing_goggles", "at": "goggles#1", "who": "researcher", "clip": true, "prompt": "close-up, a man securing transparent safety goggles over his eyes, he is {researcher}, modern archival laboratory", "motion": "he adjusts the goggle strap behind his head, slow camera push in", "check": "Is a man adjusting goggles?"}, {"name": "lead_apron", "at": "lead#2", "who": "researcher", "clip": true, "prompt": "medium close-up, a man fastening the side straps of a thick yellow lead apron across his chest, he is {researcher}, modern laboratory", "motion": "he fastens the apron strap firmly, slow camera push in", "check": "Is a man fastening a lead apron?"}, {"name": "open_box", "at": "opening#1", "who": "researcher", "clip": true, "prompt": "medium close-up, lifting the heavy lid of a lead box on a table, he is {researcher}, bright modern vault", "motion": "he slowly opens the metal lid of the box, slow camera push in", "check": "Is a man opening a box?"}, {"name": "vault_monitoring", "at": "air#1", "move": "push", "xfade": true, "prompt": "wide shot of a modern clean archive vault with stainless steel shelves, heavy metal air monitoring sensors on the ceiling, bright clean light", "check": "Is this a modern room with metal shelves?"}]}
+{"era": "1890s", "music": "mysterious", "cast": {"marie": "a 31 year old Polish French scientist with ash blond hair pulled back in a loose bun, a high forehead, grey eyes, a plain long black dress with a high collar and rolled cuffs, 1890s", "pierre": "a 39 year old French physicist with a full dark brown beard, receding dark hair, gentle dark eyes and a rumpled black jacket over a white shirt, 1890s", "old": "a 66 year old frail woman with thin white hair in a bun, a pale lined face, tired grey eyes and a plain grey wool cardigan, 1930s"}, "key_words": ["test tubes", "pocket", "radium", "glow", "notebooks", "lead", "radioactive", "Curie"], "shots": [{"name": "hook", "at": 0, "prompt": "close-up, a woman slipping a small glowing glass test tube into her dress pocket, she is {marie}, dim wooden laboratory, 1890s", "check": "Is a woman holding a glowing test tube?", "who": "marie", "clip": true, "motion": "she slides the tube into her pocket, slow camera push in"}, {"name": "pocket", "at": "tubes#1", "prompt": "extreme close-up of a small glass test tube glowing faint blue-green as it peeks out of a dark wool dress pocket", "check": "Is there a glowing test tube?", "move": "push"}, {"name": "marie", "at": "her#2", "prompt": "medium shot, a young woman looking up from a notebook at a cluttered lab bench, she is {marie}, glass bottles, window light", "check": "Is a woman at a lab bench?", "who": "marie", "clip": true, "motion": "she lifts her head from the page, slow camera push in"}, {"name": "shed", "at": "in#2", "prompt": "wide shot of a cramped wooden shed laboratory with glass bottles, an iron stove and a leaking roof, Paris, 1898, grey light", "check": "Is this a cramped wooden laboratory?", "move": "left"}, {"name": "grind", "at": "grind#1", "prompt": "close-up, a man grinding dark rock with a heavy pestle in a big stone mortar, he is {pierre}, lab bench, lamp light", "check": "Is a man grinding with a pestle?", "who": "pierre", "clip": true, "motion": "he grinds the pestle round, slow camera push in"}, {"name": "stir", "at": "they#1", "prompt": "medium shot, a woman stirring a big iron pot of bubbling dark sludge with a long iron rod, she is {marie}, smoky shed, firelight", "check": "Is a woman stirring a big pot?", "who": "marie", "clip": true, "motion": "she pushes the rod through the sludge, slow camera push in"}, {"name": "ore", "at": "it#1", "prompt": "wide shot, a worker shovelling dark brown rock from a huge heap into sacks in a courtyard beside a wooden shed, 1890s", "check": "Is a man shovelling rock?", "clip": true, "motion": "he lifts a shovelful of rock, slow camera pan right"}, {"name": "sack", "at": "from#1", "prompt": "close-up of a heavy sack of dark rock tipping onto a wooden table, dust rising, lamp light", "check": "Is a sack of rock tipping over?", "move": "push"}, {"name": "pinch", "at": "just#1", "prompt": "close-up of a tiny pinch of white powder in a small glass dish on a wooden lab table, soft light", "check": "Is there a small glass dish?", "move": "push"}, {"name": "couple", "at": "they#3", "prompt": "medium shot, a man and a woman smiling at each other over a tiny glowing glass dish in a dark laboratory, 1890s clothes", "check": "Are a man and a woman smiling?", "clip": true, "motion": "they lean closer to the glow, slow camera push in"}, {"name": "ray", "at": "latin#1", "prompt": "close-up of a bright beam of sunlight shining through a dusty laboratory window across glass bottles", "check": "Is there a beam of light?", "move": "push"}, {"name": "word", "at": "marie#2", "prompt": "close-up, a woman writing quickly in a notebook by lamplight, she is {marie}, dark laboratory", "check": "Is a woman writing?", "who": "marie", "clip": true, "motion": "her pen moves fast across the page, slow camera push in"}, {"name": "drawer", "at": "she#2", "prompt": "close-up of a hand placing small glowing glass tubes into an open wooden desk drawer, dark room", "check": "Is a hand putting tubes in a drawer?", "clip": true, "motion": "the hand sets a tube down, slow camera push in"}, {"name": "wonder", "at": "she#3", "prompt": "close-up, a woman's face lit softly blue-green in a dark room as she smiles in wonder, she is {marie}", "check": "Is a woman smiling in the dark?", "who": "marie", "clip": true, "motion": "her smile widens, slow camera push in"}, {"name": "glow", "at": "they#4", "prompt": "close-up of rows of tiny glass tubes glowing faint blue in a dark open drawer", "check": "Are tubes glowing in a drawer?", "move": "push"}, {"name": "bare", "at": "nobody#1", "prompt": "medium shot, a woman lifting a glass flask with bare hands at a cluttered lab bench, she is {marie}, 1890s, window light", "check": "Is a woman holding a glass flask?", "who": "marie", "clip": true, "motion": "she lifts the flask to the light, slow camera push in"}, {"name": "pour", "at": "she#4", "prompt": "close-up of bare hands pouring a clear liquid from one glass beaker into another on a wooden bench", "check": "Are hands pouring from a beaker?", "clip": true, "motion": "the liquid pours across, slow camera push in"}, {"name": "notebooks", "at": "her#5", "prompt": "close-up, a hand stacking old leather notebooks on a lab bench beside glowing glass tubes, lamp light", "check": "Is a hand stacking notebooks?", "clip": true, "motion": "the hand lays a notebook on the pile, slow camera push in"}, {"name": "smoke", "at": "you#1", "prompt": "medium shot, a man pulling his wool coat close as campfire smoke drifts over him at night, warm firelight", "check": "Is there a man by a campfire?", "clip": true, "motion": "the smoke curls around him, slow camera push in", "xfade": true}, {"name": "sniff", "at": "long#1", "prompt": "close-up, a woman sniffing a wool coat sleeve and wrinkling her nose, cosy room, daylight", "check": "Is a woman sniffing a coat?", "clip": true, "motion": "she wrinkles her nose, slow camera push in"}, {"name": "ash", "at": "you#2", "prompt": "close-up of a cold campfire of grey ashes with a last thin wisp of smoke, dawn light", "check": "Are there grey ashes?", "move": "push"}, {"name": "time", "at": "radium#2", "prompt": "close-up of a brass hourglass with sand running slowly on a dark wooden desk", "check": "Is there an hourglass?", "move": "push", "xfade": true}, {"name": "vial", "at": "half#1", "prompt": "extreme close-up of a small glass vial glowing faintly in darkness", "check": "Is there a glowing vial?", "move": "pull"}, {"name": "shelf", "at": "so#1", "prompt": "close-up, a hand pulling an old leather-bound notebook from a shelf in a dim archive", "check": "Is a hand holding an old notebook?", "clip": true, "motion": "the hand slides the notebook out, slow camera push in"}, {"name": "archive", "at": "well#1", "prompt": "wide shot of a quiet stone archive hall with long rows of tall wooden shelves, dim light", "check": "Are there rows of shelves?", "move": "right"}, {"name": "box", "at": "today#1", "prompt": "close-up of hands closing the heavy lid of a grey lead-lined box on an archive table", "check": "Are hands closing a box?", "clip": true, "motion": "the lid lowers shut, slow camera push in"}, {"name": "gloves", "at": "anyone#1", "prompt": "close-up of hands pulling on thick grey protective gloves beside a grey metal box", "check": "Are hands pulling on gloves?", "clip": true, "motion": "the fingers slide into the glove, slow camera push in"}, {"name": "open", "at": "wear#1", "prompt": "close-up of thick gloved hands opening an old leather notebook above a grey metal box", "check": "Are gloved hands opening a notebook?", "clip": true, "motion": "the cover opens slowly, slow camera push in"}, {"name": "cookbook", "at": "even#2", "prompt": "close-up of gloved fingers turning a page of an old stained cookbook beside a lead box", "check": "Are gloved fingers turning a page?", "clip": true, "motion": "the page turns, slow camera push in", "hit": "cookbooks#1"}, {"name": "sick", "at": "in#7", "prompt": "medium shot, a frail old woman resting in a bed by a window with snowy mountains outside, she is {old}, 1930s, pale light", "check": "Is an old woman in a bed?", "who": "old", "clip": true, "motion": "she turns her head toward the window, slow camera push in"}, {"name": "candle", "at": "sixty-six#1", "prompt": "close-up of a candle flame going out beside an empty bed, mountains through the window, dim light", "check": "Is there a candle?", "move": "pull"}, {"name": "pantheon", "at": "sixty#1", "prompt": "wide shot of a grand domed stone building in Paris with flags and a crowd on the steps, bright day", "check": "Is there a domed building?", "move": "up", "xfade": true}, {"name": "coffin", "at": "the#10", "prompt": "medium shot, guards in dress uniform carrying a coffin up wide stone steps, crowd watching", "check": "Are men carrying a coffin?", "clip": true, "motion": "they climb one step, slow camera tilt up"}, {"name": "lead", "at": "they#6", "prompt": "close-up of a coffin lined with dull grey lead sheets in a stone vault, soft light", "check": "Is there a coffin lined with grey metal?", "move": "push", "hit": "sealed#1"}, {"name": "sealed", "at": "just#2", "prompt": "close-up of old leather notebooks resting inside a grey lead box as the lid slowly closes, dim archive light", "check": "Are notebooks inside a box?", "clip": true, "motion": "the lid closes over the notebooks, slow camera push in"}]}
 
 SOURCES (data only)
 [1] Marie Curie | https://en.wikipedia.org/wiki/Marie_Curie
