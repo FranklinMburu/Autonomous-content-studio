@@ -1,0 +1,410 @@
+{
+ "script": {
+  "title": "Why Braille Made Night Writing Simple",
+  "beats": [
+   {
+    "lines": [
+     "A blind twelve-year-old runs his fingertip over an army code of dots."
+    ]
+   },
+   {
+    "lines": [
+     "His name is Louis Braille.",
+     "At three, he stabbed his eye with an awl in his father's harness shop.",
+     "By five, he was blind in both eyes.",
+     "At school in Paris, books have huge raised letters.",
+     "Students trace them slowly. They cannot write."
+    ]
+   },
+   {
+    "lines": [
+     "Then retired army captain Charles Barbier brings his night writing.",
+     "It was a code for soldiers to read in the dark.",
+     "Twelve raised dots stand for sounds.",
+     "But soldiers found it too hard."
+    ]
+   },
+   {
+    "lines": [
+     "You see, it's like knowing a friend's face at a glance, not inch by inch."
+    ]
+   },
+   {
+    "lines": [
+     "Barbier's grid is six dots tall, too tall for one fingertip.",
+     "So Louis spends two years improving it.",
+     "He cuts it to six dots, three high and two wide.",
+     "Each pattern now stands for a letter, not a sound.",
+     "It fits under one fingertip, so a reader feels a whole letter at once.",
+     "With Barbier's own slate and stylus, students can finally write."
+    ]
+   },
+   {
+    "lines": [
+     "But the teachers refuse his code.",
+     "Louis dies at forty-three.",
+     "Two years later, his students finally get the school to adopt it.",
+     "A sharp point took his sight. Six tiny points gave millions a way to read."
+    ]
+   }
+  ],
+  "key_words": [
+   "blind",
+   "fingertip",
+   "dots",
+   "Barbier",
+   "soldiers",
+   "six",
+   "letter",
+   "write"
+  ],
+  "claims": [
+   {
+    "claim": "At age three Louis Braille stabbed his eye with an awl in his father's harness shop and was blind in both eyes by five.",
+    "url": "https://en.wikipedia.org/wiki/Louis_Braille"
+   },
+   {
+    "claim": "The school's books used large raised letters that students traced slowly, and students could not write with them.",
+    "url": "https://en.wikipedia.org/wiki/Louis_Braille"
+   },
+   {
+    "claim": "Charles Barbier, a retired artillery captain, made night writing: a code of twelve raised dots representing sounds so soldiers could communicate in the dark; soldiers found it too hard and it was never accepted.",
+    "url": "https://doi.org/10.4103/ijo.ijo_3048_21"
+   },
+   {
+    "claim": "Barbier presented his invention to the school for the blind; twelve-year-old Louis spent the next two years improving it.",
+    "url": "https://doi.org/10.4103/ijo.ijo_3048_21"
+   },
+   {
+    "claim": "Barbier's 2 x 6 grid was too tall to read in a single go with one finger.",
+    "url": "https://en.wikipedia.org/wiki/Night_writing"
+   },
+   {
+    "claim": "Braille reduced it to six dots, three high and two wide, representing letters rather than sounds, small enough to fit in a fingertip.",
+    "url": "https://doi.org/10.4103/ijo.ijo_3048_21"
+   },
+   {
+    "claim": "Braille's cells could be recognized as letters with a single touch of a finger, and he built the system using Barbier's slate and stylus.",
+    "url": "https://en.wikipedia.org/wiki/Louis_Braille"
+   },
+   {
+    "claim": "Teachers refused to recognize the code; Braille died at 43 in 1852; the Institute adopted it in 1854 because of the blind pupils' insistence.",
+    "url": "https://en.wikipedia.org/wiki/Louis_Braille"
+   },
+   {
+    "claim": "Braille brought education to millions across the globe.",
+    "url": "https://doi.org/10.4103/ijo.ijo_3048_21"
+   }
+  ]
+ },
+ "film": {
+  "era": "1820s",
+  "music": "curious",
+  "cast": {
+   "louis": "a 12 year old thin French boy with straight short black hair and a fringe, a pale narrow face, eyes half closed and unfocused, a navy blue wool school jacket with a high collar over a white shirt, 1820s",
+   "child": "a 4 year old small boy with blond curly hair, chubby pink cheeks and a loose white linen smock, 1810s",
+   "barbier": "a 54 year old tall lean retired French artillery captain with swept-back silver hair, long grey sideburns, a hawk nose and a faded dark blue military coat with red cuffs and brass buttons, 1820s",
+   "teacher": "a 40 year old thin stern French teacher with dark hair slicked flat, a pointed black chin beard and a black frock coat with a tall white collar, 1840s"
+  },
+  "key_words": [
+   "blind",
+   "fingertip",
+   "dots",
+   "barbier",
+   "soldiers",
+   "six",
+   "letter",
+   "write"
+  ],
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "prompt": "close-up, a blind boy running his fingertip slowly across thick paper covered in raised dots, he is {louis}, eyes half closed, dim stone classroom, warm window light",
+    "check": "Is a boy touching paper with his fingertip?",
+    "who": "louis",
+    "clip": true,
+    "motion": "his fingertip slides slowly along the paper, slow camera push in"
+   },
+   {
+    "name": "dots",
+    "at": "army#1",
+    "prompt": "extreme close-up of a fingertip pressing on rows of small raised dots punched into thick cream paper, soft side light",
+    "check": "Is a fingertip touching raised dots?",
+    "clip": true,
+    "motion": "the fingertip moves slowly across the dots, slow camera push in"
+   },
+   {
+    "name": "name",
+    "at": "louis#1",
+    "prompt": "medium shot, a thin boy tapping a wooden cane along a stone school corridor, he is {louis}, tall arched windows, morning light",
+    "check": "Is a boy holding a wooden cane?",
+    "who": "louis",
+    "clip": true,
+    "motion": "he taps the cane forward once, slow camera pan left"
+   },
+   {
+    "name": "awl",
+    "at": "stabbed#1",
+    "prompt": "close-up, a small boy squinting and pushing a sharp awl into a thick piece of brown leather, he is {child}, cluttered workshop table, lamp light",
+    "check": "Is a small boy holding an awl?",
+    "who": "child",
+    "clip": true,
+    "motion": "he presses the awl down hard, slow camera push in",
+    "hit": "stabbed#1"
+   },
+   {
+    "name": "shop",
+    "at": "father's#1",
+    "prompt": "wide shot of a small country harness workshop with horse saddles and leather straps hanging on wooden walls, a man cutting leather at a bench, 1810s, dusty sunlight",
+    "check": "Is this a workshop with saddles?",
+    "move": "push"
+   },
+   {
+    "name": "cane",
+    "at": "five#1",
+    "prompt": "medium shot, a little blind boy feeling his way along a country path with a short wooden cane, he is {child}, green vineyard behind, soft daylight",
+    "check": "Is a small boy holding a cane?",
+    "who": "child",
+    "clip": true,
+    "motion": "he sweeps the cane gently in front of him, slow camera push in"
+   },
+   {
+    "name": "paris",
+    "at": "at#2",
+    "prompt": "wide shot of a tall old grey stone school building on a narrow Paris street, horse carriage passing, 1820s, overcast light",
+    "check": "Is this a tall stone building?",
+    "move": "right",
+    "xfade": true
+   },
+   {
+    "name": "books",
+    "at": "books#1",
+    "prompt": "close-up of an enormous thick heavy book lying open on a worn wooden desk, its pages bumpy and stiff, dusty classroom, window light",
+    "check": "Is there a huge open book?",
+    "move": "push"
+   },
+   {
+    "name": "trace",
+    "at": "students#1",
+    "prompt": "medium shot, three blind children slowly tracing their fingers across the pages of one giant book on a long table, plain grey school uniforms, window light",
+    "check": "Are children touching a big book?",
+    "clip": true,
+    "motion": "their fingers creep slowly across the page, slow camera pull back"
+   },
+   {
+    "name": "nowrite",
+    "at": "cannot#1",
+    "prompt": "close-up of a blind boy's empty hands resting on a blank sheet of paper beside an unused quill pen, wooden desk, grey light",
+    "check": "Is there a blank sheet of paper?",
+    "move": "down"
+   },
+   {
+    "name": "captain",
+    "at": "then#1",
+    "prompt": "medium shot, a lean old army captain carrying a small wooden case into a school hall, he is {barbier}, tall windows, 1820s, bright morning light",
+    "check": "Is a man carrying a wooden case?",
+    "who": "barbier",
+    "clip": true,
+    "motion": "he sets the case down on a table, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "slate",
+    "at": "night#1",
+    "prompt": "close-up of a metal ruler slate with grooves lying on thick paper next to a short pointed steel stylus, wooden table, warm light",
+    "check": "Is there a pointed metal stylus?",
+    "move": "push"
+   },
+   {
+    "name": "camp",
+    "at": "code#2",
+    "prompt": "medium shot, a soldier crouching in a dark army camp at night feeling a sheet of paper with his fingers, tall shako hat, faint moonlight, 1810s",
+    "check": "Is a soldier holding a sheet of paper?",
+    "clip": true,
+    "motion": "his fingers move across the paper, slow camera push in"
+   },
+   {
+    "name": "twelve",
+    "at": "twelve#1",
+    "prompt": "extreme close-up of two tall columns of raised dots punched into stiff paper, long narrow pattern, side light",
+    "check": "Are there raised dots on paper?",
+    "move": "up"
+   },
+   {
+    "name": "hard",
+    "at": "but#1",
+    "prompt": "close-up, a young soldier frowning and shaking his head over a dotted sheet of paper by a campfire, blue uniform, orange firelight",
+    "check": "Is a soldier frowning?",
+    "clip": true,
+    "motion": "he shakes his head slowly, slow camera push in",
+    "hit": "hard#1"
+   },
+   {
+    "name": "glance",
+    "at": "you#1",
+    "prompt": "medium shot, a girl in a market lighting up with a smile as she spots her friend across the crowd, 1820s dresses, bright afternoon light",
+    "check": "Is a girl smiling?",
+    "clip": true,
+    "motion": "her face breaks into a smile, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "friend",
+    "at": "face#1",
+    "prompt": "close-up, a girl in a straw bonnet waving back with a big smile in a busy market street, 1820s, warm sunlight",
+    "check": "Is a girl waving?",
+    "clip": true,
+    "motion": "she waves her hand once, slow camera push in"
+   },
+   {
+    "name": "inch",
+    "at": "not#1",
+    "prompt": "close-up, an old man peering through a magnifying glass at a painted portrait, moving it slowly, dim study, candle light",
+    "check": "Is a man holding a magnifying glass?",
+    "clip": true,
+    "motion": "he moves the magnifying glass slowly down, slow camera pan right"
+   },
+   {
+    "name": "tall",
+    "at": "barbier's#1",
+    "prompt": "extreme close-up of a long narrow strip of thick paper with a tall column of punched dots, much longer than a fingertip, side light",
+    "check": "Is there a strip of paper with dots?",
+    "move": "up"
+   },
+   {
+    "name": "frown",
+    "at": "too#2",
+    "prompt": "close-up, a frustrated blind boy sliding his finger up and down a long strip of dotted paper, he is {louis}, classroom desk, grey light",
+    "check": "Is a boy touching a strip of paper?",
+    "who": "louis",
+    "clip": true,
+    "motion": "his finger slides up and down the strip, slow camera push in"
+   },
+   {
+    "name": "years",
+    "at": "so#1",
+    "prompt": "medium shot, a boy bent over a desk at night pressing a stylus into paper on a metal slate, he is {louis}, quiet dormitory, single oil lamp",
+    "check": "Is a boy pressing a stylus into paper?",
+    "who": "louis",
+    "clip": true,
+    "motion": "he presses the stylus down again and again, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "punch",
+    "at": "cuts#1",
+    "prompt": "extreme close-up of a steel stylus punching a small dot into thick paper on a grooved metal slate, lamp light",
+    "check": "Is a stylus pressing into paper?",
+    "clip": true,
+    "motion": "the stylus taps down into the paper, slow camera push in"
+   },
+   {
+    "name": "cell",
+    "at": "three#2",
+    "prompt": "close-up of a small neat cluster of six raised dots in thick cream paper, sharp side light, soft shadows",
+    "check": "Are there raised dots on paper?",
+    "move": "push"
+   },
+   {
+    "name": "pattern",
+    "at": "each#1",
+    "prompt": "close-up, a smiling blind boy tapping his fingertip along a line of small dot patterns, he is {louis}, classroom desk, morning window light",
+    "check": "Is a boy smiling?",
+    "who": "louis",
+    "clip": true,
+    "motion": "his fingertip hops along the line, slow camera pan right"
+   },
+   {
+    "name": "proud",
+    "at": "letter#1",
+    "prompt": "medium shot, a boy holding up a sheet of dotted paper proudly in a stone classroom, he is {louis}, bright window light",
+    "check": "Is a boy holding up a sheet of paper?",
+    "who": "louis",
+    "clip": true,
+    "motion": "he lifts the sheet a little higher, slow camera push in"
+   },
+   {
+    "name": "fits",
+    "at": "it#5",
+    "prompt": "extreme close-up of a fingertip resting on a tiny cluster of raised dots that fits fully under it, cream paper, soft light",
+    "check": "Is a fingertip touching paper?",
+    "move": "push"
+   },
+   {
+    "name": "reader",
+    "at": "reader#1",
+    "prompt": "medium shot, a blind girl reading fast with her fingers across a dotted page and smiling, grey school dress, long wooden table, window light",
+    "check": "Is a girl touching a page?",
+    "clip": true,
+    "motion": "her fingers glide across the page, slow camera push in"
+   },
+   {
+    "name": "tools",
+    "at": "with#2",
+    "prompt": "close-up of a metal writing slate with soldered strips across it and a stylus lying on top, wooden desk, warm lamp light",
+    "check": "Is there a metal slate?",
+    "move": "left"
+   },
+   {
+    "name": "writing",
+    "at": "students#2",
+    "prompt": "medium shot, rows of blind students at long desks punching dots into paper with styluses, busy schoolroom, 1820s, daylight",
+    "check": "Are students writing at desks?",
+    "clip": true,
+    "motion": "their hands tap the styluses down, slow camera pan right"
+   },
+   {
+    "name": "refuse",
+    "at": "but#2",
+    "prompt": "medium shot, a stern teacher pushing a sheet of dotted paper away across a desk, he is {teacher}, dark office, grey light",
+    "check": "Is a man pushing a paper away?",
+    "who": "teacher",
+    "clip": true,
+    "motion": "he pushes the paper away with one hand, slow camera push in",
+    "xfade": true,
+    "hit": "refuse#1"
+   },
+   {
+    "name": "candle",
+    "at": "louis#3",
+    "prompt": "close-up of a candle burning low beside a closed book on a small bedside table, dark infirmary room, 1850s, dim light",
+    "check": "Is there a burning candle?",
+    "move": "pull"
+   },
+   {
+    "name": "insist",
+    "at": "two#3",
+    "prompt": "medium shot, a crowd of blind students holding up sheets of dotted paper in a school hall, 1850s uniforms, bright window light",
+    "check": "Are students holding up papers?",
+    "clip": true,
+    "motion": "they raise the papers higher, slow camera push in"
+   },
+   {
+    "name": "adopt",
+    "at": "school#2",
+    "prompt": "close-up, a teacher handing a dotted book to a smiling blind girl in a classroom, 1850s, warm light",
+    "check": "Is a girl taking a book?",
+    "clip": true,
+    "motion": "she takes the book in both hands, slow camera push in"
+   },
+   {
+    "name": "sharp",
+    "at": "a#9",
+    "prompt": "extreme close-up of an old sharp iron awl lying on a scarred leather workbench, single beam of light, dust in the air",
+    "check": "Is there a sharp awl?",
+    "move": "push",
+    "xfade": true,
+    "hit": "sharp#1"
+   },
+   {
+    "name": "millions",
+    "at": "six#3",
+    "prompt": "close-up of many children's hands moving across dotted pages on a long table, fingertips on raised dots, warm golden light",
+    "check": "Are hands touching pages?",
+    "clip": true,
+    "motion": "the fingers glide across the pages, slow camera pull back"
+   }
+  ]
+ }
+}
