@@ -1,0 +1,308 @@
+{
+ "era": "1850s-1890s",
+ "cast": {
+  "davis": "a 48 year old American statesman with a lean angular face, deep-set brown eyes, thick dark brown hair swept back, clean-shaven, wearing a black frock coat, white shirt, black cravat and dark trousers, 1850s",
+  "wayne": "a 41 year old American army major, stocky build, round sunburnt face, short sandy brown hair, a full reddish-brown beard, wearing a dark blue wool uniform coat with brass buttons, tan trousers and a black leather belt, 1850s",
+  "beale": "a 30 year old American army officer, tall and lean, sharp pale face, short dark brown hair, a small neat moustache, wearing a dark blue frock coat with gold shoulder straps, grey trousers and a black necktie, 1850s",
+  "soldier": "a 24 year old American private, wiry build, freckled sunburnt face, scruffy blond hair, clean-shaven, wearing a faded grey-blue cotton jacket, brown trousers and a red neckerchief, 1850s",
+  "handler": "a 45 year old Turkish camel handler, weathered olive face, thick black moustache, shaved head under a red felt fez, wearing a striped red and blue vest over a white shirt and baggy brown trousers, 1850s",
+  "muledriver": "a 38 year old American mule teamster, broad shoulders, stubbly jaw, brown hair under a battered leather hat, wearing a dusty canvas coat, denim trousers and leather boots, 1850s"
+ },
+ "music": "curious",
+ "key_words": [
+  "Congress#1",
+  "Jefferson#1",
+  "Davis#1",
+  "desert#1",
+  "Soldiers#1",
+  "Mediterranean#1",
+  "Mules#1",
+  "Camels#2",
+  "Major#1",
+  "Wayne#1",
+  "Texas#1",
+  "voyage#1",
+  "herd#1",
+  "1857#1",
+  "Beale#1",
+  "carried#1",
+  "mules#2",
+  "needs#1",
+  "drink#1",
+  "days#1",
+  "Hartz#1",
+  "miles#1",
+  "thirst#1",
+  "distressed#1",
+  "no#2",
+  "Civil#1",
+  "auction#1",
+  "Arizona#1",
+  "1891#1"
+ ],
+ "shots": [
+  {
+   "name": "begging",
+   "at": 0,
+   "who": "davis",
+   "clip": true,
+   "prompt": "medium shot, a statesman standing at a wooden lectern raising one hand as he addresses lawmakers, he is {davis}, a grand 1850s Capitol chamber with rows of seated men, warm gaslight",
+   "motion": "he raises one hand and leans forward as he speaks, slow camera push in",
+   "check": "Is a man speaking at a lectern?"
+  },
+  {
+   "name": "chamber",
+   "at": "Congress#1",
+   "move": "push",
+   "prompt": "wide shot, rows of American lawmakers in dark suits seated in a grand 1850s Congress chamber with tall windows and brass lamps, warm lamplight",
+   "check": "Are there many men seated in a chamber?"
+  },
+  {
+   "name": "davis_plan",
+   "at": "Jefferson#1",
+   "who": "davis",
+   "clip": true,
+   "xfade": true,
+   "prompt": "medium shot, a statesman pointing firmly at a large parchment map hanging on a wooden office wall, he is {davis}, 1850s government office, warm window light",
+   "motion": "he points at the map and leans forward, slow camera push in",
+   "check": "Is a man pointing at a map?"
+  },
+  {
+   "name": "caravan",
+   "at": "supplies#1",
+   "clip": true,
+   "prompt": "wide shot, a caravan of camels carrying wooden crates and canvas bundles plodding across red desert sand toward distant mesas, hot afternoon light",
+   "motion": "the camels plod forward slowly as dust drifts, slow camera push in",
+   "hit": "Southwest#1",
+   "check": "Are camels carrying loads across a desert?"
+  },
+  {
+   "name": "stares",
+   "at": "Soldiers#1",
+   "who": "soldier",
+   "clip": true,
+   "prompt": "close-up, a young soldier staring wide-eyed with his mouth open at a camel standing before him, he is {soldier}, a dusty 1850s army wagon yard, bright morning light",
+   "motion": "he stares wide-eyed and blinks, slow camera push in",
+   "hit": "beasts#1",
+   "check": "Is a soldier staring with his mouth open?"
+  },
+  {
+   "name": "arrival",
+   "at": "arriving#1",
+   "move": "right",
+   "prompt": "wide shot, a line of camels walking along a stone wharf beside a tall Mediterranean sailing ship, wooden crates and sailors nearby, bright morning light, 1850s",
+   "check": "Are there camels walking along a wharf?"
+  },
+  {
+   "name": "mules",
+   "at": "Mules#1",
+   "who": "muledriver",
+   "clip": true,
+   "prompt": "medium shot, a mule teamster hoisting a heavy canvas pack onto a grey mule beside a supply wagon, he is {muledriver}, a 1850s army wagon yard, dusty morning light",
+   "motion": "he lifts the heavy pack onto the mule's back, slow camera push in",
+   "check": "Is a man loading a mule?"
+  },
+  {
+   "name": "handling",
+   "at": "Camels#2",
+   "who": "handler",
+   "clip": true,
+   "prompt": "medium shot, a camel handler tugging a rope as a camel steps forward reluctantly, he is {handler}, a 1850s desert trail camp with wagons, warm afternoon light",
+   "motion": "he tugs the rope and the camel takes a reluctant step, slow camera push in",
+   "hit": "Camels#2",
+   "check": "Is a man leading a camel?"
+  },
+  {
+   "name": "wayne_quay",
+   "at": "Major#1",
+   "who": "wayne",
+   "clip": true,
+   "prompt": "a stocky army major pointing at a humped camel on a Mediterranean stone quay, he is {wayne}, a tall sailing ship behind him, bright morning light",
+   "motion": "he points at the camel and pats its neck, slow camera push in",
+   "check": "Is a man pointing at a camel?"
+  },
+  {
+   "name": "landing",
+   "at": "camels#3",
+   "clip": true,
+   "prompt": "a two-humped camel stepping down a wooden gangplank onto a dusty Texas landing, grey-blue uniformed soldiers watching behind it, hot afternoon light",
+   "motion": "the camel steps down slowly, dust drifts, slow camera push in",
+   "check": "Is a camel stepping down a gangplank?"
+  },
+  {
+   "name": "second_voyage",
+   "at": "voyage#1",
+   "move": "right",
+   "prompt": "a line of humped camels standing on the wooden deck of a 1850s sailing ship, blue sea and taut white sails behind, bright daylight",
+   "check": "Are there camels on a ship deck?"
+  },
+  {
+   "name": "herd",
+   "at": "herd#1",
+   "clip": true,
+   "prompt": "a vast herd of humped camels grazing on dry Texas desert grassland below low brown hills, golden late afternoon light",
+   "motion": "the herd grazes and shifts slowly, dust drifts, slow camera push in",
+   "check": "Is there a large herd of camels?"
+  },
+  {
+   "name": "desert_train",
+   "at": "1857#1",
+   "xfade": true,
+   "move": "push",
+   "prompt": "wide shot, a long caravan of camels and covered wagons crossing a red desert trail in 1857, red mesas and pale sky, hot afternoon light",
+   "check": "Are there camels and wagons in the desert?"
+  },
+  {
+   "name": "beale_leads",
+   "at": "Beale#1",
+   "who": "beale",
+   "clip": true,
+   "prompt": "medium shot, a tall officer on horseback at the head of a camel train raising one hand to signal, he is {beale}, a dusty 1857 desert road, bright morning light",
+   "motion": "he raises his hand to signal and the horse shifts, slow camera push in",
+   "check": "Is a man riding a horse with camels behind?"
+  },
+  {
+   "name": "camels_wagon",
+   "at": "camels#4",
+   "move": "left",
+   "prompt": "medium shot, two camels hitched to a heavy wooden army supply wagon pulling it along a dirt wagon trail, 1857, bright sunlight",
+   "check": "Are camels pulling a wooden wagon?"
+  },
+  {
+   "name": "heavy_load",
+   "at": "carried#1",
+   "who": "soldier",
+   "clip": true,
+   "prompt": "medium shot, a camel standing with heavy wooden crates and burlap sacks strapped to its back, a soldier tightening a rope beside it, he is {soldier}, 1857 desert camp, bright sunlight",
+   "motion": "the soldier pulls the rope tight while the camel chews, slow camera push in",
+   "check": "Is a camel carrying heavy packs?"
+  },
+  {
+   "name": "beale_claims",
+   "at": "Beale#2",
+   "who": "beale",
+   "clip": true,
+   "prompt": "medium close-up, an officer speaking proudly and gesturing toward a camel, he is {beale}, a dusty 1857 desert wagon road with covered wagons behind, warm afternoon light",
+   "motion": "he gestures with one hand while talking, slow camera push in",
+   "check": "Is a man speaking and gesturing?"
+  },
+  {
+   "name": "camel_wins",
+   "at": "mules#2",
+   "clip": true,
+   "prompt": "medium shot, a camel striding forward pulling a heavily loaded wagon along a dusty desert road, four tired mules standing behind in the dust, 1857, hot afternoon light",
+   "motion": "the camel walks forward pulling the wagon, dust drifts, slow camera pull back",
+   "check": "Is a camel pulling a loaded wagon?"
+  },
+  {
+   "name": "mule_water",
+   "at": "mule#1",
+   "xfade": true,
+   "clip": true,
+   "prompt": "close-up, a thirsty grey mule lowering its head and drinking from a dented metal bucket, dusty 1850s desert wagon camp, warm morning light",
+   "motion": "the mule lowers its head and drinks, slow camera push in",
+   "check": "Is a mule drinking from a bucket?"
+  },
+  {
+   "name": "camel_drink",
+   "at": "Camels#5",
+   "clip": true,
+   "prompt": "medium close-up, a tan camel kneeling and drinking from a wooden trough while a handler in a red fez holds its rope, desert camp, bright sunlight",
+   "motion": "the camel dips its head and drinks, slow camera push in",
+   "check": "Is a camel drinking from a trough?"
+  },
+  {
+   "name": "camel_walk",
+   "at": "walking#1",
+   "move": "right",
+   "prompt": "wide shot, a caravan of camels with empty wooden packs walking in a line across pale desert dunes, long shadows, clear sky, late afternoon light",
+   "check": "Are camels walking across desert dunes?"
+  },
+  {
+   "name": "hartz_march",
+   "at": "1859#1",
+   "who": "beale",
+   "clip": true,
+   "prompt": "medium shot, an army officer striding forward through a dusty cracked-earth desert, holding leather reins, he is {beale}, harsh desert sunlight, 1850s",
+   "motion": "he strides forward steadily, dust rises around his boots, slow camera push in",
+   "check": "Is an army officer walking in a desert?"
+  },
+  {
+   "name": "camel_caravan",
+   "at": "marched#1",
+   "clip": true,
+   "prompt": "wide shot of a caravan of heavy tall camels marching across a sun-baked desert plain, dry cracked earth, heat haze, bright direct sunlight, 1850s",
+   "motion": "the camels march steadily across the desert, slow camera move right",
+   "check": "Are there camels in a desert?"
+  },
+  {
+   "name": "dry_canteen",
+   "at": "no#1",
+   "move": "push",
+   "prompt": "close-up of an empty dry wooden water canteen resting on hot cracked desert mud, bright scorching sunlight",
+   "check": "Is there a wooden water canteen on dry ground?"
+  },
+  {
+   "name": "mule_distress",
+   "at": "thirst#1",
+   "who": "muledriver",
+   "clip": true,
+   "hit": "distressed;#1",
+   "prompt": "medium close-up, a dusty teamster leaning over an exhausted panting mule with a drooping head, he is {muledriver}, dry dusty desert background, harsh sun",
+   "motion": "he pats the exhausted mule's neck gently, slow camera push in",
+   "check": "Is a man next to an exhausted mule?"
+  },
+  {
+   "name": "camel_unbothered",
+   "at": "camels#7",
+   "clip": true,
+   "prompt": "close-up of a calm brown camel chewing serenely with a steady gaze, bright desert sunlight, clear blue sky background",
+   "motion": "the camel chews serenely, slow camera push in",
+   "check": "Is there a close-up of a camel?"
+  },
+  {
+   "name": "rejection",
+   "at": "Army#2",
+   "who": "davis",
+   "clip": true,
+   "prompt": "medium close-up, a man frowning and shaking his head no at a wooden desk, he is {davis}, 1850s office, oil lamp light",
+   "motion": "he frowningly shakes his head no, lamp light flickers, slow camera push in",
+   "check": "Is a man shaking his head?"
+  },
+  {
+   "name": "civil_war",
+   "at": "Civil#1",
+   "who": "soldier",
+   "clip": true,
+   "xfade": true,
+   "prompt": "medium shot, a soldier holding a long wooden ramrod beside a brass cannon with white smoke drifting, he is {soldier}, 1860s battlefield, overcast sky",
+   "motion": "white smoke drifts past the cannon, slow camera push in",
+   "check": "Is there a cannon with smoke?"
+  },
+  {
+   "name": "auction",
+   "at": "auction#1",
+   "clip": true,
+   "prompt": "close-up of a hand slamming a small wooden auction gavel down onto a wooden block, a large brown camel tied to a wooden post behind, warm dusty light",
+   "motion": "the wooden gavel slams down firmly, dust drifts, slow camera push in",
+   "check": "Is a hand holding a wooden gavel?"
+  },
+  {
+   "name": "last_camel",
+   "at": "last#1",
+   "xfade": true,
+   "move": "right",
+   "prompt": "wide shot of a lone brown camel standing in a vast red rock Arizona desert with tall saguaro cactus, bright desert sun",
+   "check": "Is there a camel in a desert?"
+  },
+  {
+   "name": "sunset",
+   "at": "1891#1",
+   "clip": true,
+   "hit": "1891#1",
+   "prompt": "close-up, a solitary brown camel standing on a rocky ridge, sunset sky with golden clouds behind it",
+   "motion": "the camel slowly turns its head toward the golden horizon, slow camera push in",
+   "check": "Is there a camel at sunset?"
+  }
+ ]
+}

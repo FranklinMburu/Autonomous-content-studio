@@ -1,0 +1,103 @@
+{
+ "title": "Why the Army Bet on Camels",
+ "channel": "Hidden Reasons",
+ "topic": "Why the U.S. Army used camels in the Southwest desert in the 1850s (to improve logistics in arid terrain)",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A Secretary of War begged Congress for camels.",
+    "Jefferson Davis wanted them to haul supplies across the desert Southwest."
+   ]
+  },
+  {
+   "feel": "doubt",
+   "lines": [
+    "Soldiers stared at the humped beasts arriving from the Mediterranean.",
+    "Mules were the Army way.",
+    "Camels? Nobody knew how to handle them."
+   ]
+  },
+  {
+   "feel": "hope",
+   "lines": [
+    "Major Wayne shipped 34 camels to Texas in 1856.",
+    "A second voyage brought 41 more.",
+    "The herd reached 70."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "In 1857, Edward Beale led 25 camels on a wagon road survey.",
+    "Each camel carried 600 pounds.",
+    "Beale said one camel beat four mules."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, a mule needs water and rest.",
+    "Camels drink once, then keep walking for days."
+   ]
+  },
+  {
+   "feel": "frustration",
+   "lines": [
+    "In 1859, Lieutenant Hartz marched camels 85 miles with no water.",
+    "They showed no thirst.",
+    "Horses and mules arrived distressed; camels did not."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "The Army still said no.",
+    "Then the Civil War hit.",
+    "Camels were sold at auction in 1864.",
+    "The last one was seen in Arizona in 1891."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Jefferson Davis, as Secretary of War, pushed for camels to improve Army transportation in the southwestern US.",
+   "url": "https://en.wikipedia.org/wiki/United_States_Camel_Corps"
+  },
+  {
+   "claim": "Major Wayne procured camels; 34 arrived at Indianola, Texas on May 14, 1856; a second voyage brought 41 more, giving the Army 70 camels.",
+   "url": "https://en.wikipedia.org/wiki/United_States_Camel_Corps"
+  },
+  {
+   "claim": "In 1857, Edward Beale led an expedition with 25 pack camels; each camel carried 600 pounds; Beale said he would rather have one camel than four mules.",
+   "url": "https://en.wikipedia.org/wiki/United_States_Camel_Corps"
+  },
+  {
+   "claim": "In 1859, Lieutenant Hartz led a camel expedition that traveled about 85 miles without watering the camels; the camels showed no desire for water; horses and mules were distressed but camels were not.",
+   "url": "https://en.wikipedia.org/wiki/United_States_Camel_Corps"
+  },
+  {
+   "claim": "The Army abandoned the camel experiment; camels were sold at auction in 1864; the last animal from California was reportedly seen in Arizona in 1891.",
+   "url": "https://en.wikipedia.org/wiki/United_States_Camel_Corps"
+  }
+ ],
+ "key_words": [
+  "camels",
+  "desert",
+  "Army",
+  "mules",
+  "water",
+  "Beale",
+  "auction",
+  "1891"
+ ]
+}
