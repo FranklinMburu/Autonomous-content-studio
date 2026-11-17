@@ -1,0 +1,381 @@
+{
+ "script": {
+  "title": "Why Titanic Skimped on Lifeboats",
+  "beats": [
+   {
+    "lines": [
+     "Sailors lower a lifeboat built for sixty-five, carrying just twenty-eight people."
+    ]
+   },
+   {
+    "lines": [
+     "It is the first boat to leave the sinking Titanic.",
+     "More than two thousand two hundred people are aboard.",
+     "Her lifeboats can hold only one thousand one hundred seventy-eight."
+    ]
+   },
+   {
+    "lines": [
+     "Back in Belfast, Titanic could have carried forty-eight wooden lifeboats.",
+     "White Star chose sixteen wooden boats and four folding ones.",
+     "The law asked for even less. Sixteen boats, for nine hundred ninety people.",
+     "So Titanic actually carried more than the rules required.",
+     "And the shortage was not about money or space."
+    ]
+   },
+   {
+    "lines": [
+     "You see, it's like an umbrella. It's for a quick dash to the door, not a whole day in the rain."
+    ]
+   },
+   {
+    "lines": [
+     "In those days, lifeboats were not meant to hold everyone.",
+     "They would ferry people to a rescue ship nearby.",
+     "In 1909, that worked perfectly when another liner, the Republic, sank.",
+     "And White Star wanted a wide deck with open views of the sea.",
+     "A long row of lifeboats would have blocked them."
+    ]
+   },
+   {
+    "lines": [
+     "Then Titanic hits an iceberg in the dark.",
+     "She sinks in two hours and forty minutes.",
+     "Help is still hours away.",
+     "About fifteen hundred people die."
+    ]
+   },
+   {
+    "lines": [
+     "Titanic broke no rule. So in 1914, the world rewrote the rules."
+    ]
+   }
+  ],
+  "key_words": [
+   "lifeboat",
+   "Titanic",
+   "forty-eight",
+   "law",
+   "sixteen",
+   "rescue",
+   "views",
+   "iceberg"
+  ],
+  "claims": [
+   {
+    "claim": "Lifeboat No. 7, the first lowered, left with an estimated 28 people despite a capacity of 65.",
+    "url": "https://en.wikipedia.org/wiki/Sinking_of_the_Titanic"
+   },
+   {
+    "claim": "Over 2,200 people were on board; the lifeboats could accommodate 1,178.",
+    "url": "https://en.wikipedia.org/wiki/Sinking_of_the_Titanic"
+   },
+   {
+    "claim": "Titanic, built in Belfast, could carry up to 48 wooden lifeboats, but White Star and Harland and Wolff chose 16 wooden lifeboats and four collapsibles.",
+    "url": "https://en.wikipedia.org/wiki/Titanic"
+   },
+   {
+    "claim": "Board of Trade rules required British vessels over 10,000 tonnes to carry only 16 lifeboats with a capacity of 990, so White Star provided more than legally required.",
+    "url": "https://en.wikipedia.org/wiki/Titanic"
+   },
+   {
+    "claim": "The shortage of lifeboats was not because of a lack of space nor because of cost.",
+    "url": "https://en.wikipedia.org/wiki/Sinking_of_the_Titanic"
+   },
+   {
+    "claim": "Lifeboats were intended to ferry survivors to a rescuing ship, as in the 1909 sinking of RMS Republic where this played out flawlessly.",
+    "url": "https://en.wikipedia.org/wiki/Titanic"
+   },
+   {
+    "claim": "White Star wanted a wide promenade deck with uninterrupted views of the sea, which a continuous row of lifeboats would have obstructed.",
+    "url": "https://en.wikipedia.org/wiki/Sinking_of_the_Titanic"
+   },
+   {
+    "claim": "Titanic struck an iceberg and sank two hours and forty minutes later with help hours away; around 1,500 people died.",
+    "url": "https://en.wikipedia.org/wiki/Sinking_of_the_Titanic"
+   },
+   {
+    "claim": "Inquiries led to the International Convention for the Safety of Life at Sea in 1914.",
+    "url": "https://en.wikipedia.org/wiki/Sinking_of_the_Titanic"
+   }
+  ]
+ },
+ "film": {
+  "era": "1912",
+  "music": "tense",
+  "cast": {
+   "officer": "a 38 year old British ship officer with short dark hair, a clean shaven lean face, a navy blue double-breasted uniform with gold buttons and a white-topped peaked cap, 1912",
+   "passenger": "a 25 year old woman with auburn hair pinned up under a large black feathered hat, a long cream wool coat with a fur collar, 1912",
+   "builder": "a 55 year old Irish shipyard manager with a thick grey walrus moustache, a brown bowler hat and a rumpled brown tweed suit, 1911",
+   "executive": "a 48 year old tall British shipping businessman with slicked dark hair, a neat dark moustache and a dark grey three-piece suit with a gold watch chain, 1911"
+  },
+  "key_words": [
+   "lifeboat",
+   "Titanic",
+   "forty-eight",
+   "law",
+   "sixteen",
+   "rescue",
+   "views",
+   "iceberg"
+  ],
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "prompt": "medium shot, sailors lowering a wooden lifeboat on ropes down the side of a huge ocean liner at night, only a few people inside, deck lights glowing",
+    "check": "Is a lifeboat hanging on ropes?",
+    "clip": true,
+    "motion": "the lifeboat sinks slowly down the ropes, slow camera tilt down"
+   },
+   {
+    "name": "empty",
+    "at": "carrying#1",
+    "prompt": "close-up of a half-empty wooden lifeboat at night, a few shivering passengers in coats among many empty benches, lantern light",
+    "check": "Is there a lifeboat with empty benches?",
+    "clip": true,
+    "motion": "a woman pulls her coat tighter, slow camera push in"
+   },
+   {
+    "name": "officer",
+    "at": "it#1",
+    "prompt": "medium shot, a ship officer at the deck rail waving a lifeboat away, he is {officer}, night, electric deck lamps",
+    "check": "Is a man in uniform waving?",
+    "who": "officer",
+    "clip": true,
+    "motion": "he waves one arm down, slow camera push in"
+   },
+   {
+    "name": "liner",
+    "at": "sinking#1",
+    "prompt": "wide shot of a giant four-funnel ocean liner tilting forward on a calm black sea at night, all her portholes lit",
+    "check": "Is there a huge ship at night?",
+    "move": "pull"
+   },
+   {
+    "name": "crowd",
+    "at": "two#1",
+    "prompt": "wide shot of crowds of passengers in coats and white life jackets on a sloping ship deck at night, electric light",
+    "check": "Is there a crowd on a ship deck?",
+    "clip": true,
+    "motion": "the crowd shifts and murmurs, slow camera pan right"
+   },
+   {
+    "name": "davits",
+    "at": "her#1",
+    "prompt": "close-up of a row of wooden lifeboats hanging from curved iron cranes along a ship deck at night",
+    "check": "Are there lifeboats hanging in a row?",
+    "move": "left"
+   },
+   {
+    "name": "worried",
+    "at": "thousand#2",
+    "prompt": "close-up, a worried young woman in a large feathered hat clutching her coat collar on a ship deck at night, she is {passenger}",
+    "check": "Is a woman in a large hat looking worried?",
+    "who": "passenger",
+    "clip": true,
+    "motion": "she glances from side to side, slow camera push in"
+   },
+   {
+    "name": "belfast",
+    "at": "back#1",
+    "prompt": "wide shot of a gigantic black ship hull inside a towering iron shipyard gantry, 1911, hazy daylight, tiny workers below",
+    "check": "Is there a giant ship in a shipyard?",
+    "move": "up",
+    "xfade": true
+   },
+   {
+    "name": "builder",
+    "at": "forty-eight#1",
+    "prompt": "medium shot, a shipyard manager pointing up at a long row of empty curved iron cranes on a ship deck, he is {builder}, daylight",
+    "check": "Is a man pointing up?",
+    "who": "builder",
+    "clip": true,
+    "motion": "he raises his arm to point, slow camera push in"
+   },
+   {
+    "name": "chose",
+    "at": "white#1",
+    "prompt": "medium shot, a tall businessman tapping a pencil on large ship drawings spread across a desk, he is {executive}, wood-panelled office, window light",
+    "check": "Is a man looking at large drawings?",
+    "who": "executive",
+    "clip": true,
+    "motion": "he taps the pencil on the drawing, slow camera push in"
+   },
+   {
+    "name": "folding",
+    "at": "four#1",
+    "prompt": "close-up of a folded wooden boat with canvas sides lying upside down on a ship deck, daylight",
+    "check": "Is there an upside-down boat?",
+    "move": "push"
+   },
+   {
+    "name": "law",
+    "at": "the#3",
+    "prompt": "close-up of a heavy leather-bound rulebook with a red wax seal lying on a government desk, lamp light",
+    "check": "Is there a leather book?",
+    "move": "push"
+   },
+   {
+    "name": "inspector",
+    "at": "sixteen#2",
+    "prompt": "medium shot, a government inspector in a bowler hat counting lifeboats along a ship deck with a pencil and notebook, daylight",
+    "check": "Is a man holding a notebook?",
+    "clip": true,
+    "motion": "he ticks the notebook with his pencil, slow camera pan right"
+   },
+   {
+    "name": "signs",
+    "at": "so#1",
+    "prompt": "medium shot, a businessman smiling as he signs a document at a desk, he is {executive}, wood-panelled office, warm light",
+    "check": "Is a man signing a paper?",
+    "who": "executive",
+    "clip": true,
+    "motion": "his pen moves across the paper, slow camera push in"
+   },
+   {
+    "name": "space",
+    "at": "and#2",
+    "prompt": "wide shot of a sailor sweeping a vast empty wooden boat deck with lots of free space, sunny day, open sea beyond",
+    "check": "Is there a wide empty ship deck?",
+    "clip": true,
+    "motion": "he pushes the broom forward, slow camera pull back"
+   },
+   {
+    "name": "umbrella",
+    "at": "you#1",
+    "prompt": "medium shot, a woman opening a black umbrella in a doorway as rain begins, 1910s town street, grey light",
+    "check": "Is a woman opening an umbrella?",
+    "clip": true,
+    "motion": "the umbrella pops open, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "dash",
+    "at": "quick#1",
+    "prompt": "medium shot, a man in a bowler hat under an umbrella hurrying up the steps to a front door in the rain, 1910s",
+    "check": "Is a man holding an umbrella?",
+    "clip": true,
+    "motion": "he takes one step up, slow camera push in"
+   },
+   {
+    "name": "rain",
+    "at": "not#2",
+    "prompt": "wide shot of a grey town street under heavy pouring rain, puddles everywhere, nobody outside, 1910s",
+    "check": "Is it raining hard on a street?",
+    "move": "left"
+   },
+   {
+    "name": "hanging",
+    "at": "in#3",
+    "prompt": "close-up of one wooden lifeboat hanging from curved iron cranes on a ship deck, calm daylight",
+    "check": "Is there a lifeboat hanging?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "squeezed",
+    "at": "hold#2",
+    "prompt": "medium shot, a crowd of passengers squeezed together along a ship rail, 1910s coats and hats, daylight",
+    "check": "Is there a crowd at a ship rail?",
+    "clip": true,
+    "motion": "the crowd shuffles closer, slow camera pan left"
+   },
+   {
+    "name": "ferry",
+    "at": "ferry#1",
+    "prompt": "wide shot of a lifeboat full of passengers being rowed across calm sea toward a waiting steamship",
+    "check": "Is there a lifeboat full of people?",
+    "clip": true,
+    "motion": "the oars dip into the water, slow camera push in"
+   },
+   {
+    "name": "republic",
+    "at": "in#4",
+    "prompt": "wide shot of a sinking steamship in thick fog with a second ship standing close beside it, small boats between them, grey morning",
+    "check": "Are there two ships in fog?",
+    "move": "push"
+   },
+   {
+    "name": "ladder",
+    "at": "liner#1",
+    "prompt": "medium shot, relieved passengers in coats climbing a rope ladder up the side of a rescue ship, grey daylight",
+    "check": "Are people climbing a rope ladder?",
+    "clip": true,
+    "motion": "a man climbs one rung higher, slow camera tilt up"
+   },
+   {
+    "name": "view",
+    "at": "and#3",
+    "prompt": "medium shot, a tall businessman leaning on a ship rail gazing out at the open sea, he is {executive}, bright sunshine",
+    "check": "Is a man leaning on a ship rail?",
+    "who": "executive",
+    "clip": true,
+    "motion": "the wind moves his coat, slow camera push in"
+   },
+   {
+    "name": "promenade",
+    "at": "deck#1",
+    "prompt": "wide shot of an elegant couple leaning on the rail of a long sunny promenade deck, wide open blue sea beyond, 1910s",
+    "check": "Is a couple at a ship rail?",
+    "clip": true,
+    "motion": "the lady holds her hat in the breeze, slow camera pan right"
+   },
+   {
+    "name": "row",
+    "at": "a#6",
+    "prompt": "wide shot of a continuous row of white lifeboats lined along a ship deck, blocking the sea view, daylight",
+    "check": "Is there a row of lifeboats?",
+    "move": "left"
+   },
+   {
+    "name": "iceberg",
+    "at": "then#1",
+    "prompt": "wide shot of a giant white iceberg looming out of black night water, stars above",
+    "check": "Is there an iceberg?",
+    "move": "push",
+    "xfade": true,
+    "hit": "iceberg#1"
+   },
+   {
+    "name": "bow",
+    "at": "she#1",
+    "prompt": "wide shot of the bow of a huge liner sinking low into a black sea at night, rows of lit portholes",
+    "check": "Is there a sinking ship?",
+    "move": "pull"
+   },
+   {
+    "name": "wireless",
+    "at": "help#1",
+    "prompt": "close-up, a young radio operator in shirt sleeves tapping a telegraph key urgently in a cramped cabin, 1912, lamp light",
+    "check": "Is a man tapping a telegraph key?",
+    "clip": true,
+    "motion": "his hand taps the key fast, slow camera push in"
+   },
+   {
+    "name": "sea",
+    "at": "about#2",
+    "prompt": "wide shot of a dark freezing ocean at night with floating deck chairs and a round lifebelt, cold starlight",
+    "check": "Is there dark water with floating chairs?",
+    "move": "up",
+    "hit": "die#1"
+   },
+   {
+    "name": "inquiry",
+    "at": "titanic#5",
+    "prompt": "medium shot, a stern panel of grey-haired officials listening at a long table in a wood-panelled hall, 1912",
+    "check": "Are men sitting at a long table?",
+    "clip": true,
+    "motion": "one official leans forward, slow camera push in"
+   },
+   {
+    "name": "rewrite",
+    "at": "1914#1",
+    "prompt": "close-up of a hand signing a long document with a fountain pen beside a red wax seal, 1914, warm lamp light",
+    "check": "Is a hand signing a document?",
+    "clip": true,
+    "motion": "the pen moves across the paper, slow camera push in"
+   }
+  ]
+ }
+}
