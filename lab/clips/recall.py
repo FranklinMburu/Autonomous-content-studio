@@ -115,6 +115,13 @@ def main():
         Path(a.cands_out).write_text(json.dumps([{"t": t} for t in cands]))
         print(f"candidates for the AI judge: {len(cands)}")
     judged = json.loads(Path(a.judged).read_text())["judged"] if a.judged and Path(a.judged).exists() else []
+    # 16 Nov: when the judge says where the payoff really is ("peak"), the pick goes there, not to the candidate's t
+    for m in judged:
+        try:
+            if "t_cand" not in m and m.get("peak") is not None and abs(float(m["peak"]) - float(m["t"])) <= 120:
+                m["t_cand"], m["t"] = m["t"], float(m["peak"])
+        except (TypeError, ValueError, KeyError):
+            pass
     if judged:
         jc = np.full(n, -1e9)
         allz = fams["ALL TOGETHER"]
@@ -152,11 +159,33 @@ def main():
             row.append(f"{100 * (sc < v).mean():>9.0f}" if v > -1e8 else f"{'-':>9s}")
         print("  " + " ".join(row) + f"  {k['views']:>6,} {k['title'][:40]}")
     if judged:
-        print("\nALL + AI JUDGE by number of picks (a 3 h IRL stream can carry 20-40 Shorts):")
-        for kk in (10, 20, 30, 40, 60):
-            pk = peaks(fams["ALL + AI JUDGE"], kk)
-            hit = [k for k in key if found(pk, k)]
-            print(f"  top {kk:>2}: {len(hit):>2} of {len(key)} fan clips, {sum(k['views'] for k in hit)/max(1,total_views):.0%} of their views")
+        for fin in ("ALL + AI JUDGE",):
+            print(f"\n{fin} by number of picks (a 3 h IRL stream can carry 20-40 Shorts):")
+            for kk in (10, 20, 30, 40, 60):
+                pk = peaks(fams[fin], kk)
+                hit = [k for k in key if found(pk, k)]
+                exact = [k for k in key if any(k["offset"] - 10 <= p <= k["offset"] + (k.get("duration") or 30) + 10 for p in pk)]
+                print(f"  top {kk:>2}: {len(hit):>2} of {len(key)} fan clips, {sum(k['views'] for k in hit)/max(1,total_views):.0%} of their views"
+                      f"  | exact (pick inside the clip +-10 s): {len(exact)}, {sum(k['views'] for k in exact)/max(1,total_views):.0%}")
+        # 16 Nov: did the judge actually WATCH the fan's moment? It watches [t-60, t+30] around its candidate t.
+        print("\nDid the judge's 90 s window contain the fan clip? (fan clip span vs the window of its best candidate)")
+        for k in sorted(key, key=lambda k: -k["views"]):
+            s0, s1 = k["offset"], k["offset"] + (k.get("duration") or 30)
+            inw = [m for m in judged if m.get("t") is not None and k["offset"] - 120 <= float(m["t"]) <= s1 + 60]
+            if not inw:
+                print(f"  {k['views']:>7,}  {k['title'][:40]:40s} no candidate near it"); continue
+            m = max(inw, key=lambda m: float(m.get("score") or 0))
+            t = float(m["t"])
+            if "t_cand" in m:      # new judge: watched t_cand +- 75 s and named the peak
+                tc = float(m["t_cand"]); w0, w1 = tc - 75, tc + 75
+                hit = s0 - 10 <= t <= s1 + 10
+                print(f"  {k['views']:>7,}  {k['title'][:40]:40s} clip {s0:.0f}-{s1:.0f}  watched {w0:.0f}-{w1:.0f}  peak {t:.0f} "
+                      f"{'INSIDE the fan clip' if hit else 'outside'}; score {m.get('score')}")
+                continue
+            w0, w1 = t - 60, t + 30
+            cov = max(0.0, min(s1, w1) - max(s0, w0)) / max(1, s1 - s0)
+            print(f"  {k['views']:>7,}  {k['title'][:40]:40s} clip {s0:.0f}-{s1:.0f}  judged t={t:.0f} window {w0:.0f}-{w1:.0f}  "
+                  f"covers {cov:.0%} of the clip; {len(inw)} candidates near it")
         order = sorted(((float(m["score"]), int(float(m["t"]))) for m in judged if isinstance(m.get("score"), (int, float)) and m.get("t") is not None), reverse=True)
         print("\nWhere the judge put each fan clip (its best-scored candidate inside the clip's window):")
         for k in sorted(key, key=lambda k: -k["views"]):

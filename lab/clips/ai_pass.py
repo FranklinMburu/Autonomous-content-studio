@@ -88,7 +88,15 @@ def call(model, parts, want_json=True, tries=6):
                           f"feedback={d.get('promptFeedback')} usage={d.get('usageMetadata')}", flush=True)
                 continue
             txt = re.sub(r"^```(?:json)?\s*|\s*```$", "", txt.strip())
-            return json.loads(txt) if want_json else txt
+            if want_json:
+                try:
+                    return json.loads(txt)
+                except json.JSONDecodeError:
+                    m = re.search(r"(\[.*\]|\{.*\})", txt, re.S)   # text-mode models wrap the JSON in words
+                    if not m:
+                        raise
+                    return json.loads(m.group(1))
+            return txt
         except urllib.error.HTTPError as e:
             full = e.read().decode()
             msg = full[:200]
@@ -109,6 +117,11 @@ def call(model, parts, want_json=True, tries=6):
                 continue
             if e.code == 400 and "mediaResolution" in msg:          # older model: no media-resolution field
                 body["generationConfig"].pop("mediaResolution", None)
+                req.data = json.dumps(body).encode()
+                continue
+            if e.code == 400 and ("json mode" in full.lower() or "responsemimetype" in full.lower()) and \
+                    "responseMimeType" in body["generationConfig"]:   # Gemma: no JSON mode; the answer is parsed from text
+                body["generationConfig"].pop("responseMimeType", None)
                 req.data = json.dumps(body).encode()
                 continue
             print(f"[gemini] error {e.code} on {model}: {' '.join(full.split())[:300]}", flush=True)
@@ -141,13 +154,14 @@ def pick_model():
 
 
 def eyes(a):
-    model = a.model or pick_model()
+    # 16 Nov (Clipping Lab #6): the eyes can run on a Gemma 4 model (same free key, its own much larger daily
+    # allowance) so the judge keeps all of Gemini Flash's small daily quota.
+    model = a.model or os.environ.get("CLIPS_EYES_MODEL") or pick_model()
     tmp = Path(tempfile.mkdtemp())
     subprocess.run(["ffmpeg", "-v", "error", "-i", a.video, "-vf", f"fps=1/{a.step},scale=284:160", "-q:v", "6", str(tmp / "f%05d.jpg")], check=True)
     frames = sorted(tmp.glob("f*.jpg"))
     print(f"[eyes] {len(frames)} frames, one every {a.step} s; batches of {a.batch}")
-    out = []
-    for b in range(0, len(frames), a.batch):
+    def one(b):
         chunk = frames[b:b + a.batch]
         t0 = b * a.step
         parts = [{"text": f"You are watching a live stream like a top clip-channel editor. These are {len(chunk)} frames, one every "
@@ -157,14 +171,22 @@ def eyes(a):
         for i, f in enumerate(chunk):
             parts += [{"text": f"t={t0 + i * a.step}"}, {"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(f.read_bytes()).decode()}}]
         r = call(model, parts)
-        if r is None and b >= 2 * a.batch and not out:
-            raise SystemExit("[eyes] the first batches all failed: stopping instead of burning the run (see [gemini] lines)")
-        r = r or []
-        for m in r if isinstance(r, list) else r.get("moments", []):
-            if isinstance(m, dict) and "t" in m:
-                out.append({"t": float(m["t"]), "score": float(m.get("score", 0)), "what": str(m.get("what", ""))[:200]})
-        print(f"[eyes] {min(len(frames), b + a.batch)}/{len(frames)} frames, {len(out)} notable so far", flush=True)
         time.sleep(a.pause)
+        return b, r
+    # 16 Nov: Gemma's eyes took 42 min one batch at a time; its allowance (30 requests/min) allows several at once
+    par = max(1, int(os.environ.get("CLIPS_EYES_PARALLEL", "1")))
+    out, done, failed = [], 0, 0
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(par) as ex:
+        for b, r in ex.map(one, range(0, len(frames), a.batch)):
+            done += 1
+            failed += r is None
+            if failed >= 2 and not out and done >= 2:
+                raise SystemExit("[eyes] the first batches all failed: stopping instead of burning the run (see [gemini] lines)")
+            for m in (r or []) if isinstance(r or [], list) else (r or {}).get("moments", []):
+                if isinstance(m, dict) and "t" in m:
+                    out.append({"t": float(m["t"]), "score": float(m.get("score", 0)), "what": str(m.get("what", ""))[:200]})
+            print(f"[eyes] {min(len(frames), b + a.batch)}/{len(frames)} frames, {len(out)} notable so far", flush=True)
     Path(a.out).write_text(json.dumps({"model": model, "step": a.step, "moments": out}, indent=0))
 
 
@@ -187,22 +209,33 @@ def judge(a):
         who = f"The streamer is {a.streamer}: name him in titles (fans' name), never 'the streamer'.\n" if getattr(a, "streamer", None) else ""
         parts = [{"text": f"You are the best clip-channel editor alive. {TASTE}\n{RUBRIC}\n{who}\n" + "\n\n".join(blocks)}]
         if watch:   # SliceQ / clipit lesson: let the judge watch and hear the moment, not only read it
+            # 16 Nov (Clipping Lab #2): the old window [t-60, t+30] covered 0% of the top fan clip (the candidate sat
+            # 108 s before it). Now the judge watches t +- WIN s and says where the payoff really is ("peak").
             t = batch[0]["t"]
-            a0 = max(0, t - 60)
+            WIN = int(os.environ.get("CLIPS_JUDGE_WIN", "75"))
+            a0 = max(0, t - WIN)
             clip = Path(tempfile.mkdtemp()) / "m.mp4"
-            subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(a0), "-t", "90", "-i", a.video, "-ss", str(a0), "-t", "90",
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(a0), "-t", str(2 * WIN), "-i", a.video, "-ss", str(a0), "-t", str(2 * WIN),
                             "-i", a.audio, "-map", "0:v:0", "-map", "1:a:0", "-vf", "fps=2,scale=284:160", "-c:v", "libx264",
                             "-crf", "34", "-preset", "veryfast", "-ac", "1", "-ar", "16000", "-c:a", "aac", "-b:a", "32k", str(clip)],
                            check=False)
             if clip.exists() and clip.stat().st_size > 1000:
-                parts[0]["text"] += (f"\n\nThe video below is the moment itself, low quality, from {a0} s to {a0 + 90} s of the "
-                                     f"stream (so t={t} is {t - a0} s into it). Judge from what you SEE and HEAR; the words above "
-                                     "are a rough transcript. Return a JSON list with one entry.")
+                parts[0]["text"] += (f"\n\nThe video below is low quality, from {a0} s to {a0 + 2 * WIN} s of the stream (t={t} is "
+                                     f"{t - a0} s into it). The best moment may be anywhere in it, not only at t. Judge the STRONGEST "
+                                     "moment you SEE and HEAR in the whole video; the words above are a rough transcript. Return a JSON "
+                                     "list with one entry, including \"peak\": the stream time in seconds (a number between "
+                                     f"{a0} and {a0 + 2 * WIN}) where that moment's payoff happens.")
                 parts.append({"inline_data": {"mime_type": "video/mp4", "data": base64.b64encode(clip.read_bytes()).decode()}})
         r = call(model, parts) or []
-        got = [{k: m.get(k) for k in ("t", "score", "kind", "title", "why")}
+        got = [{k: m.get(k) for k in ("t", "score", "kind", "title", "why", "peak")}
                for m in (r if isinstance(r, list) else r.get("moments", [r] if isinstance(r, dict) else []))
                if isinstance(m, dict) and "t" in m]
+        for m in got:   # 16 Nov: the pick (and the Short) goes to the payoff the judge saw, not to the candidate's t
+            try:
+                if watch and m.get("peak") is not None and abs(float(m["peak"]) - float(m["t"])) <= 120:
+                    m["t_cand"], m["t"] = m["t"], round(float(m["peak"]), 1)
+            except (TypeError, ValueError):
+                pass
         time.sleep(a.pause)
         return got
 

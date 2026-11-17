@@ -13,6 +13,12 @@ permissions:
 env:
   REUSE_RUN: "43366288431"   # run 6 (judge with real-winner anchors): transcript, chat, AI eyes and judge scores reused
   REJUDGE: ""                # reuse run 6 judge scores (13 Nov: measuring the agreement bonus, no new Gemini calls)
+  EYES_REDO: ""             # "1" = run the AI eyes again even when an earlier run's eyes could be reused
+  EYES_MODEL: ""            # e.g. gemma-4-26b-a4b-it: the eyes on Gemma's own daily allowance; "" = the Gemini Flash default
+  TW_VOD: "https://www.twitch.tv/videos/2910392998"   # the test stream; "" = pick the best recent one from TW_CHANNELS
+  TW_CHANNEL: "kaicenat"
+  TW_CHANNELS: "kaicenat,plaqueboymax,lacy,fanum,dukedennis"
+  STREAMER: "Kai Cenat"
   KEY_RUN: "43327666336"     # the run whose answer key still had all 10 fan clips (they age out of Twitch's 30-day list)
 
 jobs:
@@ -61,20 +67,46 @@ jobs:
               print("PICK_KICK", best, round(v["duration"]/3.6e6, 2), "h", v["session_title"], "source:", (v.get("source") or "")[:120])
               for k in key: print("KEY_KICK", k["views"], k["offset"], k["duration"], k["title"][:70])
               json.dump({"vod": {"id": best, "source": v.get("source"), "start": v["start_time"], "duration": v["duration"]/1000, "title": v["session_title"]}, "key": key}, open("key/kick.json", "w"), indent=1)
-          # Twitch: Kai Cenat Japan nightlife VOD and its clips (30 days)
-          vt = json.loads(subprocess.run(["yt-dlp", "-J", "--skip-download", "https://www.twitch.tv/videos/2910392998"], capture_output=True, text=True).stdout)
-          t0, tdur = vt["timestamp"], vt["duration"]
-          urls = subprocess.run(["yt-dlp", "--flat-playlist", "--playlist-end", "100", "--print", "%(url)s", "https://www.twitch.tv/kaicenat/clips?filter=clips&range=30d"], capture_output=True, text=True).stdout.split()
-          key = []
-          for u in urls:
-              d = json.loads(subprocess.run(["yt-dlp", "-J", "--skip-download", u], capture_output=True, text=True).stdout or "{}")
-              ts = d.get("timestamp") or 0
-              if t0 <= ts <= t0 + tdur + 600:
-                  key.append({"views": d.get("view_count"), "offset": round(ts - t0 - (d.get("duration") or 30)), "duration": d.get("duration"), "title": d.get("title"), "url": u})
-          key.sort(key=lambda k: -(k["views"] or 0))
-          print("TW clips in 30d", len(urls), "for Japan VOD", len(key))
+          # Twitch: the test stream and its fan clips (30 days). TW_VOD fixed, or empty = pick, across TW_CHANNELS, the
+          # recent 1.5-8 h VOD with the most fan clips (16 Nov: a second stream so the engine isn't tuned to one).
+          import os
+          def vod_clips(vurl, ch):
+              vt = json.loads(subprocess.run(["yt-dlp", "-J", "--skip-download", vurl], capture_output=True, text=True).stdout or "{}")
+              t0, tdur = vt.get("timestamp") or 0, vt.get("duration") or 0
+              urls = subprocess.run(["yt-dlp", "--flat-playlist", "--playlist-end", "100", "--print", "%(url)s", f"https://www.twitch.tv/{ch}/clips?filter=clips&range=30d"], capture_output=True, text=True).stdout.split()
+              key = []
+              for u in urls:
+                  d = json.loads(subprocess.run(["yt-dlp", "-J", "--skip-download", u], capture_output=True, text=True).stdout or "{}")
+                  ts = d.get("timestamp") or 0
+                  if t0 and t0 <= ts <= t0 + tdur + 600:
+                      key.append({"views": d.get("view_count"), "offset": round(ts - t0 - (d.get("duration") or 30)), "duration": d.get("duration"), "title": d.get("title"), "url": u})
+              key.sort(key=lambda k: -(k["views"] or 0))
+              return vt, key
+          fixed = os.environ.get("TW_VOD", "").strip()
+          best = None
+          if fixed:
+              vt, key = vod_clips(fixed, os.environ.get("TW_CHANNEL", "kaicenat")); best = (fixed, vt, key)
+          else:
+              for ch in os.environ.get("TW_CHANNELS", "kaicenat").split(","):
+                  vids = subprocess.run(["yt-dlp", "--flat-playlist", "--playlist-end", "6", "--print", "%(url)s %(duration)s", f"https://www.twitch.tv/{ch}/videos?filter=archives&sort=time"], capture_output=True, text=True).stdout.split("\n")
+                  for line in vids:
+                      parts = line.split()
+                      if len(parts) < 2 or "2910392998" in parts[0]:
+                          continue
+                      try:
+                          dur = float(parts[1])
+                      except ValueError:
+                          continue
+                      if not 5400 <= dur <= 28800:
+                          continue
+                      vt, key = vod_clips(parts[0], ch)
+                      print("CANDIDATE", ch, parts[0], round(dur / 3600, 1), "h,", len(key), "fan clips,", sum(k["views"] or 0 for k in key), "views")
+                      if best is None or len(key) > len(best[2]):
+                          best = (parts[0], vt, key)
+          vurl, vt, key = best
+          print("TEST STREAM", vurl, vt.get("title"), "fan clips", len(key))
           for k in key: print("KEY_TW", k["views"], k["offset"], k["duration"], (k["title"] or "")[:70])
-          json.dump({"vod": {"url": "https://www.twitch.tv/videos/2910392998", "start": t0, "duration": tdur, "title": vt.get("title")}, "key": key}, open("key/twitch.json", "w"), indent=1)
+          json.dump({"vod": {"url": vurl, "start": vt.get("timestamp"), "duration": vt.get("duration"), "title": vt.get("title"), "channel": vt.get("uploader_id") or vt.get("uploader")}, "key": key[:12]}, open("key/twitch.json", "w"), indent=1)
           PY
       - uses: actions/checkout@v4
         with:
@@ -160,9 +192,11 @@ jobs:
         continue-on-error: true
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CLIPS_EYES_MODEL: ${{ env.EYES_MODEL }}
+          CLIPS_EYES_PARALLEL: ${{ env.EYES_MODEL != '' && '4' || '1' }}
         run: |
           e=$(find prev -name eyes.json 2>/dev/null | head -1)
-          if [ -n "$e" ] && [ -s "$e" ]; then cp "$e" key/eyes.json; echo "eyes reused from run $REUSE_RUN"; python repo/lab/clips/ai_pass.py show --eyes key/eyes.json; exit 0; fi
+          if [ -n "$e" ] && [ -s "$e" ] && [ -z "$EYES_REDO" ]; then cp "$e" key/eyes.json; echo "eyes reused from run $REUSE_RUN"; python repo/lab/clips/ai_pass.py show --eyes key/eyes.json; exit 0; fi
           python repo/lab/clips/ai_pass.py probe --video key/low.mp4
           s0=$(date +%s); python repo/lab/clips/ai_pass.py eyes --video key/low.mp4 --out key/eyes.json --step 6 --batch 100 --pause 7
           echo "eyes $(( $(date +%s)-s0 )) s"
@@ -175,7 +209,7 @@ jobs:
           A="--key ../key/twitch.json --audio ../key/audio.m4a --video ../key/low.mp4 --words ../key/words.json --chat ../key/chat.json --eyes ../key/eyes.json --top 20"
           python lab/clips/recall.py $A --cands-out ../key/cands.json --out ../key/recall_signals.json
           j=$(find ../prev -name judged.json 2>/dev/null | head -1)
-          if [ -n "$j" ] && [ -s "$j" ] && [ -z "$REJUDGE" ]; then cp "$j" ../key/judged.json; echo "judge scores reused from run $REUSE_RUN"; else python lab/clips/ai_pass.py judge --cands ../key/cands.json --words ../key/words.json --eyes ../key/eyes.json --video ../key/low.mp4 --audio ../key/audio.m4a --streamer "Kai Cenat" --out ../key/judged.json --pause 5 || true; fi
+          if [ -n "$j" ] && [ -s "$j" ] && [ -z "$REJUDGE" ]; then cp "$j" ../key/judged.json; echo "judge scores reused from run $REUSE_RUN"; else python lab/clips/ai_pass.py judge --cands ../key/cands.json --words ../key/words.json --eyes ../key/eyes.json --video ../key/low.mp4 --audio ../key/audio.m4a --streamer "${STREAMER:-$(python -c "import json; print(json.load(open('../key/twitch.json'))['vod'].get('channel') or 'the streamer')")}" --out ../key/judged.json --pause 5 || true; fi
           echo "================ WITH THE AI JUDGE ================"
           python lab/clips/recall.py $A --judged ../key/judged.json --out ../key/recall_twitch.json
       - uses: actions/upload-artifact@v4

@@ -6,7 +6,7 @@ what works, try it, keep only what makes us better, and bring him real clips and
 **Read first, in this order:**
 1. Notion: [Clipping Lab — getting better every day](https://app.notion.com/p/41ada224599e817a9c8ac58cf9e18af9): the
    scoreboard, the daily loop and the Improvement Log.
-2. Repo, branch `clips-engine`: `docs/clips/RESUME.md`, then `docs/clips/DECISIONS.md`.
+2. Repo, branch `main` (the clipping code was merged there on 13 Nov; `clips-engine` is old): `docs/clips/RESUME.md`, then `docs/clips/DECISIONS.md`.
 3. Notion: [Opportunity Radar](https://app.notion.com/p/41ada224599e8112a30beccf2bbdd202) rows tagged SC or WC.
 4. Prompt v4 (project doc history): its thinking still holds (learn the intuition from real hits; watch every second
    cheaply; rate yourself honestly; guards against drifting). This prompt changes the target.
@@ -95,7 +95,7 @@ How to use this:
    advice videos alone; verify claims).
 3. Pick ONE change with the best expected gain per hour; prefer the simplest. Log it in the Improvement Log first.
 4. Build it, measure before and after on the same test.
-5. Keep it only if the number improves (PR into `clips-engine` with the table); otherwise drop it and log the lesson.
+5. Keep it only if the number improves (PR into `main` with the table); otherwise drop it and log the lesson.
 6. Update the scoreboard and tell Franklin in a few lines.
 
 Big leaps are welcome when the evidence points to one (a new signal, a new model, a new source of clips), but a leap
@@ -112,13 +112,13 @@ is still kept or dropped by the numbers.
 
 - $0; free quotas are shared with the daily studio runs, so keep tests small and stop cleanly when a quota runs out.
 - Never Franklin's passwords, cookies or `.env`; keys only in GitHub secrets.
-- Nothing posted, uploaded, signed up for or merged to main without Franklin's yes. Branches, PRs into `clips-engine`
+- Nothing posted, uploaded, signed up for or merged to main without Franklin's yes. Branches, PRs into `main`
   and GitHub releases for review are fine.
 - Real streams only; nothing fake shown as a clip; no gambling or casino streams; no bought views or bots.
 
 ## 6. Where things are
 
-- Branch `clips-engine` (PR #100); `studio/clips/` (signals, moments, edit, render, judge, gates, hot, yt_sections),
+- Branch `main` (clipping merged from PR #100 on 13 Nov); `studio/clips/` (signals, moments, edit, render, judge, gates, hot, yt_sections),
   `lab/clips/` (recall, ai_pass, align, kick_chat), `tests/test_clips.py`, `third_party/`.
 - Workflows (run by pushing to a branch): `clips-recall.yml` (`clips-recall/*`), `clips-stream.yml` (stream → Shorts),
   `clips-hot.yml`, `clips-shorts.yml`, `clips-board.yml`, `clips-reference.yml`, `make-clips.yml`.
