@@ -256,20 +256,20 @@
     "motion": "he steps onto the beach, slow camera push in"
    },
    {
-    "name": "homework",
+    "name": "door",
     "at": "you#1",
-    "prompt": "medium shot, a boy writing at a wooden desk in a quiet sunlit room, 1570s clothes, calm light",
-    "check": "Is a boy writing at a desk?",
-    "clip": true,
-    "motion": "his pen moves across the page, slow camera push in",
+    "prompt": "close-up of a closed wooden door in a silent sunlit room, dust floating in the light",
+    "check": "Is there a closed wooden door?",
+    "move": "push",
     "xfade": true
    },
    {
-    "name": "door",
-    "at": "quiet#1",
-    "prompt": "close-up of a closed wooden door in a silent sunlit room, dust floating in the light",
-    "check": "Is there a closed wooden door?",
-    "move": "push"
+    "name": "homework",
+    "at": "doing#1",
+    "prompt": "medium shot, a boy writing at a wooden desk in a quiet sunlit room, 1570s clothes, calm light",
+    "check": "Is a boy writing at a desk?",
+    "clip": true,
+    "motion": "his pen moves across the page, slow camera push in"
    },
    {
     "name": "elbow",
