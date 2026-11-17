@@ -74,8 +74,6 @@ Return JSON only: {"era": "...", "cast": {...}, "key_words": [...], "music": "<o
            {"name": ..., "at": ..., "prompt": ..., "check": "Is ...?", "move": "push"}, ...]}
 
 CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid these exact scenes):
-- 003-why-joseph-lister-sprayed-carbolic-acid-: cast lister = a 38 year old Victorian surgeon with bushy brown mutton-chop sideburns, short side-parted dark brown hair, focused blue eyes, wearing a dark blue waistcoat over a rolled-up white linen shirt and dark trousers, 1860s; boy = an 11 year old Victorian boy with messy auburn hair, a freckled pale face, wearing a patched grey woolen vest over a dirty cream linen shirt, 1860s; pasteur = a 43 year old French scientist with a short neatly trimmed dark brown beard and mustache, sharp brown eyes, wearing a dark maroon frock coat with a black silk cravat, 1860s; patient = a 45 year old sickly Victorian workman with thin balding greyish hair, stubble on his cheeks, wearing a worn beige hospital nightshirt, 1860s
-  scenes: medium close-up, {lister} pressing white cloth towels into a glass dis | close-up, {boy} resting his head on a flat white pillow, looking scare | low angle medium shot, {patient} sitting nervously on a tall wooden op | wide shot of a large grey Victorian stone hospital building with tall  | medium close-up, {patient} lying weakly in an iron hospital bed under  | extreme close-up of an open inflamed wound on a pale forearm leaking t | medium shot, {lister} standing in a dim surgical theatre gripping a lo | medium shot, {boy} standing just inside a Victorian hospital doorway,  | extreme close-up of two surgeon's hands holding a boy's broken lower l | medium shot, carefully adjusting the broken leg of {boy} on a wooden c | close-up of hands pouring clear carbolic liquid from a glass bottle on | medium shot, wrapping a shiny sheet of tin foil over a bound leg, {lis
 - 004-why-john-snow-removed-a-london-pump-hand: cast snow = a 41 year old English doctor with short dark wavy hair, a clean shaven narrow face, thin lips, deep-set grey eyes, a black frock coat, a grey waistcoat, a white high collar and a black necktie, 1850s; whitehead = a 28 year old English vicar with fair curly hair, a round friendly face, rosy cheeks, a black clerical coat and a white clerical collar, 1850s; simon = a 38 year old London health official with a neat full black beard, a high bald forehead, a brown overcoat with a fur collar and a grey top hat, 1850s; mother = a 30 year old poor London woman with red hair tied under a white cotton cap, a faded blue cotton dress and a brown wool shawl, 1850s; brewer = a burly 50 year old brewery worker with a thick ginger beard, a flat cloth cap, rolled-up shirt sleeves and a grey canvas apron, 1850s
   scenes: medium shot, two men in black top hats pulling the long iron handle of | medium close-up, a doctor pointing firmly at an iron street water pump | wide shot of a crowded narrow 1850s London street with laundry hanging | close-up, a pale sweating man lying sick on a straw mattress in a dark | high angle, men carrying plain wooden coffins out of narrow brick hous | medium shot, three doctors in black coats pressing white handkerchiefs | wide shot, thick greenish yellow fog drifting over a rubbish-strewn mu | medium shot, a bearded official shaking his head while reading a lette | close-up, a doctor frowning as he reads a letter by a rainy window, he | medium shot, {snow} and {whitehead} knocking on the wooden door of a n | medium close-up, a crying woman in a doorway answering questions, she  | extreme close-up, a hand with a quill pen marking small black dots on 
 - 005-why-barry-marshall-swallowed-bacteria: cast marshall = a 33 year old Australian doctor, lean build, curly dark brown hair, a full dark brown beard, brown eyes, thin wire-rimmed glasses, a white short-sleeved shirt under a pale blue lab coat and khaki trousers, 1980s; warren = a 46 year old Australian pathologist with short receding grey hair, a clean-shaven square face, heavy black-framed glasses, a white lab coat over a brown checked shirt, 1980s; skeptic = a 48 year old British gastroenterologist, stocky build, balding with short grey hair at the sides, heavy dark eyebrows, clean shaven, a charcoal grey suit jacket, a burgundy patterned tie and white shirt, 1980s; nurse = a 35 year old nurse, sturdy build, dark brown hair in a ponytail, teal scrubs, 1980s; wife = a 32 year old woman with shoulder-length wavy blond hair, a sun-tanned face and a yellow sleeveless summer dress, 1980s
@@ -98,225 +96,231 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: close-up, a young woman touching a thin paintbrush tip to her lips, a  | extreme close-up of a thin brush dipping into a tiny pot of glowing gr | extreme close-up of a thin brush painting glowing green lines on a sma | wide shot of a big 1910s brick factory with tall windows and a smokest | wide shot, rows of young women in white smocks bent over long tables p | close-up of a row of small watch faces glowing green in a dark room | close-up, a young woman's open hand receiving a few copper coins at a  | extreme close-up of a camel hair paintbrush with a frayed splayed tip, | medium shot, a stern man in a suit pointing at a worker's paint table, | medium close-up, a smiling young woman putting a paintbrush to her lip | close-up, young women laughing and holding up fingernails painted glow | close-up, a laughing young woman with a faint green glow on her teeth 
 - 006-why-dutch-merchants-paid-fortunes-for-a-: cast merchant = a 44 year old Dutch merchant with a ruddy weathered face, a thick grey-streaked brown beard, heavy brows, a wide black felt hat, a long dark burgundy wool coat with silver buttons, a white linen collar and cuffs, 1630s; trader = a 31 year old Dutch tulip trader with a thin pale face, a small pointed black moustache, sharp dark eyes, shoulder-length light brown hair, a bright mustard yellow doublet, a white ruff collar and a brown leather belt, 1630s; grower = a 52 year old Dutch bulb grower with a sunburnt wrinkled face, a bald crown with grey hair at the sides, a short grey stubble beard, a rough brown linen smock, muddy wooden clogs and a grey wool cap, 1630s; wife = a 29 year old Dutch woman with fair skin, blond hair pinned under a white lace cap, a high forehead, a dark green bodice with a white apron over a long brown skirt, 1630s; tavernkeeper = a stout 48 year old Dutch tavern keeper with a red flushed face, a big belly, a clean-shaven chin, a white apron over a dark blue shirt, a brown cap, 1630s
   scenes: medium close-up, a stern man in a wide black hat leaning over a wooden | extreme close-up of a hand with a quill pen signing a paper contract o | close-up, a merchant holding up his open empty palms toward a trader,  | medium shot, a trader shrugging with both arms spread wide and grinnin | close-up of a single tulip bulb half buried in dark soil in a wooden c | close-up of a hand with a quill pen writing rising numbers on a paper  | medium shot, {trader} slapping a paper contract down on a wooden table | close-up of a hand dropping small silver coins into a wooden bowl on a | wide shot of a crowded 1630s Dutch tavern with men waving paper contra | wide shot of a grand 1630s Dutch town exchange building with tall ston | medium shot, {merchant} holding up a paper contract beside a potted tu | close-up of a hand holding up a small paper concert ticket in a dark t
+- 008-why-china-s-paper-money-wasn-t-tang: cast merchant = a 45 year old Sichuan merchant with a round weathered face, a thin grey-streaked beard, a black silk cap, a long dark blue silk robe with wide sleeves and a brown leather belt, 11th century; official = a 50 year old Song government official with a long thin face, a neat black moustache, a tall black gauze hat with stiff wings, a long crimson robe with a gold-embroidered square badge, 11th century; clerk = a 30 year old thin clerk with a pale narrow face, small round spectacles, a grey cotton robe and a black cloth cap, 11th century; smith = a 35 year old burly iron smith with a soot-darkened face, a short black beard, a leather apron over a rough brown tunic, 11th century; wife = a 35 year old Sichuan woman with a round face, black hair in a neat bun, a small gold hairpin, a green cotton jacket and a long dark skirt, 11th century
+  scenes: medium shot, a merchant in a long dark blue silk robe and black cap ha | extreme close-up of two hands lifting a stack of thick heavy iron coin | close-up, a merchant holding up one folded paper note with both hands, | close-up, a merchant pressing a red seal stamp onto a paper note on a  | medium shot, a thin clerk holding up a paper note in one hand and poin | close-up of two hands placing a folded paper note on top of a heavy st | wide shot of a crowded 11th century Sichuan market street with wooden  | close-up of two hands holding up two different paper notes side by sid | medium shot, {merchant} standing and pointing at a large paper map on  | close-up, {merchant} leaning over a wooden table and pointing at a pap | wide shot of a large wooden gate of a merchant guild house with a hang | extreme close-up of a carved wooden printing block being pressed onto 
 
 PROBLEMS FOUND BY THE CHECKS
-- film.json is missing: write it
+- script: not supported by the sources: On Hven, nothing disturbs his timing, his light or his instruments.
 
 DRAFT SCRIPT
-{"title": "Why Tycho Brahe built Uraniborg on Hven", "beats": [{"lines": ["Tycho Brahe measured stars by eye, then built a castle around them.", "Tycho's naked-eye readings had to be exact.", "King Frederick II wanted to keep this famous astronomer in Denmark."], "feel": "curiosity"}, {"lines": ["Tycho's father wanted him to practice law.", "Tycho chose astronomy and complained that society wasted his time.", "Frederick II heard about Tycho's plans to leave Denmark.", "So the king offered Hven and funding in 1576."], "feel": "sympathy"}, {"lines": ["Tycho began building Uraniborg in 1576 and moved there soon after.", "As lord of Hven, he made farmers grow twice as much and build his castle.", "The farmers complained about heavy taxes and took Tycho to court.", "The court backed Tycho's right to tax and demand labor."], "feel": "frustration"}, {"lines": ["You see, it is like needing silence to finish one hard puzzle.", "Tycho chose Hven for seclusion and royal support.", "Quiet helped Tycho focus on his observations."], "feel": "recognition"}, {"lines": ["Tycho used quadrants, sextants, and clocks to watch the sky.", "A brass plumb line helped him adjust his instruments for accuracy.", "Tycho wanted to find the errors hidden inside his own instruments."], "feel": "awe"}, {"lines": ["Years later, Tycho dug a second observatory underground.", "Even his island instruments were not enough.", "Kepler later used Tycho's careful observations to write three laws about how planets move."], "feel": "surprise"}]}
+{"title": "Why Tycho Brahe Built Uraniborg on Hven", "beats": [{"lines": ["A young Danish nobleman stares up at a star that should not exist."], "feel": "wonder"}, {"lines": ["It is 1572. Tycho Brahe sees a brand-new star, brighter than any star or planet.", "Telescopes do not exist yet.", "So Tycho starts building bigger, more exact instruments to measure the sky by eye."], "feel": "curiosity"}, {"lines": ["King Frederick the Second offers him a grand castle.", "Tycho says no.", "He calls life at court rubbish.", "He secretly plans to move to Basel.", "The king hears about it and wants to keep him.", "So in 1576, the king gives him a whole island, Hven, and money for an observatory."], "feel": "defiance"}, {"lines": ["You see, it's like doing homework in a quiet room. Nobody bumps your elbow, so every line comes out straight."], "feel": "recognition"}, {"lines": ["On Hven, nothing disturbs his timing, his light or his instruments.", "Tycho builds a castle called Uraniborg, packed with giant quadrants and sextants.", "Almost 100 students and craftsmen work there.", "The island's farmers must grow twice as much and help build it.", "They take Tycho to court, and they lose.", "Later, Tycho works in a second observatory underground.", "His castle instruments were not steady enough."], "feel": "awe"}, {"lines": ["Tycho never uses a telescope.", "But his naked-eye numbers let Johannes Kepler write three laws of how planets move."], "feel": "irony"}]}
 CLAIMS IN THE DRAFT
-- {'claim': 'King Frederick II offered Tycho the island of Hven and funding to set up an observatory in 1576, because he wanted to keep the distinguished scientist in Denmark.', 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
-- {'claim': "Uraniborg's location on Hven was chosen for seclusion and support, giving Tycho a better way to focus on accurate observation without interruptions.", 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
-- {'claim': 'As lord of Hven, Tycho required the peasants to cultivate twice as much and exacted labor for the construction of his castle; the peasants complained about his taxation and took him to court, and the court established his right to levy taxes and labor.', 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
-- {'claim': "Tycho's instruments were adjusted via a brass plumb line and thumb screws, which helped him make more accurate measurements of the heavens.", 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
-- {'claim': 'Tycho emphasized the need to determine instrumental errors.', 'url': 'https://doi.org/10.1117/12.269109'}
-- {'claim': 'Tycho later worked underground at Stjerneborg, where he realized his instruments in Uraniborg were not sufficient.', 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
-- {'claim': "Johannes Kepler used Tycho's data to develop his three laws of planetary motion.", 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
+- {'claim': 'In 1572 Tycho noticed a completely new star brighter than any star or planet and devoted himself to ever more accurate instruments of measurement.', 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
+- {'claim': 'Tycho was the last major astronomer before the invention of the telescope, observing with the naked eye.', 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
+- {'claim': "The king offered Tycho castles such as Hammershus or Helsingborg; Tycho declined, calling society there 'the whole rubbish', and secretly planned to move to Basel.", 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
+- {'claim': "The King heard of Tycho's plans and, desiring to keep him, in 1576 offered him the island of Hven and funding to set up an observatory.", 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
+- {'claim': 'Hven was chosen for seclusion, with nothing interfering with time, light or motion observations.', 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
+- {'claim': 'Uraniborg had quadrants, sextants and astronomical clocks; almost 100 students and artisans worked there.', 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
+- {'claim': 'Tycho required the peasants to cultivate twice as much and to labor on his castle; they took him to court and the court established his right to levy taxes and labor.', 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
+- {'claim': 'He later worked underground at Stjerneborg, where he realised his instruments in Uraniborg were not sufficiently steady.', 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
+- {'claim': "Kepler used Tycho's data to develop his three laws of planetary motion.", 'url': 'https://en.wikipedia.org/wiki/Tycho_Brahe'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
-0.14s Tycho#1
-0.55s Brahe#1
-0.99s measured#1
-1.34s stars#1
-1.75s by#1
-1.95s eye#1
-2.50s then#1
-2.72s built#1
-2.94s a#1
-3.02s castle#1
-3.40s around#1
-3.69s them#1
-4.13s Tycho's#1
-4.68s naked-eye#1
-5.16s readings#1
-5.76s had#1
-5.85s to#1
-5.96s be#1
-6.06s exact#1
-6.79s King#1
-7.04s Frederick#1
-7.31s II#1
-8.16s wanted#1
-8.39s to#2
-8.49s keep#1
-8.66s this#1
-8.89s famous#1
-9.29s astronomer#1
-9.94s in#1
-10.06s Denmark#1
-11.03s Tycho's#2
-11.51s father#1
-12.08s wanted#2
-12.33s him#1
-12.48s to#3
-12.58s practice#1
-13.01s law#1
-13.54s Tycho#2
-14.02s chose#1
-14.31s astronomy#1
-15.21s and#1
-15.34s complained#1
-15.79s that#1
-15.91s society#1
-16.46s wasted#1
-16.79s his#1
-16.96s time#1
-17.58s Frederick#2
-17.88s II#2
-18.66s heard#1
-18.86s about#1
-19.08s Tycho's#3
-19.53s plans#1
-19.96s to#4
-20.06s leave#1
-20.33s Denmark#2
-21.08s So#1
-21.20s the#1
-21.30s king#2
-21.55s offered#1
-21.91s Hven#1
-22.45s and#2
-22.61s funding#1
-23.16s in#2
-23.30s 1576#1
-24.93s Tycho#3
-25.40s began#1
-25.78s building#1
-26.13s Uraniborg#1
-26.78s in#3
-26.93s 1576#2
-28.23s and#3
-28.35s moved#1
-28.65s there#1
-28.88s soon#1
-29.05s after#1
-29.71s As#1
-29.89s lord#1
-30.09s of#1
-30.19s Hven#2
-31.04s he#1
-31.14s made#1
-31.39s farmers#1
-31.82s grow#1
-32.12s twice#1
-32.44s as#2
-32.59s much#1
-32.94s and#4
-33.06s build#1
-33.29s his#2
-33.47s castle#2
-34.15s The#2
-34.28s farmers#2
-34.70s complained#2
-35.15s about#2
-35.38s heavy#1
-35.63s taxes#1
-36.38s and#5
-36.50s took#1
-36.70s Tycho#4
-37.15s to#5
-37.25s court#1
-37.74s The#3
-37.84s court#2
-38.09s backed#1
-38.39s Tycho's#4
-38.99s right#1
-39.19s to#6
-39.32s tax#1
-39.72s and#6
-39.82s demand#1
-40.17s labor#1
-40.98s You#1
-41.15s see#1
-41.55s it#1
-41.68s is#1
-41.78s like#1
-42.00s needing#1
-42.35s silence#1
-42.83s to#7
-42.93s finish#1
-43.25s one#1
-43.48s hard#1
-43.78s puzzle#1
-44.41s Tycho#5
-44.89s chose#2
-45.19s Hven#3
-45.74s for#1
-45.89s seclusion#1
-46.59s and#7
-46.71s royal#1
-47.06s support#1
-47.66s Quiet#1
-48.01s helped#1
-48.26s Tycho#6
-48.68s focus#1
-49.16s on#1
-49.26s his#3
-49.41s observations#1
-50.63s Tycho#7
-51.05s used#1
-51.28s quadrants#1
-52.03s sextants#1
-52.74s and#8
-52.87s clocks#1
-53.27s to#8
-53.37s watch#1
-53.62s the#4
-53.72s sky#1
-54.35s A#2
-54.48s brass#1
-54.85s plumb#1
-55.13s line#1
-55.68s helped#2
-55.90s him#2
-56.10s adjust#1
-56.45s his#4
-56.63s instruments#1
-57.08s for#2
-57.23s accuracy#1
-58.04s Tycho#8
-58.51s wanted#3
-58.74s to#9
-58.84s find#1
-59.04s the#5
-59.16s errors#1
-59.79s hidden#1
-60.21s inside#1
-60.61s his#5
-60.74s own#1
-60.99s instruments#2
-62.03s Years#1
-62.33s later#1
-62.81s Tycho#9
-63.23s dug#1
-63.66s a#3
-63.78s second#1
-64.08s observatory#1
-64.78s underground#1
-65.67s Even#1
-65.92s his#6
-66.12s island#1
-66.45s instruments#3
-67.00s were#1
-67.12s not#1
-67.30s enough#1
-67.89s Kepler#1
-68.28s later#2
-68.53s used#2
-68.81s Tycho's#5
-69.39s careful#1
-69.76s observations#2
-70.76s to#10
-70.89s write#1
-71.21s three#1
-71.48s laws#1
-71.86s about#3
-72.08s how#1
-72.23s planets#1
-72.64s move#1
+0.12s A#1
+0.25s young#1
+0.55s Danish#1
+0.92s nobleman#1
+1.57s stares#1
+1.85s up#1
+1.97s at#1
+2.04s a#2
+2.15s star#1
+2.60s that#1
+2.75s should#1
+2.90s not#1
+3.07s exist#1
+4.01s It#1
+4.16s is#1
+4.31s 1572#1
+5.73s Tycho#1
+6.11s Brahe#1
+6.56s sees#1
+6.76s a#3
+6.83s brand-new#1
+7.28s star#2
+7.88s brighter#1
+8.21s than#1
+8.36s any#1
+8.56s star#3
+8.93s or#1
+9.06s planet#1
+9.76s Telescopes#1
+10.38s do#1
+10.48s not#2
+10.63s exist#2
+11.06s yet#1
+11.55s So#1
+11.73s Tycho#2
+12.20s starts#1
+12.55s building#1
+12.90s bigger#1
+13.55s more#1
+13.75s exact#1
+14.20s instruments#1
+14.68s to#1
+14.78s measure#1
+15.03s the#1
+15.13s sky#1
+15.50s by#1
+15.70s eye#1
+16.41s King#1
+16.64s Frederick#1
+16.91s the#2
+17.01s Second#1
+17.66s offers#1
+17.99s him#1
+18.14s a#4
+18.21s grand#1
+18.54s castle#1
+19.25s Tycho#3
+19.65s says#1
+19.90s no#1
+20.48s He#1
+20.61s calls#1
+20.93s life#1
+21.20s at#2
+21.30s court#1
+21.50s rubbish#1
+22.23s He#2
+22.41s secretly#1
+22.86s plans#1
+23.23s to#2
+23.31s move#1
+23.58s to#3
+23.68s Basel#1
+24.42s The#3
+24.57s king#2
+24.82s hears#1
+25.04s about#1
+25.32s it#2
+25.57s and#1
+25.69s wants#1
+25.89s to#4
+25.99s keep#1
+26.22s him#2
+26.73s So#2
+26.86s in#1
+26.98s 1576#1
+28.31s the#4
+28.41s king#3
+28.66s gives#1
+28.81s him#3
+28.96s a#5
+29.08s whole#1
+29.41s island#1
+30.16s Hven#1
+30.81s and#2
+30.93s money#1
+31.26s for#1
+31.37s an#1
+31.46s observatory#1
+32.68s You#1
+32.83s see#1
+33.23s it's#1
+33.36s like#1
+33.53s doing#1
+33.78s homework#1
+34.23s in#2
+34.31s a#6
+34.38s quiet#1
+34.76s room#1
+35.48s Nobody#1
+35.91s bumps#1
+36.13s your#1
+36.26s elbow#1
+36.88s so#3
+37.08s every#1
+37.38s line#1
+37.68s comes#1
+37.88s out#1
+38.08s straight#1
+38.92s On#1
+39.12s Hven#2
+39.84s nothing#1
+40.17s disturbs#1
+40.59s his#1
+40.77s timing#1
+41.44s his#2
+41.67s light#1
+41.99s or#2
+42.12s his#3
+42.27s instruments#2
+43.10s Tycho#4
+43.55s builds#1
+43.80s a#7
+43.88s castle#2
+44.33s called#1
+44.60s Uraniborg#1
+45.50s packed#1
+45.80s with#1
+46.00s giant#1
+46.40s quadrants#1
+46.95s and#3
+47.08s sextants#1
+47.94s Almost#1
+48.42s 100#1
+48.82s students#1
+49.19s and#4
+49.32s craftsmen#1
+49.87s work#1
+50.12s there#1
+50.63s The#5
+50.78s island's#1
+51.18s farmers#1
+51.68s must#1
+51.88s grow#1
+52.15s twice#1
+52.48s as#1
+52.63s much#1
+52.88s and#5
+52.98s help#1
+53.23s build#1
+53.48s it#3
+53.84s They#1
+53.96s take#1
+54.14s Tycho#5
+54.49s to#5
+54.59s court#2
+55.09s and#6
+55.19s they#2
+55.34s lose#1
+56.04s Later#1
+56.54s Tycho#6
+56.96s works#1
+57.26s in#3
+57.34s a#8
+57.46s second#2
+57.76s observatory#2
+58.44s underground#1
+59.33s His#4
+59.52s castle#3
+59.88s instruments#3
+60.52s were#1
+60.65s not#3
+60.85s steady#1
+61.12s enough#1
+61.88s Tycho#7
+62.45s never#1
+62.73s uses#1
+62.98s a#9
+63.05s telescope#1
+63.92s But#1
+64.05s his#5
+64.22s naked-eye#1
+64.78s numbers#1
+65.22s let#1
+65.38s Johannes#1
+65.85s Kepler#1
+66.50s write#1
+66.80s three#1
+67.05s laws#1
+67.40s of#1
+67.50s how#1
+67.67s planets#1
+68.10s move#2
 
 DRAFT film.json
-(none yet)
+{"era": "1570s", "music": "curious", "cast": {"tycho": "a 26 year old Danish nobleman with reddish blond hair, a long drooping reddish moustache, a broad scar across his forehead, a black doublet with a white ruff collar and a gold chain, 1570s", "king": "a 40 year old Danish king with short dark brown hair, a full dark beard, a heavy brown fur-trimmed red robe and a gold crown, 1570s", "kepler": "a 30 year old thin German mathematician with dark hair, a short dark pointed beard, a narrow pale face and a plain black coat with a small white ruff, 1600s"}, "key_words": ["star", "Tycho", "island", "Hven", "castle", "instruments", "underground", "Kepler"], "shots": [{"name": "hook", "at": 0, "prompt": "close-up, a young nobleman staring up at the night sky in amazement, bright starlight on his face, he is {tycho}, 1570s, dark field", "check": "Is a man looking up in amazement?", "who": "tycho", "clip": true, "motion": "his eyes widen, slow camera push in"}, {"name": "sky", "at": "star#1", "prompt": "wide shot of a night sky over dark Danish fields with one blazing star far brighter than the rest", "check": "Is there one very bright star?", "move": "up"}, {"name": "point", "at": "it#1", "prompt": "medium shot, a young nobleman pointing up at the sky from a stone castle courtyard at night, he is {tycho}", "check": "Is a man pointing up?", "who": "tycho", "clip": true, "motion": "he raises his arm higher, slow camera push in"}, {"name": "newstar", "at": "brand-new#1", "prompt": "close-up of a single dazzling white star among many faint stars, deep blue night", "check": "Is there a bright star?", "move": "push"}, {"name": "eye", "at": "telescopes#1", "prompt": "close-up, a man squinting one bare eye along a long wooden sighting arm aimed at the sky, he is {tycho}, night", "check": "Is a man squinting along a wooden arm?", "who": "tycho", "clip": true, "motion": "he narrows his eye, slow camera push in"}, {"name": "build", "at": "so#1", "prompt": "medium shot, three workmen lifting a huge curved wooden measuring arc in a workshop, 1570s, lamp light", "check": "Are men lifting a big wooden arc?", "clip": true, "motion": "they raise the arc a little, slow camera push in"}, {"name": "scale", "at": "instruments#1", "prompt": "close-up of a large polished brass arc with fine notches along its edge, warm lamp light", "check": "Is there a brass arc?", "move": "left"}, {"name": "king", "at": "king#1", "prompt": "medium shot, a king in a fur-trimmed robe gesturing grandly toward a castle on a hill, he is {king}, 1570s, daylight", "check": "Is a king gesturing?", "who": "king", "clip": true, "motion": "he sweeps his hand toward the castle, slow camera push in"}, {"name": "castle", "at": "grand#1", "prompt": "wide shot of a grand stone castle with towers on a cliff above the sea, Denmark, 1570s, sunny day", "check": "Is there a stone castle on a cliff?", "move": "up"}, {"name": "no", "at": "tycho#3", "prompt": "close-up, a young nobleman shaking his head firmly, he is {tycho}, palace hall, window light", "check": "Is a man shaking his head?", "who": "tycho", "clip": true, "motion": "he shakes his head, slow camera push in", "hit": "no#1"}, {"name": "court", "at": "he#1", "prompt": "wide shot of a crowded noisy royal banquet hall with nobles feasting and laughing at long tables, 1570s, candle light", "check": "Is there a crowded banquet hall?", "clip": true, "motion": "the nobles raise their cups, slow camera pan right"}, {"name": "secret", "at": "he#2", "prompt": "close-up, a young nobleman writing a letter by candlelight and glancing over his shoulder, he is {tycho}, dark room", "check": "Is a man writing by candlelight?", "who": "tycho", "clip": true, "motion": "he glances over his shoulder, slow camera push in"}, {"name": "hears", "at": "the#3", "prompt": "close-up, a king frowning as he reads a letter, he is {king}, palace window light", "check": "Is a king reading a letter?", "who": "king", "clip": true, "motion": "he lowers the letter slowly, slow camera push in"}, {"name": "keep", "at": "wants#1", "prompt": "medium shot, a king stroking his beard as he thinks, standing by a palace window, he is {king}", "check": "Is a king stroking his beard?", "who": "king", "clip": true, "motion": "he strokes his beard, slow camera push in"}, {"name": "isle", "at": "so#2", "prompt": "wide shot of a small green island with low cliffs in a blue strait under a bright sky, sailing ships far off", "check": "Is there a small green island?", "move": "push", "xfade": true}, {"name": "arrive", "at": "island#1", "prompt": "medium shot, a young nobleman stepping off a rowing boat onto a pebble beach and grinning, he is {tycho}, sunny day", "check": "Is a man stepping off a boat?", "who": "tycho", "clip": true, "motion": "he steps onto the beach, slow camera push in"}, {"name": "door", "at": "you#1", "prompt": "close-up of a closed wooden door in a silent sunlit room, dust floating in the light", "check": "Is there a closed wooden door?", "move": "push", "xfade": true}, {"name": "homework", "at": "doing#1", "prompt": "medium shot, a boy writing at a wooden desk in a quiet sunlit room, 1570s clothes, calm light", "check": "Is a boy writing at a desk?", "clip": true, "motion": "his pen moves across the page, slow camera push in"}, {"name": "elbow", "at": "nobody#1", "prompt": "close-up of a boy's steady elbow and hand resting on a quiet wooden desk as he writes, soft light", "check": "Is a hand writing on a desk?", "clip": true, "motion": "the hand writes steadily, slow camera push in"}, {"name": "line", "at": "so#3", "prompt": "close-up of a pen drawing a long straight line along a wooden ruler on paper, soft light", "check": "Is a pen drawing along a ruler?", "move": "push"}, {"name": "calm", "at": "on#1", "prompt": "wide shot of a quiet island at night with calm dark water and a clear sky full of stars", "check": "Is there a starry sky over water?", "move": "up"}, {"name": "sight", "at": "his#2", "prompt": "close-up, an astronomer sighting a star along a giant brass instrument at night, he is {tycho}, rooftop", "check": "Is a man looking along a brass instrument?", "who": "tycho", "clip": true, "motion": "he leans closer to the sight, slow camera push in"}, {"name": "uraniborg", "at": "tycho#4", "prompt": "wide shot of a red brick castle with a green copper dome and towers on an island hill, neat gardens, sunny day", "check": "Is there a red brick castle with a dome?", "move": "push", "xfade": true}, {"name": "quadrant", "at": "giant#1", "prompt": "medium shot, two men aiming a giant brass wall quadrant inside a castle room, 1580s, window light", "check": "Are men using a giant brass instrument?", "clip": true, "motion": "they swing the pointer slowly, slow camera push in"}, {"name": "students", "at": "almost#1", "prompt": "medium shot, young students in white ruffs writing at long tables while a craftsman hammers brass behind them, castle workshop", "check": "Are students writing at tables?", "clip": true, "motion": "the craftsman taps his hammer, slow camera pan right"}, {"name": "farmers", "at": "the#5", "prompt": "medium shot, farmers ploughing a field with two horses on a windy island, 1580s, grey light", "check": "Are farmers ploughing a field?", "clip": true, "motion": "the horses pull the plough forward, slow camera pan left"}, {"name": "haul", "at": "help#1", "prompt": "medium shot, tired farmers pushing a cart of red bricks up a dirt hill toward a castle", "check": "Are men pushing a cart of bricks?", "clip": true, "motion": "they push the cart a step, slow camera push in"}, {"name": "trial", "at": "they#1", "prompt": "medium shot, angry farmers in rough clothes standing before judges in a wood-panelled courtroom, one shaking his fist, 1580s", "check": "Are angry farmers in a courtroom?", "clip": true, "motion": "one farmer shakes his fist, slow camera push in"}, {"name": "under", "at": "later#1", "prompt": "medium shot, an astronomer walking down stone steps into a round underground chamber full of instruments, he is {tycho}, lantern light", "check": "Is a man going down stone steps?", "who": "tycho", "clip": true, "motion": "he takes one step down, slow camera push in", "xfade": true}, {"name": "wobble", "at": "his#4", "prompt": "close-up of a tall wooden instrument shaking in the wind on a castle rooftop, grey sky", "check": "Is there a tall wooden instrument on a roof?", "clip": true, "motion": "the instrument shakes in the wind, slow camera push in"}, {"name": "naked", "at": "tycho#7", "prompt": "close-up, an older astronomer squinting through a plain metal sight with no glass, he is {tycho}, night", "check": "Is a man squinting through a metal sight?", "who": "tycho", "clip": true, "motion": "he closes one eye, slow camera push in"}, {"name": "notes", "at": "but#1", "prompt": "close-up of a thick stack of old leather notebooks tied with string on a desk, candle light", "check": "Is there a stack of old notebooks?", "move": "push"}, {"name": "kepler", "at": "johannes#1", "prompt": "medium shot, a young man reading old notebooks by candlelight with his eyes widening, he is {kepler}, 1600s study", "check": "Is a young man reading by candlelight?", "who": "kepler", "clip": true, "motion": "he leans in closer to the page, slow camera push in", "hit": "kepler#1"}, {"name": "planets", "at": "planets#1", "prompt": "wide shot of planets circling a bright sun in a starry sky, deep blue space", "check": "Are there planets around a sun?", "move": "pull"}]}
 
 SOURCES (data only)
 [1] Tycho Brahe | https://en.wikipedia.org/wiki/Tycho_Brahe
