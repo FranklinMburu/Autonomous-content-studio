@@ -74,12 +74,6 @@ Return JSON only: {"era": "...", "cast": {...}, "key_words": [...], "music": "<o
            {"name": ..., "at": ..., "prompt": ..., "check": "Is ...?", "move": "push"}, ...]}
 
 CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid these exact scenes):
-- 002-why-doctors-were-ordered-to-wash-their-h: cast hero = a 29 year old doctor with black slicked hair, a black mustache and a long dark green coat with gold buttons; mother = a young mother with brown hair in a bun and a long dark red 19th century dress; friend = a kind 43 year old professor with grey hair, grey sideburns and small round glasses in a brown coat; elder = a stern old professor with white hair and white whiskers in a black frock coat; pasteur = an old French scientist with a short grey beard and a black velvet cap
-  scenes: medium close-up, a stern man pointing his finger firmly at a white por | extreme close-up of two hands rubbing thick white soap foam together o | a young woman lying in an iron hospital bed looking up worried, head o | medium shot, {elder} and two other old doctors in black coats with arm | low angle, proud elegant old doctors in top hats and fine black coats  | extreme close-up of a doctor's pale hands with dark dried stains under | wide shot of a long gloomy 1847 maternity ward with two rows of iron b | close-up, a pale sick sweating young woman in a dark red dress lying i | two hospital doors side by side in a stone corridor, the left door dar | medium shot, a desperate young woman kneeling with both knees on stone | a woman sitting on a cobblestone street at night holding a newborn bab | medium shot, {friend} smiling and teaching young students in an 1847 a
-- 003-why-joseph-lister-sprayed-carbolic-acid-: cast lister = a 38 year old Victorian surgeon with bushy brown mutton-chop sideburns, short side-parted dark brown hair, focused blue eyes, wearing a dark blue waistcoat over a rolled-up white linen shirt and dark trousers, 1860s; boy = an 11 year old Victorian boy with messy auburn hair, a freckled pale face, wearing a patched grey woolen vest over a dirty cream linen shirt, 1860s; pasteur = a 43 year old French scientist with a short neatly trimmed dark brown beard and mustache, sharp brown eyes, wearing a dark maroon frock coat with a black silk cravat, 1860s; patient = a 45 year old sickly Victorian workman with thin balding greyish hair, stubble on his cheeks, wearing a worn beige hospital nightshirt, 1860s
-  scenes: medium close-up, {lister} pressing white cloth towels into a glass dis | close-up, {boy} resting his head on a flat white pillow, looking scare | low angle medium shot, {patient} sitting nervously on a tall wooden op | wide shot of a large grey Victorian stone hospital building with tall  | medium close-up, {patient} lying weakly in an iron hospital bed under  | extreme close-up of an open inflamed wound on a pale forearm leaking t | medium shot, {lister} standing in a dim surgical theatre gripping a lo | medium shot, {boy} standing just inside a Victorian hospital doorway,  | extreme close-up of two surgeon's hands holding a boy's broken lower l | medium shot, carefully adjusting the broken leg of {boy} on a wooden c | close-up of hands pouring clear carbolic liquid from a glass bottle on | medium shot, wrapping a shiny sheet of tin foil over a bound leg, {lis
-- 004-why-john-snow-removed-a-london-pump-hand: cast snow = a 41 year old English doctor with short dark wavy hair, a clean shaven narrow face, thin lips, deep-set grey eyes, a black frock coat, a grey waistcoat, a white high collar and a black necktie, 1850s; whitehead = a 28 year old English vicar with fair curly hair, a round friendly face, rosy cheeks, a black clerical coat and a white clerical collar, 1850s; simon = a 38 year old London health official with a neat full black beard, a high bald forehead, a brown overcoat with a fur collar and a grey top hat, 1850s; mother = a 30 year old poor London woman with red hair tied under a white cotton cap, a faded blue cotton dress and a brown wool shawl, 1850s; brewer = a burly 50 year old brewery worker with a thick ginger beard, a flat cloth cap, rolled-up shirt sleeves and a grey canvas apron, 1850s
-  scenes: medium shot, two men in black top hats pulling the long iron handle of | medium close-up, a doctor pointing firmly at an iron street water pump | wide shot of a crowded narrow 1850s London street with laundry hanging | close-up, a pale sweating man lying sick on a straw mattress in a dark | high angle, men carrying plain wooden coffins out of narrow brick hous | medium shot, three doctors in black coats pressing white handkerchiefs | wide shot, thick greenish yellow fog drifting over a rubbish-strewn mu | medium shot, a bearded official shaking his head while reading a lette | close-up, a doctor frowning as he reads a letter by a rainy window, he | medium shot, {snow} and {whitehead} knocking on the wooden door of a n | medium close-up, a crying woman in a doorway answering questions, she  | extreme close-up, a hand with a quill pen marking small black dots on 
 - 005-why-barry-marshall-swallowed-bacteria: cast marshall = a 33 year old Australian doctor, lean build, curly dark brown hair, a full dark brown beard, brown eyes, thin wire-rimmed glasses, a white short-sleeved shirt under a pale blue lab coat and khaki trousers, 1980s; warren = a 46 year old Australian pathologist with short receding grey hair, a clean-shaven square face, heavy black-framed glasses, a white lab coat over a brown checked shirt, 1980s; skeptic = a 48 year old British gastroenterologist, stocky build, balding with short grey hair at the sides, heavy dark eyebrows, clean shaven, a charcoal grey suit jacket, a burgundy patterned tie and white shirt, 1980s; nurse = a 35 year old nurse, sturdy build, dark brown hair in a ponytail, teal scrubs, 1980s; wife = a 32 year old woman with shoulder-length wavy blond hair, a sun-tanned face and a yellow sleeveless summer dress, 1980s
   scenes: close-up, a bearded doctor drinking cloudy brown liquid from a glass b | medium close-up, a doctor wincing and pressing a hand on his stomach,  | medium shot, a stressed businessman in a brown suit clutching his stom | close-up of a plate of bright red chilli peppers next to a bowl of spi | wide shot of a sunny 1980s Australian city hospital with palm trees in | medium shot, a pathologist looking into a microscope, he is {warren},  | medium shot, a balding doctor laughing and shaking his head at a meeti | extreme close-up of clear liquid bubbling in a glass beaker on a lab b | close-up, a hand dropping a stapled paper into a metal wastebasket, 19 | medium close-up, a doctor reading a letter and slumping back in his ch | medium shot, pink piglets sniffing around a clean straw pen, bright da | close-up, a doctor rolling up his sleeves with a determined face, he i
 - 005-why-goldberger-swallowed-scabs: cast goldberger = a 42 year old lean American physician with short wavy dark brown hair, a neat small moustache, deep-set brown eyes and a long serious face, wearing a charcoal three-piece suit, a white wing-collar shirt and a dark tie, 1910s; wife = a 38 year old woman with dark auburn hair pinned up high, a narrow freckled face, a high-collared cream lace blouse and a long navy blue skirt, 1910s; orphan = a 9 year old thin girl with long blond braids, big grey eyes and a faded pink cotton dress with a white collar, 1910s; prisoner = a 27 year old lean prisoner with a tanned face, short dark hair and stubble on his chin, wearing a blue and white striped prison shirt with rolled sleeves, 1910s; critic = a 60 year old stout doctor with a bald head, bushy white side whiskers, small gold pince-nez and a black frock coat with a watch chain, 1910s; chemist = a 36 year old laboratory chemist with thinning blond hair, round black spectacles and a clean-shaven round face, wearing a white lab coat over a dark tie, 1930s
@@ -98,167 +92,239 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: medium shot, sailors leaning on the rail of a wooden sailing ship and  | close-up, a sailor gripping a ship's wooden rail and gazing at land, h | close-up of a pale sick man lying on straw with dark swollen marks on  | wide shot of a medieval town street with closed shutters and a cart co | close-up, a weeping woman in a medieval hood kneeling beside a bed, ca | wide shot of medieval Venice with canals, gondolas and stone palaces,  | medium shot, three Venetian officials in long red robes and black caps | wide shot of a walled stone harbour city on the Adriatic coast with re | close-up of stone city walls and a tower above the sea with waves brea | medium shot, travellers in medieval cloaks stepping off a small rowing | wide shot of a small rocky island with a few stone huts in a blue sea, | close-up, a worried traveller pulling down his collar to look at his n
 - 005-why-the-radium-girls-licked-poison: cast painter = a 19 year old woman with dark brown bobbed hair, freckles, bright hazel eyes, a white cotton work smock over a navy blouse, 1910s; supervisor = a 45 year old factory supervisor with slicked grey hair, a thin moustache, a brown three-piece suit and a gold watch chain, 1910s; president = a 50 year old company president with a bald head, round gold spectacles, a heavy jaw and a dark grey double-breasted suit, 1920s; inventor = a 45 year old scientist with a high forehead, swept-back black hair, a short pointed black beard and a black suit with a white collar, 1920s
   scenes: close-up, a young woman touching a thin paintbrush tip to her lips, a  | extreme close-up of a thin brush dipping into a tiny pot of glowing gr | extreme close-up of a thin brush painting glowing green lines on a sma | wide shot of a big 1910s brick factory with tall windows and a smokest | wide shot, rows of young women in white smocks bent over long tables p | close-up of a row of small watch faces glowing green in a dark room | close-up, a young woman's open hand receiving a few copper coins at a  | extreme close-up of a camel hair paintbrush with a frayed splayed tip, | medium shot, a stern man in a suit pointing at a worker's paint table, | medium close-up, a smiling young woman putting a paintbrush to her lip | close-up, young women laughing and holding up fingernails painted glow | close-up, a laughing young woman with a faint green glow on her teeth 
+- 006-why-dutch-merchants-paid-fortunes-for-a-: cast merchant = a 44 year old Dutch merchant with a ruddy weathered face, a thick grey-streaked brown beard, heavy brows, a wide black felt hat, a long dark burgundy wool coat with silver buttons, a white linen collar and cuffs, 1630s; trader = a 31 year old Dutch tulip trader with a thin pale face, a small pointed black moustache, sharp dark eyes, shoulder-length light brown hair, a bright mustard yellow doublet, a white ruff collar and a brown leather belt, 1630s; grower = a 52 year old Dutch bulb grower with a sunburnt wrinkled face, a bald crown with grey hair at the sides, a short grey stubble beard, a rough brown linen smock, muddy wooden clogs and a grey wool cap, 1630s; wife = a 29 year old Dutch woman with fair skin, blond hair pinned under a white lace cap, a high forehead, a dark green bodice with a white apron over a long brown skirt, 1630s; tavernkeeper = a stout 48 year old Dutch tavern keeper with a red flushed face, a big belly, a clean-shaven chin, a white apron over a dark blue shirt, a brown cap, 1630s
+  scenes: medium close-up, a stern man in a wide black hat leaning over a wooden | extreme close-up of a hand with a quill pen signing a paper contract o | close-up, a merchant holding up his open empty palms toward a trader,  | medium shot, a trader shrugging with both arms spread wide and grinnin | close-up of a single tulip bulb half buried in dark soil in a wooden c | close-up of a hand with a quill pen writing rising numbers on a paper  | medium shot, {trader} slapping a paper contract down on a wooden table | close-up of a hand dropping small silver coins into a wooden bowl on a | wide shot of a crowded 1630s Dutch tavern with men waving paper contra | wide shot of a grand 1630s Dutch town exchange building with tall ston | medium shot, {merchant} holding up a paper contract beside a potted tu | close-up of a hand holding up a small paper concert ticket in a dark t
+- 007-why-tycho-brahe-built-uraniborg-on-hven: cast tycho = a 30 year old Danish astronomer with short reddish-brown hair, dark eyes, a small brass nose bridge piece, a dark green velvet doublet with gold embroidery and a white ruff collar, 1570s; king = a 42 year old Danish king with a thick blond beard, sharp blue eyes, a dark red velvet coat with white fur collar and a heavy gold chain, 1570s; farmer = a 35 year old Danish farmer with a sunburnt face, messy brown hair, stubble beard, a coarse brown wool tunic and grey trousers, 1570s; judge = a 55 year old judge with long grey hair, a bushy grey beard, a long black robe over a white ruff collar, 1570s; kepler = a 30 year old astronomer with short dark hair, a neat pointed black beard, small spectacles, a dark brown doublet with a flat white collar, 1600s
+  scenes: close-up, an astronomer squinting up at the starry sky while holding a | wide shot of a magnificent red-brick Renaissance castle with tall copp | medium shot, an astronomer turning a brass divider compass over a parc | extreme close-up of a quill pen dipping into a small dark glass inkwel | medium close-up, a bearded king in a red velvet coat leaning forward o | medium shot, an astronomer gazing out a tall arched stone window towar | medium shot, an elderly nobleman in a black robe pushing a heavy leath | medium close-up, a man lifting a brass armillary sphere up to his eye  | close-up, a man frowning and turning an hourglass upside down on a woo | medium shot, a bearded king in a velvet coat listening intently with h | wide shot of heavy wooden travel trunks and tied leather bags sitting  | medium shot, {king} unrolling a large parchment map of an island onto 
+- 008-why-china-s-paper-money-wasn-t-tang: cast merchant = a 45 year old Sichuan merchant with a round weathered face, a thin grey-streaked beard, a black silk cap, a long dark blue silk robe with wide sleeves and a brown leather belt, 11th century; official = a 50 year old Song government official with a long thin face, a neat black moustache, a tall black gauze hat with stiff wings, a long crimson robe with a gold-embroidered square badge, 11th century; clerk = a 30 year old thin clerk with a pale narrow face, small round spectacles, a grey cotton robe and a black cloth cap, 11th century; smith = a 35 year old burly iron smith with a soot-darkened face, a short black beard, a leather apron over a rough brown tunic, 11th century; wife = a 35 year old Sichuan woman with a round face, black hair in a neat bun, a small gold hairpin, a green cotton jacket and a long dark skirt, 11th century
+  scenes: medium shot, a merchant in a long dark blue silk robe and black cap ha | extreme close-up of two hands lifting a stack of thick heavy iron coin | close-up, a merchant holding up one folded paper note with both hands, | close-up, a merchant pressing a red seal stamp onto a paper note on a  | medium shot, a thin clerk holding up a paper note in one hand and poin | close-up of two hands placing a folded paper note on top of a heavy st | wide shot of a crowded 11th century Sichuan market street with wooden  | close-up of two hands holding up two different paper notes side by sid | medium shot, {merchant} standing and pointing at a large paper map on  | close-up, {merchant} leaning over a wooden table and pointing at a pap | wide shot of a large wooden gate of a merchant guild house with a hang | extreme close-up of a carved wooden printing block being pressed onto 
 
 PROBLEMS FOUND BY THE CHECKS
-- script: not supported by the sources, fix or remove: A physician thrust his palm into a beating pigeon’s chest.
-- script: not supported by the sources, fix or remove: Colleagues laughed, calling his claim “a wild fantasy.”
-- script: narration has 141 words; it must be 150-210
-- script: sentences are too long on average; keep most under 12 words
-- film.json is missing: write it
+- shot press: 3.6 s on screen (max 3.2; split it)
+- script: numbers not in the sources: ['hundred', 'ninety', 'thousand']; remove them or use the sources' numbers
+- script: every beat needs a "feel": the one emotion the viewer should have there
 
 DRAFT SCRIPT
-{"title": "Why Harvey Was Mocked", "beats": [{"feel": "curiosity", "lines": ["A physician thrust his palm into a beating pigeon’s chest."]}, {"feel": "sympathy", "lines": ["Colleagues laughed, calling his claim “a wild fantasy.”", "They clung to Galen’s ancient idea that the liver spewed fresh blood."]}, {"feel": "dread", "lines": ["Harvey publishes De Motu Cordis in Frankfurt.", "Patients stop coming; his practice “falls mightily.”"]}, {"feel": "recognition", "lines": ["You see, it’s like watching a bathtub drain while the faucet keeps running – the water never disappears."]}, {"feel": "awe", "lines": ["Harvey measured the heart’s capacity, counted beats, and proved the volume of blood moved each half‑hour was far too great for the liver to produce.", "His experiments on fish and serpents showed veins have one‑way valves, forcing blood to travel in a closed loop."]}, {"feel": "surprise", "lines": ["The real reason he was mocked? He dared to replace a millennia‑old liver theory with a simple circular pump."]}, {"feel": "twist", "lines": ["Ironically, the same “circulation” he proved later powered the very Royalist court that would exile him."]}]}
+{"title": "Why Harvey Was Mocked", "beats": [{"lines": ["A doctor ties a tight cord around a man's bare arm."]}, {"lines": ["He is William Harvey, a London physician.", "Doctors trust the ancient writer Galen.", "Galen taught that the liver keeps making fresh blood.", "Harvey does the math, keeping every number low on purpose.", "Each heartbeat pushes out about a sixth of an ounce of blood.", "The heart beats a thousand times every half hour.", "In one day, the liver would need to make four hundred ninety-eight pounds of blood.", "That is more than a whole body weighs."]}, {"lines": ["You see, it's like a fountain in a town square. It doesn't make new water. The same water goes round and round."]}, {"lines": ["So Harvey ties off the veins of snakes and fish. Their hearts go empty.", "He ties the arteries. The hearts swell up.", "On the man's arm, Harvey finds little bumps in the veins. They are valves.", "Blood pushed toward the heart moves easily. Pushed the other way, it will not move.", "Blood travels in a circle."]}, {"lines": ["In 1628, Harvey publishes his book in Frankfurt.", "Other physicians attack it.", "So many patients leave that his practice falls mightily.", "Slowly, his idea wins anyway.", "Harvey lives to see his circle accepted, yet dies unsure of what he achieved."]}]}
 CLAIMS IN THE DRAFT
-- {'claim': 'Harvey’s De Motu Cordis described blood moving in a circuit and faced strong opposition from physicians who preferred Galen’s liver theory.', 'url': 'https://en.wikipedia.org/wiki/William_Harvey'}
-- {'claim': 'Harvey’s publication caused his practice to suffer and he was mocked by other doctors.', 'url': 'https://en.wikipedia.org/wiki/William_Harvey'}
-- {'claim': 'Harvey used experiments on fish and serpents, and measured heart capacity and beats to show the amount of blood moved could not be produced by the liver.', 'url': 'https://en.wikipedia.org/wiki/William_Harvey'}
-- {'claim': 'Harvey’s discovery of one‑way venous valves explained why blood flows toward the heart.', 'url': 'https://en.wikipedia.org/wiki/William_Harvey'}
+- {'claim': 'A physician tied a tight ligature onto the upper arm of a person; below it the arm was cool and pale.', 'url': 'https://en.wikipedia.org/wiki/William_Harvey'}
+- {'claim': 'Harvey was an English physician who established himself in London.', 'url': 'https://en.wikipedia.org/wiki/William_Harvey'}
+- {'claim': "Galen's accepted view held the liver as the origin of venous blood; scientists studied the writings of Galen and it was almost an impiety to question them.", 'url': 'https://en.wikipedia.org/wiki/William_Harvey'}
+- {'claim': "Harvey's estimates were purposefully low: about 1/6 fluid ounce per beat, 1,000 beats every half hour, so the liver would have to produce 498 pounds of blood a day, more than the weight of the whole body.", 'url': 'https://en.wikipedia.org/wiki/William_Harvey'}
+- {'claim': 'Tying the veins of serpents and fish emptied the heart; tying the arteries made it swell.', 'url': 'https://en.wikipedia.org/wiki/William_Harvey'}
+- {'claim': 'Harvey noticed little bumps in the veins, the valves; blood pushed down the arm would not move but moved easily up toward the heart, so blood travels in a circle.', 'url': 'https://en.wikipedia.org/wiki/William_Harvey'}
+- {'claim': "In 1628 he published De Motu Cordis in Frankfurt; after negative comments by other physicians he 'fell mightily in his practice'.", 'url': 'https://en.wikipedia.org/wiki/William_Harvey'}
+- {'claim': 'His ideas met vociferous opposition but eventually triumphed; he lived to see his theory gain wide currency and died uncertain of his achievement.', 'url': 'https://doi.org/10.5860/choice.50-6219'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 0.14s A#1
-0.24s physician#1
-0.84s thrust#1
-1.12s his#1
-1.29s palm#1
-1.72s into#1
-1.92s a#2
-2.00s beating#1
-2.37s pigeon’s#1
-2.79s chest#1
-3.67s Colleagues#1
-4.15s laughed#1
-4.67s calling#1
-4.95s his#2
-5.12s claim#1
-5.42s “a#1
-5.57s wild#1
-5.95s fantasy.”#1
-6.75s They#1
-6.95s clung#1
-7.23s to#1
-7.33s Galen’s#1
-7.75s ancient#1
-8.05s idea#1
-8.75s that#1
-8.87s the#1
-9.00s liver#1
-9.30s spewed#1
-9.73s fresh#1
-10.00s blood#1
-10.79s Harvey#1
-11.11s publishes#1
-11.79s De#1
-11.89s Motu#1
-12.16s Cordis#1
-12.71s in#1
-12.86s Frankfurt#1
-13.69s Patients#1
-14.09s stop#1
-14.32s coming;#1
-14.97s his#3
-15.14s practice#1
-15.59s “falls#1
-15.92s mightily.”#1
-16.93s You#1
-17.11s see#1
-17.51s it’s#1
-17.63s like#1
-17.83s watching#1
-18.16s a#3
-18.23s bathtub#1
-18.71s drain#1
-19.33s while#1
-19.48s the#2
-19.61s faucet#1
-20.06s keeps#1
-20.33s running#1
-20.52s –#1
-20.58s the#3
-20.68s water#1
-21.03s never#1
-21.31s disappears#1
-22.45s Harvey#2
-22.78s measured#1
-23.08s the#4
-23.18s heart’s#1
-23.50s capacity#1
-24.38s counted#1
-24.80s beats#1
-25.50s and#1
-25.65s proved#1
-26.00s the#5
-26.10s volume#1
-26.55s of#1
-26.70s blood#2
-26.98s moved#1
-27.43s each#1
-27.68s half‑hour#1
-27.93s was#1
-28.25s far#1
-28.45s too#1
-28.73s great#1
-28.90s for#1
-29.23s the#6
-29.45s liver#2
-29.73s to#2
-29.83s produce#1
-30.55s His#4
-30.72s experiments#1
-31.30s on#1
-31.52s fish#1
-31.85s and#2
-32.00s serpents#1
-32.75s showed#1
-33.00s veins#1
-33.40s have#1
-33.62s one‑way#1
-34.07s valves#1
-34.87s forcing#1
-35.30s blood#3
-35.57s to#3
-35.67s travel#1
-36.10s in#2
-36.17s a#4
-36.25s closed#1
-36.65s loop#1
-37.39s The#7
-37.54s real#1
-37.86s reason#1
-38.19s he#1
-38.29s was#2
-38.44s mocked#1
-39.29s He#2
-39.41s dared#1
-39.74s to#4
-39.81s replace#1
-40.24s a#5
-40.31s millennia‑old#1
-41.16s liver#3
-41.41s theory#1
-42.01s with#1
-42.14s a#6
-42.29s simple#1
-42.69s circular#1
-43.11s pump#1
-43.88s Ironically#1
-44.68s the#8
-44.83s same#1
-45.18s “circulation”#1
-46.18s he#3
-46.30s proved#2
-46.66s later#1
-47.13s powered#1
-47.45s the#9
-47.58s very#1
-47.93s Royalist#1
-48.48s court#1
-48.88s that#2
-48.98s would#1
-49.13s exile#1
-49.60s him#1
+0.24s doctor#1
+0.72s ties#1
+0.99s a#2
+1.07s tight#1
+1.37s cord#1
+1.79s around#1
+2.02s a#3
+2.10s man's#1
+2.42s bare#1
+2.65s arm#1
+3.34s He#1
+3.49s is#1
+3.64s William#1
+3.96s Harvey#1
+4.57s a#4
+4.67s London#1
+5.01s physician#1
+5.82s Doctors#1
+6.29s trust#1
+6.59s the#1
+6.72s ancient#1
+6.99s writer#1
+7.24s Galen#1
+7.95s Galen#2
+8.35s taught#1
+8.70s that#1
+8.81s the#2
+8.95s liver#1
+9.22s keeps#1
+9.49s making#1
+9.82s fresh#1
+10.10s blood#1
+10.70s Harvey#2
+11.03s does#1
+11.23s the#3
+11.33s math#1
+11.88s keeping#1
+12.23s every#1
+12.53s number#1
+12.83s low#1
+13.10s on#1
+13.23s purpose#1
+13.99s Each#1
+14.24s heartbeat#1
+14.67s pushes#1
+14.94s out#1
+15.09s about#1
+15.27s a#5
+15.37s sixth#1
+15.67s of#1
+15.73s an#1
+15.84s ounce#1
+16.04s of#2
+16.14s blood#2
+16.73s The#4
+16.83s heart#1
+17.13s beats#1
+17.38s a#6
+17.51s thousand#1
+17.91s times#1
+18.33s every#2
+18.63s half#1
+18.83s hour#1
+19.39s In#1
+19.54s one#1
+19.74s day#1
+20.16s the#5
+20.27s liver#2
+20.52s would#1
+20.64s need#1
+20.86s to#1
+20.94s make#1
+21.24s four#1
+21.46s hundred#1
+21.82s ninety-eight#1
+22.27s pounds#1
+22.57s of#3
+22.66s blood#3
+23.25s That#2
+23.45s is#2
+23.60s more#1
+23.75s than#1
+23.85s a#7
+24.00s whole#1
+24.22s body#1
+24.52s weighs#1
+25.35s You#1
+25.50s see#1
+25.89s it's#1
+26.01s like#1
+26.16s a#8
+26.29s fountain#1
+26.74s in#2
+26.81s a#9
+26.89s town#1
+27.21s square#1
+27.84s It#1
+27.91s doesn't#1
+28.16s make#2
+28.39s new#1
+28.54s water#1
+29.24s The#6
+29.39s same#1
+29.69s water#2
+29.99s goes#1
+30.26s round#1
+30.66s and#1
+30.79s round#2
+31.68s So#1
+31.84s Harvey#3
+32.16s ties#2
+32.46s off#1
+32.66s the#7
+32.76s veins#1
+33.06s of#4
+33.19s snakes#1
+33.53s and#2
+33.69s fish#1
+34.34s Their#1
+34.51s hearts#1
+34.86s go#1
+35.03s empty#1
+35.72s He#2
+35.84s ties#3
+36.14s the#8
+36.27s arteries#1
+37.01s The#9
+37.11s hearts#2
+37.41s swell#1
+37.63s up#1
+38.17s On#2
+38.24s the#10
+38.37s man's#2
+38.67s arm#2
+39.10s Harvey#4
+39.43s finds#1
+39.75s little#1
+39.98s bumps#1
+40.28s in#3
+40.34s the#11
+40.45s veins#2
+41.28s They#1
+41.40s are#1
+41.53s valves#1
+42.27s Blood#4
+42.55s pushed#1
+42.82s toward#1
+43.07s the#12
+43.17s heart#2
+43.42s moves#1
+43.77s easily#1
+44.62s Pushed#2
+44.87s the#13
+44.97s other#1
+45.20s way#1
+45.65s it#2
+45.72s will#1
+45.85s not#1
+46.07s move#1
+46.72s Blood#5
+46.99s travels#1
+47.42s in#4
+47.49s a#10
+47.57s circle#1
+48.45s In#5
+48.63s 1628#1
+49.85s Harvey#5
+50.18s publishes#1
+50.63s his#1
+50.80s book#1
+51.03s in#6
+51.18s Frankfurt#1
+52.01s Other#2
+52.24s physicians#1
+52.79s attack#1
+53.16s it#3
+53.54s So#2
+53.66s many#1
+53.89s patients#1
+54.41s leave#1
+54.84s that#3
+54.94s his#2
+55.11s practice#1
+55.54s falls#1
+55.84s mightily#1
+56.63s Slowly#1
+57.26s his#3
+57.41s idea#1
+57.78s wins#1
+58.03s anyway#1
+58.72s Harvey#6
+59.04s lives#1
+59.39s to#2
+59.49s see#2
+59.62s his#4
+59.77s circle#2
+60.09s accepted#1
+60.97s yet#1
+61.22s dies#1
+61.64s unsure#1
+62.09s of#5
+62.19s what#1
+62.31s he#3
+62.41s achieved#1
 
 DRAFT film.json
-(none yet)
+{"era": "1620s", "music": "mysterious", "cast": {"harvey": "a 50 year old short English physician with a round face, small very black eyes and curling raven-black hair to his collar, a small black pointed beard, a black doublet with a wide white falling-band collar, 1620s", "old": "a 78 year old frail English physician with thin white curling hair, a short white beard, a round wrinkled face, a black velvet skullcap and a black gown with a plain white collar, 1650s"}, "key_words": ["cord", "arm", "liver", "blood", "valves", "circle", "fountain", "Galen"], "shots": [{"name": "hook", "at": 0, "prompt": "close-up, a doctor tying a tight cord around a man's bare upper arm, he is {harvey}, dark wood-panelled room, 1620s, warm candle light", "check": "Is a man tying a cord around an arm?", "who": "harvey", "clip": true, "motion": "he pulls the cord tight, slow camera push in"}, {"name": "arm", "at": "man's#1", "prompt": "extreme close-up of a bare muscular arm with a tight brown cord tied above the elbow, the skin below pale, candle light", "check": "Is there a cord around an arm?", "move": "push"}, {"name": "london", "at": "he#1", "prompt": "medium shot, a short round-faced doctor walking along a muddy 1620s London street carrying a leather bag, he is {harvey}, timber houses, grey morning", "check": "Is a man carrying a leather bag?", "who": "harvey", "clip": true, "motion": "he walks a step forward, slow camera pan left", "xfade": true}, {"name": "doctors", "at": "doctors#1", "prompt": "medium shot, four old physicians in long black gowns and white ruffs nodding over a huge old book in a library, 1620s, candle light", "check": "Are old men reading a big book?", "clip": true, "motion": "one turns a heavy page, slow camera push in"}, {"name": "galen", "at": "galen#2", "prompt": "close-up of a white marble bust of an ancient bearded man on a shelf in a dim library, dust in the air", "check": "Is there a marble bust?", "move": "push"}, {"name": "liver", "at": "liver#1", "prompt": "close-up of a dark red animal liver lying on a wooden anatomy table beside old iron tools, dim lamp light", "check": "Is there a dark red liver?", "move": "left"}, {"name": "math", "at": "harvey#2", "prompt": "close-up, a doctor scratching quickly with a quill on paper by candlelight, he is {harvey}, cluttered desk, night", "check": "Is a man writing with a quill?", "who": "harvey", "clip": true, "motion": "the quill moves across the paper, slow camera push in"}, {"name": "count", "at": "number#1", "prompt": "medium shot, a doctor counting on his fingers and frowning at his desk, he is {harvey}, study full of books, candle light", "check": "Is a man counting on his fingers?", "who": "harvey", "clip": true, "motion": "he taps one finger after another, slow camera push in"}, {"name": "pulse", "at": "each#1", "prompt": "close-up of a doctor's two fingers pressing on a man's bare wrist to feel the pulse, white linen sleeve, warm light", "check": "Are fingers pressing on a wrist?", "clip": true, "motion": "the fingers press gently, slow camera push in"}, {"name": "spoon", "at": "ounce#1", "prompt": "extreme close-up of a small pewter spoon holding a few drops of dark red liquid, wooden table, candle light", "check": "Is there a small spoon?", "move": "push"}, {"name": "listen", "at": "the#4", "prompt": "close-up, a doctor pressing his ear against a man's bare chest to listen, he is {harvey}, dim room, warm light", "check": "Is a man pressing his ear to a chest?", "who": "harvey", "clip": true, "motion": "he closes his eyes to listen, slow camera push in"}, {"name": "hourglass", "at": "half#1", "prompt": "close-up of a brass hourglass with sand running down on a wooden desk, candle light", "check": "Is there an hourglass?", "move": "push"}, {"name": "pour", "at": "in#1", "prompt": "close-up of dark red liquid pouring endlessly from a clay jug into a wooden tub until it overflows, stone floor, lamp light", "check": "Is liquid pouring from a jug?", "clip": true, "motion": "the liquid keeps pouring and spills over, slow camera push in"}, {"name": "barrels", "at": "four#1", "prompt": "wide shot of a long row of huge wooden barrels in a dark stone cellar, a single lantern, 1620s", "check": "Are there big wooden barrels?", "move": "left"}, {"name": "scale", "at": "that#2", "prompt": "medium shot, a big bearded man standing on a large wooden market scale while a merchant moves the weights, busy market, daylight", "check": "Is a man standing on a scale?", "clip": true, "motion": "the merchant slides a weight, slow camera push in"}, {"name": "fountain", "at": "you#1", "prompt": "wide shot of a round stone fountain spraying water in a sunny old town square, pigeons on the cobblestones", "check": "Is there a stone fountain?", "move": "up", "xfade": true}, {"name": "spout", "at": "it#1", "prompt": "close-up of clear water pouring from a stone spout into a fountain basin, bright sunlight, sparkles", "check": "Is water pouring from a spout?", "move": "push"}, {"name": "round", "at": "same#1", "prompt": "close-up of a child's hand trailing through water swirling round a stone fountain basin, sunlight", "check": "Is a hand touching water?", "clip": true, "motion": "the water swirls around the hand, slow camera push in"}, {"name": "snake", "at": "so#1", "prompt": "medium shot, a doctor bending over a long brown snake on a wooden table holding a thread, he is {harvey}, workshop, lamp light", "check": "Is a man bending over a snake?", "who": "harvey", "clip": true, "motion": "he lowers the thread toward the snake, slow camera push in", "xfade": true}, {"name": "fish", "at": "fish#1", "prompt": "close-up of a large silver fish lying on a wooden board beside a coil of thread, lamp light", "check": "Is there a silver fish?", "move": "push"}, {"name": "empty", "at": "empty#1", "prompt": "close-up of a small pale limp animal heart lying on a white cloth on a wooden table, dim light", "check": "Is there a small heart on a cloth?", "move": "pull"}, {"name": "swell", "at": "arteries#1", "prompt": "medium shot, a doctor peering through a magnifying glass at a table with his eyebrows raised in surprise, he is {harvey}, lamp light", "check": "Is a man holding a magnifying glass?", "who": "harvey", "clip": true, "motion": "his eyebrows lift, slow camera push in", "hit": "swell#1"}, {"name": "veins", "at": "on#2", "prompt": "close-up of a man's bare forearm with a cord tied above the elbow and swollen blue veins, warm candle light", "check": "Is there an arm with swollen veins?", "move": "push"}, {"name": "bumps", "at": "little#1", "prompt": "extreme close-up of a fingertip pressing on small bumps along a swollen vein on a forearm, warm light", "check": "Is a finger pressing on an arm?", "clip": true, "motion": "the fingertip presses each bump in turn, slow camera pan up"}, {"name": "up", "at": "blood#4", "prompt": "close-up of a thumb sliding easily up a vein toward the elbow on a bare forearm, warm candle light", "check": "Is a thumb pressing on an arm?", "clip": true, "motion": "the thumb slides up the arm, slow camera pan up"}, {"name": "stuck", "at": "pushed#2", "prompt": "close-up, a doctor frowning as he presses his thumb down on a vein on a man's arm, he is {harvey}, candle light", "check": "Is a man frowning?", "who": "harvey", "clip": true, "motion": "he presses harder and frowns, slow camera push in"}, {"name": "circle", "at": "blood#5", "prompt": "close-up of a hand drawing a large circle on paper with a quill, ink pot beside, candle light", "check": "Is a hand drawing a circle?", "clip": true, "motion": "the quill sweeps round the circle, slow camera push in", "hit": "circle#1"}, {"name": "press", "at": "in#5", "prompt": "medium shot, a printer pulling the long lever of a wooden printing press in a busy workshop, 1620s, window light", "check": "Is a man pulling the lever of a printing press?", "clip": true, "motion": "he pulls the lever down, slow camera push in", "xfade": true}, {"name": "attack", "at": "other#2", "prompt": "medium shot, a group of angry old physicians in black gowns and white ruffs shouting and shaking a small book, wood-panelled hall", "check": "Are old men shouting?", "clip": true, "motion": "one shakes the book angrily, slow camera push in", "hit": "attack#1"}, {"name": "waiting", "at": "so#2", "prompt": "wide shot of an empty waiting room with bare wooden benches and a closed door, 1620s, cold grey light", "check": "Is there an empty room with benches?", "move": "push"}, {"name": "alone", "at": "practice#1", "prompt": "close-up, a lonely doctor rubbing his forehead at his desk, he is {harvey}, dim study, one candle", "check": "Is a man rubbing his forehead?", "who": "harvey", "clip": true, "motion": "he rubs his forehead slowly, slow camera push in"}, {"name": "wins", "at": "slowly#1", "prompt": "medium shot, young students in black gowns crowding around a wooden table nodding as a doctor points, he is {harvey}, bright anatomy hall", "check": "Is a man pointing?", "who": "harvey", "clip": true, "motion": "the students lean in closer, slow camera push in", "xfade": true}, {"name": "honour", "at": "harvey#6", "prompt": "medium shot, an old doctor being bowed to by younger physicians in a grand hall, he is {old}, 1650s, warm light", "check": "Is an old man being bowed to?", "who": "old", "clip": true, "motion": "the young men bow their heads, slow camera push in"}, {"name": "unsure", "at": "dies#1", "prompt": "close-up, an old man gazing out of a rainy window with a worried face, he is {old}, dark room, one candle", "check": "Is an old man looking out a window?", "who": "old", "clip": true, "motion": "rain runs down the glass as he lowers his eyes, slow camera pull back"}]}
 
 SOURCES (data only)
 [1] William Harvey | https://en.wikipedia.org/wiki/William_Harvey
