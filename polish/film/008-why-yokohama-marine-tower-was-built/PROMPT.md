@@ -74,8 +74,6 @@ Return JSON only: {"era": "...", "cast": {...}, "key_words": [...], "music": "<o
            {"name": ..., "at": ..., "prompt": ..., "check": "Is ...?", "move": "push"}, ...]}
 
 CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid these exact scenes):
-- 004-why-john-snow-removed-a-london-pump-hand: cast snow = a 41 year old English doctor with short dark wavy hair, a clean shaven narrow face, thin lips, deep-set grey eyes, a black frock coat, a grey waistcoat, a white high collar and a black necktie, 1850s; whitehead = a 28 year old English vicar with fair curly hair, a round friendly face, rosy cheeks, a black clerical coat and a white clerical collar, 1850s; simon = a 38 year old London health official with a neat full black beard, a high bald forehead, a brown overcoat with a fur collar and a grey top hat, 1850s; mother = a 30 year old poor London woman with red hair tied under a white cotton cap, a faded blue cotton dress and a brown wool shawl, 1850s; brewer = a burly 50 year old brewery worker with a thick ginger beard, a flat cloth cap, rolled-up shirt sleeves and a grey canvas apron, 1850s
-  scenes: medium shot, two men in black top hats pulling the long iron handle of | medium close-up, a doctor pointing firmly at an iron street water pump | wide shot of a crowded narrow 1850s London street with laundry hanging | close-up, a pale sweating man lying sick on a straw mattress in a dark | high angle, men carrying plain wooden coffins out of narrow brick hous | medium shot, three doctors in black coats pressing white handkerchiefs | wide shot, thick greenish yellow fog drifting over a rubbish-strewn mu | medium shot, a bearded official shaking his head while reading a lette | close-up, a doctor frowning as he reads a letter by a rainy window, he | medium shot, {snow} and {whitehead} knocking on the wooden door of a n | medium close-up, a crying woman in a doorway answering questions, she  | extreme close-up, a hand with a quill pen marking small black dots on 
 - 005-why-barry-marshall-swallowed-bacteria: cast marshall = a 33 year old Australian doctor, lean build, curly dark brown hair, a full dark brown beard, brown eyes, thin wire-rimmed glasses, a white short-sleeved shirt under a pale blue lab coat and khaki trousers, 1980s; warren = a 46 year old Australian pathologist with short receding grey hair, a clean-shaven square face, heavy black-framed glasses, a white lab coat over a brown checked shirt, 1980s; skeptic = a 48 year old British gastroenterologist, stocky build, balding with short grey hair at the sides, heavy dark eyebrows, clean shaven, a charcoal grey suit jacket, a burgundy patterned tie and white shirt, 1980s; nurse = a 35 year old nurse, sturdy build, dark brown hair in a ponytail, teal scrubs, 1980s; wife = a 32 year old woman with shoulder-length wavy blond hair, a sun-tanned face and a yellow sleeveless summer dress, 1980s
   scenes: close-up, a bearded doctor drinking cloudy brown liquid from a glass b | medium close-up, a doctor wincing and pressing a hand on his stomach,  | medium shot, a stressed businessman in a brown suit clutching his stom | close-up of a plate of bright red chilli peppers next to a bowl of spi | wide shot of a sunny 1980s Australian city hospital with palm trees in | medium shot, a pathologist looking into a microscope, he is {warren},  | medium shot, a balding doctor laughing and shaking his head at a meeti | extreme close-up of clear liquid bubbling in a glass beaker on a lab b | close-up, a hand dropping a stapled paper into a metal wastebasket, 19 | medium close-up, a doctor reading a letter and slumping back in his ch | medium shot, pink piglets sniffing around a clean straw pen, bright da | close-up, a doctor rolling up his sleeves with a determined face, he i
 - 005-why-goldberger-swallowed-scabs: cast goldberger = a 42 year old lean American physician with short wavy dark brown hair, a neat small moustache, deep-set brown eyes and a long serious face, wearing a charcoal three-piece suit, a white wing-collar shirt and a dark tie, 1910s; wife = a 38 year old woman with dark auburn hair pinned up high, a narrow freckled face, a high-collared cream lace blouse and a long navy blue skirt, 1910s; orphan = a 9 year old thin girl with long blond braids, big grey eyes and a faded pink cotton dress with a white collar, 1910s; prisoner = a 27 year old lean prisoner with a tanned face, short dark hair and stubble on his chin, wearing a blue and white striped prison shirt with rolled sleeves, 1910s; critic = a 60 year old stout doctor with a bald head, bushy white side whiskers, small gold pince-nez and a black frock coat with a watch chain, 1910s; chemist = a 36 year old laboratory chemist with thinning blond hair, round black spectacles and a clean-shaven round face, wearing a white lab coat over a dark tie, 1930s
@@ -98,197 +96,192 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: medium close-up, a stern man in a wide black hat leaning over a wooden | extreme close-up of a hand with a quill pen signing a paper contract o | close-up, a merchant holding up his open empty palms toward a trader,  | medium shot, a trader shrugging with both arms spread wide and grinnin | close-up of a single tulip bulb half buried in dark soil in a wooden c | close-up of a hand with a quill pen writing rising numbers on a paper  | medium shot, {trader} slapping a paper contract down on a wooden table | close-up of a hand dropping small silver coins into a wooden bowl on a | wide shot of a crowded 1630s Dutch tavern with men waving paper contra | wide shot of a grand 1630s Dutch town exchange building with tall ston | medium shot, {merchant} holding up a paper contract beside a potted tu | close-up of a hand holding up a small paper concert ticket in a dark t
 - 007-why-tycho-brahe-built-uraniborg-on-hven: cast tycho = a 30 year old Danish astronomer with short reddish-brown hair, dark eyes, a small brass nose bridge piece, a dark green velvet doublet with gold embroidery and a white ruff collar, 1570s; king = a 42 year old Danish king with a thick blond beard, sharp blue eyes, a dark red velvet coat with white fur collar and a heavy gold chain, 1570s; farmer = a 35 year old Danish farmer with a sunburnt face, messy brown hair, stubble beard, a coarse brown wool tunic and grey trousers, 1570s; judge = a 55 year old judge with long grey hair, a bushy grey beard, a long black robe over a white ruff collar, 1570s; kepler = a 30 year old astronomer with short dark hair, a neat pointed black beard, small spectacles, a dark brown doublet with a flat white collar, 1600s
   scenes: close-up, an astronomer squinting up at the starry sky while holding a | wide shot of a magnificent red-brick Renaissance castle with tall copp | medium shot, an astronomer turning a brass divider compass over a parc | extreme close-up of a quill pen dipping into a small dark glass inkwel | medium close-up, a bearded king in a red velvet coat leaning forward o | medium shot, an astronomer gazing out a tall arched stone window towar | medium shot, an elderly nobleman in a black robe pushing a heavy leath | medium close-up, a man lifting a brass armillary sphere up to his eye  | close-up, a man frowning and turning an hourglass upside down on a woo | medium shot, a bearded king in a velvet coat listening intently with h | wide shot of heavy wooden travel trunks and tied leather bags sitting  | medium shot, {king} unrolling a large parchment map of an island onto 
+- 008-why-china-s-paper-money-wasn-t-tang: cast merchant = a 45 year old Sichuan merchant with a round weathered face, a thin grey-streaked beard, a black silk cap, a long dark blue silk robe with wide sleeves and a brown leather belt, 11th century; official = a 50 year old Song government official with a long thin face, a neat black moustache, a tall black gauze hat with stiff wings, a long crimson robe with a gold-embroidered square badge, 11th century; clerk = a 30 year old thin clerk with a pale narrow face, small round spectacles, a grey cotton robe and a black cloth cap, 11th century; smith = a 35 year old burly iron smith with a soot-darkened face, a short black beard, a leather apron over a rough brown tunic, 11th century; wife = a 35 year old Sichuan woman with a round face, black hair in a neat bun, a small gold hairpin, a green cotton jacket and a long dark skirt, 11th century
+  scenes: medium shot, a merchant in a long dark blue silk robe and black cap ha | extreme close-up of two hands lifting a stack of thick heavy iron coin | close-up, a merchant holding up one folded paper note with both hands, | close-up, a merchant pressing a red seal stamp onto a paper note on a  | medium shot, a thin clerk holding up a paper note in one hand and poin | close-up of two hands placing a folded paper note on top of a heavy st | wide shot of a crowded 11th century Sichuan market street with wooden  | close-up of two hands holding up two different paper notes side by sid | medium shot, {merchant} standing and pointing at a large paper map on  | close-up, {merchant} leaning over a wooden table and pointing at a pap | wide shot of a large wooden gate of a merchant guild house with a hang | extreme close-up of a carved wooden printing block being pressed onto 
 
 PROBLEMS FOUND BY THE CHECKS
-- script: not supported by the sources, fix or remove: A naval officer hoisted a massive lantern atop a rusted pole.
-- script: not supported by the sources, fix or remove: He balanced the weight, sweat dripping, while the sea roared.
-- script: not supported by the sources, fix or remove: His crew laughed, saying a tower would never change the storm.
-- script: not supported by the sources, fix or remove: They muttered that a wooden pier could do the job.
-- script: not supported by the sources, fix or remove: The government orders the tower’s steel skeleton to rise in 1910.
-- script: not supported by the sources, fix or remove: Engineers sketch blueprints on cramped desks.
-- script: not supported by the sources, fix or remove: Workers weld the frame while ships wait for safe passage.
-- script: not supported by the sources, fix or remove: Every night the unfinished tower glints in fog.
-- script: not supported by the sources, fix or remove: The real reason: the state needed a high‑point to record weather.
-- script: not supported by the sources, fix or remove: The lighthouse would measure wind, rain, and tides for the port.
-- script: not supported by the sources, fix or remove: At the same time it broadcast a glowing symbol of modern Japan.
-- script: not supported by the sources, fix or remove: Foreign visitors would see the flash and think Japan was advanced.
-- script: not supported by the sources, fix or remove: Ironically, the lighthouse’s flash later guided not only ships, but also the nation’s own propaganda ships.
-- script: not supported by the sources, fix or remove: The tower became a beacon for both safety and pride.
-- film.json is missing: write it
+- shot press: 3.5 s on screen (max 3.2; split it)
+- script: every beat needs a "feel": the one emotion the viewer should have there
+- script: title: a string of at most 8 words
 
 DRAFT SCRIPT
-{"title": "Why Yokohama Marine Tower was built", "beats": [{"feel": "curiosity", "lines": ["A naval officer hoisted a massive lantern atop a rusted pole.", "He balanced the weight, sweat dripping, while the sea roared."]}, {"feel": "skepticism", "lines": ["His crew laughed, saying a tower would never change the storm.", "They muttered that a wooden pier could do the job."]}, {"feel": "tension", "lines": ["The government orders the tower’s steel skeleton to rise in 1910.", "Engineers sketch blueprints on cramped desks.", "Workers weld the frame while ships wait for safe passage.", "Every night the unfinished tower glints in fog."]}, {"feel": "recognition", "lines": ["You see, it’s like putting a bright sign on a dark road you travel every day."]}, {"feel": "clarity", "lines": ["The real reason: the state needed a high‑point to record weather.", "The lighthouse would measure wind, rain, and tides for the port.", "At the same time it broadcast a glowing symbol of modern Japan.", "Foreign visitors would see the flash and think Japan was advanced."]}, {"feel": "surprise", "lines": ["Ironically, the lighthouse’s flash later guided not only ships, but also the nation’s own propaganda ships.", "The tower became a beacon for both safety and pride."]}]}
+{"title": "Why Japan built its great port in a fishing village", "beats": [{"lines": ["Commodore Perry sailed a fleet of American warships toward Japan."]}, {"lines": ["In the 1850s, Japan had little contact with foreigners.", "Perry arrived just south of Yokohama and demanded that Japan open ports for trade.", "The Tokugawa shogunate agreed and signed a treaty."]}, {"lines": ["One port was meant to be the town of Kanagawa-juku.", "It sat on the Tōkaidō, a highway linking Edo to Kyoto and Osaka.", "The shogunate decided that was too close for comfort.", "So it built the port across the inlet, in the fishing village of Yokohama."]}, {"lines": ["You see, it's like letting a guest sleep in your shed, not your house."]}, {"lines": ["The port opened in 1859.", "Foreigners settled in Kannai, a district surrounded by a moat.", "Soon Yokohama printed Japan's first English newspaper.", "In 1865, it made Japan's first beer and ice cream.", "In 1872, Japan's first railway ran from Yokohama to Tokyo."]}, {"lines": ["A small fishing village had become a famous port city.", "Its name means sideways sandbar, because that is how it looked from the sea."]}]}
 CLAIMS IN THE DRAFT
-- {'claim': 'The Japanese government ordered the construction of the Yokohama Marine Tower in 1910 as a weather‑observation lighthouse and propaganda beacon.', 'url': 'https://en.wikipedia.org/wiki/Yokohama'}
+- {'claim': 'Perry arrived near Yokohama demanding Japan open ports; the shogunate signed a treaty, but built the port in the fishing village of Yokohama because Kanagawa-juku was too close to the Tōkaidō; it opened in 1859.', 'url': 'https://en.wikipedia.org/wiki/Yokohama'}
+- {'claim': 'Foreigners settled in the moated Kannai district; Japan firsts in Yokohama: English newspaper 1861, beer and ice cream 1865, railway 1872.', 'url': 'https://en.wikipedia.org/wiki/Yokohama'}
+- {'claim': "Yokohama's name came from a sandbar seen sideways from the sea.", 'url': 'https://en.wikipedia.org/wiki/Yokohama'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
-0.12s A#1
-0.22s naval#1
-0.57s officer#1
-1.07s hoisted#1
-1.45s a#2
-1.55s massive#1
-1.95s lantern#1
-2.70s atop#1
-3.00s a#3
-3.10s rusted#1
-3.50s pole#1
-4.10s He#1
-4.20s balanced#1
-4.60s the#1
-4.72s weight#1
-5.12s sweat#1
-5.37s dripping#1
-5.89s while#1
-6.04s the#2
-6.17s sea#1
-6.42s roared#1
-7.23s His#1
-7.43s crew#1
-7.63s laughed#1
-8.23s saying#1
-8.51s a#4
-8.58s tower#1
-8.96s would#1
-9.11s never#1
-9.36s change#1
-9.66s the#3
-9.76s storm#1
-10.43s They#1
-10.63s muttered#1
-11.13s that#1
-11.22s a#5
-11.35s wooden#1
-11.63s pier#1
-11.98s could#1
-12.10s do#1
-12.23s the#4
-12.33s job#1
-13.21s The#5
-13.31s government#1
-13.79s orders#1
-14.14s the#6
-14.24s tower’s#1
-14.66s steel#1
-14.96s skeleton#1
-15.77s to#1
-15.89s rise#1
-16.29s in#1
-16.39s 1910#1
-17.31s Engineers#1
-17.96s sketch#1
-18.31s blueprints#1
-18.71s on#1
-18.84s cramped#1
-19.11s desks#1
-19.82s Workers#1
-20.22s weld#1
-20.45s the#7
-20.55s frame#1
-21.07s while#2
-21.27s ships#1
-21.57s wait#1
-21.82s for#1
-21.97s safe#1
-22.25s passage#1
-23.01s Every#1
-23.26s night#1
-23.48s the#8
-23.63s unfinished#1
-24.08s tower#2
-24.41s glints#1
-24.71s in#2
-24.86s fog#1
-25.70s You#1
-25.87s see#1
-26.27s it’s#1
-26.40s like#1
-26.57s putting#1
-26.80s a#6
-26.87s bright#1
-27.20s sign#1
-27.55s on#2
-27.65s a#7
-27.72s dark#1
-28.02s road#1
-28.25s you#2
-28.37s travel#1
-28.77s every#2
-29.07s day#1
-29.76s The#9
-29.88s real#1
-30.13s reason:#1
-30.83s the#10
-30.93s state#1
-31.23s needed#1
-31.46s a#8
-31.56s high‑point#1
-32.16s to#2
-32.23s record#1
-32.68s weather#1
-33.26s The#11
-33.36s lighthouse#1
-33.78s would#2
-33.91s measure#1
-34.26s wind#1
-34.88s rain#1
-35.26s and#1
-35.38s tides#1
-35.78s for#2
-35.98s the#12
-36.08s port#1
-36.59s At#1
-36.69s the#13
-36.81s same#1
-37.11s time#1
-37.76s it#1
-37.86s broadcast#1
-38.39s a#9
-38.46s glowing#1
-38.89s symbol#1
-39.24s of#1
-39.36s modern#1
-39.66s Japan#1
-40.40s Foreign#1
-40.70s visitors#1
-41.17s would#3
-41.33s see#2
-41.45s the#14
-41.58s flash#1
-42.17s and#2
-42.33s think#1
-42.48s Japan#2
-42.90s was#1
-43.00s advanced#1
-44.05s Ironically#1
-44.85s the#15
-44.98s lighthouse’s#1
-45.60s flash#2
-45.98s later#1
-46.25s guided#1
-46.65s not#1
-46.83s only#1
-47.12s ships#2
-47.88s but#1
-48.00s also#1
-48.30s the#16
-48.40s nation’s#1
-48.90s own#1
-49.20s propaganda#1
-49.88s ships#3
-50.52s The#17
-50.62s tower#3
-50.94s became#1
-51.19s a#10
-51.27s beacon#1
-51.72s for#3
-51.84s both#1
-52.07s safety#1
-52.62s and#3
-52.77s pride#1
+0.14s Commodore#1
+0.62s Perry#1
+1.17s sailed#1
+1.42s a#1
+1.57s fleet#1
+1.84s of#1
+1.92s American#1
+2.42s warships#1
+2.90s toward#1
+3.15s Japan#1
+3.99s In#1
+4.24s the#1
+4.59s 1850s#1
+5.29s Japan#2
+5.72s had#1
+5.87s little#1
+6.07s contact#1
+6.54s with#1
+6.72s foreigners#1
+7.54s Perry#2
+7.87s arrived#1
+8.37s just#1
+8.62s south#1
+8.87s of#2
+8.94s Yokohama#1
+9.97s and#1
+10.07s demanded#1
+10.54s that#1
+10.67s Japan#3
+11.14s open#1
+11.47s ports#1
+11.84s for#1
+11.99s trade#1
+12.63s The#2
+12.73s Tokugawa#1
+13.53s shogunate#1
+13.95s agreed#1
+14.68s and#2
+14.80s signed#1
+15.03s a#2
+15.10s treaty#1
+15.96s One#1
+16.21s port#1
+16.59s was#1
+16.76s meant#1
+17.04s to#1
+17.13s be#1
+17.24s the#3
+17.34s town#1
+17.76s of#3
+17.86s Kanagawa-juku#1
+18.97s It#1
+19.14s sat#1
+19.39s on#1
+19.47s the#4
+19.59s Tōkaidō#1
+20.47s a#3
+20.54s highway#1
+20.94s linking#1
+21.29s Edo#1
+21.59s to#2
+21.69s Kyoto#1
+22.22s and#3
+22.34s Osaka#1
+23.06s The#5
+23.21s shogunate#2
+23.81s decided#1
+24.53s that#2
+24.66s was#2
+24.81s too#1
+24.98s close#1
+25.26s for#2
+25.41s comfort#1
+26.10s So#1
+26.23s it#2
+26.33s built#1
+26.55s the#6
+26.65s port#2
+26.98s across#1
+27.30s the#7
+27.43s inlet#1
+28.10s in#2
+28.18s the#8
+28.33s fishing#1
+28.68s village#1
+29.08s of#4
+29.18s Yokohama#2
+30.37s You#1
+30.54s see#1
+30.94s it's#1
+31.07s like#1
+31.24s letting#1
+31.44s a#4
+31.52s guest#1
+31.77s sleep#1
+32.02s in#3
+32.09s your#1
+32.24s shed#1
+32.77s not#1
+32.94s your#2
+33.07s house#1
+33.94s The#9
+34.04s port#3
+34.37s opened#1
+34.84s in#4
+34.97s 1859#1
+36.20s Foreigners#2
+36.67s settled#1
+37.00s in#5
+37.15s Kannai#1
+37.82s a#5
+37.90s district#1
+38.32s surrounded#1
+38.75s by#1
+38.90s a#6
+38.97s moat#1
+39.58s Soon#1
+39.83s Yokohama#3
+40.70s printed#1
+41.03s Japan's#1
+41.60s first#1
+41.93s English#1
+42.28s newspaper#1
+43.05s In#6
+43.20s 1865#1
+44.58s it#3
+44.65s made#1
+44.80s Japan's#2
+45.28s first#2
+45.58s beer#1
+45.88s and#4
+46.00s ice#1
+46.25s cream#1
+46.83s In#7
+46.98s 1872#1
+48.31s Japan's#3
+48.78s first#3
+49.06s railway#1
+49.58s ran#1
+49.86s from#1
+50.01s Yokohama#4
+50.66s to#3
+50.78s Tokyo#1
+51.74s A#7
+51.87s small#1
+52.19s fishing#2
+52.54s village#2
+53.09s had#2
+53.19s become#1
+53.44s a#8
+53.56s famous#1
+53.97s port#4
+54.24s city#1
+54.76s Its#1
+54.96s name#1
+55.26s means#1
+55.56s sideways#1
+56.04s sandbar#1
+56.81s because#1
+57.09s that#3
+57.29s is#1
+57.41s how#1
+57.59s it#4
+57.69s looked#1
+57.89s from#2
+58.04s the#10
+58.19s sea#1
 
 DRAFT film.json
-(none yet)
+{"era": "1850s", "cast": {"perry": "a 59 year old American naval commodore with a stern square jaw, grey bushy sideburns, a dark navy double-breasted coat with gold buttons and a black bicorne hat, 1850s", "official": "a 48 year old Japanese shogunate official with a shaved forehead and a black topknot, a grey-blue silk robe with stiff winged shoulders and a dark sash, 1850s", "fisher": "a 22 year old Japanese fisherman with a sun-darkened face, a wide straw hat, a short faded indigo cotton jacket and bare brown legs, 1850s", "trader": "a 33 year old European trader with slicked blond hair, a thin blond moustache, a bright green waistcoat, a white shirt and a dark blue frock coat, 1860s"}, "key_words": ["Perry", "Yokohama", "shogunate", "Tōkaidō", "Kannai"], "music": "curious", "shots": [{"name": "hook", "at": 0, "prompt": "medium shot, a naval commodore standing at the rail of a black wooden steam warship pointing ahead, he is {perry}, grey sky, rolling sea", "who": "perry", "check": "Is a man pointing from a ship?", "clip": true, "motion": "he points ahead and his coat flaps, slow camera push in"}, {"name": "fleet", "at": "fleet#1", "prompt": "wide shot of a line of black wooden warships with dark smoke on a grey sea near a green coast, 1850s", "check": "Are there black warships?", "clip": true, "motion": "dark smoke drifts from the funnels as waves roll, slow camera pull back", "hit": "warships#1"}, {"name": "gate", "at": "Japan#1", "prompt": "close-up of a huge shut wooden gate with iron studs in a grey stone wall, damp morning light, 1850s Japan", "check": "Is a wooden gate shut?", "move": "push"}, {"name": "watch", "at": "Japan#2", "prompt": "medium shot, a fisherman on a pebble beach shading his eyes with one hand and looking out to sea, he is {fisher}, soft dawn light", "who": "fisher", "check": "Is a man looking out to sea?", "clip": true, "motion": "he shades his eyes and turns his head slowly, slow camera push in"}, {"name": "boat", "at": "Perry#2", "prompt": "medium shot, a naval commodore sitting upright in a wooden rowboat with sailors rowing, he is {perry}, calm bay, hazy light", "who": "perry", "check": "Is a man in a rowboat?", "clip": true, "motion": "sailors row slowly while he stares ahead, slow camera push in"}, {"name": "demand", "at": "demanded#1", "prompt": "close-up, a commodore jabbing one finger forward, stern face, he is {perry}, warm lamplight in a dark ship cabin", "who": "perry", "check": "Is a man pointing his finger?", "clip": true, "motion": "he jabs his finger forward twice, slow camera push in"}, {"name": "harbor", "at": "open#1", "prompt": "wide shot of a bay with a wooden pier and moored wooden sailing ships and boats, bright morning, 1850s Japan", "check": "Is there a wooden pier?", "move": "pull"}, {"name": "agree", "at": "The#2", "prompt": "medium shot, a Japanese official kneeling at a low wooden table slowly bowing his head, he is {official}, paper screens, soft window light", "who": "official", "check": "Is a man kneeling at a table?", "clip": true, "motion": "he bows his head slowly, slow camera push in"}, {"name": "sign", "at": "signed#1", "prompt": "extreme close-up of a hand pressing an ink brush onto a long blank paper scroll on a wooden table, soft lamp light", "check": "Is a hand holding a brush?", "clip": true, "motion": "the brush glides across the paper, slow camera push in"}, {"name": "map", "at": "One#1", "prompt": "medium shot, an official pointing at a hand-drawn map spread on a low wooden table, he is {official}, paper screens, warm light", "who": "official", "check": "Is a man pointing at a map?", "clip": true, "motion": "he taps the map with one finger, slow camera push in", "xfade": true}, {"name": "town", "at": "town#1", "prompt": "wide shot of a dusty street of an old Japanese post town with wooden inns and hanging lanterns, travellers in straw hats, midday sun", "check": "Is this an old wooden street?", "move": "right"}, {"name": "road", "at": "It#1", "prompt": "wide shot of a long dirt highway lined with tall pine trees, travellers in straw hats walking in a line, golden afternoon light", "check": "Is there a dirt road with pine trees?", "move": "push"}, {"name": "walker", "at": "Edo#1", "prompt": "close-up, a traveller in a straw hat and brown cloak walking with a wooden staff on a dirt road, pine trees behind", "check": "Is a man walking with a staff?", "clip": true, "motion": "he swings his staff in rhythm, slow camera push in"}, {"name": "worry", "at": "The#5", "prompt": "medium shot, an official standing at a paper-screen window looking out at a road, frowning, he is {official}, grey light", "who": "official", "check": "Is a man frowning at a window?", "clip": true, "motion": "he frowns and rubs his chin, slow camera push in"}, {"name": "shake", "at": "too#1", "prompt": "close-up, an official shaking his head firmly with folded arms, he is {official}, dim room, lamp light", "who": "official", "check": "Is a man shaking his head?", "clip": true, "motion": "he shakes his head slowly, slow camera push in"}, {"name": "build", "at": "So#1", "prompt": "close-up, carpenters in cloth headbands hammering a wooden post into shallow water with a big mallet, bright sun, 1850s", "check": "Are men hammering a wooden post?", "clip": true, "motion": "the mallet swings down on the post, slow camera push in", "xfade": true}, {"name": "inlet", "at": "inlet#1", "prompt": "wide shot of a calm inlet with a small fishing village of thatched huts and wooden boats on a sandy shore, soft morning light", "check": "Is there a fishing village?", "move": "push"}, {"name": "net", "at": "fishing#1", "prompt": "close-up, a fisherman mending a brown fishing net on the sand, he is {fisher}, thatched hut behind, morning sun", "who": "fisher", "check": "Is a man mending a net?", "clip": true, "motion": "his hands pull the net through, slow camera push in"}, {"name": "lock", "at": "You#1", "prompt": "close-up of a hand turning a big iron key in the lock of a heavy wooden house door, warm evening light", "check": "Is a hand turning a key?", "clip": true, "motion": "the key turns in the lock, slow camera push in", "xfade": true}, {"name": "shed", "at": "guest#1", "prompt": "medium shot, a man lying on a straw bed in a small wooden garden shed pulling a blanket up, he is {trader}, dim lantern light", "who": "trader", "check": "Is a man lying in a shed?", "clip": true, "motion": "he pulls the blanket up to his chin, slow camera push in"}, {"name": "opened", "at": "The#9", "prompt": "wide shot of a wooden harbour pier with tall-masted ships and fluttering flags on a bright morning, 1850s", "check": "Are there tall ships at a pier?", "move": "pull", "xfade": true, "hit": "opened#1"}, {"name": "moat", "at": "Foreigners#2", "prompt": "wide shot of foreign men in dark frock coats crossing a wooden bridge over a still moat toward a gate, 1860s, soft light", "check": "Is there a bridge over a moat?", "move": "right"}, {"name": "kannai", "at": "surrounded#1", "prompt": "high angle of a still moat surrounding a district of white European-style houses with red tile roofs, bright day, 1860s", "check": "Is a moat around some houses?", "move": "up"}, {"name": "press", "at": "Soon#1", "prompt": "close-up, hands pulling the iron lever of an old printing press, ink on the fingers, lamp light, 1860s workshop", "check": "Are hands pulling a lever?", "clip": true, "motion": "the lever pulls down firmly, slow camera push in"}, {"name": "beer", "at": "In#6", "prompt": "close-up, a brewer in a leather apron pouring foamy golden beer from a wooden bucket into a thick glass mug, warm light", "check": "Is someone pouring beer?", "clip": true, "motion": "golden beer foams up in the mug, slow camera push in"}, {"name": "icecream", "at": "and#4", "prompt": "close-up, a hand scooping pale ice cream into a small glass dish on a wooden counter, bright light", "check": "Is a hand scooping ice cream?", "clip": true, "motion": "the scoop lifts and drops into the dish, slow camera push in"}, {"name": "train", "at": "In#7", "prompt": "wide shot of a small early steam locomotive with a tall black funnel pulling wooden carriages along a coast, white steam, 1870s", "check": "Is there a steam train?", "move": "right"}, {"name": "flag", "at": "from#1", "prompt": "medium shot, a station worker in a dark uniform and cap holding up a red flag on a wooden platform, a steam train arriving, 1870s", "check": "Is a man holding a flag?", "clip": true, "motion": "he raises the flag high while steam drifts, slow camera push in"}, {"name": "village", "at": "A#7", "prompt": "wide shot of a few thatched fishing huts and beached boats on a quiet sandy shore at dawn, soft pink light", "check": "Are there huts on a shore?", "clip": true, "motion": "a thin smoke drifts from a hut and a boat rocks gently, slow camera pull back", "xfade": true}, {"name": "city", "at": "become#1", "prompt": "wide shot of a busy harbour with steamships, brick warehouses and smoking chimneys, crowded wharf, 1870s, bright day", "check": "Is this a busy harbour?", "move": "push", "hit": "city#1"}, {"name": "sandbar", "at": "Its#1", "prompt": "high angle of a long thin sandbar sticking out sideways into blue sea, white waves on both sides, bright day", "check": "Is there a sandbar in the sea?", "move": "push"}, {"name": "sailor", "at": "it#4", "prompt": "close-up, a sailor in a blue striped shirt gripping a wooden ship's rail and gazing at distant low land, sea breeze, golden light", "check": "Is a man gripping a ship's rail?", "clip": true, "motion": "he squints at the land while his shirt ripples, slow camera push in"}]}
 
 SOURCES (data only)
 [1] Yokohama | https://en.wikipedia.org/wiki/Yokohama
