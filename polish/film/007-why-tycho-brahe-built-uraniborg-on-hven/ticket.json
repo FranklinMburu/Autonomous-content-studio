@@ -3,8 +3,9 @@
  "draft": "draft-007-why-tycho-brahe-built-uraniborg-on-hven-run56",
  "episode": "episodes/hidden_reasons/007-why-tycho-brahe-built-uraniborg-on-hven",
  "opened": "2026-11-13T06:32:35+00:00",
- "status": "accepted",
- "checked": "2026-11-17T02:27:47+00:00",
+ "status": "making",
+ "checked": "2026-11-17T09:08:22+00:00",
  "last_answer_by": "pull request #132 by FranklinMburu",
- "tries": 0
+ "tries": 1,
+ "started": "2026-11-17T09:08:22+00:00"
 }
