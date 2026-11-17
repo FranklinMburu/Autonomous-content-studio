@@ -5,7 +5,8 @@
    {
     "lines": [
      "A blind twelve-year-old runs his fingertip over an army code of dots."
-    ]
+    ],
+    "feel": "curiosity"
    },
    {
     "lines": [
@@ -14,7 +15,8 @@
      "By five, he was blind in both eyes.",
      "At school in Paris, books have huge raised letters.",
      "Students trace them slowly. They cannot write."
-    ]
+    ],
+    "feel": "sympathy"
    },
    {
     "lines": [
@@ -22,30 +24,34 @@
      "It was a code for soldiers to read in the dark.",
      "Twelve raised dots stand for sounds.",
      "But soldiers found it too hard."
-    ]
+    ],
+    "feel": "hope"
    },
    {
     "lines": [
      "You see, it's like knowing a friend's face at a glance, not inch by inch."
-    ]
+    ],
+    "feel": "recognition"
    },
    {
     "lines": [
-     "Barbier's grid is six dots tall, too tall for one fingertip.",
+     "Barbier's code is too tall to read with one fingertip.",
      "So Louis spends two years improving it.",
      "He cuts it to six dots, three high and two wide.",
      "Each pattern now stands for a letter, not a sound.",
      "It fits under one fingertip, so a reader feels a whole letter at once.",
      "With Barbier's own slate and stylus, students can finally write."
-    ]
+    ],
+    "feel": "wonder"
    },
    {
     "lines": [
      "But the teachers refuse his code.",
-     "Louis dies at forty-three.",
+     "Louis dies at 43.",
      "Two years later, his students finally get the school to adopt it.",
      "A sharp point took his sight. Six tiny points gave millions a way to read."
-    ]
+    ],
+    "feel": "irony"
    }
   ],
   "key_words": [
@@ -292,6 +298,13 @@
     "xfade": true
    },
    {
+    "name": "lamp",
+    "at": "improving#1",
+    "prompt": "close-up of an oil lamp glowing on a desk beside sheets of dotted paper at night",
+    "check": "Is there an oil lamp?",
+    "move": "push"
+   },
+   {
     "name": "punch",
     "at": "cuts#1",
     "prompt": "extreme close-up of a steel stylus punching a small dot into thick paper on a grooved metal slate, lamp light",
@@ -341,7 +354,7 @@
    },
    {
     "name": "tools",
-    "at": "with#2",
+    "at": "with#3",
     "prompt": "close-up of a metal writing slate with soldered strips across it and a stylus lying on top, wooden desk, warm lamp light",
     "check": "Is there a metal slate?",
     "move": "left"
@@ -399,11 +412,19 @@
    },
    {
     "name": "millions",
-    "at": "six#3",
+    "at": "six#2",
     "prompt": "close-up of many children's hands moving across dotted pages on a long table, fingertips on raised dots, warm golden light",
     "check": "Are hands touching pages?",
     "clip": true,
     "motion": "the fingers glide across the pages, slow camera pull back"
+   },
+   {
+    "name": "readers",
+    "at": "millions#1",
+    "prompt": "close-up, a smiling blind girl gliding her fingertips across a page of raised dots, warm golden window light",
+    "check": "Is a girl touching a page?",
+    "clip": true,
+    "motion": "her fingertips glide along the line, slow camera push in"
    }
   ]
  }

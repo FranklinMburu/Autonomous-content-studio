@@ -5,17 +5,19 @@
    {
     "lines": [
      "Workers paint a giant leaking tank brown to hide the drips."
-    ]
+    ],
+    "feel": "curiosity"
    },
    {
     "lines": [
-     "The tank stands by Boston Harbor, fifty feet tall.",
-     "It holds up to two point three million gallons of molasses.",
+     "The tank stands by Boston Harbor, 50 feet tall.",
+     "It holds up to 2.3 million gallons of molasses.",
      "Neighbors even collect the leaking syrup for their homes.",
      "Each time the tank is filled, it groans.",
      "The man in charge, Arthur Jell, has no engineering experience.",
      "He never fills it with water to test for leaks."
-    ]
+    ],
+    "feel": "dread"
    },
    {
     "lines": [
@@ -23,15 +25,17 @@
      "The next day, the air warms up fast.",
      "At half past noon, the tank bursts.",
      "Its rivets shoot out like machine gun fire.",
-     "A wave twenty-five feet high rushes out at thirty-five miles per hour.",
+     "A wave 25 feet high rushes out at 35 miles per hour.",
      "It sweeps buildings off their foundations.",
      "It tips a streetcar off its tracks."
-    ]
+    ],
+    "feel": "shock"
    },
    {
     "lines": [
      "You see, it's like warm honey. Heat it, and it runs fast. Let it cool, and it turns thick."
-    ]
+    ],
+    "feel": "recognition"
    },
    {
     "lines": [
@@ -39,14 +43,16 @@
      "So the wave races out fast.",
      "Then it hits the winter cold and turns thick as glue.",
      "People are trapped in the sticky mass.",
-     "Twenty-one people die."
-    ]
+     "21 people die."
+    ],
+    "feel": "horror"
    },
    {
     "lines": [
      "Later, experts found the steel was only half as thick as it should have been.",
      "The leaks were painted over. The smell of molasses stayed for decades."
-    ]
+    ],
+    "feel": "irony"
    }
   ],
   "key_words": [
@@ -143,7 +149,7 @@
    },
    {
     "name": "tall",
-    "at": "fifty#1",
+    "at": "50#1",
     "prompt": "low angle of a towering riveted steel tank wall rising into a grey sky",
     "check": "Is there a tall steel wall?",
     "move": "up"
@@ -378,7 +384,7 @@
    },
    {
     "name": "cap",
-    "at": "twenty-one#1",
+    "at": "21#1",
     "prompt": "close-up of a dropped cloth cap lying in thick brown syrup on cobblestones, dim evening light",
     "check": "Is there a cap in brown syrup?",
     "move": "pull"
@@ -400,6 +406,13 @@
     "move": "push"
    },
    {
+    "name": "half",
+    "at": "should#1",
+    "prompt": "extreme close-up of two steel plates side by side, one much thinner than the other, harsh side light",
+    "check": "Are there two steel plates?",
+    "move": "push"
+   },
+   {
     "name": "painted",
     "at": "the#13",
     "prompt": "close-up of a brown paint brush sliding over a dark syrup drip on a steel tank wall",
@@ -414,6 +427,13 @@
     "check": "Is a woman sniffing the air?",
     "clip": true,
     "motion": "she breathes in slowly, slow camera push in"
+   },
+   {
+    "name": "summer",
+    "at": "decades#1",
+    "prompt": "wide shot of a sunny summer street by a harbor with children playing and laundry hanging, 1930s",
+    "check": "Is there a sunny street?",
+    "move": "right"
    }
   ]
  }

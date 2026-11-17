@@ -4,51 +4,58 @@
   "beats": [
    {
     "lines": [
-     "Sailors lower a lifeboat built for sixty-five, carrying just twenty-eight people."
-    ]
+     "Sailors row a lifeboat built for 65 away, with only 28 aboard."
+    ],
+    "feel": "curiosity"
    },
    {
     "lines": [
-     "It is the first boat to leave the sinking Titanic.",
-     "More than two thousand two hundred people are aboard.",
-     "Her lifeboats can hold only one thousand one hundred seventy-eight."
-    ]
+     "It is the first lifeboat lowered from the sinking Titanic.",
+     "Over 2,200 people are on the ship.",
+     "Her lifeboats can hold only 1,178."
+    ],
+    "feel": "disbelief"
    },
    {
     "lines": [
-     "Back in Belfast, Titanic could have carried forty-eight wooden lifeboats.",
+     "Back in Belfast, Titanic could have carried 48 wooden lifeboats.",
      "White Star chose sixteen wooden boats and four folding ones.",
-     "The law asked for even less. Sixteen boats, for nine hundred ninety people.",
+     "The law asked for even less. Sixteen boats, for 990 people.",
      "So Titanic actually carried more than the rules required.",
      "And the shortage was not about money or space."
-    ]
+    ],
+    "feel": "surprise"
    },
    {
     "lines": [
      "You see, it's like an umbrella. It's for a quick dash to the door, not a whole day in the rain."
-    ]
+    ],
+    "feel": "recognition"
    },
    {
     "lines": [
      "In those days, lifeboats were not meant to hold everyone.",
      "They would ferry people to a rescue ship nearby.",
-     "In 1909, that worked perfectly when another liner, the Republic, sank.",
+     "That is exactly how it went when RMS Republic sank in 1909.",
      "And White Star wanted a wide deck with open views of the sea.",
      "A long row of lifeboats would have blocked them."
-    ]
+    ],
+    "feel": "understanding"
    },
    {
     "lines": [
      "Then Titanic hits an iceberg in the dark.",
      "She sinks in two hours and forty minutes.",
      "Help is still hours away.",
-     "About fifteen hundred people die."
-    ]
+     "About 1,500 people die."
+    ],
+    "feel": "dread"
    },
    {
     "lines": [
-     "Titanic broke no rule. So in 1914, the world rewrote the rules."
-    ]
+     "Titanic broke no rule. After her, inquiries led to new sea safety rules in 1914."
+    ],
+    "feel": "irony"
    }
   ],
   "key_words": [
@@ -95,7 +102,7 @@
     "url": "https://en.wikipedia.org/wiki/Sinking_of_the_Titanic"
    },
    {
-    "claim": "Inquiries led to the International Convention for the Safety of Life at Sea in 1914.",
+    "claim": "Subsequent inquiries recommended sweeping changes to maritime regulations, leading to the International Convention for the Safety of Life at Sea in 1914.",
     "url": "https://en.wikipedia.org/wiki/Sinking_of_the_Titanic"
    }
   ]
@@ -107,7 +114,7 @@
    "officer": "a 38 year old British ship officer with short dark hair, a clean shaven lean face, a navy blue double-breasted uniform with gold buttons and a white-topped peaked cap, 1912",
    "passenger": "a 25 year old woman with auburn hair pinned up under a large black feathered hat, a long cream wool coat with a fur collar, 1912",
    "builder": "a 55 year old Irish shipyard manager with a thick grey walrus moustache, a brown bowler hat and a rumpled brown tweed suit, 1911",
-   "executive": "a 48 year old tall British shipping businessman with slicked dark hair, a neat dark moustache and a dark grey three-piece suit with a gold watch chain, 1911"
+   "executive": "a 52 year old bald British shipping chairman with a white chin beard, round wire spectacles and a navy pinstripe frock coat, 1911"
   },
   "key_words": [
    "lifeboat",
@@ -130,7 +137,7 @@
    },
    {
     "name": "empty",
-    "at": "carrying#1",
+    "at": "away#1",
     "prompt": "close-up of a half-empty wooden lifeboat at night, a few shivering passengers in coats among many empty benches, lantern light",
     "check": "Is there a lifeboat with empty benches?",
     "clip": true,
@@ -154,7 +161,7 @@
    },
    {
     "name": "crowd",
-    "at": "two#1",
+    "at": "over#1",
     "prompt": "wide shot of crowds of passengers in coats and white life jackets on a sloping ship deck at night, electric light",
     "check": "Is there a crowd on a ship deck?",
     "clip": true,
@@ -169,7 +176,7 @@
    },
    {
     "name": "worried",
-    "at": "thousand#2",
+    "at": "only#2",
     "prompt": "close-up, a worried young woman in a large feathered hat clutching her coat collar on a ship deck at night, she is {passenger}",
     "check": "Is a woman in a large hat looking worried?",
     "who": "passenger",
@@ -186,7 +193,7 @@
    },
    {
     "name": "builder",
-    "at": "forty-eight#1",
+    "at": "48#1",
     "prompt": "medium shot, a shipyard manager pointing up at a long row of empty curved iron cranes on a ship deck, he is {builder}, daylight",
     "check": "Is a man pointing up?",
     "who": "builder",
@@ -211,7 +218,7 @@
    },
    {
     "name": "law",
-    "at": "the#3",
+    "at": "the#4",
     "prompt": "close-up of a heavy leather-bound rulebook with a red wax seal lying on a government desk, lamp light",
     "check": "Is there a leather book?",
     "move": "push"
@@ -234,12 +241,27 @@
     "motion": "his pen moves across the paper, slow camera push in"
    },
    {
+    "name": "count",
+    "at": "more#1",
+    "prompt": "medium shot, a ship officer counting a row of lifeboats on deck and nodding, daylight",
+    "check": "Is a man counting lifeboats?",
+    "clip": true,
+    "motion": "he nods as he counts, slow camera pan right"
+   },
+   {
     "name": "space",
     "at": "and#2",
     "prompt": "wide shot of a sailor sweeping a vast empty wooden boat deck with lots of free space, sunny day, open sea beyond",
     "check": "Is there a wide empty ship deck?",
     "clip": true,
     "motion": "he pushes the broom forward, slow camera pull back"
+   },
+   {
+    "name": "coins",
+    "at": "money#1",
+    "prompt": "close-up of a neat stack of gold coins on a shipping office desk beside a ledger, lamp light",
+    "check": "Are there gold coins on a desk?",
+    "move": "push"
    },
    {
     "name": "umbrella",
@@ -291,14 +313,14 @@
    },
    {
     "name": "republic",
-    "at": "in#4",
+    "at": "that#1",
     "prompt": "wide shot of a sinking steamship in thick fog with a second ship standing close beside it, small boats between them, grey morning",
     "check": "Are there two ships in fog?",
     "move": "push"
    },
    {
     "name": "ladder",
-    "at": "liner#1",
+    "at": "rms#1",
     "prompt": "medium shot, relieved passengers in coats climbing a rope ladder up the side of a rescue ship, grey daylight",
     "check": "Are people climbing a rope ladder?",
     "clip": true,
@@ -327,6 +349,14 @@
     "prompt": "wide shot of a continuous row of white lifeboats lined along a ship deck, blocking the sea view, daylight",
     "check": "Is there a row of lifeboats?",
     "move": "left"
+   },
+   {
+    "name": "blocked",
+    "at": "blocked#1",
+    "prompt": "close-up, a lady in a large hat frowning as a white lifeboat blocks her view of the sea, ship deck, sunshine",
+    "check": "Is a woman in a hat frowning?",
+    "clip": true,
+    "motion": "she leans to look past the boat, slow camera push in"
    },
    {
     "name": "iceberg",
@@ -361,8 +391,15 @@
     "hit": "die#1"
    },
    {
-    "name": "inquiry",
+    "name": "norule",
     "at": "titanic#5",
+    "prompt": "close-up of a heavy leather-bound rulebook with a red wax seal being closed on a desk, lamp light",
+    "check": "Is a leather book on a desk?",
+    "move": "pull"
+   },
+   {
+    "name": "inquiry",
+    "at": "inquiries#1",
     "prompt": "medium shot, a stern panel of grey-haired officials listening at a long table in a wood-panelled hall, 1912",
     "check": "Are men sitting at a long table?",
     "clip": true,
@@ -370,7 +407,7 @@
    },
    {
     "name": "rewrite",
-    "at": "1914#1",
+    "at": "safety#1",
     "prompt": "close-up of a hand signing a long document with a fountain pen beside a red wax seal, 1914, warm lamp light",
     "check": "Is a hand signing a document?",
     "clip": true,

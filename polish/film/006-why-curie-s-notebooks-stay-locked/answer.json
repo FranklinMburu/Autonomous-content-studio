@@ -5,7 +5,8 @@
    {
     "lines": [
      "A scientist carries glowing test tubes around in her pocket."
-    ]
+    ],
+    "feel": "wonder"
    },
    {
     "lines": [
@@ -16,7 +17,8 @@
      "From one tonne, they get just one tenth of a gram.",
      "They name it radium, from the Latin word for ray.",
      "Marie even invents the word radioactivity."
-    ]
+    ],
+    "feel": "delight"
    },
    {
     "lines": [
@@ -25,28 +27,32 @@
      "Nobody yet knows how harmful the rays are.",
      "She works with no safety rules.",
      "Her papers from the 1890s become radioactive too."
-    ]
+    ],
+    "feel": "unease"
    },
    {
     "lines": [
      "You see, it's like smoke soaking into your coat. Long after the fire is out, you still smell it."
-    ]
+    ],
+    "feel": "recognition"
    },
    {
     "lines": [
-     "Radium takes about one thousand six hundred years to lose half its strength.",
+     "Radium takes about 1,600 years to lose half its strength.",
      "So her notebooks will stay radioactive for well over a thousand years.",
      "Today they sit in lead-lined boxes.",
      "Anyone who wants to read them must wear protective clothing.",
      "Even her cookbooks are highly radioactive."
-    ]
+    ],
+    "feel": "shock"
    },
    {
     "lines": [
-     "In 1934, Marie dies at sixty-six, likely from the radiation.",
+     "In 1934, Marie dies at 66, likely from the radiation.",
      "Sixty years later, her remains are moved to the Panthéon in Paris.",
      "They are sealed in lead, just like her notebooks."
-    ]
+    ],
+    "feel": "irony"
    }
   ],
   "key_words": [
@@ -259,6 +265,13 @@
     "motion": "the hand lays a notebook on the pile, slow camera push in"
    },
    {
+    "name": "pages",
+    "at": "1890s#1",
+    "prompt": "close-up of an old open notebook on a lab bench, its pages faintly glowing blue-green in the dark",
+    "check": "Is there an open notebook?",
+    "move": "push"
+   },
+   {
     "name": "smoke",
     "at": "you#1",
     "prompt": "medium shot, a man pulling his wool coat close as campfire smoke drifts over him at night, warm firelight",
@@ -356,7 +369,7 @@
    },
    {
     "name": "candle",
-    "at": "sixty-six#1",
+    "at": "66#1",
     "prompt": "close-up of a candle flame going out beside an empty bed, mountains through the window, dim light",
     "check": "Is there a candle?",
     "move": "pull"
@@ -392,6 +405,13 @@
     "check": "Are notebooks inside a box?",
     "clip": true,
     "motion": "the lid closes over the notebooks, slow camera push in"
+   },
+   {
+    "name": "vault",
+    "at": "notebooks#2",
+    "prompt": "wide shot of a quiet archive vault with rows of grey metal boxes on shelves, dim light",
+    "check": "Are there rows of metal boxes?",
+    "move": "pull"
    }
   ]
  }

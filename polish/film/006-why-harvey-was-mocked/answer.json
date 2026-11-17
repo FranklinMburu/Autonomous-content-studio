@@ -5,7 +5,8 @@
    {
     "lines": [
      "A doctor ties a tight cord around a man's bare arm."
-    ]
+    ],
+    "feel": "curiosity"
    },
    {
     "lines": [
@@ -14,15 +15,17 @@
      "Galen taught that the liver keeps making fresh blood.",
      "Harvey does the math, keeping every number low on purpose.",
      "Each heartbeat pushes out about a sixth of an ounce of blood.",
-     "The heart beats a thousand times every half hour.",
-     "In one day, the liver would need to make four hundred ninety-eight pounds of blood.",
+     "The heart beats 1,000 times every half hour.",
+     "In one day, the liver would need to make 498 pounds of blood.",
      "That is more than a whole body weighs."
-    ]
+    ],
+    "feel": "suspicion"
    },
    {
     "lines": [
      "You see, it's like a fountain in a town square. It doesn't make new water. The same water goes round and round."
-    ]
+    ],
+    "feel": "recognition"
    },
    {
     "lines": [
@@ -31,7 +34,8 @@
      "On the man's arm, Harvey finds little bumps in the veins. They are valves.",
      "Blood pushed toward the heart moves easily. Pushed the other way, it will not move.",
      "Blood travels in a circle."
-    ]
+    ],
+    "feel": "wonder"
    },
    {
     "lines": [
@@ -40,7 +44,8 @@
      "So many patients leave that his practice falls mightily.",
      "Slowly, his idea wins anyway.",
      "Harvey lives to see his circle accepted, yet dies unsure of what he achieved."
-    ]
+    ],
+    "feel": "irony"
    }
   ],
   "key_words": [
@@ -213,7 +218,7 @@
    },
    {
     "name": "barrels",
-    "at": "four#1",
+    "at": "498#1",
     "prompt": "wide shot of a long row of huge wooden barrels in a dark stone cellar, a single lantern, 1620s",
     "check": "Are there big wooden barrels?",
     "move": "left"
@@ -334,6 +339,13 @@
     "xfade": true
    },
    {
+    "name": "pages",
+    "at": "book#1",
+    "prompt": "close-up of freshly printed pages stacked on a wooden table in a print shop, window light, 1620s",
+    "check": "Are there stacked printed pages?",
+    "move": "push"
+   },
+   {
     "name": "attack",
     "at": "other#2",
     "prompt": "medium shot, a group of angry old physicians in black gowns and white ruffs shouting and shaking a small book, wood-panelled hall",
@@ -385,6 +397,13 @@
     "who": "old",
     "clip": true,
     "motion": "rain runs down the glass as he lowers his eyes, slow camera pull back"
+   },
+   {
+    "name": "window",
+    "at": "what#1",
+    "prompt": "close-up of rain running down a small leaded glass window at dusk, a candle glowing inside",
+    "check": "Is rain running down a window?",
+    "move": "pull"
    }
   ]
  }
