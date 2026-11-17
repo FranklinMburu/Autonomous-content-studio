@@ -5,14 +5,16 @@
    {
     "lines": [
      "A young Danish nobleman stares up at a star that should not exist."
-    ]
+    ],
+    "feel": "wonder"
    },
    {
     "lines": [
      "It is 1572. Tycho Brahe sees a brand-new star, brighter than any star or planet.",
      "Telescopes do not exist yet.",
      "So Tycho starts building bigger, more exact instruments to measure the sky by eye."
-    ]
+    ],
+    "feel": "curiosity"
    },
    {
     "lines": [
@@ -22,29 +24,33 @@
      "He secretly plans to move to Basel.",
      "The king hears about it and wants to keep him.",
      "So in 1576, the king gives him a whole island, Hven, and money for an observatory."
-    ]
+    ],
+    "feel": "defiance"
    },
    {
     "lines": [
      "You see, it's like doing homework in a quiet room. Nobody bumps your elbow, so every line comes out straight."
-    ]
+    ],
+    "feel": "recognition"
    },
    {
     "lines": [
      "On Hven, nothing disturbs his timing, his light or his instruments.",
      "Tycho builds a castle called Uraniborg, packed with giant quadrants and sextants.",
-     "Almost a hundred students and craftsmen work there.",
+     "Almost 100 students and craftsmen work there.",
      "The island's farmers must grow twice as much and help build it.",
      "They take Tycho to court, and they lose.",
      "Later, Tycho works in a second observatory underground.",
      "His castle instruments were not steady enough."
-    ]
+    ],
+    "feel": "awe"
    },
    {
     "lines": [
      "Tycho never uses a telescope.",
      "But his naked-eye numbers let Johannes Kepler write three laws of how planets move."
-    ]
+    ],
+    "feel": "irony"
    }
   ],
   "key_words": [
@@ -181,6 +187,13 @@
     "motion": "he sweeps his hand toward the castle, slow camera push in"
    },
    {
+    "name": "castle",
+    "at": "grand#1",
+    "prompt": "wide shot of a grand stone castle with towers on a cliff above the sea, Denmark, 1570s, sunny day",
+    "check": "Is there a stone castle on a cliff?",
+    "move": "up"
+   },
+   {
     "name": "no",
     "at": "tycho#3",
     "prompt": "close-up, a young nobleman shaking his head firmly, he is {tycho}, palace hall, window light",
@@ -250,6 +263,13 @@
     "clip": true,
     "motion": "his pen moves across the page, slow camera push in",
     "xfade": true
+   },
+   {
+    "name": "door",
+    "at": "quiet#1",
+    "prompt": "close-up of a closed wooden door in a silent sunlit room, dust floating in the light",
+    "check": "Is there a closed wooden door?",
+    "move": "push"
    },
    {
     "name": "elbow",
@@ -373,6 +393,13 @@
     "clip": true,
     "motion": "he leans in closer to the page, slow camera push in",
     "hit": "kepler#1"
+   },
+   {
+    "name": "planets",
+    "at": "planets#1",
+    "prompt": "wide shot of planets circling a bright sun in a starry sky, deep blue space",
+    "check": "Are there planets around a sun?",
+    "move": "pull"
    }
   ]
  }

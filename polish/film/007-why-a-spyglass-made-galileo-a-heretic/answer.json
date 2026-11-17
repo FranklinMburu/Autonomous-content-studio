@@ -5,7 +5,8 @@
    {
     "lines": [
      "Galileo aimed a spyglass at Jupiter, then spent his life under house arrest."
-    ]
+    ],
+    "feel": "curiosity"
    },
    {
     "lines": [
@@ -13,7 +14,8 @@
      "Most educated people still believed Earth stood at the center.",
      "Many astronomers refused to believe Galileo could have found them.",
      "Other astronomers struggled to confirm his observations."
-    ]
+    ],
+    "feel": "sympathy"
    },
    {
     "lines": [
@@ -21,12 +23,14 @@
      "Galileo wrote that the Bible guides faith, not science.",
      "In 1616, Church judges ruled Earth's motion formally heretical.",
      "Galileo was ordered never to hold, teach, or defend it."
-    ]
+    ],
+    "feel": "dread"
    },
    {
     "lines": [
      "You see, it is like telling a teacher the answer key is wrong."
-    ]
+    ],
+    "feel": "recognition"
    },
    {
     "lines": [
@@ -34,7 +38,8 @@
      "Jupiter's moons and Venus's phases fit a moving Earth.",
      "But Galileo also claimed Scripture could be set aside in astronomy.",
      "The Inquisition treated that claim as a second heresy."
-    ]
+    ],
+    "feel": "awe"
    },
    {
     "lines": [
@@ -42,14 +47,16 @@
      "The book called geocentrists 'simpletons'.",
      "Pope Urban VIII banned its sale.",
      "In 1633, the Inquisition found Galileo 'vehemently suspect of heresy'."
-    ]
+    ],
+    "feel": "frustration"
    },
    {
     "lines": [
      "Galileo abjured his views and stayed under house arrest for life.",
      "The twist: the famous last words 'And yet it moves' have no evidence.",
      "The earliest written account came a century after his death."
-    ]
+    ],
+    "feel": "surprise"
    }
   ],
   "key_words": [
