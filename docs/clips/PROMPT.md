@@ -1,144 +1,133 @@
-# Mission: become a better clipper than the best humans (Clipping Engine, prompt v4, 13 Nov 2026)
+# Mission: from a proven finder to Shorts that earn (Clipping Engine, prompt v5, 16 Nov 2026)
 
-Read first: `docs/clips/DECISIONS.md` (also the project doc `claude/CLIPS_DECISIONS.md`). It's the history of every
-decision. This prompt builds on it.
+You are Franklin's clipping partner, not a tool he has to steer. Work the way he would if he had unlimited time: hunt for
+what works, try it, keep only what makes us better, and bring him real clips and real numbers.
 
-## 0. The goal, in one line
+**Read first, in this order:**
+1. Notion: [Clipping Lab — getting better every day](https://app.notion.com/p/41ada224599e817a9c8ac58cf9e18af9): the
+   scoreboard, the daily loop and the Improvement Log.
+2. Repo, branch `clips-engine`: `docs/clips/RESUME.md`, then `docs/clips/DECISIONS.md`.
+3. Notion: [Opportunity Radar](https://app.notion.com/p/41ada224599e8112a30beccf2bbdd202) rows tagged SC or WC.
+4. Prompt v4 (project doc history): its thinking still holds (learn the intuition from real hits; watch every second
+   cheaply; rate yourself honestly; guards against drifting). This prompt changes the target.
 
-**Produce Shorts from real live streams that have the highest possible probability of reaching the top-10% views of
-the best clip channels (≥ 250K), and package them so Franklin can upload them.** Everything else serves this. Views
-can't be guaranteed; it's a game of probability, and the highest probability wins. Aim for 9.5–9.8 out of 10 on every
-part.
+## 0. The goal
 
-## 1. Why we can beat human clippers
+**Ship campaign-ready Shorts from real streams that earn money, and get measurably better at it every day.**
 
-Human clippers win on **intuition**: they've watched so much that they *feel* "this will blow up". They lose on
-**stamina and coverage**: they get tired, skip parts of a 6-hour stream, watch one stream at a time and post late.
+- **This week:** at least 10 Shorts Franklin would post (he keeps ≥ 8 of 10), each matched to a live campaign
+  (Whop Content Rewards, Vyro, Klippify or similar) and following its rules.
+- **This month:** the clips' real views put us in the top-10% range of @Kick_Clippers and Clipatra (250K+) on some
+  posts, and the first campaign money arrives.
+- Views are probability. Every decision is judged by one question: **does this raise the chance that a clip we post
+  gets 250K+ views and gets paid?** If not, don't do it. Sophistication that doesn't move a number is waste.
 
-We win by doing both:
-- **Build the intuition from data.** Study what actually went viral (thousands of real Shorts with view counts) until
-  the engine knows *why* a moment works.
-- **Never get tired.** Watch, hear and read every second of every stream, several streams at once, and be first to
-  post.
+## 1. Where we are (13–16 Nov), so you don't redo it
 
-## 2. The bar (real, measured)
+- **Finder:** watches, hears and reads a whole stream (AI eyes on 160p frames, audio, Whisper, chat, viewer clips).
+  On Kai Cenat's 3.3 h Japan stream it finds 8 of 10 fan clips in its top 30 picks (96% of their views), 9 of 10 in
+  the top 60. **Weak spot: ranking.** The judge put the top fan clip (Kai hits his camera man, 27.5K views) at 53 of
+  83 (5.9/10).
+- **Shorts:** 6 Kai Japan Shorts approved by Franklin (reviewer 7–9). N3on Shorts mostly skipped (3–7).
+- **Breaks:** the free Gemini quota runs out mid-run (the eyes and the judge share it). Only one stream tested so far.
+- **Copied open source** in `third_party/`: clipit (picker prompt, 7-check reviewer, Kick chat, facecam layout),
+  ClippyMe (vertical framing, filler cuts, karaoke captions, hook overlay), Hooky (global ranking, sentence snapping).
+- **Money (verified 16 Nov):** Whop about $1 per 1,000 views (range $0.10–3), pays to bank, mobile wallets and crypto
+  in 200+ countries; Vyro live campaigns $1.50–2.50 per 1,000 views; Klippify a flat $1 per 1,000 views, weekly.
+  Franklin has a bank account and wallets: payout is not a blocker.
+- **Timing:** GTA 6 launches **19 Nov 2026**; the big IRL streamers will play it. Our who's-hot filter excludes GTA
+  (to drop roleplay). Ask Franklin once whether to open it for those streamers from 19 Nov to 3 Dec, then act on his
+  answer.
 
-- **@Kick_Clippers** (`UCIPD8q8n3Vy7Qfz59RTc1Jg`): 3,392 Shorts; median 21K; top 10% ≥ 248K; best 32M.
-- **Clipatra** (`UCxlQSBBswmNP-wFDkcFrDBw`): 4,046 Shorts; best 7.8M.
-- Top examples, with links, are in `docs/clips/REFERENCE_kick_clippers.md` and `docs/clips/DECISIONS.md`.
-- Winning moments: IRL and celebrity encounters; someone shocked, exposed, humbled or caught; relationship drama;
-  emotion; money and flex.
-- Title formula: "The moment / No way [streamer] [REALIZED / was SHOCKED / EXPOSED] [situation] 😳😭💔 #streamer".
+## 1b. Think like the viewer (the money comes from them)
 
-## 3. How to think (not a checklist; use your full judgement)
+Money comes from views; views come from strangers who stop scrolling, watch to the end, rewatch, share and comment.
+Before any clip ships, look at it as that stranger on a phone, sound on or off, who has never heard of the streamer:
 
-Go deep where it raises the probability; keep it simple where it doesn't. Before any piece of work, ask:
-**"Does this raise the chance that a clip we post reaches 250K+ views?"** If not, don't do it.
+- **Stop:** does the first second make me stop? (a face reacting, a line, a visible conflict, a "wait, what?")
+- **Get it:** do I understand what's happening in 2 seconds without knowing the streamer? If context is needed, the
+  hook line or caption gives it.
+- **Stay:** is there a reason to keep watching (a question, tension, a build to a payoff)? No dead air, no setup that
+  drags.
+- **Pay off:** does the ending land (the reaction after the beat, the punchline, the reveal), then end fast or loop?
+- **Feel:** what will I feel? Clips win through different angles, and the engine must know which one each clip uses
+  and lean into it: **funny** (prank, roast, fail, awkward), **shock** (a slap, a stunt, a reveal), **drama**
+  (argument, exposed, caught, relationship), **celebrity or rare encounter**, **wholesome or emotional** (a fan, a
+  gift, family), **money and flex**, **skill or "how did he do that"**, **cringe and relatable**. Each angle needs a
+  different cut, caption and title.
+- **Act:** would I share it with a friend, tag someone, comment an opinion, or watch it twice? Those are what the
+  algorithm rewards.
 
-1. **Learn the intuition.**
-   - Mine both reference channels completely (titles, views, length, dates; public lists work from GitHub through
-     `clips-reference.yml`).
-   - Build a **viral-moment taxonomy**: kinds of moment, who's in them, the emotional trigger, the title pattern.
-     Weight each kind by real views.
-   - Find **what separates the top 10% from the median** of the *same* channel and streamer.
-   - Turn this into the judge's rubric, with the strongest real examples as few-shot references.
-2. **Choose the right streams.**
-   - Choosing the stream matters as much as choosing the moment. Track which streamers and events are hot *right now*:
-     their newest uploads on the reference channels, the top viewer clips on Twitch and Kick this week, and live
-     campaigns.
-   - Freshness wins: clip a big stream within hours of it ending.
-3. **Watch every second, cheaply.** Never download whole streams.
-   - **See:** the whole stream at low quality, read by a vision AI (Gemini through the brain at about 70 tokens per
-     frame, or an open vision model on Kaggle's free GPU).
-   - **Hear:** the transcript plus laughter, screams, sudden silence, music drops.
-   - **Read the crowd:** chat spikes and the viewers' own clips with views (strong, but never the only signal).
-   - **Judge like a top clipper:** an AI reviews every candidate with the full context and the rubric, and writes
-     *why* it will or won't work.
-   - **Then download in high quality only the winning sections,** with their setup and context.
+How to use this:
+- Build a **viewer panel**: an AI judge (not the one that made the clip) that watches each finished Short as a
+  stranger and answers the six questions above, with the angle and a one-line reason. Calibrate it against Franklin's
+  keeps and skips and against real top and median Shorts of the same streamer (the top ones should pass, the median
+  ones should show why they didn't).
+- Learn which angles win for which streamer and platform from real view counts (the reference channels' lists),
+  and keep that table up to date.
+- Once posting starts, the viewers' real answers replace the panel's guesses: **swipe-away rate, average view
+  duration, rewatches, shares and comments** per Short (YouTube Studio / TikTok analytics, read by Franklin or
+  exported). These become scoreboard numbers and the panel is re-calibrated against them.
+- Variety matters across a channel too: don't post five clips of the same angle in a row.
 
-   Already tested from GitHub: Twitch works fully (sections, audio-only, viewer clips); Kick works (API, clips);
-   YouTube video is blocked, so YouTube sources go through Franklin's laptop runner, small sections only.
-4. **Prove the intelligence before polishing anything.**
-   - Run a **recall test** on real streams: ground truth is the fans' top clips (exact timestamps) and the hits on the
-     reference channels.
-   - Compare each signal alone with all of them together. **Bar:** about 9 of 10 real hits found in our top
-     candidates, *and* new finds Franklin rates as strong.
-   - Show him the table and 2–3 real moments. If it misses, find out what kind of moment and why, fix it, and re-test.
-5. **Make each Short the way the winners do.** Measure the reference Shorts, don't guess:
-   - payoff in the first second;
-   - framing of streamer and guest;
-   - caption font, size, place and colour;
-   - cut rate and zooms;
-   - sound;
-   - length;
-   - ending or loop;
-   - title, description and hashtags.
+## 2. Priorities, in order (do them in this order unless a number says otherwise)
 
-   Each clip must also be clearly *ours*: hook, captions and edit add real value. YouTube favours original,
-   transformed content; plain re-uploads get pushed down.
-6. **Package for upload.** The first real product is a button: paste a stream link (or let it pick a hot stream), and
-   get back finished Shorts, each with:
-   - its title, description and hashtags;
-   - a predicted view band and why;
-   - a "before you post" note: the streamer's clipping status, campaign rules, and risks.
+1. **Fix ranking** (scoreboard #2): teach the judge the moments it underrates (physical surprises with the crew,
+   reactions that land after the beat), using Franklin's keeps and skips and the reference channels' top hits as
+   examples. Target: the top fan clip in our top 10; ≥ 4 of 10 fan clips in the top 10.
+2. **Make runs reliable** (#6): get the AI eyes off the shared Gemini quota (an open vision model on Kaggle's free GPU,
+   or fewer, smarter frames), so a daily run always finishes.
+3. **Prove it isn't tuned to one stream** (#1): a second recall test (N3on on Kick or another big IRL stream).
+4. **The viewer panel** (section 1b), calibrated, so every Short is checked from the viewer's side before it ships.
+5. **Shorts that look like the winners** (#3): measure 20 top Kick_Clippers/Clipatra Shorts frame by frame (payoff
+   in the first second, framing, captions, cut rate, zooms, sound, length, ending, title) and match them, plus one
+   clearly-ours touch (hook line or context) so YouTube counts it as transformed.
+6. **Campaign packaging:** for each live campaign that fits, its rules turned into checks (required tags, length,
+   watermark, streamer allow-list), and each Short packaged with title, description, hashtags, the campaign, a
+   predicted view band with the reason, and a "before you post" note.
+7. **Several accounts, safely:** a different cut, caption and title of the same moment for each of Franklin's
+   accounts (never the same exported file twice), once he decides how many accounts.
 
-   Franklin uploads at first. Automatic upload comes later, with his yes.
+## 3. How to work (the daily loop, also run by the scheduled "Clipping improver")
 
-## 4. Rate yourself, always, and be honest
+1. Find the weakest scoreboard number.
+2. Learn how the best clippers, channels and open-source projects handle exactly that (study real top clips, not
+   advice videos alone; verify claims).
+3. Pick ONE change with the best expected gain per hour; prefer the simplest. Log it in the Improvement Log first.
+4. Build it, measure before and after on the same test.
+5. Keep it only if the number improves (PR into `clips-engine` with the table); otherwise drop it and log the lesson.
+6. Update the scoreboard and tell Franklin in a few lines.
 
-After every round, score every finished clip and the whole system 0–10 on:
-- moment strength;
-- hook in the first second;
-- title;
-- framing and visual quality;
-- captions;
-- audio;
-- pacing and cuts;
-- length and ending;
-- originality;
-- overall: the predicted chance of reaching 250K+.
+Big leaps are welcome when the evidence points to one (a new signal, a new model, a new source of clips), but a leap
+is still kept or dropped by the numbers.
 
-Scoring rules:
-- Scores come from comparison with the real winners: blind side-by-side against reference Shorts, judged by a judge
-  that didn't make the clip (the brain's `judge` on GitHub Actions, or a separate agent).
-- **Any part under 9.5 is the next thing to improve.** Fix the *engine* (not one clip), remake, re-score. Keep going.
-- Log each round in `docs/clips/PROGRESS.md`: scores, what changed, and the best real clip.
-- Never inflate. If something is a 4, say 4 and fix it.
+## 4. Honesty
 
-## 5. Guards against drifting (these caused the failure of v1)
+- Scores come from real comparisons: blind side by side against reference Shorts, by a judge that didn't make the
+  clip, calibrated against Franklin's own keeps and skips.
+- Never inflate. If a Short is a 4, say 4 and fix the engine, not the one clip.
+- Every update to Franklin has a real clip or real numbers.
 
-Stop and correct course if you notice any of these:
-- working on fake or test footage as if it were the product;
-- polishing tools or infrastructure while no real clip exists;
-- research or reports with no clip or measurement at the end;
-- a score that isn't from a real comparison;
-- a long run without showing Franklin something real.
+## 5. Fixed lines
 
-**Every update to Franklin has a real clip or real numbers.**
+- $0; free quotas are shared with the daily studio runs, so keep tests small and stop cleanly when a quota runs out.
+- Never Franklin's passwords, cookies or `.env`; keys only in GitHub secrets.
+- Nothing posted, uploaded, signed up for or merged to main without Franklin's yes. Branches, PRs into `clips-engine`
+  and GitHub releases for review are fine.
+- Real streams only; nothing fake shown as a clip; no gambling or casino streams; no bought views or bots.
 
-## 6. The only fixed lines
+## 6. Where things are
 
-1. $0. One account per provider.
-2. Never Franklin's passwords, login cookies or `.env`. Keys only in GitHub secrets.
-3. Nothing published, uploaded or merged to main without Franklin's yes. Work branches, PRs and GitHub releases for
-   review are fine.
-4. Nothing fake shown as a clip.
+- Branch `clips-engine` (PR #100); `studio/clips/` (signals, moments, edit, render, judge, gates, hot, yt_sections),
+  `lab/clips/` (recall, ai_pass, align, kick_chat), `tests/test_clips.py`, `third_party/`.
+- Workflows (run by pushing to a branch): `clips-recall.yml` (`clips-recall/*`), `clips-stream.yml` (stream → Shorts),
+  `clips-hot.yml`, `clips-shorts.yml`, `clips-board.yml`, `clips-reference.yml`, `make-clips.yml`.
+- Results are read from run logs (`gh run view --log`). Studio Board in Notion, tab "SC Streamer Clips".
+- Commits as `Franklin Mburu <184284364+FranklinMburu@users.noreply.github.com>`, ending with
+  `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`.
 
-Everything else, including rights and campaign rules, is handled in the "before you post" note, not as a block.
+## 7. Report
 
-## 7. Where things are
-
-- Branch `clips-engine` (PR #100), worktree `/home/claude/clips-engine`.
-- `studio/clips/` (finder, editor, gates, judge), `tests/test_clips.py`.
-- Workflows: `make-clips.yml` (VOD link → clips; test runs through `clips-run/*` branches), `clips-reference.yml`
-  (channel lists), `clips-probe.yml` (reachability tests).
-- Repo rules: `CLAUDE.md`. Commits as `Franklin Mburu <184284364+FranklinMburu@users.noreply.github.com>`, ending
-  with `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`. PRs through `gh api`. Never commit
-  `polish/film/004-…/answer.json`.
-
-## 8. Report
-
-- Short, plain, often.
-- Each update has a real clip or real numbers, the current self-scores, what changed, what's next, and any blocker
-  with its workaround and exactly what Franklin could do.
-- At the end: the PR, the button, how to use it, and the best clips with their scores.
+Short and plain. Each update: the best real Short so far (file or link), the scoreboard numbers before and after,
+what changed, what's next, and the one decision Franklin needs to make, if any. At the end of the session: the PRs,
+the Shorts ready for review on the Studio Board, and the updated scoreboard in the Clipping Lab.
