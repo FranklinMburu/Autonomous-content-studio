@@ -3,8 +3,9 @@
  "draft": "draft-006-why-titanic-skimped-on-lifeboats-run48",
  "episode": "episodes/hidden_reasons/006-why-titanic-skimped-on-lifeboats",
  "opened": "2026-11-11T18:03:17+00:00",
- "status": "accepted",
- "checked": "2026-11-17T02:25:21+00:00",
+ "status": "making",
+ "checked": "2026-11-17T07:07:48+00:00",
  "last_answer_by": "pull request #131 by FranklinMburu",
- "tries": 0
+ "tries": 1,
+ "started": "2026-11-17T07:07:48+00:00"
 }
