@@ -74,8 +74,6 @@ Return JSON only: {"era": "...", "cast": {...}, "key_words": [...], "music": "<o
            {"name": ..., "at": ..., "prompt": ..., "check": "Is ...?", "move": "push"}, ...]}
 
 CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid these exact scenes):
-- 004-why-john-snow-removed-a-london-pump-hand: cast snow = a 41 year old English doctor with short dark wavy hair, a clean shaven narrow face, thin lips, deep-set grey eyes, a black frock coat, a grey waistcoat, a white high collar and a black necktie, 1850s; whitehead = a 28 year old English vicar with fair curly hair, a round friendly face, rosy cheeks, a black clerical coat and a white clerical collar, 1850s; simon = a 38 year old London health official with a neat full black beard, a high bald forehead, a brown overcoat with a fur collar and a grey top hat, 1850s; mother = a 30 year old poor London woman with red hair tied under a white cotton cap, a faded blue cotton dress and a brown wool shawl, 1850s; brewer = a burly 50 year old brewery worker with a thick ginger beard, a flat cloth cap, rolled-up shirt sleeves and a grey canvas apron, 1850s
-  scenes: medium shot, two men in black top hats pulling the long iron handle of | medium close-up, a doctor pointing firmly at an iron street water pump | wide shot of a crowded narrow 1850s London street with laundry hanging | close-up, a pale sweating man lying sick on a straw mattress in a dark | high angle, men carrying plain wooden coffins out of narrow brick hous | medium shot, three doctors in black coats pressing white handkerchiefs | wide shot, thick greenish yellow fog drifting over a rubbish-strewn mu | medium shot, a bearded official shaking his head while reading a lette | close-up, a doctor frowning as he reads a letter by a rainy window, he | medium shot, {snow} and {whitehead} knocking on the wooden door of a n | medium close-up, a crying woman in a doorway answering questions, she  | extreme close-up, a hand with a quill pen marking small black dots on 
 - 005-why-barry-marshall-swallowed-bacteria: cast marshall = a 33 year old Australian doctor, lean build, curly dark brown hair, a full dark brown beard, brown eyes, thin wire-rimmed glasses, a white short-sleeved shirt under a pale blue lab coat and khaki trousers, 1980s; warren = a 46 year old Australian pathologist with short receding grey hair, a clean-shaven square face, heavy black-framed glasses, a white lab coat over a brown checked shirt, 1980s; skeptic = a 48 year old British gastroenterologist, stocky build, balding with short grey hair at the sides, heavy dark eyebrows, clean shaven, a charcoal grey suit jacket, a burgundy patterned tie and white shirt, 1980s; nurse = a 35 year old nurse, sturdy build, dark brown hair in a ponytail, teal scrubs, 1980s; wife = a 32 year old woman with shoulder-length wavy blond hair, a sun-tanned face and a yellow sleeveless summer dress, 1980s
   scenes: close-up, a bearded doctor drinking cloudy brown liquid from a glass b | medium close-up, a doctor wincing and pressing a hand on his stomach,  | medium shot, a stressed businessman in a brown suit clutching his stom | close-up of a plate of bright red chilli peppers next to a bowl of spi | wide shot of a sunny 1980s Australian city hospital with palm trees in | medium shot, a pathologist looking into a microscope, he is {warren},  | medium shot, a balding doctor laughing and shaking his head at a meeti | extreme close-up of clear liquid bubbling in a glass beaker on a lab b | close-up, a hand dropping a stapled paper into a metal wastebasket, 19 | medium close-up, a doctor reading a letter and slumping back in his ch | medium shot, pink piglets sniffing around a clean straw pen, bright da | close-up, a doctor rolling up his sleeves with a determined face, he i
 - 005-why-goldberger-swallowed-scabs: cast goldberger = a 42 year old lean American physician with short wavy dark brown hair, a neat small moustache, deep-set brown eyes and a long serious face, wearing a charcoal three-piece suit, a white wing-collar shirt and a dark tie, 1910s; wife = a 38 year old woman with dark auburn hair pinned up high, a narrow freckled face, a high-collared cream lace blouse and a long navy blue skirt, 1910s; orphan = a 9 year old thin girl with long blond braids, big grey eyes and a faded pink cotton dress with a white collar, 1910s; prisoner = a 27 year old lean prisoner with a tanned face, short dark hair and stubble on his chin, wearing a blue and white striped prison shirt with rolled sleeves, 1910s; critic = a 60 year old stout doctor with a bald head, bushy white side whiskers, small gold pince-nez and a black frock coat with a watch chain, 1910s; chemist = a 36 year old laboratory chemist with thinning blond hair, round black spectacles and a clean-shaven round face, wearing a white lab coat over a dark tie, 1930s
@@ -98,129 +96,204 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: medium close-up, a stern man in a wide black hat leaning over a wooden | extreme close-up of a hand with a quill pen signing a paper contract o | close-up, a merchant holding up his open empty palms toward a trader,  | medium shot, a trader shrugging with both arms spread wide and grinnin | close-up of a single tulip bulb half buried in dark soil in a wooden c | close-up of a hand with a quill pen writing rising numbers on a paper  | medium shot, {trader} slapping a paper contract down on a wooden table | close-up of a hand dropping small silver coins into a wooden bowl on a | wide shot of a crowded 1630s Dutch tavern with men waving paper contra | wide shot of a grand 1630s Dutch town exchange building with tall ston | medium shot, {merchant} holding up a paper contract beside a potted tu | close-up of a hand holding up a small paper concert ticket in a dark t
 - 007-why-tycho-brahe-built-uraniborg-on-hven: cast tycho = a 30 year old Danish astronomer with short reddish-brown hair, dark eyes, a small brass nose bridge piece, a dark green velvet doublet with gold embroidery and a white ruff collar, 1570s; king = a 42 year old Danish king with a thick blond beard, sharp blue eyes, a dark red velvet coat with white fur collar and a heavy gold chain, 1570s; farmer = a 35 year old Danish farmer with a sunburnt face, messy brown hair, stubble beard, a coarse brown wool tunic and grey trousers, 1570s; judge = a 55 year old judge with long grey hair, a bushy grey beard, a long black robe over a white ruff collar, 1570s; kepler = a 30 year old astronomer with short dark hair, a neat pointed black beard, small spectacles, a dark brown doublet with a flat white collar, 1600s
   scenes: close-up, an astronomer squinting up at the starry sky while holding a | wide shot of a magnificent red-brick Renaissance castle with tall copp | medium shot, an astronomer turning a brass divider compass over a parc | extreme close-up of a quill pen dipping into a small dark glass inkwel | medium close-up, a bearded king in a red velvet coat leaning forward o | medium shot, an astronomer gazing out a tall arched stone window towar | medium shot, an elderly nobleman in a black robe pushing a heavy leath | medium close-up, a man lifting a brass armillary sphere up to his eye  | close-up, a man frowning and turning an hourglass upside down on a woo | medium shot, a bearded king in a velvet coat listening intently with h | wide shot of heavy wooden travel trunks and tied leather bags sitting  | medium shot, {king} unrolling a large parchment map of an island onto 
+- 008-why-china-s-paper-money-wasn-t-tang: cast merchant = a 45 year old Sichuan merchant with a round weathered face, a thin grey-streaked beard, a black silk cap, a long dark blue silk robe with wide sleeves and a brown leather belt, 11th century; official = a 50 year old Song government official with a long thin face, a neat black moustache, a tall black gauze hat with stiff wings, a long crimson robe with a gold-embroidered square badge, 11th century; clerk = a 30 year old thin clerk with a pale narrow face, small round spectacles, a grey cotton robe and a black cloth cap, 11th century; smith = a 35 year old burly iron smith with a soot-darkened face, a short black beard, a leather apron over a rough brown tunic, 11th century; wife = a 35 year old Sichuan woman with a round face, black hair in a neat bun, a small gold hairpin, a green cotton jacket and a long dark skirt, 11th century
+  scenes: medium shot, a merchant in a long dark blue silk robe and black cap ha | extreme close-up of two hands lifting a stack of thick heavy iron coin | close-up, a merchant holding up one folded paper note with both hands, | close-up, a merchant pressing a red seal stamp onto a paper note on a  | medium shot, a thin clerk holding up a paper note in one hand and poin | close-up of two hands placing a folded paper note on top of a heavy st | wide shot of a crowded 11th century Sichuan market street with wooden  | close-up of two hands holding up two different paper notes side by sid | medium shot, {merchant} standing and pointing at a large paper map on  | close-up, {merchant} leaning over a wooden table and pointing at a pap | wide shot of a large wooden gate of a merchant guild house with a hang | extreme close-up of a carved wooden printing block being pressed onto 
 
 PROBLEMS FOUND BY THE CHECKS
-- script: not supported by the sources, fix or remove: A Union sailor slathers fresh paint on his ship’s side, sweat dripping.
-- script: not supported by the sources, fix or remove: His comrades snicker, saying the color is just for show.
-- script: not supported by the sources, fix or remove: At sunrise the fleet rolls out, cannon smoke rising, eyes scanning the horizon.
-- script: not supported by the sources, fix or remove: Confederate guns flash back, searching for any silhouette.
-- script: not supported by the sources, fix or remove: The Navy painted hulls gray to blend with the sea’s edge, making ships vanish against the distant line.
-- script: not supported by the sources, fix or remove: That camouflage reduced the chance of being sighted by enemy lookouts.
-- script: not supported by the sources, fix or remove: Ironically, the same shade helped friendly pilots find the fleet at night, because the gray reflected moonlight.
-- script: narration has 103 words; it must be 150-210
+- shot binder: 3.8 s on screen (max 3.2; split it)
+- script: every beat needs a "feel": the one emotion the viewer should have there
+- script: not supported by the sources: A researcher hunted for a German navy paint rulebook the bombs missed.
 
 DRAFT SCRIPT
-{"title": "Gray hulls hidden purpose", "beats": [{"lines": ["A Union sailor slathers fresh paint on his ship’s side, sweat dripping."], "feel": "curiosity"}, {"lines": ["His comrades snicker, saying the color is just for show."], "feel": "sympathy"}, {"lines": ["At sunrise the fleet rolls out, cannon smoke rising, eyes scanning the horizon.", "Confederate guns flash back, searching for any silhouette."], "feel": "dread"}, {"lines": ["You see, it’s like wearing a gray hoodie on a foggy morning—hard to spot."], "feel": "recognition"}, {"lines": ["The Navy painted hulls gray to blend with the sea’s edge, making ships vanish against the distant line.", "That camouflage reduced the chance of being sighted by enemy lookouts."], "feel": "awe"}, {"lines": ["Ironically, the same shade helped friendly pilots find the fleet at night, because the gray reflected moonlight."], "feel": "surprise"}]}
+{"title": "The paint rulebook the bombs missed", "beats": [{"lines": ["A researcher hunted for a German navy paint rulebook the bombs missed."]}, {"lines": ["Ships have worn camouflage since ancient times.", "In the Second World War, the German Navy used a whole mix of paint schemes.", "They kept changing."]}, {"lines": ["The researcher wanted to explain them all in one English book.", "Nobody had written a full one in English before."]}, {"lines": ["But the proof was scarce.", "Allied bombers had destroyed many German navy records.", "Written sources were even harder to find."]}, {"lines": ["Then two editions of the building rules survived.", "Both came from the naval shipyard at Wilhelmshaven.", "They ran from November 1941 to July 1944."]}, {"lines": ["They were a great help to the book.", "Thanks to them, English readers finally got a full guide.", "Even so, a reviewer urged caution.", "Paint quality varied greatly."]}, {"lines": ["You see, it is like a cake recipe.", "Two bakers follow one page.", "One uses bad flour, and the cakes look different."]}, {"lines": ["On the ships, what was actually achieved was often quite different from the standard."]}, {"lines": ["So the surviving rulebook shows the plan, not always the ship."]}]}
 CLAIMS IN THE DRAFT
-- {'claim': 'Camouflage on ships has been used since ancient times and continued into modern naval warfare.', 'url': 'https://doi.org/10.25071/2561-5467.452'}
+- {'claim': 'Camouflage on ships dates back to the ancients and has been used ever since.', 'url': 'https://doi.org/10.25071/2561-5467.452'}
+- {'claim': 'In the Second World War the German Navy used a myriad of camouflage schemes and styles that appear to have been continually changing.', 'url': 'https://doi.org/10.25071/2561-5467.452'}
+- {'claim': 'Volume 1 of German Naval Camouflage is the first comprehensive work on Kriegsmarine camouflage practices for the English-reading world.', 'url': 'https://doi.org/10.25071/2561-5467.452'}
+- {'claim': 'Many Kriegsmarine records were destroyed during the Allied bombing campaign, making official records scarce.', 'url': 'https://doi.org/10.25071/2561-5467.452'}
+- {'claim': 'Two editions of the General Building Regulations Nr. 31, ranging from November 1941 to July 1944 and used by the Kriegsmarinewerft Wilhelmshaven, survived and were a great help.', 'url': 'https://doi.org/10.25071/2561-5467.452'}
+- {'claim': 'Paint quality varied greatly, and what was actually achieved was often quite different from the camouflage standard.', 'url': 'https://doi.org/10.25071/2561-5467.452'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 0.12s A#1
-0.22s Union#1
-0.57s sailor#1
-1.00s slathers#1
-1.42s fresh#1
-1.70s paint#1
-1.95s on#1
-2.05s his#1
-2.17s ship’s#1
-2.42s side#1
-3.07s sweat#1
-3.35s dripping#1
-4.20s His#2
-4.40s comrades#1
-4.87s snicker#1
-5.50s saying#1
-5.77s the#1
-5.87s color#1
-6.20s is#1
-6.32s just#1
-6.52s for#1
-6.70s show#1
-7.46s At#1
-7.61s sunrise#1
-8.06s the#2
-8.16s fleet#1
-8.36s rolls#1
-8.61s out#1
-9.11s cannon#1
-9.48s smoke#1
-9.78s rising#1
-10.51s eyes#1
-10.86s scanning#1
-11.23s the#3
-11.33s horizon#1
-12.18s Confederate#1
-12.71s guns#1
-13.08s flash#1
-13.43s back#1
-13.96s searching#1
-14.31s for#2
-14.43s any#1
-14.63s silhouette#1
-15.51s You#1
-15.68s see#1
-16.07s it’s#1
-16.20s like#1
-16.37s wearing#1
-16.65s a#2
-16.77s gray#1
-17.10s hoodie#1
-17.32s on#2
-17.42s a#3
-17.52s foggy#1
-17.87s morning—hard#1
-18.82s to#1
-18.92s spot#1
-19.80s The#4
-19.90s Navy#1
-20.22s painted#1
-20.62s hulls#1
-20.95s gray#2
-21.25s to#2
-21.37s blend#1
-21.70s with#1
-21.80s the#5
-21.95s sea’s#1
-22.25s edge#1
-22.85s making#1
-23.20s ships#1
-23.47s vanish#1
-23.87s against#1
-24.17s the#6
-24.27s distant#1
-24.57s line#1
-25.14s That#1
-25.37s camouflage#1
-26.19s reduced#1
-26.59s the#7
-26.69s chance#1
-27.04s of#1
-27.12s being#1
-27.39s sighted#1
-27.79s by#1
-27.99s enemy#1
-28.32s lookouts#1
-29.32s Ironically#1
-30.14s the#8
-30.29s same#1
-30.62s shade#1
-30.99s helped#1
-31.29s friendly#1
-31.67s pilots#1
-32.12s find#1
-32.32s the#9
-32.42s fleet#2
-32.64s at#2
-32.74s night#1
-33.37s because#1
-33.67s the#10
-33.79s gray#3
-34.12s reflected#1
-34.67s moonlight#1
+0.22s researcher#1
+0.92s hunted#1
+1.27s for#1
+1.50s a#2
+1.57s German#1
+1.85s navy#1
+2.17s paint#1
+2.40s rulebook#1
+3.00s the#1
+3.10s bombs#1
+3.50s missed#1
+4.33s Ships#1
+4.58s have#1
+4.71s worn#1
+4.99s camouflage#1
+5.61s since#1
+5.81s ancient#1
+6.08s times#1
+6.80s In#1
+6.88s the#2
+7.03s Second#1
+7.33s World#1
+7.60s War#1
+8.20s the#3
+8.30s German#2
+8.65s Navy#2
+9.08s used#1
+9.30s a#3
+9.40s whole#1
+9.70s mix#1
+9.93s of#1
+10.03s paint#2
+10.25s schemes#1
+11.01s They#1
+11.14s kept#1
+11.39s changing#1
+12.45s The#4
+12.55s researcher#2
+13.05s wanted#1
+13.30s to#1
+13.40s explain#1
+13.77s them#1
+14.02s all#1
+14.27s in#2
+14.45s one#1
+14.72s English#1
+15.10s book#1
+15.67s Nobody#1
+16.19s had#1
+16.32s written#1
+16.54s a#4
+16.69s full#1
+16.92s one#2
+17.12s in#3
+17.22s English#2
+17.57s before#1
+18.45s But#1
+18.57s the#5
+18.67s proof#1
+18.92s was#1
+19.05s scarce#1
+19.83s Allied#1
+20.20s bombers#1
+20.75s had#2
+20.85s destroyed#1
+21.35s many#1
+21.58s German#3
+21.93s navy#3
+22.25s records#1
+23.00s Written#2
+23.32s sources#1
+23.93s were#1
+24.10s even#1
+24.35s harder#1
+24.65s to#2
+24.77s find#1
+25.64s Then#1
+25.89s two#1
+26.09s editions#1
+26.52s of#2
+26.58s the#6
+26.69s building#1
+27.02s rules#1
+27.32s survived#1
+28.09s Both#1
+28.42s came#1
+28.69s from#1
+28.81s the#7
+28.92s naval#1
+29.29s shipyard#1
+29.94s at#1
+30.07s Wilhelmshaven#1
+31.11s They#2
+31.32s ran#1
+31.64s from#2
+31.79s November#1
+32.24s 1941#1
+33.49s to#3
+33.62s July#1
+34.02s 1944#1
+35.56s They#3
+35.66s were#2
+35.78s a#5
+35.88s great#1
+36.16s help#1
+36.41s to#4
+36.48s the#8
+36.58s book#2
+37.17s Thanks#1
+37.47s to#5
+37.54s them#2
+38.07s English#3
+38.42s readers#1
+38.84s finally#1
+39.32s got#1
+39.47s a#6
+39.54s full#2
+39.74s guide#1
+40.38s Even#2
+40.73s so#1
+41.18s a#7
+41.25s reviewer#1
+41.68s urged#1
+42.00s caution#1
+42.73s Paint#3
+42.98s quality#1
+43.38s varied#1
+43.71s greatly#1
+44.67s You#1
+44.87s see#1
+45.28s it#1
+45.38s is#1
+45.48s like#1
+45.63s a#8
+45.71s cake#1
+46.01s recipe#1
+46.77s Two#2
+46.95s bakers#1
+47.42s follow#1
+47.70s one#3
+47.90s page#1
+48.62s One#4
+48.85s uses#1
+49.17s bad#1
+49.45s flour#1
+50.07s and#1
+50.17s the#9
+50.27s cakes#1
+50.62s look#1
+50.82s different#1
+51.70s On#1
+51.80s the#10
+51.97s ships#2
+52.55s what#1
+52.67s was#2
+52.84s actually#1
+53.30s achieved#1
+53.99s was#3
+54.17s often#1
+54.52s quite#1
+54.84s different#2
+55.15s from#3
+55.26s the#11
+55.37s standard#1
+56.36s So#2
+56.48s the#12
+56.58s surviving#1
+57.11s rulebook#2
+57.51s shows#1
+57.73s the#13
+57.83s plan#1
+58.46s not#1
+58.66s always#1
+59.01s the#14
+59.13s ship#1
 
 DRAFT film.json
-{"era": "1860s", "cast": {"sailor": "a 24 year old Union Navy sailor with a lean build, short curly light brown hair, a clean-shaven face, bright blue eyes, wearing a navy blue cotton sailor shirt with a white-trimmed collar and light grey canvas trousers, 1860s", "comrade": "a 35 year old Union Navy sailor with a thick dark brown moustache, messy dark hair, a sturdy build, wearing a sleeveless cream cotton work shirt and dark blue trousers, 1860s", "lookout": "a 29 year old Confederate lookout officer with a lean face, short straight black hair, sharp grey eyes, wearing a grey wool military jacket with brass buttons and a matching grey kepi hat, 1860s"}, "music": "tense", "key_words": ["Union", "sailor", "slathers", "paint", "ship's", "side", "sweat", "comrades", "snicker", "color", "show", "sunrise", "fleet", "cannon", "smoke", "horizon", "Confederate", "guns", "flash", "silhouette", "gray", "hoodie", "foggy", "morning", "Navy", "hulls", "blend", "sea's", "edge", "vanish", "camouflage", "sighted", "lookouts", "pilots", "night", "reflected", "moonlight"], "shots": [{"name": "slathers", "at": 0, "who": "sailor", "clip": true, "prompt": "medium shot, brushing thick grey paint onto a wooden ship hull, a sailor standing on a hanging wooden scaffold, he is {sailor}, bright morning sunlight", "motion": "he sweeps the paintbrush back and forth across the wood, slow camera push in", "check": "Is a man painting a ship?"}, {"name": "sweat", "at": "sweat#1", "who": "sailor", "clip": true, "prompt": "close-up, wiping sweat from his forehead with his forearm, a sailor pausing his work, he is {sailor}, bright sunlight reflecting on wooden deck", "motion": "he wipes his brow with his arm, slow camera push in", "check": "Is a man wiping sweat from his face?"}, {"name": "snicker", "at": "His#2", "who": "comrade", "clip": true, "prompt": "medium close-up, a sailor snickering with a sly grin and one hand raised near his mouth, he is {comrade}, a harbor dock with a gray warship hull behind him, 1860s, bright morning light", "motion": "he grins and covers his mouth while snickering, slow camera push in", "hit": "snicker#1", "check": "Is a sailor snickering?"}, {"name": "mock", "at": "color#1", "who": "comrade", "clip": true, "prompt": "medium shot, a sailor pointing mockingly at the smooth gray painted side of a wooden warship, he is {comrade}, a harbor dock with rigging and masts, 1860s, bright morning light", "motion": "he points at the gray hull and shrugs, slow camera push in", "check": "Is a sailor pointing at a gray ship hull?"}, {"name": "sunrise_fleet", "at": "At#1", "move": "push", "xfade": true, "prompt": "wide shot, a line of gray-hulled wooden warships sailing out to sea at sunrise, tall masts and rigging against golden clouds, calm blue water, warm dawn light", "check": "Are there sailing ships on the sea?"}, {"name": "cannon_smoke", "at": "cannon#1", "clip": true, "hit": "cannon#1", "prompt": "close-up, a black iron cannon firing on a wooden warship deck, bright orange muzzle flash and thick grey smoke billowing upward, cold dawn light", "motion": "the cannon fires and smoke billows upward, slow camera push in", "check": "Is there a cannon firing with smoke?"}, {"name": "scanning", "at": "eyes#1", "who": "lookout", "clip": true, "prompt": "medium close-up, a man raising a brass telescope to his eye and scanning the horizon, he is {lookout}, on a Confederate warship deck, pale morning light", "motion": "he lowers the telescope slightly and peers ahead, slow camera push in", "check": "Is a man looking through a telescope?"}, {"name": "guns_flash", "at": "guns#1", "clip": true, "hit": "guns#1", "prompt": "medium shot, Confederate sailors in grey wool uniforms firing a cannon from a wooden ship deck, bright muzzle flash and rolling smoke, dawn light", "motion": "the cannon fires and smoke bursts outward, slow camera push in", "check": "Are sailors firing a cannon?"}, {"name": "hoodie", "at": "You#1", "xfade": true, "modern": true, "clip": true, "prompt": "medium shot, a person in a gray hooded sweatshirt turning their head slowly in thick morning fog on a modern street, seen from behind, pale grey daylight", "motion": "the hooded figure turns their head slowly, fog drifts, slow camera push in", "check": "Is there a person in a gray hoodie in the fog?"}, {"name": "hood_fog", "at": "hoodie#1", "modern": true, "move": "push", "prompt": "close-up of a soft gray hooded sweatshirt hood in thick pale morning fog, its edges fading into the mist, modern street, flat grey daylight", "check": "Is a gray hood in the fog?"}, {"name": "vanish", "at": "spot#1", "modern": true, "clip": true, "prompt": "wide shot, a person in a gray hoodie walking away down a modern foggy sidewalk, almost swallowed by the pale mist, soft grey daylight", "motion": "the figure takes slow steps into the fog, mist drifts, slow camera pull back", "check": "Is a person in a gray hoodie walking into the fog?"}, {"name": "paint", "at": "The#4", "who": "sailor", "clip": true, "prompt": "close-up, a Union sailor slathering fresh gray paint on the wooden side of a warship hull with a wide brush, he is {sailor}, 1860s shipyard dock, warm morning light", "motion": "he drags the brush down the hull, wet paint glistens, slow camera push in", "check": "Is a man painting a ship hull?"}, {"name": "blend", "at": "blend#1", "move": "push", "prompt": "wide shot, a gray-painted warship hull sitting low against a flat gray sea and misty horizon line, cold overcast light", "check": "Is a gray ship on a gray sea?"}, {"name": "vanish_12", "at": "vanish#1", "hit": "vanish#1", "move": "pull", "prompt": "wide shot, a distant gray warship almost disappearing against the pale horizon line of a calm sea, thin mist, early morning light", "check": "Is there a ship on the horizon?"}, {"name": "camouflage", "at": "camouflage#1", "xfade": true, "who": "sailor", "clip": true, "prompt": "medium shot, a Union sailor leaning over the rail of a gray warship and watching the misty horizon, he is {sailor}, cold morning light", "motion": "he leans on the rail and stares into the mist, slow camera push in", "check": "Is a man leaning over a ship rail?"}, {"name": "lookouts", "at": "lookouts#1", "who": "lookout", "clip": true, "prompt": "medium close-up, a Confederate lookout officer scanning an empty gray horizon through a brass spyglass, he is {lookout}, a ship deck at sea, cold overcast light", "motion": "he lowers the spyglass and squints at the empty horizon, slow camera push in", "check": "Is a man looking through a spyglass?"}, {"name": "irony", "at": "Ironically#1", "who": "comrade", "clip": true, "xfade": true, "prompt": "medium close-up, a sailor standing on a wooden ship deck at night looking up at the pale grey hull with a wry smirk, he is {comrade}, cold moonlight, dark rigging", "motion": "he tilts his head back and smirks, slow camera push in", "check": "Is a sailor looking up at a ship hull?"}, {"name": "lantern", "at": "friendly#1", "who": "sailor", "clip": true, "prompt": "medium shot, a sailor standing in a small steam launch at night holding up a brass lantern to search the dark water, he is {sailor}, distant warships on the horizon, moonlight", "motion": "he raises the lantern and scans the horizon, slow camera push in", "check": "Is a man holding up a lantern?"}, {"name": "fleet_night", "at": "night#1", "move": "push", "prompt": "wide shot, a line of grey warships sailing on a calm dark sea under a bright full moon, pale moonlight shimmering on the water, 1860s", "check": "Are there grey ships on the sea at night?"}, {"name": "reflection", "at": "gray#3", "hit": "gray#3", "move": "push", "prompt": "close-up of pale moonlight glinting on the wet grey wooden hull of a warship at night, dark sea behind, cold silver light", "check": "Is moonlight glinting on a grey ship hull?"}]}
+{"era": "1940s", "cast": {"researcher": "a 45 year old woman historian with shoulder-length auburn hair with silver streaks, round tortoiseshell glasses, an olive green cardigan over a cream blouse", "painter": "a 50 year old broad-shouldered German shipyard painter with grey stubble, a flat cap splashed with paint and blue overalls stained with grey paint, 1940s", "reviewer": "a 55 year old man with a bald head, a neat grey goatee, a navy blazer and a red bow tie", "baker": "a 30 year old woman baker with black curly hair under a yellow headscarf, brown skin, a white apron over a teal shirt", "reader": "a 70 year old man with wild white hair, bushy white eyebrows, a brown corduroy jacket and a red scarf"}, "key_words": ["researcher", "rulebook", "camouflage", "Kriegsmarine", "German", "Navy", "bombers", "records", "Wilhelmshaven", "shipyard", "1941", "1944", "paint", "cake", "recipe", "plan"], "music": "mysterious", "shots": [{"name": "hook", "at": 0, "who": "researcher", "clip": true, "motion": "she turns the book slowly in her hands, slow camera push in", "prompt": "close-up, a woman holding up a thick old rulebook with a charred corner in a dusty archive, she is {researcher}, dim lamp light", "check": "Is a woman holding a book?", "modern": true}, {"name": "cover", "at": "rulebook#1", "move": "push", "prompt": "extreme close-up of a worn grey rulebook cover with a scorched edge on a wooden desk, lamp light", "check": "Is there a worn book on a desk?", "modern": true}, {"name": "ancient_ship", "at": "ships#1", "move": "push", "prompt": "wide shot of an ancient wooden rowing ship with one square sail on a blue sea, bright sun", "check": "Is there an ancient wooden ship?"}, {"name": "ancient_paint", "at": "ancient#1", "clip": true, "motion": "the brush sweeps across the wood, slow camera push in", "prompt": "close-up, a hand brushing grey paint onto a curved wooden ship hull, bright daylight", "check": "Is a hand painting a wooden hull?"}, {"name": "ww2_ship", "at": "in#1", "move": "pull", "prompt": "wide shot of a large grey German warship tied up in a harbour, cranes behind it, 1940s, cloudy light", "check": "Is there a large warship?", "xfade": true}, {"name": "painter", "at": "used#1", "who": "painter", "clip": true, "motion": "he sweeps the brush along the steel, slow camera push in", "prompt": "medium shot, a painter brushing a pale blue-grey stripe on a steel ship hull from a hanging platform, he is {painter}, 1940s shipyard", "check": "Is a man painting a ship hull?"}, {"name": "cans", "at": "mix#1", "move": "right", "prompt": "close-up, a row of open paint cans in grey, blue, green and brown on a shipyard floor, 1940s", "check": "Are there open paint cans?"}, {"name": "repaint", "at": "kept#1", "move": "left", "prompt": "wide shot of a shipyard dock with several warships in different patchy colour patterns, 1940s, hazy light", "check": "Are there warships in a dock?"}, {"name": "writer", "at": "the#4", "who": "researcher", "clip": true, "motion": "her pen moves across the page, slow camera push in", "prompt": "medium close-up, a woman writing notes in a notebook at a desk piled with papers, she is {researcher}, warm lamp light", "check": "Is a woman writing?", "xfade": true, "modern": true}, {"name": "book", "at": "english#1", "move": "push", "prompt": "close-up of a thick plain hardcover book lying closed on a wooden desk, soft window light", "check": "Is there a thick book on a desk?", "modern": true}, {"name": "nobody", "at": "nobody#1", "who": "researcher", "clip": true, "motion": "her finger slides along the book spines, slow camera push right", "prompt": "medium shot, a woman running her finger along a long library shelf and finding nothing, she is {researcher}, quiet library", "check": "Is a woman at a library shelf?", "modern": true}, {"name": "empty_box", "at": "but#1", "who": "researcher", "clip": true, "motion": "she lifts the lid and shakes her head, slow camera push in", "prompt": "close-up, a woman lifting the lid of an empty cardboard box and frowning, she is {researcher}, dusty archive, dim light", "check": "Is a woman opening a cardboard box?", "xfade": true, "modern": true}, {"name": "bombed", "at": "allied#1", "move": "pull", "prompt": "wide shot of a ruined brick building with a broken roof and grey smoke rising, rubble in the street, 1940s", "check": "Is there a damaged brick building?", "hit": "bombers#1"}, {"name": "burning", "at": "destroyed#1", "clip": true, "motion": "the flames lick the pages, slow camera push in", "prompt": "close-up of old paper pages curling and glowing in flames on dark ground", "check": "Are papers burning?", "hit": "destroyed#1"}, {"name": "search", "at": "written#2", "who": "researcher", "clip": true, "motion": "she pulls one folder from a shelf, slow camera push in", "prompt": "high angle, a woman searching through a dusty archive room with half-empty wooden shelves, she is {researcher}, dim light", "check": "Is a woman in an archive room?", "modern": true}, {"name": "booklets", "at": "then#1", "clip": true, "motion": "the hands open the cover, slow camera push in", "prompt": "close-up, hands opening one of two thin old booklets on a wooden table, warm lamp light", "check": "Are hands opening a booklet?", "xfade": true, "modern": true}, {"name": "yard", "at": "both#1", "move": "push", "prompt": "wide shot of a busy naval shipyard on the sea with tall cranes and a grey warship in a dock, 1940s, grey daylight", "check": "Is there a shipyard with cranes?"}, {"name": "crane", "at": "shipyard#1", "move": "down", "prompt": "close-up of a black iron crane hook hanging over a shipyard dock, grey sea behind, 1940s, cloudy light", "check": "Is there a crane hook?"}, {"name": "binder", "at": "november#1", "clip": true, "motion": "the hand turns a page, slow camera push in", "prompt": "close-up, a hand turning thick pages of an old binder under a desk lamp, 1940s office", "check": "Is a hand turning pages?"}, {"name": "help", "at": "they#3", "who": "researcher", "clip": true, "motion": "she lifts the booklets and smiles, slow camera push in", "prompt": "medium close-up, a woman smiling in relief and holding two old booklets in the air, she is {researcher}, archive, warm light", "check": "Is a woman holding booklets?", "modern": true}, {"name": "finished", "at": "thanks#1", "clip": true, "motion": "the hand sets the book down, slow camera push in", "prompt": "close-up, a hand placing a thick new hardcover book on a table, soft window light", "check": "Is a hand placing a book on a table?", "modern": true}, {"name": "reader", "at": "readers#1", "who": "reader", "clip": true, "motion": "he opens the cover and leans in, slow camera push in", "prompt": "medium shot, an old man opening a big book in an armchair by a window, he is {reader}, soft daylight", "check": "Is a man opening a book?", "modern": true}, {"name": "caution", "at": "even#2", "who": "reviewer", "clip": true, "motion": "he lifts one finger and nods slowly, slow camera push in", "prompt": "medium close-up, a man raising one finger in warning, he is {reviewer}, a book-lined study, warm light", "check": "Is a man raising a finger?", "xfade": true, "modern": true}, {"name": "thin_paint", "at": "paint#3", "clip": true, "motion": "the thin paint drips down the steel, slow camera push in", "prompt": "close-up, a brush dripping thin watery grey paint in streaks down a steel ship hull, 1940s", "check": "Is paint dripping on a steel hull?"}, {"name": "recipe", "at": "you#1", "who": "baker", "clip": true, "motion": "she runs a finger down the page and nods, slow camera push in", "prompt": "medium shot, a woman reading a cookbook open on a kitchen counter, she is {baker}, bright kitchen", "check": "Is a woman reading a cookbook?", "xfade": true, "modern": true}, {"name": "bakers", "at": "two#2", "clip": true, "motion": "both bakers stir their bowls, slow camera push in", "prompt": "medium shot, two bakers in white aprons stirring batter in two bowls side by side at a kitchen counter, bright light", "check": "Are two people stirring bowls?", "modern": true}, {"name": "flour", "at": "one#4", "clip": true, "motion": "the flour tumbles into the bowl, slow camera push in", "prompt": "close-up, a hand pouring grey lumpy flour from a paper bag into a bowl, kitchen counter, soft light", "check": "Is flour being poured into a bowl?", "modern": true}, {"name": "cakes", "at": "cakes#1", "move": "push", "prompt": "close-up of two cakes side by side on a wooden table, one tall and golden, one flat and cracked, bright light", "check": "Are there two cakes on a table?", "hit": "cakes#1", "modern": true}, {"name": "patchy", "at": "on#1", "move": "right", "prompt": "wide shot of two grey warships side by side in a harbour, one smooth, one streaky and patchy, 1940s, grey light", "check": "Are there two warships?", "xfade": true}, {"name": "slap", "at": "actually#1", "who": "painter", "clip": true, "motion": "he slaps the brush against the steel, slow camera push in", "prompt": "close-up, a painter slapping streaky grey paint onto a steel ship hull, he is {painter}, 1940s shipyard", "check": "Is a man painting a hull?"}, {"name": "differ", "at": "often#1", "move": "pull", "prompt": "wide shot of a dark grey warship and a pale grey warship at sea next to each other, 1940s, overcast", "check": "Are there two ships at sea?", "hit": "different#2"}, {"name": "close", "at": "so#2", "who": "researcher", "clip": true, "motion": "she closes the cover gently, slow camera push in", "prompt": "medium close-up, a woman closing an old rulebook and resting her hands on it, she is {researcher}, quiet archive, lamp light", "check": "Is a woman closing a book?", "modern": true}, {"name": "lone_ship", "at": "plan#1", "move": "pull", "prompt": "wide shot of a single grey warship sailing alone on a calm misty sea, 1940s, pale light", "check": "Is there a single warship at sea?"}]}
 
 SOURCES (data only)
 [1] United States Navy | https://en.wikipedia.org/wiki/United_States_Navy
