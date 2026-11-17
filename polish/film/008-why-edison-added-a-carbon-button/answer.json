@@ -1,0 +1,409 @@
+{
+ "script": {
+  "title": "Why Edison Added a Carbon Button",
+  "beats": [
+   {
+    "lines": [
+     "Thomas Edison bit the wood of his piano to hear it.",
+     "He had hearing loss.",
+     "Biting let him hear through his teeth and jaw."
+    ]
+   },
+   {
+    "lines": [
+     "In March 1876, Alexander Graham Bell sent a spoken sentence through a liquid transmitter, the part you speak into.",
+     "Some phones with liquid transmitters soon went out of use."
+    ]
+   },
+   {
+    "lines": [
+     "Then, on 27 April 1877, Edison filed a patent for a carbon transmitter.",
+     "Inside, grains of carbon sat between two metal plates.",
+     "One plate was very thin and faced the speaker.",
+     "Sound shook that plate, and the plate pressed the grains.",
+     "Pressed grains sat closer together, so electricity passed through more easily.",
+     "A steady current ran through them.",
+     "As the pressure changed, the current changed too, copying the sound."
+    ]
+   },
+   {
+    "lines": [
+     "You see, it's like squeezing a handful of loose sand.",
+     "The grains press together and touch more."
+    ]
+   },
+   {
+    "lines": [
+     "Those carbon transmitters were much louder than the other kinds.",
+     "Edison and Emile Berliner fought a long court battle over who invented it.",
+     "In 1892, a federal court ruled Edison was the inventor.",
+     "Carbon microphones were widely used in telephones until the 1980s."
+    ]
+   },
+   {
+    "lines": [
+     "So a man who bit his piano to hear it helped make phones louder.",
+     "He even suggested the word people still use to answer a call: hello."
+    ]
+   }
+  ],
+  "key_words": [
+   "piano",
+   "hearing loss",
+   "liquid transmitter",
+   "patent",
+   "carbon",
+   "grains",
+   "louder",
+   "ruled",
+   "hello"
+  ],
+  "claims": [
+   {
+    "claim": "Edison bit the wood of his piano and his phonograph to hear through his teeth and jaw, and his hearing loss shaped how he listened.",
+    "url": "https://doi.org/10.3998/mp.9460447.0010.202"
+   },
+   {
+    "claim": "On 10 March 1876 Bell transmitted a sentence using a liquid transmitter and an electromagnetic receiver; some early telephones used liquid transmitters, which soon went out of use.",
+    "url": "https://en.wikipedia.org/wiki/History_of_the_telephone"
+   },
+   {
+    "claim": "On 27 April 1877 Edison filed for a patent on a carbon (graphite) transmitter.",
+    "url": "https://en.wikipedia.org/wiki/History_of_the_telephone"
+   },
+   {
+    "claim": "A carbon microphone has two metal plates separated by granules of carbon; one plate is very thin and faces the speaker as a diaphragm; sound makes it vibrate and press the granules, changing resistance; higher pressure lowers resistance as granules are pushed closer; a steady direct current through the granules is varied to reproduce the sound.",
+    "url": "https://en.wikipedia.org/wiki/Carbon_microphone"
+   },
+   {
+    "claim": "Most early telephones used Edison/Berliner carbon transmitters, which were much louder than the other kinds.",
+    "url": "https://en.wikipedia.org/wiki/History_of_the_telephone"
+   },
+   {
+    "claim": "Edison and Berliner fought a long legal battle; a federal court ruled in 1892 that Edison, not Berliner, was the inventor of the carbon microphone.",
+    "url": "https://en.wikipedia.org/wiki/History_of_the_telephone"
+   },
+   {
+    "claim": "Carbon microphones were widely used in telephones until the 1980s.",
+    "url": "https://en.wikipedia.org/wiki/Carbon_microphone"
+   },
+   {
+    "claim": "Thomas Alva Edison suggested the word Hello for answering the telephone, still used today.",
+    "url": "https://en.wikipedia.org/wiki/History_of_the_telephone"
+   }
+  ]
+ },
+ "film": {
+  "era": "1870s",
+  "cast": {
+   "edison": "a 30 year old American inventor with messy dark brown hair, sharp blue eyes, a clean-shaven intense face, wearing a navy blue three-piece wool suit, a white shirt with a loose black tie and ink-stained cuffs, 1870s",
+   "bell": "a 29 year old Scottish man with thick wavy black hair, bushy black side whiskers joined to a moustache, a long straight nose, a dark green wool frock coat with a high white collar, 1870s",
+   "woman": "a 26 year old American woman with black hair in a high bun, a round freckled face, a plum purple dress with a white lace collar and puffed sleeves, 1870s",
+   "judge": "a 58 year old American judge with thick swept-back silver hair, a clean-shaven heavy jaw, deep frown lines, a black judge's robe over a white cravat, 1890s"
+  },
+  "key_words": [
+   "piano#1",
+   "loss#1",
+   "liquid#1",
+   "patent#1",
+   "grains#1",
+   "louder#1",
+   "ruled#1",
+   "hello#1"
+  ],
+  "music": "curious",
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "who": "edison",
+    "clip": true,
+    "prompt": "close-up, a man biting the polished wooden edge of a grand piano with his teeth, he is {edison}, 1870s parlor, warm lamp light",
+    "motion": "he bites down on the piano wood and shuts his eyes, slow camera push in",
+    "hit": "bit#1",
+    "check": "Is a man biting a piano?"
+   },
+   {
+    "name": "ear",
+    "at": "hear#1",
+    "who": "edison",
+    "clip": true,
+    "prompt": "close-up, a man cupping a hand behind his ear with a worried frown, he is {edison}, 1870s parlor, soft window light",
+    "motion": "he cups his ear and leans forward, slow camera push in",
+    "check": "Is a man cupping his hand behind his ear?"
+   },
+   {
+    "name": "jaw",
+    "at": "biting#1",
+    "who": "edison",
+    "clip": true,
+    "prompt": "medium close-up, a man pressing his jaw against the lid of a grand piano with eyes closed, a hand playing the keys, he is {edison}, 1870s parlor",
+    "motion": "his jaw rests on the piano wood while he listens, slow camera push in",
+    "check": "Is a man pressing his jaw against a piano?"
+   },
+   {
+    "name": "street",
+    "at": "in#1",
+    "prompt": "wide shot of a snowy 1870s American city street at dusk with horse carriages, gas street lamps and brick buildings",
+    "move": "push",
+    "xfade": true,
+    "check": "Is this a snowy street with buildings?"
+   },
+   {
+    "name": "bell",
+    "at": "alexander#1",
+    "who": "bell",
+    "clip": true,
+    "prompt": "medium shot, a man speaking into a brass funnel above a glass cup of clear liquid on a wooden bench, he is {bell}, 1870s workshop, lamp light",
+    "motion": "he speaks firmly into the funnel, slow camera push in",
+    "check": "Is a man speaking into a brass funnel?"
+   },
+   {
+    "name": "liquid",
+    "at": "liquid#1",
+    "prompt": "close-up of a glass cup of clear liquid with a thin brass wire dipping into it, wooden workbench, 1870s, warm lamp light",
+    "move": "push",
+    "check": "Is there a glass cup of liquid?"
+   },
+   {
+    "name": "discard",
+    "at": "phones#1",
+    "clip": true,
+    "prompt": "close-up, a hand pushing a small glass cup of liquid away across a wooden table, 1870s workshop, dim light",
+    "motion": "the hand slides the cup away, slow camera push in",
+    "check": "Is a hand pushing a glass cup?"
+   },
+   {
+    "name": "office",
+    "at": "then#1",
+    "prompt": "wide shot of a grand 1870s stone government building with tall columns and a flag, morning light",
+    "move": "push",
+    "xfade": true,
+    "check": "Is this a large stone building with columns?"
+   },
+   {
+    "name": "file",
+    "at": "edison#2",
+    "who": "edison",
+    "clip": true,
+    "prompt": "medium close-up, a man writing on a paper at a wooden desk with a pen, he is {edison}, 1870s office, window light",
+    "motion": "his pen moves across the paper, slow camera push in",
+    "check": "Is a man writing at a desk?"
+   },
+   {
+    "name": "grains",
+    "at": "carbon#1",
+    "clip": true,
+    "prompt": "close-up, an open palm holding a small pile of black carbon grains, fingertips stirring them, 1870s workbench, lamp light",
+    "motion": "a finger stirs the black grains slowly, slow camera push in",
+    "check": "Is a hand holding black grains?"
+   },
+   {
+    "name": "capsule",
+    "at": "sat#1",
+    "prompt": "close-up of a small open brass capsule filled with black grains beside two round metal plates, wooden workbench, lamp light",
+    "move": "push",
+    "check": "Is there a brass capsule with black grains?"
+   },
+   {
+    "name": "thin",
+    "at": "one#1",
+    "clip": true,
+    "prompt": "extreme close-up of fingertips holding a very thin shiny round metal plate, glinting in lamp light, 1870s",
+    "motion": "the fingertips tilt the plate so it glints, slow camera push in",
+    "check": "Are fingertips holding a thin metal plate?"
+   },
+   {
+    "name": "speaker",
+    "at": "faced#1",
+    "who": "woman",
+    "clip": true,
+    "prompt": "close-up, a woman speaking into a round brass mouthpiece, she is {woman}, 1870s parlor, warm light",
+    "motion": "she speaks clearly into the mouthpiece, slow camera push in",
+    "check": "Is a woman speaking into a brass mouthpiece?"
+   },
+   {
+    "name": "shake",
+    "at": "sound#1",
+    "clip": true,
+    "prompt": "extreme close-up of a thin shiny metal plate in a brass cup trembling, a man's lips shouting close by, 1870s",
+    "motion": "the plate shivers as the voice hits it, slow camera push in",
+    "check": "Is there a thin metal plate in a brass cup?"
+   },
+   {
+    "name": "press",
+    "at": "pressed#1",
+    "clip": true,
+    "prompt": "extreme close-up of a metal plate pressing down on black grains inside a small brass cup, lamp light",
+    "motion": "the plate presses down on the grains, slow camera push in",
+    "check": "Is a metal plate pressing black grains?"
+   },
+   {
+    "name": "closer",
+    "at": "closer#1",
+    "prompt": "extreme close-up of black grains packed tightly together in a small brass cup, glinting, warm light",
+    "move": "push",
+    "check": "Are black grains packed in a cup?"
+   },
+   {
+    "name": "spark",
+    "at": "electricity#1",
+    "clip": true,
+    "prompt": "close-up of a copper wire joined to a brass terminal with a small blue spark, dark workbench, 1870s",
+    "motion": "a small blue spark flickers on the terminal, slow camera push in",
+    "check": "Is there a copper wire with a spark?"
+   },
+   {
+    "name": "battery",
+    "at": "steady#1",
+    "prompt": "close-up of a glass battery jar with a zinc plate and copper wire, wooden shelf, steady lamp light, 1870s",
+    "move": "pull",
+    "check": "Is there a glass battery jar?"
+   },
+   {
+    "name": "needle",
+    "at": "as#1",
+    "clip": true,
+    "prompt": "close-up of a brass needle on a wooden meter swinging left and right, 1870s lab, lamp light",
+    "motion": "the needle swings from side to side, slow camera push in",
+    "check": "Is there a needle on a meter?"
+   },
+   {
+    "name": "listen",
+    "at": "copying#1",
+    "who": "woman",
+    "clip": true,
+    "prompt": "close-up, a woman listening at a wooden telephone receiver pressed to her ear and smiling, she is {woman}, 1870s parlor",
+    "motion": "she smiles and presses the receiver closer, slow camera push in",
+    "check": "Is a woman holding a receiver to her ear?"
+   },
+   {
+    "name": "sand",
+    "at": "you#2",
+    "clip": true,
+    "prompt": "close-up, a hand squeezing a handful of loose golden sand on a sunny beach, grains falling between the fingers",
+    "motion": "the fist tightens around the sand, slow camera push in",
+    "xfade": true,
+    "check": "Is a hand squeezing sand?"
+   },
+   {
+    "name": "pour",
+    "at": "handful#1",
+    "clip": true,
+    "prompt": "close-up of golden sand pouring from a loose fist onto a sunny beach, grains falling",
+    "motion": "sand trickles from the fist, slow camera push in",
+    "check": "Is sand falling from a fist?"
+   },
+   {
+    "name": "sandpress",
+    "at": "grains#4",
+    "clip": true,
+    "prompt": "extreme close-up of a thumb pressing golden sand grains together on a palm, sunny light",
+    "motion": "the thumb presses the sand down, slow camera push in",
+    "check": "Is a thumb pressing sand?"
+   },
+   {
+    "name": "phones",
+    "at": "those#1",
+    "prompt": "wide shot of a busy 1880s office with rows of wooden wall telephones and men talking into them, window light",
+    "move": "left",
+    "check": "Are there wooden wall telephones?"
+   },
+   {
+    "name": "loud",
+    "at": "much#1",
+    "who": "edison",
+    "clip": true,
+    "prompt": "close-up, a man pressing a wooden telephone receiver to his ear and widening his eyes in surprise, he is {edison}, 1870s lab",
+    "motion": "his eyes widen and he smiles, slow camera push in",
+    "hit": "louder#1",
+    "check": "Is a man holding a receiver to his ear?"
+   },
+   {
+    "name": "fight",
+    "at": "edison#3",
+    "clip": true,
+    "prompt": "medium shot, two men in dark suits arguing across a long wooden table in a wood-panelled 1880s office, one pointing sharply",
+    "motion": "one man points sharply at the other, slow camera push in",
+    "xfade": true,
+    "check": "Are two men arguing at a table?"
+   },
+   {
+    "name": "books",
+    "at": "court#1",
+    "prompt": "close-up of a tall stack of thick law books and paper files on a long wooden table, 1880s office, window light",
+    "move": "pull",
+    "check": "Is there a stack of books?"
+   },
+   {
+    "name": "judge",
+    "at": "federal#1",
+    "who": "judge",
+    "clip": true,
+    "prompt": "medium shot, a stern judge banging a wooden gavel at a high bench in a 1890s courtroom, he is {judge}, wood-panelled walls",
+    "motion": "the judge brings the gavel down firmly, slow camera push in",
+    "hit": "ruled#1",
+    "check": "Is a judge banging a gavel?"
+   },
+   {
+    "name": "candlestick",
+    "at": "carbon#4",
+    "prompt": "wide shot of a row of black candlestick telephones on wooden desks in a big 1900s office, soft light",
+    "move": "left",
+    "check": "Are there black candlestick telephones?"
+   },
+   {
+    "name": "talk",
+    "at": "telephones#1",
+    "clip": true,
+    "prompt": "close-up, a man talking into a black candlestick telephone and nodding, 1900s office, window light",
+    "motion": "he talks into the phone and nods, slow camera push in",
+    "check": "Is a man talking into a candlestick telephone?"
+   },
+   {
+    "name": "piano2",
+    "at": "so#2",
+    "who": "edison",
+    "clip": true,
+    "prompt": "close-up, a man biting the polished wood of a grand piano with eyes closed, he is {edison}, 1870s parlor, lamp light",
+    "motion": "he bites the piano wood and listens, slow camera push in",
+    "xfade": true,
+    "check": "Is a man biting a piano?"
+   },
+   {
+    "name": "poles",
+    "at": "helped#1",
+    "prompt": "wide shot of tall wooden telegraph poles with wires stretching across green hills, bright morning sky, 1870s",
+    "move": "right",
+    "check": "Are there tall wooden poles with wires?"
+   },
+   {
+    "name": "lift",
+    "at": "he#2",
+    "who": "edison",
+    "clip": true,
+    "prompt": "medium shot, a man lifting a wooden telephone receiver and speaking into it with a grin, he is {edison}, 1870s lab",
+    "motion": "he lifts the receiver and speaks, slow camera push in",
+    "check": "Is a man lifting a telephone receiver?"
+   },
+   {
+    "name": "hook_off",
+    "at": "still#1",
+    "clip": true,
+    "prompt": "close-up of a hand lifting a black telephone receiver off its hook, 1900s wooden desk, soft light",
+    "motion": "the hand lifts the receiver, slow camera push in",
+    "check": "Is a hand lifting a telephone receiver?"
+   },
+   {
+    "name": "hello",
+    "at": "hello#1",
+    "who": "edison",
+    "clip": true,
+    "prompt": "close-up, a man grinning and waving one hand beside a wall telephone, he is {edison}, 1870s lab, warm light",
+    "motion": "he waves cheerfully, slow camera push in",
+    "hit": "hello#1",
+    "check": "Is a man waving beside a telephone?"
+   }
+  ]
+ }
+}
