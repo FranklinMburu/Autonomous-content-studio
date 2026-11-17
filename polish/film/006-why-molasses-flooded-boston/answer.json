@@ -1,0 +1,420 @@
+{
+ "script": {
+  "title": "Why Molasses Flooded Boston",
+  "beats": [
+   {
+    "lines": [
+     "Workers paint a giant leaking tank brown to hide the drips."
+    ]
+   },
+   {
+    "lines": [
+     "The tank stands by Boston Harbor, fifty feet tall.",
+     "It holds up to two point three million gallons of molasses.",
+     "Neighbors even collect the leaking syrup for their homes.",
+     "Each time the tank is filled, it groans.",
+     "The man in charge, Arthur Jell, has no engineering experience.",
+     "He never fills it with water to test for leaks."
+    ]
+   },
+   {
+    "lines": [
+     "In January 1919, a ship pumps in warm molasses.",
+     "The next day, the air warms up fast.",
+     "At half past noon, the tank bursts.",
+     "Its rivets shoot out like machine gun fire.",
+     "A wave twenty-five feet high rushes out at thirty-five miles per hour.",
+     "It sweeps buildings off their foundations.",
+     "It tips a streetcar off its tracks."
+    ]
+   },
+   {
+    "lines": [
+     "You see, it's like warm honey. Heat it, and it runs fast. Let it cool, and it turns thick."
+    ]
+   },
+   {
+    "lines": [
+     "Molasses gets thinner when it is warm or pushed hard.",
+     "So the wave races out fast.",
+     "Then it hits the winter cold and turns thick as glue.",
+     "People are trapped in the sticky mass.",
+     "Twenty-one people die."
+    ]
+   },
+   {
+    "lines": [
+     "Later, experts found the steel was only half as thick as it should have been.",
+     "The leaks were painted over. The smell of molasses stayed for decades."
+    ]
+   }
+  ],
+  "key_words": [
+   "tank",
+   "molasses",
+   "leaking",
+   "brown",
+   "warm",
+   "wave",
+   "thick",
+   "Boston"
+  ],
+  "claims": [
+   {
+    "claim": "When filled with molasses, the tank leaked so badly that it was painted brown to hide the leakage; local residents collected leaked molasses for their homes.",
+    "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+   },
+   {
+    "claim": "The tank, adjacent to Boston Harbor, stood 50 feet tall and held as much as 2.3 million US gallons of molasses.",
+    "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+   },
+   {
+    "claim": "Arthur Jell, who had no architectural or engineering experience, neglected basic safety tests such as filling the tank with water to check for leaks, and ignored groaning noises each time it was filled.",
+    "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+   },
+   {
+    "claim": "The day before the January 15, 1919 disaster, a ship delivered a fresh load of warmed molasses; temperatures climbed rapidly.",
+    "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+   },
+   {
+    "claim": "The tank collapsed at about 12:30 p.m.; witnesses heard a sound like a machine gun as the rivets shot out.",
+    "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+   },
+   {
+    "claim": "A wave of molasses 25 feet high moved at 35 mph, swept buildings off their foundations and tipped a streetcar off its tracks.",
+    "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+   },
+   {
+    "claim": "Molasses thins and flows quickly under pressure and heat; it then cooled and thickened, trapping victims.",
+    "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+   },
+   {
+    "claim": "21 people were killed.",
+    "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+   },
+   {
+    "claim": "A 2014 investigation found the steel was half as thick as it should have been; residents reported the area smelled of molasses for decades.",
+    "url": "https://en.wikipedia.org/wiki/Great_Molasses_Flood"
+   }
+  ]
+ },
+ "film": {
+  "era": "1919",
+  "music": "tense",
+  "cast": {
+   "painter": "a 30 year old lanky dockside worker with a narrow face, ginger stubble, a grey flat cap and brown paint-stained canvas overalls over a red flannel shirt, 1919",
+   "jell": "a 45 year old portly American company treasurer with round gold spectacles, a thick brown moustache, a black bowler hat and a tight tan three-piece suit, 1919",
+   "neighbor": "a 40 year old Italian American woman with black hair in a low bun, a round olive face, a black knitted shawl over a dark green dress and a white apron, 1919"
+  },
+  "key_words": [
+   "tank",
+   "molasses",
+   "leaking",
+   "brown",
+   "warm",
+   "wave",
+   "thick",
+   "Boston"
+  ],
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "prompt": "medium shot, a worker on a ladder painting a huge round steel tank brown with a long brush, dark syrup dripping down the wall, he is {painter}, winter daylight",
+    "check": "Is a man painting a big tank?",
+    "who": "painter",
+    "clip": true,
+    "motion": "he sweeps the brush across the steel, slow camera push in"
+   },
+   {
+    "name": "drip",
+    "at": "brown#1",
+    "prompt": "extreme close-up of a wide paint brush covering a sticky dark drip running down riveted steel with brown paint",
+    "check": "Is a paint brush on steel?",
+    "clip": true,
+    "motion": "the brush strokes over the drip, slow camera push in"
+   },
+   {
+    "name": "tank",
+    "at": "the#2",
+    "prompt": "wide shot of a giant round steel storage tank beside a harbor with ships and an elevated railway behind it, 1919, grey winter light",
+    "check": "Is there a giant round tank?",
+    "move": "up"
+   },
+   {
+    "name": "tall",
+    "at": "fifty#1",
+    "prompt": "low angle of a towering riveted steel tank wall rising into a grey sky",
+    "check": "Is there a tall steel wall?",
+    "move": "up"
+   },
+   {
+    "name": "fill",
+    "at": "it#1",
+    "prompt": "close-up of thick dark brown molasses pouring from a wide pipe into a tank hatch",
+    "check": "Is dark syrup pouring from a pipe?",
+    "clip": true,
+    "motion": "the syrup keeps pouring, slow camera push in"
+   },
+   {
+    "name": "pool",
+    "at": "million#1",
+    "prompt": "high angle looking down into a vast dark pool of molasses inside a steel tank, faint light from above",
+    "check": "Is there a dark pool of syrup?",
+    "move": "push"
+   },
+   {
+    "name": "bucket",
+    "at": "neighbors#1",
+    "prompt": "medium shot, a woman filling a tin bucket from a sticky dark drip at the base of a steel tank, she is {neighbor}, cobblestone street",
+    "check": "Is a woman holding a bucket?",
+    "who": "neighbor",
+    "clip": true,
+    "motion": "she tilts the bucket under the drip, slow camera push in"
+   },
+   {
+    "name": "lick",
+    "at": "syrup#1",
+    "prompt": "close-up, two small children dipping their fingers into a tin can of dark syrup and licking them, kitchen table, warm light",
+    "check": "Are children licking their fingers?",
+    "clip": true,
+    "motion": "a child licks a finger and grins, slow camera push in"
+   },
+   {
+    "name": "hose",
+    "at": "each#1",
+    "prompt": "close-up of a thick hose pumping into a valve on top of a steel tank, steam rising in the cold",
+    "check": "Is there a thick hose?",
+    "clip": true,
+    "motion": "the hose shudders as it pumps, slow camera pan up"
+   },
+   {
+    "name": "groan",
+    "at": "groans#1",
+    "prompt": "close-up, a worker pressing his ear against a riveted steel tank wall and frowning, he is {painter}, cold daylight",
+    "check": "Is a man pressing his ear to a wall?",
+    "who": "painter",
+    "clip": true,
+    "motion": "his eyes widen as he listens, slow camera push in",
+    "hit": "groans#1"
+   },
+   {
+    "name": "jell",
+    "at": "arthur#1",
+    "prompt": "medium shot, a portly businessman in a bowler hat waving his hand dismissively in front of a huge tank, he is {jell}, winter daylight",
+    "check": "Is a man in a bowler hat waving his hand?",
+    "who": "jell",
+    "clip": true,
+    "motion": "he flicks his hand away, slow camera push in"
+   },
+   {
+    "name": "refuse",
+    "at": "he#1",
+    "prompt": "close-up, a businessman shaking his head with a smug face, he is {jell}, cold harbor street",
+    "check": "Is a man shaking his head?",
+    "who": "jell",
+    "clip": true,
+    "motion": "he shakes his head, slow camera push in"
+   },
+   {
+    "name": "unused",
+    "at": "water#1",
+    "prompt": "close-up of a coiled canvas water hose lying unused and dusty beside a steel tank wall",
+    "check": "Is there a coiled hose?",
+    "move": "push"
+   },
+   {
+    "name": "ship",
+    "at": "in#2",
+    "prompt": "wide shot of a rusty cargo steamship docked in a winter harbor, steam rising from her pipes, 1919",
+    "check": "Is there a ship at a dock?",
+    "move": "right",
+    "xfade": true
+   },
+   {
+    "name": "warm",
+    "at": "pumps#1",
+    "prompt": "close-up of steaming warm molasses gushing out of the end of a pipe, cold air",
+    "check": "Is steaming syrup gushing from a pipe?",
+    "clip": true,
+    "motion": "the steaming syrup gushes out, slow camera push in"
+   },
+   {
+    "name": "thaw",
+    "at": "the#6",
+    "prompt": "wide shot of melting snow dripping from rooftops over a sunny Boston street, 1919",
+    "check": "Is snow melting from rooftops?",
+    "move": "push"
+   },
+   {
+    "name": "lunch",
+    "at": "at#1",
+    "prompt": "medium shot, workers eating lunch on wooden crates near a huge steel tank in the sunshine, laughing, 1919",
+    "check": "Are men eating lunch?",
+    "clip": true,
+    "motion": "one man laughs and takes a bite, slow camera pan right"
+   },
+   {
+    "name": "burst",
+    "at": "tank#4",
+    "prompt": "low angle of a riveted steel tank wall splitting open with dark syrup bursting out, harbor sky",
+    "check": "Is a steel wall splitting open?",
+    "clip": true,
+    "motion": "the crack bursts wider, slow camera push in",
+    "hit": "bursts#1"
+   },
+   {
+    "name": "rivets",
+    "at": "shoot#1",
+    "prompt": "extreme close-up of iron rivets popping out of a splitting steel seam, dark syrup behind",
+    "check": "Are rivets popping out of steel?",
+    "clip": true,
+    "motion": "rivets pop out one after another, slow camera push in"
+   },
+   {
+    "name": "wave",
+    "at": "a#3",
+    "prompt": "wide shot of a towering wave of dark brown molasses rolling down a city street between brick buildings",
+    "check": "Is there a wave of brown syrup?",
+    "clip": true,
+    "motion": "the wave rolls forward, slow camera pull back",
+    "hit": "wave#1"
+   },
+   {
+    "name": "rush",
+    "at": "rushes#1",
+    "prompt": "low angle, a glossy dark brown syrup wave crashing toward the camera along cobblestones, brick warehouses, winter light",
+    "check": "Is a brown wave coming at the camera?",
+    "clip": true,
+    "motion": "the wave surges closer, slow camera pull back"
+   },
+   {
+    "name": "building",
+    "at": "it#4",
+    "prompt": "wide shot of a wooden building being knocked off its base by a flood of brown syrup, planks splintering",
+    "check": "Is a wooden building in brown syrup?",
+    "clip": true,
+    "motion": "the building tilts slowly, slow camera push in"
+   },
+   {
+    "name": "streetcar",
+    "at": "it#5",
+    "prompt": "medium shot, a streetcar tipping sideways on its tracks as brown syrup surges around its wheels, 1919",
+    "check": "Is a streetcar tipping over?",
+    "clip": true,
+    "motion": "the streetcar tilts a little more, slow camera push in"
+   },
+   {
+    "name": "honey",
+    "at": "you#1",
+    "prompt": "close-up of warm runny golden honey pouring from a spoon into a cup of tea, cosy kitchen, warm light",
+    "check": "Is honey pouring from a spoon?",
+    "clip": true,
+    "motion": "the honey streams down, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "heat",
+    "at": "heat#1",
+    "prompt": "close-up of a small pot of honey warming on an iron stove, bubbling gently",
+    "check": "Is there a small pot on a stove?",
+    "clip": true,
+    "motion": "small bubbles rise, slow camera push in"
+   },
+   {
+    "name": "cold",
+    "at": "let#1",
+    "prompt": "close-up of thick stiff cold honey clinging to a wooden spoon by a frosty window",
+    "check": "Is thick honey on a wooden spoon?",
+    "move": "push"
+   },
+   {
+    "name": "thin",
+    "at": "molasses#3",
+    "prompt": "close-up of dark molasses streaming fast and thin from a tipped wooden barrel",
+    "check": "Is dark syrup pouring from a barrel?",
+    "clip": true,
+    "motion": "the syrup streams faster, slow camera push in"
+   },
+   {
+    "name": "pushed",
+    "at": "warm#3",
+    "prompt": "close-up, a man leaning hard on a big iron pump handle as dark syrup squirts out of a spout",
+    "check": "Is a man pressing on a pump handle?",
+    "clip": true,
+    "motion": "he pushes the handle down, slow camera push in"
+   },
+   {
+    "name": "races",
+    "at": "so#1",
+    "prompt": "wide shot of a dark syrup flood racing across a cobblestone square, overturned carts, winter light",
+    "check": "Is there a brown flood in a square?",
+    "clip": true,
+    "motion": "the flood spreads further, slow camera pull back"
+   },
+   {
+    "name": "frost",
+    "at": "then#1",
+    "prompt": "close-up of frost creeping over a brick wall above a pool of brown syrup, cold evening light",
+    "check": "Is there frost on a brick wall?",
+    "move": "push"
+   },
+   {
+    "name": "glue",
+    "at": "and#3",
+    "prompt": "close-up of brown syrup thickening into glossy stiff ripples on cobblestones, cold blue evening light",
+    "check": "Are there thick brown ripples?",
+    "move": "push"
+   },
+   {
+    "name": "rescue",
+    "at": "people#1",
+    "prompt": "medium shot, young sailors in navy uniforms wading knee-deep in thick brown syrup pulling a man free, 1919",
+    "check": "Are sailors wading in brown syrup?",
+    "clip": true,
+    "motion": "they pull the man up by his arms, slow camera push in",
+    "xfade": true,
+    "hit": "trapped#1"
+   },
+   {
+    "name": "cap",
+    "at": "twenty-one#1",
+    "prompt": "close-up of a dropped cloth cap lying in thick brown syrup on cobblestones, dim evening light",
+    "check": "Is there a cap in brown syrup?",
+    "move": "pull"
+   },
+   {
+    "name": "steel",
+    "at": "later#1",
+    "prompt": "close-up of a hand holding a jagged piece of thin rusty riveted steel and turning it over, workshop window light",
+    "check": "Is a hand holding a piece of steel?",
+    "clip": true,
+    "motion": "the hand turns the steel slowly, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "edge",
+    "at": "only#1",
+    "prompt": "extreme close-up of the thin torn edge of a riveted steel plate, harsh side light",
+    "check": "Is there a thin steel edge?",
+    "move": "push"
+   },
+   {
+    "name": "painted",
+    "at": "the#13",
+    "prompt": "close-up of a brown paint brush sliding over a dark syrup drip on a steel tank wall",
+    "check": "Is a paint brush on a wall?",
+    "clip": true,
+    "motion": "the brush covers the drip, slow camera pull back"
+   },
+   {
+    "name": "smell",
+    "at": "the#14",
+    "prompt": "medium shot, a woman on a sunny summer street closing her eyes and sniffing the air with a puzzled smile, 1920s, warm light",
+    "check": "Is a woman sniffing the air?",
+    "clip": true,
+    "motion": "she breathes in slowly, slow camera push in"
+   }
+  ]
+ }
+}

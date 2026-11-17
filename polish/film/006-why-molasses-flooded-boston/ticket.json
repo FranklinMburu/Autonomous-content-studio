@@ -3,5 +3,7 @@
  "draft": "draft-006-why-molasses-flooded-boston-run50",
  "episode": "episodes/hidden_reasons/006-why-molasses-flooded-boston",
  "opened": "2026-11-12T01:05:53+00:00",
- "status": "waiting"
+ "status": "needs-fix",
+ "checked": "2026-11-17T02:10:33+00:00",
+ "last_answer_by": "pull request #131 by FranklinMburu"
 }
