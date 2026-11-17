@@ -1,0 +1,398 @@
+{
+ "script": {
+  "title": "Why Curie's Notebooks Stay Locked",
+  "beats": [
+   {
+    "lines": [
+     "A scientist carries glowing test tubes around in her pocket."
+    ]
+   },
+   {
+    "lines": [
+     "Her name is Marie Curie.",
+     "In 1898, in Paris, she and her husband Pierre grind up a dark rock called pitchblende.",
+     "They hunt for something hidden inside.",
+     "It takes tonnes of rock.",
+     "From one tonne, they get just one tenth of a gram.",
+     "They name it radium, from the Latin word for ray.",
+     "Marie even invents the word radioactivity."
+    ]
+   },
+   {
+    "lines": [
+     "She stores the tubes in her desk drawer.",
+     "She loves the faint light they give off in the dark.",
+     "Nobody yet knows how harmful the rays are.",
+     "She works with no safety rules.",
+     "Her papers from the 1890s become radioactive too."
+    ]
+   },
+   {
+    "lines": [
+     "You see, it's like smoke soaking into your coat. Long after the fire is out, you still smell it."
+    ]
+   },
+   {
+    "lines": [
+     "Radium takes about one thousand six hundred years to lose half its strength.",
+     "So her notebooks will stay radioactive for well over a thousand years.",
+     "Today they sit in lead-lined boxes.",
+     "Anyone who wants to read them must wear protective clothing.",
+     "Even her cookbooks are highly radioactive."
+    ]
+   },
+   {
+    "lines": [
+     "In 1934, Marie dies at sixty-six, likely from the radiation.",
+     "Sixty years later, her remains are moved to the Panthéon in Paris.",
+     "They are sealed in lead, just like her notebooks."
+    ]
+   }
+  ],
+  "key_words": [
+   "test tubes",
+   "pocket",
+   "radium",
+   "glow",
+   "notebooks",
+   "lead",
+   "radioactive",
+   "Curie"
+  ],
+  "claims": [
+   {
+    "claim": "Curie carried test tubes containing radioactive isotopes in her pocket and stored them in her desk drawer, remarking on the faint light they gave off in the dark.",
+    "url": "https://en.wikipedia.org/wiki/Marie_Curie"
+   },
+   {
+    "claim": "In 1898 the Curies ground a sample of pitchblende; they eventually had to process tonnes of the ore, and from a tonne of pitchblende one-tenth of a gram of radium chloride was separated.",
+    "url": "https://en.wikipedia.org/wiki/Marie_Curie"
+   },
+   {
+    "claim": "They named radium from the Latin word for 'ray' and coined the word 'radioactivity'.",
+    "url": "https://en.wikipedia.org/wiki/Marie_Curie"
+   },
+   {
+    "claim": "The damaging effects of ionising radiation were not known at the time; her work was carried out without later safety measures.",
+    "url": "https://en.wikipedia.org/wiki/Marie_Curie"
+   },
+   {
+    "claim": "Her papers from the 1890s are too radioactive to handle; even her cookbooks are highly radioactive; they are kept in lead-lined boxes and those who consult them must wear protective clothing.",
+    "url": "https://en.wikipedia.org/wiki/Marie_Curie"
+   },
+   {
+    "claim": "Because radium-226 has a half-life of about 1,600 years, her notebooks are expected to remain radioactive for well over a thousand years.",
+    "url": "https://en.wikipedia.org/wiki/Marie_Curie"
+   },
+   {
+    "claim": "Curie died in 1934, aged 66, of aplastic anaemia likely from exposure to radiation.",
+    "url": "https://en.wikipedia.org/wiki/Marie_Curie"
+   },
+   {
+    "claim": "Sixty years later, in 1995, her remains were transferred to the Paris Panthéon and sealed in a lead lining because of the radioactivity.",
+    "url": "https://en.wikipedia.org/wiki/Marie_Curie"
+   }
+  ]
+ },
+ "film": {
+  "era": "1890s",
+  "music": "mysterious",
+  "cast": {
+   "marie": "a 31 year old Polish French scientist with ash blond hair pulled back in a loose bun, a high forehead, grey eyes, a plain long black dress with a high collar and rolled cuffs, 1890s",
+   "pierre": "a 39 year old French physicist with a full dark brown beard, receding dark hair, gentle dark eyes and a rumpled black jacket over a white shirt, 1890s",
+   "old": "a 66 year old frail woman with thin white hair in a bun, a pale lined face, tired grey eyes and a plain grey wool cardigan, 1930s"
+  },
+  "key_words": [
+   "test tubes",
+   "pocket",
+   "radium",
+   "glow",
+   "notebooks",
+   "lead",
+   "radioactive",
+   "Curie"
+  ],
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "prompt": "close-up, a woman slipping a small glowing glass test tube into her dress pocket, she is {marie}, dim wooden laboratory, 1890s",
+    "check": "Is a woman holding a glowing test tube?",
+    "who": "marie",
+    "clip": true,
+    "motion": "she slides the tube into her pocket, slow camera push in"
+   },
+   {
+    "name": "pocket",
+    "at": "tubes#1",
+    "prompt": "extreme close-up of a small glass test tube glowing faint blue-green as it peeks out of a dark wool dress pocket",
+    "check": "Is there a glowing test tube?",
+    "move": "push"
+   },
+   {
+    "name": "marie",
+    "at": "her#2",
+    "prompt": "medium shot, a young woman looking up from a notebook at a cluttered lab bench, she is {marie}, glass bottles, window light",
+    "check": "Is a woman at a lab bench?",
+    "who": "marie",
+    "clip": true,
+    "motion": "she lifts her head from the page, slow camera push in"
+   },
+   {
+    "name": "shed",
+    "at": "in#2",
+    "prompt": "wide shot of a cramped wooden shed laboratory with glass bottles, an iron stove and a leaking roof, Paris, 1898, grey light",
+    "check": "Is this a cramped wooden laboratory?",
+    "move": "left"
+   },
+   {
+    "name": "grind",
+    "at": "grind#1",
+    "prompt": "close-up, a man grinding dark rock with a heavy pestle in a big stone mortar, he is {pierre}, lab bench, lamp light",
+    "check": "Is a man grinding with a pestle?",
+    "who": "pierre",
+    "clip": true,
+    "motion": "he grinds the pestle round, slow camera push in"
+   },
+   {
+    "name": "stir",
+    "at": "they#1",
+    "prompt": "medium shot, a woman stirring a big iron pot of bubbling dark sludge with a long iron rod, she is {marie}, smoky shed, firelight",
+    "check": "Is a woman stirring a big pot?",
+    "who": "marie",
+    "clip": true,
+    "motion": "she pushes the rod through the sludge, slow camera push in"
+   },
+   {
+    "name": "ore",
+    "at": "it#1",
+    "prompt": "wide shot, a worker shovelling dark brown rock from a huge heap into sacks in a courtyard beside a wooden shed, 1890s",
+    "check": "Is a man shovelling rock?",
+    "clip": true,
+    "motion": "he lifts a shovelful of rock, slow camera pan right"
+   },
+   {
+    "name": "sack",
+    "at": "from#1",
+    "prompt": "close-up of a heavy sack of dark rock tipping onto a wooden table, dust rising, lamp light",
+    "check": "Is a sack of rock tipping over?",
+    "move": "push"
+   },
+   {
+    "name": "pinch",
+    "at": "just#1",
+    "prompt": "close-up of a tiny pinch of white powder in a small glass dish on a wooden lab table, soft light",
+    "check": "Is there a small glass dish?",
+    "move": "push"
+   },
+   {
+    "name": "couple",
+    "at": "they#3",
+    "prompt": "medium shot, a man and a woman smiling at each other over a tiny glowing glass dish in a dark laboratory, 1890s clothes",
+    "check": "Are a man and a woman smiling?",
+    "clip": true,
+    "motion": "they lean closer to the glow, slow camera push in"
+   },
+   {
+    "name": "ray",
+    "at": "latin#1",
+    "prompt": "close-up of a bright beam of sunlight shining through a dusty laboratory window across glass bottles",
+    "check": "Is there a beam of light?",
+    "move": "push"
+   },
+   {
+    "name": "word",
+    "at": "marie#2",
+    "prompt": "close-up, a woman writing quickly in a notebook by lamplight, she is {marie}, dark laboratory",
+    "check": "Is a woman writing?",
+    "who": "marie",
+    "clip": true,
+    "motion": "her pen moves fast across the page, slow camera push in"
+   },
+   {
+    "name": "drawer",
+    "at": "she#2",
+    "prompt": "close-up of a hand placing small glowing glass tubes into an open wooden desk drawer, dark room",
+    "check": "Is a hand putting tubes in a drawer?",
+    "clip": true,
+    "motion": "the hand sets a tube down, slow camera push in"
+   },
+   {
+    "name": "wonder",
+    "at": "she#3",
+    "prompt": "close-up, a woman's face lit softly blue-green in a dark room as she smiles in wonder, she is {marie}",
+    "check": "Is a woman smiling in the dark?",
+    "who": "marie",
+    "clip": true,
+    "motion": "her smile widens, slow camera push in"
+   },
+   {
+    "name": "glow",
+    "at": "they#4",
+    "prompt": "close-up of rows of tiny glass tubes glowing faint blue in a dark open drawer",
+    "check": "Are tubes glowing in a drawer?",
+    "move": "push"
+   },
+   {
+    "name": "bare",
+    "at": "nobody#1",
+    "prompt": "medium shot, a woman lifting a glass flask with bare hands at a cluttered lab bench, she is {marie}, 1890s, window light",
+    "check": "Is a woman holding a glass flask?",
+    "who": "marie",
+    "clip": true,
+    "motion": "she lifts the flask to the light, slow camera push in"
+   },
+   {
+    "name": "pour",
+    "at": "she#4",
+    "prompt": "close-up of bare hands pouring a clear liquid from one glass beaker into another on a wooden bench",
+    "check": "Are hands pouring from a beaker?",
+    "clip": true,
+    "motion": "the liquid pours across, slow camera push in"
+   },
+   {
+    "name": "notebooks",
+    "at": "her#5",
+    "prompt": "close-up, a hand stacking old leather notebooks on a lab bench beside glowing glass tubes, lamp light",
+    "check": "Is a hand stacking notebooks?",
+    "clip": true,
+    "motion": "the hand lays a notebook on the pile, slow camera push in"
+   },
+   {
+    "name": "smoke",
+    "at": "you#1",
+    "prompt": "medium shot, a man pulling his wool coat close as campfire smoke drifts over him at night, warm firelight",
+    "check": "Is there a man by a campfire?",
+    "clip": true,
+    "motion": "the smoke curls around him, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "sniff",
+    "at": "long#1",
+    "prompt": "close-up, a woman sniffing a wool coat sleeve and wrinkling her nose, cosy room, daylight",
+    "check": "Is a woman sniffing a coat?",
+    "clip": true,
+    "motion": "she wrinkles her nose, slow camera push in"
+   },
+   {
+    "name": "ash",
+    "at": "you#2",
+    "prompt": "close-up of a cold campfire of grey ashes with a last thin wisp of smoke, dawn light",
+    "check": "Are there grey ashes?",
+    "move": "push"
+   },
+   {
+    "name": "time",
+    "at": "radium#2",
+    "prompt": "close-up of a brass hourglass with sand running slowly on a dark wooden desk",
+    "check": "Is there an hourglass?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "vial",
+    "at": "half#1",
+    "prompt": "extreme close-up of a small glass vial glowing faintly in darkness",
+    "check": "Is there a glowing vial?",
+    "move": "pull"
+   },
+   {
+    "name": "shelf",
+    "at": "so#1",
+    "prompt": "close-up, a hand pulling an old leather-bound notebook from a shelf in a dim archive",
+    "check": "Is a hand holding an old notebook?",
+    "clip": true,
+    "motion": "the hand slides the notebook out, slow camera push in"
+   },
+   {
+    "name": "archive",
+    "at": "well#1",
+    "prompt": "wide shot of a quiet stone archive hall with long rows of tall wooden shelves, dim light",
+    "check": "Are there rows of shelves?",
+    "move": "right"
+   },
+   {
+    "name": "box",
+    "at": "today#1",
+    "prompt": "close-up of hands closing the heavy lid of a grey lead-lined box on an archive table",
+    "check": "Are hands closing a box?",
+    "clip": true,
+    "motion": "the lid lowers shut, slow camera push in"
+   },
+   {
+    "name": "gloves",
+    "at": "anyone#1",
+    "prompt": "close-up of hands pulling on thick grey protective gloves beside a grey metal box",
+    "check": "Are hands pulling on gloves?",
+    "clip": true,
+    "motion": "the fingers slide into the glove, slow camera push in"
+   },
+   {
+    "name": "open",
+    "at": "wear#1",
+    "prompt": "close-up of thick gloved hands opening an old leather notebook above a grey metal box",
+    "check": "Are gloved hands opening a notebook?",
+    "clip": true,
+    "motion": "the cover opens slowly, slow camera push in"
+   },
+   {
+    "name": "cookbook",
+    "at": "even#2",
+    "prompt": "close-up of gloved fingers turning a page of an old stained cookbook beside a lead box",
+    "check": "Are gloved fingers turning a page?",
+    "clip": true,
+    "motion": "the page turns, slow camera push in",
+    "hit": "cookbooks#1"
+   },
+   {
+    "name": "sick",
+    "at": "in#7",
+    "prompt": "medium shot, a frail old woman resting in a bed by a window with snowy mountains outside, she is {old}, 1930s, pale light",
+    "check": "Is an old woman in a bed?",
+    "who": "old",
+    "clip": true,
+    "motion": "she turns her head toward the window, slow camera push in"
+   },
+   {
+    "name": "candle",
+    "at": "sixty-six#1",
+    "prompt": "close-up of a candle flame going out beside an empty bed, mountains through the window, dim light",
+    "check": "Is there a candle?",
+    "move": "pull"
+   },
+   {
+    "name": "pantheon",
+    "at": "sixty#1",
+    "prompt": "wide shot of a grand domed stone building in Paris with flags and a crowd on the steps, bright day",
+    "check": "Is there a domed building?",
+    "move": "up",
+    "xfade": true
+   },
+   {
+    "name": "coffin",
+    "at": "the#10",
+    "prompt": "medium shot, guards in dress uniform carrying a coffin up wide stone steps, crowd watching",
+    "check": "Are men carrying a coffin?",
+    "clip": true,
+    "motion": "they climb one step, slow camera tilt up"
+   },
+   {
+    "name": "lead",
+    "at": "they#6",
+    "prompt": "close-up of a coffin lined with dull grey lead sheets in a stone vault, soft light",
+    "check": "Is there a coffin lined with grey metal?",
+    "move": "push",
+    "hit": "sealed#1"
+   },
+   {
+    "name": "sealed",
+    "at": "just#2",
+    "prompt": "close-up of old leather notebooks resting inside a grey lead box as the lid slowly closes, dim archive light",
+    "check": "Are notebooks inside a box?",
+    "clip": true,
+    "motion": "the lid closes over the notebooks, slow camera push in"
+   }
+  ]
+ }
+}
