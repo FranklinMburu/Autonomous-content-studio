@@ -3,8 +3,9 @@
  "draft": "draft-008-why-nightingale-put-fresh-air-into-hospi-run61",
  "episode": "episodes/hidden_reasons/008-why-nightingale-put-fresh-air-into-hospi",
  "opened": "2026-11-14T06:05:27+00:00",
- "status": "accepted",
- "checked": "2026-11-17T02:27:59+00:00",
+ "status": "making",
+ "checked": "2026-11-17T10:17:11+00:00",
  "last_answer_by": "pull request #132 by FranklinMburu",
- "tries": 0
+ "tries": 1,
+ "started": "2026-11-17T10:17:11+00:00"
 }
