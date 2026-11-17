@@ -45,10 +45,28 @@ Watch and listen, then decide the Short:
 - "title": the channel formula: "The moment / No way {streamer} [REALIZED / was SHOCKED / got HUMBLED / EXPOSED] ...",
   under 90 characters, ends with 2-3 emoji like 😳😭💔. Exaggerate the framing, never invent the event.
 - "kind": one of encounter, shock, humbled, drama, emotion, money, fight, funny, other.
+- "angle": what a stranger will FEEL, one of funny, shock, drama, celebrity, wholesome, money, skill, cringe. Cut, hook
+  and title for that feeling: funny = end right on the laugh; shock = the hit or reveal in the first 2 s if possible;
+  drama = open on the conflict, keep the callout; celebrity = show who it is early; wholesome = keep the reaction
+  long enough to feel it; money/skill = show the thing itself; cringe = keep the awkward beat, cut right after it.
+- "stranger_gets_it": true if someone who has never heard of {streamer} understands what's happening within 2 s
+  from the picture and the hook alone (sound off). If not, make the hook give the missing context.
 - "hashtags": 3-5 without #, the streamer's tag first.
 - "usable": false if the piece doesn't actually contain a strong moment.
 Times are seconds from the start of THIS piece. Answer JSON:
-{{"start": 0.0, "peak": 0.0, "end": 0.0, "hook": "", "title": "", "kind": "", "hashtags": [], "usable": true, "why": ""}}"""
+{{"start": 0.0, "peak": 0.0, "end": 0.0, "hook": "", "title": "", "kind": "", "angle": "", "stranger_gets_it": true, "hashtags": [], "usable": true, "why": ""}}"""
+
+# The viewer panel (docs/clips/PROMPT.md 1b, Franklin 16 Nov: "be on the user's point of view"): money comes from
+# views, views from strangers who stop, get it, stay, get a payoff, feel something and act.
+VIEWER = {
+    "stop": "Would a stranger scrolling on a phone stop in the first second (a face reacting, a line, a visible conflict, a 'wait, what?')?",
+    "get_it": "Would someone who has never heard of the streamer understand what is happening within 2 seconds?",
+    "stay": "Is there a reason to keep watching to the end (a question, tension, a build), with no dead air?",
+    "payoff": "Does the ending land (the reaction after the beat, the punchline, the reveal), then end fast or loop?",
+    "feel": "Does it make the viewer clearly FEEL its angle (laugh, shock, outrage, awe, warmth, cringe)?",
+    "act": "Would a viewer share it, tag a friend, comment an opinion or watch it twice?",
+}
+ANGLES = ["funny", "shock", "drama", "celebrity", "wholesome", "money", "skill", "cringe"]
 
 CHECKS = {  # clipit (MIT) ai.py CHECKS, adapted
     "hook": "In the first 3 seconds the sound, the action or the on-screen hook makes a stranger want to know what happens. Calm setup fails.",
@@ -85,8 +103,13 @@ Words spoken: {spoken}
 {checks}
 2. Score 0-10 each: {scores}. "overall" = your honest chance that this reaches 250K+ views on a channel like
 @Kick_Clippers (10 = certain, 5 = maybe 20K). Most clips are 5-7; give 9+ only to what you'd bet on.
-3. "fix": the single change that would most raise "overall".
-Answer JSON: {{"checks": [{{"name": "hook", "passed": true, "evidence": "one line"}}], "scores": {{"moment": 0}}, "fix": ""}}"""
+3. Now forget you are a reviewer: be a stranger scrolling Shorts on a phone who has never heard of this streamer.
+Answer each viewer question honestly with true/false and one line, name the clip's angle (one of {angles}), and give
+"viewer" 0-10: how likely you, this stranger, would watch to the end AND share, comment or rewatch.
+{viewer}
+4. "fix": the single change that would most raise "overall".
+Answer JSON: {{"checks": [{{"name": "hook", "passed": true, "evidence": "one line"}}], "scores": {{"moment": 0}},
+"viewer_panel": [{{"name": "stop", "yes": true, "why": "one line"}}], "angle": "", "viewer": 0, "fix": ""}}"""
 
 
 def sh(*a, **k):
@@ -123,6 +146,19 @@ def snap(words, start, end, peak, dur):
     if ne - ns < MIN_S or not (ns < peak < ne):
         return start, end
     return ns, ne
+
+
+def viewer_panel(rv):
+    """The stranger's answers -> {score, passed "n/6", failed [...], angle, answers}. Missing answers count as no."""
+    ans = {a.get("name"): a for a in (rv.get("viewer_panel") or []) if isinstance(a, dict)}
+    yes = [k for k in VIEWER if ans.get(k, {}).get("yes") is True]
+    try:
+        score = float(rv.get("viewer", 0) or 0)
+    except (TypeError, ValueError):
+        score = 0.0
+    angle = str(rv.get("angle") or "").lower()
+    return {"score": score, "passed": f"{len(yes)}/{len(VIEWER)}", "failed": [k for k in VIEWER if k not in yes],
+            "angle": angle if angle in ANGLES else "", "answers": {k: ans.get(k, {}).get("why", "") for k in VIEWER}}
 
 
 def band(overall):
@@ -216,14 +252,18 @@ def one(m, a, model, b, out):
     spoken = clip.get("transcript", "")[:1500]
     rv = AI.call(model, [{"text": REVIEW.format(title=clip["title"], hook=clip["hook"]["text"], spoken=spoken,
                                                 checks="\n".join(f"- {k}: {v}" for k, v in CHECKS.items()),
-                                                scores=", ".join(SCORES))}, video_part(small)]) or {}
+                                                scores=", ".join(SCORES), angles=", ".join(ANGLES),
+                                                viewer="\n".join(f"- {k}: {v}" for k, v in VIEWER.items()))},
+                         video_part(small)]) or {}
     if isinstance(rv, list):
         rv = rv[0] if rv else {}
     checks = {c.get("name"): bool(c.get("passed") is True) for c in rv.get("checks", []) if isinstance(c, dict)}
     passed = [k for k in CHECKS if checks.get(k)]
     reviewed = bool(rv.get("scores")) and bool(rv.get("checks"))   # 13 Nov: a spent free quota gave empty answers, read as 0/10
     sc = {k: float((rv.get("scores") or {}).get(k, 0) or 0) for k in SCORES} if reviewed else {k: None for k in SCORES}
-    log(f"review: {len(passed)}/{len(CHECKS)} checks; overall {sc['overall']}; fix: {rv.get('fix', '')[:120]}" if reviewed
+    vp = viewer_panel(rv) if reviewed else {"score": None, "passed": "", "failed": [], "angle": "", "answers": {}}
+    log(f"review: {len(passed)}/{len(CHECKS)} checks; overall {sc['overall']}; viewer {vp['score']} ({vp['passed']}, angle "
+        f"{vp['angle']}); fix: {rv.get('fix', '')[:120]}" if reviewed
         else "review: NOT REVIEWED (the AI reviewer gave no answer: free quota spent?); it goes to you unscored")
     # 6. the post package
     tags = [re.sub(r"[^A-Za-z0-9_]", "", h) for h in (ed.get("hashtags") or [])][:5] or [a.streamer.replace(" ", "").lower()]
@@ -233,6 +273,7 @@ def one(m, a, model, b, out):
         "hashtags": tags, "duration_s": round(clip["duration"], 1), "layout": clip["layout"]["kind"],
         "gates_failed": failed, "checks": rv.get("checks", []), "checks_passed": f"{len(passed)}/{len(CHECKS)}",
         "scores": sc, "reviewed": reviewed, "fix": rv.get("fix", ""), "predicted_views": band(sc["overall"]) if reviewed else "",
+        "viewer": vp, "angle": vp["angle"] or ed.get("angle", ""),
         "before_you_post": (f"Rights NOT verified: this is {a.streamer}'s stream ({a.page}). Check whether {a.streamer} runs a "
                             "clipping program or campaign, and its rules, before posting. The predicted views are the "
                             "reviewer's guess, not a measurement. " + ("Checks failed: " + ", ".join(k for k in CHECKS if k not in passed) + ". " if len(passed) < len(CHECKS) else "")

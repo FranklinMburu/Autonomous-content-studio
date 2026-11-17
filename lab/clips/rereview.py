@@ -34,7 +34,9 @@ def main():
         small = S.lowres(video, d / f"{p['id']}_low.mp4", scale="360:640", fps=2)
         rv = AI.call(model, [{"text": S.REVIEW.format(title=p["title"], hook=p.get("hook", ""), spoken="(listen to the video)",
                                                       checks="\n".join(f"- {k}: {v}" for k, v in S.CHECKS.items()),
-                                                      scores=", ".join(S.SCORES))}, S.video_part(small)]) or {}
+                                                      scores=", ".join(S.SCORES), angles=", ".join(S.ANGLES),
+                                                      viewer="\n".join(f"- {k}: {v}" for k, v in S.VIEWER.items()))},
+                             S.video_part(small)]) or {}
         if isinstance(rv, list):
             rv = rv[0] if rv else {}
         ok = bool(rv.get("scores")) and bool(rv.get("checks"))
@@ -45,7 +47,8 @@ def main():
         sc = {k: float((rv.get("scores") or {}).get(k, 0) or 0) for k in S.SCORES}
         note = p.get("before_you_post", "").split(" NOT REVIEWED")[0]
         note = note.split("Checks failed:")[0].rstrip() + (" Checks failed: " + ", ".join(k for k in S.CHECKS if k not in passed) + "." if len(passed) < len(S.CHECKS) else "")
-        p.update({"checks": rv.get("checks", []), "checks_passed": f"{len(passed)}/{len(S.CHECKS)}", "scores": sc, "reviewed": True,
+        vp = S.viewer_panel(rv)
+        p.update({"viewer": vp, "angle": vp["angle"] or p.get("angle", ""), "checks": rv.get("checks", []), "checks_passed": f"{len(passed)}/{len(S.CHECKS)}", "scores": sc, "reviewed": True,
                   "fix": rv.get("fix", ""), "predicted_views": S.band(sc["overall"]), "before_you_post": note, "rereviewed": True})
         done += 1
         print(f"[{p['id']}] reviewed: overall {sc['overall']}, checks {len(passed)}/{len(S.CHECKS)}; fix: {p['fix'][:100]}")
