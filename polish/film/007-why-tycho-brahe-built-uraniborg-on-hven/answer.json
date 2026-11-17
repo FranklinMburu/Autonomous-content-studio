@@ -35,7 +35,7 @@
    },
    {
     "lines": [
-     "On Hven, nothing disturbs his timing, his light or his instruments.",
+     "On Hven, he can work without interruptions from other people.",
      "Tycho builds a castle called Uraniborg, packed with giant quadrants and sextants.",
      "Almost 100 students and craftsmen work there.",
      "The island's farmers must grow twice as much and help build it.",
@@ -81,7 +81,7 @@
     "url": "https://en.wikipedia.org/wiki/Tycho_Brahe"
    },
    {
-    "claim": "Hven was chosen for seclusion, with nothing interfering with time, light or motion observations.",
+    "claim": "Hven was chosen for seclusion, letting Tycho focus on his work without interruptions from other people.",
     "url": "https://en.wikipedia.org/wiki/Tycho_Brahe"
    },
    {
@@ -295,7 +295,7 @@
    },
    {
     "name": "sight",
-    "at": "his#2",
+    "at": "without#1",
     "prompt": "close-up, an astronomer sighting a star along a giant brass instrument at night, he is {tycho}, rooftop",
     "check": "Is a man looking along a brass instrument?",
     "who": "tycho",
@@ -362,7 +362,7 @@
    },
    {
     "name": "wobble",
-    "at": "his#4",
+    "at": "his#1",
     "prompt": "close-up of a tall wooden instrument shaking in the wind on a castle rooftop, grey sky",
     "check": "Is there a tall wooden instrument on a roof?",
     "clip": true,

@@ -230,7 +230,7 @@
    },
    {
     "name": "crowd",
-    "at": "feels#1",
+    "at": "fresh#1",
     "prompt": "close-up of a crowded hot room with people squeezed shoulder to shoulder, windows shut, 1850s",
     "check": "Are people squeezed together?",
     "move": "push"
