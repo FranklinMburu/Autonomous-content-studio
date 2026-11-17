@@ -1,0 +1,430 @@
+{
+ "script": {
+  "title": "The paint rulebook the bombs missed",
+  "beats": [
+   {
+    "lines": [
+     "A researcher hunted for a German navy paint rulebook the bombs missed."
+    ]
+   },
+   {
+    "lines": [
+     "Ships have worn camouflage since ancient times.",
+     "In the Second World War, the German Navy used a whole mix of paint schemes.",
+     "They kept changing."
+    ]
+   },
+   {
+    "lines": [
+     "The researcher wanted to explain them all in one English book.",
+     "Nobody had written a full one in English before."
+    ]
+   },
+   {
+    "lines": [
+     "But the proof was scarce.",
+     "Allied bombers had destroyed many German navy records.",
+     "Written sources were even harder to find."
+    ]
+   },
+   {
+    "lines": [
+     "Then two editions of the building rules survived.",
+     "Both came from the naval shipyard at Wilhelmshaven.",
+     "They ran from November 1941 to July 1944."
+    ]
+   },
+   {
+    "lines": [
+     "They were a great help to the book.",
+     "Thanks to them, English readers finally got a full guide.",
+     "Even so, a reviewer urged caution.",
+     "Paint quality varied greatly."
+    ]
+   },
+   {
+    "lines": [
+     "You see, it is like a cake recipe.",
+     "Two bakers follow one page.",
+     "One uses bad flour, and the cakes look different."
+    ]
+   },
+   {
+    "lines": [
+     "On the ships, what was actually achieved was often quite different from the standard."
+    ]
+   },
+   {
+    "lines": [
+     "So the surviving rulebook shows the plan, not always the ship."
+    ]
+   }
+  ],
+  "key_words": [
+   "researcher",
+   "rulebook",
+   "camouflage",
+   "Kriegsmarine",
+   "German",
+   "Navy",
+   "bombers",
+   "records",
+   "Wilhelmshaven",
+   "shipyard",
+   "1941",
+   "1944",
+   "paint",
+   "cake",
+   "recipe",
+   "plan"
+  ],
+  "claims": [
+   {
+    "claim": "Camouflage on ships dates back to the ancients and has been used ever since.",
+    "url": "https://doi.org/10.25071/2561-5467.452"
+   },
+   {
+    "claim": "In the Second World War the German Navy used a myriad of camouflage schemes and styles that appear to have been continually changing.",
+    "url": "https://doi.org/10.25071/2561-5467.452"
+   },
+   {
+    "claim": "Volume 1 of German Naval Camouflage is the first comprehensive work on Kriegsmarine camouflage practices for the English-reading world.",
+    "url": "https://doi.org/10.25071/2561-5467.452"
+   },
+   {
+    "claim": "Many Kriegsmarine records were destroyed during the Allied bombing campaign, making official records scarce.",
+    "url": "https://doi.org/10.25071/2561-5467.452"
+   },
+   {
+    "claim": "Two editions of the General Building Regulations Nr. 31, ranging from November 1941 to July 1944 and used by the Kriegsmarinewerft Wilhelmshaven, survived and were a great help.",
+    "url": "https://doi.org/10.25071/2561-5467.452"
+   },
+   {
+    "claim": "Paint quality varied greatly, and what was actually achieved was often quite different from the camouflage standard.",
+    "url": "https://doi.org/10.25071/2561-5467.452"
+   }
+  ]
+ },
+ "film": {
+  "era": "1940s",
+  "cast": {
+   "researcher": "a 45 year old woman historian with shoulder-length auburn hair with silver streaks, round tortoiseshell glasses, an olive green cardigan over a cream blouse",
+   "painter": "a 50 year old broad-shouldered German shipyard painter with grey stubble, a flat cap splashed with paint and blue overalls stained with grey paint, 1940s",
+   "reviewer": "a 55 year old man with a bald head, a neat grey goatee, a navy blazer and a red bow tie",
+   "baker": "a 30 year old woman baker with black curly hair under a yellow headscarf, brown skin, a white apron over a teal shirt",
+   "reader": "a 70 year old man with wild white hair, bushy white eyebrows, a brown corduroy jacket and a red scarf"
+  },
+  "key_words": [
+   "researcher",
+   "rulebook",
+   "camouflage",
+   "Kriegsmarine",
+   "German",
+   "Navy",
+   "bombers",
+   "records",
+   "Wilhelmshaven",
+   "shipyard",
+   "1941",
+   "1944",
+   "paint",
+   "cake",
+   "recipe",
+   "plan"
+  ],
+  "music": "mysterious",
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "who": "researcher",
+    "clip": true,
+    "motion": "she turns the book slowly in her hands, slow camera push in",
+    "prompt": "close-up, a woman holding up a thick old rulebook with a charred corner in a dusty archive, she is {researcher}, dim lamp light",
+    "check": "Is a woman holding a book?",
+    "modern": true
+   },
+   {
+    "name": "cover",
+    "at": "rulebook#1",
+    "move": "push",
+    "prompt": "extreme close-up of a worn grey rulebook cover with a scorched edge on a wooden desk, lamp light",
+    "check": "Is there a worn book on a desk?",
+    "modern": true
+   },
+   {
+    "name": "ancient_ship",
+    "at": "ships#1",
+    "move": "push",
+    "prompt": "wide shot of an ancient wooden rowing ship with one square sail on a blue sea, bright sun",
+    "check": "Is there an ancient wooden ship?"
+   },
+   {
+    "name": "ancient_paint",
+    "at": "ancient#1",
+    "clip": true,
+    "motion": "the brush sweeps across the wood, slow camera push in",
+    "prompt": "close-up, a hand brushing grey paint onto a curved wooden ship hull, bright daylight",
+    "check": "Is a hand painting a wooden hull?"
+   },
+   {
+    "name": "ww2_ship",
+    "at": "in#1",
+    "move": "pull",
+    "prompt": "wide shot of a large grey German warship tied up in a harbour, cranes behind it, 1940s, cloudy light",
+    "check": "Is there a large warship?",
+    "xfade": true
+   },
+   {
+    "name": "painter",
+    "at": "used#1",
+    "who": "painter",
+    "clip": true,
+    "motion": "he sweeps the brush along the steel, slow camera push in",
+    "prompt": "medium shot, a painter brushing a pale blue-grey stripe on a steel ship hull from a hanging platform, he is {painter}, 1940s shipyard",
+    "check": "Is a man painting a ship hull?"
+   },
+   {
+    "name": "cans",
+    "at": "mix#1",
+    "move": "right",
+    "prompt": "close-up, a row of open paint cans in grey, blue, green and brown on a shipyard floor, 1940s",
+    "check": "Are there open paint cans?"
+   },
+   {
+    "name": "repaint",
+    "at": "kept#1",
+    "move": "left",
+    "prompt": "wide shot of a shipyard dock with several warships in different patchy colour patterns, 1940s, hazy light",
+    "check": "Are there warships in a dock?"
+   },
+   {
+    "name": "writer",
+    "at": "the#4",
+    "who": "researcher",
+    "clip": true,
+    "motion": "her pen moves across the page, slow camera push in",
+    "prompt": "medium close-up, a woman writing notes in a notebook at a desk piled with papers, she is {researcher}, warm lamp light",
+    "check": "Is a woman writing?",
+    "xfade": true,
+    "modern": true
+   },
+   {
+    "name": "book",
+    "at": "english#1",
+    "move": "push",
+    "prompt": "close-up of a thick plain hardcover book lying closed on a wooden desk, soft window light",
+    "check": "Is there a thick book on a desk?",
+    "modern": true
+   },
+   {
+    "name": "nobody",
+    "at": "nobody#1",
+    "who": "researcher",
+    "clip": true,
+    "motion": "her finger slides along the book spines, slow camera push right",
+    "prompt": "medium shot, a woman running her finger along a long library shelf and finding nothing, she is {researcher}, quiet library",
+    "check": "Is a woman at a library shelf?",
+    "modern": true
+   },
+   {
+    "name": "empty_box",
+    "at": "but#1",
+    "who": "researcher",
+    "clip": true,
+    "motion": "she lifts the lid and shakes her head, slow camera push in",
+    "prompt": "close-up, a woman lifting the lid of an empty cardboard box and frowning, she is {researcher}, dusty archive, dim light",
+    "check": "Is a woman opening a cardboard box?",
+    "xfade": true,
+    "modern": true
+   },
+   {
+    "name": "bombed",
+    "at": "allied#1",
+    "move": "pull",
+    "prompt": "wide shot of a ruined brick building with a broken roof and grey smoke rising, rubble in the street, 1940s",
+    "check": "Is there a damaged brick building?",
+    "hit": "bombers#1"
+   },
+   {
+    "name": "burning",
+    "at": "destroyed#1",
+    "clip": true,
+    "motion": "the flames lick the pages, slow camera push in",
+    "prompt": "close-up of old paper pages curling and glowing in flames on dark ground",
+    "check": "Are papers burning?",
+    "hit": "destroyed#1"
+   },
+   {
+    "name": "search",
+    "at": "written#2",
+    "who": "researcher",
+    "clip": true,
+    "motion": "she pulls one folder from a shelf, slow camera push in",
+    "prompt": "high angle, a woman searching through a dusty archive room with half-empty wooden shelves, she is {researcher}, dim light",
+    "check": "Is a woman in an archive room?",
+    "modern": true
+   },
+   {
+    "name": "booklets",
+    "at": "then#1",
+    "clip": true,
+    "motion": "the hands open the cover, slow camera push in",
+    "prompt": "close-up, hands opening one of two thin old booklets on a wooden table, warm lamp light",
+    "check": "Are hands opening a booklet?",
+    "xfade": true,
+    "modern": true
+   },
+   {
+    "name": "yard",
+    "at": "both#1",
+    "move": "push",
+    "prompt": "wide shot of a busy naval shipyard on the sea with tall cranes and a grey warship in a dock, 1940s, grey daylight",
+    "check": "Is there a shipyard with cranes?"
+   },
+   {
+    "name": "crane",
+    "at": "shipyard#1",
+    "move": "down",
+    "prompt": "close-up of a black iron crane hook hanging over a shipyard dock, grey sea behind, 1940s, cloudy light",
+    "check": "Is there a crane hook?"
+   },
+   {
+    "name": "binder",
+    "at": "november#1",
+    "clip": true,
+    "motion": "the hand turns a page, slow camera push in",
+    "prompt": "close-up, a hand turning thick pages of an old binder under a desk lamp, 1940s office",
+    "check": "Is a hand turning pages?"
+   },
+   {
+    "name": "help",
+    "at": "they#3",
+    "who": "researcher",
+    "clip": true,
+    "motion": "she lifts the booklets and smiles, slow camera push in",
+    "prompt": "medium close-up, a woman smiling in relief and holding two old booklets in the air, she is {researcher}, archive, warm light",
+    "check": "Is a woman holding booklets?",
+    "modern": true
+   },
+   {
+    "name": "finished",
+    "at": "thanks#1",
+    "clip": true,
+    "motion": "the hand sets the book down, slow camera push in",
+    "prompt": "close-up, a hand placing a thick new hardcover book on a table, soft window light",
+    "check": "Is a hand placing a book on a table?",
+    "modern": true
+   },
+   {
+    "name": "reader",
+    "at": "readers#1",
+    "who": "reader",
+    "clip": true,
+    "motion": "he opens the cover and leans in, slow camera push in",
+    "prompt": "medium shot, an old man opening a big book in an armchair by a window, he is {reader}, soft daylight",
+    "check": "Is a man opening a book?",
+    "modern": true
+   },
+   {
+    "name": "caution",
+    "at": "even#2",
+    "who": "reviewer",
+    "clip": true,
+    "motion": "he lifts one finger and nods slowly, slow camera push in",
+    "prompt": "medium close-up, a man raising one finger in warning, he is {reviewer}, a book-lined study, warm light",
+    "check": "Is a man raising a finger?",
+    "xfade": true,
+    "modern": true
+   },
+   {
+    "name": "thin_paint",
+    "at": "paint#3",
+    "clip": true,
+    "motion": "the thin paint drips down the steel, slow camera push in",
+    "prompt": "close-up, a brush dripping thin watery grey paint in streaks down a steel ship hull, 1940s",
+    "check": "Is paint dripping on a steel hull?"
+   },
+   {
+    "name": "recipe",
+    "at": "you#1",
+    "who": "baker",
+    "clip": true,
+    "motion": "she runs a finger down the page and nods, slow camera push in",
+    "prompt": "medium shot, a woman reading a cookbook open on a kitchen counter, she is {baker}, bright kitchen",
+    "check": "Is a woman reading a cookbook?",
+    "xfade": true,
+    "modern": true
+   },
+   {
+    "name": "bakers",
+    "at": "two#2",
+    "clip": true,
+    "motion": "both bakers stir their bowls, slow camera push in",
+    "prompt": "medium shot, two bakers in white aprons stirring batter in two bowls side by side at a kitchen counter, bright light",
+    "check": "Are two people stirring bowls?",
+    "modern": true
+   },
+   {
+    "name": "flour",
+    "at": "one#4",
+    "clip": true,
+    "motion": "the flour tumbles into the bowl, slow camera push in",
+    "prompt": "close-up, a hand pouring grey lumpy flour from a paper bag into a bowl, kitchen counter, soft light",
+    "check": "Is flour being poured into a bowl?",
+    "modern": true
+   },
+   {
+    "name": "cakes",
+    "at": "cakes#1",
+    "move": "push",
+    "prompt": "close-up of two cakes side by side on a wooden table, one tall and golden, one flat and cracked, bright light",
+    "check": "Are there two cakes on a table?",
+    "hit": "cakes#1",
+    "modern": true
+   },
+   {
+    "name": "patchy",
+    "at": "on#1",
+    "move": "right",
+    "prompt": "wide shot of two grey warships side by side in a harbour, one smooth, one streaky and patchy, 1940s, grey light",
+    "check": "Are there two warships?",
+    "xfade": true
+   },
+   {
+    "name": "slap",
+    "at": "actually#1",
+    "who": "painter",
+    "clip": true,
+    "motion": "he slaps the brush against the steel, slow camera push in",
+    "prompt": "close-up, a painter slapping streaky grey paint onto a steel ship hull, he is {painter}, 1940s shipyard",
+    "check": "Is a man painting a hull?"
+   },
+   {
+    "name": "differ",
+    "at": "often#1",
+    "move": "pull",
+    "prompt": "wide shot of a dark grey warship and a pale grey warship at sea next to each other, 1940s, overcast",
+    "check": "Are there two ships at sea?",
+    "hit": "different#2"
+   },
+   {
+    "name": "close",
+    "at": "so#2",
+    "who": "researcher",
+    "clip": true,
+    "motion": "she closes the cover gently, slow camera push in",
+    "prompt": "medium close-up, a woman closing an old rulebook and resting her hands on it, she is {researcher}, quiet archive, lamp light",
+    "check": "Is a woman closing a book?",
+    "modern": true
+   },
+   {
+    "name": "lone_ship",
+    "at": "plan#1",
+    "move": "pull",
+    "prompt": "wide shot of a single grey warship sailing alone on a calm misty sea, 1940s, pale light",
+    "check": "Is there a single warship at sea?"
+   }
+  ]
+ }
+}
