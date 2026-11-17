@@ -1,0 +1,448 @@
+{
+ "script": {
+  "title": "Why Nightingale Put Fresh Air Into Hospital Design",
+  "beats": [
+   {
+    "lines": [
+     "Florence Nightingale walked crowded wards at night, lamp in hand."
+    ],
+    "feel": "sympathy"
+   },
+   {
+    "lines": [
+     "Soldiers lay packed together in stale air.",
+     "In 1854, the war hospital at Scutari had overcrowding, defective sewers, and poor ventilation.",
+     "During her first winter there, 4,077 British soldiers died.",
+     "Ten times more soldiers died from illness than from battle wounds.",
+     "Nightingale blamed poor nutrition, missing supplies, stale air, and overworked soldiers."
+    ],
+    "feel": "horror"
+   },
+   {
+    "lines": [
+     "You see, a packed ward with no fresh air feels like a stuffy room you cannot escape."
+    ],
+    "feel": "recognition"
+   },
+   {
+    "lines": [
+     "She sent a plea to The Times, begging the government to fix the hospitals.",
+     "The Sanitary Commission reached Scutari in March 1855, almost six months after Nightingale arrived.",
+     "The Sanitary Commission flushed the sewers and improved ventilation.",
+     "Death rates fell sharply.",
+     "The new Renkioi Hospital had a death rate less than one tenth of Scutari's."
+    ],
+    "feel": "hope"
+   },
+   {
+    "lines": [
+     "Nightingale concluded that poor living conditions killed most soldiers at the hospital.",
+     "She collected evidence for the Royal Commission on the Health of the Army.",
+     "Her Notes on Nursing turned ventilation lessons into practical advice.",
+     "Then she turned to sanitary hospital design, including the pavilion model."
+    ],
+    "feel": "determination"
+   },
+   {
+    "lines": [
+     "Nightingale never claimed credit for the change.",
+     "The lamp made her famous. Clean sewers and fresh air cut the deaths."
+    ],
+    "feel": "irony"
+   }
+  ],
+  "key_words": [
+   "Nightingale",
+   "lamp",
+   "wards",
+   "Scutari",
+   "ventilation",
+   "sewers",
+   "soldiers",
+   "Commission",
+   "Renkioi",
+   "pavilion",
+   "deaths",
+   "hospitals"
+  ],
+  "claims": [
+   {
+    "claim": "Nightingale became famous as the Lady with the Lamp, making ward rounds for wounded soldiers at night.",
+    "url": "https://en.wikipedia.org/wiki/Florence_Nightingale"
+   },
+   {
+    "claim": "Scutari hospital had overcrowding, defective sewers and lack of ventilation; 4,077 British soldiers died during Nightingale's first winter, and ten times more soldiers died from illness than from battle wounds.",
+    "url": "https://en.wikipedia.org/wiki/Florence_Nightingale"
+   },
+   {
+    "claim": "The Sanitary Commission was sent to Scutari in March 1855, almost six months after Nightingale arrived, and it flushed out the sewers and improved ventilation, sharply reducing death rates.",
+    "url": "https://en.wikipedia.org/wiki/Florence_Nightingale"
+   },
+   {
+    "claim": "Nightingale never claimed credit for helping to reduce the death rate.",
+    "url": "https://en.wikipedia.org/wiki/Florence_Nightingale"
+   },
+   {
+    "claim": "After returning to Britain, Nightingale collected evidence before the Royal Commission on the Health of the Army and then turned to the sanitary design of hospitals.",
+    "url": "https://en.wikipedia.org/wiki/Florence_Nightingale"
+   },
+   {
+    "claim": "Renkioi Hospital, built after Nightingale sent her plea to The Times, had a death rate less than one tenth of that of Scutari.",
+    "url": "https://en.wikipedia.org/wiki/Florence_Nightingale"
+   },
+   {
+    "claim": "Nightingale's Notes on Nursing turned the Crimean war hospital defects, notably ventilation, into lessons, and the pavilion model of hospital design was central to her hospital reform.",
+    "url": "https://doi.org/10.1177/1937586720918239"
+   }
+  ]
+ },
+ "film": {
+  "era": "1850s",
+  "music": "sad",
+  "cast": {
+   "florence": "a 34 year old slim English nurse with dark brown hair parted in the middle under a white cap, a calm oval face, a plain black wool dress with a white collar and a grey shawl, 1850s",
+   "soldier": "a 20 year old thin British soldier with short sandy hair, freckles, a pale sweaty face and an open red army jacket over a dirty white shirt, 1850s"
+  },
+  "key_words": [
+   "Nightingale",
+   "lamp",
+   "wards",
+   "Scutari",
+   "ventilation",
+   "sewers",
+   "soldiers",
+   "Commission",
+   "Renkioi",
+   "pavilion",
+   "deaths",
+   "hospitals"
+  ],
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "prompt": "medium shot, a nurse walking between rows of hospital beds at night holding a small oil lamp, she is {florence}, 1850s, dark ward",
+    "check": "Is a woman holding a lamp?",
+    "who": "florence",
+    "clip": true,
+    "motion": "she lifts the lamp a little, slow camera pan right"
+   },
+   {
+    "name": "lamp",
+    "at": "lamp#1",
+    "prompt": "close-up of a hand holding a small brass oil lamp glowing in a dark hospital ward",
+    "check": "Is a hand holding an oil lamp?",
+    "move": "push"
+   },
+   {
+    "name": "packed",
+    "at": "soldiers#1",
+    "prompt": "wide shot of wounded soldiers lying packed side by side on thin mats along a dim stone corridor, 1850s",
+    "check": "Are soldiers lying side by side?",
+    "clip": true,
+    "motion": "a soldier turns his head, slow camera pan left"
+   },
+   {
+    "name": "scutari",
+    "at": "in#3",
+    "prompt": "wide shot of a huge square stone barracks hospital beside the sea with towers at the corners, 1850s, grey sky",
+    "check": "Is there a huge stone building by the sea?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "drain",
+    "at": "overcrowding#1",
+    "prompt": "close-up of a cracked stone floor drain overflowing with dark water in a hospital corridor",
+    "check": "Is there an overflowing drain?",
+    "move": "down"
+   },
+   {
+    "name": "window",
+    "at": "poor#1",
+    "prompt": "close-up of a small shut window with grimy glass in a gloomy hospital ward",
+    "check": "Is there a dirty closed window?",
+    "move": "push"
+   },
+   {
+    "name": "winter",
+    "at": "during#1",
+    "prompt": "wide shot of snow falling over a stone hospital courtyard in winter, grey light, 1850s",
+    "check": "Is snow falling on a courtyard?",
+    "move": "left"
+   },
+   {
+    "name": "stretcher",
+    "at": "4,077#1",
+    "prompt": "medium shot, two soldiers carrying a stretcher covered with a grey blanket down a stone corridor",
+    "check": "Are men carrying a stretcher?",
+    "clip": true,
+    "motion": "they carry the stretcher forward a step, slow camera pull back"
+   },
+   {
+    "name": "fever",
+    "at": "ten#1",
+    "prompt": "close-up, a pale young soldier sweating with fever on a cot, he is {soldier}, dim ward",
+    "check": "Is a pale soldier lying on a cot?",
+    "who": "soldier",
+    "clip": true,
+    "motion": "he shivers and closes his eyes, slow camera push in"
+   },
+   {
+    "name": "bandage",
+    "at": "illness#1",
+    "prompt": "close-up of a white bandage wrapped around a soldier's arm, lamp light",
+    "check": "Is there a bandage on an arm?",
+    "move": "push"
+   },
+   {
+    "name": "notes",
+    "at": "nightingale#2",
+    "prompt": "medium shot, a nurse frowning as she writes in a notebook at a small table, she is {florence}, lamp light",
+    "check": "Is a woman writing in a notebook?",
+    "who": "florence",
+    "clip": true,
+    "motion": "her pen moves quickly, slow camera push in"
+   },
+   {
+    "name": "shelves",
+    "at": "missing#1",
+    "prompt": "close-up of empty wooden supply shelves and an empty open crate in a storeroom",
+    "check": "Are there empty shelves?",
+    "move": "push"
+   },
+   {
+    "name": "tired",
+    "at": "overworked#1",
+    "prompt": "close-up, an exhausted hospital orderly slumped against a stone wall, 1850s",
+    "check": "Is a tired man leaning on a wall?",
+    "clip": true,
+    "motion": "he rubs his eyes, slow camera push in"
+   },
+   {
+    "name": "stuffy",
+    "at": "you#1",
+    "prompt": "medium shot, people fanning themselves in a hot crowded room with every window shut, 1850s clothes",
+    "check": "Are people fanning themselves?",
+    "clip": true,
+    "motion": "a woman fans herself faster, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "crowd",
+    "at": "feels#1",
+    "prompt": "close-up of a crowded hot room with people squeezed shoulder to shoulder, windows shut, 1850s",
+    "check": "Are people squeezed together?",
+    "move": "push"
+   },
+   {
+    "name": "collar",
+    "at": "stuffy#1",
+    "prompt": "close-up, a sweating man tugging at his collar in a hot room",
+    "check": "Is a man pulling at his collar?",
+    "clip": true,
+    "motion": "he tugs his collar, slow camera push in"
+   },
+   {
+    "name": "letter",
+    "at": "she#1",
+    "prompt": "close-up of a hand writing a letter quickly with a quill by lamp light",
+    "check": "Is a hand writing with a quill?",
+    "clip": true,
+    "motion": "the quill races across the page, slow camera push in"
+   },
+   {
+    "name": "paper",
+    "at": "times#2",
+    "prompt": "medium shot, a man in a London coffee house reading a newspaper with a shocked face, 1850s",
+    "check": "Is a man reading a newspaper?",
+    "clip": true,
+    "motion": "his eyebrows rise, slow camera push in"
+   },
+   {
+    "name": "officials",
+    "at": "fix#1",
+    "prompt": "medium shot, officials in dark frock coats arguing around a table piled with papers, London office, 1850s",
+    "check": "Are men arguing around a table?",
+    "clip": true,
+    "motion": "one taps the table, slow camera pan right"
+   },
+   {
+    "name": "ship",
+    "at": "the#5",
+    "prompt": "wide shot of a paddle steamer arriving at a busy harbor with gentlemen in top hats on deck, 1850s",
+    "check": "Is there a steamship at a harbor?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "arrive",
+    "at": "march#1",
+    "prompt": "medium shot, three gentlemen with leather bags walking through a stone hospital gate, 1850s",
+    "check": "Are men walking through a gate?",
+    "clip": true,
+    "motion": "they step through the gate, slow camera push in"
+   },
+   {
+    "name": "watch",
+    "at": "nightingale#3",
+    "prompt": "close-up, a nurse watching with folded arms, she is {florence}, hospital doorway, daylight",
+    "check": "Is a woman with folded arms?",
+    "who": "florence",
+    "clip": true,
+    "motion": "she lifts her chin, slow camera push in"
+   },
+   {
+    "name": "sewer",
+    "at": "the#6",
+    "prompt": "medium shot, workers shovelling filth out of an open stone sewer channel, 1850s",
+    "check": "Are men shovelling in a sewer?",
+    "clip": true,
+    "motion": "a worker lifts his shovel, slow camera push in"
+   },
+   {
+    "name": "shutters",
+    "at": "improved#1",
+    "prompt": "medium shot, workers opening big wooden shutters to let sunlight and air into a hospital ward",
+    "check": "Are men opening shutters?",
+    "clip": true,
+    "motion": "the shutters swing open, slow camera push in"
+   },
+   {
+    "name": "recover",
+    "at": "death#1",
+    "prompt": "close-up, a smiling soldier sitting up in a clean bed, bright light",
+    "check": "Is a soldier smiling in bed?",
+    "clip": true,
+    "motion": "he smiles wider, slow camera push in"
+   },
+   {
+    "name": "renkioi",
+    "at": "the#8",
+    "prompt": "wide shot of rows of neat wooden hospital huts on a green hillside above the sea, sunny day",
+    "check": "Are there rows of wooden huts?",
+    "move": "right"
+   },
+   {
+    "name": "airy",
+    "at": "death#2",
+    "prompt": "medium shot, nurses tending calm patients in a bright airy wooden ward with open windows",
+    "check": "Are nurses tending patients?",
+    "clip": true,
+    "motion": "a nurse adjusts a blanket, slow camera pan right"
+   },
+   {
+    "name": "curtain",
+    "at": "one#1",
+    "prompt": "close-up of an open window with a white curtain blowing in the breeze, sunlight",
+    "check": "Is a curtain blowing at a window?",
+    "move": "push"
+   },
+   {
+    "name": "study",
+    "at": "nightingale#4",
+    "prompt": "close-up, a nurse studying piles of papers by lamp light, she is {florence}",
+    "check": "Is a woman reading papers?",
+    "who": "florence",
+    "clip": true,
+    "motion": "she turns a page, slow camera push in"
+   },
+   {
+    "name": "beds",
+    "at": "killed#1",
+    "prompt": "close-up of a row of empty iron beds in a dim hospital ward",
+    "check": "Is there a row of empty beds?",
+    "move": "pull"
+   },
+   {
+    "name": "evidence",
+    "at": "she#2",
+    "prompt": "medium shot, a woman stacking thick piles of papers onto a table, she is {florence}, study, window light",
+    "check": "Is a woman stacking papers?",
+    "who": "florence",
+    "clip": true,
+    "motion": "she sets down another pile, slow camera push in"
+   },
+   {
+    "name": "commission",
+    "at": "royal#1",
+    "prompt": "medium shot, gentlemen reading reports around a long table in a grand London room, 1850s",
+    "check": "Are men reading at a long table?",
+    "clip": true,
+    "motion": "one man turns a page, slow camera pan left"
+   },
+   {
+    "name": "report",
+    "at": "health#1",
+    "prompt": "close-up of a hand placing a thick bound report on a polished wooden table",
+    "check": "Is a hand placing a book on a table?",
+    "move": "push"
+   },
+   {
+    "name": "book",
+    "at": "her#2",
+    "prompt": "close-up, a woman writing in a small book by a sunny window, she is {florence}",
+    "check": "Is a woman writing in a book?",
+    "who": "florence",
+    "clip": true,
+    "motion": "her pen moves across the page, slow camera push in"
+   },
+   {
+    "name": "open",
+    "at": "ventilation#3",
+    "prompt": "close-up, a nurse opening a window in a small home sickroom, sunlight pouring in",
+    "check": "Is a nurse opening a window?",
+    "clip": true,
+    "motion": "she pushes the window open, slow camera push in"
+   },
+   {
+    "name": "plans",
+    "at": "then#1",
+    "prompt": "medium shot, a woman leaning over large building plans spread on a table, she is {florence}, bright study",
+    "check": "Is a woman looking at large plans?",
+    "who": "florence",
+    "clip": true,
+    "motion": "she traces a line with her finger, slow camera push in"
+   },
+   {
+    "name": "pavilion",
+    "at": "design#1",
+    "prompt": "wide shot of a long hospital with separate wings and tall windows on a green lawn, sunny day",
+    "check": "Is there a long building with many windows?",
+    "move": "up"
+   },
+   {
+    "name": "modest",
+    "at": "nightingale#5",
+    "prompt": "close-up, a woman shaking her head modestly as people clap, she is {florence}, hall, warm light",
+    "check": "Is a woman shaking her head?",
+    "who": "florence",
+    "clip": true,
+    "motion": "she shakes her head gently, slow camera push in"
+   },
+   {
+    "name": "lamp2",
+    "at": "the#15",
+    "prompt": "close-up of a small brass oil lamp glowing on a wooden table, dark room",
+    "check": "Is there an oil lamp?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "rinse",
+    "at": "clean#1",
+    "prompt": "close-up of workers rinsing a stone drain with clean water, bright day",
+    "check": "Is water rinsing a drain?",
+    "clip": true,
+    "motion": "clean water rushes along the drain, slow camera push in"
+   },
+   {
+    "name": "ward",
+    "at": "cut#1",
+    "prompt": "wide shot of a bright airy hospital ward with open windows and soldiers recovering in clean beds, sunlight",
+    "check": "Is there a bright hospital ward?",
+    "move": "pull"
+   }
+  ]
+ }
+}
