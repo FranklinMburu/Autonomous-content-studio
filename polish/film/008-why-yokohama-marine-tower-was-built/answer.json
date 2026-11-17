@@ -1,0 +1,350 @@
+{
+ "script": {
+  "title": "Why Japan built its great port in a fishing village",
+  "beats": [
+   {
+    "lines": [
+     "Commodore Perry sailed a fleet of American warships toward Japan."
+    ]
+   },
+   {
+    "lines": [
+     "In the 1850s, Japan had little contact with foreigners.",
+     "Perry arrived just south of Yokohama and demanded that Japan open ports for trade.",
+     "The Tokugawa shogunate agreed and signed a treaty."
+    ]
+   },
+   {
+    "lines": [
+     "One port was meant to be the town of Kanagawa-juku.",
+     "It sat on the Tōkaidō, a highway linking Edo to Kyoto and Osaka.",
+     "The shogunate decided that was too close for comfort.",
+     "So it built the port across the inlet, in the fishing village of Yokohama."
+    ]
+   },
+   {
+    "lines": [
+     "You see, it's like letting a guest sleep in your shed, not your house."
+    ]
+   },
+   {
+    "lines": [
+     "The port opened in 1859.",
+     "Foreigners settled in Kannai, a district surrounded by a moat.",
+     "Soon Yokohama printed Japan's first English newspaper.",
+     "In 1865, it made Japan's first beer and ice cream.",
+     "In 1872, Japan's first railway ran from Yokohama to Tokyo."
+    ]
+   },
+   {
+    "lines": [
+     "A small fishing village had become a famous port city.",
+     "Its name means sideways sandbar, because that is how it looked from the sea."
+    ]
+   }
+  ],
+  "key_words": [
+   "Perry",
+   "Yokohama",
+   "shogunate",
+   "Tōkaidō",
+   "Kannai"
+  ],
+  "claims": [
+   {
+    "claim": "Perry arrived near Yokohama demanding Japan open ports; the shogunate signed a treaty, but built the port in the fishing village of Yokohama because Kanagawa-juku was too close to the Tōkaidō; it opened in 1859.",
+    "url": "https://en.wikipedia.org/wiki/Yokohama"
+   },
+   {
+    "claim": "Foreigners settled in the moated Kannai district; Japan firsts in Yokohama: English newspaper 1861, beer and ice cream 1865, railway 1872.",
+    "url": "https://en.wikipedia.org/wiki/Yokohama"
+   },
+   {
+    "claim": "Yokohama's name came from a sandbar seen sideways from the sea.",
+    "url": "https://en.wikipedia.org/wiki/Yokohama"
+   }
+  ]
+ },
+ "film": {
+  "era": "1850s",
+  "cast": {
+   "perry": "a 59 year old American naval commodore with a stern square jaw, grey bushy sideburns, a dark navy double-breasted coat with gold buttons and a black bicorne hat, 1850s",
+   "official": "a 48 year old Japanese shogunate official with a shaved forehead and a black topknot, a grey-blue silk robe with stiff winged shoulders and a dark sash, 1850s",
+   "fisher": "a 22 year old Japanese fisherman with a sun-darkened face, a wide straw hat, a short faded indigo cotton jacket and bare brown legs, 1850s",
+   "trader": "a 33 year old European trader with slicked blond hair, a thin blond moustache, a bright green waistcoat, a white shirt and a dark blue frock coat, 1860s"
+  },
+  "key_words": [
+   "Perry",
+   "Yokohama",
+   "shogunate",
+   "Tōkaidō",
+   "Kannai"
+  ],
+  "music": "curious",
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "prompt": "medium shot, a naval commodore standing at the rail of a black wooden steam warship pointing ahead, he is {perry}, grey sky, rolling sea",
+    "who": "perry",
+    "check": "Is a man pointing from a ship?",
+    "clip": true,
+    "motion": "he points ahead and his coat flaps, slow camera push in"
+   },
+   {
+    "name": "fleet",
+    "at": "fleet#1",
+    "prompt": "wide shot of a line of black wooden warships with dark smoke on a grey sea near a green coast, 1850s",
+    "check": "Are there black warships?",
+    "clip": true,
+    "motion": "dark smoke drifts from the funnels as waves roll, slow camera pull back",
+    "hit": "warships#1"
+   },
+   {
+    "name": "gate",
+    "at": "Japan#1",
+    "prompt": "close-up of a huge shut wooden gate with iron studs in a grey stone wall, damp morning light, 1850s Japan",
+    "check": "Is a wooden gate shut?",
+    "move": "push"
+   },
+   {
+    "name": "watch",
+    "at": "Japan#2",
+    "prompt": "medium shot, a fisherman on a pebble beach shading his eyes with one hand and looking out to sea, he is {fisher}, soft dawn light",
+    "who": "fisher",
+    "check": "Is a man looking out to sea?",
+    "clip": true,
+    "motion": "he shades his eyes and turns his head slowly, slow camera push in"
+   },
+   {
+    "name": "boat",
+    "at": "Perry#2",
+    "prompt": "medium shot, a naval commodore sitting upright in a wooden rowboat with sailors rowing, he is {perry}, calm bay, hazy light",
+    "who": "perry",
+    "check": "Is a man in a rowboat?",
+    "clip": true,
+    "motion": "sailors row slowly while he stares ahead, slow camera push in"
+   },
+   {
+    "name": "demand",
+    "at": "demanded#1",
+    "prompt": "close-up, a commodore jabbing one finger forward, stern face, he is {perry}, warm lamplight in a dark ship cabin",
+    "who": "perry",
+    "check": "Is a man pointing his finger?",
+    "clip": true,
+    "motion": "he jabs his finger forward twice, slow camera push in"
+   },
+   {
+    "name": "harbor",
+    "at": "open#1",
+    "prompt": "wide shot of a bay with a wooden pier and moored wooden sailing ships and boats, bright morning, 1850s Japan",
+    "check": "Is there a wooden pier?",
+    "move": "pull"
+   },
+   {
+    "name": "agree",
+    "at": "The#2",
+    "prompt": "medium shot, a Japanese official kneeling at a low wooden table slowly bowing his head, he is {official}, paper screens, soft window light",
+    "who": "official",
+    "check": "Is a man kneeling at a table?",
+    "clip": true,
+    "motion": "he bows his head slowly, slow camera push in"
+   },
+   {
+    "name": "sign",
+    "at": "signed#1",
+    "prompt": "extreme close-up of a hand pressing an ink brush onto a long blank paper scroll on a wooden table, soft lamp light",
+    "check": "Is a hand holding a brush?",
+    "clip": true,
+    "motion": "the brush glides across the paper, slow camera push in"
+   },
+   {
+    "name": "map",
+    "at": "One#1",
+    "prompt": "medium shot, an official pointing at a hand-drawn map spread on a low wooden table, he is {official}, paper screens, warm light",
+    "who": "official",
+    "check": "Is a man pointing at a map?",
+    "clip": true,
+    "motion": "he taps the map with one finger, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "town",
+    "at": "town#1",
+    "prompt": "wide shot of a dusty street of an old Japanese post town with wooden inns and hanging lanterns, travellers in straw hats, midday sun",
+    "check": "Is this an old wooden street?",
+    "move": "right"
+   },
+   {
+    "name": "road",
+    "at": "It#1",
+    "prompt": "wide shot of a long dirt highway lined with tall pine trees, travellers in straw hats walking in a line, golden afternoon light",
+    "check": "Is there a dirt road with pine trees?",
+    "move": "push"
+   },
+   {
+    "name": "walker",
+    "at": "Edo#1",
+    "prompt": "close-up, a traveller in a straw hat and brown cloak walking with a wooden staff on a dirt road, pine trees behind",
+    "check": "Is a man walking with a staff?",
+    "clip": true,
+    "motion": "he swings his staff in rhythm, slow camera push in"
+   },
+   {
+    "name": "worry",
+    "at": "The#5",
+    "prompt": "medium shot, an official standing at a paper-screen window looking out at a road, frowning, he is {official}, grey light",
+    "who": "official",
+    "check": "Is a man frowning at a window?",
+    "clip": true,
+    "motion": "he frowns and rubs his chin, slow camera push in"
+   },
+   {
+    "name": "shake",
+    "at": "too#1",
+    "prompt": "close-up, an official shaking his head firmly with folded arms, he is {official}, dim room, lamp light",
+    "who": "official",
+    "check": "Is a man shaking his head?",
+    "clip": true,
+    "motion": "he shakes his head slowly, slow camera push in"
+   },
+   {
+    "name": "build",
+    "at": "So#1",
+    "prompt": "close-up, carpenters in cloth headbands hammering a wooden post into shallow water with a big mallet, bright sun, 1850s",
+    "check": "Are men hammering a wooden post?",
+    "clip": true,
+    "motion": "the mallet swings down on the post, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "inlet",
+    "at": "inlet#1",
+    "prompt": "wide shot of a calm inlet with a small fishing village of thatched huts and wooden boats on a sandy shore, soft morning light",
+    "check": "Is there a fishing village?",
+    "move": "push"
+   },
+   {
+    "name": "net",
+    "at": "fishing#1",
+    "prompt": "close-up, a fisherman mending a brown fishing net on the sand, he is {fisher}, thatched hut behind, morning sun",
+    "who": "fisher",
+    "check": "Is a man mending a net?",
+    "clip": true,
+    "motion": "his hands pull the net through, slow camera push in"
+   },
+   {
+    "name": "lock",
+    "at": "You#1",
+    "prompt": "close-up of a hand turning a big iron key in the lock of a heavy wooden house door, warm evening light",
+    "check": "Is a hand turning a key?",
+    "clip": true,
+    "motion": "the key turns in the lock, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "shed",
+    "at": "guest#1",
+    "prompt": "medium shot, a man lying on a straw bed in a small wooden garden shed pulling a blanket up, he is {trader}, dim lantern light",
+    "who": "trader",
+    "check": "Is a man lying in a shed?",
+    "clip": true,
+    "motion": "he pulls the blanket up to his chin, slow camera push in"
+   },
+   {
+    "name": "opened",
+    "at": "The#9",
+    "prompt": "wide shot of a wooden harbour pier with tall-masted ships and fluttering flags on a bright morning, 1850s",
+    "check": "Are there tall ships at a pier?",
+    "move": "pull",
+    "xfade": true,
+    "hit": "opened#1"
+   },
+   {
+    "name": "moat",
+    "at": "Foreigners#2",
+    "prompt": "wide shot of foreign men in dark frock coats crossing a wooden bridge over a still moat toward a gate, 1860s, soft light",
+    "check": "Is there a bridge over a moat?",
+    "move": "right"
+   },
+   {
+    "name": "kannai",
+    "at": "surrounded#1",
+    "prompt": "high angle of a still moat surrounding a district of white European-style houses with red tile roofs, bright day, 1860s",
+    "check": "Is a moat around some houses?",
+    "move": "up"
+   },
+   {
+    "name": "press",
+    "at": "Soon#1",
+    "prompt": "close-up, hands pulling the iron lever of an old printing press, ink on the fingers, lamp light, 1860s workshop",
+    "check": "Are hands pulling a lever?",
+    "clip": true,
+    "motion": "the lever pulls down firmly, slow camera push in"
+   },
+   {
+    "name": "beer",
+    "at": "In#6",
+    "prompt": "close-up, a brewer in a leather apron pouring foamy golden beer from a wooden bucket into a thick glass mug, warm light",
+    "check": "Is someone pouring beer?",
+    "clip": true,
+    "motion": "golden beer foams up in the mug, slow camera push in"
+   },
+   {
+    "name": "icecream",
+    "at": "and#4",
+    "prompt": "close-up, a hand scooping pale ice cream into a small glass dish on a wooden counter, bright light",
+    "check": "Is a hand scooping ice cream?",
+    "clip": true,
+    "motion": "the scoop lifts and drops into the dish, slow camera push in"
+   },
+   {
+    "name": "train",
+    "at": "In#7",
+    "prompt": "wide shot of a small early steam locomotive with a tall black funnel pulling wooden carriages along a coast, white steam, 1870s",
+    "check": "Is there a steam train?",
+    "move": "right"
+   },
+   {
+    "name": "flag",
+    "at": "from#1",
+    "prompt": "medium shot, a station worker in a dark uniform and cap holding up a red flag on a wooden platform, a steam train arriving, 1870s",
+    "check": "Is a man holding a flag?",
+    "clip": true,
+    "motion": "he raises the flag high while steam drifts, slow camera push in"
+   },
+   {
+    "name": "village",
+    "at": "A#7",
+    "prompt": "wide shot of a few thatched fishing huts and beached boats on a quiet sandy shore at dawn, soft pink light",
+    "check": "Are there huts on a shore?",
+    "clip": true,
+    "motion": "a thin smoke drifts from a hut and a boat rocks gently, slow camera pull back",
+    "xfade": true
+   },
+   {
+    "name": "city",
+    "at": "become#1",
+    "prompt": "wide shot of a busy harbour with steamships, brick warehouses and smoking chimneys, crowded wharf, 1870s, bright day",
+    "check": "Is this a busy harbour?",
+    "move": "push",
+    "hit": "city#1"
+   },
+   {
+    "name": "sandbar",
+    "at": "Its#1",
+    "prompt": "high angle of a long thin sandbar sticking out sideways into blue sea, white waves on both sides, bright day",
+    "check": "Is there a sandbar in the sea?",
+    "move": "push"
+   },
+   {
+    "name": "sailor",
+    "at": "it#4",
+    "prompt": "close-up, a sailor in a blue striped shirt gripping a wooden ship's rail and gazing at distant low land, sea breeze, golden light",
+    "check": "Is a man gripping a ship's rail?",
+    "clip": true,
+    "motion": "he squints at the land while his shirt ripples, slow camera push in"
+   }
+  ]
+ }
+}
