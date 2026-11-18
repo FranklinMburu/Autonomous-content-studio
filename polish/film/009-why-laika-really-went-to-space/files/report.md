@@ -7,4 +7,4 @@ Topic: Why the Soviet space program used “dog” Laika on Sputnik 2 in 1957 (t
 - Logic check issues found: 0
 - Words: 151, length 48.6s, 186 words/min, 10 words in first 3 s
 - Fact check: {'partial': 3, 'supported': 4, 'unsupported': 3}
-- Film shot list: none yet: made in the polish step
+- Film shot list: 27 shots, 3 problem(s) left for the polish step (NEEDS_POLISH.md)

@@ -103,7 +103,6 @@ PROBLEMS FOUND BY THE CHECKS
 - script: not supported by the sources, fix or remove: A Soviet engineer strapped a trembling dog into a cramped metal can.
 - script: not supported by the sources, fix or remove: Colleagues laughed, saying a stray could never survive a launch.
 - script: not supported by the sources, fix or remove: He grabbed a small dog cage and bolted it onto the rocket.
-- film.json is missing: write it
 
 DRAFT SCRIPT
 {"title": "Why Laika Really Went to Space", "beats": [{"feel": "curiosity", "lines": ["A Soviet engineer strapped a trembling dog into a cramped metal can."]}, {"feel": "skepticism", "lines": ["Colleagues laughed, saying a stray could never survive a launch."]}, {"feel": "tension", "lines": ["Khrushchev demanded a “space spectacular” for the October Revolution anniversary.", "Korolev had less than four weeks to finish a new satellite.", "He grabbed a small dog cage and bolted it onto the rocket."]}, {"feel": "recognition", "lines": ["You see, it’s like testing a car’s seatbelt on a dummy before letting a driver sit behind the wheel."]}, {"feel": "awe", "lines": ["The real reason: Laika was a living test for the cabin’s air system.", "The capsule held an oxygen maker, a filter to soak up bad air, and a fan that turned on when it got too hot.", "Scientists watched her breathing, pulse, and temperature from the ground."]}, {"feel": "surprise", "lines": ["The twist? The mission never planned to bring her home.", "Laika was a one‑way sacrifice, proving the cabin could keep any creature alive, even if that creature never left orbit."]}]}
@@ -136,15 +135,15 @@ WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 6.36s survive#1
 6.74s a#5
 6.81s launch#1
-7.67s Khrushchev#1
+7.68s Khrushchev#1
 8.20s demanded#1
 8.75s a#6
 8.85s “space#1
-9.22s spectacular”#1
+9.23s spectacular”#1
 10.25s for#1
 10.50s the#1
 10.59s October#1
-10.97s Revolution#1
+10.98s Revolution#1
 11.45s anniversary#1
 12.34s Korolev#1
 12.89s had#1
@@ -188,15 +187,15 @@ WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 23.12s behind#1
 23.42s the#3
 23.52s wheel#1
-24.25s The#4
+24.26s The#4
 24.38s real#1
 24.66s reason:#1
-25.45s Laika#1
-25.75s was#1
+25.46s Laika#1
+25.76s was#1
 25.86s a#12
 25.98s living#1
 26.28s test#1
-26.70s for#2
+26.71s for#2
 26.91s the#5
 27.00s cabin’s#1
 27.33s air#1
@@ -205,10 +204,10 @@ WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 28.28s capsule#1
 28.78s held#1
 29.00s an#1
-29.10s oxygen#1
+29.11s oxygen#1
 29.55s maker#1
 30.23s a#13
-30.35s filter#1
+30.36s filter#1
 30.75s to#2
 30.88s soak#1
 31.08s up#1
@@ -226,25 +225,25 @@ WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 33.60s too#1
 33.78s hot#1
 34.44s Scientists#1
-35.03s watched#1
-35.28s her#1
+35.04s watched#1
+35.29s her#1
 35.41s breathing#1
 36.09s pulse#1
 36.66s and#3
-36.78s temperature#1
+36.79s temperature#1
 37.26s from#1
 37.38s the#7
-37.48s ground#1
+37.49s ground#1
 38.34s The#8
-38.44s twist#1
+38.45s twist#1
 39.09s The#9
-39.19s mission#1
-39.54s never#2
+39.20s mission#1
+39.55s never#2
 39.82s planned#1
 40.07s to#3
 40.17s bring#1
 40.32s her#2
-40.44s home#1
+40.45s home#1
 41.03s Laika#2
 41.41s was#2
 41.71s a#15
@@ -267,7 +266,7 @@ WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 47.21s orbit#1
 
 DRAFT film.json
-(none yet)
+{"era": "1950s", "cast": {"korolev": "a 50 year old Soviet chief rocket engineer with short grey-streaked brown hair, a square jowled face, dark tired eyes, clean-shaven, wearing a heavy dark navy wool coat over a grey suit with a brown tie, 1950s", "khrushchev": "a 63 year old Soviet political leader with a bald head, round fleshy face, small dark eyes, a wide mouth, clean-shaven, wearing a loose dark grey double-breasted coat and a black fur trim hat, 1950s", "scientist": "a 36 year old Soviet woman scientist with short dark brown hair rolled neatly, round wire-rimmed glasses, a calm focused face, wearing a crisp white laboratory coat over a dark green high-neck dress, 1950s"}, "music": "tense", "key_words": ["strapped#1", "laughed#1", "Khrushchev#1", "weeks#1", "bolted#1", "seatbelt#1", "air#1", "fan#1", "pulse#1", "home#1", "orbit#1"], "shots": [{"name": "strap_dog", "at": 0, "who": "korolev", "clip": true, "prompt": "medium close-up, a man carefully fastening a leather harness on a small dog inside a metal capsule, he is {korolev}, dark 1950s hangar, warm overhead light", "motion": "he tightens the harness gently, slow camera push in", "check": "Is a man fastening a harness on a dog?"}, {"name": "cramped_can", "at": "dog#1", "clip": true, "prompt": "close-up of a small white-and-brown dog sitting inside a tiny cylindrical aluminum space pod surrounded by padded lining, dim 1950s workshop light", "motion": "the small dog shivers slightly inside the narrow pod, slow camera push in", "check": "Is a dog inside a metal pod?"}, {"name": "colleagues", "at": "Colleagues#1", "clip": true, "prompt": "medium shot, two Soviet engineers in dark suits laughing mockingly and shaking their heads, a metal hangar room background, dim 1950s interior light", "motion": "they laugh and shake their heads, slow camera push in", "check": "Are men laughing?"}, {"name": "stray", "at": "stray#1", "clip": true, "prompt": "close-up of a small shaggy stray dog sitting on a snowy city street, shivering, 1950s brick buildings behind, gloomy winter daylight", "motion": "the small dog shivers and breathes softly, slow camera push in", "check": "Is there a small dog on a snowy street?"}, {"name": "khrushchev", "at": "Khrushchev#1", "who": "khrushchev", "clip": true, "prompt": "medium shot, a bald leader banging his fist down onto a wooden conference desk, he is {khrushchev}, grand Moscow office, warm chandeliers", "motion": "he bangs his fist on the desk firmly, slow camera push in", "hit": "demanded#1", "check": "Is a man banging his fist on a desk?"}, {"name": "flags", "at": "October#1", "move": "right", "xfade": true, "prompt": "wide shot of tall red Soviet banners waving outside stone Kremlin walls on a windy day, grey cloudy sky, 1950s", "check": "Are red banners waving?"}, {"name": "stress", "at": "Korolev#1", "who": "korolev", "clip": true, "prompt": "medium close-up, a tired engineer rubbing his forehead while staring at large blueprints on a desk, he is {korolev}, dim night office, desk lamp light", "motion": "he rubs his forehead and sighs, slow camera push in", "check": "Is a man looking at blueprints?"}, {"name": "satellite", "at": "finish#1", "move": "push", "prompt": "wide shot of engineers in grey smocks surrounding a polished steel sphere satellite in a vast hangar, bright industrial lights, 1950s", "check": "Is there a shiny metal satellite?"}, {"name": "cage", "at": "grabbed#1", "who": "korolev", "clip": true, "prompt": "medium shot, an engineer lifting a small metal dog cage off a wooden workbench with both hands, he is {korolev}, high ceiling workshop, cool window light", "motion": "he lifts the metal cage upward, slow camera push in", "check": "Is a man lifting a metal cage?"}, {"name": "bolting", "at": "bolted#1", "clip": true, "prompt": "extreme close-up of two hands using a metal wrench to tighten a steel bolt on a metal frame inside a dark rocket compartment, bright spotlight", "motion": "the hands turn the wrench on the bolt, slow camera push in", "hit": "bolted#1", "check": "Are hands using a wrench?"}, {"name": "testing", "at": "You#1", "move": "push", "prompt": "wide shot of a vintage 1950s car testing facility with bright spotlighting and concrete walls, clean background", "check": "Is this an industrial room?"}, {"name": "seatbelt", "at": "seatbelt#1", "clip": true, "prompt": "close-up of a hand clicking a dark fabric seatbelt buckle across the wooden chest of a crash test dummy, vintage 1950s car interior, soft garage light", "motion": "the hand clicks the seatbelt buckle into place, slow camera push in", "check": "Is a seatbelt being buckled?"}, {"name": "driver", "at": "driver#1", "clip": true, "prompt": "close-up of two leather-gloved hands holding a large black vintage steering wheel inside a 1950s car, bright sunlight through the windshield", "motion": "the hands tighten their grip on the steering wheel, slow camera push in", "check": "Are hands holding a steering wheel?"}, {"name": "reason", "at": "The#4", "move": "push", "xfade": true, "prompt": "close-up of a vintage brass desk lamp illuminating handwritten technical notes on a dark wooden table, 1950s office", "check": "Is there a lamp on a desk with notes?"}, {"name": "living_test", "at": "Laika#1", "clip": true, "prompt": "close-up, a small white dog in a tiny leather harness sitting inside a rounded metal capsule chamber, soft interior light", "motion": "the dog blinks gently and breathes, slow camera push in", "check": "Is there a small dog inside a metal chamber?"}, {"name": "air_system", "at": "air#1", "move": "push", "prompt": "medium shot of a complex metal capsule ventilation panel with copper pipes and air valves inside a dark workshop, 1950s", "check": "Is there a metal panel with pipes?"}, {"name": "oxygen_maker", "at": "oxygen#1", "move": "push", "prompt": "close-up of a metallic oxygen canister connected to a clear glass flask filled with bubbling liquid, 1950s laboratory, dim warm light", "check": "Is there a glass flask with bubbling liquid?"}, {"name": "air_filter", "at": "filter#1", "clip": true, "prompt": "extreme close-up of gloved hands twisting a round black charcoal filter unit into a steel air duct panel, warm side lighting", "motion": "the hands twist the filter firmly into place, slow camera push in", "check": "Are gloved hands twisting a filter?"}, {"name": "cooling_fan", "at": "fan#1", "clip": true, "prompt": "close-up of a small four-blade metal fan spinning behind a round wire mesh guard on a capsule wall, cool metallic light", "motion": "the metal fan blades spin steadily, slow camera push in", "hit": "hot#1", "check": "Is a metal fan spinning behind a guard?"}, {"name": "scientist_monitoring", "at": "Scientists#1", "who": "scientist", "clip": true, "xfade": true, "prompt": "medium shot, a woman scientist looking closely at glowing dials on a heavy steel panel, she is {scientist}, dim 1950s control room", "motion": "she turns a small dial on the panel carefully, slow camera push in", "check": "Is a woman looking at a control panel?"}, {"name": "telemetry_chart", "at": "pulse#1", "move": "push", "prompt": "close-up of a mechanical needle arm tracing a red pulsing line onto rolling paper grid tape, vintage 1950s telemetry instrument", "check": "Is a needle drawing a line on paper grid tape?"}, {"name": "ground_control", "at": "ground#1", "who": "korolev", "clip": true, "prompt": "medium shot, a stern man standing with arms crossed in a dim rocket control center, he is {korolev}, glowing equipment behind him", "motion": "he rests his chin thoughtfully while watching the screens, slow camera push in", "check": "Is a man standing with arms crossed?"}, {"name": "twist", "at": "twist#1", "who": "scientist", "clip": true, "xfade": true, "prompt": "medium close-up, a woman scientist in wire-rimmed glasses lowering her gaze sadly over a desk, she is {scientist}, dim Soviet telemetry control room, warm console lights", "motion": "she slowly lowers her head sadly, console lights flicker, slow camera push in", "check": "Is a woman looking down?"}, {"name": "home", "at": "home#1", "move": "pull", "prompt": "close-up of a small spherical metal satellite floating silently in pitch black space above the curved blue horizon of Earth", "check": "Is a metal satellite visible in space?"}, {"name": "sacrifice", "at": "sacrifice#1", "who": "korolev", "clip": true, "prompt": "medium shot, a jowled man in a dark navy wool coat standing in profile near a window with clasped hands, he is {korolev}, dim office at dusk", "motion": "he sighs softly and stares out the glass, dusk light fades, slow camera push in", "hit": "sacrifice#1", "check": "Is a man standing near a window?"}, {"name": "alive", "at": "alive#1", "clip": true, "prompt": "close-up of hands unrolling a long paper chart strip with printed line graphs on a metal table, 1950s laboratory, soft overhead light", "motion": "the hands slowly unroll the paper chart strip, slow camera push in", "check": "Are hands holding paper?"}, {"name": "orbit", "at": "orbit#1", "move": "push", "prompt": "wide shot of planet Earth seen from space, a glowing blue horizon against dark cosmic space with distant stars", "check": "Is planet Earth visible from space?"}]}
 
 SOURCES (data only)
 [1] Laika | https://en.wikipedia.org/wiki/Laika
