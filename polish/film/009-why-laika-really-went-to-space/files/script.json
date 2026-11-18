@@ -1,0 +1,84 @@
+{
+ "title": "Why Laika Really Went to Space",
+ "channel": "Hidden Reasons",
+ "topic": "Why the Soviet space program used “dog” Laika on Sputnik 2 in 1957 (to test life‑support systems before sending humans)",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A Soviet engineer strapped a trembling dog into a cramped metal can."
+   ]
+  },
+  {
+   "feel": "skepticism",
+   "lines": [
+    "Colleagues laughed, saying a stray could never survive a launch."
+   ]
+  },
+  {
+   "feel": "tension",
+   "lines": [
+    "Khrushchev demanded a “space spectacular” for the October Revolution anniversary.",
+    "Korolev had less than four weeks to finish a new satellite.",
+    "He grabbed a small dog cage and bolted it onto the rocket."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it’s like testing a car’s seatbelt on a dummy before letting a driver sit behind the wheel."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "The real reason: Laika was a living test for the cabin’s air system.",
+    "The capsule held an oxygen maker, a filter to soak up bad air, and a fan that turned on when it got too hot.",
+    "Scientists watched her breathing, pulse, and temperature from the ground."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "The twist? The mission never planned to bring her home.",
+    "Laika was a one‑way sacrifice, proving the cabin could keep any creature alive, even if that creature never left orbit."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Khrushchev demanded a space spectacular for the 40th anniversary of the October Revolution, forcing a rushed satellite launch.",
+   "url": "https://en.wikipedia.org/wiki/Laika"
+  },
+  {
+   "claim": "Sergei Korolev proposed placing a dog in the satellite to meet the deadline, and the decision was made with less than four weeks to design the craft.",
+   "url": "https://en.wikipedia.org/wiki/Laika"
+  },
+  {
+   "claim": "Sputnik 2’s cabin contained an oxygen generator, carbon‑dioxide absorbers, and a fan that activated above 15 °C to keep the passenger alive.",
+   "url": "https://en.wikipedia.org/wiki/Laika"
+  },
+  {
+   "claim": "The mission was never designed to retrieve Laika; she was expected to die, serving only to test life‑support systems for future human flights.",
+   "url": "https://en.wikipedia.org/wiki/Sputnik_2"
+  }
+ ],
+ "key_words": [
+  "engineer",
+  "dog",
+  "space spectacular",
+  "air system",
+  "oxygen",
+  "cooling fan",
+  "one‑way sacrifice"
+ ]
+}
