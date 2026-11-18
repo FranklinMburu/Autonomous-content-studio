@@ -1,0 +1,12 @@
+{"title": "Your AI just moved out of the cloud",
+ "beats": [
+  {"lines": ["Every time you ask an AI something, your words leave your laptop.", "As of October sixteenth, they don't have to."]},
+  {"lines": ["Today, your question flies to a data center,", "waits in line on someone else's computer,", "and the answer flies all the way back."]},
+  {"lines": ["That's the lag. That's the subscription.", "And that's your private files, out for a ride."]},
+  {"lines": ["NVIDIA's RTX Spark puts a data center chip inside a laptop."]},
+  {"lines": ["Twenty Grace CPU cores, built with MediaTek.", "Six thousand one hundred forty-four Blackwell GPU cores.", "Up to one petaflop of AI math.", "On paper, that's a million billion calculations, every second."]},
+  {"lines": ["But the real trick isn't speed. It's memory."]},
+  {"lines": ["A gaming laptop splits its memory in two.", "Here, both chips share one pool, up to a hundred and twenty-eight gigabytes.", "NVIDIA says that runs AI models with a hundred and twenty billion parameters, right on your lap."]},
+  {"lines": ["The catch? It's an Arm chip.", "Older Windows apps run through a translator called Prism.", "And it starts at two thousand five hundred ninety-nine dollars."]},
+  {"lines": ["Six brands are selling them now.", "Your next AI might not live in the cloud.", "It might live right here."]}
+ ]}

@@ -1,0 +1,133 @@
+name: Lab showcase (voice + Three.js for the reference-level test videos)
+# Lab only: runs on pushes to lab/showcase-* branches, never on main. Voices lab/showcase/*.json with the locked
+# TE voice (Qwen3-TTS, channels/te/channel.json), makes a Kokoro am_fenrir backup, vendors Three.js, and commits
+# the results back to the same lab branch so a sandbox without network can render the videos.
+on:
+  push:
+    branches: ["lab/showcase-*"]
+    paths: ["lab/showcase/*.json", ".github/workflows/lab-showcase.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lab-showcase-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  voice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        ep: [n1x, cables]
+        shard: [0, 1, 2, 3]
+    env:
+      HF_HOME: ${{ github.workspace }}/hf
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Voice model cache
+        uses: actions/cache@v4
+        with:
+          path: hf
+          key: motion-qwen3-v1
+      - name: Voice a quarter of the lines (Qwen3-TTS, the locked TE voice)
+        run: |
+          sudo apt-get install -y -qq --no-install-recommends ffmpeg > /dev/null
+          pip install -q --extra-index-url https://download.pytorch.org/whl/cpu torch torchaudio
+          pip install -q qwen-tts==0.1.1 soundfile kokoro-onnx==0.6.1 "onnxruntime>=1.20"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from studio.motion.narrate_qwen3 import make_lines
+          cfg = json.load(open("channels/te/channel.json"))["voice"]
+          s = json.load(open("lab/showcase/${{ matrix.ep }}.json"))
+          make_lines(s, Path("out/${{ matrix.ep }}"), cfg, only=(${{ matrix.shard }}, 4))
+          PY
+          ls out/${{ matrix.ep }}/lines | wc -l
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lines-${{ matrix.ep }}-${{ matrix.shard }}
+          path: out/${{ matrix.ep }}/lines
+          if-no-files-found: warn
+
+  merge:
+    needs: voice
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      HF_HOME: ${{ github.workspace }}/hf
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Voice model cache
+        uses: actions/cache@v4
+        with:
+          path: hf
+          key: motion-qwen3-v1
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: lines-n1x-*
+          path: out/n1x/lines
+          merge-multiple: true
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: lines-cables-*
+          path: out/cables/lines
+          merge-multiple: true
+      - name: Install
+        run: |
+          sudo apt-get install -y -qq --no-install-recommends ffmpeg > /dev/null
+          pip install -q --extra-index-url https://download.pytorch.org/whl/cpu torch torchaudio
+          pip install -q qwen-tts==0.1.1 faster-whisper kokoro-onnx==0.6.1 "onnxruntime>=1.20" "soundfile>=0.12" "numpy>=1.26" scipy pillow
+      - name: Word times (Qwen3) + Kokoro backup
+        run: |
+          python - <<'PY'
+          import json, shutil, traceback
+          from pathlib import Path
+          from studio.motion.narrate import narrate
+          cfg = json.load(open("channels/te/channel.json"))["voice"]
+          dst = Path("lab/showcase/out"); dst.mkdir(parents=True, exist_ok=True)
+          for ep in ["n1x", "cables"]:
+              s = json.load(open(f"lab/showcase/{ep}.json"))
+              o = Path("out") / ep; o.mkdir(parents=True, exist_ok=True)
+              try:
+                  t = narrate(s, o, cfg)
+                  shutil.copy(o / "voice.wav", dst / f"{ep}_qwen3.wav"); shutil.copy(o / "timing.json", dst / f"{ep}_qwen3.json")
+                  print(ep, "qwen3", t["duration"], "exact:", t["exact_word_timing"])
+              except Exception:
+                  traceback.print_exc()
+              try:
+                  k = Path("out") / (ep + "_kokoro"); k.mkdir(parents=True, exist_ok=True)
+                  t = narrate(s, k, cfg["previous"])
+                  shutil.copy(k / "voice.wav", dst / f"{ep}_kokoro.wav"); shutil.copy(k / "timing.json", dst / f"{ep}_kokoro.json")
+                  print(ep, "kokoro", t["duration"])
+              except Exception:
+                  traceback.print_exc()
+          PY
+          ls -la lab/showcase/out
+      - name: Vendor Three.js (for a renderer with no network)
+        run: |
+          cd "$RUNNER_TEMP" && npm pack three@0.180.0 --silent && tar xzf three-0.180.0.tgz
+          V="$GITHUB_WORKSPACE/lab/showcase/vendor/three"; mkdir -p "$V/examples/jsm"
+          cp package/build/three.module.min.js package/build/three.core.min.js "$V/" 2>/dev/null || cp package/build/three.module.js "$V/"
+          cp package/LICENSE "$V/"
+          for d in postprocessing shaders geometries environments utils math objects lines curves; do cp -r package/examples/jsm/$d "$V/examples/jsm/"; done
+          ls "$V"
+      - name: Commit results back to this lab branch
+        run: |
+          git config user.name "Franklin Mburu"
+          git config user.email "184284364+FranklinMburu@users.noreply.github.com"
+          git add lab/showcase/out lab/showcase/vendor
+          git commit -m "lab showcase: voices + vendored three.js [skip ci]" || echo "nothing to commit"
+          git push
