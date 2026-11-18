@@ -9,4 +9,4 @@ Problems left by the free models (the copy-paste polish fixes them):
 - script: not supported by the sources, fix or remove: That same triangle later became the Scout’s neckerchief, born on Civil War fields.
 - script: narration has 103 words; it must be 150-210
 - script: claims must cite only URLs from the SOURCE MATERIAL
-- the free models could not write the shots for part 5
+- the free models could not write the cast
