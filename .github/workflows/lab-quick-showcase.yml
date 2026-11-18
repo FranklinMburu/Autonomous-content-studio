@@ -1,0 +1,65 @@
+name: Lab quick showcase (Kokoro backup voice + Three.js, fast)
+# Lab only: pushes to lab/quick-* branches. Same as lab-showcase.yml without the slow Qwen3 shards.
+on:
+  push:
+    branches: ["lab/quick-*"]
+
+permissions:
+  contents: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Voice model cache
+        uses: actions/cache@v4
+        with:
+          path: hf
+          key: motion-qwen3-v1
+      - name: Install
+        run: |
+          sudo apt-get install -y -qq --no-install-recommends ffmpeg > /dev/null
+          pip install -q kokoro-onnx==0.6.1 "onnxruntime>=1.20" "soundfile>=0.12" "numpy>=1.26" scipy pillow
+      - name: Kokoro backup voice
+        run: |
+          python - <<'PY'
+          import json, shutil, traceback
+          from pathlib import Path
+          from studio.motion.narrate import narrate
+          cfg = json.load(open("channels/te/channel.json"))["voice"]
+          dst = Path("lab/showcase/out"); dst.mkdir(parents=True, exist_ok=True)
+          for ep in ["n1x", "cables"]:
+              s = json.load(open(f"lab/showcase/{ep}.json"))
+              o = Path("out") / ep; o.mkdir(parents=True, exist_ok=True)
+              try:
+                  k = Path("out") / (ep + "_kokoro"); k.mkdir(parents=True, exist_ok=True)
+                  t = narrate(s, k, cfg["previous"])
+                  shutil.copy(k / "voice.wav", dst / f"{ep}_kokoro.wav"); shutil.copy(k / "timing.json", dst / f"{ep}_kokoro.json")
+                  print(ep, "kokoro", t["duration"])
+              except Exception:
+                  traceback.print_exc()
+          PY
+          ls -la lab/showcase/out
+      - name: Vendor Three.js (for a renderer with no network)
+        run: |
+          cd "$RUNNER_TEMP" && npm pack three@0.180.0 --silent && tar xzf three-0.180.0.tgz
+          V="$GITHUB_WORKSPACE/lab/showcase/vendor/three"; mkdir -p "$V/examples/jsm"
+          cp package/build/three.module.min.js package/build/three.core.min.js "$V/" 2>/dev/null || cp package/build/three.module.js "$V/"
+          cp package/LICENSE "$V/"
+          for d in postprocessing shaders geometries environments utils math objects lines curves; do cp -r package/examples/jsm/$d "$V/examples/jsm/"; done
+          ls "$V"
+      - name: Commit results back to this lab branch
+        run: |
+          git config user.name "Franklin Mburu"
+          git config user.email "184284364+FranklinMburu@users.noreply.github.com"
+          git add lab/showcase/out lab/showcase/vendor
+          git commit -m "lab showcase: voices + vendored three.js [skip ci]" || echo "nothing to commit"
+          git push
