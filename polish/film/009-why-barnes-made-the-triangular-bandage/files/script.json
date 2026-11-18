@@ -1,0 +1,73 @@
+{
+ "title": "Why Barnes Made the Triangular Bandage",
+ "channel": "Hidden Reasons",
+ "topic": "Why the American Civil War surgeon Joseph K. Barnes introduced the “triangular bandage” (to simplify field dressing of wounds)",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A Union surgeon flings a cloth triangle over a bleeding arm, eyes fierce."
+   ]
+  },
+  {
+   "feel": "skepticism",
+   "lines": [
+    "Fellow medics laugh, muttering that a rag cannot stop a cannon‑shot wound."
+   ]
+  },
+  {
+   "feel": "tension",
+   "lines": [
+    "Barnes storms the battlefield, smoke curling around him.",
+    "He pulls a right‑angled piece of cloth from his satchel."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it feels like folding a napkin into a quick sling when dinner is late."
+   ]
+  },
+  {
+   "feel": "clarity",
+   "lines": [
+    "Barnes adopts the triangular cloth so a medic can wrap, tie, and support a wound in three swift moves.",
+    "The fold saves minutes and cuts the chance of a tangled dressing."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "That same triangle later became the Scout’s neckerchief, born on Civil War fields."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Joseph K. Barnes served as Surgeon General of the United States Army during the Civil War.",
+   "url": "https://en.wikipedia.org/wiki/Joseph_Barnes_(American_physician)"
+  },
+  {
+   "claim": "A triangular bandage is a piece of cloth cut into a right‑angled triangle, used as a sling or wound dressing.",
+   "url": "https://en.wikipedia.org/wiki/Bandage"
+  }
+ ],
+ "key_words": [
+  "surgeon",
+  "triangular",
+  "bandage",
+  "field",
+  "wounds",
+  "fold",
+  "Scouts"
+ ]
+}
