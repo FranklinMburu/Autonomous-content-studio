@@ -16,32 +16,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Kai fan clips on the GTA 6 VOD
+      - name: Kick clip fields
         run: |
-          pip install -q "yt-dlp==2026.10.26"
-          python3 - <<'PY'
-          import json, subprocess
-          from concurrent.futures import ThreadPoolExecutor
-          vurl = "https://www.twitch.tv/videos/2932305259"
-          vt = json.loads(subprocess.run(["yt-dlp", "-J", "--skip-download", vurl], capture_output=True, text=True).stdout or "{}")
-          t0, dur = vt.get("timestamp") or 0, vt.get("duration") or 0
-          print("VOD", vt.get("title"), "start", t0, "duration h", round(dur / 3600, 2), "live", vt.get("is_live"))
-          urls = subprocess.run(["yt-dlp", "--flat-playlist", "--playlist-end", "100", "--print", "%(url)s",
-                                 "https://www.twitch.tv/kaicenat/clips?filter=clips&range=7d"], capture_output=True, text=True).stdout.split()
-          def info(u):
-              return json.loads(subprocess.run(["yt-dlp", "-J", "--skip-download", u], capture_output=True, text=True).stdout or "{}")
-          with ThreadPoolExecutor(12) as ex:
-              ds = list(ex.map(info, urls))
-          key = []
-          for u, d in zip(urls, ds):
-              ts = d.get("timestamp") or 0
-              if t0 and t0 <= ts <= t0 + dur + 600:
-                  key.append((d.get("view_count") or 0, round(ts - t0 - (d.get("duration") or 30)), d.get("title"), u))
-          key.sort(reverse=True)
-          print("fan clips in this VOD:", len(key), "of", len(urls))
-          for v, off, t, u in key[:40]:
-              print(f"CLIP {v:>8} views @ {off//3600}:{off%3600//60:02d}:{off%60:02d} ({off} s)  {t[:70]}")
-          for h in range(0, int(dur // 3600) + 1):
-              s = sum(v for v, off, *_ in key if h * 3600 <= off < h * 3600 + 3600)
-              print(f"HOUR {h:>2}: {s} views")
-          PY
+          for ch in n3on adinross; do
+            curl -sS -m 20 -A "Mozilla/5.0" "https://kick.com/api/v2/channels/$ch/clips?sort=view&time=day" -o c.json
+            python3 -c "
+          import json; d = json.load(open('c.json')); c = d.get('clips', d) if isinstance(d, dict) else d
+          for x in c[:6]:
+              print('CLIP', {k: x.get(k) for k in ('id','title','view_count','duration','created_at','started_at','vod_starts_at','livestream_id','clip_url','video_url')})
+          print('VODKEYS')
+          "
+            curl -sS -m 20 -A "Mozilla/5.0" "https://kick.com/api/v2/channels/$ch/videos" | python3 -c "
+          import json,sys; v=json.load(sys.stdin)[:3]
+          for x in v: print('VOD', {k: x.get(k) for k in ('id','start_time','duration','created_at','session_title')}, (x.get('video') or {}).get('id'), (x.get('video') or {}).get('uuid'))
+          "
+          done
