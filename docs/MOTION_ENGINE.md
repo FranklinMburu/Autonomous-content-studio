@@ -71,7 +71,7 @@ later code stays in git history only (commits b7bd4b1, f90d898, 5c5f380 and 0414
 **Rule for any future change to the look:** change one thing at a time, render it next to TE_engine_001, and keep the
 change only if Franklin prefers it. More cuts, more camera movement and more panels made the video worse, not better.
 
-**Voice lock:** Kokoro `am_fenrir` at 1.0, read line by line, then only a gentle EQ (more bass, a softer top).
+**Voice lock (11 Nov; replaced by Qwen3-TTS on 13 Nov, see History below and `channels/te/channel.json`):** Kokoro `am_fenrir` at 1.0, read line by line, then only a gentle EQ (more bass, a softer top).
 
 Rejected: blending in a second voice, pitch shifting, room echo and `am_puck`. Together they "sound like two stacked
 voices" or "soprano". A more human voice needs a bigger model on Kaggle (Chatterbox, MIT; Dia2, Apache 2.0); that

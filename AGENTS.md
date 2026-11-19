@@ -3,6 +3,7 @@
 This repo is **YouTube Creator Studio** (also called Autonomous Content Studio): a **$0** system that researches,
 writes, fact-checks, paints and edits short videos on **GitHub Actions** with free AI models and free GPUs (Kaggle),
 plus a website (**Candela Studio**, `web/`) that shows it all live. Owner: **Franklin** (Nairobi, UTC+3).
+Front door (status, decisions, where each fact lives): Notion page **Start here — YouTube Creator Studio** (https://app.notion.com/p/41dda224599e8114b120eee8ded4ca75).
 `CLAUDE.md` holds the same rules for Claude. The full picture is in **`docs/AGENT_HANDBOOK.md`**: read it once per session.
 
 ## 1. Before anything else: sync check

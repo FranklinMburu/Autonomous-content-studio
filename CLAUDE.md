@@ -5,6 +5,8 @@ The code of **YouTube Creator Studio** (also called Youtube-creator-system, YouT
 Autonomous Content Studio). One system, many channels.
 
 ## Read first (Notion)
+**Start here — YouTube Creator Studio** (https://app.notion.com/p/41dda224599e8114b120eee8ded4ca75): the front door. Lanes and status, what waits for Franklin,
+fixed rules, and the one home of each kind of fact. Read it before anything else; it links to the rest.
 **How Franklin thinks — lessons every agent must apply** (YouTube Creator Studio page): apply it, and add a dated line
 when Franklin corrects how we work.
 Projects table → **YouTube Creator Studio** → Project Control Centre. Also read its Drift Guard.
@@ -22,6 +24,8 @@ Channels are the **Sub-item** records of that page. They are parts of this proje
 |---|---|---|---|
 | BS | Body Science (placeholder name) | Pilot | YouTube Creator Studio · Body Science |
 | HR | Hidden Reasons (true stories behind history's strangest acts) | Film style Stage 1 (episode 002 film v2); scheduled pipeline built | YouTube Creator Studio · Hidden Reasons — True Stories Behind History's Strangest Acts (HR) |
+| SC | Streamer Clips (viral moments of live streams) | Clipping engine (`studio/clips/`, `docs/CLIPS_ENGINE.md`); daily improver | YouTube Creator Studio · Streamer Clips (SC) |
+| WC | World Clips (podcast, interview and news moments) | Who's hot + laptop helper; Shorts maker | YouTube Creator Studio · World Clips (WC) |
 | TE | Tech Education (working name; series "Build Basics") | Motion engine approved in the lab 11 Nov 2026 (v3); integrated, manual runs only | YouTube Creator Studio · Tech Education |
 
 Six more channels are ideas only (ranked in Notion); they have no code yet.
@@ -33,7 +37,7 @@ Six more channels are ideas only (ranked in Notion); they have no code yet.
 - Motion (Tech Education): `python -m studio.motion make episodes/tech_education/<NNN-slug>` or `write --topic "..."`.
   Each episode = script.json + plan.json (one scene per line from `studio/motion/plan.py` TYPES) + sources.md.
   Isolated from Hidden Reasons; the method, architecture and history are in `docs/MOTION_ENGINE.md`. `tests/test_motion.py` must pass.
-  The TE voice is locked in `channels/te/channel.json` (Franklin, 11 Nov): never blend voices, pitch-shift or add echo.
+  The TE voice is locked in `channels/te/channel.json` (Qwen3-TTS, Franklin, 13 Nov; that file is the one home of the setting): never blend voices, pitch-shift or add echo.
 
 Rules:
 - Shared things (engine, gates, pipeline, rules, Toolbox) live once, here and on the parent page.
