@@ -62,8 +62,8 @@ def kick_clips(a):
         if not created:
             continue
         ln = float(c.get("duration") or 30)
-        off = ts(created) - t0 - ln
-        if 0 <= off <= dur:
+        off = float(c["vod_starts_at"]) if isinstance(c.get("vod_starts_at"), (int, float)) else ts(created) - t0 - ln
+        if 0 <= off <= dur and str(c.get("livestream_id", v.get("id"))) == str(v.get("id")):
             out.append({"views": c.get("view_count") or c.get("views") or 0, "off": off, "len": ln,
                         "title": c.get("title") or "", "url": c.get("clip_url") or c.get("video_url") or ""})
     return {"source": v["source"], "page": f"https://kick.com/{a.slug}/videos/{a.uuid}", "title": v.get("session_title"),
@@ -107,7 +107,9 @@ def main():
             print("FAILED download", name); continue
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(raw), "-vf", "fps=30", "-c:v", "libx264", "-preset", "veryfast",
                         "-crf", "20", "-c:a", "aac", "-b:a", "160k", str(f)]); raw.unlink()
-        segs, _ = wm.transcribe(str(f), word_timestamps=True, vad_filter=True)
+        import numpy as np                       # decode with ffmpeg (19 Nov: faster-whisper's own decoder broke on a new PyAV)
+        pcm = subprocess.run(["ffmpeg", "-v", "error", "-i", str(f), "-ac", "1", "-ar", "16000", "-f", "s16le", "-"], capture_output=True).stdout
+        segs, _ = wm.transcribe(np.frombuffer(pcm, np.int16).astype(np.float32) / 32768, word_timestamps=True, vad_filter=True)
         words = [{"w": w.word.strip(), "s": round(w.start, 2), "e": round(w.end, 2)} for sg in segs for w in (sg.words or [])]
         meta = {**m, "file": f.name, "section_start_in_vod": round(s0, 1), "section_end_in_vod": round(s1, 1),
                 "fan_moment_in_section": round(m["a"] - s0, 1), "vod_page": src["page"], "stream_title": src["title"],
