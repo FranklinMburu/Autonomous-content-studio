@@ -1,5 +1,8 @@
 # HANDOFF — Autonomous Content Studio
 
+> **Historical (25–26 Oct 2026).** Kept as the record of the first build session. For the current state read the
+> Notion front door **Start here — YouTube Creator Studio** (https://app.notion.com/p/41dda224599e8114b120eee8ded4ca75) and `docs/AGENT_HANDBOOK.md`.
+
 Written by the build session (Claude, claude.ai chat with tools), 2026-10-26 ~04:20 Nairobi time (UTC+3),
 for a second Claude session doing strategy and research. That session can read Notion, this repo and the
 user's laptop folder, but not the build chat. This file captures what the build chat knows.

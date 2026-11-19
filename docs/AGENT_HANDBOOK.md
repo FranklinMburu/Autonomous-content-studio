@@ -85,7 +85,8 @@ Story clock ──(at each slot)──> Story schedule ──(guardrails ok)─�
   isolated from Hidden Reasons (own concurrency group, no Kaggle, no memory; `tests/test_motion.py` checks the isolation).
 - Review of that PR the same day: own cache key, own `review-motion` label + `motion-review.yml` (approve / remake), every
   voice pacing value pinned in the channel file, AI-written episodes saved to main, and automatic coverage cuts in the engine.
-- TE voice locked by Franklin: Kokoro `am_fenrir` 1.0 + gentle EQ (`channels/te/channel.json`). Rejected: voice
+- TE voice locked by Franklin: Kokoro `am_fenrir` 1.0 + gentle EQ (`channels/te/channel.json`). **Replaced 13 Nov by Qwen3-TTS**
+  (see `channels/te/channel.json`, the one home of this setting, and `docs/MOTION_ENGINE.md`). Rejected: voice
   blends, pitch shifting, echo.
 
 ## 5. Decisions and incidents (why things are the way they are)
