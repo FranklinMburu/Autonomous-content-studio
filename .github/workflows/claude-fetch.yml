@@ -16,8 +16,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - name: kai
-            args: twitch --vod https://www.twitch.tv/videos/2932305259 --channel kaicenat --from-s 0 --to-s 36000 --top 14
           - name: n3on
             args: kick --slug n3on --uuid a4f32477-1d99-46bf-8419-727dbf5963ce --top 8
           - name: adin

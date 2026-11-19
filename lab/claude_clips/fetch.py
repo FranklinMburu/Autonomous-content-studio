@@ -62,7 +62,8 @@ def kick_clips(a):
         if not created:
             continue
         ln = float(c.get("duration") or 30)
-        off = float(c["vod_starts_at"]) if isinstance(c.get("vod_starts_at"), (int, float)) else ts(created) - t0 - ln
+        vsa = c.get("vod_starts_at")             # Kick returns 0 here (19 Nov): fall back to creation time minus length
+        off = float(vsa) if isinstance(vsa, (int, float)) and vsa > 0 else ts(created) - t0 - ln
         if 0 <= off <= dur and str(c.get("livestream_id", v.get("id"))) == str(v.get("id")):
             out.append({"views": c.get("view_count") or c.get("views") or 0, "off": off, "len": ln,
                         "title": c.get("title") or "", "url": c.get("clip_url") or c.get("video_url") or ""})
