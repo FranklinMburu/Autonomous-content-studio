@@ -21,7 +21,7 @@ allowance. The pipeline must not depend on any one of them. Code: `studio/video_
 ## Free vs paid (checked 19 Nov 2026; prices change)
 | Tool | Free and automatable? | State |
 |---|---|---|
-| Wan 2.2 TI2V-5B (open weights) | yes, on Kaggle's free T4 (slow) | on, first |
+| Wan 2.2 TI2V-5B (open weights) | in theory, on Kaggle's free T4 | **off**: killed for lack of RAM while loading (19 Nov); retry with quantized weights |
 | LTX-Video distilled (open weights) | yes, on Kaggle | on, second |
 | own renderer | yes, anywhere | on, last |
 | Kling API | no free tier (~$0.056–0.42 per second) | off |
@@ -37,3 +37,14 @@ secret, set `"enabled": true` for it and `"paid_ok": true` in `config.json`.
   second of video, so AI shots are for the few shots that need realism, not every shot.
 - Control: AI video can't reliably draw exact text, numbers or the same product twice. Put text, numbers and diagrams
   on top with our own engines.
+
+## Lab results, 19 Nov 2026 (chip close-up, 2.5 s, 480x832; branch `lab/video-adapter`, 3 Kaggle runs, ~38 GPU-min)
+| Backend | From our picture | Text only | Notes |
+|---|---|---|---|
+| own | made in 3 s, judge 3/3 yes | can't (needs a picture) | never fails; looks like our engine |
+| LTX (production settings) | made in ~6 min, judge 3/3 yes | made, judge 1/3: rejected | from a picture it barely moves beyond our own push-in; text-only gives a blurry circuit-board macro |
+| LTX distilled 0.9.6 (8 steps) | pure coloured noise | pure noise | passed every numeric check: the reason the vision judge exists |
+| Wan 2.2 TI2V-5B | GPU out of memory (run 1), process killed for RAM (runs 2, 3) | same | not usable on the free T4 as loaded |
+
+Conclusion: the adapter, fallback, judge and cache work; the free open models on a T4 do not close the gap to the
+NVIDIA reference. A vision judge is required on every generated clip.
