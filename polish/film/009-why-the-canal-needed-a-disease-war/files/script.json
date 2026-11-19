@@ -1,0 +1,92 @@
+{
+ "title": "Why the Canal Needed a Disease War",
+ "channel": "Hidden Reasons",
+ "topic": "Why the 1912 construction of the Panama Canal employed a massive “disease‑control program” (to eradicate yellow fever and malaria among workers)",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A U.S. engineer surveyed a swamp, notebook in hand."
+   ]
+  },
+  {
+   "feel": "sympathy",
+   "lines": [
+    "Workers complained of endless fevers and aching bodies."
+   ]
+  },
+  {
+   "feel": "dread",
+   "lines": [
+    "Yellow fever and malaria killed thousands during construction."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it’s like ignoring a leak until the whole house floods."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "Colonel William Gorgas organized a massive sanitation drive.",
+    "He divided the zone into districts and sent inspectors to find mosquito larvae.",
+    "Carpenters removed standing water, and crews spread oil on any remaining pools.",
+    "Screens were installed on windows and over sleeping areas.",
+    "Every worker received free medical care and yearly quinine for malaria.",
+    "Gorgas also fumigated homes with sulfur and pyrethrum, using the entire U.S. supply.",
+    "He set up quarantine cages for anyone showing fever."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "By 1906 yellow‑fever cases fell to one, then none at all.",
+    "Malaria deaths dropped sharply, saving thousands of lives."
+   ]
+  },
+  {
+   "feel": "twist",
+   "lines": [
+    "The canal opened not just because of engineers,",
+    "but because mosquitoes were finally defeated."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Yellow fever and malaria killed thousands during U.S. construction of the canal.",
+   "url": "https://en.wikipedia.org/wiki/Panama_Canal"
+  },
+  {
+   "claim": "Colonel William Gorgas headed hospitals and sanitation, creating districts, sending inspectors to destroy mosquito larvae, draining swamps, oiling water, installing screens, fumigating homes, providing free medical care and quinine, and using quarantine cages.",
+   "url": "https://en.wikipedia.org/wiki/Health_measures_during_the_construction_of_the_Panama_Canal"
+  },
+  {
+   "claim": "By 1906 yellow fever was virtually eliminated and malaria deaths were dramatically reduced, allowing the canal to be completed.",
+   "url": "https://en.wikipedia.org/wiki/Health_measures_during_the_construction_of_the_Panama_Canal"
+  }
+ ],
+ "key_words": [
+  "mosquitoes",
+  "yellow fever",
+  "malaria",
+  "sanitation",
+  "draining",
+  "oil",
+  "screens",
+  "Gorgas",
+  "death toll",
+  "canal"
+ ]
+}
