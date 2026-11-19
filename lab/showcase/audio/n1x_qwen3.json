@@ -1,0 +1,1478 @@
+{
+ "duration": 68.779,
+ "exact_word_timing": false,
+ "lines": [
+  {
+   "beat": 0,
+   "text": "Every time you ask an AI something, your words leave your laptop.",
+   "start": 0.15,
+   "end": 4.138
+  },
+  {
+   "beat": 0,
+   "text": "As of October sixteenth, they don't have to.",
+   "start": 4.258,
+   "end": 6.725
+  },
+  {
+   "beat": 1,
+   "text": "Today, your question flies to a data center,",
+   "start": 7.025,
+   "end": 9.576
+  },
+  {
+   "beat": 1,
+   "text": "waits in line on someone else's computer,",
+   "start": 9.696,
+   "end": 12.21
+  },
+  {
+   "beat": 1,
+   "text": "and the answer flies all the way back.",
+   "start": 12.33,
+   "end": 14.138
+  },
+  {
+   "beat": 2,
+   "text": "That's the lag. That's the subscription.",
+   "start": 14.438,
+   "end": 16.657
+  },
+  {
+   "beat": 2,
+   "text": "And that's your private files, out for a ride.",
+   "start": 16.777,
+   "end": 19.098
+  },
+  {
+   "beat": 3,
+   "text": "NVIDIA's RTX Spark puts a data center chip inside a laptop.",
+   "start": 19.398,
+   "end": 23.275
+  },
+  {
+   "beat": 4,
+   "text": "Twenty Grace CPU cores, built with MediaTek.",
+   "start": 23.575,
+   "end": 26.507
+  },
+  {
+   "beat": 4,
+   "text": "Six thousand one hundred forty-four Blackwell GPU cores.",
+   "start": 26.627,
+   "end": 30.285
+  },
+  {
+   "beat": 4,
+   "text": "Up to one petaflop of AI math.",
+   "start": 30.405,
+   "end": 32.824
+  },
+  {
+   "beat": 4,
+   "text": "On paper, that's a million billion calculations, every second.",
+   "start": 32.944,
+   "end": 37.379
+  },
+  {
+   "beat": 5,
+   "text": "But the real trick isn't speed. It's memory.",
+   "start": 37.679,
+   "end": 40.204
+  },
+  {
+   "beat": 6,
+   "text": "A gaming laptop splits its memory in two.",
+   "start": 40.504,
+   "end": 42.982
+  },
+  {
+   "beat": 6,
+   "text": "Here, both chips share one pool, up to a hundred and twenty-eight gigabytes.",
+   "start": 43.102,
+   "end": 47.686
+  },
+  {
+   "beat": 6,
+   "text": "NVIDIA says that runs AI models with a hundred and twenty billion parameters, right on your lap.",
+   "start": 47.806,
+   "end": 53.156
+  },
+  {
+   "beat": 7,
+   "text": "The catch? It's an Arm chip.",
+   "start": 53.456,
+   "end": 55.583
+  },
+  {
+   "beat": 7,
+   "text": "Older Windows apps run through a translator called Prism.",
+   "start": 55.703,
+   "end": 59.078
+  },
+  {
+   "beat": 7,
+   "text": "And it starts at two thousand five hundred ninety-nine dollars.",
+   "start": 59.198,
+   "end": 62.019
+  },
+  {
+   "beat": 8,
+   "text": "Six brands are selling them now.",
+   "start": 62.319,
+   "end": 63.999
+  },
+  {
+   "beat": 8,
+   "text": "Your next AI might not live in the cloud.",
+   "start": 64.119,
+   "end": 66.594
+  },
+  {
+   "beat": 8,
+   "text": "It might live right here.",
+   "start": 66.714,
+   "end": 68.079
+  }
+ ],
+ "words": [
+  {
+   "w": "Every",
+   "start": 0.15,
+   "end": 0.35,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "time",
+   "start": 0.35,
+   "end": 0.67,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "you",
+   "start": 0.67,
+   "end": 0.81,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "ask",
+   "start": 0.81,
+   "end": 1.07,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "an",
+   "start": 1.07,
+   "end": 1.21,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "AI",
+   "start": 1.21,
+   "end": 1.45,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "something,",
+   "start": 1.45,
+   "end": 1.87,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "your",
+   "start": 2.49,
+   "end": 2.73,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "words",
+   "start": 2.73,
+   "end": 2.99,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "leave",
+   "start": 2.99,
+   "end": 3.27,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "your",
+   "start": 3.27,
+   "end": 3.49,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "laptop.",
+   "start": 3.49,
+   "end": 3.75,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "As",
+   "start": 4.258,
+   "end": 4.438,
+   "line": 1,
+   "beat": 0
+  },
+  {
+   "w": "of",
+   "start": 4.438,
+   "end": 4.518,
+   "line": 1,
+   "beat": 0
+  },
+  {
+   "w": "October",
+   "start": 4.518,
+   "end": 4.898,
+   "line": 1,
+   "beat": 0
+  },
+  {
+   "w": "sixteenth,",
+   "start": 4.898,
+   "end": 5.778,
+   "line": 1,
+   "beat": 0
+  },
+  {
+   "w": "they",
+   "start": 5.778,
+   "end": 6.058,
+   "line": 1,
+   "beat": 0
+  },
+  {
+   "w": "don't",
+   "start": 6.058,
+   "end": 6.318,
+   "line": 1,
+   "beat": 0
+  },
+  {
+   "w": "have",
+   "start": 6.318,
+   "end": 6.458,
+   "line": 1,
+   "beat": 0
+  },
+  {
+   "w": "to.",
+   "start": 6.458,
+   "end": 6.598,
+   "line": 1,
+   "beat": 0
+  },
+  {
+   "w": "Today,",
+   "start": 7.025,
+   "end": 7.265,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "your",
+   "start": 7.565,
+   "end": 7.665,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "question",
+   "start": 7.665,
+   "end": 8.105,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "flies",
+   "start": 8.105,
+   "end": 8.405,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "to",
+   "start": 8.405,
+   "end": 8.745,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "a",
+   "start": 8.745,
+   "end": 8.845,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "data",
+   "start": 8.845,
+   "end": 9.025,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "center,",
+   "start": 9.025,
+   "end": 9.345,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "waits",
+   "start": 9.696,
+   "end": 9.916,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "in",
+   "start": 9.916,
+   "end": 10.176,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "line",
+   "start": 10.176,
+   "end": 10.376,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "on",
+   "start": 10.376,
+   "end": 10.736,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "someone",
+   "start": 10.736,
+   "end": 11.076,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "else's",
+   "start": 11.076,
+   "end": 11.536,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "computer,",
+   "start": 11.536,
+   "end": 11.856,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "and",
+   "start": 12.33,
+   "end": 12.47,
+   "line": 4,
+   "beat": 1
+  },
+  {
+   "w": "the",
+   "start": 12.47,
+   "end": 12.55,
+   "line": 4,
+   "beat": 1
+  },
+  {
+   "w": "answer",
+   "start": 12.55,
+   "end": 12.73,
+   "line": 4,
+   "beat": 1
+  },
+  {
+   "w": "flies",
+   "start": 12.73,
+   "end": 13.09,
+   "line": 4,
+   "beat": 1
+  },
+  {
+   "w": "all",
+   "start": 13.09,
+   "end": 13.39,
+   "line": 4,
+   "beat": 1
+  },
+  {
+   "w": "the",
+   "start": 13.39,
+   "end": 13.55,
+   "line": 4,
+   "beat": 1
+  },
+  {
+   "w": "way",
+   "start": 13.55,
+   "end": 13.65,
+   "line": 4,
+   "beat": 1
+  },
+  {
+   "w": "back.",
+   "start": 13.65,
+   "end": 13.87,
+   "line": 4,
+   "beat": 1
+  },
+  {
+   "w": "That's",
+   "start": 14.438,
+   "end": 14.698,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "the",
+   "start": 14.698,
+   "end": 14.798,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "lag.",
+   "start": 14.798,
+   "end": 15.018,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "That's",
+   "start": 15.618,
+   "end": 15.918,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "the",
+   "start": 15.918,
+   "end": 16.018,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "subscription.",
+   "start": 16.018,
+   "end": 16.318,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "And",
+   "start": 16.778,
+   "end": 16.918,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "that's",
+   "start": 16.918,
+   "end": 17.138,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "your",
+   "start": 17.138,
+   "end": 17.258,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "private",
+   "start": 17.258,
+   "end": 17.518,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "files,",
+   "start": 17.518,
+   "end": 17.878,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "out",
+   "start": 17.878,
+   "end": 18.278,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "for",
+   "start": 18.278,
+   "end": 18.498,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "a",
+   "start": 18.498,
+   "end": 18.618,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "ride.",
+   "start": 18.618,
+   "end": 18.838,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "NVIDIA's",
+   "start": 19.398,
+   "end": 19.998,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "RTX",
+   "start": 19.998,
+   "end": 20.418,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "Spark",
+   "start": 20.418,
+   "end": 20.858,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "puts",
+   "start": 20.858,
+   "end": 21.198,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "a",
+   "start": 21.198,
+   "end": 21.338,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "data",
+   "start": 21.338,
+   "end": 21.538,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "center",
+   "start": 21.538,
+   "end": 21.818,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "chip",
+   "start": 21.818,
+   "end": 22.098,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "inside",
+   "start": 22.098,
+   "end": 22.438,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "a",
+   "start": 22.438,
+   "end": 22.698,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "laptop.",
+   "start": 22.698,
+   "end": 22.938,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "Twenty",
+   "start": 23.575,
+   "end": 23.855,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "Grace",
+   "start": 23.855,
+   "end": 24.175,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "CPU",
+   "start": 24.175,
+   "end": 24.555,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "cores,",
+   "start": 24.555,
+   "end": 25.095,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "built",
+   "start": 25.095,
+   "end": 25.495,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "with",
+   "start": 25.495,
+   "end": 25.735,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "MediaTek.",
+   "start": 25.735,
+   "end": 26.507,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "Six",
+   "start": 26.627,
+   "end": 26.824,
+   "line": 9,
+   "beat": 4
+  },
+  {
+   "w": "thousand",
+   "start": 26.824,
+   "end": 27.219,
+   "line": 9,
+   "beat": 4
+  },
+  {
+   "w": "one",
+   "start": 27.219,
+   "end": 27.417,
+   "line": 9,
+   "beat": 4
+  },
+  {
+   "w": "hundred",
+   "start": 27.417,
+   "end": 27.773,
+   "line": 9,
+   "beat": 4
+  },
+  {
+   "w": "forty-four",
+   "start": 27.773,
+   "end": 28.247,
+   "line": 9,
+   "beat": 4
+  },
+  {
+   "w": "Blackwell",
+   "start": 28.247,
+   "end": 28.887,
+   "line": 9,
+   "beat": 4
+  },
+  {
+   "w": "GPU",
+   "start": 28.887,
+   "end": 29.347,
+   "line": 9,
+   "beat": 4
+  },
+  {
+   "w": "cores.",
+   "start": 29.347,
+   "end": 29.947,
+   "line": 9,
+   "beat": 4
+  },
+  {
+   "w": "Up",
+   "start": 30.405,
+   "end": 30.565,
+   "line": 10,
+   "beat": 4
+  },
+  {
+   "w": "to",
+   "start": 30.565,
+   "end": 30.725,
+   "line": 10,
+   "beat": 4
+  },
+  {
+   "w": "one",
+   "start": 30.725,
+   "end": 31.005,
+   "line": 10,
+   "beat": 4
+  },
+  {
+   "w": "petaflop",
+   "start": 31.005,
+   "end": 31.745,
+   "line": 10,
+   "beat": 4
+  },
+  {
+   "w": "of",
+   "start": 31.745,
+   "end": 31.945,
+   "line": 10,
+   "beat": 4
+  },
+  {
+   "w": "AI",
+   "start": 31.945,
+   "end": 32.205,
+   "line": 10,
+   "beat": 4
+  },
+  {
+   "w": "math.",
+   "start": 32.205,
+   "end": 32.605,
+   "line": 10,
+   "beat": 4
+  },
+  {
+   "w": "On",
+   "start": 32.944,
+   "end": 33.124,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "paper,",
+   "start": 33.124,
+   "end": 33.404,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "that's",
+   "start": 33.404,
+   "end": 34.264,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "a",
+   "start": 34.264,
+   "end": 34.404,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "million",
+   "start": 34.404,
+   "end": 34.704,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "billion",
+   "start": 34.704,
+   "end": 35.244,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "calculations,",
+   "start": 35.244,
+   "end": 35.764,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "every",
+   "start": 35.764,
+   "end": 36.684,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "second.",
+   "start": 36.684,
+   "end": 37.164,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "But",
+   "start": 37.679,
+   "end": 37.779,
+   "line": 12,
+   "beat": 5
+  },
+  {
+   "w": "the",
+   "start": 37.779,
+   "end": 37.839,
+   "line": 12,
+   "beat": 5
+  },
+  {
+   "w": "real",
+   "start": 37.839,
+   "end": 37.999,
+   "line": 12,
+   "beat": 5
+  },
+  {
+   "w": "trick",
+   "start": 37.999,
+   "end": 38.279,
+   "line": 12,
+   "beat": 5
+  },
+  {
+   "w": "isn't",
+   "start": 38.279,
+   "end": 38.679,
+   "line": 12,
+   "beat": 5
+  },
+  {
+   "w": "speed.",
+   "start": 38.679,
+   "end": 38.879,
+   "line": 12,
+   "beat": 5
+  },
+  {
+   "w": "It's",
+   "start": 39.439,
+   "end": 39.719,
+   "line": 12,
+   "beat": 5
+  },
+  {
+   "w": "memory.",
+   "start": 39.719,
+   "end": 39.919,
+   "line": 12,
+   "beat": 5
+  },
+  {
+   "w": "A",
+   "start": 40.504,
+   "end": 40.604,
+   "line": 13,
+   "beat": 6
+  },
+  {
+   "w": "gaming",
+   "start": 40.604,
+   "end": 40.864,
+   "line": 13,
+   "beat": 6
+  },
+  {
+   "w": "laptop",
+   "start": 40.864,
+   "end": 41.284,
+   "line": 13,
+   "beat": 6
+  },
+  {
+   "w": "splits",
+   "start": 41.284,
+   "end": 41.764,
+   "line": 13,
+   "beat": 6
+  },
+  {
+   "w": "its",
+   "start": 41.764,
+   "end": 42.084,
+   "line": 13,
+   "beat": 6
+  },
+  {
+   "w": "memory",
+   "start": 42.084,
+   "end": 42.364,
+   "line": 13,
+   "beat": 6
+  },
+  {
+   "w": "in",
+   "start": 42.364,
+   "end": 42.604,
+   "line": 13,
+   "beat": 6
+  },
+  {
+   "w": "two.",
+   "start": 42.604,
+   "end": 42.784,
+   "line": 13,
+   "beat": 6
+  },
+  {
+   "w": "Here,",
+   "start": 43.102,
+   "end": 43.402,
+   "line": 14,
+   "beat": 6
+  },
+  {
+   "w": "both",
+   "start": 43.682,
+   "end": 44.002,
+   "line": 14,
+   "beat": 6
+  },
+  {
+   "w": "chips",
+   "start": 44.002,
+   "end": 44.242,
+   "line": 14,
+   "beat": 6
+  },
+  {
+   "w": "share",
+   "start": 44.242,
+   "end": 44.622,
+   "line": 14,
+   "beat": 6
+  },
+  {
+   "w": "one",
+   "start": 44.622,
+   "end": 44.882,
+   "line": 14,
+   "beat": 6
+  },
+  {
+   "w": "pool,",
+   "start": 44.882,
+   "end": 45.222,
+   "line": 14,
+   "beat": 6
+  },
+  {
+   "w": "up",
+   "start": 45.222,
+   "end": 45.722,
+   "line": 14,
+   "beat": 6
+  },
+  {
+   "w": "to",
+   "start": 45.722,
+   "end": 45.882,
+   "line": 14,
+   "beat": 6
+  },
+  {
+   "w": "a",
+   "start": 45.882,
+   "end": 46.011,
+   "line": 14,
+   "beat": 6
+  },
+  {
+   "w": "hundred",
+   "start": 46.011,
+   "end": 46.397,
+   "line": 14,
+   "beat": 6
+  },
+  {
+   "w": "and",
+   "start": 46.397,
+   "end": 46.612,
+   "line": 14,
+   "beat": 6
+  },
+  {
+   "w": "twenty-eight",
+   "start": 46.612,
+   "end": 47.213,
+   "line": 14,
+   "beat": 6
+  },
+  {
+   "w": "gigabytes.",
+   "start": 47.213,
+   "end": 47.686,
+   "line": 14,
+   "beat": 6
+  },
+  {
+   "w": "NVIDIA",
+   "start": 47.806,
+   "end": 48.086,
+   "line": 15,
+   "beat": 6
+  },
+  {
+   "w": "says",
+   "start": 48.086,
+   "end": 48.486,
+   "line": 15,
+   "beat": 6
+  },
+  {
+   "w": "that",
+   "start": 48.486,
+   "end": 48.746,
+   "line": 15,
+   "beat": 6
+  },
+  {
+   "w": "runs",
+   "start": 48.746,
+   "end": 48.946,
+   "line": 15,
+   "beat": 6
+  },
+  {
+   "w": "AI",
+   "start": 48.946,
+   "end": 49.226,
+   "line": 15,
+   "beat": 6
+  },
+  {
+   "w": "models",
+   "start": 49.226,
+   "end": 49.666,
+   "line": 15,
+   "beat": 6
+  },
+  {
+   "w": "with",
+   "start": 49.666,
+   "end": 49.986,
+   "line": 15,
+   "beat": 6
+  },
+  {
+   "w": "a",
+   "start": 49.986,
+   "end": 50.034,
+   "line": 15,
+   "beat": 6
+  },
+  {
+   "w": "hundred",
+   "start": 50.034,
+   "end": 50.178,
+   "line": 15,
+   "beat": 6
+  },
+  {
+   "w": "and",
+   "start": 50.178,
+   "end": 50.258,
+   "line": 15,
+   "beat": 6
+  },
+  {
+   "w": "twenty",
+   "start": 50.258,
+   "end": 50.386,
+   "line": 15,
+   "beat": 6
+  },
+  {
+   "w": "billion",
+   "start": 50.386,
+   "end": 51.126,
+   "line": 15,
+   "beat": 6
+  },
+  {
+   "w": "parameters,",
+   "start": 51.126,
+   "end": 51.526,
+   "line": 15,
+   "beat": 6
+  },
+  {
+   "w": "right",
+   "start": 52.386,
+   "end": 52.466,
+   "line": 15,
+   "beat": 6
+  },
+  {
+   "w": "on",
+   "start": 52.466,
+   "end": 52.646,
+   "line": 15,
+   "beat": 6
+  },
+  {
+   "w": "your",
+   "start": 52.646,
+   "end": 52.786,
+   "line": 15,
+   "beat": 6
+  },
+  {
+   "w": "lap.",
+   "start": 52.786,
+   "end": 53.006,
+   "line": 15,
+   "beat": 6
+  },
+  {
+   "w": "The",
+   "start": 53.456,
+   "end": 53.596,
+   "line": 16,
+   "beat": 7
+  },
+  {
+   "w": "catch?",
+   "start": 53.596,
+   "end": 53.796,
+   "line": 16,
+   "beat": 7
+  },
+  {
+   "w": "It's",
+   "start": 54.536,
+   "end": 54.696,
+   "line": 16,
+   "beat": 7
+  },
+  {
+   "w": "an",
+   "start": 54.696,
+   "end": 54.776,
+   "line": 16,
+   "beat": 7
+  },
+  {
+   "w": "Arm",
+   "start": 54.776,
+   "end": 55.016,
+   "line": 16,
+   "beat": 7
+  },
+  {
+   "w": "chip.",
+   "start": 55.016,
+   "end": 55.396,
+   "line": 16,
+   "beat": 7
+  },
+  {
+   "w": "Older",
+   "start": 55.703,
+   "end": 55.943,
+   "line": 17,
+   "beat": 7
+  },
+  {
+   "w": "Windows",
+   "start": 55.943,
+   "end": 56.263,
+   "line": 17,
+   "beat": 7
+  },
+  {
+   "w": "apps",
+   "start": 56.263,
+   "end": 56.683,
+   "line": 17,
+   "beat": 7
+  },
+  {
+   "w": "run",
+   "start": 56.683,
+   "end": 57.063,
+   "line": 17,
+   "beat": 7
+  },
+  {
+   "w": "through",
+   "start": 57.063,
+   "end": 57.363,
+   "line": 17,
+   "beat": 7
+  },
+  {
+   "w": "a",
+   "start": 57.363,
+   "end": 57.503,
+   "line": 17,
+   "beat": 7
+  },
+  {
+   "w": "translator",
+   "start": 57.503,
+   "end": 57.823,
+   "line": 17,
+   "beat": 7
+  },
+  {
+   "w": "called",
+   "start": 57.823,
+   "end": 58.403,
+   "line": 17,
+   "beat": 7
+  },
+  {
+   "w": "Prism.",
+   "start": 58.403,
+   "end": 58.723,
+   "line": 17,
+   "beat": 7
+  },
+  {
+   "w": "And",
+   "start": 59.198,
+   "end": 59.318,
+   "line": 18,
+   "beat": 7
+  },
+  {
+   "w": "it",
+   "start": 59.318,
+   "end": 59.398,
+   "line": 18,
+   "beat": 7
+  },
+  {
+   "w": "starts",
+   "start": 59.398,
+   "end": 59.638,
+   "line": 18,
+   "beat": 7
+  },
+  {
+   "w": "at",
+   "start": 59.638,
+   "end": 59.878,
+   "line": 18,
+   "beat": 7
+  },
+  {
+   "w": "two",
+   "start": 59.878,
+   "end": 60.084,
+   "line": 18,
+   "beat": 7
+  },
+  {
+   "w": "thousand",
+   "start": 60.084,
+   "end": 60.496,
+   "line": 18,
+   "beat": 7
+  },
+  {
+   "w": "five",
+   "start": 60.496,
+   "end": 60.742,
+   "line": 18,
+   "beat": 7
+  },
+  {
+   "w": "hundred",
+   "start": 60.742,
+   "end": 61.113,
+   "line": 18,
+   "beat": 7
+  },
+  {
+   "w": "ninety-nine",
+   "start": 61.113,
+   "end": 61.648,
+   "line": 18,
+   "beat": 7
+  },
+  {
+   "w": "dollars.",
+   "start": 61.648,
+   "end": 62.019,
+   "line": 18,
+   "beat": 7
+  },
+  {
+   "w": "Six",
+   "start": 62.319,
+   "end": 62.559,
+   "line": 19,
+   "beat": 8
+  },
+  {
+   "w": "brands",
+   "start": 62.559,
+   "end": 62.859,
+   "line": 19,
+   "beat": 8
+  },
+  {
+   "w": "are",
+   "start": 62.859,
+   "end": 63.119,
+   "line": 19,
+   "beat": 8
+  },
+  {
+   "w": "selling",
+   "start": 63.119,
+   "end": 63.359,
+   "line": 19,
+   "beat": 8
+  },
+  {
+   "w": "them",
+   "start": 63.359,
+   "end": 63.619,
+   "line": 19,
+   "beat": 8
+  },
+  {
+   "w": "now.",
+   "start": 63.619,
+   "end": 63.859,
+   "line": 19,
+   "beat": 8
+  },
+  {
+   "w": "Your",
+   "start": 64.119,
+   "end": 64.239,
+   "line": 20,
+   "beat": 8
+  },
+  {
+   "w": "next",
+   "start": 64.239,
+   "end": 64.479,
+   "line": 20,
+   "beat": 8
+  },
+  {
+   "w": "AI",
+   "start": 64.479,
+   "end": 64.839,
+   "line": 20,
+   "beat": 8
+  },
+  {
+   "w": "might",
+   "start": 64.839,
+   "end": 65.259,
+   "line": 20,
+   "beat": 8
+  },
+  {
+   "w": "not",
+   "start": 65.259,
+   "end": 65.499,
+   "line": 20,
+   "beat": 8
+  },
+  {
+   "w": "live",
+   "start": 65.499,
+   "end": 65.759,
+   "line": 20,
+   "beat": 8
+  },
+  {
+   "w": "in",
+   "start": 65.759,
+   "end": 65.939,
+   "line": 20,
+   "beat": 8
+  },
+  {
+   "w": "the",
+   "start": 65.939,
+   "end": 66.019,
+   "line": 20,
+   "beat": 8
+  },
+  {
+   "w": "cloud.",
+   "start": 66.019,
+   "end": 66.219,
+   "line": 20,
+   "beat": 8
+  },
+  {
+   "w": "It",
+   "start": 66.714,
+   "end": 66.814,
+   "line": 21,
+   "beat": 8
+  },
+  {
+   "w": "might",
+   "start": 66.814,
+   "end": 66.994,
+   "line": 21,
+   "beat": 8
+  },
+  {
+   "w": "live",
+   "start": 66.994,
+   "end": 67.234,
+   "line": 21,
+   "beat": 8
+  },
+  {
+   "w": "right",
+   "start": 67.234,
+   "end": 67.574,
+   "line": 21,
+   "beat": 8
+  },
+  {
+   "w": "here.",
+   "start": 67.574,
+   "end": 67.854,
+   "line": 21,
+   "beat": 8
+  }
+ ],
+ "voice": "qwen3"
+}

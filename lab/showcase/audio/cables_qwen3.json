@@ -1,0 +1,1441 @@
+{
+ "duration": 61.731,
+ "exact_word_timing": true,
+ "lines": [
+  {
+   "beat": 0,
+   "text": "The message you just sent didn't go to space.",
+   "start": 0.15,
+   "end": 2.694
+  },
+  {
+   "beat": 0,
+   "text": "It went down. To the bottom of the ocean.",
+   "start": 2.814,
+   "end": 4.769
+  },
+  {
+   "beat": 1,
+   "text": "More than ninety-nine percent of data between continents travels through cables on the seafloor.",
+   "start": 5.069,
+   "end": 9.542
+  },
+  {
+   "beat": 1,
+   "text": "Laid end to end, they'd wrap the Earth more than forty times.",
+   "start": 9.662,
+   "end": 13.224
+  },
+  {
+   "beat": 2,
+   "text": "And in the deep ocean, each one is about as thick as a garden hose.",
+   "start": 13.524,
+   "end": 17.34
+  },
+  {
+   "beat": 2,
+   "text": "Inside, glass threads thinner than a hair carry your message as flashes of light.",
+   "start": 17.46,
+   "end": 22.424
+  },
+  {
+   "beat": 3,
+   "text": "So what breaks them?",
+   "start": 22.724,
+   "end": 23.663
+  },
+  {
+   "beat": 3,
+   "text": "You've probably seen a shark biting a cable.",
+   "start": 23.784,
+   "end": 26.13
+  },
+  {
+   "beat": 4,
+   "text": "But in the fault records from 2007 to 2014, fish caused exactly zero breaks.",
+   "start": 26.43,
+   "end": 32.183
+  },
+  {
+   "beat": 5,
+   "text": "The real culprits are fishing gear and ship anchors.",
+   "start": 32.483,
+   "end": 35.791
+  },
+  {
+   "beat": 5,
+   "text": "Around two hundred cable faults happen every year. That's three or four a week.",
+   "start": 35.911,
+   "end": 40.203
+  },
+  {
+   "beat": 6,
+   "text": "And only about sixty ships on Earth can fix them.",
+   "start": 40.503,
+   "end": 42.933
+  },
+  {
+   "beat": 6,
+   "text": "They drop a hook kilometers down, drag it across the seabed,",
+   "start": 43.053,
+   "end": 46.746
+  },
+  {
+   "beat": 6,
+   "text": "and haul the broken cable up into the daylight.",
+   "start": 46.866,
+   "end": 49.325
+  },
+  {
+   "beat": 7,
+   "text": "In 2024, cuts in the Red Sea disrupted about a quarter of the traffic between Europe and Asia.",
+   "start": 49.625,
+   "end": 55.749
+  },
+  {
+   "beat": 8,
+   "text": "So the next time a message arrives in a second,",
+   "start": 56.049,
+   "end": 58.591
+  },
+  {
+   "beat": 8,
+   "text": "remember the garden hose at the bottom of the sea.",
+   "start": 58.711,
+   "end": 61.031
+  }
+ ],
+ "words": [
+  {
+   "w": "The",
+   "start": 0.15,
+   "end": 0.25,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "message",
+   "start": 0.25,
+   "end": 0.49,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "you",
+   "start": 0.49,
+   "end": 0.77,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "just",
+   "start": 0.77,
+   "end": 0.99,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "sent",
+   "start": 0.99,
+   "end": 1.27,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "didn't",
+   "start": 1.27,
+   "end": 1.91,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "go",
+   "start": 1.91,
+   "end": 2.03,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "to",
+   "start": 2.03,
+   "end": 2.15,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "space.",
+   "start": 2.15,
+   "end": 2.33,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "It",
+   "start": 2.814,
+   "end": 2.914,
+   "line": 1,
+   "beat": 0
+  },
+  {
+   "w": "went",
+   "start": 2.914,
+   "end": 3.054,
+   "line": 1,
+   "beat": 0
+  },
+  {
+   "w": "down.",
+   "start": 3.054,
+   "end": 3.334,
+   "line": 1,
+   "beat": 0
+  },
+  {
+   "w": "To",
+   "start": 3.334,
+   "end": 3.654,
+   "line": 1,
+   "beat": 0
+  },
+  {
+   "w": "the",
+   "start": 3.654,
+   "end": 3.734,
+   "line": 1,
+   "beat": 0
+  },
+  {
+   "w": "bottom",
+   "start": 3.734,
+   "end": 4.014,
+   "line": 1,
+   "beat": 0
+  },
+  {
+   "w": "of",
+   "start": 4.014,
+   "end": 4.194,
+   "line": 1,
+   "beat": 0
+  },
+  {
+   "w": "the",
+   "start": 4.194,
+   "end": 4.294,
+   "line": 1,
+   "beat": 0
+  },
+  {
+   "w": "ocean.",
+   "start": 4.294,
+   "end": 4.474,
+   "line": 1,
+   "beat": 0
+  },
+  {
+   "w": "More",
+   "start": 5.069,
+   "end": 5.249,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "than",
+   "start": 5.249,
+   "end": 5.409,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "ninety-nine",
+   "start": 5.409,
+   "end": 5.858,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "percent",
+   "start": 5.858,
+   "end": 6.169,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "of",
+   "start": 6.169,
+   "end": 6.309,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "data",
+   "start": 6.309,
+   "end": 6.509,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "between",
+   "start": 6.509,
+   "end": 6.929,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "continents",
+   "start": 6.929,
+   "end": 7.289,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "travels",
+   "start": 7.289,
+   "end": 7.969,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "through",
+   "start": 7.969,
+   "end": 8.289,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "cables",
+   "start": 8.289,
+   "end": 8.529,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "on",
+   "start": 8.529,
+   "end": 8.849,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "the",
+   "start": 8.849,
+   "end": 8.949,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "seafloor.",
+   "start": 8.949,
+   "end": 9.429,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "Laid",
+   "start": 9.662,
+   "end": 9.942,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "end",
+   "start": 9.942,
+   "end": 10.202,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "to",
+   "start": 10.202,
+   "end": 10.362,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "end,",
+   "start": 10.362,
+   "end": 10.582,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "they'd",
+   "start": 11.102,
+   "end": 11.422,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "wrap",
+   "start": 11.422,
+   "end": 11.562,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "the",
+   "start": 11.562,
+   "end": 11.762,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "Earth",
+   "start": 11.762,
+   "end": 11.942,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "more",
+   "start": 11.942,
+   "end": 12.202,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "than",
+   "start": 12.202,
+   "end": 12.362,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "forty",
+   "start": 12.362,
+   "end": 12.622,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "times.",
+   "start": 12.622,
+   "end": 12.922,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "And",
+   "start": 13.524,
+   "end": 13.684,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "in",
+   "start": 13.684,
+   "end": 13.764,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "the",
+   "start": 13.764,
+   "end": 13.884,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "deep",
+   "start": 13.884,
+   "end": 14.084,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "ocean,",
+   "start": 14.084,
+   "end": 14.464,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "each",
+   "start": 14.784,
+   "end": 14.984,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "one",
+   "start": 14.984,
+   "end": 15.284,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "is",
+   "start": 15.284,
+   "end": 15.484,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "about",
+   "start": 15.484,
+   "end": 15.684,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "as",
+   "start": 15.684,
+   "end": 15.864,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "thick",
+   "start": 15.864,
+   "end": 16.144,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "as",
+   "start": 16.144,
+   "end": 16.364,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "a",
+   "start": 16.364,
+   "end": 16.444,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "garden",
+   "start": 16.444,
+   "end": 16.704,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "hose.",
+   "start": 16.704,
+   "end": 16.984,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "Inside,",
+   "start": 17.46,
+   "end": 17.9,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "glass",
+   "start": 17.9,
+   "end": 18.16,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "threads",
+   "start": 18.16,
+   "end": 18.58,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "thinner",
+   "start": 18.58,
+   "end": 19.0,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "than",
+   "start": 19.0,
+   "end": 19.34,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "a",
+   "start": 19.34,
+   "end": 19.44,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "hair",
+   "start": 19.44,
+   "end": 19.7,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "carry",
+   "start": 20.08,
+   "end": 20.32,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "your",
+   "start": 20.32,
+   "end": 20.54,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "message",
+   "start": 20.54,
+   "end": 20.86,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "as",
+   "start": 20.86,
+   "end": 21.28,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "flashes",
+   "start": 21.28,
+   "end": 21.54,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "of",
+   "start": 21.54,
+   "end": 21.98,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "light.",
+   "start": 21.98,
+   "end": 22.2,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "So",
+   "start": 22.724,
+   "end": 22.904,
+   "line": 6,
+   "beat": 3
+  },
+  {
+   "w": "what",
+   "start": 22.904,
+   "end": 23.044,
+   "line": 6,
+   "beat": 3
+  },
+  {
+   "w": "breaks",
+   "start": 23.044,
+   "end": 23.264,
+   "line": 6,
+   "beat": 3
+  },
+  {
+   "w": "them?",
+   "start": 23.264,
+   "end": 23.524,
+   "line": 6,
+   "beat": 3
+  },
+  {
+   "w": "You've",
+   "start": 23.784,
+   "end": 24.004,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "probably",
+   "start": 24.004,
+   "end": 24.224,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "seen",
+   "start": 24.224,
+   "end": 24.684,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "a",
+   "start": 24.684,
+   "end": 24.824,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "shark",
+   "start": 24.824,
+   "end": 25.064,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "biting",
+   "start": 25.064,
+   "end": 25.404,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "a",
+   "start": 25.404,
+   "end": 25.664,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "cable.",
+   "start": 25.664,
+   "end": 25.884,
+   "line": 7,
+   "beat": 3
+  },
+  {
+   "w": "But",
+   "start": 26.43,
+   "end": 26.53,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "in",
+   "start": 26.53,
+   "end": 26.59,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "the",
+   "start": 26.59,
+   "end": 26.67,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "fault",
+   "start": 26.67,
+   "end": 26.85,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "records",
+   "start": 26.85,
+   "end": 27.19,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "from",
+   "start": 27.19,
+   "end": 27.59,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "2007",
+   "start": 27.59,
+   "end": 28.17,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "to",
+   "start": 28.17,
+   "end": 28.65,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "2014,",
+   "start": 28.65,
+   "end": 29.75,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "fish",
+   "start": 29.75,
+   "end": 30.01,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "caused",
+   "start": 30.01,
+   "end": 30.37,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "exactly",
+   "start": 30.37,
+   "end": 30.95,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "zero",
+   "start": 30.95,
+   "end": 31.47,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "breaks.",
+   "start": 31.47,
+   "end": 31.85,
+   "line": 8,
+   "beat": 4
+  },
+  {
+   "w": "The",
+   "start": 32.483,
+   "end": 32.623,
+   "line": 9,
+   "beat": 5
+  },
+  {
+   "w": "real",
+   "start": 32.623,
+   "end": 32.843,
+   "line": 9,
+   "beat": 5
+  },
+  {
+   "w": "culprits",
+   "start": 32.843,
+   "end": 33.583,
+   "line": 9,
+   "beat": 5
+  },
+  {
+   "w": "are",
+   "start": 33.583,
+   "end": 33.683,
+   "line": 9,
+   "beat": 5
+  },
+  {
+   "w": "fishing",
+   "start": 33.683,
+   "end": 34.043,
+   "line": 9,
+   "beat": 5
+  },
+  {
+   "w": "gear",
+   "start": 34.043,
+   "end": 34.383,
+   "line": 9,
+   "beat": 5
+  },
+  {
+   "w": "and",
+   "start": 34.383,
+   "end": 34.703,
+   "line": 9,
+   "beat": 5
+  },
+  {
+   "w": "ship",
+   "start": 34.703,
+   "end": 35.003,
+   "line": 9,
+   "beat": 5
+  },
+  {
+   "w": "anchors.",
+   "start": 35.003,
+   "end": 35.323,
+   "line": 9,
+   "beat": 5
+  },
+  {
+   "w": "Around",
+   "start": 35.911,
+   "end": 36.151,
+   "line": 10,
+   "beat": 5
+  },
+  {
+   "w": "two",
+   "start": 36.151,
+   "end": 36.28,
+   "line": 10,
+   "beat": 5
+  },
+  {
+   "w": "hundred",
+   "start": 36.28,
+   "end": 36.511,
+   "line": 10,
+   "beat": 5
+  },
+  {
+   "w": "cable",
+   "start": 36.511,
+   "end": 36.911,
+   "line": 10,
+   "beat": 5
+  },
+  {
+   "w": "faults",
+   "start": 36.911,
+   "end": 37.291,
+   "line": 10,
+   "beat": 5
+  },
+  {
+   "w": "happen",
+   "start": 37.291,
+   "end": 37.711,
+   "line": 10,
+   "beat": 5
+  },
+  {
+   "w": "every",
+   "start": 37.711,
+   "end": 37.971,
+   "line": 10,
+   "beat": 5
+  },
+  {
+   "w": "year.",
+   "start": 37.971,
+   "end": 38.311,
+   "line": 10,
+   "beat": 5
+  },
+  {
+   "w": "That's",
+   "start": 38.931,
+   "end": 39.111,
+   "line": 10,
+   "beat": 5
+  },
+  {
+   "w": "three",
+   "start": 39.111,
+   "end": 39.331,
+   "line": 10,
+   "beat": 5
+  },
+  {
+   "w": "or",
+   "start": 39.331,
+   "end": 39.451,
+   "line": 10,
+   "beat": 5
+  },
+  {
+   "w": "four",
+   "start": 39.451,
+   "end": 39.651,
+   "line": 10,
+   "beat": 5
+  },
+  {
+   "w": "a",
+   "start": 39.651,
+   "end": 39.811,
+   "line": 10,
+   "beat": 5
+  },
+  {
+   "w": "week.",
+   "start": 39.811,
+   "end": 39.991,
+   "line": 10,
+   "beat": 5
+  },
+  {
+   "w": "And",
+   "start": 40.503,
+   "end": 40.623,
+   "line": 11,
+   "beat": 6
+  },
+  {
+   "w": "only",
+   "start": 40.623,
+   "end": 40.763,
+   "line": 11,
+   "beat": 6
+  },
+  {
+   "w": "about",
+   "start": 40.763,
+   "end": 41.043,
+   "line": 11,
+   "beat": 6
+  },
+  {
+   "w": "sixty",
+   "start": 41.043,
+   "end": 41.363,
+   "line": 11,
+   "beat": 6
+  },
+  {
+   "w": "ships",
+   "start": 41.363,
+   "end": 41.683,
+   "line": 11,
+   "beat": 6
+  },
+  {
+   "w": "on",
+   "start": 41.683,
+   "end": 41.923,
+   "line": 11,
+   "beat": 6
+  },
+  {
+   "w": "Earth",
+   "start": 41.923,
+   "end": 42.143,
+   "line": 11,
+   "beat": 6
+  },
+  {
+   "w": "can",
+   "start": 42.143,
+   "end": 42.363,
+   "line": 11,
+   "beat": 6
+  },
+  {
+   "w": "fix",
+   "start": 42.363,
+   "end": 42.563,
+   "line": 11,
+   "beat": 6
+  },
+  {
+   "w": "them.",
+   "start": 42.563,
+   "end": 42.803,
+   "line": 11,
+   "beat": 6
+  },
+  {
+   "w": "They",
+   "start": 43.053,
+   "end": 43.153,
+   "line": 12,
+   "beat": 6
+  },
+  {
+   "w": "drop",
+   "start": 43.153,
+   "end": 43.393,
+   "line": 12,
+   "beat": 6
+  },
+  {
+   "w": "a",
+   "start": 43.393,
+   "end": 43.553,
+   "line": 12,
+   "beat": 6
+  },
+  {
+   "w": "hook",
+   "start": 43.553,
+   "end": 43.713,
+   "line": 12,
+   "beat": 6
+  },
+  {
+   "w": "kilometers",
+   "start": 43.713,
+   "end": 44.013,
+   "line": 12,
+   "beat": 6
+  },
+  {
+   "w": "down,",
+   "start": 44.013,
+   "end": 44.833,
+   "line": 12,
+   "beat": 6
+  },
+  {
+   "w": "drag",
+   "start": 45.133,
+   "end": 45.393,
+   "line": 12,
+   "beat": 6
+  },
+  {
+   "w": "it",
+   "start": 45.393,
+   "end": 45.593,
+   "line": 12,
+   "beat": 6
+  },
+  {
+   "w": "across",
+   "start": 45.593,
+   "end": 45.833,
+   "line": 12,
+   "beat": 6
+  },
+  {
+   "w": "the",
+   "start": 45.833,
+   "end": 46.073,
+   "line": 12,
+   "beat": 6
+  },
+  {
+   "w": "seabed,",
+   "start": 46.073,
+   "end": 46.573,
+   "line": 12,
+   "beat": 6
+  },
+  {
+   "w": "and",
+   "start": 46.866,
+   "end": 47.006,
+   "line": 13,
+   "beat": 6
+  },
+  {
+   "w": "haul",
+   "start": 47.006,
+   "end": 47.226,
+   "line": 13,
+   "beat": 6
+  },
+  {
+   "w": "the",
+   "start": 47.226,
+   "end": 47.426,
+   "line": 13,
+   "beat": 6
+  },
+  {
+   "w": "broken",
+   "start": 47.426,
+   "end": 47.626,
+   "line": 13,
+   "beat": 6
+  },
+  {
+   "w": "cable",
+   "start": 47.626,
+   "end": 48.046,
+   "line": 13,
+   "beat": 6
+  },
+  {
+   "w": "up",
+   "start": 48.046,
+   "end": 48.386,
+   "line": 13,
+   "beat": 6
+  },
+  {
+   "w": "into",
+   "start": 48.386,
+   "end": 48.566,
+   "line": 13,
+   "beat": 6
+  },
+  {
+   "w": "the",
+   "start": 48.566,
+   "end": 48.726,
+   "line": 13,
+   "beat": 6
+  },
+  {
+   "w": "daylight.",
+   "start": 48.726,
+   "end": 48.966,
+   "line": 13,
+   "beat": 6
+  },
+  {
+   "w": "In",
+   "start": 49.625,
+   "end": 49.745,
+   "line": 14,
+   "beat": 7
+  },
+  {
+   "w": "2024,",
+   "start": 49.745,
+   "end": 51.045,
+   "line": 14,
+   "beat": 7
+  },
+  {
+   "w": "cuts",
+   "start": 51.045,
+   "end": 51.305,
+   "line": 14,
+   "beat": 7
+  },
+  {
+   "w": "in",
+   "start": 51.305,
+   "end": 51.625,
+   "line": 14,
+   "beat": 7
+  },
+  {
+   "w": "the",
+   "start": 51.625,
+   "end": 51.725,
+   "line": 14,
+   "beat": 7
+  },
+  {
+   "w": "Red",
+   "start": 51.725,
+   "end": 51.865,
+   "line": 14,
+   "beat": 7
+  },
+  {
+   "w": "Sea",
+   "start": 51.865,
+   "end": 52.185,
+   "line": 14,
+   "beat": 7
+  },
+  {
+   "w": "disrupted",
+   "start": 52.185,
+   "end": 52.685,
+   "line": 14,
+   "beat": 7
+  },
+  {
+   "w": "about",
+   "start": 52.685,
+   "end": 53.225,
+   "line": 14,
+   "beat": 7
+  },
+  {
+   "w": "a",
+   "start": 53.225,
+   "end": 53.345,
+   "line": 14,
+   "beat": 7
+  },
+  {
+   "w": "quarter",
+   "start": 53.345,
+   "end": 53.585,
+   "line": 14,
+   "beat": 7
+  },
+  {
+   "w": "of",
+   "start": 53.585,
+   "end": 53.825,
+   "line": 14,
+   "beat": 7
+  },
+  {
+   "w": "the",
+   "start": 53.825,
+   "end": 53.925,
+   "line": 14,
+   "beat": 7
+  },
+  {
+   "w": "traffic",
+   "start": 53.925,
+   "end": 54.185,
+   "line": 14,
+   "beat": 7
+  },
+  {
+   "w": "between",
+   "start": 54.185,
+   "end": 54.625,
+   "line": 14,
+   "beat": 7
+  },
+  {
+   "w": "Europe",
+   "start": 54.625,
+   "end": 54.925,
+   "line": 14,
+   "beat": 7
+  },
+  {
+   "w": "and",
+   "start": 54.925,
+   "end": 55.205,
+   "line": 14,
+   "beat": 7
+  },
+  {
+   "w": "Asia.",
+   "start": 55.205,
+   "end": 55.465,
+   "line": 14,
+   "beat": 7
+  },
+  {
+   "w": "So",
+   "start": 56.049,
+   "end": 56.209,
+   "line": 15,
+   "beat": 8
+  },
+  {
+   "w": "the",
+   "start": 56.209,
+   "end": 56.329,
+   "line": 15,
+   "beat": 8
+  },
+  {
+   "w": "next",
+   "start": 56.329,
+   "end": 56.529,
+   "line": 15,
+   "beat": 8
+  },
+  {
+   "w": "time",
+   "start": 56.529,
+   "end": 56.829,
+   "line": 15,
+   "beat": 8
+  },
+  {
+   "w": "a",
+   "start": 56.829,
+   "end": 56.989,
+   "line": 15,
+   "beat": 8
+  },
+  {
+   "w": "message",
+   "start": 56.989,
+   "end": 57.269,
+   "line": 15,
+   "beat": 8
+  },
+  {
+   "w": "arrives",
+   "start": 57.269,
+   "end": 57.629,
+   "line": 15,
+   "beat": 8
+  },
+  {
+   "w": "in",
+   "start": 57.629,
+   "end": 57.909,
+   "line": 15,
+   "beat": 8
+  },
+  {
+   "w": "a",
+   "start": 57.909,
+   "end": 57.989,
+   "line": 15,
+   "beat": 8
+  },
+  {
+   "w": "second,",
+   "start": 57.989,
+   "end": 58.569,
+   "line": 15,
+   "beat": 8
+  },
+  {
+   "w": "remember",
+   "start": 58.711,
+   "end": 58.971,
+   "line": 16,
+   "beat": 8
+  },
+  {
+   "w": "the",
+   "start": 58.971,
+   "end": 59.191,
+   "line": 16,
+   "beat": 8
+  },
+  {
+   "w": "garden",
+   "start": 59.191,
+   "end": 59.451,
+   "line": 16,
+   "beat": 8
+  },
+  {
+   "w": "hose",
+   "start": 59.451,
+   "end": 59.731,
+   "line": 16,
+   "beat": 8
+  },
+  {
+   "w": "at",
+   "start": 59.731,
+   "end": 60.011,
+   "line": 16,
+   "beat": 8
+  },
+  {
+   "w": "the",
+   "start": 60.011,
+   "end": 60.071,
+   "line": 16,
+   "beat": 8
+  },
+  {
+   "w": "bottom",
+   "start": 60.071,
+   "end": 60.311,
+   "line": 16,
+   "beat": 8
+  },
+  {
+   "w": "of",
+   "start": 60.311,
+   "end": 60.491,
+   "line": 16,
+   "beat": 8
+  },
+  {
+   "w": "the",
+   "start": 60.491,
+   "end": 60.571,
+   "line": 16,
+   "beat": 8
+  },
+  {
+   "w": "sea.",
+   "start": 60.571,
+   "end": 60.771,
+   "line": 16,
+   "beat": 8
+  }
+ ],
+ "voice": "qwen3"
+}
