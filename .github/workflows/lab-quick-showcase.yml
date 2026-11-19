@@ -2,7 +2,7 @@ name: Lab quick showcase (Kokoro backup voice + Three.js, fast, logs committed)
 on:
   push:
     branches: ["lab/quick-*"]
-    paths-ignore: ["lab/showcase/out/**", "lab/showcase/vendor/**", "lab/showcase/logs/**"]
+    paths-ignore: ["lab/showcase/vendor/**", "lab/showcase/logs/**"]
 permissions:
   contents: write
 jobs:
@@ -43,7 +43,7 @@ jobs:
           from pathlib import Path
           from studio.motion.narrate import narrate
           cfg = json.load(open("channels/te/channel.json"))["voice"]["previous"]
-          dst = Path("lab/showcase/out")
+          dst = Path("lab/showcase/audio"); dst.mkdir(parents=True, exist_ok=True)
           for ep in ["n1x", "cables"]:
               try:
                   s = json.load(open(f"lab/showcase/{ep}.json"))
@@ -59,7 +59,7 @@ jobs:
         if: always()
         run: |
           git config user.name "Franklin Mburu"; git config user.email "184284364+FranklinMburu@users.noreply.github.com"
-          git add -A lab/showcase/logs lab/showcase/out lab/showcase/vendor || true
+          git add -A -f lab/showcase/logs lab/showcase/audio lab/showcase/vendor || true
           git commit -m "lab quick showcase: results + logs [skip ci]" || true
           git pull --rebase -q || true
           git push
