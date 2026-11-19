@@ -1,0 +1,32 @@
+name: Claude clips, footage to a git branch
+
+# 19 Nov 2026: Claude's workspace can't download artifacts or release files, only git. This copies a fetch run's footage
+# (re-encoded under GitHub's 100 MB file limit) to branch footage/<name>, which Claude fetches and deletes afterwards.
+on:
+  push:
+    branches: ["claude-push/**"]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get install -y -qq --no-install-recommends ffmpeg > /dev/null
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ fromJSON(github.event.head_commit.message).artifact }}
+          run-id: ${{ fromJSON(github.event.head_commit.message).run }}
+          github-token: ${{ github.token }}
+          path: in
+      - name: Re-encode and push
+        env:
+          NAME: ${{ fromJSON(github.event.head_commit.message).name }}
+        run: |
+          mkdir -p o
+          for f in in/*.mp4; do ffmpeg -v error -y -i "$f" -c:v libx264 -preset veryfast -crf 22 -maxrate 4M -bufsize 8M -c:a aac -b:a 160k "o/$(basename $f)"; done
+          cp in/*.json o/; ls -la o
+          cd o && git init -q -b "footage/$NAME" && git add . && git -c user.name="Franklin Mburu" -c user.email="184284364+FranklinMburu@users.noreply.github.com" commit -qm "footage $NAME"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" "footage/$NAME"
