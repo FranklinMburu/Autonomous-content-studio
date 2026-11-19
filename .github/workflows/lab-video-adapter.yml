@@ -5,7 +5,6 @@ name: Lab (video adapter test on Kaggle)
 on:
   push:
     branches: ["lab/video-adapter"]
-    paths: ["lab/kaggle/video_adapter_test/**", ".github/workflows/lab-video-adapter.yml"]
 
 permissions:
   contents: write
@@ -16,6 +15,7 @@ concurrency:
 
 jobs:
   lab:
+    if: "!startsWith(github.event.head_commit.message, 'lab: video adapter test results')"
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
