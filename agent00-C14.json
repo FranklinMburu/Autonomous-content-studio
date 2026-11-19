@@ -1,0 +1,35 @@
+{
+ "id": "agent00-C14",
+ "title_box": "GTA 6 has a soap opera about a RABID IGUANA 💀",
+ "youtube_title": "Agent00 Found a GTA 6 Soap Opera About a RABID IGUANA 💀🦎",
+ "description": "Agent00 Found a GTA 6 Soap Opera About a RABID IGUANA 💀🦎\nAgent00's GTA 6 stream, Twitch, 18-19 Nov 2026.\n#Agent00 #GTA6 #GTAVI #agent00clips #shorts",
+ "hashtags": [
+  "#Agent00",
+  "#GTA6",
+  "#GTAVI",
+  "#agent00clips",
+  "#shorts"
+ ],
+ "campaign": null,
+ "why_it_trends": "In-game TV satire nobody has clipped: hospital soap where a rabid iguana put a woman in a coma, with Agent00's open-mouth 'NO!' and the soap's own melodrama.",
+ "honest_score": {
+  "overall": 7,
+  "hook": 8,
+  "payoff": 7,
+  "face": 6,
+  "layout": 7,
+  "notes": "Jellyfish/teenager line cut (ends 57.55, before 58.1). Game HUD 'EXIT / VOLUME (MAX)' sits beside/over his head in the face band and can't be cropped out. ~0.6 s at 0.3-0.9 s he stands up and his head leaves the cam. Most of the 'payoff' is the TV's dialogue; his reaction is a gasp, not a laugh."
+ },
+ "source_file": "/home/claude/clips/raw/agent00/agent00-02.mp4",
+ "pieces": [
+  [
+   28.5,
+   31.6
+  ],
+  [
+   41.3,
+   57.55
+  ]
+ ],
+ "loudness": "-14 LUFS integrated (ebur128), TP <= -0.8 dBFS"
+}

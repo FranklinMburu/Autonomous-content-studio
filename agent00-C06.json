@@ -1,0 +1,39 @@
+{
+ "id": "agent00-C06",
+ "title_box": "Manages a MILLION engineers. Can't pay rent 💀",
+ "youtube_title": "Agent00 Caught a GTA 6 NPC LYING About Her Job 💀😭",
+ "description": "Agent00 Caught a GTA 6 NPC LYING About Her Job 💀😭\nAgent00's GTA 6 stream, Twitch, 18-19 Nov 2026.\n#Agent00 #GTA6 #GTAVI #agent00clips #shorts",
+ "hashtags": [
+  "#Agent00",
+  "#GTA6",
+  "#GTAVI",
+  "#agent00clips",
+  "#shorts"
+ ],
+ "campaign": null,
+ "why_it_trends": "Satire that travels outside gaming: an NPC 'manages a million engineers' but can't pay rent, and Agent00 calls it out like a detective; tech/WFH crowd will tag friends.",
+ "honest_score": {
+  "overall": 7,
+  "hook": 8,
+  "payoff": 7,
+  "face": 7,
+  "layout": 6,
+  "notes": "Game band is a wide medium shot of Mandy (face, torso, laptop) to stay non-suggestive, so her face is small. Payoff is Agent00 talking to cam, full-face, 9 s; it's explanation-heavy, not a big reaction. 113.55+ starts after the slurs; kept words checked clean."
+ },
+ "source_file": "/home/claude/clips/raw/agent00/agent00-04.mp4",
+ "pieces": [
+  [
+   36.4,
+   39.55
+  ],
+  [
+   39.55,
+   44.65
+  ],
+  [
+   113.55,
+   123.65
+  ]
+ ],
+ "loudness": "-14 LUFS integrated (ebur128), TP <= -0.8 dBFS"
+}
