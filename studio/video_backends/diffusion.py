@@ -82,11 +82,11 @@ class Wan22(Backend):
         if shot.image:
             from PIL import Image
             from diffusers import WanImageToVideoPipeline
-            if "wan22_i2v" not in _PIPES:  # same weights, no second download: pass the loaded parts in
+            if "wan22_i2v" not in _PIPES:  # built from the parts already in memory: no second load (RAM)
                 c = p.components
-                _PIPES["wan22_i2v"] = WanImageToVideoPipeline.from_pretrained(
-                    self.model, **{k: c[k] for k in ("vae", "text_encoder", "tokenizer", "transformer", "scheduler")},
-                    torch_dtype=torch.float16)
+                _PIPES["wan22_i2v"] = WanImageToVideoPipeline(
+                    tokenizer=c["tokenizer"], text_encoder=c["text_encoder"], vae=c["vae"], scheduler=c["scheduler"],
+                    transformer=c["transformer"], expand_timesteps=getattr(p.config, "expand_timesteps", True))
                 _PIPES["wan22_i2v"].enable_model_cpu_offload()
             p = _PIPES["wan22_i2v"]
             kw["image"] = Image.open(shot.image).convert("RGB").resize((w, h))
