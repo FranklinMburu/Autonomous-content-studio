@@ -1,0 +1,107 @@
+{
+ "title": "Why Trains Refilled Water Without Stopping",
+ "channel": "Hidden Reasons",
+ "topic": "Why the 19th‑century American railroad company installed “water troughs” along tracks (to allow steam locomotives to refill without stopping)",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A fireman lowered a scoop into a trough while his train kept moving."
+   ]
+  },
+  {
+   "feel": "skepticism",
+   "lines": [
+    "One long run used 1,800 to 1,900 gallons of water.",
+    "In rough weather, that climbed to 2,400 gallons.",
+    "The largest tenders held only 2,000 gallons.",
+    "Other railroad companies were slow to adopt the new device."
+   ]
+  },
+  {
+   "feel": "tension",
+   "lines": [
+    "The locomotive passes over the trough.",
+    "The fireman lowers the scoop just before the start.",
+    "Forward motion forces water up the pipe into the tank.",
+    "Raise the scoop too late, and water soaks the tender and footplate."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it's like refilling a water bottle while you're still running."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "John Ramsbottom proved the method in 1860.",
+    "At 15 miles an hour, motion lifted water 7½ feet.",
+    "That height reached the top of the delivery pipe.",
+    "So trains could skip the water stop and keep their speed.",
+    "In America, big eastern railroads like New York Central and Pennsylvania used them."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "The scoop sprayed water over passengers, so guards warned them to close the windows.",
+    "In America, some troughs filled with rainwater and melting snow."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "A long run consumed 1,800 to 1,900 gallons of water, rising to 2,400 gallons in rough weather, while the largest tenders held only 2,000 gallons.",
+   "url": "https://en.wikipedia.org/wiki/Water_trough"
+  },
+  {
+   "claim": "Other railroad companies were slow to adopt the water trough apparatus after the London and North-Western Railway installed it.",
+   "url": "https://en.wikipedia.org/wiki/Water_trough"
+  },
+  {
+   "claim": "The fireman lowered the scoop shortly before the trough, and forward motion forced water up the scoop pipe into the tank; failing to raise it promptly soaked the tender and footplate.",
+   "url": "https://en.wikipedia.org/wiki/Water_trough"
+  },
+  {
+   "claim": "John Ramsbottom demonstrated in 1860 that at 15 miles an hour the forward motion lifted water 7½ feet, reaching the top of the delivery pipe.",
+   "url": "https://en.wikipedia.org/wiki/Water_trough"
+  },
+  {
+   "claim": "Water troughs let steam locomotives replenish water without stopping, and big eastern American railroads such as the New York Central and Pennsylvania used them.",
+   "url": "https://en.wikipedia.org/wiki/Water_trough"
+  },
+  {
+   "claim": "Spray from the scoop could drench passengers, so guards warned passengers in the first coach to keep the windows closed.",
+   "url": "https://en.wikipedia.org/wiki/Water_trough"
+  },
+  {
+   "claim": "In the United States, water troughs could be supplied by rainwater or snowmelt filling the trough during inclement weather.",
+   "url": "https://en.wikipedia.org/wiki/Steam_locomotive"
+  }
+ ],
+ "key_words": [
+  "scoop",
+  "trough",
+  "fireman",
+  "tender",
+  "gallons",
+  "Ramsbottom",
+  "miles",
+  "feet",
+  "passengers",
+  "windows",
+  "rainwater",
+  "snow"
+ ]
+}
