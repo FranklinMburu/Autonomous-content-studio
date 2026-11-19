@@ -1,0 +1,40 @@
+name: Front door status (Notion)
+
+# Once a day, rewrites the "Live status" box on the Notion page "Start here — YouTube Creator Studio" from the Studio
+# Board, the polish tickets and the open pull requests. Touches only that one box. Free; uses the NOTION_TOKEN secret.
+on:
+  schedule:
+    - cron: "17 4 * * *"   # 07:17 Nairobi
+  push:
+    branches: ["front-door-status/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: front-door-status
+  cancel-in-progress: false
+
+jobs:
+  status:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/checkout@v4
+        with:
+          path: .self
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Write the live status box
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cp .self/tools/front_door_status.py tools/front_door_status.py
+          python tools/front_door_status.py
