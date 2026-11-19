@@ -1,0 +1,90 @@
+[
+ {
+  "id": "kai-C01-p0",
+  "src": "kaicenat-09",
+  "abs_start": 777.3,
+  "abs_end": 789.1,
+  "spec_start": 24.3,
+  "spec_end": 26.1
+ },
+ {
+  "id": "kai-C01-p1",
+  "src": "kaicenat-09",
+  "abs_start": 786.35,
+  "abs_end": 800.55,
+  "spec_start": 33.35,
+  "spec_end": 37.55
+ },
+ {
+  "id": "kai-C01-p2",
+  "src": "kaicenat-09",
+  "abs_start": 818.4,
+  "abs_end": 830.5,
+  "spec_start": 65.4,
+  "spec_end": 67.5
+ },
+ {
+  "id": "kai-C01-p3",
+  "src": "kaicenat-09",
+  "abs_start": 824.4,
+  "abs_end": 838.9,
+  "spec_start": 71.4,
+  "spec_end": 75.9
+ },
+ {
+  "id": "kai-C01-p4",
+  "src": "kaicenat-09",
+  "abs_start": 837.8,
+  "abs_end": 852.55,
+  "spec_start": 84.8,
+  "spec_end": 89.55
+ },
+ {
+  "id": "kai-C01-p5",
+  "src": "kaicenat-09",
+  "abs_start": 876.85,
+  "abs_end": 893.55,
+  "spec_start": 123.85,
+  "spec_end": 130.55
+ },
+ {
+  "id": "kai-C02-p0",
+  "src": "kaicenat-11",
+  "abs_start": 461.0,
+  "abs_end": 483.3,
+  "spec_start": 0.0,
+  "spec_end": 12.3
+ },
+ {
+  "id": "kai-C02-p1",
+  "src": "kaicenat-11",
+  "abs_start": 475.6,
+  "abs_end": 489.45,
+  "spec_start": 14.6,
+  "spec_end": 18.45
+ },
+ {
+  "id": "kai-C02-p2",
+  "src": "kaicenat-11",
+  "abs_start": 509.5,
+  "abs_end": 522.8,
+  "spec_start": 48.5,
+  "spec_end": 51.8
+ },
+ {
+  "id": "kai-C05-p0",
+  "src": "kaicenat-03",
+  "abs_start": 5308.0,
+  "abs_end": 5319.8,
+  "spec_start": 0.0,
+  "spec_end": 1.8
+ },
+ {
+  "id": "kai-C05-p1",
+  "src": "kaicenat-03",
+  "abs_start": 5309.8,
+  "abs_end": 5330.1,
+  "spec_start": 1.8,
+  "spec_end": 12.1
+ }
+]
