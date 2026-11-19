@@ -1,7 +1,6 @@
 name: Clips probe (what GitHub can reach without downloading whole streams)
 
-# 19 Nov 2026: GTA 6 launch day. List the newest VODs (title, category, length, live or not) of the known streamers
-# allowed for the GTA window, so the stream chain can be pointed at real launch streams. Nothing is downloaded.
+# 19 Nov 2026: where in Kai Cenat's GTA 6 marathon VOD do fans clip? (picks the 6 h window for the stream chain)
 on:
   push:
     branches: ["clips-probe/**"]
@@ -12,27 +11,37 @@ permissions:
 jobs:
   probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: GTA launch VODs
+      - name: Kai fan clips on the GTA 6 VOD
         run: |
           pip install -q "yt-dlp==2026.10.26"
-          for ch in kaicenat jynxzi caseoh plaqueboymax lacy fanum dukedennis agent00 ludwig; do
-            echo "== TWITCH $ch"
-            timeout 60 yt-dlp --flat-playlist -I 1:3 --print "%(id)s | %(title).90s | %(duration)s s | live=%(is_live)s | %(timestamp)s" "https://www.twitch.tv/$ch/videos?filter=archives&sort=time" 2>&1 | tail -4
-          done
-          for ch in xqc n3on adinross deshaefrost jaycinco sneako cuffem notquitelikedub jackdoherty iceposeidon; do
-            echo "== KICK $ch"
-            curl -sS -m 20 -A "Mozilla/5.0" "https://kick.com/api/v2/channels/$ch/videos" -o v.json
-            python3 -c "
-          import json
-          try: d = json.load(open('v.json'))
-          except Exception as e: print('  unreadable', e); raise SystemExit
-          for v in (d if isinstance(d, list) else d.get('data', []))[:3]:
-              cats = ','.join(c.get('name', '') for c in (v.get('categories') or []))
-              print(' ', (v.get('video') or {}).get('uuid'), '|', (v.get('session_title') or '')[:90], '|', cats, '|', round((v.get('duration') or 0)/3600000, 1), 'h | live=', v.get('is_live'), '|', v.get('start_time'))
-          "
-          done
+          python3 - <<'PY'
+          import json, subprocess
+          from concurrent.futures import ThreadPoolExecutor
+          vurl = "https://www.twitch.tv/videos/2932305259"
+          vt = json.loads(subprocess.run(["yt-dlp", "-J", "--skip-download", vurl], capture_output=True, text=True).stdout or "{}")
+          t0, dur = vt.get("timestamp") or 0, vt.get("duration") or 0
+          print("VOD", vt.get("title"), "start", t0, "duration h", round(dur / 3600, 2), "live", vt.get("is_live"))
+          urls = subprocess.run(["yt-dlp", "--flat-playlist", "--playlist-end", "100", "--print", "%(url)s",
+                                 "https://www.twitch.tv/kaicenat/clips?filter=clips&range=7d"], capture_output=True, text=True).stdout.split()
+          def info(u):
+              return json.loads(subprocess.run(["yt-dlp", "-J", "--skip-download", u], capture_output=True, text=True).stdout or "{}")
+          with ThreadPoolExecutor(12) as ex:
+              ds = list(ex.map(info, urls))
+          key = []
+          for u, d in zip(urls, ds):
+              ts = d.get("timestamp") or 0
+              if t0 and t0 <= ts <= t0 + dur + 600:
+                  key.append((d.get("view_count") or 0, round(ts - t0 - (d.get("duration") or 30)), d.get("title"), u))
+          key.sort(reverse=True)
+          print("fan clips in this VOD:", len(key), "of", len(urls))
+          for v, off, t, u in key[:40]:
+              print(f"CLIP {v:>8} views @ {off//3600}:{off%3600//60:02d}:{off%60:02d} ({off} s)  {t[:70]}")
+          for h in range(0, int(dur // 3600) + 1):
+              s = sum(v for v, off, *_ in key if h * 3600 <= off < h * 3600 + 3600)
+              print(f"HOUR {h:>2}: {s} views")
+          PY
