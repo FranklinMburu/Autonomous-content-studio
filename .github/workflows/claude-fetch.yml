@@ -1,0 +1,34 @@
+name: Claude clips, raw footage fetch (no AI)
+
+# 19 Nov 2026: Kai's finished Shorts looked soft (footage was recompressed twice on the way to Claude's workspace).
+# This fetches only each Short's exact seconds at Twitch's source quality (1080p60), with NO re-encode, to footage/kai-hq.
+on:
+  push:
+    branches: ["claude-clips/**"]
+permissions:
+  contents: write
+jobs:
+  hq:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q "yt-dlp==2026.10.26" && sudo apt-get install -y -qq --no-install-recommends ffmpeg > /dev/null
+      - name: Fetch source-quality ranges
+        run: |
+          mkdir -p out
+          python3 - <<'PY'
+          import json, subprocess
+          for r in json.load(open("lab/claude_clips/kai_hq_ranges.json")):
+              o = f"out/{r['id']}.mp4"
+              subprocess.run(["yt-dlp", "-q", "--no-warnings", "-N", "8", "-f", "1080p60/1080p/best", "--download-sections",
+                              f"*{r['abs_start']}-{r['abs_end']}", "-o", o, "https://www.twitch.tv/videos/2932305259"])
+              p = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "stream=width,height,r_frame_rate,bit_rate:format=duration,bit_rate",
+                                  "-of", "compact", o], capture_output=True, text=True).stdout
+              print("HQ", r["id"], p.replace("\n", " | "))
+          PY
+          cp lab/claude_clips/kai_hq_ranges.json out/
+      - name: Push to footage/kai-hq
+        run: |
+          cd out && git init -q -b footage/kai-hq && git add . && git -c user.name="Franklin Mburu" -c user.email="184284364+FranklinMburu@users.noreply.github.com" commit -qm "footage kai-hq"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" footage/kai-hq
