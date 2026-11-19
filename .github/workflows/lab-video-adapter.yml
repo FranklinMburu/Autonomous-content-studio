@@ -1,0 +1,41 @@
+name: Lab (video adapter test on Kaggle)
+
+# Lab only: pushing to lab/video-adapter runs lab/kaggle/video_adapter_test on the owner's free Kaggle T4 and commits
+# the clips and log back to that branch (lab/video_out/), so they can be checked frame by frame. Not part of any pipeline.
+on:
+  push:
+    branches: ["lab/video-adapter"]
+    paths: ["lab/kaggle/video_adapter_test/**", ".github/workflows/lab-video-adapter.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lab-video-adapter
+  cancel-in-progress: false
+
+jobs:
+  lab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q -U kaggle six
+      - name: Run on Kaggle
+        env:
+          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+        run: python lab/kaggle/run.py video_adapter_test --wait-min 95 2>&1 | tee run_log.txt
+      - name: Commit the results back to this branch
+        if: always()
+        run: |
+          mkdir -p lab/video_out && cp -r lab_publish/. lab/video_out/ 2>/dev/null || true
+          cp run_log.txt lab/video_out/github_run_log.txt 2>/dev/null || true
+          git config user.name "Franklin Mburu"
+          git config user.email "184284364+FranklinMburu@users.noreply.github.com"
+          git add -f lab/video_out
+          git commit -m "lab: video adapter test results (run ${{ github.run_number }})" || echo "nothing to commit"
+          git push || (git pull --rebase && git push)

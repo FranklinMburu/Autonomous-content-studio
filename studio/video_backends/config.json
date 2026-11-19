@@ -1,0 +1,16 @@
+{
+ "_note": "Order = who is tried first. Paid tools stay off unless Franklin sets enabled AND paid_ok (and adds the secret). Edited 19 Nov 2026.",
+ "paid_ok": false,
+ "order": ["wan22", "ltx", "own"],
+ "backends": {
+  "wan22":      {"enabled": true,  "timeout_s": 1200, "free": true,  "note": "Wan 2.2 TI2V-5B on Kaggle T4 (open weights, Apache-2.0)"},
+  "ltx":        {"enabled": true,  "timeout_s": 600,  "free": true,  "note": "LTX-Video distilled on Kaggle T4 (already used by Hidden Reasons)"},
+  "own":        {"enabled": true,  "timeout_s": 120,  "free": true,  "note": "slow camera move over the shot's picture; never down"},
+  "kling":      {"enabled": false, "free": false, "note": "paid: API has no free tier"},
+  "veo":        {"enabled": false, "free": false, "note": "paid: Gemini API paid tier only"},
+  "higgsfield": {"enabled": false, "free": false, "note": "paid subscription"}
+ },
+ "bench": {"after_failures": 3, "hours": 6},
+ "cache_dir": "cache/video_shots",
+ "log": "cache/video_shots/log.jsonl"
+}
