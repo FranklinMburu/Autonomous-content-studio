@@ -7,11 +7,11 @@ on:
   push:
     branches: ["claude-clips/**"]
 permissions:
-  contents: read
+  contents: write
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
@@ -20,6 +20,8 @@ jobs:
             args: kick --slug n3on --uuid a4f32477-1d99-46bf-8419-727dbf5963ce --top 8
           - name: adin
             args: kick --slug adinross --uuid 079f4c19-373f-4539-a5f1-df8ded531599 --top 8
+          - name: xqc
+            args: kick --slug xqc --uuid 716d63b6-afa9-4afd-a1a6-d9aedf3e3a23 --top 8
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -35,6 +37,11 @@ jobs:
           pip install -q "yt-dlp==2026.10.26" faster-whisper
       - name: Fetch
         run: python lab/claude_clips/fetch.py ${{ matrix.args }} --out out
+      - name: Footage to branch footage/<name> (Claude's workspace reads git only)
+        run: |
+          cd out && for f in *.mp4; do [ $(stat -c%s "$f") -gt 95000000 ] && ffmpeg -v error -y -i "$f" -c:v libx264 -preset veryfast -crf 24 -maxrate 4M -bufsize 8M -c:a copy "s_$f" && mv "s_$f" "$f"; done; ls -la
+          git init -q -b "footage/${{ matrix.name }}" && git add . && git -c user.name="Franklin Mburu" -c user.email="184284364+FranklinMburu@users.noreply.github.com" commit -qm "footage ${{ matrix.name }}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" "footage/${{ matrix.name }}"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
