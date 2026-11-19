@@ -97,17 +97,26 @@ def main():
     from faster_whisper import WhisperModel
     wm = WhisperModel("small.en", device="cpu", compute_type="int8")
     for i, m in enumerate(ms, 1):
-        s0, s1 = max(0, m["a"] - 50), m["b"] + 40
-        s1 = min(s1, s0 + 160)
-        name = f"{a.channel or a.slug}-{i:02d}"
-        f = out / f"{name}.mp4"
-        subprocess.run(["yt-dlp", "-q", "--no-warnings", "-N", "8", "-f", src["fmt"], "--download-sections", f"*{s0:.0f}-{s1:.0f}",
-                        "--force-keyframes-at-cuts", "-o", str(out / f"{name}.raw.mp4"), src["source"]])
-        raw = out / f"{name}.raw.mp4"
-        if not raw.exists():
-            print("FAILED download", name); continue
-        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(raw), "-vf", "fps=30", "-c:v", "libx264", "-preset", "veryfast",
-                        "-crf", "20", "-c:a", "aac", "-b:a", "160k", str(f)]); raw.unlink()
+        if a.platform == "kick":                     # 19 Nov: VOD sections from Kick hang; the fan clip itself is the moment
+            name = f"{a.slug}-{i:02d}"; f = out / f"{name}.mp4"; raw = out / f"{name}.raw.mp4"
+            subprocess.run(["yt-dlp", "-q", "--no-warnings", "-o", str(raw), m["fan_clip"]], timeout=300)
+            if not raw.exists():
+                print("FAILED download", name, m["fan_clip"]); continue
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(raw), "-vf", "fps=30", "-c:v", "libx264", "-preset", "veryfast",
+                            "-crf", "20", "-c:a", "aac", "-b:a", "160k", str(f)]); raw.unlink()
+            s0, s1 = m["a"], m["b"]
+        else:
+            s0, s1 = max(0, m["a"] - 50), m["b"] + 40
+            s1 = min(s1, s0 + 160)
+            name = f"{a.channel or a.slug}-{i:02d}"
+            f = out / f"{name}.mp4"
+            subprocess.run(["yt-dlp", "-q", "--no-warnings", "-N", "8", "-f", src["fmt"], "--download-sections", f"*{s0:.0f}-{s1:.0f}",
+                            "--force-keyframes-at-cuts", "-o", str(out / f"{name}.raw.mp4"), src["source"]])
+            raw = out / f"{name}.raw.mp4"
+            if not raw.exists():
+                print("FAILED download", name); continue
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(raw), "-vf", "fps=30", "-c:v", "libx264", "-preset", "veryfast",
+                            "-crf", "20", "-c:a", "aac", "-b:a", "160k", str(f)]); raw.unlink()
         import numpy as np                       # decode with ffmpeg (19 Nov: faster-whisper's own decoder broke on a new PyAV)
         pcm = subprocess.run(["ffmpeg", "-v", "error", "-i", str(f), "-ac", "1", "-ar", "16000", "-f", "s16le", "-"], capture_output=True).stdout
         segs, _ = wm.transcribe(np.frombuffer(pcm, np.int16).astype(np.float32) / 32768, word_timestamps=True, vad_filter=True)
