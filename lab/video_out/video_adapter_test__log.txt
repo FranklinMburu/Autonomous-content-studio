@@ -1,0 +1,9 @@
+install 36s
+A_from_our_still / own: 79s -> made in 79s; check vision judge 3/3 yes (yes, yes, yes)
+B_text_only / own: 0s -> no backend could make the shot after 0s: [('own', 'skipped: needs a picture')]
+backend own: child exit 0 after 90s
+A_from_our_still / ltx: 365s -> made in 365s; check vision judge 3/3 yes (yes, yes, yes)
+B_text_only / ltx: 78s -> no backend could make the shot after 78s: [('ltx', 'failed: failed the quality check: vision judge 1/3 yes (yes., no, no)')]
+backend ltx: child exit 0 after 459s
+backend wan22: child exit -9 after 463s
+total 1048s

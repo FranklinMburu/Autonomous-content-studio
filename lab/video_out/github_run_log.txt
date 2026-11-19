@@ -1,0 +1,30 @@
+video_adapter_test -> Kernel version 3 successfully pushed.  Please check progress at https://www.kaggle.com/code/franklinvidal/studio-lab-video-adapter-test
+[  1.0 min] video_adapter_test: franklinvidal/studio-lab-video-adapter-test has status "KernelWorkerStatus.RUNNING"
+[  2.0 min] video_adapter_test: franklinvidal/studio-lab-video-adapter-test has status "KernelWorkerStatus.RUNNING"
+[  3.0 min] video_adapter_test: franklinvidal/studio-lab-video-adapter-test has status "KernelWorkerStatus.RUNNING"
+[  4.0 min] video_adapter_test: franklinvidal/studio-lab-video-adapter-test has status "KernelWorkerStatus.RUNNING"
+[  5.0 min] video_adapter_test: franklinvidal/studio-lab-video-adapter-test has status "KernelWorkerStatus.RUNNING"
+[  6.1 min] video_adapter_test: franklinvidal/studio-lab-video-adapter-test has status "KernelWorkerStatus.RUNNING"
+[  7.1 min] video_adapter_test: franklinvidal/studio-lab-video-adapter-test has status "KernelWorkerStatus.RUNNING"
+[  8.1 min] video_adapter_test: franklinvidal/studio-lab-video-adapter-test has status "KernelWorkerStatus.RUNNING"
+[  9.1 min] video_adapter_test: franklinvidal/studio-lab-video-adapter-test has status "KernelWorkerStatus.RUNNING"
+[ 10.1 min] video_adapter_test: franklinvidal/studio-lab-video-adapter-test has status "KernelWorkerStatus.RUNNING"
+[ 11.1 min] video_adapter_test: franklinvidal/studio-lab-video-adapter-test has status "KernelWorkerStatus.RUNNING"
+[ 12.1 min] video_adapter_test: franklinvidal/studio-lab-video-adapter-test has status "KernelWorkerStatus.RUNNING"
+[ 13.1 min] video_adapter_test: franklinvidal/studio-lab-video-adapter-test has status "KernelWorkerStatus.RUNNING"
+[ 14.1 min] video_adapter_test: franklinvidal/studio-lab-video-adapter-test has status "KernelWorkerStatus.RUNNING"
+[ 15.1 min] video_adapter_test: franklinvidal/studio-lab-video-adapter-test has status "KernelWorkerStatus.RUNNING"
+[ 16.1 min] video_adapter_test: franklinvidal/studio-lab-video-adapter-test has status "KernelWorkerStatus.RUNNING"
+[ 17.1 min] video_adapter_test: franklinvidal/studio-lab-video-adapter-test has status "KernelWorkerStatus.RUNNING"
+[ 18.2 min] video_adapter_test: franklinvidal/studio-lab-video-adapter-test has status "KernelWorkerStatus.COMPLETE"
+video_adapter_test output: 0MB/s]
+
+  0%|          | 0.00/2.21k [00:00<?, ?B/s]
+100%|██████████| 2.21k/2.21k [00:00<00:00, 13.0MB/s]
+
+  0%|          | 0.00/1.31k [00:00<?, ?B/s]
+100%|██████████| 1.31k/1.31k [00:00<00:00, 9.14MB/s]
+
+  0%|          | 0.00/6.52k [00:00<?, ?B/s]
+100%|██████████| 6.52k/6.52k [00:00<00:00, 38.0MB/s]
+FINAL: {'video_adapter_test': 'franklinvidal/studio-lab-video-adapter-test has status "KernelWorkerStatus.COMPLETE"'}
