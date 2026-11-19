@@ -1,0 +1,57 @@
+name: "Clips: upload a Short"
+# Streamer Clips (SC): Franklin picks one finished Short (its id, e.g. kai-D1) and runs this; that click is his yes.
+# Shorts and their packages live on branch shorts/sc (mp4 + json per Short; posted.json records what went up).
+# Refuses until Google's API audit is approved (variable YOUTUBE_UPLOADS_APPROVED=true), see docs/YOUTUBE_SETUP.md.
+on:
+  workflow_dispatch:
+    inputs:
+      short:
+        description: "Short id (file name without .mp4 on branch shorts/sc), e.g. kai-D1"
+        required: true
+      privacy:
+        description: "Visibility"
+        type: choice
+        options: [public, unlisted, private]
+        default: public
+      dry_run:
+        description: "Only show what would be uploaded"
+        type: boolean
+        default: true
+permissions:
+  contents: write
+concurrency:
+  group: clips-upload
+  cancel-in-progress: false
+jobs:
+  upload:
+    if: github.actor == github.repository_owner
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+      YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+      YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_SC_REFRESH_TOKEN }}
+      YOUTUBE_UPLOADS_APPROVED: ${{ vars.YOUTUBE_UPLOADS_APPROVED }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/checkout@v5
+        with:
+          ref: shorts/sc
+          path: shorts
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Upload
+        env:
+          SHORT: ${{ inputs.short }}
+          PRIVACY: ${{ inputs.privacy }}
+          DRY: ${{ inputs.dry_run }}
+        run: |
+          [[ "$SHORT" =~ ^[A-Za-z0-9_-]{1,40}$ ]] || { echo "bad id"; exit 1; }
+          python -m studio.clips.upload --dir shorts --id "$SHORT" --privacy "$PRIVACY" $([ "$DRY" = true ] && echo --dry-run) | tee upload.log
+      - name: Record it on shorts/sc
+        if: success() && inputs.dry_run == false
+        run: |
+          cd shorts && git add posted.json && git -c user.name="Franklin Mburu" -c user.email="184284364+FranklinMburu@users.noreply.github.com" commit -qm "posted ${{ inputs.short }}" && git push
+      - if: always()
+        run: '{ echo "### Upload"; echo "\`\`\`"; cat upload.log 2>/dev/null; echo "\`\`\`"; } >> "$GITHUB_STEP_SUMMARY"'
