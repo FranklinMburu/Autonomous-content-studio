@@ -266,7 +266,9 @@ def one(m, a, model, b, out):
         f"{vp['angle']}); fix: {rv.get('fix', '')[:120]}" if reviewed
         else "review: NOT REVIEWED (the AI reviewer gave no answer: free quota spent?); it goes to you unscored")
     # 6. the post package
-    tags = [re.sub(r"[^A-Za-z0-9_]", "", h) for h in (ed.get("hashtags") or [])][:5] or [a.streamer.replace(" ", "").lower()]
+    tags = [re.sub(r"[^A-Za-z0-9_]", "", h) for h in (ed.get("hashtags") or [])][:5]
+    main_tag = re.sub(r"[^A-Za-z0-9_]", "", a.streamer.title().replace(" ", ""))   # 19 Nov: campaigns require #KaiCenat-style tags
+    tags = [main_tag] + [t for t in tags if t.lower() != main_tag.lower()][:4]
     post = {
         "id": m["id"], "title": clip["title"], "hook": clip["hook"]["text"],
         "description": f"{clip['title']}\n\nFrom {a.streamer}'s stream \"{a.stream_title}\".\n" + " ".join(f"#{h}" for h in tags + ["shorts"]),
@@ -274,7 +276,10 @@ def one(m, a, model, b, out):
         "gates_failed": failed, "checks": rv.get("checks", []), "checks_passed": f"{len(passed)}/{len(CHECKS)}",
         "scores": sc, "reviewed": reviewed, "fix": rv.get("fix", ""), "predicted_views": band(sc["overall"]) if reviewed else "",
         "viewer": vp, "angle": vp["angle"] or ed.get("angle", ""),
-        "before_you_post": (f"Rights NOT verified: this is {a.streamer}'s stream ({a.page}). Check whether {a.streamer} runs a "
+        "before_you_post": ("Campaign checklist (Content Rewards / Reach rules, 19 Nov): open with a clear paid-promotion "
+                            f"disclosure; keep {a.streamer} the main focus; caption keeps #{main_tag}; post only where the "
+                            "campaign counts views; submit the link within 30 minutes of posting. "
+                            f"Rights NOT verified: this is {a.streamer}'s stream ({a.page}). Check whether {a.streamer} runs a "
                             "clipping program or campaign, and its rules, before posting. The predicted views are the "
                             "reviewer's guess, not a measurement. " + ("Checks failed: " + ", ".join(k for k in CHECKS if k not in passed) + ". " if len(passed) < len(CHECKS) else "")
                             + ("Gates failed: " + ", ".join(failed) + "." if failed else "")

@@ -93,7 +93,8 @@ jobs:
           if [ "$(jq -r .platform $J)" = kick ]; then
             python lab/clips/find.py resolve --platform kick --slug "$(jq -r .slug $J)" --uuid "$(jq -r '.uuid // empty' $J)" --out f/stream.json
           else
-            python lab/clips/find.py resolve --platform twitch --url "$(jq -r .url $J)" --out f/stream.json
+            python lab/clips/find.py resolve --platform twitch --url "$(jq -r .url $J)" --out f/stream.json \
+              $(jq -r 'if .from_s then "--from-s \(.from_s)" else "" end' $J) $(jq -r 'if .to_s then "--to-s \(.to_s)" else "" end' $J)
           fi
       - name: Chat replay (in the background while the media downloads)
         run: |
@@ -104,7 +105,8 @@ jobs:
       - name: Media (160p with sound, whole stream) and audio
         run: |
           s0=$(date +%s)
-          yt-dlp -q --no-warnings -N 16 -f "worst" -o f/low.mp4 "$(jq -r .vod.source f/stream.json)"
+          W=$(jq -r 'if .vod.offset then "*\(.vod.offset)-\(.vod.offset + .vod.duration)" else "" end' f/stream.json)
+          yt-dlp -q --no-warnings -N 16 -f "worst" ${W:+--download-sections "$W"} -o f/low.mp4 "$(jq -r .vod.source f/stream.json)"
           ffmpeg -v error -y -i f/low.mp4 -vn -ac 1 -ar 16000 -c:a aac -b:a 48k f/audio.m4a
           echo "media $(( $(date +%s)-s0 )) s"; ls -la f/
       - name: What was said (Kick's own subtitles; Whisper if there are none)
@@ -145,7 +147,7 @@ jobs:
           python lab/clips/ai_pass.py judge --cands f/cands.json --words f/words.json --eyes f/eyes.json --video f/low.mp4 --audio f/audio.m4a \
             --streamer "$(jq -r .streamer lab/clips/stream_job.json)" --out f/judged.json --pause 5
           echo "judge $(( $(date +%s)-s0 )) s"
-          python lab/clips/find.py pick --judged f/judged.json --top "$(jq -r .top lab/clips/stream_job.json)" --out f/moments.json
+          python lab/clips/find.py pick --stream f/stream.json --judged f/judged.json --top "$(jq -r .top lab/clips/stream_job.json)" --out f/moments.json
       - id: out
         run: |
           python3 - <<'PY'

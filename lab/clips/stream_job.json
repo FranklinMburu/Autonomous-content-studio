@@ -1,9 +1,11 @@
 {
- "platform": "kick",
- "slug": "n3on",
- "uuid": "",
- "streamer": "N3on",
+ "platform": "twitch",
+ "url": "https://www.twitch.tv/videos/2932305259",
+ "slug": "kaicenat",
+ "streamer": "Kai Cenat",
  "lane": "SC",
  "top": 12,
+ "from_s": 0,
+ "to_s": 14400,
  "fmt": "b[height<=1080]/b"
 }

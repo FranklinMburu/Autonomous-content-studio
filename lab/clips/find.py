@@ -76,6 +76,14 @@ def resolve(a):
         d = json.loads(subprocess.run(["yt-dlp", "-J", "--skip-download", a.url], capture_output=True, text=True).stdout)
         vod = {"platform": "twitch", "id": d["id"], "source": a.url, "start": d.get("timestamp"), "duration": d["duration"],
                "title": d.get("title") or "", "page": a.url}
+    if a.from_s is not None or a.to_s is not None:   # 19 Nov: a window of a long or still-live VOD (Kai's 21 h GTA 6 marathon)
+        full = vod["duration"]
+        lo = max(0.0, a.from_s if a.from_s is not None and a.from_s >= 0 else full + (a.from_s or 0))
+        hi = min(full, a.to_s) if a.to_s is not None else full
+        if hi - lo < 1800:
+            sys.exit(f"window {lo:.0f}-{hi:.0f} s is under 30 min (VOD is {full:.0f} s)")
+        vod.update({"offset": round(lo), "full_duration": full, "duration": round(hi) - round(lo)})
+        print(f"  window: {lo/3600:.2f} h to {hi/3600:.2f} h of {full/3600:.2f} h; all times below count from the window start")
     Path(a.out).write_text(json.dumps({"vod": vod, "key": []}, indent=1))
     print(f"stream: {vod['title'][:80]!r} {vod['duration']/3600:.2f} h, started {vod['start']}\n  page {vod['page']}")
 
@@ -144,12 +152,13 @@ def pick(a):
         except (TypeError, ValueError, KeyError):
             pass
     ok.sort(key=lambda x: (-x[0], x[1]))
+    off = json.loads(Path(a.stream).read_text())["vod"].get("offset", 0) if a.stream else 0   # back to absolute VOD seconds
     keep = []
     for sc, t, m in ok:
         if sc < a.min_score or len(keep) >= a.top:
             break
         if all(abs(t - k["t"]) >= a.gap for k in keep) and not any(same_story(m.get("title") or "", k["title"]) for k in keep):
-            keep.append({"t": int(t), "title": m.get("title") or "", "why": f"judge {m.get('score_alone', sc)}; {m.get('kind') or ''}: {(m.get('why') or '')[:200]}",
+            keep.append({"t": int(t + off), "title": m.get("title") or "", "why": f"judge {m.get('score_alone', sc)}; {m.get('kind') or ''}: {(m.get('why') or '')[:200]}",
                          "score": round(sc, 2)})
     Path(a.out).write_text(json.dumps(keep, indent=1, ensure_ascii=False))
     print(f"moments chosen: {len(keep)}")
@@ -162,9 +171,12 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     r = sub.add_parser("resolve"); r.add_argument("--platform", choices=("kick", "twitch"), required=True)
     r.add_argument("--slug"); r.add_argument("--uuid"); r.add_argument("--url"); r.add_argument("--min-hours", type=float, default=1.5); r.add_argument("--out", required=True)
+    r.add_argument("--from-s", type=float, help="window start in VOD seconds (negative = that many seconds before the end)")
+    r.add_argument("--to-s", type=float, help="window end in VOD seconds (fixed, so a still-live VOD doesn't move under us)")
     s = sub.add_parser("subs"); s.add_argument("--stream", required=True); s.add_argument("--out", required=True)
     p = sub.add_parser("pick"); p.add_argument("--judged", required=True); p.add_argument("--out", required=True)
     p.add_argument("--top", type=int, default=12); p.add_argument("--gap", type=float, default=60); p.add_argument("--min-score", type=float, default=0)
+    p.add_argument("--stream", help="stream.json: its window offset turns picks back into absolute VOD seconds")
     a = ap.parse_args()
     {"resolve": resolve, "subs": subs, "pick": pick}[a.cmd](a)
 
