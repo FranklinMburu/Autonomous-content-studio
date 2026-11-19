@@ -66,19 +66,19 @@ export async function build(timing) {
   let screenState = { type: 0, mode: 'chat', answer: 0, spinner: 0, files: 1 };
   const drawScreen = (g, w, h) => {
     const s = screenState; g.fillStyle = '#0c0e13'; g.fillRect(0, 0, w, h);
-    g.fillStyle = '#151820'; g.fillRect(0, 0, 230, h); g.fillStyle = '#9aa3b2'; g.font = '600 26px Inter'; g.fillText('Assistant', 28, 52);
-    ['Today', 'Notes', 'Plans', 'Ideas'].forEach((x, i) => { g.fillStyle = i === 1 ? '#262b36' : 'transparent'; g.fillRect(16, 86 + i * 50, 198, 40); g.fillStyle = '#7d8696'; g.font = '22px Inter'; g.fillText(x, 30, 113 + i * 50); });
+    g.fillStyle = '#171b24'; g.fillRect(0, 0, 300, h); g.fillStyle = '#c3cad6'; g.font = '700 44px Inter'; g.fillText('Assistant', 30, 70);
+    ['Today', 'Notes', 'Plans', 'Ideas'].forEach((x, i) => { g.fillStyle = i === 1 ? '#2b3140' : 'rgba(0,0,0,0)'; g.fillRect(16, 120 + i * 80, 268, 64); g.fillStyle = '#98a2b3'; g.font = '36px Inter'; g.fillText(x, 34, 164 + i * 80); });
     if (s.mode === 'chat') {
-      g.fillStyle = '#1b1f29'; g.beginPath(); g.roundRect(280, h - 130, w - 330, 72, 36); g.fill();
-      const q = 'Summarise my notes from this week'; g.fillStyle = '#e6e9ef'; g.font = '28px Inter'; g.fillText(q.slice(0, Math.floor(q.length * s.type)) + (s.type < 1 ? '|' : ''), 316, h - 84);
+      g.fillStyle = '#222836'; g.beginPath(); g.roundRect(340, h - 170, w - 390, 110, 55); g.fill();
+      const q = 'Summarise my notes from this week'; g.fillStyle = '#eef1f6'; g.font = '44px Inter'; g.fillText(q.slice(0, Math.floor(q.length * s.type)) + (s.type < 1 ? '|' : ''), 384, h - 100);
       if (s.spinner > 0) { g.save(); g.translate(w / 2 + 110, h / 2 - 40); g.rotate(s.spinner * 9); g.strokeStyle = '#ff6b6b'; g.lineWidth = 8; g.beginPath(); g.arc(0, 0, 46, 0, Math.PI * 1.4); g.stroke(); g.restore();
         g.fillStyle = '#ff8a8a'; g.font = '600 26px Inter'; g.textAlign = 'center'; g.fillText('Waiting for the server…', w / 2 + 110, h / 2 + 50); g.textAlign = 'left'; }
       if (s.answer > 0) {
-        g.globalAlpha = s.answer; g.fillStyle = '#e8ebf1'; g.font = '600 28px Inter'; g.fillText('Here is a short summary of your notes:', 300, 150);
-        ['1. The launch moves to Friday.', '2. The budget is approved.', '3. Send the draft to Sam today.'].forEach((x, i) => { g.font = '27px Inter'; g.fillStyle = '#c9cfda'; g.fillText(x, 300, 205 + i * 48); });
+        g.globalAlpha = s.answer; g.fillStyle = '#eef1f6'; g.font = '700 46px Inter'; g.fillText('Your notes, summarised:', 360, 130);
+        ['1. Launch moves to Friday', '2. Budget approved', '3. Send draft to Sam'].forEach((x, i) => { g.font = '42px Inter'; g.fillStyle = '#d3d9e4'; g.fillText(x, 360, 220 + i * 76); });
         g.globalAlpha = 1;
       }
-      g.fillStyle = ACC_CSS; g.beginPath(); g.arc(w - 92, h - 94, 22, 0, 7); g.fill();
+      g.fillStyle = ACC_CSS; g.beginPath(); g.arc(w - 110, h - 115, 36, 0, 7); g.fill();
     }
   };
   const lap = laptop({ screen: drawScreen, screenGlow: 0x9db8ff }); lap.position.set(0, 0, 0); A.add(lap);
@@ -88,7 +88,7 @@ export async function build(timing) {
   const rl = new THREE.InstancedMesh(new THREE.SphereGeometry(.025, 6, 6), M.basic(0x5dff8a, { toneMapped: false }), 5); { const o = new THREE.Object3D(); for (let i = 0; i < 5; i++) { o.position.set(-.3 + i * .15, .13, .355); o.updateMatrix(); rl.setMatrixAt(i, o.matrix); } } router.add(rl);
   router.position.set(3.4, 0, -2.4); router.rotation.y = -.4; A.add(router);
   // lights
-  const key = new THREE.SpotLight(0xffd2a1, 60, 30, .5, .6, 1.6); key.position.set(-4, 7, 4); key.target.position.set(0, 0, -.5); key.castShadow = true; key.shadow.mapSize.set(1024, 1024); key.shadow.bias = -.0004; A.add(key, key.target);
+  const key = new THREE.SpotLight(0xffd2a1, 34, 30, .5, .6, 1.6); key.position.set(-4, 7, 4); key.target.position.set(0, 0, -.5); key.castShadow = true; key.shadow.mapSize.set(1024, 1024); key.shadow.bias = -.0004; A.add(key, key.target);
   const moon = new THREE.DirectionalLight(0x7d9cff, .9); moon.position.set(2, 6, -10); A.add(moon);
   const hemi = new THREE.HemisphereLight(0x33405e, 0x120c08, .35); scene.add(hemi);
   const dA = dust(420, [12, 6, 8], [0, 2.5, -1], 3); A.add(dA);
@@ -115,7 +115,7 @@ export async function build(timing) {
   const racks = []; for (let i = 0; i < 12; i++) for (const s of [-1, 1]) { const r = rack(4.2, i * 2 + (s > 0)); r.position.set(s * 2.0, 0, -i * 1.5 - 1); r.rotation.y = -s * Math.PI / 2; C.add(r); racks.push(r); }
   for (let i = 0; i < 6; i++) { const strip = box(.25, .05, 5, M.glow(0xdbe8ff, 3)); strip.position.set(0, 5.2, -4 - i * 6); C.add(strip); }
   const ceil = box(6, .1, 48, M.std(0x1a1d22, .8)); ceil.position.set(0, 5.4, -18); C.add(ceil);
-  const aisleL = new THREE.PointLight(0xdbe8ff, 40, 26, 2); aisleL.position.set(0, 4.6, -8); C.add(aisleL); const aisleL2 = aisleL.clone(); aisleL2.position.z = -22; C.add(aisleL2);
+  const aisleL = new THREE.PointLight(0xdbe8ff, 70, 26, 2); aisleL.position.set(0, 4.6, -8); C.add(aisleL); const aisleL2 = aisleL.clone(); aisleL2.position.z = -22; C.add(aisleL2);
 
   // ======================= SET D: the chip, macro (x=400) =======================
   const D = new THREE.Group(); D.position.x = 400; scene.add(D);
@@ -125,7 +125,7 @@ export async function build(timing) {
   const ch = chip({ size: 2.2 }); ch.position.y = .02; D.add(ch);
   const pipes = []; for (const s of [-1, 1]) { const curve = new THREE.CatmullRomCurve3([new THREE.Vector3(s * .5, .2, -1.6), new THREE.Vector3(s * .5, .35, -2.8), new THREE.Vector3(s * 1.6, .35, -3.6), new THREE.Vector3(s * 3.4, .35, -3.4)]);
     const p = new THREE.Mesh(new THREE.TubeGeometry(curve, 60, .12, 14), M.phys(0xd27a43, .28, 1)); p.castShadow = true; D.add(p); pipes.push(p); }
-  const dk = new THREE.SpotLight(0xffffff, 80, 20, .55, .5, 1.5); dk.position.set(-3, 7, 3); dk.target.position.set(0, 0, 0); dk.castShadow = true; dk.shadow.mapSize.set(1024, 1024); D.add(dk, dk.target);
+  const dk = new THREE.SpotLight(0xffffff, 18, 20, .55, .5, 1.5); dk.position.set(-3, 7, 3); dk.target.position.set(0, 0, 0); dk.castShadow = true; dk.shadow.mapSize.set(1024, 1024); D.add(dk, dk.target);
   const drim = new THREE.PointLight(ACC, 0, 8, 2); drim.position.set(0, 1.5, 0); D.add(drim);
   const dD = dust(260, [10, 4, 10], [0, 1.5, 0], 13, .02, 0xe6ffd0); D.add(dD);
   // the "data center shrinks into a chip" proxy: a mini building that scales down onto the chip
@@ -139,10 +139,10 @@ export async function build(timing) {
   const mk = (n, x, z0, col) => { const a = []; for (let i = 0; i < n; i++) { const m = rbox(.7, .14, .38, .03, M.phys(col, .3, .4, { emissive: col, emissiveIntensity: .12 })); m.position.set(x, .07, z0 + i * .5); Eg.add(m); a.push(m); } return a; };
   const memA = mk(4, -2.2, -2.9, 0xe9e9ee), memB = mk(4, 2.2, -2.9, 0xf2b7c4);
   const wall = box(.12, .9, 7, M.phys(0x30343c, .3, .2, { transparent: true, opacity: .9 })); wall.position.set(0, .45, -1); Eg.add(wall);
-  const pool = rbox(5.6, .16, 2.1, .06, M.phys(TEAL, .25, .1, { emissive: TEAL, emissiveIntensity: .45, transparent: true, opacity: .92 })); pool.position.set(0, .08, -2.2); Eg.add(pool);
-  const model = new THREE.Group(); { const cub = new THREE.InstancedMesh(new RoundedBoxGeometry(.13, .13, .13, 2, .02), M.phys(ACC, .3, 0, { emissive: ACC, emissiveIntensity: .7 }), 216); const o = new THREE.Object3D(); let i = 0;
+  const pool = rbox(5.6, .16, 2.1, .06, M.phys(TEAL, .25, .1, { emissive: TEAL, emissiveIntensity: .22, transparent: true, opacity: .92 })); pool.position.set(0, .08, -2.2); Eg.add(pool);
+  const model = new THREE.Group(); { const cub = new THREE.InstancedMesh(new RoundedBoxGeometry(.13, .13, .13, 2, .02), M.phys(ACC, .3, 0, { emissive: ACC, emissiveIntensity: .3 }), 216); const o = new THREE.Object3D(); let i = 0;
     for (let x = 0; x < 9; x++) for (let y = 0; y < 3; y++) for (let z = 0; z < 8; z++) { o.position.set(-.72 + x * .18, y * .18, -.63 + z * .18); o.updateMatrix(); cub.setMatrixAt(i++, o.matrix); } model.add(cub); } Eg.add(model);
-  const ek = new THREE.SpotLight(0xffffff, 70, 22, .6, .5, 1.4); ek.position.set(-2, 8, 4); ek.target.position.set(0, 0, -1); ek.castShadow = true; Eg.add(ek, ek.target);
+  const ek = new THREE.SpotLight(0xffffff, 16, 22, .6, .5, 1.4); ek.position.set(-2, 8, 4); ek.target.position.set(0, 0, -1); ek.castShadow = true; Eg.add(ek, ek.target);
   const eD = dust(200, [10, 4, 10], [0, 1.5, -1], 17, .02, 0xd6fff4); Eg.add(eD);
 
   // ======================= SET F: Prism, the catch (x=600) =======================
@@ -151,14 +151,14 @@ export async function build(timing) {
   const grid = new THREE.GridHelper(40, 40, 0x3a2224, 0x231416); grid.position.y = .01; F.add(grid);
   const plinth = rbox(1.6, .5, 1.6, .06, M.std(0x18191c, .4, .6)); plinth.position.set(0, .25, 0); F.add(plinth);
   const armChip = chip({ size: 1.1 }); armChip.position.set(0, .52, 0); F.add(armChip);
-  const gate = new THREE.Group(); { const fr = new THREE.Mesh(new THREE.TorusGeometry(1.25, .06, 12, 64), M.glow(0xff8a7a, 1.4)); gate.add(fr); const glass = new THREE.Mesh(new THREE.CircleGeometry(1.2, 64), M.phys(0xffc9c0, .05, 0, { transmission: .9, transparent: true, opacity: .25, roughness: .1 })); gate.add(glass); }
+  const gate = new THREE.Group(); { const fr = new THREE.Mesh(new THREE.TorusGeometry(1.25, .045, 12, 64), M.glow(0xff8a7a, .7)); gate.add(fr); const glass = new THREE.Mesh(new THREE.CircleGeometry(1.2, 64), M.phys(0xffc9c0, .05, 0, { transmission: .9, transparent: true, opacity: .25, roughness: .1 })); gate.add(glass); }
   gate.position.set(-2.4, 1.6, 0); gate.rotation.y = Math.PI / 2; F.add(gate);
   const appTex = (lines, title) => canvasTex(640, 420, (g, w, h) => { g.fillStyle = '#d4d0c8'; g.fillRect(0, 0, w, h); g.fillStyle = '#0a246a'; g.fillRect(0, 0, w, 40); g.fillStyle = '#fff'; g.font = '600 22px Inter'; g.fillText(title, 14, 28);
     g.fillStyle = '#fff'; g.fillRect(12, 56, w - 24, h - 70); g.fillStyle = '#111'; g.font = '30px "DejaVu Sans Mono"'; lines.forEach((l, i) => g.fillText(l, 30, 110 + i * 56)); });
   const appX86 = new THREE.Mesh(new THREE.PlaneGeometry(2.2, 1.45), new THREE.MeshBasicMaterial({ map: appTex(['MOV EAX, 5', 'ADD EAX, EBX', 'CMP EAX, 9', 'JNE loop'], 'old_app.exe  ·  x86'), toneMapped: false }));
   const appArm = new THREE.Mesh(new THREE.PlaneGeometry(2.2, 1.45), new THREE.MeshBasicMaterial({ map: appTex(['MOV W0, #5', 'ADD W0, W0, W1', 'CMP W0, #9', 'B.NE loop'], 'old_app.exe  ·  translated'), toneMapped: false, transparent: true }));
   F.add(appX86, appArm);
-  const redL = new THREE.PointLight(0xff3b30, 40, 16, 2); redL.position.set(0, 4, 2); F.add(redL);
+  const redL = new THREE.PointLight(0xff3b30, 14, 16, 2); redL.position.set(0, 4, 2); F.add(redL);
   const fD = dust(200, [10, 5, 10], [0, 2, 0], 19, .025, 0xffc4bd); F.add(fD);
 
   // ======================= SET G: six laptops + the hero close (x=700) =======================
@@ -169,7 +169,7 @@ export async function build(timing) {
     l.position.set((i % 3 - 1) * 4.2, 0, -Math.floor(i / 3) * 4.2 - 1); l.rotation.y = (rr() - .5) * .5; l.scale.setScalar(.9); G.add(l); row.push(l); }
   const hero = laptop({ open: 1, screen: drawScreen }); hero.position.set(0, 0, 4.5); G.add(hero);
   const xchip = chip({ size: .62 }); xchip.position.set(0, .05, 4.3); G.add(xchip);
-  const gk = new THREE.SpotLight(0xffffff, 90, 30, .5, .7, 1.4); gk.position.set(0, 9, 7); gk.target.position.set(0, 0, 3); gk.castShadow = true; gk.shadow.mapSize.set(1024, 1024); G.add(gk, gk.target);
+  const gk = new THREE.SpotLight(0xffffff, 40, 30, .5, .7, 1.4); gk.position.set(0, 9, 7); gk.target.position.set(0, 0, 3); gk.castShadow = true; gk.shadow.mapSize.set(1024, 1024); G.add(gk, gk.target);
   const gfill = new THREE.PointLight(0x9db8ff, 10, 20, 2); gfill.position.set(-4, 3, 0); G.add(gfill);
   const gD = dust(260, [14, 5, 14], [0, 2, 0], 23); G.add(gD);
 
@@ -218,6 +218,7 @@ export async function build(timing) {
     { t: c.here2, p: X(700, [.6, 2.0, 7.6]), l: X(700, [0, .5, 4.2]), fov: 30 },
     { t: dur, p: X(700, [.4, 1.7, 7.0]), l: X(700, [0, .4, 4.2]), fov: 29 }
   ];
+  for (const k of keysCam) { const f = k.l[0] < 100 ? 2.4 : k.l[0] > 350 && k.l[0] < 650 ? 2.0 : k.l[0] >= 650 ? 1.35 : 1; k.p = k.p.map((v, i) => k.l[i] + (v - k.l[i]) * f); }
   const cam = camRig(camera, keysCam, .012);
 
   // ---------- per-frame state ----------
@@ -226,6 +227,7 @@ export async function build(timing) {
   const cutTimes = keysCam.filter(k => k.cut).map(k => k.t);
   const render = (t) => {
     cam(t);
+    if (window.__camO) { const o = window.__camO; camera.position.set(...o.p); camera.lookAt(...o.l); camera.fov = o.fov || 40; camera.updateProjectionMatrix(); }
     for (const d of [dA, bDust, dD, eD, fD, gD]) d.userData.tick(t);
     racks.forEach((r, i) => i % 3 === 0 && r.userData.tick(t + i));
     // ----- SET A behaviour -----
@@ -261,7 +263,7 @@ export async function build(timing) {
     ch.userData.cores.forEach((m, i) => { const on = t > c.twenty + i * .06; m.material.emissive.set(on ? 0x9ec5ff : 0x000000); m.material.emissiveIntensity = on ? .9 : 0; });
     const nCells = Math.floor(6144 * easeOut((t - c.six) / 2.2)); if (ch.userData.n !== nCells) { ch.userData.n = nCells; ch.userData.lightCells(nCells, ACC, t); }
     if (t > c.petaflop && Math.floor(t * 10) !== ch.userData.f) { ch.userData.f = Math.floor(t * 10); ch.userData.lightCells(6144, ACC, t); }
-    drim.intensity = t > c.six ? 6 : 0;
+    drim.intensity = t > c.six ? 2.5 : 0;
     // ----- SET E: memory merge -----
     const kM = ease((t - c.here1) / 1.0);
     memA.forEach((m, i) => { m.position.x = 500 - 500 + lerp(-2.2, -1.8 + i * .0, 0); m.position.set(lerp(-2.2, -2.4 + i * 1.1, kM), .07 + .4 * Math.sin(Math.PI * kM), lerp(-2.9 + i * .5, -2.2, kM)); m.visible = kM < .98; });
@@ -283,7 +285,7 @@ export async function build(timing) {
     const inRed = t > c.catchW - .05 && t < c.sixB - .05;
     grade.uniforms.tint.value.set(inRed ? 1.12 : 1, inRed ? .9 : 1, inRed ? .9 : 1.02);
     grade.uniforms.focusY.value = .47; grade.uniforms.band.value = t > c.nvidia && t < c.gaming ? .1 : .15; grade.uniforms.blur.value = 1;
-    bloom.strength = t > c.six && t < c.gaming ? .85 : .55;
+    bloom.strength = t > c.six && t < c.gaming ? .6 : .45;
     composer.render();
     // ----- overlays -----
     const S = v => toScreen(v, camera, W, H);

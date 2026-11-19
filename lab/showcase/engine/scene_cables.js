@@ -68,13 +68,13 @@ export async function build(timing) {
     const tail = new THREE.Group(); const tu = new THREE.Mesh(new THREE.ConeGeometry(.22, 1.1, 3), bodyM); tu.position.y = .45; tu.rotation.x = .5; const tl = tu.clone(); tl.position.y = -.35; tl.rotation.x = Math.PI - .5; tl.scale.y = .7; tail.add(tu, tl); tail.position.z = -2.4; shark.add(tail); shark.userData.tail = tail;
     for (const s of [-1, 1]) { const f = new THREE.Mesh(new THREE.ConeGeometry(.2, 1.0, 3), bodyM); f.position.set(s * .55, -.25, .4); f.rotation.z = s * 1.9; f.rotation.x = .4; shark.add(f); }
     for (const s of [-1, 1]) { const e = new THREE.Mesh(new THREE.SphereGeometry(.06, 8, 8), M.basic(0x050505)); e.position.set(s * .38, .12, 1.7); shark.add(e); } }
-  B.add(shark);
+  shark.scale.setScalar(.62); B.add(shark);
   // ship above (seen from below) + anchor chain + anchor
   const hull = new THREE.Mesh(new THREE.CapsuleGeometry(3, 18, 8, 16), M.std(0x05070a, .9)); hull.rotation.x = Math.PI / 2; hull.scale.set(1, 1, .5); B.add(hull);
   const surf = new THREE.Mesh(new THREE.PlaneGeometry(200, 200), new THREE.MeshBasicMaterial({ color: 0x4aa8d8, transparent: true, opacity: .22, side: THREE.DoubleSide, toneMapped: false })); surf.rotation.x = Math.PI / 2; surf.position.y = 30; B.add(surf);
-  const anchor = new THREE.Group(); { const am = M.phys(0x3a3d42, .45, .9); const shank = box(.18, 1.6, .18, am); shank.position.y = .8; anchor.add(shank); const arm = new THREE.Mesh(new THREE.TorusGeometry(.75, .09, 8, 24, Math.PI), am); arm.rotation.z = Math.PI; arm.position.y = .2; anchor.add(arm);
-    for (const s of [-1, 1]) { const fl = new THREE.Mesh(new THREE.ConeGeometry(.2, .45, 4), am); fl.position.set(s * .78, .32, 0); anchor.add(fl); } } B.add(anchor);
-  const chainM = M.phys(0x50545b, .4, .9); const chain = new THREE.Mesh(new THREE.CylinderGeometry(.05, .05, 1, 8), chainM); B.add(chain);
+  const anchor = new THREE.Group(); { const am = M.phys(0x8a9099, .35, .9); const shank = box(.18, 1.6, .18, am); shank.position.y = .8; anchor.add(shank); const arm = new THREE.Mesh(new THREE.TorusGeometry(.75, .09, 8, 24, Math.PI), am); arm.rotation.z = Math.PI; arm.position.y = .2; anchor.add(arm);
+    for (const s of [-1, 1]) { const fl = new THREE.Mesh(new THREE.ConeGeometry(.2, .45, 4), am); fl.position.set(s * .78, .32, 0); anchor.add(fl); } } anchor.scale.setScalar(2.2); B.add(anchor); const anchorL = new THREE.PointLight(0xbfe0ff, 30, 12, 2); B.add(anchorL);
+  const chainM = M.phys(0x50545b, .4, .9); const chain = new THREE.Mesh(new THREE.CylinderGeometry(.11, .11, 1, 8), chainM); B.add(chain);
   // the grapnel hook of the repair ship
   const hook = new THREE.Group(); { const hm = M.phys(0xb8bcc4, .3, 1); const sh = box(.12, 1.2, .12, hm); sh.position.y = .6; hook.add(sh); for (let i = 0; i < 4; i++) { const p = new THREE.Mesh(new THREE.TorusGeometry(.35, .05, 8, 16, Math.PI * .9), hm); p.rotation.y = i * Math.PI / 2; p.position.y = .3; hook.add(p); } } B.add(hook);
   const line = new THREE.Mesh(new THREE.CylinderGeometry(.025, .025, 1, 6), M.std(0xcfc8b8, .6)); B.add(line);
@@ -105,16 +105,16 @@ export async function build(timing) {
   const eS = starfield(1400, 80, 9, .2); E.add(eS);
 
   // ================= SET F: the repair ship at dawn (x=500): surface above the seafloor's twin =================
-  const F = new THREE.Group(); F.position.x = 500; scene.add(F);
+  const F = new THREE.Group(); F.position.x = 900; scene.add(F);
   const dawnSky = new THREE.Mesh(new THREE.PlaneGeometry(400, 160), new THREE.MeshBasicMaterial({ map: canvasTex(512, 512, (g, w, h) => { const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, '#0d1a33'); gr.addColorStop(.55, '#5d4a6e'); gr.addColorStop(.8, '#f08a5d'); gr.addColorStop(1, '#ffd29a'); g.fillStyle = gr; g.fillRect(0, 0, w, h); }), toneMapped: false })); dawnSky.position.set(0, 40, -160); F.add(dawnSky);
   const sun = new THREE.Mesh(new THREE.CircleGeometry(7, 48), M.basic(0xffe2a8, { toneMapped: false })); sun.position.set(18, 12, -155); F.add(sun);
   const fsea = new THREE.Mesh(new THREE.PlaneGeometry(500, 500), M.phys(0x1f3a52, .15, 0, { clearcoat: 1, clearcoatRoughness: .2 })); fsea.rotation.x = -Math.PI / 2; F.add(fsea);
   const ship = new THREE.Group(); { const hm = M.std(0x1d2a38, .6, .2); const h1 = box(16, 2.4, 4, hm); h1.position.y = .6; ship.add(h1); const bow = new THREE.Mesh(new THREE.ConeGeometry(2, 4, 4), hm); bow.rotation.z = -Math.PI / 2; bow.rotation.x = Math.PI / 4; bow.position.set(10, .6, 0); ship.add(bow);
-    const deck = box(15.6, .2, 3.8, M.std(0xb34a33, .7)); deck.position.y = 1.85; ship.add(deck); const br = box(4, 3, 3.2, M.std(0xeeeeea, .5)); br.position.set(-3, 3.4, 0); ship.add(br);
-    for (let i = 0; i < 6; i++) { const w = box(.5, .4, .05, M.glow(0xfff0c8, 1.5)); w.position.set(-4.6 + i * .65, 3.9, 1.62); ship.add(w); }
+    const deck = box(15.6, .2, 3.8, M.std(0xb34a33, .7)); deck.position.y = 1.85; ship.add(deck); const br = box(4, 3, 3.2, M.std(0xb9bbbe, .75)); br.position.set(-3, 3.4, 0); ship.add(br);
+    for (let i = 0; i < 6; i++) { const w = box(.5, .4, .05, M.glow(0xfff0c8, .6)); w.position.set(-4.6 + i * .65, 3.9, 1.62); ship.add(w); }
     const crane = box(.25, 6, .25, M.std(0xf2c230, .5, .3)); crane.position.set(6, 4.8, 0); crane.rotation.z = -.5; ship.add(crane); const sheave = new THREE.Mesh(new THREE.TorusGeometry(.5, .12, 8, 20), M.std(0x333, .4, .7)); sheave.position.set(7.6, 7.4, 0); ship.add(sheave); }
   ship.position.set(0, 0, -6); F.add(ship);
-  const fsun = new THREE.DirectionalLight(0xffc8a0, 2.4); fsun.position.set(20, 12, -40); F.add(fsun);
+  const fsun = new THREE.DirectionalLight(0xffc8a0, 1.1); fsun.position.set(20, 12, -40); F.add(fsun);
   const fline = new THREE.Mesh(new THREE.CylinderGeometry(.03, .03, 1, 6), M.std(0xe9e1cf, .6)); F.add(fline);
   const liftCable = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([new THREE.Vector3(-6, -2, 0), new THREE.Vector3(-1, .4, 0), new THREE.Vector3(0, 1.2, 0), new THREE.Vector3(1, .4, 0), new THREE.Vector3(6, -2, 0)]), 80, .12, 12), M.phys(0x0d0f12, .3, .1, { clearcoat: .7 })); F.add(liftCable);
   const fD = dust(200, [30, 10, 30], [0, 4, 0], 15, .04, 0xffe4c2); F.add(fD);
@@ -152,16 +152,17 @@ export async function build(timing) {
     { t: c.real - .05, p: X(200, [3, 3.5, 2]), l: X(200, [0, 3, -9]), fov: 40, cut: 1 }, // 6 anchors from above
     { t: c.anchors + .5, p: X(200, [2.2, 1.6, -4]), l: X(200, [0, .3, -11.5]), fov: 34 },
     { t: c.week, p: X(200, [1.6, 1.2, -8.5]), l: X(200, [0, .2, -11.6]), fov: 32 },
-    { t: c.only - .05, p: X(500, [26, 6, 18]), l: X(500, [0, 3, -6]), fov: 32, cut: 1 },  // 7 repair ship at dawn
+    { t: c.only - .05, p: X(900, [26, 6, 18]), l: X(900, [0, 3, -6]), fov: 32, cut: 1 },  // 7 repair ship at dawn
     { t: c.drop, p: X(200, [2.5, 3, 4]), l: X(200, [0, 1, -2]), fov: 34, cut: 1 },        // the hook comes down
     { t: c.haul, p: X(200, [2.5, 4.5, 4]), l: X(200, [0, 5, -2]), fov: 36 },
-    { t: c.daylight - .2, p: X(500, [4, 1.6, 9]), l: X(500, [0, 2.2, 0]), fov: 34, cut: 1 }, // up into the daylight
+    { t: c.daylight - .2, p: X(900, [4, 1.6, 9]), l: X(900, [0, 2.2, 0]), fov: 34, cut: 1 }, // up into the daylight
     { t: c.in2024 - .05, p: X(600, [0, 11, 8]), l: X(600, [0, 0, -.6]), fov: 34, cut: 1 }, // 8 Red Sea schematic
     { t: c.europe, p: X(600, [0, 9, 6.4]), l: X(600, [0, 0, -.6]), fov: 34 },
     { t: c.next - .05, p: [.9, 1.1, 2.2], l: [0, .1, -.2], fov: 30, cut: 1 },            // 9 home: the message arrives
     { t: c.remember, p: X(200, [3.5, 1.6, 7]), l: X(200, [0, .3, -4]), fov: 32, cut: 1 },
     { t: dur, p: X(200, [2.2, 1.0, 4.5]), l: X(200, [0, .3, -6]), fov: 30 }
   ];
+  for (const k of keysCam) { const x = k.l[0]; const f = x < 100 ? 1.7 : x < 250 ? 1.75 : x < 350 ? 1.3 : x < 450 ? 2.0 : x < 650 ? 1.8 : 1.0; k.p = k.p.map((v, i) => k.l[i] + (v - k.l[i]) * f); }
   const cam = camRig(camera, keysCam, .015);
   const V = (...a) => new THREE.Vector3(...a);
   const cutTimes = keysCam.filter(k => k.cut).map(k => k.t);
@@ -169,9 +170,10 @@ export async function build(timing) {
 
   const render = t => {
     cam(t);
+    if (window.__camO) { const o = window.__camO; camera.position.set(...o.p); camera.lookAt(...o.l); camera.fov = o.fov || 40; camera.updateProjectionMatrix(); }
     for (const d of [snow, cD, fD]) d.userData.tick(t);
     scene.fog = underwater(t) ? new THREE.FogExp2(0x041a2b, .045) : null;
-    scene.background.set(underwater(t) ? 0x041a2b : 0x02050a);
+    scene.background.set(underwater(t) ? 0x041a2b : ((t > c.only && t < c.drop) || (t > c.daylight - .2 && t < c.in2024)) ? 0x3a3150 : 0x02050a);
     // pulse: leaves the phone on "sent", rises (not to space), dives on "down"; then races along the seabed cable
     let pp = V(0, .2, 0), pv = 0;
     if (t >= c.sent && t < c.bottom) { const k = ease((t - c.sent) / (c.bottom - c.sent)); pp = pPath.userData.curve.getPointAt(k); pv = 1; pPath.userData.set(k); } else pPath.userData.set(0);
@@ -193,7 +195,7 @@ export async function build(timing) {
     shark.visible = t > c.so - .1 && t < c.real; shark.children[0].material.color.set(t > c.zero ? 0x3a3f45 : 0x4f5d6b);
     // anchor drags across the seabed and snags the cable on "anchors"
     const ka = clamp((t - c.real) / (c.week - c.real + .5));
-    anchor.position.set(lerp(-7, 1.4, ease(ka)), lerp(8, .35, ease(Math.min(1, ka * 2))), -11.6); anchor.rotation.z = -.4 + ka * .4; anchor.visible = t > c.real - .1 && t < c.only;
+    anchor.position.set(lerp(-2.6, 1.4, ease(ka)), lerp(6, .35, ease(Math.min(1, ka * 2))), -11.6); anchorL.position.copy(anchor.position).add(V(2, 3, 3)); anchorL.intensity = anchor.visible ? 30 : 0; anchor.rotation.z = -.4 + ka * .4; anchor.visible = t > c.real - .1 && t < c.only;
     const top = V(-10, 30, -11.6), ap = anchor.position.clone().add(V(0, 1.6, 0)); chain.position.copy(top.clone().lerp(ap, .5)); chain.scale.y = top.distanceTo(ap); chain.lookAt(ap); chain.rotateX(Math.PI / 2); chain.visible = anchor.visible;
     hull.position.set(-10, 30.8, -11.6); hull.visible = anchor.visible;
     // hook: descends on "drop", drags, lifts the cable on "haul"
@@ -226,7 +228,7 @@ export async function build(timing) {
     L('Glass fibers', c.glass, c.so - .1, V(302.6, .1, 0), [-.18, -.14], 'thinner than a hair');
     L('Fish-caused faults', c.zero + .2, c.real, V(200, .7, 1.2), [.12, -.18], 'ICPC records, 2007–2014');
     L('Anchor', c.anchors - .1, c.week + .3, V(200 + 1.4, 1.6, -11.6), [.14, -.12]);
-    L('Repair ship', c.only, c.drop, V(500 + 7.6, 7.4, -6), [-.3, -.1]);
+    L('Repair ship', c.only, c.drop, V(900 + 7.6, 7.4, -6), [-.3, -.1]);
     L('Grapnel hook', c.drop + .4, c.haul, V(200, 1, -2.3), [.14, -.14]);
     L('Europe', c.europe, c.next, V(594, 1, -1), [-.04, -.1]); L('Asia', c.europe + .2, c.next, V(606, 1, -1), [.02, -.1]); L('Red Sea', c.in2024, c.next, V(600, 1, -3.5), [.1, -.08]);
     const cnt = (val, a, b, y, unit, sub, fmt) => { const al = win(t, a, b, .2); if (al > 0) items.push(() => O.counter(val, al, y, unit, sub, fmt)); };

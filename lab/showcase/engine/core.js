@@ -61,11 +61,11 @@ export function makeStage(W, H, opts = {}) {
   const pm = new THREE.PMREMGenerator(renderer);
   scene.environment = pm.fromScene(new RoomEnvironment(), 0.04).texture;
   scene.environmentIntensity = opts.envI ?? .35;
-  const camera = new THREE.PerspectiveCamera(opts.fov ?? 32, W / H, .05, 600);
+  const camera = new THREE.PerspectiveCamera(opts.fov ?? 32, W / H, .15, 900);
   const rt = new THREE.WebGLRenderTarget(W, H, { type: THREE.HalfFloatType, samples: opts.msaa ?? 4 });
   const composer = new EffectComposer(renderer, rt);
   composer.addPass(new RenderPass(scene, camera));
-  const bloom = new UnrealBloomPass(new THREE.Vector2(W / 2, H / 2), .55, .55, .82); composer.addPass(bloom);
+  const bloom = new UnrealBloomPass(new THREE.Vector2(W / 2, H / 2), .5, .5, .92); composer.addPass(bloom);
   composer.addPass(new OutputPass());
   const grade = new ShaderPass(TiltGrade); grade.uniforms.res.value.set(W, H); composer.addPass(grade);
   return { renderer, scene, camera, composer, bloom, grade, W, H };
@@ -159,13 +159,13 @@ export function laptop(opts = {}) {
   const pad = rbox(W * .32, .004, D * .26, .02, M.phys(0x9ea2a8, .25, .8)); pad.position.set(0, T + .001, D * .27); g.add(pad);
   const hinge = new THREE.Group(); hinge.position.set(0, T, -D / 2 + .02); g.add(hinge);
   const lid = rbox(W, T * .7, D * .98, .05, alu); lid.position.set(0, 0, 0); const lidG = new THREE.Group(); lidG.add(lid); lid.position.z = -D * .49; hinge.add(lidG);
-  const bezel = box(W * .97, .004, D * .93, dark); bezel.position.set(0, -T * .36, -D * .49); lidG.add(bezel);
+  const bezel = box(W * .97, .004, D * .93, dark); bezel.position.set(0, T * .36, -D * .49); lidG.add(bezel);
   const tex = canvasTex(1280, 832, opts.screen ?? ((g2, w, h) => { g2.fillStyle = '#0d0f14'; g2.fillRect(0, 0, w, h); }));
   const screen = new THREE.Mesh(new THREE.PlaneGeometry(W * .92, D * .86), new THREE.MeshBasicMaterial({ map: tex, toneMapped: false }));
-  screen.rotation.x = Math.PI / 2; screen.position.set(0, -T * .38, -D * .49); lidG.add(screen);
-  const glowLight = new THREE.PointLight(opts.screenGlow ?? 0x8fb3ff, 0, 5, 2); glowLight.position.set(0, -.6, -D * .5); lidG.add(glowLight);
+  screen.rotation.x = -Math.PI / 2; screen.position.set(0, T * .36 + .012, -D * .49); screen.material.polygonOffset = true; screen.material.polygonOffsetFactor = -2; lidG.add(screen);
+  const glowLight = new THREE.PointLight(opts.screenGlow ?? 0x8fb3ff, 0, 5, 2); glowLight.position.set(0, .6, -D * .5); lidG.add(glowLight);
   g.userData = { hinge: lidG, tex, screen, glowLight, base, W, D, T, keys, deck };
-  g.userData.open = a => { lidG.rotation.x = -(Math.PI / 2) * 1.18 * a; };   // a = 0 closed, 1 open (~106 degrees)
+  g.userData.open = a => { lidG.rotation.x = Math.PI - a * Math.PI * .59; };   // a = 0 closed, 1 open (~106 degrees)
   g.userData.open(opts.open ?? 1);
   return g;
 }
@@ -174,7 +174,7 @@ export function laptop(opts = {}) {
 export function chip(opts = {}) {
   const g = new THREE.Group(); const S = opts.size ?? 1.6;
   const sub = rbox(S, .05, S * 1.25, .03, M.std(0x16301f, .6, .2)); g.add(sub);
-  const frame = rbox(S * .92, .06, S * 1.15, .04, M.phys(0xe9e6df, .35, 0, { clearcoat: .6 })); frame.position.y = .05; g.add(frame);
+  const frame = rbox(S * .92, .06, S * 1.15, .04, M.phys(0xb9b4aa, .45, 0, { clearcoat: .4 })); frame.position.y = .05; g.add(frame);
   const well = box(S * .78, .02, S * 1.0, M.std(0x0a0b0d, .4, .3)); well.position.y = .075; g.add(well);
   // GPU die (top) with a grid of cells
   const gx = 64, gy = 96, gw = S * .66, gh = S * .58, cell = new THREE.BoxGeometry(gw / gx * .82, .01, gh / gy * .82);
@@ -201,7 +201,7 @@ export function chip(opts = {}) {
 // Server rack with blinking LEDs (instanced) and perforated door look.
 export function rack(h = 4.2, seed = 1) {
   const g = new THREE.Group(); const r = rng(seed);
-  const body = box(1.2, h, 1.4, M.std(0x1b1d22, .45, .6)); body.position.y = h / 2; g.add(body);
+  const body = box(1.2, h, 1.4, M.std(0x3a3f48, .4, .6)); body.position.y = h / 2; g.add(body);
   const front = box(1.1, h * .96, .02, M.std(0x0c0d10, .6, .4)); front.position.set(0, h / 2, .71); g.add(front);
   const ledG = new THREE.SphereGeometry(.018, 6, 6); const n = 140; const leds = new THREE.InstancedMesh(ledG, M.basic(0xffffff), n); const o = new THREE.Object3D(); const c = new THREE.Color();
   for (let i = 0; i < n; i++) { o.position.set(-.45 + r() * .9, .2 + r() * (h - .4), .73); o.updateMatrix(); leds.setMatrixAt(i, o.matrix); leds.setColorAt(i, c.set(r() < .7 ? 0x44ff88 : 0x4aa3ff)); }
