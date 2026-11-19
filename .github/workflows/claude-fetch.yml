@@ -1,0 +1,45 @@
+name: Claude clips, raw footage fetch (no AI)
+
+# 19 Nov 2026, Franklin: his pipeline is paused; Claude makes the GTA 6 Shorts by hand. GitHub only fetches footage
+# (YouTube/Twitch/Kick are unreachable from Claude's workspace): the most fan-clipped moments, ~2 min of 1080p each,
+# plus a word-level transcript. Results are a workflow artifact, not a public release.
+on:
+  push:
+    branches: ["claude-clips/**"]
+permissions:
+  contents: read
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: kai
+            args: twitch --vod https://www.twitch.tv/videos/2932305259 --channel kaicenat --from-s 0 --to-s 36000 --top 14
+          - name: n3on
+            args: kick --slug n3on --uuid a4f32477-1d99-46bf-8419-727dbf5963ce --top 8
+          - name: adin
+            args: kick --slug adinross --uuid 079f4c19-373f-4539-a5f1-df8ded531599 --top 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: whisper-small-en-v1
+      - name: Tools
+        run: |
+          for i in 1 2; do timeout 180 sh -c 'sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg > /dev/null' && break; done
+          pip install -q "yt-dlp==2026.10.26" faster-whisper
+      - name: Fetch
+        run: python lab/claude_clips/fetch.py ${{ matrix.args }} --out out
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: raw-${{ matrix.name }}
+          path: out/
+          retention-days: 7
