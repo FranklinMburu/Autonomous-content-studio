@@ -15,7 +15,8 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from studio.clips.board import LANES, STAGES, all_cards, call  # noqa: E402
 
-PAGE = os.environ.get("FRONT_DOOR_PAGE", "41dda224599e8114b120eee8ded4ca75")
+PAGE = "41dda224599e8114b120eee8ded4ca75"   # fixed on purpose: no setting can point this at another page
+PAGE_UUID = "41dda224-599e-8114-b120-eee8ded4ca75"
 MARKER = "Live status"
 REPO = os.environ.get("GITHUB_REPOSITORY", "FranklinMburu/Autonomous-content-studio")
 
@@ -73,10 +74,22 @@ def compose(now=None):
     return "\n".join(lines)
 
 
+def guarded(method, path, body=None):
+    """The only door to Notion in this file. Allowed: read the Studio Board, read the front door's top-level blocks,
+    update the text of the one Live status box. Never delete, never create, move or archive pages, never another page."""
+    ok = ((method == "GET" and path.startswith(f"/blocks/{PAGE}/children")) or
+          (method == "GET" and path.startswith("/blocks/") and path.count("/") == 2) or
+          (method == "PATCH" and path.startswith("/blocks/") and path.count("/") == 2
+           and set(body or {}) == {"callout"} and set(body["callout"]) == {"rich_text"}))
+    if not ok:
+        sys.exit(f"refused: {method} {path} is outside what this script may do")
+    return call(method, path, body)
+
+
 def find_block():
     cursor = None
     for _ in range(10):
-        r = call("GET", f"/blocks/{PAGE}/children?page_size=100" + (f"&start_cursor={cursor}" if cursor else ""))
+        r = guarded("GET", f"/blocks/{PAGE}/children?page_size=100" + (f"&start_cursor={cursor}" if cursor else ""))
         for blk in r.get("results", []):
             if blk.get("type") == "callout":
                 txt = "".join(t.get("plain_text", "") for t in blk["callout"].get("rich_text", []))
@@ -99,7 +112,13 @@ def main():
     blk = find_block()
     if not blk:
         sys.exit(f"No callout starting with '{MARKER}' on the front door; add it back (see the page's Details for AI).")
-    call("PATCH", f"/blocks/{blk}", {"callout": {"rich_text": [{"type": "text", "text": {"content": text[:1990]}}]}})
+    # Re-check right before writing: the block must still be our box, directly on the front door.
+    b = guarded("GET", f"/blocks/{blk}")
+    parent = (b.get("parent") or {}).get("page_id", "").replace("-", "")
+    head = "".join(t.get("plain_text", "") for t in (b.get("callout") or {}).get("rich_text", []))
+    if b.get("type") != "callout" or parent != PAGE or not head.startswith(MARKER) or b.get("archived"):
+        sys.exit("refused: the Live status box is not where it should be; nothing was written")
+    guarded("PATCH", f"/blocks/{blk}", {"callout": {"rich_text": [{"type": "text", "text": {"content": text[:1990]}}]}})
     print("front door status updated")
 
 
