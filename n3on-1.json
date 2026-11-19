@@ -1,0 +1,42 @@
+{
+ "id": "n3on-1",
+ "source_file": "raw/n3on/n3on-08.mp4 26.0-30.0 + raw/n3on/n3on-02.mp4 0.0-2.0 and 5.6-13.6 (jump cuts; concatenated as work/n3on/n3on-1-src.mp4)",
+ "start": 0.0,
+ "end": 14.0,
+ "peak_in_clip": 6.4,
+ "title_box": "N3on got \"You are too early\"... then GTA 6 actually WORKED 😳",
+ "youtube_title": "N3on got \"You are too early\" on GTA 6... then it actually WORKED 😳 #N3on",
+ "description": "N3on got \"You are too early\"... then GTA 6 actually WORKED 😳\nN3on's \"PLAYING GTA 6 EARLY\" stream on Kick.\n#N3on #GTA6 #GTAVI #n3onclips #shorts",
+ "hashtags": [
+  "#N3on",
+  "#GTA6",
+  "#GTAVI",
+  "#n3onclips",
+  "#shorts"
+ ],
+ "why_it_trends": "Rejection-then-win launch story: Xbox says 'You are too early', minutes later the game boots and N3on covers his mouth: 'I can't believe this actually worked'.",
+ "fan_proof": "517 (NEON REACTS TO GTA 6 FOR THE FIRST TIME) + 131 (asdf) = 648 views",
+ "self_score": {
+  "moment": 6,
+  "hook": 6,
+  "story": 7,
+  "layout": 7,
+  "text": 7,
+  "ending": 6,
+  "overall": 6
+ },
+ "checklist": {
+  "1_face_frame0": "pass",
+  "2_trigger_1.5s": "pass (Play pressed at 0, 'Oh my god' 1.1 s, 'You are too early' screen 2.0 s)",
+  "3_title_frame0": "pass",
+  "4_safe_zone": "pass",
+  "5_text_off_face_action": "pass (punch at y 1390 over hoodie, 6.9-8.5 s)",
+  "6_face_300px": "pass (head ~400 px band, ~650 px full cam)",
+  "7_no_chat_counters": "pass",
+  "8_peak_before_80pct": "pass (hand over mouth 6-7 s, 'Holy shit I'm shocked' 8-10 s of 14)",
+  "9_end_1.5s_after_payoff": "pass (cut 0.7 s after 'I'm in')",
+  "10_length": "pass (14.0 s)",
+  "11_title_honest": "pass (both screens/quotes are real; 2.5 min apart, jump cut)",
+  "12_no_nudity_sexual_music": "pass"
+ }
+}

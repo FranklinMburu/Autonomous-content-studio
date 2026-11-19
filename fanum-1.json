@@ -1,0 +1,43 @@
+{
+ "id": "fanum-1",
+ "source_file": "/home/claude/clips/raw/fanum/fanum-01.mp4",
+ "start": 63.6,
+ "end": 77.0,
+ "peak_in_clip": 2.5,
+ "title_box": "Fanum couldn't believe GTA 6 was finally in front of him 😭",
+ "youtube_title": "Fanum couldn't believe GTA 6 was finally in front of him 😭 #GTA6",
+ "description": "Fanum couldn't believe GTA 6 was finally in front of him 😭\nFanum's GTA 6 day-1 stream, Twitch, Nov 2026.\n#Fanum #GTA6 #GTAVI #fanumclips #shorts",
+ "hashtags": [
+  "#Fanum",
+  "#GTA6",
+  "#GTAVI",
+  "#fanumclips",
+  "#shorts"
+ ],
+ "why_it_trends": "Raw launch-day hype: Fanum lunges at the cam screaming, then says he can't believe GTA 6 is in front of him.",
+ "fan_proof": "291 + 120 views (two fan clips of the same moment: 'fanum loads GTA 6 for the first time', 'Fanum Hype')",
+ "self_score": {
+  "moment": 6,
+  "hook": 6,
+  "story": 4,
+  "layout": 6,
+  "text": 7,
+  "ending": 5,
+  "overall": 5
+ },
+ "notes": "Full facecam from 0 (game shows only a settings menu). Second half he looks down at the menu while talking; ends before 'holy f*** b****' line. -13.6 LUFS, TP -5.3.",
+ "checklist": {
+  "1_face_frame0": "pass",
+  "2_trigger_1.5s": "pass (lunge at ~1.4 s)",
+  "3_title_frame0": "pass",
+  "4_safe_zone": "pass",
+  "5_text_off_face": "pass",
+  "6_face_300px": "pass (~400 px)",
+  "7_no_chat_overlays": "pass",
+  "8_peak_before_80pct": "pass (2.5 s of 13.4)",
+  "9_end_1.5s_after_payoff": "pass (line ends 76.7, cut 77.0)",
+  "10_length": "pass (13.4 s)",
+  "11_title_honest": "pass (he says 'I can't believe this shit is in front of me')",
+  "12_no_nudity_music": "pass"
+ }
+}

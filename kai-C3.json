@@ -1,0 +1,30 @@
+{
+ "id": "kai-C3",
+ "source_file": "/home/claude/clips/raw/kai/kaicenat-06.mp4",
+ "start": 55.3,
+ "end": 68.0,
+ "length": 12.7,
+ "peak_in_clip": 5.0,
+ "title_box": "Kai Cenat jumped out of his seat at the GTA 6 intro 😭",
+ "youtube_title": "Kai Cenat jumped out of his seat at the GTA 6 intro 😭 #KaiCenat",
+ "description": "Kai Cenat jumped out of his seat at the GTA 6 intro 😭\nKai Cenat's GTA 6 launch stream, Twitch, 18-19 Nov 2026. #ad Paid partnership\n#KaiCenat #GTA6 #GTAVI #kaicenatclips #shorts",
+ "hashtags": [
+  "#KaiCenat",
+  "#GTA6",
+  "#GTAVI",
+  "#kaicenatclips",
+  "#shorts"
+ ],
+ "why_it_trends": "The GTA 6 intro finally plays and Kai leaps forward laughing/screaming for 5 seconds.",
+ "fan_proof": "3,095 views on the same fan section (2,822 'kai got in gta 6 for the first time')",
+ "self_score": {
+  "moment": 7,
+  "hook": 6,
+  "story": 6,
+  "layout": 7,
+  "text": 8,
+  "ending": 6,
+  "overall": 6
+ },
+ "editor_notes": "Full facecam from 0, -14.0 LUFS. Audio honesty: Whisper found zero words from Kai in 48-73 s of the source and momentary loudness stays flat (LRA 2.2) = the payoff is the intro score + his visual laugh, not his voice. Chin touches the cam-box bottom at ~9 s (source limit)."
+}

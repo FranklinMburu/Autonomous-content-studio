@@ -1,0 +1,42 @@
+{
+ "id": "n3on-2",
+ "source_file": "raw/n3on/n3on-04.mp4",
+ "start": 0.0,
+ "end": 12.0,
+ "peak_in_clip": 3.5,
+ "title_box": "N3on's first WASTED in GTA 6 sent him flying out of his chair 😭",
+ "youtube_title": "N3on's first WASTED in GTA 6 sent him flying out of his chair 😭 #N3on",
+ "description": "N3on's first WASTED in GTA 6 sent him flying out of his chair 😭\nN3on's \"PLAYING GTA 6 EARLY\" stream on Kick.\n#N3on #GTA6 #GTAVI #n3onclips #shorts",
+ "hashtags": [
+  "#N3on",
+  "#GTA6",
+  "#GTAVI",
+  "#n3onclips",
+  "#shorts"
+ ],
+ "why_it_trends": "Iconic GTA WASTED screen + a full-body rage/disbelief reaction: arms up, leaps out of the chair, sits back laughing with hand on head.",
+ "fan_proof": "277 (NEON REACTS TO HIS FIRST WASTED SCREEN!)",
+ "self_score": {
+  "moment": 7,
+  "hook": 6,
+  "story": 6,
+  "layout": 6,
+  "text": 7,
+  "ending": 7,
+  "overall": 6
+ },
+ "checklist": {
+  "1_face_frame0": "pass",
+  "2_trigger_1.5s": "pass ('No, no' 0.9 s as the truck crashes)",
+  "3_title_frame0": "pass",
+  "4_safe_zone": "pass",
+  "5_text_off_face_action": "pass (no punch)",
+  "6_face_300px": "pass (~350 px; but 4.5-9 s he is standing and only his torso is in frame)",
+  "7_no_chat_counters": "pass (crop x>=540 excludes cam, minimap, counters)",
+  "8_peak_before_80pct": "pass (arms up 3.5 s of 12)",
+  "9_end_1.5s_after_payoff": "pass (ends on laugh/hand-on-head, full cam from 9.5 s when game goes black)",
+  "10_length": "pass (12.0 s, minimum; whole fan clip)",
+  "11_title_honest": "pass",
+  "12_no_nudity_sexual_music": "pass"
+ }
+}
