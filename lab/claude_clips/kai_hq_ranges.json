@@ -1,37 +1,16 @@
 [
  {
-  "id": "kai-A1",
-  "src": "kaicenat-01",
-  "abs_start": 10475.0,
-  "abs_end": 10493.6,
-  "spec_start": 65.0
- },
- {
   "id": "kai-B1",
   "src": "kaicenat-02",
-  "abs_start": 1843.8,
-  "abs_end": 1866.1,
+  "abs_start": 1833.8,
+  "abs_end": 1869.1,
   "spec_start": 39.8
- },
- {
-  "id": "kai-C1",
-  "src": "kaicenat-11",
-  "abs_start": 517.0,
-  "abs_end": 533.6,
-  "spec_start": 52.0
  },
  {
   "id": "kai-C3",
   "src": "kaicenat-06",
-  "abs_start": 670.3,
-  "abs_end": 687.0,
+  "abs_start": 660.3,
+  "abs_end": 690.0,
   "spec_start": 55.3
- },
- {
-  "id": "kai-D1",
-  "src": "kaicenat-07",
-  "abs_start": 2046.0,
-  "abs_end": 2063.0,
-  "spec_start": 56.0
  }
 ]
