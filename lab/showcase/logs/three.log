@@ -1173,11 +1173,11 @@ three.webgpu.nodes.min.js
 + cp -r package/examples/jsm/curves /home/runner/work/Autonomous-content-studio/Autonomous-content-studio/lab/showcase/vendor/three/examples/jsm/
 + ls -la /home/runner/work/Autonomous-content-studio/Autonomous-content-studio/lab/showcase/vendor/three
 total 2688
-drwxr-xr-x 3 runner runner    4096 Nov 19 04:10 .
-drwxr-xr-x 3 runner runner    4096 Nov 19 04:10 ..
--rw-r--r-- 1 runner runner    1081 Nov 19 04:10 LICENSE
-drwxr-xr-x 3 runner runner    4096 Nov 19 04:10 examples
--rw-r--r-- 1 runner runner 1403455 Nov 19 04:10 three.core.js
--rw-r--r-- 1 runner runner  381124 Nov 19 04:10 three.core.min.js
--rw-r--r-- 1 runner runner  603113 Nov 19 04:10 three.module.js
--rw-r--r-- 1 runner runner  338908 Nov 19 04:10 three.module.min.js
+drwxr-xr-x 3 runner runner    4096 Nov 19 04:13 .
+drwxr-xr-x 3 runner runner    4096 Nov 19 04:13 ..
+-rw-r--r-- 1 runner runner    1081 Nov 19 04:13 LICENSE
+drwxr-xr-x 3 runner runner    4096 Nov 19 04:13 examples
+-rw-r--r-- 1 runner runner 1403455 Nov 19 04:13 three.core.js
+-rw-r--r-- 1 runner runner  381124 Nov 19 04:13 three.core.min.js
+-rw-r--r-- 1 runner runner  603113 Nov 19 04:13 three.module.js
+-rw-r--r-- 1 runner runner  338908 Nov 19 04:13 three.module.min.js
