@@ -97,7 +97,7 @@ jobs:
           from pathlib import Path
           from studio.motion.narrate import narrate
           cfg = json.load(open("channels/te/channel.json"))["voice"]
-          dst = Path("lab/showcase/out"); dst.mkdir(parents=True, exist_ok=True)
+          dst = Path("lab/showcase/audio"); dst.mkdir(parents=True, exist_ok=True)
           for ep in ["n1x", "cables"]:
               s = json.load(open(f"lab/showcase/{ep}.json"))
               o = Path("out") / ep; o.mkdir(parents=True, exist_ok=True)
@@ -115,8 +115,9 @@ jobs:
               except Exception:
                   traceback.print_exc()
           PY
-          ls -la lab/showcase/out
+          ls -la lab/showcase/audio
       - name: Vendor Three.js (for a renderer with no network)
+        continue-on-error: true
         run: |
           cd "$RUNNER_TEMP" && npm pack three@0.180.0 --silent && tar xzf three-0.180.0.tgz
           V="$GITHUB_WORKSPACE/lab/showcase/vendor/three"; mkdir -p "$V/examples/jsm"
@@ -125,9 +126,11 @@ jobs:
           for d in postprocessing shaders geometries environments utils math objects lines curves; do cp -r package/examples/jsm/$d "$V/examples/jsm/"; done
           ls "$V"
       - name: Commit results back to this lab branch
+        if: always()
         run: |
           git config user.name "Franklin Mburu"
           git config user.email "184284364+FranklinMburu@users.noreply.github.com"
-          git add lab/showcase/out lab/showcase/vendor
+          git add -A -f lab/showcase/audio || true
           git commit -m "lab showcase: voices + vendored three.js [skip ci]" || echo "nothing to commit"
+          git pull --rebase -q || true
           git push
