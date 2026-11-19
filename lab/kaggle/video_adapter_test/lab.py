@@ -1,4 +1,8 @@
-"""Video adapter test (19 Nov 2026): the chip close-up through every free backend, on Kaggle's free T4.
+"""Video adapter test, run 2 (19 Nov 2026). Run 1: Wan out of memory (VAE decode), LTX distilled made noise that
+passed the numeric checks. Now: Wan with a tiled VAE and a smaller retry size, LTX with Hidden Reasons' production
+settings, and a vision judge (Qwen2-VL-2B) on every clip.
+
+Video adapter test (19 Nov 2026): the chip close-up through every free backend, on Kaggle's free T4.
 
 Shot A: image-to-video from OUR OWN 3D-engine still of the chip (keeps our composition, adds realism and motion).
 Shot B: text-to-video, no picture (how far an open model gets alone).
@@ -28,6 +32,7 @@ subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-U", "diffusers>=
 log(f"install {time.time() - t0:.0f}s")
 
 from studio.video_backends import Router, Shot  # noqa: E402
+from studio.video_backends.judge import VisionJudge  # noqa: E402
 
 PROMPT = ("extreme close-up macro shot of a modern computer processor chip on a dark circuit board, photorealistic, "
           "glossy black silicon die with a silver heat spreader frame and a grid of small square cores, thin glowing "
@@ -38,7 +43,7 @@ shots = {
     "B_text_only": Shot(prompt=PROMPT, seconds=2.5, camera="slow push in, camera orbits slightly",
                         tags={"test": "chip", "mode": "text-to-video"}),
 }
-router = Router(root="/kaggle/working")
+router = Router(root="/kaggle/working", extra_check=VisionJudge("a computer chip"), keep_rejected=True)
 summary = {}
 for backend in ("wan22", "ltx", "own"):
     for name, shot in shots.items():
@@ -49,6 +54,9 @@ for backend in ("wan22", "ltx", "own"):
             summary[f"{name}/{backend}"] = r.tried[-1][1]
         except Exception as e:  # noqa: BLE001
             summary[f"{name}/{backend}"] = str(e)[-400:]
+            for f in os.listdir(f"{OUT}/tmp"):
+                if f.startswith("rejected_") and f.endswith(f"_{backend}.mp4"):
+                    os.replace(f"{OUT}/tmp/{f}", f"{OUT}/{name}__{backend}__REJECTED.mp4")
         log(f"{name} / {backend}: {time.time() - t:.0f}s -> {summary[f'{name}/{backend}']}")
 json.dump(summary, open(f"{OUT}/summary.json", "w"), indent=1)
 log(f"total {time.time() - t0:.0f}s")

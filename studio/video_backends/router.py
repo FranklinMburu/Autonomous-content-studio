@@ -27,10 +27,11 @@ def registry():
 
 
 class Router:
-    def __init__(self, config=None, backends=None, extra_check=None, root="."):
+    def __init__(self, config=None, backends=None, extra_check=None, root=".", keep_rejected=False):
         self.cfg = config or json.loads((HERE / "config.json").read_text())
         self.backends = backends or registry()
         self.extra_check = extra_check
+        self.keep_rejected = keep_rejected   # labs: keep clips that failed the check, to look at them
         self.root = Path(root)
         self.cache = self.root / self.cfg.get("cache_dir", "cache/video_shots")
         self.logf = self.root / self.cfg.get("log", "cache/video_shots/log.jsonl")
@@ -108,6 +109,8 @@ class Router:
                 if ok and self.extra_check:
                     ok, why = self.extra_check(str(tmp), shot)
                 if not ok:
+                    if self.keep_rejected and tmp.exists():
+                        shutil.copy(tmp, out_dir / f"rejected_{key}_{name}.mp4")
                     raise BackendError(f"failed the quality check: {why}")
             except NotAvailable as e:
                 tried.append((name, f"not available: {e}")); continue

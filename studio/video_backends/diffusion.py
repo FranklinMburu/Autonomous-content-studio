@@ -57,13 +57,25 @@ class Wan22(Backend):
             vae = AutoencoderKLWan.from_pretrained(self.model, subfolder="vae", torch_dtype=torch.float32)
             p = WanPipeline.from_pretrained(self.model, vae=vae, torch_dtype=torch.float16)
             p.enable_model_cpu_offload()
+            p.vae.enable_tiling()
             _PIPES["wan22"] = p
         return _PIPES["wan22"]
 
     def generate(self, shot, out_path):
         torch = _gpu()
+        last = None
+        for scale in (1.0, 0.8):   # a T4 has 15 GB: try the asked size, then a smaller one, before giving up
+            try:
+                return self._make(shot, out_path, scale)
+            except torch.cuda.OutOfMemoryError as e:
+                last = e
+                _PIPES.clear(); gc.collect(); torch.cuda.empty_cache()
+        raise BackendError(f"out of GPU memory even at 80% size: {str(last)[:200]}")
+
+    def _make(self, shot, out_path, scale):
+        torch = _gpu()
         p = self._pipe()
-        w, h = (shot.width // 32) * 32, (shot.height // 32) * 32
+        w, h = (int(shot.width * scale) // 32) * 32, (int(shot.height * scale) // 32) * 32
         kw = dict(prompt=f"{shot.prompt}, {shot.camera}", negative_prompt=shot.negative, width=w, height=h,
                   num_frames=_frames(shot.seconds, shot.fps, 4), num_inference_steps=int(os.environ.get("WAN_STEPS", 30)),
                   guidance_scale=5.0, generator=torch.Generator("cpu").manual_seed(shot.seed))
@@ -78,18 +90,14 @@ class Wan22(Backend):
                 _PIPES["wan22_i2v"].enable_model_cpu_offload()
             p = _PIPES["wan22_i2v"]
             kw["image"] = Image.open(shot.image).convert("RGB").resize((w, h))
-        try:
-            frames = p(**kw).frames[0]
-        except torch.cuda.OutOfMemoryError as e:
-            raise BackendError(f"out of GPU memory at {w}x{h}") from e
+        frames = p(**kw).frames[0]
         _export(frames, out_path, shot.fps)
 
 
 class LTX(Backend):
     name = "ltx"
     needs_gpu = True
-    base = "Lightricks/LTX-Video"
-    distilled = "https://huggingface.co/Lightricks/LTX-Video/blob/main/ltxv-2b-0.9.6-distilled-04-25.safetensors"
+    base = "Lightricks/LTX-Video"   # the production settings of Hidden Reasons (lab/kaggle/film_episode)
 
     def available(self):
         _gpu()
@@ -98,12 +106,10 @@ class LTX(Backend):
         torch = _gpu()
         if "ltx" not in _PIPES:
             _free_other("ltx")
-            from diffusers import LTXImageToVideoPipeline, LTXPipeline, LTXVideoTransformer3DModel
-            tr = LTXVideoTransformer3DModel.from_single_file(self.distilled, torch_dtype=torch.float16)
-            i2v = LTXImageToVideoPipeline.from_pretrained(self.base, transformer=tr, torch_dtype=torch.float16)
+            from diffusers import LTXImageToVideoPipeline, LTXPipeline
+            i2v = LTXImageToVideoPipeline.from_pretrained(self.base, torch_dtype=torch.float16)
             i2v.enable_model_cpu_offload()
-            t2v = LTXPipeline(**{k: v for k, v in i2v.components.items()})
-            t2v.enable_model_cpu_offload()
+            t2v = LTXPipeline(**i2v.components)
             _PIPES["ltx"] = (t2v, i2v)
         return _PIPES["ltx"]
 
@@ -112,7 +118,7 @@ class LTX(Backend):
         t2v, i2v = self._pipes()
         w, h = (shot.width // 32) * 32, (shot.height // 32) * 32
         kw = dict(prompt=f"{shot.prompt}, {shot.camera}", negative_prompt=shot.negative, width=w, height=h,
-                  num_frames=_frames(shot.seconds, shot.fps, 8), num_inference_steps=8, guidance_scale=1.0,
+                  num_frames=_frames(shot.seconds, shot.fps, 8), num_inference_steps=30, guidance_scale=3.0,
                   decode_timestep=0.05, decode_noise_scale=0.025, generator=torch.Generator("cpu").manual_seed(shot.seed))
         if shot.image:
             from PIL import Image
