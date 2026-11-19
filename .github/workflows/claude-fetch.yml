@@ -1,7 +1,7 @@
 name: Claude clips, raw footage fetch (no AI)
 
 # 19 Nov 2026: Kai's finished Shorts looked soft (footage was recompressed twice on the way to Claude's workspace).
-# This fetches only each Short's exact seconds at Twitch's source quality (1080p60), with NO re-encode, to footage/kai-hq2.
+# This fetches only each Short's exact seconds at Twitch's source quality (1080p60), with NO re-encode, to footage/kai-hq3.
 on:
   push:
     branches: ["claude-clips/**"]
@@ -28,7 +28,7 @@ jobs:
               print("HQ", r["id"], p.replace("\n", " | "))
           PY
           cp lab/claude_clips/kai_hq_ranges.json out/
-      - name: Push to footage/kai-hq2
+      - name: Push to footage/kai-hq3
         run: |
-          cd out && git init -q -b footage/kai-hq2 && git add . && git -c user.name="Franklin Mburu" -c user.email="184284364+FranklinMburu@users.noreply.github.com" commit -qm "footage kai-hq"
-          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" footage/kai-hq2
+          cd out && git init -q -b footage/kai-hq3 && git add . && git -c user.name="Franklin Mburu" -c user.email="184284364+FranklinMburu@users.noreply.github.com" commit -qm "footage kai-hq"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" footage/kai-hq3
