@@ -1,0 +1,85 @@
+{
+ "off": 48341.88483309746,
+ "a": 48295.63962602615,
+ "b": 48371.88483309746,
+ "views": 471,
+ "fan_titles": [
+  "377: onur",
+  "94: onur"
+ ],
+ "fan_clip": "https://clips.kick.com/clips/32/clip_01M7R3J7AQD83DP4P9T9SD3NHE/playlist.m3u8",
+ "file": "xqc-07.mp4",
+ "section_start_in_vod": 48295.6,
+ "section_end_in_vod": 48371.9,
+ "fan_moment_in_section": 0.0,
+ "vod_page": "https://kick.com/xqc/videos/716d63b6-afa9-4afd-a1a6-d9aedf3e3a23",
+ "stream_title": "🌴 LIVE 🌴 GTA 6 🌴 AT 6AM EST 🌴 STUFF BEFORE 🌴 ALERT 🌴 NOT A DRILL 🌴 NZ FLIGHT TAKEN 🌴 LIVE 🌴 DONT MISS IT 🌴 ONESHOTTING THE GAME?",
+ "streamer_channel": "xqc",
+ "words": [
+  {
+   "w": "Hi",
+   "s": 6.19,
+   "e": 7.03
+  },
+  {
+   "w": "Damn",
+   "s": 14.33,
+   "e": 14.85
+  },
+  {
+   "w": "brother.",
+   "s": 14.85,
+   "e": 15.37
+  },
+  {
+   "w": "What",
+   "s": 15.41,
+   "e": 15.93
+  },
+  {
+   "w": "a",
+   "s": 15.93,
+   "e": 16.19
+  },
+  {
+   "w": "yo,",
+   "s": 16.19,
+   "e": 16.69
+  },
+  {
+   "w": "no,",
+   "s": 16.69,
+   "e": 18.41
+  },
+  {
+   "w": "I",
+   "s": 18.41,
+   "e": 18.65
+  },
+  {
+   "w": "mean",
+   "s": 18.65,
+   "e": 18.81
+  },
+  {
+   "w": "that",
+   "s": 18.81,
+   "e": 19.01
+  },
+  {
+   "w": "was",
+   "s": 19.01,
+   "e": 19.13
+  },
+  {
+   "w": "my",
+   "s": 19.13,
+   "e": 19.25
+  },
+  {
+   "w": "room",
+   "s": 19.25,
+   "e": 19.49
+  }
+ ]
+}
