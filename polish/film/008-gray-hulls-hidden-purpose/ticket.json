@@ -3,7 +3,8 @@
  "draft": "draft-008-gray-hulls-hidden-purpose-run65",
  "episode": "episodes/hidden_reasons/008-gray-hulls-hidden-purpose",
  "opened": "2026-11-15T00:25:24+00:00",
- "status": "needs-fix",
- "checked": "2026-11-20T09:53:55+00:00",
- "last_answer_by": "pull request #164 by FranklinMburu"
+ "status": "accepted",
+ "checked": "2026-11-20T10:26:09+00:00",
+ "last_answer_by": "pull request #164 by FranklinMburu",
+ "tries": 0
 }
