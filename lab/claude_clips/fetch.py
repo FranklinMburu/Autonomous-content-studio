@@ -28,15 +28,14 @@ def ts(s):
 
 def twitch_clips(a):
     v = ytj(a.vod) if a.vod else {"timestamp": 0, "duration": 1e12, "title": "fan clips"}; t0, dur = v["timestamp"], v["duration"]
-    urls = subprocess.run(["yt-dlp", "--flat-playlist", "--playlist-end", "150", "--print", "%(url)s",
+    urls = subprocess.run(["yt-dlp", "--flat-playlist", "--playlist-end", "300" if a.title_re else "150", "--print", "%(url)s",
                            f"https://www.twitch.tv/{a.channel}/clips?filter=clips&range=7d"], capture_output=True, text=True).stdout.split()
-    if a.title_re:                               # 20 Nov hunt: only fan clips whose title names the moment (cheap: flat titles first)
-        flat = subprocess.run(["yt-dlp", "--flat-playlist", "--playlist-end", "300", "--print", "%(url)s\t%(title)s",
-                               f"https://www.twitch.tv/{a.channel}/clips?filter=clips&range=7d"], capture_output=True, text=True).stdout
-        urls = [l.split("\t")[0] for l in flat.splitlines() if re.search(a.title_re, l.split("\t", 1)[-1], re.I)]
-        print("title matches:", len(urls))
     with ThreadPoolExecutor(12) as ex:
         ds = list(ex.map(ytj, urls))
+    print(len(urls), "clips listed; sample titles:", [d.get("title") for d in ds[:8]])
+    if a.title_re:                               # 20 Nov hunt: only fan clips whose title names the moment
+        keep = [i for i, d in enumerate(ds) if re.search(a.title_re, d.get("title") or "", re.I)]
+        urls, ds = [urls[i] for i in keep], [ds[i] for i in keep]; print("title matches:", [d.get("title") for d in ds])
     out = []
     for u, d in zip(urls, ds):
         if d.get("timestamp") and t0 <= d["timestamp"] <= t0 + dur + 600:

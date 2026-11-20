@@ -23,7 +23,7 @@ jobs:
           - name: hunt-jynxzi
             args: twitch --channel jynxzi --title-re "footprint|bug|autosave|easter|egg|highest" --top 5 --use-clips --to-s 1e13
           - name: hunt-speed-kick
-            args: kick --slug ishowspeed --title-re "gator|alligator|bark|in the game|easter|myself|bigfoot" --top 5 --to-s 1e13
+            args: twitch --channel jasontheween --title-re "gator|alligator|autosave|bigfoot|bark" --top 3 --use-clips --to-s 1e13 # "gator|alligator|bark|in the game|easter|myself|bigfoot" --top 5 --to-s 1e13
           - name: hunt-kai-found
             args: twitch --channel kaicenat --title-re "found|discover|secret|hidden|druski|backflip" --top 5 --use-clips --to-s 1e13
     steps:
@@ -43,7 +43,7 @@ jobs:
         run: python lab/claude_clips/fetch.py ${{ matrix.args }} --out out
       - name: Footage to branch footage/<name> (Claude's workspace reads git only)
         run: |
-          cd out && for f in *.mp4; do [ $(stat -c%s "$f") -gt 95000000 ] && ffmpeg -v error -y -i "$f" -c:v libx264 -preset veryfast -crf 24 -maxrate 4M -bufsize 8M -c:a copy "s_$f" && mv "s_$f" "$f"; done; ls -la
+          cd out && for f in *.mp4; do [ -e "$f" ] && [ $(stat -c%s "$f") -gt 95000000 ] && ffmpeg -v error -y -i "$f" -c:v libx264 -preset veryfast -crf 24 -maxrate 4M -bufsize 8M -c:a copy "s_$f" && mv "s_$f" "$f"; done; ls -la
           git init -q -b "footage/${{ matrix.name }}" && git add . && git -c user.name="Franklin Mburu" -c user.email="184284364+FranklinMburu@users.noreply.github.com" commit -qm "footage ${{ matrix.name }}"
           git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" "footage/${{ matrix.name }}"
       - uses: actions/upload-artifact@v4
