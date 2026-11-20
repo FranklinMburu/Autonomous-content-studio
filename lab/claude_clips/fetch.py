@@ -89,7 +89,7 @@ def moments(clips, lo, hi, top):
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("platform"); ap.add_argument("--vod"); ap.add_argument("--channel")
     ap.add_argument("--slug"); ap.add_argument("--uuid"); ap.add_argument("--from-s", type=float, default=0)
-    ap.add_argument("--to-s", type=float, default=1e9); ap.add_argument("--top", type=int, default=10); ap.add_argument("--out", default="out")
+    ap.add_argument("--to-s", type=float, default=1e9); ap.add_argument("--top", type=int, default=10); ap.add_argument("--use-clips", action="store_true", help="download the fan clips themselves (fast; for long/live VODs)"); ap.add_argument("--out", default="out")
     a = ap.parse_args(); out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
     src, clips = twitch_clips(a) if a.platform == "twitch" else kick_clips(a)
     print(f"{len(clips)} fan clips in the stream")
@@ -97,8 +97,8 @@ def main():
     from faster_whisper import WhisperModel
     wm = WhisperModel("small.en", device="cpu", compute_type="int8")
     for i, m in enumerate(ms, 1):
-        if a.platform == "kick":                     # 19 Nov: VOD sections from Kick hang; the fan clip itself is the moment
-            name = f"{a.slug}-{i:02d}"; f = out / f"{name}.mp4"; raw = out / f"{name}.raw.mp4"
+        if a.platform == "kick" or a.use_clips:   # 19 Nov: VOD sections from Kick hang; the fan clip itself is the moment
+            name = f"{a.slug or a.channel}-{i:02d}"; f = out / f"{name}.mp4"; raw = out / f"{name}.raw.mp4"
             subprocess.run(["yt-dlp", "-q", "--no-warnings", "-o", str(raw), m["fan_clip"]], timeout=300)
             if not raw.exists():
                 print("FAILED download", name, m["fan_clip"]); continue

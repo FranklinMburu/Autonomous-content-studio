@@ -11,13 +11,13 @@ permissions:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 75
+    timeout-minutes: 40
     strategy:
       fail-fast: false
       matrix:
         include:
           - name: kai2
-            args: twitch --vod https://www.twitch.tv/videos/2932305259 --channel kaicenat --from-s 36000 --to-s 200000 --top 9
+            args: twitch --vod https://www.twitch.tv/videos/2932305259 --channel kaicenat --from-s 36000 --to-s 200000 --top 12 --use-clips
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
