@@ -1,0 +1,1165 @@
+{
+ "duration": 52.146,
+ "exact_word_timing": true,
+ "lines": [
+  {
+   "beat": 0,
+   "text": "Streamers found five secrets in GTA 6 nobody told you about.",
+   "start": 0.15,
+   "end": 4.419
+  },
+  {
+   "beat": 1,
+   "text": "Number one.",
+   "start": 4.869,
+   "end": 5.753
+  },
+  {
+   "beat": 1,
+   "text": "Speed walked right up to an alligator. Bad idea.",
+   "start": 5.973,
+   "end": 8.909
+  },
+  {
+   "beat": 1,
+   "text": "It lunged, grabbed Jason, and dragged him straight through the grass.",
+   "start": 9.129,
+   "end": 12.538
+  },
+  {
+   "beat": 2,
+   "text": "Number two.",
+   "start": 12.988,
+   "end": 13.957
+  },
+  {
+   "beat": 2,
+   "text": "This parrot keeps saying, hey handsome.",
+   "start": 14.177,
+   "end": 16.161
+  },
+  {
+   "beat": 2,
+   "text": "Ask it where the cash is, and it screams, generator!",
+   "start": 16.381,
+   "end": 19.174
+  },
+  {
+   "beat": 2,
+   "text": "Behind the grate? Fourteen hundred and five dollars.",
+   "start": 19.394,
+   "end": 22.372
+  },
+  {
+   "beat": 3,
+   "text": "Number three.",
+   "start": 22.822,
+   "end": 23.77
+  },
+  {
+   "beat": 3,
+   "text": "Lirik came up in the middle of the ocean, and a German shepherd was just sitting on a jet ski.",
+   "start": 23.99,
+   "end": 28.843
+  },
+  {
+   "beat": 3,
+   "text": "He climbed on, and the dog drove him back to shore.",
+   "start": 29.063,
+   "end": 31.885
+  },
+  {
+   "beat": 4,
+   "text": "Number four.",
+   "start": 32.335,
+   "end": 33.283
+  },
+  {
+   "beat": 4,
+   "text": "Jason has a pet snake named Dolores.",
+   "start": 33.503,
+   "end": 35.731
+  },
+  {
+   "beat": 4,
+   "text": "And yes, you can feed her a rat. She eats it.",
+   "start": 35.951,
+   "end": 38.507
+  },
+  {
+   "beat": 5,
+   "text": "Number five.",
+   "start": 38.957,
+   "end": 39.905
+  },
+  {
+   "beat": 5,
+   "text": "Lirik spotted Bigfoot in the swamp.",
+   "start": 40.125,
+   "end": 41.947
+  },
+  {
+   "beat": 5,
+   "text": "He went looking for him, blacked out, and woke up alone, asking, did he do something to me?",
+   "start": 42.167,
+   "end": 46.929
+  },
+  {
+   "beat": 6,
+   "text": "Which one would catch you off guard first?",
+   "start": 47.379,
+   "end": 49.393
+  },
+  {
+   "beat": 6,
+   "text": "Because that alligator...",
+   "start": 49.613,
+   "end": 51.296
+  }
+ ],
+ "words": [
+  {
+   "w": "Streamers",
+   "start": 0.229,
+   "end": 0.679,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "found",
+   "start": 0.729,
+   "end": 0.954,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "five",
+   "start": 1.029,
+   "end": 1.304,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "secrets",
+   "start": 1.379,
+   "end": 1.804,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "in",
+   "start": 1.854,
+   "end": 1.954,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "GTA",
+   "start": 2.029,
+   "end": 2.629,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "6",
+   "start": 2.729,
+   "end": 3.029,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "nobody",
+   "start": 3.129,
+   "end": 3.529,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "told",
+   "start": 3.579,
+   "end": 3.779,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "you",
+   "start": 3.804,
+   "end": 3.879,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "about.",
+   "start": 3.929,
+   "end": 4.289,
+   "line": 0,
+   "beat": 0
+  },
+  {
+   "w": "Number",
+   "start": 4.927,
+   "end": 5.177,
+   "line": 1,
+   "beat": 1
+  },
+  {
+   "w": "one.",
+   "start": 5.227,
+   "end": 5.573,
+   "line": 1,
+   "beat": 1
+  },
+  {
+   "w": "Speed",
+   "start": 6.048,
+   "end": 6.373,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "walked",
+   "start": 6.423,
+   "end": 6.673,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "right",
+   "start": 6.723,
+   "end": 6.898,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "up",
+   "start": 6.923,
+   "end": 6.998,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "to",
+   "start": 7.048,
+   "end": 7.098,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "an",
+   "start": 7.123,
+   "end": 7.173,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "alligator.",
+   "start": 7.223,
+   "end": 7.873,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "Bad",
+   "start": 8.003,
+   "end": 8.203,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "idea.",
+   "start": 8.253,
+   "end": 8.719,
+   "line": 2,
+   "beat": 1
+  },
+  {
+   "w": "It",
+   "start": 9.184,
+   "end": 9.284,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "lunged,",
+   "start": 9.334,
+   "end": 9.759,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "grabbed",
+   "start": 9.859,
+   "end": 10.159,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "Jason,",
+   "start": 10.209,
+   "end": 10.634,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "and",
+   "start": 10.659,
+   "end": 10.734,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "dragged",
+   "start": 10.784,
+   "end": 11.059,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "him",
+   "start": 11.084,
+   "end": 11.209,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "straight",
+   "start": 11.284,
+   "end": 11.609,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "through",
+   "start": 11.659,
+   "end": 11.784,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "the",
+   "start": 11.809,
+   "end": 11.859,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "grass.",
+   "start": 11.909,
+   "end": 12.358,
+   "line": 3,
+   "beat": 1
+  },
+  {
+   "w": "Number",
+   "start": 13.046,
+   "end": 13.321,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "two.",
+   "start": 13.396,
+   "end": 13.777,
+   "line": 4,
+   "beat": 2
+  },
+  {
+   "w": "This",
+   "start": 14.21,
+   "end": 14.36,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "parrot",
+   "start": 14.41,
+   "end": 14.66,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "keeps",
+   "start": 14.71,
+   "end": 14.86,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "saying,",
+   "start": 14.91,
+   "end": 15.21,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "hey",
+   "start": 15.26,
+   "end": 15.435,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "handsome.",
+   "start": 15.485,
+   "end": 15.991,
+   "line": 5,
+   "beat": 2
+  },
+  {
+   "w": "Ask",
+   "start": 16.439,
+   "end": 16.639,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "it",
+   "start": 16.664,
+   "end": 16.714,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "where",
+   "start": 16.739,
+   "end": 16.839,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "the",
+   "start": 16.864,
+   "end": 16.914,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "cash",
+   "start": 16.964,
+   "end": 17.239,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "is,",
+   "start": 17.314,
+   "end": 17.514,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "and",
+   "start": 17.644,
+   "end": 17.719,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "it",
+   "start": 17.744,
+   "end": 17.794,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "screams,",
+   "start": 17.844,
+   "end": 18.269,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "generator!",
+   "start": 18.399,
+   "end": 18.994,
+   "line": 6,
+   "beat": 2
+  },
+  {
+   "w": "Behind",
+   "start": 19.427,
+   "end": 19.752,
+   "line": 7,
+   "beat": 2
+  },
+  {
+   "w": "the",
+   "start": 19.777,
+   "end": 19.827,
+   "line": 7,
+   "beat": 2
+  },
+  {
+   "w": "grate?",
+   "start": 19.877,
+   "end": 20.277,
+   "line": 7,
+   "beat": 2
+  },
+  {
+   "w": "Fourteen",
+   "start": 20.442,
+   "end": 20.817,
+   "line": 7,
+   "beat": 2
+  },
+  {
+   "w": "hundred",
+   "start": 20.867,
+   "end": 21.217,
+   "line": 7,
+   "beat": 2
+  },
+  {
+   "w": "and",
+   "start": 21.242,
+   "end": 21.317,
+   "line": 7,
+   "beat": 2
+  },
+  {
+   "w": "five",
+   "start": 21.367,
+   "end": 21.617,
+   "line": 7,
+   "beat": 2
+  },
+  {
+   "w": "dollars.",
+   "start": 21.667,
+   "end": 22.172,
+   "line": 7,
+   "beat": 2
+  },
+  {
+   "w": "Number",
+   "start": 22.855,
+   "end": 23.105,
+   "line": 8,
+   "beat": 3
+  },
+  {
+   "w": "three.",
+   "start": 23.18,
+   "end": 23.59,
+   "line": 8,
+   "beat": 3
+  },
+  {
+   "w": "Lirik",
+   "start": 24.073,
+   "end": 24.348,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "came",
+   "start": 24.398,
+   "end": 24.598,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "up",
+   "start": 24.623,
+   "end": 24.773,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "in",
+   "start": 24.798,
+   "end": 24.873,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "the",
+   "start": 24.873,
+   "end": 24.948,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "middle",
+   "start": 24.998,
+   "end": 25.223,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "of",
+   "start": 25.248,
+   "end": 25.335,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "the",
+   "start": 25.335,
+   "end": 25.423,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "ocean,",
+   "start": 25.473,
+   "end": 25.973,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "and",
+   "start": 26.023,
+   "end": 26.098,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "a",
+   "start": 26.123,
+   "end": 26.148,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "German",
+   "start": 26.223,
+   "end": 26.573,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "shepherd",
+   "start": 26.673,
+   "end": 27.048,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "was",
+   "start": 27.098,
+   "end": 27.173,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "just",
+   "start": 27.223,
+   "end": 27.398,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "sitting",
+   "start": 27.473,
+   "end": 27.773,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "on",
+   "start": 27.823,
+   "end": 27.923,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "a",
+   "start": 27.948,
+   "end": 27.973,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "jet",
+   "start": 28.023,
+   "end": 28.273,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "ski.",
+   "start": 28.323,
+   "end": 28.683,
+   "line": 9,
+   "beat": 3
+  },
+  {
+   "w": "He",
+   "start": 29.096,
+   "end": 29.171,
+   "line": 10,
+   "beat": 3
+  },
+  {
+   "w": "climbed",
+   "start": 29.221,
+   "end": 29.521,
+   "line": 10,
+   "beat": 3
+  },
+  {
+   "w": "on,",
+   "start": 29.571,
+   "end": 29.846,
+   "line": 10,
+   "beat": 3
+  },
+  {
+   "w": "and",
+   "start": 29.956,
+   "end": 30.031,
+   "line": 10,
+   "beat": 3
+  },
+  {
+   "w": "the",
+   "start": 30.056,
+   "end": 30.106,
+   "line": 10,
+   "beat": 3
+  },
+  {
+   "w": "dog",
+   "start": 30.156,
+   "end": 30.456,
+   "line": 10,
+   "beat": 3
+  },
+  {
+   "w": "drove",
+   "start": 30.506,
+   "end": 30.756,
+   "line": 10,
+   "beat": 3
+  },
+  {
+   "w": "him",
+   "start": 30.781,
+   "end": 30.881,
+   "line": 10,
+   "beat": 3
+  },
+  {
+   "w": "back",
+   "start": 30.931,
+   "end": 31.156,
+   "line": 10,
+   "beat": 3
+  },
+  {
+   "w": "to",
+   "start": 31.206,
+   "end": 31.281,
+   "line": 10,
+   "beat": 3
+  },
+  {
+   "w": "shore.",
+   "start": 31.356,
+   "end": 31.705,
+   "line": 10,
+   "beat": 3
+  },
+  {
+   "w": "Number",
+   "start": 32.393,
+   "end": 32.643,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "four.",
+   "start": 32.718,
+   "end": 33.103,
+   "line": 11,
+   "beat": 4
+  },
+  {
+   "w": "Jason",
+   "start": 33.536,
+   "end": 33.886,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "has",
+   "start": 33.911,
+   "end": 34.036,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "a",
+   "start": 34.061,
+   "end": 34.086,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "pet",
+   "start": 34.136,
+   "end": 34.336,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "snake",
+   "start": 34.386,
+   "end": 34.686,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "named",
+   "start": 34.736,
+   "end": 34.886,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "Dolores.",
+   "start": 34.936,
+   "end": 35.551,
+   "line": 12,
+   "beat": 4
+  },
+  {
+   "w": "And",
+   "start": 36.005,
+   "end": 36.08,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "yes,",
+   "start": 36.13,
+   "end": 36.38,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "you",
+   "start": 36.405,
+   "end": 36.48,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "can",
+   "start": 36.505,
+   "end": 36.605,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "feed",
+   "start": 36.68,
+   "end": 36.83,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "her",
+   "start": 36.855,
+   "end": 36.955,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "a",
+   "start": 36.98,
+   "end": 37.005,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "rat.",
+   "start": 37.055,
+   "end": 37.405,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "She",
+   "start": 37.69,
+   "end": 37.79,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "eats",
+   "start": 37.84,
+   "end": 38.09,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "it.",
+   "start": 38.165,
+   "end": 38.337,
+   "line": 13,
+   "beat": 4
+  },
+  {
+   "w": "Number",
+   "start": 39.015,
+   "end": 39.24,
+   "line": 14,
+   "beat": 5
+  },
+  {
+   "w": "five.",
+   "start": 39.315,
+   "end": 39.725,
+   "line": 14,
+   "beat": 5
+  },
+  {
+   "w": "Lirik",
+   "start": 40.158,
+   "end": 40.383,
+   "line": 15,
+   "beat": 5
+  },
+  {
+   "w": "spotted",
+   "start": 40.433,
+   "end": 40.733,
+   "line": 15,
+   "beat": 5
+  },
+  {
+   "w": "Bigfoot",
+   "start": 40.783,
+   "end": 41.133,
+   "line": 15,
+   "beat": 5
+  },
+  {
+   "w": "in",
+   "start": 41.158,
+   "end": 41.22,
+   "line": 15,
+   "beat": 5
+  },
+  {
+   "w": "the",
+   "start": 41.22,
+   "end": 41.283,
+   "line": 15,
+   "beat": 5
+  },
+  {
+   "w": "swamp.",
+   "start": 41.333,
+   "end": 41.767,
+   "line": 15,
+   "beat": 5
+  },
+  {
+   "w": "He",
+   "start": 42.225,
+   "end": 42.3,
+   "line": 16,
+   "beat": 5
+  },
+  {
+   "w": "went",
+   "start": 42.35,
+   "end": 42.5,
+   "line": 16,
+   "beat": 5
+  },
+  {
+   "w": "looking",
+   "start": 42.55,
+   "end": 42.825,
+   "line": 16,
+   "beat": 5
+  },
+  {
+   "w": "for",
+   "start": 42.875,
+   "end": 42.975,
+   "line": 16,
+   "beat": 5
+  },
+  {
+   "w": "him,",
+   "start": 43.025,
+   "end": 43.275,
+   "line": 16,
+   "beat": 5
+  },
+  {
+   "w": "blacked",
+   "start": 43.385,
+   "end": 43.71,
+   "line": 16,
+   "beat": 5
+  },
+  {
+   "w": "out,",
+   "start": 43.76,
+   "end": 43.985,
+   "line": 16,
+   "beat": 5
+  },
+  {
+   "w": "and",
+   "start": 44.01,
+   "end": 44.085,
+   "line": 16,
+   "beat": 5
+  },
+  {
+   "w": "woke",
+   "start": 44.135,
+   "end": 44.335,
+   "line": 16,
+   "beat": 5
+  },
+  {
+   "w": "up",
+   "start": 44.36,
+   "end": 44.485,
+   "line": 16,
+   "beat": 5
+  },
+  {
+   "w": "alone,",
+   "start": 44.535,
+   "end": 45.01,
+   "line": 16,
+   "beat": 5
+  },
+  {
+   "w": "asking,",
+   "start": 45.125,
+   "end": 45.6,
+   "line": 16,
+   "beat": 5
+  },
+  {
+   "w": "did",
+   "start": 45.625,
+   "end": 45.725,
+   "line": 16,
+   "beat": 5
+  },
+  {
+   "w": "he",
+   "start": 45.75,
+   "end": 45.825,
+   "line": 16,
+   "beat": 5
+  },
+  {
+   "w": "do",
+   "start": 45.875,
+   "end": 45.975,
+   "line": 16,
+   "beat": 5
+  },
+  {
+   "w": "something",
+   "start": 46.025,
+   "end": 46.35,
+   "line": 16,
+   "beat": 5
+  },
+  {
+   "w": "to",
+   "start": 46.4,
+   "end": 46.475,
+   "line": 16,
+   "beat": 5
+  },
+  {
+   "w": "me?",
+   "start": 46.525,
+   "end": 46.769,
+   "line": 16,
+   "beat": 5
+  },
+  {
+   "w": "Which",
+   "start": 47.433,
+   "end": 47.583,
+   "line": 17,
+   "beat": 6
+  },
+  {
+   "w": "one",
+   "start": 47.608,
+   "end": 47.708,
+   "line": 17,
+   "beat": 6
+  },
+  {
+   "w": "would",
+   "start": 47.733,
+   "end": 47.808,
+   "line": 17,
+   "beat": 6
+  },
+  {
+   "w": "catch",
+   "start": 47.858,
+   "end": 48.108,
+   "line": 17,
+   "beat": 6
+  },
+  {
+   "w": "you",
+   "start": 48.133,
+   "end": 48.208,
+   "line": 17,
+   "beat": 6
+  },
+  {
+   "w": "off",
+   "start": 48.233,
+   "end": 48.408,
+   "line": 17,
+   "beat": 6
+  },
+  {
+   "w": "guard",
+   "start": 48.458,
+   "end": 48.708,
+   "line": 17,
+   "beat": 6
+  },
+  {
+   "w": "first?",
+   "start": 48.783,
+   "end": 49.213,
+   "line": 17,
+   "beat": 6
+  },
+  {
+   "w": "Because",
+   "start": 49.646,
+   "end": 49.946,
+   "line": 18,
+   "beat": 6
+  },
+  {
+   "w": "that",
+   "start": 49.996,
+   "end": 50.146,
+   "line": 18,
+   "beat": 6
+  },
+  {
+   "w": "alligator...",
+   "start": 50.196,
+   "end": 51.127,
+   "line": 18,
+   "beat": 6
+  }
+ ]
+}
