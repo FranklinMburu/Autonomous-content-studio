@@ -3,8 +3,9 @@
  "draft": "draft-008-why-yokohama-marine-tower-was-built-run63",
  "episode": "episodes/hidden_reasons/008-why-yokohama-marine-tower-was-built",
  "opened": "2026-11-14T18:05:12+00:00",
- "status": "accepted",
- "checked": "2026-11-20T10:26:42+00:00",
+ "status": "making",
+ "checked": "2026-11-20T13:25:39+00:00",
  "last_answer_by": "pull request #164 by FranklinMburu",
- "tries": 0
+ "tries": 1,
+ "started": "2026-11-20T13:25:39+00:00"
 }
