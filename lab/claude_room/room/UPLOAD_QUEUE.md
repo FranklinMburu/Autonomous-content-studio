@@ -3,8 +3,8 @@
 ## TOP PRIORITY (20 Nov, critic 9.5, new full-screen footage), upload these FIRST
 | Order | Short | Time (Nairobi) | Note |
 |---|---|---|---|
-| A | parrot-C1 | 20 Nov 1:00 PM (or the first slot after the limit resets) | no campaign, no paid promotion; title/desc/pin in parrot-C1.json |
-| B | dog-L1 | 20 Nov 6:00 PM (or the next slot) | no campaign, no paid promotion; title/desc/pin in dog-L1.json |
+| A | parrot-C1 | PUBLISH IMMEDIATELY when the limit resets (~00:00 Nairobi 21 Nov = 4 PM US Eastern) | no campaign, no paid promotion; title/desc/pin in parrot-C1.json |
+| B | dog-L1 | schedule 3 h after parrot-C1 (~03:00 Nairobi = 7 PM US Eastern) | no campaign, no paid promotion; title/desc/pin in dog-L1.json |
 # YouTube daily limit (~10/24 h on this unverified channel) was hit at ~23:50 on 19 Nov; it resets ~24 h later.
 # Schedule in Nairobi time; verify each row in Studio says "Scheduled" for the right time (on 20 Nov all scheduled ones went public early).
 | order | id | when (Nairobi) | notes |
