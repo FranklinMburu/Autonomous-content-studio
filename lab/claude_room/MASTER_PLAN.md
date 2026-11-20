@@ -73,8 +73,8 @@ Last updated 20 Nov 2026, 16:20 Nairobi. Read this first in any new session, the
 ## Status / next steps (keep this list current)
 1. DONE: research (formats, channels, components, series, hook blueprint); teardown.py; fullscreen.py.
 2. DONE: parrot-C1 and dog-L1 singles, at the top of UPLOAD_QUEUE (post when the YouTube limit resets, ~00:00 Nairobi 21 Nov).
-3. NOW: tear down the 18 winners into FORMAT_SPEC.md (measured).
-4. NOW: build the list renderer (narrator TTS + word timings, karaoke captions, numbered headers, ~2 s cuts, loop).
-5. NOW: "5 GTA 6 Secrets Streamers Found" (Bigfoot, snakes, dog, parrot, alligator), with every fact verified.
+3. DONE: room/FORMAT_SPEC.md (measured from the 18 winners + COLE). Finding: the 306K vs 816 alligator posts are pixel-identical, so the gap was distribution (channel/timing/title), not the edit.
+4. DONE: listshort.py (Kokoro narrator via claude-tts/** Actions branch, word-by-word ASS captions, COLE headers, ~2 s cuts, loop, labels).
+5. DONE: secrets1b "5 GTA 6 Secrets Streamers Found": critic 6 -> 7.5 -> fixes applied; first in the upload queue.
 6. NEXT: "5 Things You NEED To Know Before Playing GTA 6" (no autosave, story length, controls…), then "How The Wanted System Works In GTA 6" from xQc/Lirik/Cohh chases.
 7. After posting: read retention at 1 h / 24 h, update the rules here.

@@ -27,13 +27,17 @@ def header_png(text, path, y_top=250):
     """COLETHEMAN-style item header: big white heavy text, thick black outline, no box (max 2 lines)."""
     for size in (92, 86, 80, 74, 68):
         font = ImageFont.truetype(FONT, size)
-        lines = wrap(text, font, size, 1000)
+        lines = wrap(text.replace("*", "\u2009") if False else text, font, size, 1000)
         if len(lines) <= 2:
             break
     img = Image.new("RGBA", (W, H), (0, 0, 0, 0)); lh = int(size * 1.15)
+    sp = font.getlength(" ")
     for i, l in enumerate(lines):
-        lw = text_width(l, font, size)
-        draw_line(img, (W - lw) / 2, y_top + i * lh, l, font, size, "white", stroke=9, stroke_fill="black")
+        lw = text_width(l.replace("*", ""), font, size); x = (W - lw) / 2
+        for wd in l.split(" "):
+            col = "#2BE04A" if wd.startswith("*") else "white"; wd = wd.replace("*", "")
+            draw_line(img, x, y_top + i * lh, wd, font, size, col, stroke=9, stroke_fill="black")
+            x += text_width(wd, font, size) + sp
     img.save(path)
 
 
@@ -97,15 +101,21 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
     words = tm["words"]; ev = []
     # chunks: up to max_words, break at line ends and sentence punctuation
+    cf = ImageFont.truetype(FONT, 96)
+    fits = lambda ws: cf.getlength(" ".join(x["w"].upper() for x in ws)) * 1.1 <= 900
     chunks, cur = [], []
     for i, w in enumerate(words):
+        if cur and not fits(cur + [w]):
+            chunks.append(cur); cur = []
         cur.append(w)
         nxt = words[i + 1] if i + 1 < len(words) else None
-        if len(cur) >= max_words or nxt is None or nxt["line"] != w["line"] or re.search(r"[.?!,]$", w["w"]):
+        short_next = nxt is not None and len(nxt["w"].strip(".,?!")) <= 2 and nxt["line"] == w["line"] and fits(cur + [nxt])
+        if (len(cur) >= max_words and not short_next) or nxt is None or nxt["line"] != w["line"] or re.search(r"[.?!,]$", w["w"]):
             chunks.append(cur); cur = []
-    for c in chunks:
+    for ci, c in enumerate(chunks):
+        nxt_start = chunks[ci + 1][0]["start"] if ci + 1 < len(chunks) else 1e9
         for j, w in enumerate(c):
-            st = w["start"]; en = c[j + 1]["start"] if j + 1 < len(c) else w["end"] + 0.12
+            st = w["start"]; en = c[j + 1]["start"] if j + 1 < len(c) else min(w["end"] + 0.12, nxt_start)
             parts = []
             for k, x in enumerate(c):
                 t = x["w"].upper().replace("{", "").replace("}", "")
@@ -125,15 +135,19 @@ def main(spec_path):
     s = json.loads(Path(spec_path).read_text()); tmp = Path(tempfile.mkdtemp())
     tm = json.loads(Path(s["narr_json"]).read_text())
     win = windows(tm, [b["beat"] for b in s["beats"]])
-    parts, cursor = [], 0.0
+    parts, cursor, labels = [], 0.0, []
     for b in s["beats"]:
         a, e = win[b["beat"]]
         if b is s["beats"][-1]:
             e += s.get("tail", 0.0)
-        W_ = e - a; lens = [sh["b"] - sh["a"] for sh in b["shots"]]; tot = sum(lens)
+        W_ = e - a; fixed = sum(sh["d"] for sh in b["shots"] if "d" in sh)
+        lens = [sh["b"] - sh["a"] for sh in b["shots"]]; tot = sum(l for l, sh in zip(lens, b["shots"]) if "d" not in sh) or 1
         for i, sh in enumerate(b["shots"]):
-            d = W_ * lens[i] / tot
+            d = sh["d"] if "d" in sh else (W_ - fixed) * lens[i] / tot
             p = tmp / f"s{len(parts):03d}.mov"; render_shot(sh, d, p); parts.append(p)
+            if sh.get("label"):
+                labels.append((sh["label"], cursor + 0.1, cursor + d))
+            cursor += d
         b["_win"] = (a, e)
     lst = tmp / "l.txt"; lst.write_text("".join(f"file '{p}'\n" for p in parts))
     joined = tmp / "j.mov"
@@ -147,8 +161,15 @@ def main(spec_path):
     for b in s["beats"]:
         if b.get("header"):
             ovs.append((b["header"], b["_win"][0], b["_win"][1], "header"))
+    for lb in labels:
+        ovs.append((lb[0], lb[1], lb[2], "label"))
     for i, (txt, t0, t1, kind) in enumerate(ovs):
-        png = tmp / f"o{i}.png"; header_png(txt, png); inputs += ["-i", str(png)]
+        png = tmp / f"o{i}.png"
+        if kind == "label":
+            header_png(txt, png, y_top=760)
+        else:
+            header_png(txt, png)
+        inputs += ["-i", str(png)]
         chain += f"{last}[{n}:v]overlay=0:0:enable='between(t,{t0:.2f},{t1:.2f})'[v{i}];"; last = f"[v{i}]"; n += 1
     chain += f"{last}ass={ass}[vout];"
     chain += "[1:a]aresample=48000,aformat=channel_layouts=stereo,volume=1.0[nar];[0:a][nar]amix=inputs=2:duration=first:normalize=0[mix]"
