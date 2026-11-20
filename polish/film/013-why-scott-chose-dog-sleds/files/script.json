@@ -1,0 +1,81 @@
+{
+ "title": "Why Scott Chose Dog‑Sleds",
+ "channel": "Hidden Reasons",
+ "topic": "Why the British explorer Robert Falcon Scott equipped his Antarctic expedition with motor‑sled dogs (Antarctica, 1910–1912) to conserve sledging manpower",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "lines": [
+    "Scott chained a pack of huskies to a sled, wind howling.",
+    "The storm ripped his coat, snow stinging his face.",
+    "Every step felt like walking on knives."
+   ],
+   "feel": "curiosity"
+  },
+  {
+   "lines": [
+    "His crew scoffed, insisting men should pull every load.",
+    "They whispered that dogs were useless in such cold.",
+    "Scott heard their doubts echo across the ice."
+   ],
+   "feel": "sympathy"
+  },
+  {
+   "lines": [
+    "He ordered the dogs forward, refusing to waste any human step.",
+    "The huskies surged forward, paws cracking the crust.",
+    "Men watched, breath fogging, as distance shrank."
+   ],
+   "feel": "dread"
+  },
+  {
+   "lines": [
+    "You see, it’s like riding a bike to carry groceries.",
+    "Just as a bike spares your legs, the dogs spare your muscles."
+   ],
+   "feel": "recognition"
+  },
+  {
+   "lines": [
+    "Scott knew dogs could haul supplies, letting men conserve strength for glacier.",
+    "Without dogs, men would trek for miles, exhausting quickly.",
+    "The plan saved weeks of brutal hauling."
+   ],
+   "feel": "awe"
+  },
+  {
+   "lines": [
+    "Ironically, those dogs were abandoned, never to return to any home.",
+    "Their bodies later lay frozen, a silent reminder of sacrifice.",
+    "History remembers the pole, not the forgotten pups."
+   ],
+   "feel": "surprise"
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Scott knew dogs could haul supplies, letting men conserve strength for glacier.",
+   "url": "https://en.wikipedia.org/wiki/Terra_Nova_Expedition"
+  }
+ ],
+ "key_words": [
+  "husky",
+  "sled",
+  "dogs",
+  "Barrier",
+  "energy",
+  "glacier",
+  "plateau",
+  "haul",
+  "crew",
+  "loads"
+ ]
+}

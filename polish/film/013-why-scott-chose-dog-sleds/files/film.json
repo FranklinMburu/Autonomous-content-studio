@@ -1,0 +1,282 @@
+{
+ "era": "1910s",
+ "cast": {
+  "scott": "a 43 year old British polar explorer with a lean weathered face, intense blue eyes, short dark brown hair, a thick dark moustache, wearing a heavy navy blue canvas parka with a thick fur-trimmed hood, grey wool trousers, and heavy brown snow boots, 1910s",
+  "crewman": "a 30 year old British expedition sailor with a broad ruddy face, frostbitten cheeks, short sandy hair, clean shaven, wearing a dark brown thick knit wool sweater over a faded blue shirt, heavy grey canvas trousers, and wool mittens, 1910s",
+  "biker": "a 25 year old woman cyclist with dark curly hair tied back, brown skin, wearing a bright yellow waterproof rain jacket, black athletic leggings, and a grey helmet, today"
+ },
+ "music": "epic",
+ "key_words": [
+  "Scott",
+  "chained",
+  "huskies",
+  "sled",
+  "wind",
+  "storm",
+  "coat",
+  "snow",
+  "step",
+  "knives",
+  "crew",
+  "dogs",
+  "ice",
+  "forward",
+  "paws",
+  "crust",
+  "fogging",
+  "bike",
+  "groceries",
+  "legs",
+  "muscles",
+  "haul",
+  "glacier",
+  "trek",
+  "brutal",
+  "abandoned",
+  "frozen",
+  "reminder",
+  "sacrifice",
+  "pole"
+ ],
+ "shots": [
+  {
+   "name": "chain",
+   "at": 0,
+   "who": "scott",
+   "clip": true,
+   "xfade": true,
+   "prompt": "medium shot, {scott} crouching in deep snow fastening a chain to a husky's harness, a team of huskies and a wooden sled behind him, howling blizzard, flat grey daylight",
+   "motion": "he pulls the chain tight and leans forward, snow blows past, slow camera push in",
+   "check": "Is a man crouching in snow fastening a chain?"
+  },
+  {
+   "name": "storm",
+   "at": "wind#1",
+   "who": "scott",
+   "clip": true,
+   "hit": "storm#1",
+   "prompt": "close-up, {scott} leaning into a howling blizzard as his heavy navy parka flaps violently, a torn seam at the shoulder, driving snow, whiteout, cold grey light",
+   "motion": "his parka flaps hard and snow whips past his face, slow camera push in",
+   "check": "Is a man's coat flapping in driving snow?"
+  },
+  {
+   "name": "sting",
+   "at": "snow#1",
+   "who": "scott",
+   "clip": true,
+   "prompt": "extreme close-up, {scott} squinting as driving snow strikes his frost-reddened face, ice crystals in his dark moustache, whiteout blizzard, pale grey light",
+   "motion": "he squints and turns his face away from the snow, slow camera push in",
+   "check": "Is a man's face in driving snow?"
+  },
+  {
+   "name": "knives",
+   "at": "Every#1",
+   "clip": true,
+   "hit": "knives#1",
+   "prompt": "low angle close-up, a heavy brown snow boot stamping down and cracking a hard crust of snow on a windswept ice plain, blowing snow, cold grey light",
+   "motion": "the boot presses down and the crust cracks apart, snow drifts past, slow camera push in",
+   "check": "Is a boot stamping on cracked snow?"
+  },
+  {
+   "name": "scoff",
+   "at": "His#3",
+   "who": "crewman",
+   "xfade": true,
+   "clip": true,
+   "prompt": "medium close-up, {crewman} scoffing with his arms crossed and chin raised, breath fogging in the wind, a windswept Antarctic ice plain behind him, cold blue-grey light",
+   "motion": "he scoffs and shakes his head, breath fogging, slow camera push in",
+   "check": "Is a man standing with his arms crossed and a scowl?"
+  },
+  {
+   "name": "haul",
+   "at": "pull#1",
+   "who": "crewman",
+   "clip": true,
+   "prompt": "medium shot, {crewman} leaning forward, hauling a heavy wooden sled by a thick rope over his shoulder, boots sinking into snow, a blizzard sweeping the Antarctic ice plain, cold white light",
+   "motion": "he leans harder and pulls the rope taut, snow blows past, slow camera push in",
+   "hit": "pull#1",
+   "check": "Is a man pulling a wooden sled with a rope?"
+  },
+  {
+   "name": "dismiss",
+   "at": "useless#1",
+   "clip": true,
+   "prompt": "medium shot, a man in a dark brown thick knit wool sweater shrugging with one hand raised dismissively beside a team of huskies in leather harnesses beside a wooden sled, Antarctic ice plain, cold blue light",
+   "motion": "he shrugs and waves one hand dismissively, dogs pant, slow camera move right",
+   "hit": "useless#1",
+   "check": "Is a man shrugging with one hand raised?"
+  },
+  {
+   "name": "listen",
+   "at": "doubts#1",
+   "who": "scott",
+   "clip": true,
+   "prompt": "close-up, {scott} standing still on a windswept Antarctic ice plain, head tilted as he listens, fur hood ruffled, distant men blurred far behind, cold blue-grey light",
+   "motion": "he turns his head slightly and squints into the wind, slow camera push in",
+   "check": "Is a man standing still and listening on the ice?"
+  },
+  {
+   "name": "order",
+   "at": "He#1",
+   "who": "scott",
+   "clip": true,
+   "prompt": "medium shot, a polar explorer thrusting one arm forward to order his team onward, he is {scott}, beside a wooden dog sled on an open Antarctic snowfield, grey blizzard light",
+   "motion": "he thrusts his arm forward, snow whips past, slow camera push in",
+   "xfade": true,
+   "check": "Is a man pointing forward?"
+  },
+  {
+   "name": "nospare",
+   "at": "step#2",
+   "move": "push",
+   "prompt": "close-up of a heavy brown snow boot planted on a wooden sled runner, packed snow and ice below, cold blue polar light",
+   "check": "Is a boot on a wooden sled runner?"
+  },
+  {
+   "name": "surged",
+   "at": "surged#1",
+   "clip": true,
+   "prompt": "low angle, a team of husky dogs straining forward in leather harness beside a blue glacier crevasse, taut traces to a sled, blizzard grey light",
+   "motion": "the dogs pull forward, traces tighten, snow puffs up, slow camera push in",
+   "hit": "surged#1",
+   "check": "Are husky dogs pulling in harness?"
+  },
+  {
+   "name": "crust",
+   "at": "crust#1",
+   "clip": true,
+   "prompt": "extreme close-up of husky paws pressing into a hard cracked snow crust, tiny ice chips breaking under the fur, cold blue light",
+   "motion": "the paws press down and crack the crust, snowflakes scatter, slow camera push in",
+   "hit": "crust#1",
+   "check": "Are dog paws on cracked snow?"
+  },
+  {
+   "name": "watched",
+   "at": "watched#1",
+   "move": "pull",
+   "prompt": "medium shot, a ruddy-faced expedition sailor in a thick brown sweater and two other men standing among jagged blue ice blocks, watching a dog team recede, breath fogging, pale polar daylight",
+   "check": "Are men standing in the snow with fogging breath?"
+  },
+  {
+   "name": "bike_groceries",
+   "at": "You#1",
+   "who": "biker",
+   "modern": true,
+   "xfade": true,
+   "clip": true,
+   "prompt": "medium shot, a woman cyclist pedaling a black bicycle with paper grocery bags hanging from the rear rack, she is {biker}, a wet modern city street, soft overcast light",
+   "motion": "she pedals steadily as the wheels turn, slow camera move right",
+   "check": "Is a woman riding a bicycle with grocery bags?"
+  },
+  {
+   "name": "wheel",
+   "at": "Just#1",
+   "modern": true,
+   "move": "push",
+   "prompt": "close-up of a bicycle rear wheel rolling over wet pavement with paper grocery bags swinging from the rack, modern street, soft grey light",
+   "check": "Is there a bicycle wheel with grocery bags?"
+  },
+  {
+   "name": "dogs_pull",
+   "at": "dogs#3",
+   "clip": true,
+   "prompt": "medium shot, huskies straining forward pulling a heavily loaded wooden sled across hard snow, {scott} walking behind gripping the sled rope, 1910s Antarctic plateau, bright overcast light",
+   "motion": "the huskies step forward and the sled slides over the snow, slow camera move right",
+   "hit": "dogs#3",
+   "check": "Are huskies pulling a sled?"
+  },
+  {
+   "name": "scott_orders",
+   "at": "Scott#3",
+   "who": "scott",
+   "clip": true,
+   "prompt": "medium shot, an explorer raising one arm and pointing firmly toward a team of huskies harnessed to a loaded wooden sled, he is {scott}, a windswept Antarctic snowfield, grey blizzard light",
+   "motion": "he points firmly as the dogs shift and paw the snow, wind blows past, slow camera push in",
+   "xfade": true,
+   "check": "Is a man pointing with his arm raised?"
+  },
+  {
+   "name": "dogs_haul",
+   "at": "supplies#1",
+   "clip": true,
+   "prompt": "close-up, a team of huskies straining in leather harnesses, paws digging into hard crusted snow as they pull a loaded wooden sled, blowing snow, cold grey light",
+   "motion": "the dogs pull forward and dig their paws, loose snow scatters, slow camera push in",
+   "check": "Are husky dogs pulling a sled?"
+  },
+  {
+   "name": "men_trek",
+   "at": "Without#1",
+   "move": "right",
+   "prompt": "wide shot, two bundled men in heavy wool parkas leaning forward and pulling a heavy wooden sled over a windswept white snowfield, no dogs, grey overcast light",
+   "check": "Are men pulling a sled themselves?"
+  },
+  {
+   "name": "exhausted",
+   "at": "exhausting#1",
+   "who": "crewman",
+   "clip": true,
+   "prompt": "close-up, an exhausted sailor trudging through deep snow with his head down and breath fogging, frostbitten red cheeks, he is {crewman}, a white Antarctic slope, cold blue light",
+   "motion": "he lifts a mittened hand toward his face and trudges, breath clouds, slow camera push in",
+   "hit": "exhausting#1",
+   "check": "Is a man walking through deep snow?"
+  },
+  {
+   "name": "plan_saves",
+   "at": "saved#1",
+   "move": "pull",
+   "prompt": "wide shot, a team of huskies hauling a tall stack of supplies on a wooden sled across bright Antarctic snow while bundled men walk easily beside them, a distant white glacier behind, clear sunlight",
+   "hit": "saved#1",
+   "check": "Are huskies pulling a loaded sled?"
+  },
+  {
+   "name": "left_behind",
+   "at": "Ironically#1",
+   "clip": true,
+   "xfade": true,
+   "prompt": "medium shot, a husky chained to a wooden post in deep snow, head lowered, blizzard whipping across an Antarctic ice plain, cold grey light",
+   "motion": "the husky's breath puffs in the wind and snow whips past, slow camera push in",
+   "check": "Is a husky chained to a post in snow?"
+  },
+  {
+   "name": "chain_22",
+   "at": "abandoned#1",
+   "clip": true,
+   "prompt": "close-up, a husky lying in packed snow with a heavy iron chain around its neck, frost on its muzzle, wind-blown snow behind, cold blue light",
+   "motion": "the husky's breath puffs weakly and its eyes half close, slow camera push in",
+   "check": "Is a husky lying in snow with a chain?"
+  },
+  {
+   "name": "bodies",
+   "at": "bodies#1",
+   "clip": true,
+   "hit": "bodies#1",
+   "prompt": "wide shot, several husky bodies lying still half buried in snow on a vast white glacier, wind drifting over them, pale overcast light",
+   "motion": "wind sweeps loose snow across the still bodies, slow camera push in",
+   "check": "Are husky bodies lying in the snow?"
+  },
+  {
+   "name": "frost",
+   "at": "frozen#1",
+   "clip": true,
+   "hit": "frozen#1",
+   "prompt": "extreme close-up, a husky's frost-covered face lying still in snow, ice crystals on its whiskers, drifting snow, dim cold light",
+   "motion": "snow drifts over the still muzzle, very slow camera push in",
+   "check": "Is a husky's face covered in frost?"
+  },
+  {
+   "name": "monument",
+   "at": "History#1",
+   "xfade": true,
+   "move": "up",
+   "prompt": "low angle, a tall grey stone monument topped with a bronze figure of an explorer on a windswept snowy plain, pale daylight",
+   "check": "Is there a tall stone monument on snow?"
+  },
+  {
+   "name": "forgotten",
+   "at": "not#1",
+   "move": "push",
+   "prompt": "close-up, an empty rusted chain and worn leather dog collar lying in windblown snow, no dog, cold grey light",
+   "check": "Is there an empty chain and collar in the snow?"
+  }
+ ]
+}
