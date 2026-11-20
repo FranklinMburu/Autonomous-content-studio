@@ -15,6 +15,7 @@ env:
   REJUDGE: ""                # reuse run 6 judge scores (13 Nov: measuring the agreement bonus, no new Gemini calls)
   EYES_REDO: ""             # "1" = run the AI eyes again even when an earlier run's eyes could be reused
   EYES_MODEL: ""            # e.g. gemma-4-26b-a4b-it: the eyes on Gemma's own daily allowance; "" = the Gemini Flash default
+  JUDGE_MODEL: ""           # e.g. gemma-4-31b-it: the judge on Gemma's own allowance (frames + transcript); "" = the Gemini Flash default
   TW_VOD: "https://www.twitch.tv/videos/2910392998"   # the test stream; "" = pick the best recent one from TW_CHANNELS
   TW_CHANNEL: "kaicenat"
   TW_CHANNELS: "kaicenat,plaqueboymax,lacy,fanum,dukedennis"
@@ -206,6 +207,7 @@ jobs:
       - name: Recall test (signals, then the AI judge)
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CLIPS_JUDGE_MODEL: ${{ env.JUDGE_MODEL }}
         run: |
           cd repo
           A="--key ../key/twitch.json --audio ../key/audio.m4a --video ../key/low.mp4 --words ../key/words.json --chat ../key/chat.json --eyes ../key/eyes.json --top 20"

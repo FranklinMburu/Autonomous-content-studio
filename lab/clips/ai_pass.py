@@ -191,7 +191,14 @@ def eyes(a):
 
 
 def judge(a):
-    model = a.model or pick_model()
+    # 20 Nov (Clipping Lab #2): the party stream's judge ran entirely on flash-lite (Flash out of daily quota) and scored
+    # the fan favourites 4. CLIPS_JUDGE_MODEL=gemma-4-31b-it puts the judge on Gemma's own allowance; Gemma gets frames
+    # (it takes no mp4/audio here) and the transcript of the whole watched window instead.
+    model = a.model or os.environ.get("CLIPS_JUDGE_MODEL") or pick_model()
+    frames_mode = model.startswith("gemma")
+    FSTEP = int(os.environ.get("CLIPS_JUDGE_FSTEP", "3"))
+    WIN = int(os.environ.get("CLIPS_JUDGE_WIN", "75"))
+    print(f"[judge] model {model}" + (f" (frames every {FSTEP} s + transcript, no sound)" if frames_mode else ""), flush=True)
     cands = json.loads(Path(a.cands).read_text())
     words = json.loads(Path(a.words).read_text())["words"] if a.words and Path(a.words).exists() else []
     seen = json.loads(Path(a.eyes).read_text())["moments"] if a.eyes and Path(a.eyes).exists() else []
@@ -203,22 +210,37 @@ def judge(a):
         blocks = []
         for c in batch:
             t = c["t"]
-            said = " ".join(w["w"] for w in words if t - 60 <= w["start"] <= t + 30)[:900]
-            saw = "; ".join(f"{m['t']:.0f}s {m['what']}" for m in seen if t - 60 <= m["t"] <= t + 30)[:500]
-            blocks.append(f"MOMENT t={t}\nSAID (t-60..t+30): {said or '-'}\nSEEN: {saw or '-'}")
+            # 20 Nov: the words now cover the same span the judge watches (they stopped at t+30 while it watched t+75)
+            lo, hi = (t - WIN, t + WIN) if watch else (t - 60, t + 30)
+            said = " ".join(w["w"] for w in words if lo <= w["start"] <= hi)[:1600 if watch else 900]
+            saw = "; ".join(f"{m['t']:.0f}s {m['what']}" for m in seen if lo <= m["t"] <= hi)[:600]
+            blocks.append(f"MOMENT t={t}\nSAID (t{lo - t:+.0f}..t{hi - t:+.0f}): {said or '-'}\nSEEN: {saw or '-'}")
         who = f"The streamer is {a.streamer}: name him in titles (fans' name), never 'the streamer'.\n" if getattr(a, "streamer", None) else ""
         parts = [{"text": f"You are the best clip-channel editor alive. {TASTE}\n{RUBRIC}\n{who}\n" + "\n\n".join(blocks)}]
         if watch:   # SliceQ / clipit lesson: let the judge watch and hear the moment, not only read it
             # 16 Nov (Clipping Lab #2): the old window [t-60, t+30] covered 0% of the top fan clip (the candidate sat
             # 108 s before it). Now the judge watches t +- WIN s and says where the payoff really is ("peak").
             t = batch[0]["t"]
-            WIN = int(os.environ.get("CLIPS_JUDGE_WIN", "75"))
             a0 = max(0, t - WIN)
+            if frames_mode:
+                tmp = Path(tempfile.mkdtemp())
+                subprocess.run(["ffmpeg", "-v", "error", "-ss", str(a0), "-t", str(2 * WIN), "-i", a.video, "-vf",
+                                f"fps=1/{FSTEP},scale=284:160", "-q:v", "6", str(tmp / "f%04d.jpg")], check=False)
+                frames = sorted(tmp.glob("f*.jpg"))
+                if frames:
+                    parts[0]["text"] += (f"\n\nBelow are {len(frames)} low-quality frames, one every {FSTEP} s, from {a0} s to {a0 + 2 * WIN} s "
+                                         f"of the stream (t={t} is {t - a0} s in); there is no sound, the words above are what was said. "
+                                         "The best moment may be anywhere in this span, not only at t. Judge the STRONGEST moment you SEE "
+                                         "and READ; never name a person who is not clearly named in the words. Return a JSON list with one "
+                                         f"entry, including \"peak\": the stream time in seconds (between {a0} and {a0 + 2 * WIN}) of its payoff.")
+                    for k, f in enumerate(frames):
+                        parts += [{"text": f"t={a0 + k * FSTEP}"}, {"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(f.read_bytes()).decode()}}]
             clip = Path(tempfile.mkdtemp()) / "m.mp4"
-            subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(a0), "-t", str(2 * WIN), "-i", a.video, "-ss", str(a0), "-t", str(2 * WIN),
-                            "-i", a.audio, "-map", "0:v:0", "-map", "1:a:0", "-vf", "fps=2,scale=284:160", "-c:v", "libx264",
-                            "-crf", "34", "-preset", "veryfast", "-ac", "1", "-ar", "16000", "-c:a", "aac", "-b:a", "32k", str(clip)],
-                           check=False)
+            if not frames_mode:
+                subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(a0), "-t", str(2 * WIN), "-i", a.video, "-ss", str(a0), "-t", str(2 * WIN),
+                                "-i", a.audio, "-map", "0:v:0", "-map", "1:a:0", "-vf", "fps=2,scale=284:160", "-c:v", "libx264",
+                                "-crf", "34", "-preset", "veryfast", "-ac", "1", "-ar", "16000", "-c:a", "aac", "-b:a", "32k", str(clip)],
+                               check=False)
             if clip.exists() and clip.stat().st_size > 1000:
                 parts[0]["text"] += (f"\n\nThe video below is low quality, from {a0} s to {a0 + 2 * WIN} s of the stream (t={t} is "
                                      f"{t - a0} s into it). The best moment may be anywhere in it, not only at t. Judge the STRONGEST "
