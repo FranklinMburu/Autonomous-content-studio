@@ -1,0 +1,44 @@
+{
+ "off": 1795032722,
+ "a": 1795032722,
+ "b": 1795032727,
+ "views": 339,
+ "fan_titles": [
+  "339: Plugged Sink! LUL"
+ ],
+ "fan_clip": "https://www.twitch.tv/lirik/clip/DelightfulCuriousOwlBigBrother-i6M7W8ikkrZrT4-g",
+ "file": "lirik-03.mp4",
+ "section_start_in_vod": 1795032722,
+ "section_end_in_vod": 1795032727,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/lirik/clips",
+ "stream_title": "fan clips",
+ "streamer_channel": "lirik",
+ "words": [
+  {
+   "w": "What",
+   "s": 2.16,
+   "e": 3.3
+  },
+  {
+   "w": "the",
+   "s": 3.3,
+   "e": 4.1
+  },
+  {
+   "w": "hell",
+   "s": 4.1,
+   "e": 4.32
+  },
+  {
+   "w": "is",
+   "s": 4.32,
+   "e": 4.66
+  },
+  {
+   "w": "that?",
+   "s": 4.66,
+   "e": 5.0
+  }
+ ]
+}
