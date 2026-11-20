@@ -1,0 +1,108 @@
+# GTA channels winning with Shorts (YouTube, scraped 20 Nov 2026 ~12:00 Nairobi)
+Method:
+- 40 searches plus channel search turned up 404 channels.
+- For each, I read its /shorts tab (latest ~48 Shorts with view counts) and subscriber count.
+- I kept 72 channels with at least one GTA Short of 100K+ views.
+- Below: subs | GTA Shorts listed | top | median | number of 100K+ hits | best titles.
+
+## SMALL channels (<25K subs) punching far above their size (the ones to copy)
+- **COLETHEMAN GTA** (11.8K, 4 GTA Shorts, median 1.5M, 4/4 over 100K):
+  - 4.4M "5 CRAZY THINGS In GTA 6 That You CAN'T Do In GTA 5"
+  - 1.9M "How The Wanted System Works In GTA 6"
+  - 1.5M "5 Realistic Things In GTA 6"
+  - 220K "Everything You NEED To Know Before You Play GTA 6"
+- **VicePulse** (5.72K, 32, median 54K, 13 hits):
+  - 5.6M "How Many Rockstar Maps Fit Inside GTA 6?!"
+  - 5.2M "GTA 5 vs GTA 6: How Much Of The Map Is Actually Empty?!"
+  - 2.4M "How Long It Actually Takes To Drive Across GTA 6?!"
+  - 713K "How Players Are Saying Goodbye To GTA 5 On Nov 19.."
+- **FlayHQ** (4.91K, 13, median 148K, 7 hits):
+  - 2.4M "Get EASY Money FAST in GTA 6! (Secret Method)"
+  - 1.2M "Get $20,000 in ONE Minute in GTA 6!"
+  - 1.0M "Most Useful Tips for GTA 6!"
+  - 786K "GTA 6 Is FINALLY Here! First Gameplay 😳"
+- **GTA Intel** (8.33K, 14, median 84K, 6 hits):
+  - 2.8M "Robbing Stores in GTA 6 Works Differently To GTA 5"
+  - 2.0M "GTA 6 Police Are Smarter Than Ever..."
+  - 1.8M "5 Things You NEED To Know Before Playing GTA 6 🤯"
+  - 899K "How to Romance Lucia in GTA 6... 😉"
+- **YUMITO** (6.63K, 19, median 73K, 7 hits):
+  - 2.2M "These Two Games Are 13 Years Apart - GTA6 vs GTA5"
+  - 2.2M "14 Years Apart $1.97 Billion Difference - GTA6"
+  - 245K "GTA 6 Trailer vs Game"
+- **Roly Poly** (2.47K, 31, median 29K, 4 hits):
+  - 1.6M "How the GTA 6 Wanted System Actually Works"
+  - 1.0M "Habits You MUST Forget for GTA 6"
+  - 372K "GTA 6 Details That Make GTA 5 Look Like a Joke"
+- **ABTW** (9.84K, 10, median 126K, 7 hits):
+  - 1.6M "Don't Ruin Your First GTA 6 Playthrough"
+  - 622K "Your Morality Matters More in GTA 6..."
+  - 243K "The Entire GTA 6 Map Explained"
+  - 199K "5 Tips for Day 1 on GTA 6"
+- **Hollywood GTA** (9.29K, 12, median 85K, 6 hits):
+  - 1.1M "5 Ways GTA 6 Will Keep You BROKE 💸"
+  - 433K "5 Ways You Can Make Money On DAY 1 In GTA 6 💰"
+  - 268K "When GTA 6 ACTUALLY Unlocks For You 🕛"
+  - 246K "5 WEIRD Things You Need To Know Before You Play GTA 6 🤯"
+- **Guraxy** (1.09K, 1): 1.6M "Car door handle logic in GTA Games"
+- **Ten'O'Clock** (1.39K, 8, median 39K, 3 hits):
+  - 376K "5 Things To Do FIRST In GTA 6 (Part 1)"
+  - 180K "5 Ways GTA 6 Will DRAIN Your Money"
+  - 109K "The 5 FASTEST Ways To Make Money In GTA 6"
+  - 40K "5 Things To Do BEFORE Chapter 2"
+- **Loredonia** (565, 31, median 4.1K, 3 hits):
+  - 325K "5 GTA 6 Secrets Players Found On Day 1 🔍"
+  - 226K "GTA 6 Runs at 30 FPS... Even on PS5 Pro"
+  - 118K "Do these 10 things before starting GTA 6"
+- **Regular Joe** (4.86K, 2):
+  - 335K "I found a literal Easter egg in GTA 6"
+  - 58K "I didn't know you could do this to NPC's in GTA 6"
+- **Tacitus Kilgore** (2.65K, 22, median 25K, 2 hits):
+  - 549K "Steven Ogg Regrets Disrespecting GTA 💀"
+  - 479K "GTA 6 Has Some Insane Details 😮"
+- **ANTQ** (21K, 48, median 72K, 20 hits):
+  - 6.1M "GTA VI Forgot to Cook Here..."
+  - 6.0M "$2B Budget for GTA VI!"
+  - 3.0M "GTA VI Looks Unplayable..."
+  - 1.9M "GTA VI' $300M Water Physics"
+- **RoddyGames** (19.4K, 48, median 53K, 14 hits):
+  - 2.2M "GTA 6 Looks So Real Rockstar Had to Change Time Itself"
+  - 1.2M "Don't buy the GTA 6 Ultimate Edition until you see this"
+  - 350K "GTA 6 Looks So Real IGN Had to Confirm It"
+- **IGR** (21.8K, 42, median 62K, 13 hits):
+  - 953K "GTA 6 VS RDR 2 VS GTA 5 - Aiming Comparison"
+  - 945K "... - Shotgun Comparison"
+  - 229K "GTA 6 VS Cyberpunk VS San Andreas - Basketball Comparison"
+- **BreeZe GTA** (24.6K, 2):
+  - 360K "5 THINGS From GTA 5 You WON'T Be Able To Do In GTA 6"
+  - 179K "How To Steal A Jet From The Military Base In GTA 6"
+- **GTA6 Polska** (17.9K, 40, median 17K): 111K "POV: NOVEMBER 18"; 60K "GTA6: MOTORCYCLE KICKSTAND"
+- **TofuClips** (64 subs!, 12, median 9.2K): 152K "'This Is Gonna Go VIRAL' — During An Active Robbery 💀 #gtarp #nopixel" (streamer RP clips)
+- **Will Mac** (28.3K, 47, median 23K): 7.0M "Easy Choice 😂😂😂 #gta6memes" (meme)
+
+## Mid and big channels (context; their audience carries them)
+- **GTA6** (616K, 48, median 720K, 43 hits): 61M "How should a puppy choose? #GTA #GTA6"; 12M "Does the puppy choose Lucia or Jason?"; 11M "Who should he choose?"; 6.8M "Lucia the robot is misunderstood." (AI/story skits with a puppy choosing between Lucia and Jason)
+- **ZacCoxTV** (864K, median 353K, 41 hits): 8.8M "WORST DEATHS IN GTA GAMES (PART 1)"; 7.0M "(PART 3)"; 4.7M "5 BEST GLITCHES IN GTA GAMES (PART 2)"; 4.2M "MICHAEL RETURNS IN GTA 6 EASTER EGG"
+- **SpeirsTheAmazingHD** (5.58M, median 8.0M): "Busting 5 Myths in GTA 5" series, 13–22M each
+- **LOOKY** (498K, median 217K, 39 hits): 609K "Entering the GTA 6 Military Base"; 813K "The realism of high heels in GTA 5"
+- **The GTA Assassin** (349K, median 220K, 37 hits): 711K "GTA 6 Download Started 🥹🤧"; 584K "Real Reason GTA 6 Took 13 Years? 🥲"
+- **INTER** (518K): 2.6M "i think i installed the wrong copy of gta vc"; 1.8M "10 Things You Didn't Know About GTA 6"
+- **Awesome Genome** (882K, median 147K): 961K "Everything You Knew About GTA Is Gone In GTA 6"; 591K "GTA 6 Just Made Cops Actually Scary"
+- **TmarTn2** (5.72M, median 167K): 1.0M "GTA 6 is Indistinguishable from Real Life 🔥"; 689K "THEME PARK in GTA 6?! 🎢"
+- **TGG** (2.38M, median 143K): 2.3M "New GTA 6 Gameplay Was on South Park!"; 731K "The GTA 6 Fuel System Has Another Useful Feature"
+- **DarkViperAU** (2.38M, median 93K): 439K "Cars Are Heavy In GTA 6"; 316K "The Ankle Monitor Was GENIUS"
+- **Hazard** (728K): 834K "GTA 6 Just Made Gunfights Way More Interesting"
+- **IGN**: 703K "If you somehow get 6 stars in GTA 6, there is only one way to lose the cops."
+- **MrBossFTW** (3.19M, median 38K): 1.7M "What Happens If You Shoot The Moon In GTA 6?"
+- **Bombastic** (730K, median 26K): 2.6M "GTA Gameplay 6 is so REALISTIC"; 1.2M "GTA 6 NPC's are cooked…"
+- **Breach27** (504K): 665K "everytime i CRASH the WATER LEVEL RISES... GTA"
+- **Jimmy Cruck** (300K): 298K "The mobility scooter is indestructible😭"
+- **DaniRep** (14.1M, Spanish): 812K "Mi primera mega rampa en GTA 6"
+- **GTA Series Videos** (4.15M): 899K "GTA 6 New Clips Are Insane!"
+
+## Big channels with a weak median (size doesn't save a bad format)
+- JoblessGarrett (1.75M subs): median 3.3K
+- SanInPlay (1.36M): median 8K
+- OutlawGarry (474K): median 6.3K
+- Project Vice (30K): median 3.2K
+- Voice GTA 6 (25.6K): median 4.2K (its "We can throw Dog Poop in GTA 6" got 12K, while COLETHEMAN's Short with the same fact got 4.4M)
