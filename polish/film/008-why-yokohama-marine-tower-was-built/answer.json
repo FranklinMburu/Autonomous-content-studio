@@ -1,18 +1,20 @@
 {
  "script": {
-  "title": "Why Japan built its great port in a fishing village",
+  "title": "Why Japan's great port began as a village",
   "beats": [
    {
     "lines": [
      "Commodore Perry sailed a fleet of American warships toward Japan."
-    ]
+    ],
+    "feel": "awe"
    },
    {
     "lines": [
      "In the 1850s, Japan had little contact with foreigners.",
      "Perry arrived just south of Yokohama and demanded that Japan open ports for trade.",
      "The Tokugawa shogunate agreed and signed a treaty."
-    ]
+    ],
+    "feel": "tension"
    },
    {
     "lines": [
@@ -20,12 +22,14 @@
      "It sat on the Tōkaidō, a highway linking Edo to Kyoto and Osaka.",
      "The shogunate decided that was too close for comfort.",
      "So it built the port across the inlet, in the fishing village of Yokohama."
-    ]
+    ],
+    "feel": "suspicion"
    },
    {
     "lines": [
      "You see, it's like letting a guest sleep in your shed, not your house."
-    ]
+    ],
+    "feel": "amusement"
    },
    {
     "lines": [
@@ -34,13 +38,15 @@
      "Soon Yokohama printed Japan's first English newspaper.",
      "In 1865, it made Japan's first beer and ice cream.",
      "In 1872, Japan's first railway ran from Yokohama to Tokyo."
-    ]
+    ],
+    "feel": "wonder"
    },
    {
     "lines": [
      "A small fishing village had become a famous port city.",
      "Its name means sideways sandbar, because that is how it looked from the sea."
-    ]
+    ],
+    "feel": "satisfaction"
    }
   ],
   "key_words": [
@@ -252,6 +258,13 @@
     "motion": "he pulls the blanket up to his chin, slow camera push in"
    },
    {
+    "name": "house",
+    "at": "shed#1",
+    "move": "push",
+    "prompt": "wide shot of a warm lit wooden family house at night with a small dark garden shed standing apart at the edge of the yard, quiet countryside, moonlight",
+    "check": "Is a small shed standing apart from a house?"
+   },
+   {
     "name": "opened",
     "at": "The#9",
     "prompt": "wide shot of a wooden harbour pier with tall-masted ships and fluttering flags on a bright morning, 1850s",
@@ -281,6 +294,15 @@
     "check": "Are hands pulling a lever?",
     "clip": true,
     "motion": "the lever pulls down firmly, slow camera push in"
+   },
+   {
+    "name": "paper",
+    "at": "English#1",
+    "who": "trader",
+    "clip": true,
+    "prompt": "medium shot, a trader unfolding a freshly printed broadsheet at a wooden desk and reading it closely, he is {trader}, 1860s harbour office, window light",
+    "motion": "he unfolds the sheet and leans in to read, slow camera push in",
+    "check": "Is a man unfolding a newspaper?"
    },
    {
     "name": "beer",
@@ -331,15 +353,24 @@
     "hit": "city#1"
    },
    {
-    "name": "sandbar",
+    "name": "name",
     "at": "Its#1",
+    "who": "fisher",
+    "clip": true,
+    "prompt": "medium shot, a fisherman standing in a small wooden boat pointing back toward the shore, he is {fisher}, calm blue sea, bright morning light",
+    "motion": "he raises his arm and points toward the shore, slow camera drift left",
+    "check": "Is a man in a boat pointing?"
+   },
+   {
+    "name": "sandbar",
+    "at": "sandbar#1",
     "prompt": "high angle of a long thin sandbar sticking out sideways into blue sea, white waves on both sides, bright day",
     "check": "Is there a sandbar in the sea?",
     "move": "push"
    },
    {
     "name": "sailor",
-    "at": "it#4",
+    "at": "looked#1",
     "prompt": "close-up, a sailor in a blue striped shirt gripping a wooden ship's rail and gazing at distant low land, sea breeze, golden light",
     "check": "Is a man gripping a ship's rail?",
     "clip": true,

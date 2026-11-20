@@ -7,13 +7,15 @@
      "Thomas Edison bit the wood of his piano to hear it.",
      "He had hearing loss.",
      "Biting let him hear through his teeth and jaw."
-    ]
+    ],
+    "feel": "curiosity"
    },
    {
     "lines": [
      "In March 1876, Alexander Graham Bell sent a spoken sentence through a liquid transmitter, the part you speak into.",
      "Some phones with liquid transmitters soon went out of use."
-    ]
+    ],
+    "feel": "doubt"
    },
    {
     "lines": [
@@ -24,13 +26,15 @@
      "Pressed grains sat closer together, so electricity passed through more easily.",
      "A steady current ran through them.",
      "As the pressure changed, the current changed too, copying the sound."
-    ]
+    ],
+    "feel": "fascination"
    },
    {
     "lines": [
      "You see, it's like squeezing a handful of loose sand.",
      "The grains press together and touch more."
-    ]
+    ],
+    "feel": "delight"
    },
    {
     "lines": [
@@ -38,13 +42,15 @@
      "Edison and Emile Berliner fought a long court battle over who invented it.",
      "In 1892, a federal court ruled Edison was the inventor.",
      "Carbon microphones were widely used in telephones until the 1980s."
-    ]
+    ],
+    "feel": "tension"
    },
    {
     "lines": [
      "So a man who bit his piano to hear it helped make phones louder.",
      "He even suggested the word people still use to answer a call: hello."
-    ]
+    ],
+    "feel": "warmth"
    }
   ],
   "key_words": [

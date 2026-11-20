@@ -4,35 +4,40 @@
   "beats": [
    {
     "lines": [
-     "A researcher hunted for a German navy paint rulebook the bombs missed."
-    ]
+     "A researcher searched hard for German navy camouflage records."
+    ],
+    "feel": "curiosity"
    },
    {
     "lines": [
      "Ships have worn camouflage since ancient times.",
      "In the Second World War, the German Navy used a whole mix of paint schemes.",
      "They kept changing."
-    ]
+    ],
+    "feel": "wonder"
    },
    {
     "lines": [
      "The researcher wanted to explain them all in one English book.",
      "Nobody had written a full one in English before."
-    ]
+    ],
+    "feel": "hope"
    },
    {
     "lines": [
      "But the proof was scarce.",
      "Allied bombers had destroyed many German navy records.",
      "Written sources were even harder to find."
-    ]
+    ],
+    "feel": "dread"
    },
    {
     "lines": [
      "Then two editions of the building rules survived.",
      "Both came from the naval shipyard at Wilhelmshaven.",
      "They ran from November 1941 to July 1944."
-    ]
+    ],
+    "feel": "relief"
    },
    {
     "lines": [
@@ -40,24 +45,28 @@
      "Thanks to them, English readers finally got a full guide.",
      "Even so, a reviewer urged caution.",
      "Paint quality varied greatly."
-    ]
+    ],
+    "feel": "pride"
    },
    {
     "lines": [
      "You see, it is like a cake recipe.",
      "Two bakers follow one page.",
      "One uses bad flour, and the cakes look different."
-    ]
+    ],
+    "feel": "amusement"
    },
    {
     "lines": [
      "On the ships, what was actually achieved was often quite different from the standard."
-    ]
+    ],
+    "feel": "doubt"
    },
    {
     "lines": [
      "So the surviving rulebook shows the plan, not always the ship."
-    ]
+    ],
+    "feel": "surprise"
    }
   ],
   "key_words": [
@@ -79,6 +88,10 @@
    "plan"
   ],
   "claims": [
+   {
+    "claim": "Locating sources for the work was difficult and written primary sources were even harder to come by.",
+    "url": "https://doi.org/10.25071/2561-5467.452"
+   },
    {
     "claim": "Camouflage on ships dates back to the ancients and has been used ever since.",
     "url": "https://doi.org/10.25071/2561-5467.452"
@@ -139,17 +152,17 @@
     "at": 0,
     "who": "researcher",
     "clip": true,
-    "motion": "she turns the book slowly in her hands, slow camera push in",
-    "prompt": "close-up, a woman holding up a thick old rulebook with a charred corner in a dusty archive, she is {researcher}, dim lamp light",
-    "check": "Is a woman holding a book?",
+    "motion": "she pulls a folder out and opens it, slow camera push in",
+    "prompt": "close-up, a woman pulling old folders from a dusty archive shelf and peering inside, she is {researcher}, dim lamp light",
+    "check": "Is a woman pulling folders from a shelf?",
     "modern": true
    },
    {
     "name": "cover",
-    "at": "rulebook#1",
+    "at": "camouflage#1",
     "move": "push",
-    "prompt": "extreme close-up of a worn grey rulebook cover with a scorched edge on a wooden desk, lamp light",
-    "check": "Is there a worn book on a desk?",
+    "prompt": "extreme close-up of a steel ship hull painted in grey and blue zigzag stripes, rivets visible, 1940s, cloudy light",
+    "check": "Is a ship hull painted in zigzag stripes?",
     "modern": true
    },
    {
@@ -158,14 +171,6 @@
     "move": "push",
     "prompt": "wide shot of an ancient wooden rowing ship with one square sail on a blue sea, bright sun",
     "check": "Is there an ancient wooden ship?"
-   },
-   {
-    "name": "ancient_paint",
-    "at": "ancient#1",
-    "clip": true,
-    "motion": "the brush sweeps across the wood, slow camera push in",
-    "prompt": "close-up, a hand brushing grey paint onto a curved wooden ship hull, bright daylight",
-    "check": "Is a hand painting a wooden hull?"
    },
    {
     "name": "ww2_ship",
@@ -200,7 +205,7 @@
    },
    {
     "name": "writer",
-    "at": "the#4",
+    "at": "the#3",
     "who": "researcher",
     "clip": true,
     "motion": "her pen moves across the page, slow camera push in",
@@ -208,6 +213,14 @@
     "check": "Is a woman writing?",
     "xfade": true,
     "modern": true
+   },
+   {
+    "name": "photos",
+    "at": "explain#1",
+    "clip": true,
+    "prompt": "close-up, a hand sorting dozens of small old black and white warship photographs into rows on a wooden desk, warm lamp light",
+    "motion": "the hand slides one photo into a row, slow camera drift left",
+    "check": "Is a hand sorting old ship photos?"
    },
    {
     "name": "book",
@@ -226,6 +239,14 @@
     "prompt": "medium shot, a woman running her finger along a long library shelf and finding nothing, she is {researcher}, quiet library",
     "check": "Is a woman at a library shelf?",
     "modern": true
+   },
+   {
+    "name": "gap",
+    "at": "full#1",
+    "clip": true,
+    "prompt": "close-up of a long wooden library shelf of old books with one wide empty gap in the row, a hand sliding into the gap, soft library light",
+    "motion": "the hand slides into the empty gap and stops, slow camera push in",
+    "check": "Is there an empty gap on a bookshelf?"
    },
    {
     "name": "empty_box",
@@ -276,6 +297,14 @@
     "modern": true
    },
    {
+    "name": "drawer",
+    "at": "building#1",
+    "clip": true,
+    "prompt": "close-up, hands lifting a thin old booklet out of a dusty metal drawer, 1940s office, warm lamp light",
+    "motion": "the hands lift the booklet and blow dust off it, slow camera tilt up",
+    "check": "Are hands lifting a booklet from a drawer?"
+   },
+   {
     "name": "yard",
     "at": "both#1",
     "move": "push",
@@ -298,6 +327,14 @@
     "check": "Is a hand turning pages?"
    },
    {
+    "name": "pages",
+    "at": "July#1",
+    "clip": true,
+    "prompt": "extreme close-up of a finger tracing a pencil drawing of a striped warship on a yellowed page, 1940s office, lamp light",
+    "motion": "the finger slides along the ship drawing, slow camera drift right",
+    "check": "Is a finger tracing a drawing of a ship?"
+   },
+   {
     "name": "help",
     "at": "they#3",
     "who": "researcher",
@@ -306,6 +343,15 @@
     "prompt": "medium close-up, a woman smiling in relief and holding two old booklets in the air, she is {researcher}, archive, warm light",
     "check": "Is a woman holding booklets?",
     "modern": true
+   },
+   {
+    "name": "desk",
+    "at": "great#1",
+    "clip": true,
+    "prompt": "medium shot, a woman typing fast on a typewriter beside two open booklets on her desk, she is {researcher}, study, warm lamp light",
+    "who": "researcher",
+    "motion": "her fingers type quickly and she glances at a booklet, slow camera push in",
+    "check": "Is a woman typing beside open booklets?"
    },
    {
     "name": "finished",
@@ -339,7 +385,7 @@
    },
    {
     "name": "thin_paint",
-    "at": "paint#3",
+    "at": "paint#2",
     "clip": true,
     "motion": "the thin paint drips down the steel, slow camera push in",
     "prompt": "close-up, a brush dripping thin watery grey paint in streaks down a steel ship hull, 1940s",
@@ -355,6 +401,14 @@
     "check": "Is a woman reading a cookbook?",
     "xfade": true,
     "modern": true
+   },
+   {
+    "name": "bowl",
+    "at": "cake#1",
+    "clip": true,
+    "prompt": "close-up of a hand cracking an egg into a big mixing bowl of flour on a kitchen counter, bright morning light",
+    "motion": "the egg drops into the flour, slow camera push in",
+    "check": "Is an egg being cracked into a bowl?"
    },
    {
     "name": "bakers",
@@ -419,8 +473,16 @@
     "modern": true
    },
    {
+    "name": "drawing",
+    "at": "shows#1",
+    "clip": true,
+    "prompt": "close-up, a pencil drawing a neat striped warship on a large sheet on a drafting table, 1940s drawing office, lamp light",
+    "motion": "the pencil draws a clean stripe along the hull, slow camera push in",
+    "check": "Is a pencil drawing a ship?"
+   },
+   {
     "name": "lone_ship",
-    "at": "plan#1",
+    "at": "always#1",
     "move": "pull",
     "prompt": "wide shot of a single grey warship sailing alone on a calm misty sea, 1940s, pale light",
     "check": "Is there a single warship at sea?"
