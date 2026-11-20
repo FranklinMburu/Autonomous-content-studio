@@ -25,11 +25,11 @@ Also read IntNext's own numbers (studio.youtube.com, channel UCgp716DoAZXqiCdAkg
 analytics: views, "Stayed to watch" %). Our bar: stayed-to-watch >= 70%. Add one dated line per lesson to room/PLAYBOOK.md.
 
 ## 2. Footage (GitHub, 20-60 min)
-Branch claude-clips/gta6 has lab/claude_clips/fetch.py + .github/workflows/claude-fetch.yml (push to a claude-clips/*
+Branch claude-clips/kai-day2 has the newest lab/claude_clips/fetch.py (with --use-clips) + .github/workflows/claude-fetch.yml (push to a claude-clips/*
 branch with a matrix of sources; footage lands on branch footage/<name> as mp4 + json with Whisper words + fan-clip
 titles/views; clone it with --depth 1). Twitch: `twitch --vod <url> --channel <login> [--from-s/--to-s] --top N`;
 Kick: `kick --slug <slug> --uuid <vod uuid> --top N` (uses the fan clips themselves). Find current VODs with the probe on
-branch clips-probe/gta-launch. Fan-clip views = proof of demand. Live VODs are slow: top <= 9, timeout 75.
+branch clips-probe/gta-launch. Fan-clip views = proof of demand. Live/very long VODs: cutting sections times out (20 Nov: 75 min, 0 files); add --use-clips to download the fan clips themselves (Twitch + Kick; 12 clips in ~5 min).
 For source quality re-renders: fetch exact ranges (claude-clips/kai-hq branch pattern) and align by audio
 cross-correlation (fallback: normalized frame matching); Twitch VOD timelines can shift, verify the match > 0.9.
 YouTube (IShowSpeed etc.): append to youtube_requests.json on branch clips-jobs ({"id","url","kind":"info"} or
@@ -56,7 +56,7 @@ paid promotion" tp-yt-paper-radio-button; NOT_MFK radio; #next-button x3; #secon
 time with JS: input.value='H:MM AM/PM' + input + change events + keydown Enter event (never press a real Enter key:
 it closes the dialog as a draft); wait for "Checks complete"; #done-button -> "Video scheduled".
 New channel limit: about 10-11 uploads per 24 h ("Daily upload limit reached"); verification is Franklin's.
-Space posts 2-4 per day, 2-3 h apart, mixing streamers; Kai clips spaced.
+20 Nov lesson: scheduled times did not hold (all 10 went public within hours; check the Studio time zone and verify each row says Scheduled with the right time). Space posts 2-4 per day, 2-3 h apart, mixing streamers; Kai clips spaced.
 Then submit Kai clips on Content Rewards (Kai pool) once IntNext's YouTube is linked there; record links in
 room/POSTED.md and push the room back to branch claude-room.
 
