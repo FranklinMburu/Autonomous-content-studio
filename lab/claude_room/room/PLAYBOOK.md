@@ -70,3 +70,6 @@ Our titles (SHOCKED, PANICKED, PRAYED, "how BIG the map is") use saturated words
 8. A stranger with no context understands it.
 9. Captions are burned in, the key quote included.
 10. The clip is cut and transformed (zoom, captions, face cam), not a raw VOD re-upload (DMCA risk).
+
+## Dated lessons
+- 20 Nov 2026 (11:30): day 3 shifts to VERDICT + NUMBER ("27% in 12 hours", "GTA 5's story is better", "not living up to the hype": 40-117K). Generic "ranking streamer moments" lists get ~1K: a list only works when every item is a discovery or a GTA 5 vs 6 comparison. Our best Short (Kai settings menu) holds 54% stayed-to-watch, still below the 70% bar: the first second must already be the joke.

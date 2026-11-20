@@ -1,0 +1,14 @@
+# YouTube Shorts, filter "uploaded today", captured 20 Nov 2026 ~11:30 Nairobi (GTA 6 day 3). Views at capture.
+Kai: 337K Reacts To Locked Up Being On The GTA 6 Radio | 250K Found Bigfoot | 80K Is Disappointed After Completing 27% Of GTA 6 In Just 12 Hours | 25K react to GTA 6 First Baby | 24K FORGOT you can buy cars | 22K realized GTA 6 copied RDR2 | 21K CRASHES After Picking Music | 14K Denied from petting the dog | 9.9K says GTA 6 is way harder than GTA 5
+Jynxzi: 338K Mod Warns Him About No Autosave | 117K Thinks GTA 5's Story Is Much Better Than GTA 6's | 112K Highest Point + Hidden Easter Egg | 80K Plane Crash | 70K Disappointed by Plane Crash Physics | 47K gives his take | 40K Isn't Living Up to the Hype
+xQc: 215K Dies Laughing at this Radio Host | 47K honest review after 23 h | 17K PS5 about to CATCH FIRE | 14K 30 vs 60 FPS
+Speed: 58K Played 24 Hours Straight | 34K Finds His OWN Easter Egg | 31K watches Lucia crash scooter | 29K STEALS Instantly | 15K Paid A Homeless NPC For Life Advice | 12K RED HULK | 11K starts in jail | 10K looks VISIBLY bored
+Lacy: 33K not expecting this Map | 31K Meets Lucia | 20K Realized How Big The Map Is | 10K Becomes A Bike & Jason Trolls Him
+N3on: 33K Goes Off on Jason | 30K I Got a Girlfriend | 28K LEAKED His Game Code | 26K completes in 7 hours | 7.8K couldn't enter Club without a PASSPORT
+Adin: 26K "INSANE for this" | 5.2K forgot GTA 6 had Sharks | 2.8K secret monster
+Generic GTA 6 Shorts: 1.2M Get $20,000 in ONE Minute | 333K found a literal Easter egg | 201K money glitch | 180K Jumped Off the Tallest Tower | 156K GTA 6 vs 5 vs 4 Jumping Off Vehicles | 127K You Can Buy Groceries | 106K Streamers Who Appeared In GTA 6 | 68K Rockstar Went TOO Far with Details | 35K GTA 5 vs 6 WATER PHYSICS | 24K Ranking TOP 5 Moments
+Ranked/"top 5 streamer moments" compilations: 151 to 17K (most ~1K).
+
+Pattern day 3: (1) VERDICT + NUMBER wins now that the hype is over: "27% in 12 hours" 80K, "GTA 5's story is better" 117K, "not living up to the hype" 40K, plane-crash physics 70K. Comparison with GTA 5 / RDR2 keeps working. (2) The radio is still the biggest streamer angle (Kai 337K, xQc 215K). (3) Discoveries (bigfoot, easter eggs, autosave) still lead. (4) Generic "ranking streamer moments" lists FAIL (~1K); lists only win when each item is a discovery or a GTA 5 vs 6 comparison ("Streamers Who Appeared" 106K, "vs GTA 5 vs GTA 4" 156K).
+OUR CHANNEL (IntNext, 11:30): 10 Shorts, all public. Kai "4 MINUTES in the Settings Menu" 460 views, stayed-to-watch 54.4%; Agent00 "Jail Is FULL" 81 views, 63.8%; the other 8 have 0-5 views. Nothing reaches the 70% bar yet.
+Upload state: no draft of list-R1 exists in Studio (Videos + Shorts tabs empty of drafts), so it must be uploaded fresh. Daily limit (10 uploads, made ~22:45 19 Nov onward) not yet reset at 11:30.
