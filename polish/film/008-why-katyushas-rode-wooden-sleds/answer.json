@@ -1,0 +1,475 @@
+{
+ "script": {
+  "title": "Why Katyushas Rode on Sledges",
+  "beats": [
+   {
+    "lines": [
+     "Soviet troops mounted a top secret rocket launcher on a sledge."
+    ],
+    "feel": "curiosity"
+   },
+   {
+    "lines": [
+     "But the artillery branch was not fond of the Katyusha.",
+     "It took up to 50 minutes to load and fire 24 rounds.",
+     "A normal howitzer could fire 95 to 150 rounds in the same time.",
+     "Only forty launchers were built before Germany invaded in June 1941."
+    ],
+    "feel": "doubt"
+   },
+   {
+    "lines": [
+     "On 14 July 1941, Captain Ivan Flyorov commanded a battery of seven launchers at Rudnya.",
+     "The rockets destroyed German troops, tanks and trucks in the marketplace.",
+     "Their howling sound terrified the German troops.",
+     "They called the weapon Stalin's organ."
+    ],
+    "feel": "shock"
+   },
+   {
+    "lines": [
+     "But the launcher was fragile compared to artillery guns.",
+     "It had to deliver a large blow all at once.",
+     "Then it had to move before the enemy located it."
+    ],
+    "feel": "tension"
+   },
+   {
+    "lines": [
+     "You see, it's like a backpack.",
+     "It doesn't care whose back carries it."
+    ],
+    "feel": "recognition"
+   },
+   {
+    "lines": [
+     "The Katyusha was cheap, easy to produce, and usable on almost any chassis.",
+     "It rode on trucks, tractors, tanks, armoured trains and river boats.",
+     "And on towed sledges."
+    ],
+    "feel": "awe"
+   },
+   {
+    "lines": [
+     "The launchers were marked with the letter K.",
+     "So Red Army troops borrowed a name from a wartime song.",
+     "It was about a woman longing for her absent beloved.",
+     "The song was called Katyusha."
+    ],
+    "feel": "tenderness"
+   }
+  ],
+  "key_words": [
+   "top secret",
+   "sledge",
+   "50 minutes",
+   "24 rounds",
+   "howitzer",
+   "Flyorov",
+   "Rudnya",
+   "Stalin's organ",
+   "fragile",
+   "large blow",
+   "any chassis",
+   "towed sledges",
+   "Katyusha"
+  ],
+  "claims": [
+   {
+    "claim": "The multiple rocket launchers were top secret at the beginning of World War II; chassis for the launchers included a towed sledge.",
+    "url": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+   },
+   {
+    "claim": "The artillery branch was not fond of the Katyusha, because it took up to 50 minutes to load and fire 24 rounds, while a conventional howitzer could fire 95 to 150 rounds in the same time.",
+    "url": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+   },
+   {
+    "claim": "Only forty launchers were built before Germany invaded the Soviet Union in June 1941.",
+    "url": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+   },
+   {
+    "claim": "On 14 July 1941, an experimental artillery battery of seven launchers was first used in battle at Rudnya under the command of Captain Ivan Flyorov, destroying a concentration of German troops with tanks, armored vehicles and trucks in the marketplace.",
+    "url": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+   },
+   {
+    "claim": "German troops coined the nickname Stalin's organ; the weapon's distinctive howling sound terrified the German troops.",
+    "url": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+   },
+   {
+    "claim": "They are fragile compared to artillery guns, but are cheap, easy to produce, and usable on almost any chassis.",
+    "url": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+   },
+   {
+    "claim": "Mobility let the Katyusha deliver a large blow all at once, and then move before being located and attacked with counter-battery fire.",
+    "url": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+   },
+   {
+    "claim": "Chassis for the launchers included trucks, an artillery tractor, a tank, an armored train car, a river boat and a towed sledge.",
+    "url": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+   },
+   {
+    "claim": "Because they were marked with the letter K, Red Army troops adopted a nickname from the popular wartime song Katyusha, about a woman longing for her absent beloved.",
+    "url": "https://en.wikipedia.org/wiki/Katyusha_rocket_launcher"
+   }
+  ]
+ },
+ "film": {
+  "era": "1940s",
+  "music": "tense",
+  "key_words": [
+   "top secret",
+   "sledge",
+   "50 minutes",
+   "24 rounds",
+   "howitzer",
+   "Rudnya",
+   "Stalin's organ",
+   "fragile",
+   "large blow",
+   "any chassis",
+   "towed sledges",
+   "Katyusha"
+  ],
+  "cast": {
+   "flyorov": "a 30 year old Soviet artillery captain with a lean clean-shaven face, sharp cheekbones, short dark brown hair, a khaki field tunic with a brown leather belt and a khaki peaked cap with a red star, 1940s",
+   "crew": "a 22 year old Soviet soldier with a round ruddy face, a short red beard, a grey quilted padded jacket, a brown fur hat with ear flaps and green wool mittens, 1940s",
+   "officer": "a 58 year old heavy-set Soviet artillery general with a shaved head, a thick white handlebar moustache and a dark olive greatcoat with red collar tabs, 1930s",
+   "german": "a 24 year old German soldier with a thin pale face, sunken blue eyes, a grey steel helmet and a grey-green wool greatcoat, 1940s",
+   "woman": "a 25 year old Russian village woman with long dark braids, rosy cheeks, a red flowered headscarf and a white embroidered linen blouse, 1940s"
+  },
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "who": "crew",
+    "prompt": "close-up, a soldier bolting a rack of long rocket rails onto a low sledge in deep snow, he is {crew}, pine forest, cold blue dawn light",
+    "check": "Is a man fixing rails onto a sledge?",
+    "clip": true,
+    "motion": "he tightens a bolt with a wrench, breath steaming, slow camera push in"
+   },
+   {
+    "name": "rails",
+    "at": "launcher#1",
+    "prompt": "low angle of a rack of long steel rocket rails on a sledge pointing at a grey sky, snow on the metal, 1940s",
+    "check": "Are steel rails pointing at the sky?",
+    "move": "up"
+   },
+   {
+    "name": "test",
+    "at": "but#1",
+    "prompt": "wide shot of a group of officers in greatcoats watching a rocket launcher on a muddy test field, 1930s, overcast light",
+    "check": "Are officers watching a test field?",
+    "move": "right",
+    "xfade": true
+   },
+   {
+    "name": "frown",
+    "at": "not#1",
+    "who": "officer",
+    "prompt": "close-up, an artillery general frowning and shaking his head slowly, he is {officer}, muddy test field, overcast light",
+    "check": "Is a man shaking his head?",
+    "clip": true,
+    "motion": "he shakes his head with a scowl, slow camera push in"
+   },
+   {
+    "name": "load",
+    "at": "it#1",
+    "who": "crew",
+    "prompt": "medium shot, a soldier sliding a long rocket onto a steel launcher rail, he is {crew}, muddy field, grey light",
+    "check": "Is a man loading a rocket onto a rail?",
+    "clip": true,
+    "motion": "he pushes the heavy rocket slowly up the rail, slow camera push in"
+   },
+   {
+    "name": "watch",
+    "at": "minutes#1",
+    "prompt": "extreme close-up of a brass pocket watch ticking in a gloved hand, muddy field behind, grey light",
+    "check": "Is there a pocket watch in a hand?",
+    "move": "push"
+   },
+   {
+    "name": "rack",
+    "at": "24#1",
+    "prompt": "close-up of a full rack of long rockets lined up on launcher rails, cold grey light, 1940s",
+    "check": "Are rockets lined up on rails?",
+    "move": "right"
+   },
+   {
+    "name": "howitzer",
+    "at": "A#3",
+    "prompt": "medium shot, gunners ramming a shell into a big howitzer, smoke drifting, muddy field, 1930s, grey light",
+    "check": "Are men loading a big gun?",
+    "clip": true,
+    "motion": "the gunners shove the shell in and step back, slow camera push in"
+   },
+   {
+    "name": "blast",
+    "at": "rounds#2",
+    "prompt": "wide shot of a big howitzer firing with a flash and a puff of smoke, muddy field, 1930s, grey light",
+    "check": "Is a big gun firing?",
+    "clip": true,
+    "motion": "the barrel recoils and smoke bursts out, slow camera pull back"
+   },
+   {
+    "name": "factory",
+    "at": "only#1",
+    "prompt": "medium shot, workers welding a steel rocket rail frame in a small dim factory, sparks flying, 1940s",
+    "check": "Are workers welding a metal frame?",
+    "clip": true,
+    "motion": "sparks spray from the welding torch, slow camera drift left"
+   },
+   {
+    "name": "invade",
+    "at": "Germany#1",
+    "prompt": "wide shot of grey tanks rolling across a summer wheat field under a dusty sky, 1940s",
+    "check": "Are tanks rolling across a field?",
+    "move": "left",
+    "xfade": true
+   },
+   {
+    "name": "town",
+    "at": "on#2",
+    "prompt": "wide shot of a small Russian town square with wooden houses and a market at dawn, 1940s, misty summer light",
+    "check": "Is this a small town square?",
+    "move": "push"
+   },
+   {
+    "name": "captain",
+    "at": "Captain#1",
+    "who": "flyorov",
+    "prompt": "medium shot, an army captain raising his arm to give a signal at the edge of a forest, he is {flyorov}, summer dawn, 1940s",
+    "check": "Is an officer raising his arm?",
+    "clip": true,
+    "motion": "he raises his arm high and shouts, slow camera push in"
+   },
+   {
+    "name": "seven",
+    "at": "seven#1",
+    "prompt": "wide shot of a row of seven trucks with rocket rails raised at the edge of a green forest, summer dawn, 1940s",
+    "check": "Is there a row of trucks with rocket rails?",
+    "move": "right"
+   },
+   {
+    "name": "salvo",
+    "at": "The#4",
+    "prompt": "wide shot, rockets streaking up from a row of trucks in long trails of fire and smoke, summer dawn, 1940s",
+    "check": "Are rockets flying up trailing fire?",
+    "clip": true,
+    "motion": "the rockets streak away in bursts of flame, slow camera tilt up",
+    "hit": "destroyed#1"
+   },
+   {
+    "name": "market",
+    "at": "tanks#1",
+    "prompt": "wide shot of a town marketplace erupting in orange explosions, burning trucks and tanks, thick black smoke, 1940s",
+    "check": "Is a marketplace full of explosions?",
+    "clip": true,
+    "motion": "fireballs burst and smoke rolls, slow camera push in"
+   },
+   {
+    "name": "ears",
+    "at": "howling#1",
+    "who": "german",
+    "prompt": "close-up, a terrified soldier pressing both hands over his ears, he is {german}, smoky field, orange glow",
+    "check": "Is a soldier covering his ears?",
+    "clip": true,
+    "motion": "he squeezes his eyes shut and ducks, slow camera push in"
+   },
+   {
+    "name": "trench",
+    "at": "They#1",
+    "prompt": "wide shot of frightened soldiers in grey helmets crouching in a muddy trench, staring up at a smoky sky streaked with fire, 1940s",
+    "check": "Are soldiers crouching in a trench?",
+    "move": "pull"
+   },
+   {
+    "name": "organ",
+    "at": "Stalin's#1",
+    "prompt": "low angle of a long rack of rocket rails standing upright in rows like the pipes of a giant church organ, smoky sky, 1940s",
+    "check": "Are there rows of tall rails like organ pipes?",
+    "move": "up"
+   },
+   {
+    "name": "fragile",
+    "at": "But#2",
+    "who": "crew",
+    "prompt": "close-up, a gloved hand resting on a thin bent steel rail of a rocket launcher, he is {crew}, snowy field, grey light",
+    "check": "Is a hand touching a thin metal rail?",
+    "clip": true,
+    "motion": "his hand presses the thin rail and it wobbles, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "compare",
+    "at": "compared#1",
+    "prompt": "wide shot of a massive long-barrelled howitzer beside a small truck with thin rocket rails in a snowy field, 1940s, grey light",
+    "check": "Is a big gun next to a small truck?",
+    "move": "right"
+   },
+   {
+    "name": "fire",
+    "at": "It#2",
+    "who": "crew",
+    "clip": true,
+    "prompt": "medium shot, a soldier pressing a firing handle on a rocket launcher truck, he is {crew}, snowy field, bright flash of light, 1940s",
+    "motion": "he pushes the handle and flinches from the flash, slow camera push in",
+    "check": "Is a soldier pressing a handle?"
+   },
+   {
+    "name": "blow",
+    "at": "large#1",
+    "prompt": "wide shot of a huge wall of orange fire and smoke from a rocket salvo over a snowy field, dark winter sky, 1940s",
+    "check": "Is there a wall of fire and smoke?",
+    "move": "up",
+    "hit": "blow#1"
+   },
+   {
+    "name": "move",
+    "at": "then#1",
+    "who": "crew",
+    "prompt": "medium shot, a soldier jumping onto the side of a launcher truck as it pulls away, he is {crew}, snowy road, smoke behind",
+    "check": "Is a soldier jumping onto a moving truck?",
+    "clip": true,
+    "motion": "he grabs the side and swings up as the truck rolls, slow camera pan right"
+   },
+   {
+    "name": "spotter",
+    "at": "enemy#1",
+    "who": "german",
+    "prompt": "close-up, a soldier peering through binoculars from behind a snowy ridge, he is {german}, grey winter light",
+    "check": "Is a soldier looking through binoculars?",
+    "clip": true,
+    "motion": "he lowers the binoculars and frowns, slow camera push in"
+   },
+   {
+    "name": "strap",
+    "at": "You#1",
+    "clip": true,
+    "prompt": "close-up of hands buckling the leather strap of an old canvas backpack on a wooden porch, bright summer morning",
+    "motion": "the fingers pull the strap tight, slow camera push in",
+    "check": "Are hands buckling a backpack strap?",
+    "xfade": true
+   },
+   {
+    "name": "backpack",
+    "at": "backpack#1",
+    "prompt": "medium shot, a boy swinging a canvas backpack onto his shoulders on a country path, bright summer morning",
+    "check": "Is a boy putting on a backpack?",
+    "clip": true,
+    "motion": "he swings the backpack on and grins, slow camera push in"
+   },
+   {
+    "name": "grandpa",
+    "at": "care#1",
+    "prompt": "medium shot, an old man walking up a hill path wearing the same canvas backpack, bright summer morning",
+    "check": "Is an old man wearing a backpack?",
+    "clip": true,
+    "motion": "he steps up the path with a cane, slow camera drift right"
+   },
+   {
+    "name": "workshop",
+    "at": "Katyusha#2",
+    "prompt": "medium shot, workers bolting steel rails onto a simple frame in a cramped wooden workshop, lamp light, 1940s",
+    "check": "Are workers bolting rails onto a frame?",
+    "clip": true,
+    "motion": "a worker hammers a bolt home, sparks fly, slow camera push in"
+   },
+   {
+    "name": "crane",
+    "at": "usable#1",
+    "prompt": "wide shot of a rocket rail frame hanging from a crane being lowered onto a bare truck bed, dusty yard, 1940s",
+    "check": "Is a frame being lowered onto a truck?",
+    "clip": true,
+    "motion": "the frame sways down onto the truck bed, slow camera tilt down"
+   },
+   {
+    "name": "truck",
+    "at": "rode#1",
+    "prompt": "medium shot of an army truck with raised rocket rails driving down a muddy road, 1940s, grey light",
+    "check": "Is there a truck with rocket rails?",
+    "move": "left"
+   },
+   {
+    "name": "train",
+    "at": "armoured#1",
+    "prompt": "wide shot of an armoured train with rocket rails on a flat car rolling through a birch forest, 1940s, grey light",
+    "check": "Is there an armoured train with rails?",
+    "move": "left"
+   },
+   {
+    "name": "boat",
+    "at": "river#1",
+    "prompt": "wide shot of a small river boat with rocket rails on its deck sailing on a wide grey river, 1940s, misty light",
+    "check": "Is there a boat with rails on deck?",
+    "move": "right"
+   },
+   {
+    "name": "sledges",
+    "at": "towed#1",
+    "prompt": "wide shot of a sledge carrying rocket rails being towed by a truck through deep snow, pine forest, low winter sun",
+    "check": "Is a sledge being towed through snow?",
+    "clip": true,
+    "motion": "snow sprays as the sledge slides behind the truck, slow camera pan left",
+    "hit": "sledges#1"
+   },
+   {
+    "name": "yard",
+    "at": "launchers#3",
+    "prompt": "wide shot of a row of green rocket launcher trucks parked in a snowy depot yard, 1940s, grey winter light",
+    "check": "Is there a row of trucks in a snowy yard?",
+    "move": "left",
+    "xfade": true
+   },
+   {
+    "name": "mark",
+    "at": "with#1",
+    "who": "crew",
+    "prompt": "close-up, a soldier's hand painting a white stroke on the green steel side of a rocket launcher, he is {crew}, snowy yard, grey light",
+    "check": "Is a hand painting on green metal?",
+    "clip": true,
+    "motion": "the brush sweeps across the metal, slow camera push in"
+   },
+   {
+    "name": "singing",
+    "at": "Red#1",
+    "prompt": "medium shot, soldiers in quilted jackets singing around a campfire at night, one playing an accordion, snowy forest, warm firelight",
+    "check": "Are soldiers singing around a fire?",
+    "clip": true,
+    "motion": "the accordion player sways as the men sing, slow camera drift right"
+   },
+   {
+    "name": "accordion",
+    "at": "wartime#1",
+    "clip": true,
+    "prompt": "close-up of rough hands squeezing an old accordion beside a campfire at night, snowy forest, warm firelight",
+    "motion": "the bellows open and close, slow camera push in",
+    "check": "Are hands playing an accordion?"
+   },
+   {
+    "name": "woman",
+    "at": "woman#1",
+    "who": "woman",
+    "prompt": "medium shot, a young woman gazing out of a wooden cottage window, longing, she is {woman}, birch trees outside, soft evening light",
+    "check": "Is a woman looking out of a window?",
+    "clip": true,
+    "motion": "she sighs and leans her head on the window frame, slow camera push in"
+   },
+   {
+    "name": "photo",
+    "at": "beloved#1",
+    "clip": true,
+    "prompt": "close-up of a young woman's hands holding a small faded photograph of a smiling young soldier, cottage table, soft candlelight",
+    "motion": "her thumb strokes the photo edge, slow camera push in",
+    "check": "Are hands holding a small photograph?"
+   },
+   {
+    "name": "final",
+    "at": "song#2",
+    "prompt": "wide shot of a rocket launcher on a sledge firing a burst of rockets into a dusk sky over a snowy field, 1940s",
+    "check": "Is a launcher on a sledge firing rockets?",
+    "clip": true,
+    "motion": "the rockets streak upward in fire, slow camera pull back"
+   }
+  ]
+ }
+}
