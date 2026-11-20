@@ -1,0 +1,84 @@
+{
+ "off": 1795036246,
+ "a": 1795036246,
+ "b": 1795036276,
+ "views": 14,
+ "fan_titles": [
+  "14: GTA talking parrot"
+ ],
+ "fan_clip": "https://www.twitch.tv/lirik/clip/AwkwardFineSaladMikeHogu-P1OWrX-5du3Qh0vh",
+ "file": "lirik-05.mp4",
+ "section_start_in_vod": 1795036246,
+ "section_end_in_vod": 1795036276,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/lirik/clips",
+ "stream_title": "fan clips",
+ "streamer_channel": "lirik",
+ "words": [
+  {
+   "w": "I",
+   "s": 20.06,
+   "e": 20.46
+  },
+  {
+   "w": "Don't",
+   "s": 27.33,
+   "e": 27.73
+  },
+  {
+   "w": "know",
+   "s": 27.73,
+   "e": 27.81
+  },
+  {
+   "w": "how",
+   "s": 27.81,
+   "e": 27.93
+  },
+  {
+   "w": "you're",
+   "s": 27.93,
+   "e": 28.11
+  },
+  {
+   "w": "supposed",
+   "s": 28.11,
+   "e": 28.35
+  },
+  {
+   "w": "to",
+   "s": 28.35,
+   "e": 28.59
+  },
+  {
+   "w": "dodge",
+   "s": 28.59,
+   "e": 28.87
+  },
+  {
+   "w": "these",
+   "s": 28.87,
+   "e": 29.19
+  },
+  {
+   "w": "guys",
+   "s": 29.19,
+   "e": 29.39
+  },
+  {
+   "w": "are",
+   "s": 29.39,
+   "e": 29.51
+  },
+  {
+   "w": "just",
+   "s": 29.51,
+   "e": 29.65
+  },
+  {
+   "w": "like",
+   "s": 29.65,
+   "e": 29.81
+  }
+ ]
+}
