@@ -1,0 +1,59 @@
+{
+ "off": 45533,
+ "a": 45533,
+ "b": 45563,
+ "views": 758,
+ "fan_titles": [
+  "758: lucia peleando"
+ ],
+ "fan_clip": "https://www.twitch.tv/kaicenat/clip/DepressedCalmZebraKippa-L2vTmONBqjE5eNmr",
+ "file": "kaicenat-02.mp4",
+ "section_start_in_vod": 45533,
+ "section_end_in_vod": 45563,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/videos/2932305259",
+ "stream_title": "🌴PLAYING GTA 6 FOR THE FIRST TIME🌴 2026-11-20 01:41",
+ "streamer_channel": "kaicenat",
+ "words": [
+  {
+   "w": "They're",
+   "s": 28.24,
+   "e": 28.44
+  },
+  {
+   "w": "saying",
+   "s": 28.44,
+   "e": 28.74
+  },
+  {
+   "w": "they",
+   "s": 28.74,
+   "e": 28.88
+  },
+  {
+   "w": "already",
+   "s": 28.88,
+   "e": 29.0
+  },
+  {
+   "w": "pulled",
+   "s": 29.0,
+   "e": 29.2
+  },
+  {
+   "w": "the",
+   "s": 29.2,
+   "e": 29.32
+  },
+  {
+   "w": "guy",
+   "s": 29.32,
+   "e": 29.48
+  },
+  {
+   "w": "out.",
+   "s": 29.48,
+   "e": 29.7
+  }
+ ]
+}
