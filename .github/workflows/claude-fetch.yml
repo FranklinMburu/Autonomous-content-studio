@@ -16,16 +16,38 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - name: hunt-kai-bigfoot
-            args: twitch --channel kaicenat --title-re "bigfoot|big foot|sasquatch|yeti" --top 3 --use-clips --to-s 1e13
-          - name: hunt-kai-radio
-            args: twitch --channel kaicenat --title-re "locked up|radio|akon|song" --top 3 --use-clips --to-s 1e13
-          - name: hunt-jynxzi
-            args: twitch --channel jynxzi --title-re "footprint|bug|autosave|easter|egg|highest" --top 5 --use-clips --to-s 1e13
-          - name: hunt-speed-kick
-            args: twitch --channel jasontheween --title-re "gator|alligator|autosave|bigfoot|bark" --top 3 --use-clips --to-s 1e13 # "gator|alligator|bark|in the game|easter|myself|bigfoot" --top 5 --to-s 1e13
-          - name: hunt-kai-found
-            args: twitch --channel kaicenat --title-re "found|discover|secret|hidden|druski|backflip" --top 5 --use-clips --to-s 1e13
+          - name: disc-xqc
+            args: twitch --channel xqc --title-re "parrot|jet ?ski|lifeguard|dog|wrestl|luchador|flip|push|sit|hole|sink|secret|hidden|money|stash|easter|didn.?t know|you can|found|discover" --top 4 --use-clips --to-s 1e13
+          - name: disc-lirik
+            args: twitch --channel lirik --title-re "parrot|jet ?ski|lifeguard|dog|wrestl|luchador|flip|push|sit|hole|sink|secret|hidden|money|stash|easter|didn.?t know|you can|found|discover" --top 4 --use-clips --to-s 1e13
+          - name: disc-summit1g
+            args: twitch --channel summit1g --title-re "parrot|jet ?ski|lifeguard|dog|wrestl|luchador|flip|push|sit|hole|sink|secret|hidden|money|stash|easter|didn.?t know|you can|found|discover" --top 4 --use-clips --to-s 1e13
+          - name: disc-shroud
+            args: twitch --channel shroud --title-re "parrot|jet ?ski|lifeguard|dog|wrestl|luchador|flip|push|sit|hole|sink|secret|hidden|money|stash|easter|didn.?t know|you can|found|discover" --top 4 --use-clips --to-s 1e13
+          - name: disc-moistcr1tikal
+            args: twitch --channel moistcr1tikal --title-re "parrot|jet ?ski|lifeguard|dog|wrestl|luchador|flip|push|sit|hole|sink|secret|hidden|money|stash|easter|didn.?t know|you can|found|discover" --top 4 --use-clips --to-s 1e13
+          - name: disc-hasanabi
+            args: twitch --channel hasanabi --title-re "parrot|jet ?ski|lifeguard|dog|wrestl|luchador|flip|push|sit|hole|sink|secret|hidden|money|stash|easter|didn.?t know|you can|found|discover" --top 4 --use-clips --to-s 1e13
+          - name: disc-tarik
+            args: twitch --channel tarik --title-re "parrot|jet ?ski|lifeguard|dog|wrestl|luchador|flip|push|sit|hole|sink|secret|hidden|money|stash|easter|didn.?t know|you can|found|discover" --top 4 --use-clips --to-s 1e13
+          - name: disc-zackrawrr
+            args: twitch --channel zackrawrr --title-re "parrot|jet ?ski|lifeguard|dog|wrestl|luchador|flip|push|sit|hole|sink|secret|hidden|money|stash|easter|didn.?t know|you can|found|discover" --top 4 --use-clips --to-s 1e13
+          - name: disc-sodapoppin
+            args: twitch --channel sodapoppin --title-re "parrot|jet ?ski|lifeguard|dog|wrestl|luchador|flip|push|sit|hole|sink|secret|hidden|money|stash|easter|didn.?t know|you can|found|discover" --top 4 --use-clips --to-s 1e13
+          - name: disc-caseoh
+            args: twitch --channel caseoh_ --title-re "parrot|jet ?ski|lifeguard|dog|wrestl|luchador|flip|push|sit|hole|sink|secret|hidden|money|stash|easter|didn.?t know|you can|found|discover" --top 4 --use-clips --to-s 1e13
+          - name: disc-jasontheween
+            args: twitch --channel jasontheween --title-re "parrot|jet ?ski|lifeguard|dog|wrestl|luchador|flip|push|sit|hole|sink|secret|hidden|money|stash|easter|didn.?t know|you can|found|discover" --top 4 --use-clips --to-s 1e13
+          - name: disc-lacy
+            args: twitch --channel lacy --title-re "parrot|jet ?ski|lifeguard|dog|wrestl|luchador|flip|push|sit|hole|sink|secret|hidden|money|stash|easter|didn.?t know|you can|found|discover" --top 4 --use-clips --to-s 1e13
+          - name: disc-plaqueboymax
+            args: twitch --channel plaqueboymax --title-re "parrot|jet ?ski|lifeguard|dog|wrestl|luchador|flip|push|sit|hole|sink|secret|hidden|money|stash|easter|didn.?t know|you can|found|discover" --top 4 --use-clips --to-s 1e13
+          - name: disc-stableronaldo
+            args: twitch --channel stableronaldo --title-re "parrot|jet ?ski|lifeguard|dog|wrestl|luchador|flip|push|sit|hole|sink|secret|hidden|money|stash|easter|didn.?t know|you can|found|discover" --top 4 --use-clips --to-s 1e13
+          - name: disc-timthetatman
+            args: twitch --channel timthetatman --title-re "parrot|jet ?ski|lifeguard|dog|wrestl|luchador|flip|push|sit|hole|sink|secret|hidden|money|stash|easter|didn.?t know|you can|found|discover" --top 4 --use-clips --to-s 1e13
+          - name: disc-cohhcarnage
+            args: twitch --channel cohhcarnage --title-re "parrot|jet ?ski|lifeguard|dog|wrestl|luchador|flip|push|sit|hole|sink|secret|hidden|money|stash|easter|didn.?t know|you can|found|discover" --top 4 --use-clips --to-s 1e13
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
