@@ -210,9 +210,10 @@ def judge(a):
         blocks = []
         for c in batch:
             t = c["t"]
-            # 20 Nov: the words now cover the same span the judge watches (they stopped at t+30 while it watched t+75)
-            lo, hi = (t - WIN, t + WIN) if watch else (t - 60, t + 30)
-            said = " ".join(w["w"] for w in words if lo <= w["start"] <= hi)[:1600 if watch else 900]
+            # 20 Nov: Gemma has no sound, so its words cover the whole span it watches (t +- WIN). The Flash path keeps
+            # t-60..t+30 until the wider span is measured there too.
+            lo, hi = (t - WIN, t + WIN) if (watch and frames_mode) else (t - 60, t + 30)
+            said = " ".join(w["w"] for w in words if lo <= w["start"] <= hi)[:1600 if (watch and frames_mode) else 900]
             saw = "; ".join(f"{m['t']:.0f}s {m['what']}" for m in seen if lo <= m["t"] <= hi)[:600]
             blocks.append(f"MOMENT t={t}\nSAID (t{lo - t:+.0f}..t{hi - t:+.0f}): {said or '-'}\nSEEN: {saw or '-'}")
         who = f"The streamer is {a.streamer}: name him in titles (fans' name), never 'the streamer'.\n" if getattr(a, "streamer", None) else ""
@@ -267,10 +268,13 @@ def judge(a):
     # 3 candidates at a time (13 Nov: 83 one after another took ~15 min); call() already backs off on 429
     from concurrent.futures import ThreadPoolExecutor
     with ThreadPoolExecutor(int(os.environ.get("CLIPS_JUDGE_PARALLEL", "3"))) as ex:
+        missing = 0
         for k, got in enumerate(ex.map(one_batch, range(0, len(cands), step)), 1):
             out.extend(got)
+            missing += not got
             if k % 10 == 0 or k * step >= len(cands):
                 print(f"[judge] {min(len(cands), k * step)}/{len(cands)}" + (" (watched)" if watch else ""), flush=True)
+    print(f"[judge] {model}: {len(out)} answers for {len(cands)} candidates" + (f"; {missing} batches got NO answer (quota/rate limit)" if missing else ""), flush=True)
     # Global ranking pass (Hooky): the model orders the best candidates against each other, which is steadier than
     # separate 0-10 scores. The rank becomes the final score; the per-moment score stays as "score_alone".
     top = sorted([m for m in out if isinstance(m.get("score"), (int, float))], key=lambda m: -m["score"])[:30]
