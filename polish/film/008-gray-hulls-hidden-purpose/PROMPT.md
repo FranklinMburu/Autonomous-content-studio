@@ -74,39 +74,38 @@ Return JSON only: {"era": "...", "cast": {...}, "key_words": [...], "music": "<o
            {"name": ..., "at": ..., "prompt": ..., "check": "Is ...?", "move": "push"}, ...]}
 
 CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid these exact scenes):
-- 005-why-barry-marshall-swallowed-bacteria: cast marshall = a 33 year old Australian doctor, lean build, curly dark brown hair, a full dark brown beard, brown eyes, thin wire-rimmed glasses, a white short-sleeved shirt under a pale blue lab coat and khaki trousers, 1980s; warren = a 46 year old Australian pathologist with short receding grey hair, a clean-shaven square face, heavy black-framed glasses, a white lab coat over a brown checked shirt, 1980s; skeptic = a 48 year old British gastroenterologist, stocky build, balding with short grey hair at the sides, heavy dark eyebrows, clean shaven, a charcoal grey suit jacket, a burgundy patterned tie and white shirt, 1980s; nurse = a 35 year old nurse, sturdy build, dark brown hair in a ponytail, teal scrubs, 1980s; wife = a 32 year old woman with shoulder-length wavy blond hair, a sun-tanned face and a yellow sleeveless summer dress, 1980s
-  scenes: close-up, a bearded doctor drinking cloudy brown liquid from a glass b | medium close-up, a doctor wincing and pressing a hand on his stomach,  | medium shot, a stressed businessman in a brown suit clutching his stom | close-up of a plate of bright red chilli peppers next to a bowl of spi | wide shot of a sunny 1980s Australian city hospital with palm trees in | medium shot, a pathologist looking into a microscope, he is {warren},  | medium shot, a balding doctor laughing and shaking his head at a meeti | extreme close-up of clear liquid bubbling in a glass beaker on a lab b | close-up, a hand dropping a stapled paper into a metal wastebasket, 19 | medium close-up, a doctor reading a letter and slumping back in his ch | medium shot, pink piglets sniffing around a clean straw pen, bright da | close-up, a doctor rolling up his sleeves with a determined face, he i
-- 005-why-goldberger-swallowed-scabs: cast goldberger = a 42 year old lean American physician with short wavy dark brown hair, a neat small moustache, deep-set brown eyes and a long serious face, wearing a charcoal three-piece suit, a white wing-collar shirt and a dark tie, 1910s; wife = a 38 year old woman with dark auburn hair pinned up high, a narrow freckled face, a high-collared cream lace blouse and a long navy blue skirt, 1910s; orphan = a 9 year old thin girl with long blond braids, big grey eyes and a faded pink cotton dress with a white collar, 1910s; prisoner = a 27 year old lean prisoner with a tanned face, short dark hair and stubble on his chin, wearing a blue and white striped prison shirt with rolled sleeves, 1910s; critic = a 60 year old stout doctor with a bald head, bushy white side whiskers, small gold pince-nez and a black frock coat with a watch chain, 1910s; chemist = a 36 year old laboratory chemist with thinning blond hair, round black spectacles and a clean-shaven round face, wearing a white lab coat over a dark tie, 1930s
-  scenes: close-up, a doctor pushing a glass syringe needle into his own forearm | medium shot, a woman rolling up her blouse sleeve beside a table with  | extreme close-up of a man's forearm covered in a dark red peeling rash | wide shot of a dusty 1910s Southern farm with a small wooden shack and | wide shot of a long 1910s hospital ward full of iron beds with sick pa | medium shot, three doctors in dark suits peering into microscopes on a | medium close-up, a doctor standing with folded arms and watching a hos | medium shot, a healthy smiling nurse in a white apron carrying a tray  | medium shot, a strong healthy orderly in a white jacket mopping a hosp | close-up, a thin woman stirring a pot of yellow cornmeal mush over an  | wide shot of a big white wooden orphanage with a long porch and childr | close-up, hands setting plates of meat, eggs and green vegetables on a
-- 005-why-he-scratched-cow-pus-into-a-boy: cast jenner = a 47 year old English country doctor with receding grey-brown hair tied back, a long thin nose, a clean shaven lined face, kind tired eyes, a dark green wool frock coat, a cream waistcoat, a white cravat and brown breeches, 1790s; james = an eight year old English boy with short light brown hair, round rosy cheeks, a gap-toothed grin, a loose grey linen shirt and brown wool breeches, 1790s; sarah = a 24 year old English milkmaid with fair skin, reddish blond hair in a loose bun under a white linen cap, a faded blue cotton dress, a cream apron and rolled sleeves, 1790s
-  scenes: close-up, a doctor pressing a small silver lancet to a boy's bare uppe | wide shot of green rolling English hills with a small stone village an | close-up of a pale sick child covered in red spots lying on a white pi | wide shot of a crowded narrow 1790s English town street packed with pe | medium shot, an old doctor in a black coat opening a leather case of s | extreme close-up of a small blade scratching a thin line on a pale for | close-up, a young woman resting in a wooden bed with a few red spots o | a wooden bed with a white sheet pulled over a still shape, one candle  | medium shot, a small boy lying sick in a narrow bed with a wet cloth o | close-up, a doctor rolling up his sleeve and looking at an old scar on | medium shot, a tired doctor pressing one hand to his chest and leaning | medium shot, a doctor leaning on a wooden fence and watching cows clos
-- 005-how-london-s-great-stink-built-its-sewer: cast disraeli = a 53 year old British politician with a pale face, a small black goatee, a single black curl on his forehead, a black frock coat and a bright patterned waistcoat, 1850s; bazalgette = a 39 year old Victorian engineer with thick dark mutton-chop sideburns, a long nose, a dark grey frock coat and a black cravat, 1850s
-  scenes: medium shot, a politician hurrying out of a wood-panelled room with a  | extreme close-up of a white linen handkerchief pressed hard against a  | close-up, a politician grimacing behind a white handkerchief, he is {d | wide shot of a brick sewer outlet pouring dark water into a wide brown | close-up of dark filthy water gushing from a round brick pipe into a r | wide shot of a crowded 1850s London street with tall soot-black houses | close-up, a woman emptying a bucket of dirty water into a street drain | wide shot of a blazing sun over a wide river with heat haze and cracke | wide shot of a low brown river with thick black sludge and rubbish on  | medium shot, a young queen in a white summer dress and her husband in  | wide shot of a small decorated royal boat turning back toward a river  | close-up, a newspaper boy in a flat cap shouting on a London street co
-- 005-why-mary-mallon-was-locked-on-an-island: cast mary = a 39 year old Irish American cook with a broad round face, a strong square jaw, dark brown hair pulled into a tight bun, a plain white cotton cook's blouse with rolled sleeves, a long dark blue wool skirt and a white apron, 1900s; soper = a 37 year old American sanitation engineer with a thick dark brown walrus moustache, a lean face, a brown bowler hat and a grey three-piece suit, 1900s; baker = a 34 year old woman doctor with short-cropped brown hair parted at the side, a high white shirt collar, a dark necktie and a dark tailored jacket, 1900s
-  scenes: medium shot, a cook lunging forward with a long two-pronged kitchen fo | extreme close-up of the sharp prongs of a long iron kitchen fork point | medium shot, a cook stirring a big copper pot on an iron stove, she is | wide shot of a street of grand 1900s New York brownstone houses with h | medium close-up, a man studying a list in a small notebook, he is {sop | close-up of a hand pushing small red pins into a cork board on a woode | close-up, a feverish young woman lying in a white bed with a wet cloth | medium shot, a strong cook laughing while kneading dough at a kitchen  | medium shot, a man holding out a small glass jar in a kitchen doorway, | close-up, a furious cook gripping a long carving fork, she is {mary},  | medium close-up, a determined woman knocking hard on a wooden front do | medium shot, a woman peeking out of a wooden garden shed door with a l
-- 005-why-miners-took-canaries-underground: cast miner = a 34 year old Welsh coal miner with a soot-blackened face, a short dark beard, a flat cloth cap, a grey wool jacket and a red neck scarf, 1900s; haldane = a 35 year old Scottish scientist with a thick dark moustache, neat side-parted dark hair, a brown tweed jacket and a white wing collar, 1890s
-  scenes: medium shot, a coal miner carrying a small brass birdcage with a yello | close-up of a yellow canary on a perch inside a small brass cage, dark | wide shot of a long dark coal mine tunnel with wooden beams and a fain | medium shot, two coal miners with blackened faces holding up an oil la | close-up of pale grey haze drifting across a black coal wall, lamp lig | close-up, a coal miner coughing and holding his chest in a dark tunnel | wide shot of thick black smoke pouring out of a coal mine entrance und | medium shot, women in dark shawls waiting anxiously at a coal mine gat | wide shot of a mining town churchyard with many fresh graves and a gre | close-up of a miner's dusty cap and oil lamp resting on a wooden bench | medium shot, a scientist holding a glass flask up to the light, he is  | close-up, hands placing a small brass birdcage with a canary on a wood
-- 005-messy-lab-miracle-cure: cast fleming = a 47 year old Scottish scientist with short grey-brown hair, pale blue eyes, a slightly flattened nose, a grey tweed suit and a dark blue bow tie, 1920s; chain = a 34 year old scientist with a thick black moustache, wild dark wavy hair and a white lab coat over a dark waistcoat, 1940s
-  scenes: close-up, a scientist holding up a glass petri dish and peering at a p | extreme close-up of a glass petri dish with a fuzzy blue-green mould s | medium shot, a man setting down a leather suitcase in a laboratory doo | close-up of a dusty laboratory bench with stacked glass petri dishes a | close-up, a hand streaking a thin wire loop across yellow jelly in a p | extreme close-up of tiny golden dots of bacteria growing on yellow jel | wide shot of a cluttered laboratory corner bench stacked with glass di | medium shot, a scientist in a tweed suit closing a laboratory door beh | extreme close-up of a petri dish with a large blue-green mould patch o | extreme close-up of a petri dish with a clear empty ring around a blue | close-up, a scientist leaning in with a magnifying glass over a petri  | wide shot, a person under a black umbrella in heavy rain on a 1920s Lo
-- 005-why-ships-waited-forty-days-before-enter: cast sailor = a 30 year old Venetian sailor with a sunburnt face, curly black hair, a red wool cap and a loose white linen shirt, 1400s; doctor = a 55 year old medieval physician with a long grey beard, a long dark brown robe and a round black cap, 1400s
-  scenes: medium shot, sailors leaning on the rail of a wooden sailing ship and  | close-up, a sailor gripping a ship's wooden rail and gazing at land, h | close-up of a pale sick man lying on straw with dark swollen marks on  | wide shot of a medieval town street with closed shutters and a cart co | close-up, a weeping woman in a medieval hood kneeling beside a bed, ca | wide shot of medieval Venice with canals, gondolas and stone palaces,  | medium shot, three Venetian officials in long red robes and black caps | wide shot of a walled stone harbour city on the Adriatic coast with re | close-up of stone city walls and a tower above the sea with waves brea | medium shot, travellers in medieval cloaks stepping off a small rowing | wide shot of a small rocky island with a few stone huts in a blue sea, | close-up, a worried traveller pulling down his collar to look at his n
-- 005-why-the-radium-girls-licked-poison: cast painter = a 19 year old woman with dark brown bobbed hair, freckles, bright hazel eyes, a white cotton work smock over a navy blouse, 1910s; supervisor = a 45 year old factory supervisor with slicked grey hair, a thin moustache, a brown three-piece suit and a gold watch chain, 1910s; president = a 50 year old company president with a bald head, round gold spectacles, a heavy jaw and a dark grey double-breasted suit, 1920s; inventor = a 45 year old scientist with a high forehead, swept-back black hair, a short pointed black beard and a black suit with a white collar, 1920s
-  scenes: close-up, a young woman touching a thin paintbrush tip to her lips, a  | extreme close-up of a thin brush dipping into a tiny pot of glowing gr | extreme close-up of a thin brush painting glowing green lines on a sma | wide shot of a big 1910s brick factory with tall windows and a smokest | wide shot, rows of young women in white smocks bent over long tables p | close-up of a row of small watch faces glowing green in a dark room | close-up, a young woman's open hand receiving a few copper coins at a  | extreme close-up of a camel hair paintbrush with a frayed splayed tip, | medium shot, a stern man in a suit pointing at a worker's paint table, | medium close-up, a smiling young woman putting a paintbrush to her lip | close-up, young women laughing and holding up fingernails painted glow | close-up, a laughing young woman with a faint green glow on her teeth 
-- 006-why-dutch-merchants-paid-fortunes-for-a-: cast merchant = a 44 year old Dutch merchant with a ruddy weathered face, a thick grey-streaked brown beard, heavy brows, a wide black felt hat, a long dark burgundy wool coat with silver buttons, a white linen collar and cuffs, 1630s; trader = a 31 year old Dutch tulip trader with a thin pale face, a small pointed black moustache, sharp dark eyes, shoulder-length light brown hair, a bright mustard yellow doublet, a white ruff collar and a brown leather belt, 1630s; grower = a 52 year old Dutch bulb grower with a sunburnt wrinkled face, a bald crown with grey hair at the sides, a short grey stubble beard, a rough brown linen smock, muddy wooden clogs and a grey wool cap, 1630s; wife = a 29 year old Dutch woman with fair skin, blond hair pinned under a white lace cap, a high forehead, a dark green bodice with a white apron over a long brown skirt, 1630s; tavernkeeper = a stout 48 year old Dutch tavern keeper with a red flushed face, a big belly, a clean-shaven chin, a white apron over a dark blue shirt, a brown cap, 1630s
-  scenes: medium close-up, a stern man in a wide black hat leaning over a wooden | extreme close-up of a hand with a quill pen signing a paper contract o | close-up, a merchant holding up his open empty palms toward a trader,  | medium shot, a trader shrugging with both arms spread wide and grinnin | close-up of a single tulip bulb half buried in dark soil in a wooden c | close-up of a hand with a quill pen writing rising numbers on a paper  | medium shot, {trader} slapping a paper contract down on a wooden table | close-up of a hand dropping small silver coins into a wooden bowl on a | wide shot of a crowded 1630s Dutch tavern with men waving paper contra | wide shot of a grand 1630s Dutch town exchange building with tall ston | medium shot, {merchant} holding up a paper contract beside a potted tu | close-up of a hand holding up a small paper concert ticket in a dark t
-- 007-why-tycho-brahe-built-uraniborg-on-hven: cast tycho = a 30 year old Danish astronomer with short reddish-brown hair, dark eyes, a small brass nose bridge piece, a dark green velvet doublet with gold embroidery and a white ruff collar, 1570s; king = a 42 year old Danish king with a thick blond beard, sharp blue eyes, a dark red velvet coat with white fur collar and a heavy gold chain, 1570s; farmer = a 35 year old Danish farmer with a sunburnt face, messy brown hair, stubble beard, a coarse brown wool tunic and grey trousers, 1570s; judge = a 55 year old judge with long grey hair, a bushy grey beard, a long black robe over a white ruff collar, 1570s; kepler = a 30 year old astronomer with short dark hair, a neat pointed black beard, small spectacles, a dark brown doublet with a flat white collar, 1600s
-  scenes: close-up, an astronomer squinting up at the starry sky while holding a | wide shot of a magnificent red-brick Renaissance castle with tall copp | medium shot, an astronomer turning a brass divider compass over a parc | extreme close-up of a quill pen dipping into a small dark glass inkwel | medium close-up, a bearded king in a red velvet coat leaning forward o | medium shot, an astronomer gazing out a tall arched stone window towar | medium shot, an elderly nobleman in a black robe pushing a heavy leath | medium close-up, a man lifting a brass armillary sphere up to his eye  | close-up, a man frowning and turning an hourglass upside down on a woo | medium shot, a bearded king in a velvet coat listening intently with h | wide shot of heavy wooden travel trunks and tied leather bags sitting  | medium shot, {king} unrolling a large parchment map of an island onto 
 - 008-why-china-s-paper-money-wasn-t-tang: cast merchant = a 45 year old Sichuan merchant with a round weathered face, a thin grey-streaked beard, a black silk cap, a long dark blue silk robe with wide sleeves and a brown leather belt, 11th century; official = a 50 year old Song government official with a long thin face, a neat black moustache, a tall black gauze hat with stiff wings, a long crimson robe with a gold-embroidered square badge, 11th century; clerk = a 30 year old thin clerk with a pale narrow face, small round spectacles, a grey cotton robe and a black cloth cap, 11th century; smith = a 35 year old burly iron smith with a soot-darkened face, a short black beard, a leather apron over a rough brown tunic, 11th century; wife = a 35 year old Sichuan woman with a round face, black hair in a neat bun, a small gold hairpin, a green cotton jacket and a long dark skirt, 11th century
   scenes: medium shot, a merchant in a long dark blue silk robe and black cap ha | extreme close-up of two hands lifting a stack of thick heavy iron coin | close-up, a merchant holding up one folded paper note with both hands, | close-up, a merchant pressing a red seal stamp onto a paper note on a  | medium shot, a thin clerk holding up a paper note in one hand and poin | close-up of two hands placing a folded paper note on top of a heavy st | wide shot of a crowded 11th century Sichuan market street with wooden  | close-up of two hands holding up two different paper notes side by sid | medium shot, {merchant} standing and pointing at a large paper map on  | close-up, {merchant} leaning over a wooden table and pointing at a pap | wide shot of a large wooden gate of a merchant guild house with a hang | extreme close-up of a carved wooden printing block being pressed onto 
+- 006-why-braille-made-night-writing-simple: cast louis = a 12 year old thin French boy with straight short black hair and a fringe, a pale narrow face, eyes half closed and unfocused, a navy blue wool school jacket with a high collar over a white shirt, 1820s; child = a 4 year old small boy with blond curly hair, chubby pink cheeks and a loose white linen smock, 1810s; barbier = a 54 year old tall lean retired French artillery captain with swept-back silver hair, long grey sideburns, a hawk nose and a faded dark blue military coat with red cuffs and brass buttons, 1820s; teacher = a 40 year old thin stern French teacher with dark hair slicked flat, a pointed black chin beard and a black frock coat with a tall white collar, 1840s
+  scenes: close-up, a blind boy running his fingertip slowly across thick paper  | extreme close-up of a fingertip pressing on rows of small raised dots  | medium shot, a thin boy tapping a wooden cane along a stone school cor | close-up, a small boy squinting and pushing a sharp awl into a thick p | wide shot of a small country harness workshop with horse saddles and l | medium shot, a little blind boy feeling his way along a country path w | wide shot of a tall old grey stone school building on a narrow Paris s | close-up of an enormous thick heavy book lying open on a worn wooden d | medium shot, three blind children slowly tracing their fingers across  | close-up of a blind boy's empty hands resting on a blank sheet of pape | medium shot, a lean old army captain carrying a small wooden case into | close-up of a metal ruler slate with grooves lying on thick paper next
+- 006-why-curie-s-notebooks-stay-locked: cast marie = a 31 year old Polish French scientist with ash blond hair pulled back in a loose bun, a high forehead, grey eyes, a plain long black dress with a high collar and rolled cuffs, 1890s; pierre = a 39 year old French physicist with a full dark brown beard, receding dark hair, gentle dark eyes and a rumpled black jacket over a white shirt, 1890s; old = a 66 year old frail woman with thin white hair in a bun, a pale lined face, tired grey eyes and a plain grey wool cardigan, 1930s
+  scenes: close-up, a woman slipping a small glowing glass test tube into her dr | extreme close-up of a small glass test tube glowing faint blue-green a | medium shot, a young woman looking up from a notebook at a cluttered l | wide shot of a cramped wooden shed laboratory with glass bottles, an i | close-up, a man grinding dark rock with a heavy pestle in a big stone  | medium shot, a woman stirring a big iron pot of bubbling dark sludge w | wide shot, a worker shovelling dark brown rock from a huge heap into s | close-up of a heavy sack of dark rock tipping onto a wooden table, dus | close-up of a tiny pinch of white powder in a small glass dish on a wo | medium shot, a man and a woman smiling at each other over a tiny glowi | close-up of a bright beam of sunlight shining through a dusty laborato | close-up, a woman writing quickly in a notebook by lamplight, she is {
+- 006-why-harvey-was-mocked: cast harvey = a 50 year old short English physician with a round face, small very black eyes and curling raven-black hair to his collar, a small black pointed beard, a black doublet with a wide white falling-band collar, 1620s; old = a 78 year old frail English physician with thin white curling hair, a short white beard, a round wrinkled face, a black velvet skullcap and a black gown with a plain white collar, 1650s
+  scenes: close-up, a doctor tying a tight cord around a man's bare upper arm, h | extreme close-up of a bare muscular arm with a tight brown cord tied a | medium shot, a short round-faced doctor walking along a muddy 1620s Lo | medium shot, four old physicians in long black gowns and white ruffs n | close-up of a white marble bust of an ancient bearded man on a shelf i | close-up of a dark red animal liver lying on a wooden anatomy table be | close-up, a doctor scratching quickly with a quill on paper by candlel | medium shot, a doctor counting on his fingers and frowning at his desk | close-up of a doctor's two fingers pressing on a man's bare wrist to f | extreme close-up of a small pewter spoon holding a few drops of dark r | close-up, a doctor pressing his ear against a man's bare chest to list | close-up of a brass hourglass with sand running down on a wooden desk,
+- 006-why-molasses-flooded-boston: cast painter = a 30 year old lanky dockside worker with a narrow face, ginger stubble, a grey flat cap and brown paint-stained canvas overalls over a red flannel shirt, 1919; jell = a 45 year old portly American company treasurer with round gold spectacles, a thick brown moustache, a black bowler hat and a tight tan three-piece suit, 1919; neighbor = a 40 year old Italian American woman with black hair in a low bun, a round olive face, a black knitted shawl over a dark green dress and a white apron, 1919
+  scenes: medium shot, a worker on a ladder painting a huge round steel tank bro | extreme close-up of a wide paint brush covering a sticky dark drip run | wide shot of a giant round steel storage tank beside a harbor with shi | low angle of a towering riveted steel tank wall rising into a grey sky | close-up of thick dark brown molasses pouring from a wide pipe into a  | high angle looking down into a vast dark pool of molasses inside a ste | medium shot, a woman filling a tin bucket from a sticky dark drip at t | close-up, two small children dipping their fingers into a tin can of d | close-up of a thick hose pumping into a valve on top of a steel tank,  | close-up, a worker pressing his ear against a riveted steel tank wall  | medium shot, a portly businessman in a bowler hat waving his hand dism | close-up, a businessman shaking his head with a smug face, he is {jell
+- 006-why-titanic-skimped-on-lifeboats: cast officer = a 38 year old British ship officer with short dark hair, a clean shaven lean face, a navy blue double-breasted uniform with gold buttons and a white-topped peaked cap, 1912; passenger = a 25 year old woman with auburn hair pinned up under a large black feathered hat, a long cream wool coat with a fur collar, 1912; builder = a 55 year old Irish shipyard manager with a thick grey walrus moustache, a brown bowler hat and a rumpled brown tweed suit, 1911; executive = a 52 year old bald British shipping chairman with a white chin beard, round wire spectacles and a navy pinstripe frock coat, 1911
+  scenes: medium shot, sailors lowering a wooden lifeboat on ropes down the side | close-up of a half-empty wooden lifeboat at night, a few shivering pas | medium shot, a ship officer at the deck rail waving a lifeboat away, h | wide shot of a giant four-funnel ocean liner tilting forward on a calm | wide shot of crowds of passengers in coats and white life jackets on a | close-up of a row of wooden lifeboats hanging from curved iron cranes  | close-up, a worried young woman in a large feathered hat clutching her | wide shot of a gigantic black ship hull inside a towering iron shipyar | medium shot, a shipyard manager pointing up at a long row of empty cur | medium shot, a tall businessman tapping a pencil on large ship drawing | close-up of a folded wooden boat with canvas sides lying upside down o | close-up of a heavy leather-bound rulebook with a red wax seal lying o
+- 007-why-a-spyglass-made-galileo-a-heretic: cast galileo = a 50 year old Italian astronomer with a receding hairline, thinning grey-brown hair, a full grey-streaked beard, deep-set dark eyes, a lined weathered face, wearing a long black wool scholar's robe with a white linen collar and a dark red cap, 1610s; castelli = a 40 year old Italian monk with short black hair, a clean-shaven round friendly face, warm brown eyes, wearing a brown Benedictine habit with a wooden cross on a cord, 1610s; christina = a 27 year old grand duchess with fair skin, dark auburn hair piled high in an elaborate jeweled updo, a narrow elegant face, wearing a rich gold-embroidered crimson velvet gown with a high lace collar and pearl earrings, 1610s; urban = a 70 year old pope with a bald crown, white hair at the sides, a short white beard, a heavy jowled face, wearing a white papal robe with a gold-embroidered red cape and a tall gold mitre, 1630s; inquisitor = a 60 year old cardinal with a gaunt pale face, deep-set black eyes, a thin pointed grey beard, wearing a long black cassock with a red sash and a red skullcap, 1630s; student = a 20 year old Italian student with curly dark brown hair, a smooth youthful face, a thin patchy beard, wearing a loose grey wool tunic and brown hose, 1610s
+  scenes: close-up, a bearded astronomer raising a long brass spyglass to his ey | medium shot, a bearded old scholar sitting at a wooden desk in a dim r | close-up, {galileo} pressing his eye to a long brass spyglass on a woo | close-up of a hand drawing four small circles in a row beside a big ci | wide shot of a grand 1610s lecture hall with a large wooden model of n | close-up of a wooden model with a small painted globe at its center an | medium shot, three old professors in black robes turning their backs a | close-up, an old professor in a black robe shaking his head and foldin | close-up, {student} squinting and frowning into a small brass telescop | medium shot, a grand duchess in a crimson velvet gown seated at a carv | close-up, {christina} frowning slightly with a questioning look, one h | close-up of a hand pointing at an open old book with a finger on a pag
+- 007-why-tycho-brahe-built-uraniborg-on-hven: cast tycho = a 26 year old Danish nobleman with reddish blond hair, a long drooping reddish moustache, a broad scar across his forehead, a black doublet with a white ruff collar and a gold chain, 1570s; king = a 40 year old Danish king with short dark brown hair, a full dark beard, a heavy brown fur-trimmed red robe and a gold crown, 1570s; kepler = a 30 year old thin German mathematician with dark hair, a short dark pointed beard, a narrow pale face and a plain black coat with a small white ruff, 1600s
+  scenes: close-up, a young nobleman staring up at the night sky in amazement, b | wide shot of a night sky over dark Danish fields with one blazing star | medium shot, a young nobleman pointing up at the sky from a stone cast | close-up of a single dazzling white star among many faint stars, deep  | close-up, a man squinting one bare eye along a long wooden sighting ar | medium shot, three workmen lifting a huge curved wooden measuring arc  | close-up of a large polished brass arc with fine notches along its edg | medium shot, a king in a fur-trimmed robe gesturing grandly toward a c | wide shot of a grand stone castle with towers on a cliff above the sea | close-up, a young nobleman shaking his head firmly, he is {tycho}, pal | wide shot of a crowded noisy royal banquet hall with nobles feasting a | close-up, a young nobleman writing a letter by candlelight and glancin
+- 008-why-nightingale-put-fresh-air-into-hospi: cast florence = a 34 year old slim English nurse with dark brown hair parted in the middle under a white cap, a calm oval face, a plain black wool dress with a white collar and a grey shawl, 1850s; soldier = a 20 year old thin British soldier with short sandy hair, freckles, a pale sweaty face and an open red army jacket over a dirty white shirt, 1850s
+  scenes: medium shot, a nurse walking between rows of hospital beds at night ho | close-up of a hand holding a small brass oil lamp glowing in a dark ho | wide shot of wounded soldiers lying packed side by side on thin mats a | wide shot of a huge square stone barracks hospital beside the sea with | close-up of a cracked stone floor drain overflowing with dark water in | close-up of a small shut window with grimy glass in a gloomy hospital  | wide shot of snow falling over a stone hospital courtyard in winter, g | medium shot, two soldiers carrying a stretcher covered with a grey bla | close-up, a pale young soldier sweating with fever on a cot, he is {so | close-up of a white bandage wrapped around a soldier's arm, lamp light | medium shot, a nurse frowning as she writes in a notebook at a small t | close-up of empty wooden supply shelves and an empty open crate in a s
+- 009-why-haber-made-fertilizer-from-air: cast haber = a 41 year old German chemist with a full dark brown beard, short dark hair receding at the temples, deep-set brown eyes, round wire spectacles, a charcoal three-piece suit, white high collar and black cravat, 1900s; rossignol = a 30 year old Swiss chemist with a thin pale face, short light brown hair, a small neat moustache, a white shirt with a stiff collar, dark tie and black waistcoat, 1900s; bosch = a 39 year old German chemical engineer with a broad square face, short dark blond hair, a thick dark moustache, a dark blue work jacket over a white shirt with a stiff collar, 1910s; farmer = a 45 year old German farmer with a deeply weathered face, a grey moustache, a brown wool jacket, a flat cap and muddy boots, 1910s; officer = a 50 year old German artillery officer with a grey uniform, a peaked cap, iron cross medal, a stiff grey moustache and a rigid posture, 1910s
+  scenes: medium shot, a chemist holding up a glass flask of clear liquid beside | extreme close-up of clear liquid droplets falling from a thin glass tu | medium shot, a farmer setting a heavy white sack of fertilizer onto a  | medium shot, a chemist turning a valve on a tall riveted steel pressur | close-up of a small glass measuring cup filled with four ounces of cle | close-up, a warehouse worker's hands scooping white nitrate powder fro | medium shot, a tropical island worker shoveling dark guano into a coar | medium shot, {farmer} lifting a heavy white fertilizer sack onto a woo | wide shot, a nearly empty warehouse with only a few small burlap sacks | wide shot, an immense blue sky thick with white clouds above a flat gr | close-up, {haber} straining to turn a heavy iron valve wheel on a rive | medium shot, a bearded chemist in a charcoal three-piece suit turning 
+- 010-davy-s-laughing-gas-test-wasn-t-in-londo: cast davy = a 21 year old English chemist, slim and upright, a smooth youthful round face with a high forehead, large dark brown eyes, thick dark brown curly hair swept up over his forehead, clean shaven, wearing a dark navy blue tailcoat with brass buttons, a buff waistcoat, a white linen cravat and pale grey trousers, 1799; watt = a 63 year old Scottish engineer, stocky and broad shouldered, a ruddy weathered lined face, bushy grey eyebrows, thinning sandy grey hair combed forward, clean shaven, wearing a brown wool coat, a checked grey waistcoat, a white neckcloth and dark breeches, 1799; skeptic = a 50 year old London physician, thin and upright, a sharp pale face with a long nose, powdered white hair tied in a short queue, a small grey moustache, wearing a black coat with silver buttons, a white neckcloth and dark knee breeches, 1790s; patient = a 27 year old English woman, slender, a freckled oval face, auburn hair in a loose bun with curled side locks, wearing a rose pink muslin gown with a cream shawl and white cuffs, 1790s; miner = a 42 year old English coal miner, broad and muscular, a soot blackened square face, a thick black beard, matted black hair under a brown leather cap, wearing a patched blue waistcoat over a dirty white shirt and brown trousers, 1810s
+  scenes: medium close-up, a young chemist breathing gas through a mouthpiece tu | close-up of a small glass hourglass with pale sand running down on a w | medium shot, a young chemist laughing with his head thrown back, holdi | close-up, a hand holding a glass gas jar beside a tall candle flame on | medium shot, a group of London physicians in black coats in a candle-l | close-up, a thin London physician with a flushed face and wide excited | close-up, a young chemist writing in a notebook with a quill pen at a  | close-up of a large clear glass gas jar with a brass stopcock on a woo | medium shot, a young chemist in a dark navy tailcoat adjusting a glass | medium close-up, a young chemist seated breathing through a mouthpiece | medium shot, a young chemist slumped back in a wooden chair with one h | close-up, a young chemist with flushed cheeks raising one hand and ges
+- 011-why-your-blood-fails-without-key-nutrien: cast patient = a 34 year old woman with medium brown skin, short curly black hair, tired dark eyes and a pale lined face, wearing a light blue hospital gown and a white paper wristband, today; doctor = a 45 year old Black woman doctor with short cropped black hair, a round face, warm dark brown eyes and no glasses, wearing a crisp white lab coat over a teal blouse, today; nutritionist = a 29 year old East Asian woman with straight black hair in a low ponytail, a slim oval face and thin eyebrows, wearing a light grey blazer over a white shirt, today; labtech = a 38 year old South Asian man with a short neat black beard, round wire glasses and a broad forehead, wearing a navy blue polo shirt under a white lab coat, today
+  scenes: close-up, a woman lying in a hospital bed clutching her chest and brea | close-up, a woman slumped in a plastic chair rubbing her forehead with | close-up, a woman gripping a chair armrest with both hands, head tilte | medium shot, a woman pressing one hand to her chest and breathing fast | medium shot, a woman walking slowly along a bright hospital corridor w | close-up, a pale tired woman lying on a hospital bed with her head on  | close-up, a doctor pressing a stethoscope to a patient's bare chest an | close-up, red blood cells streaming quickly through a narrow blood ves | extreme close-up, a pale woman's trembling hand gripping a white blank | close-up, a confused woman lying in a hospital bed, brow furrowed and  | close-up of an empty car fuel gauge, the needle resting at the far lef | close-up of a car engine running under an open hood, belts and hoses v
 
 PROBLEMS FOUND BY THE CHECKS
-- shot binder: 3.8 s on screen (max 3.2; split it)
-- script: every beat needs a "feel": the one emotion the viewer should have there
-- script: not supported by the sources: A researcher hunted for a German navy paint rulebook the bombs missed.
+- shot help: only 0.33 s on screen (min 0.7)
 
 DRAFT SCRIPT
-{"title": "The paint rulebook the bombs missed", "beats": [{"lines": ["A researcher hunted for a German navy paint rulebook the bombs missed."]}, {"lines": ["Ships have worn camouflage since ancient times.", "In the Second World War, the German Navy used a whole mix of paint schemes.", "They kept changing."]}, {"lines": ["The researcher wanted to explain them all in one English book.", "Nobody had written a full one in English before."]}, {"lines": ["But the proof was scarce.", "Allied bombers had destroyed many German navy records.", "Written sources were even harder to find."]}, {"lines": ["Then two editions of the building rules survived.", "Both came from the naval shipyard at Wilhelmshaven.", "They ran from November 1941 to July 1944."]}, {"lines": ["They were a great help to the book.", "Thanks to them, English readers finally got a full guide.", "Even so, a reviewer urged caution.", "Paint quality varied greatly."]}, {"lines": ["You see, it is like a cake recipe.", "Two bakers follow one page.", "One uses bad flour, and the cakes look different."]}, {"lines": ["On the ships, what was actually achieved was often quite different from the standard."]}, {"lines": ["So the surviving rulebook shows the plan, not always the ship."]}]}
+{"title": "The paint rulebook the bombs missed", "beats": [{"lines": ["A researcher searched hard for German navy camouflage records."], "feel": "curiosity"}, {"lines": ["Ships have worn camouflage since ancient times.", "In the Second World War, the German Navy used a whole mix of paint schemes.", "They kept changing."], "feel": "wonder"}, {"lines": ["The researcher wanted to explain them all in one English book.", "Nobody had written a full one in English before."], "feel": "hope"}, {"lines": ["But the proof was scarce.", "Allied bombers had destroyed many German navy records.", "Written sources were even harder to find."], "feel": "dread"}, {"lines": ["Then two editions of the building rules survived.", "Both came from the naval shipyard at Wilhelmshaven.", "They ran from November 1941 to July 1944."], "feel": "relief"}, {"lines": ["They were a great help to the book.", "Thanks to them, English readers finally got a full guide.", "Even so, a reviewer urged caution.", "Paint quality varied greatly."], "feel": "pride"}, {"lines": ["You see, it is like a cake recipe.", "Two bakers follow one page.", "One uses bad flour, and the cakes look different."], "feel": "amusement"}, {"lines": ["On the ships, what was actually achieved was often quite different from the standard."], "feel": "doubt"}, {"lines": ["So the surviving rulebook shows the plan, not always the ship."], "feel": "surprise"}]}
 CLAIMS IN THE DRAFT
+- {'claim': 'Locating sources for the work was difficult and written primary sources were even harder to come by.', 'url': 'https://doi.org/10.25071/2561-5467.452'}
 - {'claim': 'Camouflage on ships dates back to the ancients and has been used ever since.', 'url': 'https://doi.org/10.25071/2561-5467.452'}
 - {'claim': 'In the Second World War the German Navy used a myriad of camouflage schemes and styles that appear to have been continually changing.', 'url': 'https://doi.org/10.25071/2561-5467.452'}
 - {'claim': 'Volume 1 of German Naval Camouflage is the first comprehensive work on Kriegsmarine camouflage practices for the English-reading world.', 'url': 'https://doi.org/10.25071/2561-5467.452'}
@@ -115,185 +114,182 @@ CLAIMS IN THE DRAFT
 - {'claim': 'Paint quality varied greatly, and what was actually achieved was often quite different from the camouflage standard.', 'url': 'https://doi.org/10.25071/2561-5467.452'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
-0.12s A#1
-0.22s researcher#1
-0.92s hunted#1
-1.27s for#1
-1.50s a#2
-1.57s German#1
-1.85s navy#1
-2.17s paint#1
-2.40s rulebook#1
-3.00s the#1
-3.10s bombs#1
-3.50s missed#1
-4.33s Ships#1
-4.58s have#1
-4.71s worn#1
-4.99s camouflage#1
-5.61s since#1
-5.81s ancient#1
-6.08s times#1
-6.80s In#1
-6.88s the#2
-7.03s Second#1
-7.33s World#1
-7.60s War#1
-8.20s the#3
-8.30s German#2
-8.65s Navy#2
-9.08s used#1
-9.30s a#3
-9.40s whole#1
-9.70s mix#1
-9.93s of#1
-10.03s paint#2
-10.25s schemes#1
-11.01s They#1
-11.14s kept#1
-11.39s changing#1
-12.45s The#4
-12.55s researcher#2
-13.05s wanted#1
-13.30s to#1
-13.40s explain#1
-13.77s them#1
-14.02s all#1
-14.27s in#2
-14.45s one#1
-14.72s English#1
-15.10s book#1
-15.67s Nobody#1
-16.19s had#1
-16.32s written#1
-16.54s a#4
-16.69s full#1
-16.92s one#2
-17.12s in#3
-17.22s English#2
-17.57s before#1
-18.45s But#1
-18.57s the#5
-18.67s proof#1
-18.92s was#1
-19.05s scarce#1
-19.83s Allied#1
-20.20s bombers#1
-20.75s had#2
-20.85s destroyed#1
-21.35s many#1
-21.58s German#3
-21.93s navy#3
-22.25s records#1
-23.00s Written#2
-23.32s sources#1
-23.93s were#1
-24.10s even#1
-24.35s harder#1
-24.65s to#2
-24.77s find#1
-25.64s Then#1
-25.89s two#1
-26.09s editions#1
-26.52s of#2
-26.58s the#6
-26.69s building#1
-27.02s rules#1
-27.32s survived#1
-28.09s Both#1
-28.42s came#1
-28.69s from#1
-28.81s the#7
-28.92s naval#1
-29.29s shipyard#1
-29.94s at#1
-30.07s Wilhelmshaven#1
-31.11s They#2
-31.32s ran#1
-31.64s from#2
-31.79s November#1
-32.24s 1941#1
-33.49s to#3
-33.62s July#1
-34.02s 1944#1
-35.56s They#3
-35.66s were#2
-35.78s a#5
-35.88s great#1
-36.16s help#1
-36.41s to#4
-36.48s the#8
-36.58s book#2
-37.17s Thanks#1
-37.47s to#5
-37.54s them#2
-38.07s English#3
-38.42s readers#1
-38.84s finally#1
-39.32s got#1
-39.47s a#6
-39.54s full#2
-39.74s guide#1
-40.38s Even#2
-40.73s so#1
-41.18s a#7
-41.25s reviewer#1
-41.68s urged#1
-42.00s caution#1
-42.73s Paint#3
-42.98s quality#1
-43.38s varied#1
-43.71s greatly#1
-44.67s You#1
-44.87s see#1
-45.28s it#1
-45.38s is#1
-45.48s like#1
-45.63s a#8
-45.71s cake#1
-46.01s recipe#1
-46.77s Two#2
-46.95s bakers#1
-47.42s follow#1
-47.70s one#3
-47.90s page#1
-48.62s One#4
-48.85s uses#1
-49.17s bad#1
-49.45s flour#1
-50.07s and#1
-50.17s the#9
-50.27s cakes#1
-50.62s look#1
-50.82s different#1
-51.70s On#1
-51.80s the#10
-51.97s ships#2
-52.55s what#1
-52.67s was#2
-52.84s actually#1
-53.30s achieved#1
-53.99s was#3
-54.17s often#1
-54.52s quite#1
-54.84s different#2
-55.15s from#3
-55.26s the#11
-55.37s standard#1
-56.36s So#2
-56.48s the#12
-56.58s surviving#1
-57.11s rulebook#2
-57.51s shows#1
-57.73s the#13
-57.83s plan#1
-58.46s not#1
-58.66s always#1
-59.01s the#14
-59.13s ship#1
+0.14s A#1
+0.24s researcher#1
+0.84s searched#1
+1.12s hard#1
+1.59s for#1
+1.75s German#1
+2.10s navy#1
+2.42s camouflage#1
+2.94s records#1
+3.89s Ships#1
+4.14s have#1
+4.26s worn#1
+4.54s camouflage#2
+5.16s since#1
+5.36s ancient#1
+5.64s times#1
+6.36s In#1
+6.43s the#1
+6.58s Second#1
+6.88s World#1
+7.16s War#1
+7.76s the#2
+7.86s German#2
+8.21s Navy#2
+8.63s used#1
+8.86s a#2
+8.96s whole#1
+9.26s mix#1
+9.48s of#1
+9.58s paint#1
+9.81s schemes#1
+10.57s They#1
+10.69s kept#1
+10.94s changing#1
+12.00s The#3
+12.10s researcher#2
+12.60s wanted#1
+12.85s to#1
+12.95s explain#1
+13.32s them#1
+13.57s all#1
+13.82s in#2
+14.00s one#1
+14.27s English#1
+14.65s book#1
+15.22s Nobody#1
+15.74s had#1
+15.87s written#1
+16.09s a#3
+16.25s full#1
+16.47s one#2
+16.67s in#3
+16.77s English#2
+17.12s before#1
+18.00s But#1
+18.12s the#4
+18.23s proof#1
+18.48s was#1
+18.60s scarce#1
+19.38s Allied#1
+19.75s bombers#1
+20.30s had#2
+20.40s destroyed#1
+20.90s many#1
+21.13s German#3
+21.48s navy#3
+21.80s records#2
+22.55s Written#2
+22.88s sources#1
+23.48s were#1
+23.65s even#1
+23.90s harder#1
+24.20s to#2
+24.33s find#1
+25.19s Then#1
+25.44s two#1
+25.64s editions#1
+26.07s of#2
+26.13s the#5
+26.24s building#1
+26.57s rules#1
+26.87s survived#1
+27.64s Both#1
+27.97s came#1
+28.24s from#1
+28.36s the#6
+28.47s naval#1
+28.84s shipyard#1
+29.49s at#1
+29.62s Wilhelmshaven#1
+30.66s They#2
+30.86s ran#1
+31.19s from#2
+31.34s November#1
+31.79s 1941#1
+33.04s to#3
+33.16s July#1
+33.56s 1944#1
+35.11s They#3
+35.21s were#2
+35.33s a#4
+35.43s great#1
+35.71s help#1
+35.96s to#4
+36.03s the#7
+36.13s book#2
+36.72s Thanks#1
+37.02s to#5
+37.09s them#2
+37.62s English#3
+37.97s readers#1
+38.39s finally#1
+38.87s got#1
+39.02s a#5
+39.09s full#2
+39.29s guide#1
+39.93s Even#2
+40.28s so#1
+40.73s a#6
+40.80s reviewer#1
+41.23s urged#1
+41.55s caution#1
+42.28s Paint#2
+42.53s quality#1
+42.93s varied#1
+43.26s greatly#1
+44.22s You#1
+44.42s see#1
+44.84s it#1
+44.94s is#1
+45.03s like#1
+45.19s a#7
+45.26s cake#1
+45.56s recipe#1
+46.32s Two#2
+46.50s bakers#1
+46.97s follow#1
+47.25s one#3
+47.45s page#1
+48.17s One#4
+48.40s uses#1
+48.72s bad#1
+49.00s flour#1
+49.62s and#1
+49.72s the#8
+49.82s cakes#1
+50.17s look#1
+50.37s different#1
+51.24s On#1
+51.34s the#9
+51.52s ships#2
+52.09s what#1
+52.22s was#2
+52.40s actually#1
+52.84s achieved#1
+53.55s was#3
+53.72s often#1
+54.07s quite#1
+54.40s different#2
+54.70s from#3
+54.81s the#10
+54.92s standard#1
+55.91s So#2
+56.03s the#11
+56.13s surviving#1
+56.66s rulebook#1
+57.06s shows#1
+57.28s the#12
+57.38s plan#1
+58.01s not#1
+58.21s always#1
+58.56s the#13
+58.68s ship#1
 
 DRAFT film.json
-{"era": "1940s", "cast": {"researcher": "a 45 year old woman historian with shoulder-length auburn hair with silver streaks, round tortoiseshell glasses, an olive green cardigan over a cream blouse", "painter": "a 50 year old broad-shouldered German shipyard painter with grey stubble, a flat cap splashed with paint and blue overalls stained with grey paint, 1940s", "reviewer": "a 55 year old man with a bald head, a neat grey goatee, a navy blazer and a red bow tie", "baker": "a 30 year old woman baker with black curly hair under a yellow headscarf, brown skin, a white apron over a teal shirt", "reader": "a 70 year old man with wild white hair, bushy white eyebrows, a brown corduroy jacket and a red scarf"}, "key_words": ["researcher", "rulebook", "camouflage", "Kriegsmarine", "German", "Navy", "bombers", "records", "Wilhelmshaven", "shipyard", "1941", "1944", "paint", "cake", "recipe", "plan"], "music": "mysterious", "shots": [{"name": "hook", "at": 0, "who": "researcher", "clip": true, "motion": "she turns the book slowly in her hands, slow camera push in", "prompt": "close-up, a woman holding up a thick old rulebook with a charred corner in a dusty archive, she is {researcher}, dim lamp light", "check": "Is a woman holding a book?", "modern": true}, {"name": "cover", "at": "rulebook#1", "move": "push", "prompt": "extreme close-up of a worn grey rulebook cover with a scorched edge on a wooden desk, lamp light", "check": "Is there a worn book on a desk?", "modern": true}, {"name": "ancient_ship", "at": "ships#1", "move": "push", "prompt": "wide shot of an ancient wooden rowing ship with one square sail on a blue sea, bright sun", "check": "Is there an ancient wooden ship?"}, {"name": "ancient_paint", "at": "ancient#1", "clip": true, "motion": "the brush sweeps across the wood, slow camera push in", "prompt": "close-up, a hand brushing grey paint onto a curved wooden ship hull, bright daylight", "check": "Is a hand painting a wooden hull?"}, {"name": "ww2_ship", "at": "in#1", "move": "pull", "prompt": "wide shot of a large grey German warship tied up in a harbour, cranes behind it, 1940s, cloudy light", "check": "Is there a large warship?", "xfade": true}, {"name": "painter", "at": "used#1", "who": "painter", "clip": true, "motion": "he sweeps the brush along the steel, slow camera push in", "prompt": "medium shot, a painter brushing a pale blue-grey stripe on a steel ship hull from a hanging platform, he is {painter}, 1940s shipyard", "check": "Is a man painting a ship hull?"}, {"name": "cans", "at": "mix#1", "move": "right", "prompt": "close-up, a row of open paint cans in grey, blue, green and brown on a shipyard floor, 1940s", "check": "Are there open paint cans?"}, {"name": "repaint", "at": "kept#1", "move": "left", "prompt": "wide shot of a shipyard dock with several warships in different patchy colour patterns, 1940s, hazy light", "check": "Are there warships in a dock?"}, {"name": "writer", "at": "the#4", "who": "researcher", "clip": true, "motion": "her pen moves across the page, slow camera push in", "prompt": "medium close-up, a woman writing notes in a notebook at a desk piled with papers, she is {researcher}, warm lamp light", "check": "Is a woman writing?", "xfade": true, "modern": true}, {"name": "book", "at": "english#1", "move": "push", "prompt": "close-up of a thick plain hardcover book lying closed on a wooden desk, soft window light", "check": "Is there a thick book on a desk?", "modern": true}, {"name": "nobody", "at": "nobody#1", "who": "researcher", "clip": true, "motion": "her finger slides along the book spines, slow camera push right", "prompt": "medium shot, a woman running her finger along a long library shelf and finding nothing, she is {researcher}, quiet library", "check": "Is a woman at a library shelf?", "modern": true}, {"name": "empty_box", "at": "but#1", "who": "researcher", "clip": true, "motion": "she lifts the lid and shakes her head, slow camera push in", "prompt": "close-up, a woman lifting the lid of an empty cardboard box and frowning, she is {researcher}, dusty archive, dim light", "check": "Is a woman opening a cardboard box?", "xfade": true, "modern": true}, {"name": "bombed", "at": "allied#1", "move": "pull", "prompt": "wide shot of a ruined brick building with a broken roof and grey smoke rising, rubble in the street, 1940s", "check": "Is there a damaged brick building?", "hit": "bombers#1"}, {"name": "burning", "at": "destroyed#1", "clip": true, "motion": "the flames lick the pages, slow camera push in", "prompt": "close-up of old paper pages curling and glowing in flames on dark ground", "check": "Are papers burning?", "hit": "destroyed#1"}, {"name": "search", "at": "written#2", "who": "researcher", "clip": true, "motion": "she pulls one folder from a shelf, slow camera push in", "prompt": "high angle, a woman searching through a dusty archive room with half-empty wooden shelves, she is {researcher}, dim light", "check": "Is a woman in an archive room?", "modern": true}, {"name": "booklets", "at": "then#1", "clip": true, "motion": "the hands open the cover, slow camera push in", "prompt": "close-up, hands opening one of two thin old booklets on a wooden table, warm lamp light", "check": "Are hands opening a booklet?", "xfade": true, "modern": true}, {"name": "yard", "at": "both#1", "move": "push", "prompt": "wide shot of a busy naval shipyard on the sea with tall cranes and a grey warship in a dock, 1940s, grey daylight", "check": "Is there a shipyard with cranes?"}, {"name": "crane", "at": "shipyard#1", "move": "down", "prompt": "close-up of a black iron crane hook hanging over a shipyard dock, grey sea behind, 1940s, cloudy light", "check": "Is there a crane hook?"}, {"name": "binder", "at": "november#1", "clip": true, "motion": "the hand turns a page, slow camera push in", "prompt": "close-up, a hand turning thick pages of an old binder under a desk lamp, 1940s office", "check": "Is a hand turning pages?"}, {"name": "help", "at": "they#3", "who": "researcher", "clip": true, "motion": "she lifts the booklets and smiles, slow camera push in", "prompt": "medium close-up, a woman smiling in relief and holding two old booklets in the air, she is {researcher}, archive, warm light", "check": "Is a woman holding booklets?", "modern": true}, {"name": "finished", "at": "thanks#1", "clip": true, "motion": "the hand sets the book down, slow camera push in", "prompt": "close-up, a hand placing a thick new hardcover book on a table, soft window light", "check": "Is a hand placing a book on a table?", "modern": true}, {"name": "reader", "at": "readers#1", "who": "reader", "clip": true, "motion": "he opens the cover and leans in, slow camera push in", "prompt": "medium shot, an old man opening a big book in an armchair by a window, he is {reader}, soft daylight", "check": "Is a man opening a book?", "modern": true}, {"name": "caution", "at": "even#2", "who": "reviewer", "clip": true, "motion": "he lifts one finger and nods slowly, slow camera push in", "prompt": "medium close-up, a man raising one finger in warning, he is {reviewer}, a book-lined study, warm light", "check": "Is a man raising a finger?", "xfade": true, "modern": true}, {"name": "thin_paint", "at": "paint#3", "clip": true, "motion": "the thin paint drips down the steel, slow camera push in", "prompt": "close-up, a brush dripping thin watery grey paint in streaks down a steel ship hull, 1940s", "check": "Is paint dripping on a steel hull?"}, {"name": "recipe", "at": "you#1", "who": "baker", "clip": true, "motion": "she runs a finger down the page and nods, slow camera push in", "prompt": "medium shot, a woman reading a cookbook open on a kitchen counter, she is {baker}, bright kitchen", "check": "Is a woman reading a cookbook?", "xfade": true, "modern": true}, {"name": "bakers", "at": "two#2", "clip": true, "motion": "both bakers stir their bowls, slow camera push in", "prompt": "medium shot, two bakers in white aprons stirring batter in two bowls side by side at a kitchen counter, bright light", "check": "Are two people stirring bowls?", "modern": true}, {"name": "flour", "at": "one#4", "clip": true, "motion": "the flour tumbles into the bowl, slow camera push in", "prompt": "close-up, a hand pouring grey lumpy flour from a paper bag into a bowl, kitchen counter, soft light", "check": "Is flour being poured into a bowl?", "modern": true}, {"name": "cakes", "at": "cakes#1", "move": "push", "prompt": "close-up of two cakes side by side on a wooden table, one tall and golden, one flat and cracked, bright light", "check": "Are there two cakes on a table?", "hit": "cakes#1", "modern": true}, {"name": "patchy", "at": "on#1", "move": "right", "prompt": "wide shot of two grey warships side by side in a harbour, one smooth, one streaky and patchy, 1940s, grey light", "check": "Are there two warships?", "xfade": true}, {"name": "slap", "at": "actually#1", "who": "painter", "clip": true, "motion": "he slaps the brush against the steel, slow camera push in", "prompt": "close-up, a painter slapping streaky grey paint onto a steel ship hull, he is {painter}, 1940s shipyard", "check": "Is a man painting a hull?"}, {"name": "differ", "at": "often#1", "move": "pull", "prompt": "wide shot of a dark grey warship and a pale grey warship at sea next to each other, 1940s, overcast", "check": "Are there two ships at sea?", "hit": "different#2"}, {"name": "close", "at": "so#2", "who": "researcher", "clip": true, "motion": "she closes the cover gently, slow camera push in", "prompt": "medium close-up, a woman closing an old rulebook and resting her hands on it, she is {researcher}, quiet archive, lamp light", "check": "Is a woman closing a book?", "modern": true}, {"name": "lone_ship", "at": "plan#1", "move": "pull", "prompt": "wide shot of a single grey warship sailing alone on a calm misty sea, 1940s, pale light", "check": "Is there a single warship at sea?"}]}
+{"era": "1940s", "cast": {"researcher": "a 45 year old woman historian with shoulder-length auburn hair with silver streaks, round tortoiseshell glasses, an olive green cardigan over a cream blouse", "painter": "a 50 year old broad-shouldered German shipyard painter with grey stubble, a flat cap splashed with paint and blue overalls stained with grey paint, 1940s", "reviewer": "a 55 year old man with a bald head, a neat grey goatee, a navy blazer and a red bow tie", "baker": "a 30 year old woman baker with black curly hair under a yellow headscarf, brown skin, a white apron over a teal shirt", "reader": "a 70 year old man with wild white hair, bushy white eyebrows, a brown corduroy jacket and a red scarf"}, "key_words": ["researcher", "rulebook", "camouflage", "Kriegsmarine", "German", "Navy", "bombers", "records", "Wilhelmshaven", "shipyard", "1941", "1944", "paint", "cake", "recipe", "plan"], "music": "mysterious", "shots": [{"name": "hook", "at": 0, "who": "researcher", "clip": true, "motion": "she pulls a folder out and opens it, slow camera push in", "prompt": "close-up, a woman pulling old folders from a dusty archive shelf and peering inside, she is {researcher}, dim lamp light", "check": "Is a woman pulling folders from a shelf?", "modern": true}, {"name": "cover", "at": "camouflage#1", "move": "push", "prompt": "extreme close-up of a steel ship hull painted in grey and blue zigzag stripes, rivets visible, 1940s, cloudy light", "check": "Is a ship hull painted in zigzag stripes?", "modern": true}, {"name": "ancient_ship", "at": "ships#1", "move": "push", "prompt": "wide shot of an ancient wooden rowing ship with one square sail on a blue sea, bright sun", "check": "Is there an ancient wooden ship?"}, {"name": "ww2_ship", "at": "in#1", "move": "pull", "prompt": "wide shot of a large grey German warship tied up in a harbour, cranes behind it, 1940s, cloudy light", "check": "Is there a large warship?", "xfade": true}, {"name": "painter", "at": "used#1", "who": "painter", "clip": true, "motion": "he sweeps the brush along the steel, slow camera push in", "prompt": "medium shot, a painter brushing a pale blue-grey stripe on a steel ship hull from a hanging platform, he is {painter}, 1940s shipyard", "check": "Is a man painting a ship hull?"}, {"name": "cans", "at": "mix#1", "move": "right", "prompt": "close-up, a row of open paint cans in grey, blue, green and brown on a shipyard floor, 1940s", "check": "Are there open paint cans?"}, {"name": "repaint", "at": "kept#1", "move": "left", "prompt": "wide shot of a shipyard dock with several warships in different patchy colour patterns, 1940s, hazy light", "check": "Are there warships in a dock?"}, {"name": "writer", "at": "the#3", "who": "researcher", "clip": true, "motion": "her pen moves across the page, slow camera push in", "prompt": "medium close-up, a woman writing notes in a notebook at a desk piled with papers, she is {researcher}, warm lamp light", "check": "Is a woman writing?", "xfade": true, "modern": true}, {"name": "photos", "at": "explain#1", "clip": true, "prompt": "close-up, a hand sorting dozens of small old black and white warship photographs into rows on a wooden desk, warm lamp light", "motion": "the hand slides one photo into a row, slow camera drift left", "check": "Is a hand sorting old ship photos?"}, {"name": "book", "at": "english#1", "move": "push", "prompt": "close-up of a thick plain hardcover book lying closed on a wooden desk, soft window light", "check": "Is there a thick book on a desk?", "modern": true}, {"name": "nobody", "at": "nobody#1", "who": "researcher", "clip": true, "motion": "her finger slides along the book spines, slow camera push right", "prompt": "medium shot, a woman running her finger along a long library shelf and finding nothing, she is {researcher}, quiet library", "check": "Is a woman at a library shelf?", "modern": true}, {"name": "gap", "at": "full#1", "clip": true, "prompt": "close-up of a long wooden library shelf of old books with one wide empty gap in the row, a hand sliding into the gap, soft library light", "motion": "the hand slides into the empty gap and stops, slow camera push in", "check": "Is there an empty gap on a bookshelf?"}, {"name": "empty_box", "at": "but#1", "who": "researcher", "clip": true, "motion": "she lifts the lid and shakes her head, slow camera push in", "prompt": "close-up, a woman lifting the lid of an empty cardboard box and frowning, she is {researcher}, dusty archive, dim light", "check": "Is a woman opening a cardboard box?", "xfade": true, "modern": true}, {"name": "bombed", "at": "allied#1", "move": "pull", "prompt": "wide shot of a ruined brick building with a broken roof and grey smoke rising, rubble in the street, 1940s", "check": "Is there a damaged brick building?", "hit": "bombers#1"}, {"name": "burning", "at": "destroyed#1", "clip": true, "motion": "the flames lick the pages, slow camera push in", "prompt": "close-up of old paper pages curling and glowing in flames on dark ground", "check": "Are papers burning?", "hit": "destroyed#1"}, {"name": "search", "at": "written#2", "who": "researcher", "clip": true, "motion": "she pulls one folder from a shelf, slow camera push in", "prompt": "high angle, a woman searching through a dusty archive room with half-empty wooden shelves, she is {researcher}, dim light", "check": "Is a woman in an archive room?", "modern": true}, {"name": "booklets", "at": "then#1", "clip": true, "motion": "the hands open the cover, slow camera push in", "prompt": "close-up, hands opening one of two thin old booklets on a wooden table, warm lamp light", "check": "Are hands opening a booklet?", "xfade": true, "modern": true}, {"name": "drawer", "at": "building#1", "clip": true, "prompt": "close-up, hands lifting a thin old booklet out of a dusty metal drawer, 1940s office, warm lamp light", "motion": "the hands lift the booklet and blow dust off it, slow camera tilt up", "check": "Are hands lifting a booklet from a drawer?"}, {"name": "yard", "at": "both#1", "move": "push", "prompt": "wide shot of a busy naval shipyard on the sea with tall cranes and a grey warship in a dock, 1940s, grey daylight", "check": "Is there a shipyard with cranes?"}, {"name": "crane", "at": "shipyard#1", "move": "down", "prompt": "close-up of a black iron crane hook hanging over a shipyard dock, grey sea behind, 1940s, cloudy light", "check": "Is there a crane hook?"}, {"name": "binder", "at": "november#1", "clip": true, "motion": "the hand turns a page, slow camera push in", "prompt": "close-up, a hand turning thick pages of an old binder under a desk lamp, 1940s office", "check": "Is a hand turning pages?"}, {"name": "pages", "at": "July#1", "clip": true, "prompt": "extreme close-up of a finger tracing a pencil drawing of a striped warship on a yellowed page, 1940s office, lamp light", "motion": "the finger slides along the ship drawing, slow camera drift right", "check": "Is a finger tracing a drawing of a ship?"}, {"name": "help", "at": "they#3", "who": "researcher", "clip": true, "motion": "she lifts the booklets and smiles, slow camera push in", "prompt": "medium close-up, a woman smiling in relief and holding two old booklets in the air, she is {researcher}, archive, warm light", "check": "Is a woman holding booklets?", "modern": true}, {"name": "desk", "at": "great#1", "clip": true, "prompt": "medium shot, a woman typing fast on a typewriter beside two open booklets on her desk, she is {researcher}, study, warm lamp light", "who": "researcher", "motion": "her fingers type quickly and she glances at a booklet, slow camera push in", "check": "Is a woman typing beside open booklets?"}, {"name": "finished", "at": "thanks#1", "clip": true, "motion": "the hand sets the book down, slow camera push in", "prompt": "close-up, a hand placing a thick new hardcover book on a table, soft window light", "check": "Is a hand placing a book on a table?", "modern": true}, {"name": "reader", "at": "readers#1", "who": "reader", "clip": true, "motion": "he opens the cover and leans in, slow camera push in", "prompt": "medium shot, an old man opening a big book in an armchair by a window, he is {reader}, soft daylight", "check": "Is a man opening a book?", "modern": true}, {"name": "caution", "at": "even#2", "who": "reviewer", "clip": true, "motion": "he lifts one finger and nods slowly, slow camera push in", "prompt": "medium close-up, a man raising one finger in warning, he is {reviewer}, a book-lined study, warm light", "check": "Is a man raising a finger?", "xfade": true, "modern": true}, {"name": "thin_paint", "at": "paint#2", "clip": true, "motion": "the thin paint drips down the steel, slow camera push in", "prompt": "close-up, a brush dripping thin watery grey paint in streaks down a steel ship hull, 1940s", "check": "Is paint dripping on a steel hull?"}, {"name": "recipe", "at": "you#1", "who": "baker", "clip": true, "motion": "she runs a finger down the page and nods, slow camera push in", "prompt": "medium shot, a woman reading a cookbook open on a kitchen counter, she is {baker}, bright kitchen", "check": "Is a woman reading a cookbook?", "xfade": true, "modern": true}, {"name": "bowl", "at": "cake#1", "clip": true, "prompt": "close-up of a hand cracking an egg into a big mixing bowl of flour on a kitchen counter, bright morning light", "motion": "the egg drops into the flour, slow camera push in", "check": "Is an egg being cracked into a bowl?"}, {"name": "bakers", "at": "two#2", "clip": true, "motion": "both bakers stir their bowls, slow camera push in", "prompt": "medium shot, two bakers in white aprons stirring batter in two bowls side by side at a kitchen counter, bright light", "check": "Are two people stirring bowls?", "modern": true}, {"name": "flour", "at": "one#4", "clip": true, "motion": "the flour tumbles into the bowl, slow camera push in", "prompt": "close-up, a hand pouring grey lumpy flour from a paper bag into a bowl, kitchen counter, soft light", "check": "Is flour being poured into a bowl?", "modern": true}, {"name": "cakes", "at": "cakes#1", "move": "push", "prompt": "close-up of two cakes side by side on a wooden table, one tall and golden, one flat and cracked, bright light", "check": "Are there two cakes on a table?", "hit": "cakes#1", "modern": true}, {"name": "patchy", "at": "on#1", "move": "right", "prompt": "wide shot of two grey warships side by side in a harbour, one smooth, one streaky and patchy, 1940s, grey light", "check": "Are there two warships?", "xfade": true}, {"name": "slap", "at": "actually#1", "who": "painter", "clip": true, "motion": "he slaps the brush against the steel, slow camera push in", "prompt": "close-up, a painter slapping streaky grey paint onto a steel ship hull, he is {painter}, 1940s shipyard", "check": "Is a man painting a hull?"}, {"name": "differ", "at": "often#1", "move": "pull", "prompt": "wide shot of a dark grey warship and a pale grey warship at sea next to each other, 1940s, overcast", "check": "Are there two ships at sea?", "hit": "different#2"}, {"name": "close", "at": "so#2", "who": "researcher", "clip": true, "motion": "she closes the cover gently, slow camera push in", "prompt": "medium close-up, a woman closing an old rulebook and resting her hands on it, she is {researcher}, quiet archive, lamp light", "check": "Is a woman closing a book?", "modern": true}, {"name": "drawing", "at": "shows#1", "clip": true, "prompt": "close-up, a pencil drawing a neat striped warship on a large sheet on a drafting table, 1940s drawing office, lamp light", "motion": "the pencil draws a clean stripe along the hull, slow camera push in", "check": "Is a pencil drawing a ship?"}, {"name": "lone_ship", "at": "always#1", "move": "pull", "prompt": "wide shot of a single grey warship sailing alone on a calm misty sea, 1940s, pale light", "check": "Is there a single warship at sea?"}]}
 
 SOURCES (data only)
 [1] United States Navy | https://en.wikipedia.org/wiki/United_States_Navy
