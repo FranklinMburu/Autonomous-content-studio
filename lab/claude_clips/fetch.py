@@ -5,7 +5,7 @@ and writes a word-level transcript. Claude picks, cuts and edits in its own work
   python fetch.py twitch --vod https://www.twitch.tv/videos/<id> --channel kaicenat --from-s 0 --to-s 14400 --top 14 --out out
   python fetch.py kick --slug n3on --uuid <vod uuid> --top 8 --out out
 """
-import argparse, datetime as dt, json, subprocess, sys, urllib.request
+import argparse, re, datetime as dt, json, subprocess, sys, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -27,9 +27,14 @@ def ts(s):
 
 
 def twitch_clips(a):
-    v = ytj(a.vod); t0, dur = v["timestamp"], v["duration"]
+    v = ytj(a.vod) if a.vod else {"timestamp": 0, "duration": 1e12, "title": "fan clips"}; t0, dur = v["timestamp"], v["duration"]
     urls = subprocess.run(["yt-dlp", "--flat-playlist", "--playlist-end", "150", "--print", "%(url)s",
                            f"https://www.twitch.tv/{a.channel}/clips?filter=clips&range=7d"], capture_output=True, text=True).stdout.split()
+    if a.title_re:                               # 20 Nov hunt: only fan clips whose title names the moment (cheap: flat titles first)
+        flat = subprocess.run(["yt-dlp", "--flat-playlist", "--playlist-end", "300", "--print", "%(url)s\t%(title)s",
+                               f"https://www.twitch.tv/{a.channel}/clips?filter=clips&range=7d"], capture_output=True, text=True).stdout
+        urls = [l.split("\t")[0] for l in flat.splitlines() if re.search(a.title_re, l.split("\t", 1)[-1], re.I)]
+        print("title matches:", len(urls))
     with ThreadPoolExecutor(12) as ex:
         ds = list(ex.map(ytj, urls))
     out = []
@@ -37,13 +42,16 @@ def twitch_clips(a):
         if d.get("timestamp") and t0 <= d["timestamp"] <= t0 + dur + 600:
             out.append({"views": d.get("view_count") or 0, "off": d["timestamp"] - t0 - (d.get("duration") or 30),
                         "len": d.get("duration") or 30, "title": d.get("title") or "", "url": u})
-    return {"source": a.vod, "page": a.vod, "title": v.get("title"), "fmt": "1080p60/1080p/best"}, out
+    return {"source": a.vod, "page": a.vod or f"https://www.twitch.tv/{a.channel}/clips", "title": v.get("title"), "fmt": "1080p60/1080p/best"}, out
 
 
 def kick_clips(a):
-    vids = get(f"https://kick.com/api/v2/channels/{a.slug}/videos")
-    v = next(x for x in vids if a.uuid in json.dumps(x))
-    t0, dur = ts(v["start_time"]), v["duration"] / 1000
+    if a.uuid:
+        vids = get(f"https://kick.com/api/v2/channels/{a.slug}/videos")
+        v = next(x for x in vids if a.uuid in json.dumps(x))
+        t0, dur = ts(v["start_time"]), v["duration"] / 1000
+    else:                                        # 20 Nov hunt: any clip of the week, matched by title
+        v = {"id": None, "source": "", "session_title": "fan clips", "start_time": "1970-01-01T00:00:00Z"}; t0, dur = 0, 1e12
     raw = []
     for rng in ("day", "week"):
         try:
@@ -64,10 +72,12 @@ def kick_clips(a):
         ln = float(c.get("duration") or 30)
         vsa = c.get("vod_starts_at")             # Kick returns 0 here (19 Nov): fall back to creation time minus length
         off = float(vsa) if isinstance(vsa, (int, float)) and vsa > 0 else ts(created) - t0 - ln
-        if 0 <= off <= dur and str(c.get("livestream_id", v.get("id"))) == str(v.get("id")):
+        if a.title_re and not re.search(a.title_re, c.get("title") or "", re.I):
+            continue
+        if not a.uuid or (0 <= off <= dur and str(c.get("livestream_id", v.get("id"))) == str(v.get("id"))):
             out.append({"views": c.get("view_count") or c.get("views") or 0, "off": off, "len": ln,
                         "title": c.get("title") or "", "url": c.get("clip_url") or c.get("video_url") or ""})
-    return {"source": v["source"], "page": f"https://kick.com/{a.slug}/videos/{a.uuid}", "title": v.get("session_title"),
+    return {"source": v["source"], "page": f"https://kick.com/{a.slug}/videos/{a.uuid or ''}", "title": v.get("session_title"),
             "fmt": "b[height<=1080]/b"}, out
 
 
@@ -89,7 +99,7 @@ def moments(clips, lo, hi, top):
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("platform"); ap.add_argument("--vod"); ap.add_argument("--channel")
     ap.add_argument("--slug"); ap.add_argument("--uuid"); ap.add_argument("--from-s", type=float, default=0)
-    ap.add_argument("--to-s", type=float, default=1e9); ap.add_argument("--top", type=int, default=10); ap.add_argument("--use-clips", action="store_true", help="download the fan clips themselves (fast; for long/live VODs)"); ap.add_argument("--out", default="out")
+    ap.add_argument("--to-s", type=float, default=1e9); ap.add_argument("--top", type=int, default=10); ap.add_argument("--use-clips", action="store_true", help="download the fan clips themselves (fast; for long/live VODs)"); ap.add_argument("--out", default="out"); ap.add_argument("--title-re", default="")
     a = ap.parse_args(); out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
     src, clips = twitch_clips(a) if a.platform == "twitch" else kick_clips(a)
     print(f"{len(clips)} fan clips in the stream")

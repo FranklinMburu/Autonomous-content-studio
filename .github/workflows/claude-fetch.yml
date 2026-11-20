@@ -16,8 +16,16 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - name: kai2
-            args: twitch --vod https://www.twitch.tv/videos/2932305259 --channel kaicenat --from-s 36000 --to-s 200000 --top 12 --use-clips
+          - name: hunt-kai-bigfoot
+            args: twitch --channel kaicenat --title-re "bigfoot|big foot|sasquatch|yeti" --top 3 --use-clips --to-s 1e13
+          - name: hunt-kai-radio
+            args: twitch --channel kaicenat --title-re "locked up|radio|akon|song" --top 3 --use-clips --to-s 1e13
+          - name: hunt-jynxzi
+            args: twitch --channel jynxzi --title-re "footprint|bug|autosave|easter|egg|highest" --top 5 --use-clips --to-s 1e13
+          - name: hunt-speed-kick
+            args: kick --slug ishowspeed --title-re "gator|alligator|bark|in the game|easter|myself|bigfoot" --top 5 --to-s 1e13
+          - name: hunt-kai-found
+            args: twitch --channel kaicenat --title-re "found|discover|secret|hidden|druski|backflip" --top 5 --use-clips --to-s 1e13
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
