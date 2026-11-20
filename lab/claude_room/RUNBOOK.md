@@ -17,6 +17,8 @@ mkdir -p /home/claude/clips && cp -r /home/claude/studio/lab/claude_room/* /home
 Workspace: no Twitch/Kick/YouTube access; only GitHub (git + gh) and the web tools. ffmpeg, PIL, numpy are installed.
 Footage comes through GitHub Actions; YouTube footage only through Franklin's laptop helper.
 
+Before anything else: open room/UPLOAD_QUEUE.md and schedule every queued Short (step 4 method) first; new Shorts go after it.
+
 ## 1. Trend scout (10 min, browser)
 In the built-in browser (tab on youtube.com), run the search script: queries "<streamer> gta 6" for Kai Cenat, IShowSpeed,
 xQc, Jynxzi, Lacy, Adin Ross + "gta 6 streamer", filter "uploaded today" (sp=EgIIAg%253D%253D), collect Shorts
