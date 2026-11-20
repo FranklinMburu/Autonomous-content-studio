@@ -73,3 +73,4 @@ Our titles (SHOCKED, PANICKED, PRAYED, "how BIG the map is") use saturated words
 
 ## Dated lessons
 - 20 Nov 2026 (11:30): day 3 shifts to VERDICT + NUMBER ("27% in 12 hours", "GTA 5's story is better", "not living up to the hype": 40-117K). Generic "ranking streamer moments" lists get ~1K: a list only works when every item is a discovery or a GTA 5 vs 6 comparison. Our best Short (Kai settings menu) holds 54% stayed-to-watch, still below the 70% bar: the first second must already be the joke.
+- 21 Nov 2026 (00:00): the disagreement verdict compounds overnight (Jynxzi "GTA 5's story is better" 117K -> 941K in 12 h) while our reaction clips sit at 0-6 views: our next batch should lead with a streamer's VERDICT or a GTA 5 vs 6 comparison, not a small funny moment. Upload note: execCommand title/description only sticks after a real click in the title box (page needs focus); Studio's default schedule time zone is local GMT+3, verified each row reads "Scheduled".

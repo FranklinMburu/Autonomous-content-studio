@@ -14,3 +14,19 @@
 
 ## Run 20 Nov 11:30 (scheduled routine): nothing uploaded
 Daily upload limit not reset yet (10 uploads since ~22:45 19 Nov; resets ~23:00-00:00 Nairobi). Upload queue (9 finished Shorts on branch shorts/sc, all files present) already fills the next 24 h of the ~10/day limit, so no new Shorts were produced this run; the next run after the reset publishes the queue in order.
+
+## Run 21 Nov ~00:00 (scheduled routine): queue published, all rows verified "Scheduled" in Studio (time zone GMT+3 local)
+| id | title | link | public (Nairobi) |
+|---|---|---|---|
+| secrets1b | 5 GTA 6 Secrets Streamers Found 🔍 | https://youtube.com/shorts/ETdzivPzXuU | 20 Nov 23:35 (published now); 15 views at 00:00 |
+| parrot-C1 | Free $1,405 In GTA 6: Ask The Parrot "Where's The Cash?" 🦜💰 | https://youtube.com/shorts/rQKiDu_ytqc | 21 Nov 03:00 |
+| list-R1 | Kai Cenat, xQc & More Found 5 Things In GTA 6 You CAN'T Do In GTA 5 😳🎮 | https://youtube.com/shorts/Es_Ygfx925E | 21 Nov 10:00 |
+| kai-R2b | Kai Cenat Screamed At A GTA 6 NPC For Not Washing His Hands… (#ad, paid promotion) | https://youtube.com/shorts/9G6TKx6T4H0 | 21 Nov 13:00 |
+| adin-C10 | Adin Ross Couldn't Find a Single CLOTHING STORE in GTA 6 😭🗺️ | https://youtube.com/shorts/Q0d1D_6axf4 | 21 Nov 16:00 |
+| n3on-R7 | N3on Jumped Out of a BURNING Plane in GTA 6 and SURVIVED 🔥😭 | https://youtube.com/shorts/yrYpHpbozfU | 21 Nov 19:00 |
+| kai-C05 | Kai Cenat Painted His GTA 6 House BLUE for His Girl (#ad, paid promotion) | https://youtube.com/shorts/Xs-0cEJku_o | 21 Nov 21:30 |
+| kai-R3 | Kai Cenat at HOUR 0 vs HOUR 20 of GTA 6 (#ad, paid promotion) | https://youtube.com/shorts/jOA0KdC3IyE | 22 Nov 10:00 |
+| kai-C3r | Kai Cenat Waited 13 YEARS for This Moment in GTA 6 (#ad, paid promotion) | https://youtube.com/shorts/bL8JQ37XvqU | 22 Nov 13:00 |
+8 uploads used since 23:35 20 Nov (limit ~10/24 h). dog-L1 held back (conditional on secrets1b's dog item holding viewers).
+Content Rewards: not signed in in the built-in browser, so the 4 Kai clips are NOT submitted to the Kai pool yet (Franklin: sign in + link IntNext's YouTube).
+No new Shorts produced this run: the queue fills the schedule to 22 Nov 13:00 and only ~2 upload slots remain until ~23:30 21 Nov. Next run: source verdict / GTA 5-vs-6 / lost-progress footage (TREND_DATA_21NOV_0000.md).

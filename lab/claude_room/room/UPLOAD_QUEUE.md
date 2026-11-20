@@ -1,20 +1,7 @@
-# Upload queue for IntNext (do this BEFORE making new Shorts). Files: branch shorts/sc (<id>.mp4 + <id>.json with youtube_title/description).
-
-## TOP PRIORITY (20 Nov, critic 9.5, new full-screen footage), upload these FIRST
-| Order | Short | Time (Nairobi) | Note |
-|---|---|---|---|
-| A0 | secrets1b | PUBLISH IMMEDIATELY when the limit resets (~00:00 Nairobi 21 Nov). List format, QA passed; title/desc/pin in secrets1b.json |
-| A | parrot-C1 | 3 h after secrets1b (~03:00 Nairobi) | no campaign, no paid promotion; title/desc/pin in parrot-C1.json |
-| B | dog-L1 | 21 Nov evening (it is also item 3 of secrets1b; post only if secrets1b's dog part holds viewers) | no campaign, no paid promotion; title/desc/pin in dog-L1.json |
-# YouTube daily limit (~10/24 h on this unverified channel) was hit at ~23:50 on 19 Nov; it resets ~24 h later.
-# Schedule in Nairobi time; verify each row in Studio says "Scheduled" for the right time (on 20 Nov all scheduled ones went public early).
+# Upload queue for IntNext (do this BEFORE making new Shorts). Files: branch shorts/sc (<id>.mp4 + <id>.json).
+# 21 Nov 00:00 run: secrets1b, parrot-C1, list-R1, kai-R2b, adin-C10, n3on-R7, kai-C05, kai-R3, kai-C3r all uploaded (see POSTED.md).
+# Daily limit window: 8 uploads used since 23:35 20 Nov.
 | order | id | when (Nairobi) | notes |
 |---|---|---|---|
-| 1 | list-R1 | 21 Nov 10:00 AM | 20 Nov 11:30 check: NO draft exists in Studio any more: upload it fresh. "5 things in GTA 6 you CAN'T do in GTA 5 😳" list (3.9M benchmark format). No campaign. |
-| 2 | kai-R2b (NEW hook "the sink was RIGHT there 😭"; title in kai-R2b.json; replaces kai-R2) | 21 Nov 12:00 PM | Kai pool: #ad + paid-promotion box |
-| 3 | adin-C10 | 21 Nov 2:00 PM | leftover from 19 Nov |
-| 4 | kai-C05 | 21 Nov 4:00 PM | Kai pool; no draft exists in Studio (checked 20 Nov 11:30): upload fresh |
-| 5 | n3on-R7 | 21 Nov 6:00 PM | |
-| 6 | kai-R3 | 21 Nov 8:00 PM | Kai pool; post >= 24 h after list-R1 shares items... (if R1 went at 10 AM, move R3 to 22 Nov 10 AM) |
-| 7 | kai-C3r | 21 Nov 10:00 PM | Kai pool, leftover |
-Remove a row after it is scheduled and add it to POSTED.md with its link.
+| 1 | dog-L1 | 22 Nov 4:00 PM or later | only if secrets1b's dog item holds viewers (check its retention graph); no campaign |
+Method notes: click the title box once (real click) before the execCommand fill; date via #datepicker-trigger then click the day; default time zone is local GMT+3.
