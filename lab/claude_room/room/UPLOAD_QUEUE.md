@@ -3,7 +3,7 @@
 # Schedule in Nairobi time; verify each row in Studio says "Scheduled" for the right time (on 20 Nov all scheduled ones went public early).
 | order | id | when (Nairobi) | notes |
 |---|---|---|---|
-| 1 | list-R1 | 21 Nov 10:00 AM | "5 things in GTA 6 you CAN'T do in GTA 5 😳" list (3.9M benchmark format). No campaign. |
+| 1 | list-R1 | 21 Nov 10:00 AM | A DRAFT already exists in Studio (uploaded 20 Nov 05:50, blocked by the daily limit): finish it via "Edit draft", do not re-upload. "5 things in GTA 6 you CAN'T do in GTA 5 😳" list (3.9M benchmark format). No campaign. |
 | 2 | kai-R2 | 21 Nov 12:00 PM | Kai pool: #ad + paid-promotion box |
 | 3 | adin-C10 | 21 Nov 2:00 PM | leftover from 19 Nov |
 | 4 | kai-C05 | 21 Nov 4:00 PM | Kai pool; a draft may already exist in Studio: finish it instead of re-uploading |
