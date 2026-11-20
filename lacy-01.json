@@ -1,0 +1,39 @@
+{
+ "off": 1795004080,
+ "a": 1795004080,
+ "b": 1795004087,
+ "views": 19271,
+ "fan_titles": [
+  "19271: LACY JUST KILLED AN INNCOCENT DOGGGG"
+ ],
+ "fan_clip": "https://www.twitch.tv/lacy/clip/ThirstyAcceptableRaccoonDxAbomb-NT930bCo04OgUQHD",
+ "file": "lacy-01.mp4",
+ "section_start_in_vod": 1795004080,
+ "section_end_in_vod": 1795004087,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/lacy/clips",
+ "stream_title": "fan clips",
+ "streamer_channel": "lacy",
+ "words": [
+  {
+   "w": "Hey,",
+   "s": 0.02,
+   "e": 0.66
+  },
+  {
+   "w": "buddy,",
+   "s": 0.66,
+   "e": 1.02
+  },
+  {
+   "w": "come",
+   "s": 1.02,
+   "e": 1.34
+  },
+  {
+   "w": "here",
+   "s": 1.34,
+   "e": 2.1
+  }
+ ]
+}
