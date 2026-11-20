@@ -345,15 +345,6 @@
     "modern": true
    },
    {
-    "name": "desk",
-    "at": "great#1",
-    "clip": true,
-    "prompt": "medium shot, a woman typing fast on a typewriter beside two open booklets on her desk, she is {researcher}, study, warm lamp light",
-    "who": "researcher",
-    "motion": "her fingers type quickly and she glances at a booklet, slow camera push in",
-    "check": "Is a woman typing beside open booklets?"
-   },
-   {
     "name": "finished",
     "at": "thanks#1",
     "clip": true,
