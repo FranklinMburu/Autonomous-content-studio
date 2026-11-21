@@ -1,0 +1,64 @@
+{
+ "off": 1795111236,
+ "a": 1795111236,
+ "b": 1795111265,
+ "views": 36,
+ "fan_titles": [
+  "36: bro found gold lol"
+ ],
+ "fan_clip": "https://www.twitch.tv/jynxzi/clip/ScrumptiousLightBeefRiPepperonis-Z8PDysS5txpU6hJ8",
+ "file": "jynxzi-06.mp4",
+ "section_start_in_vod": 1795111236,
+ "section_end_in_vod": 1795111265,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/jynxzi/clips",
+ "stream_title": "fan clips",
+ "streamer_channel": "jynxzi",
+ "words": [
+  {
+   "w": "She's",
+   "s": 0.0,
+   "e": 0.6
+  },
+  {
+   "w": "drunk",
+   "s": 0.6,
+   "e": 0.84
+  },
+  {
+   "w": "like",
+   "s": 0.84,
+   "e": 1.14
+  },
+  {
+   "w": "she's",
+   "s": 1.14,
+   "e": 1.52
+  },
+  {
+   "w": "just",
+   "s": 1.52,
+   "e": 1.8
+  },
+  {
+   "w": "she's",
+   "s": 1.8,
+   "e": 2.64
+  },
+  {
+   "w": "on",
+   "s": 2.64,
+   "e": 2.8
+  },
+  {
+   "w": "drugs",
+   "s": 2.8,
+   "e": 3.28
+  },
+  {
+   "w": "well",
+   "s": 3.28,
+   "e": 3.84
+  }
+ ]
+}
