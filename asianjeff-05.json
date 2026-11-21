@@ -1,0 +1,109 @@
+{
+ "off": 1795226055,
+ "a": 1795226055,
+ "b": 1795226083,
+ "views": 7,
+ "fan_titles": [
+  "7: my money"
+ ],
+ "fan_clip": "https://www.twitch.tv/asianjeff/clip/BlitheAbrasivePrariedogSMOrc-OoR066VieGIu_uK6",
+ "file": "asianjeff-05.mp4",
+ "section_start_in_vod": 1795226055,
+ "section_end_in_vod": 1795226083,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/asianjeff/clips",
+ "stream_title": "fan clips",
+ "streamer_channel": "asianjeff",
+ "words": [
+  {
+   "w": "The",
+   "s": 0.82,
+   "e": 1.2
+  },
+  {
+   "w": "box",
+   "s": 1.2,
+   "e": 1.52
+  },
+  {
+   "w": "damn",
+   "s": 7.34,
+   "e": 8.8
+  },
+  {
+   "w": "She's",
+   "s": 10.26,
+   "e": 10.96
+  },
+  {
+   "w": "actually",
+   "s": 10.96,
+   "e": 11.32
+  },
+  {
+   "w": "strong",
+   "s": 11.32,
+   "e": 11.8
+  },
+  {
+   "w": "No",
+   "s": 12.68,
+   "e": 13.38
+  },
+  {
+   "w": "No,",
+   "s": 14.36,
+   "e": 15.06
+  },
+  {
+   "w": "the",
+   "s": 15.08,
+   "e": 15.18
+  },
+  {
+   "w": "money.",
+   "s": 15.18,
+   "e": 15.5
+  },
+  {
+   "w": "No",
+   "s": 15.72,
+   "e": 16.42
+  },
+  {
+   "w": "my",
+   "s": 18.08,
+   "e": 18.24
+  },
+  {
+   "w": "money.",
+   "s": 18.24,
+   "e": 18.58
+  },
+  {
+   "w": "Oh",
+   "s": 21.67,
+   "e": 22.37
+  },
+  {
+   "w": "my",
+   "s": 22.37,
+   "e": 22.49
+  },
+  {
+   "w": "baby,",
+   "s": 22.49,
+   "e": 22.71
+  },
+  {
+   "w": "too.",
+   "s": 22.77,
+   "e": 23.15
+  },
+  {
+   "w": "No",
+   "s": 26.73,
+   "e": 27.43
+  }
+ ]
+}

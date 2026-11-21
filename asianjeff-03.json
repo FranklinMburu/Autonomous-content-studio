@@ -1,0 +1,30 @@
+{
+ "off": 1795175539,
+ "a": 1795175539,
+ "b": 1795175569,
+ "views": 12,
+ "fan_titles": [
+  "6: Grandma tries to rob pedestrian!",
+  "6: Grandma tries to rob pedestrian!"
+ ],
+ "fan_clip": "https://www.twitch.tv/asianjeff/clip/LaconicAntediluvianZucchiniHassaanChop-FDd9H9OGxK2zl3z2",
+ "file": "asianjeff-03.mp4",
+ "section_start_in_vod": 1795175539,
+ "section_end_in_vod": 1795175569,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/asianjeff/clips",
+ "stream_title": "fan clips",
+ "streamer_channel": "asianjeff",
+ "words": [
+  {
+   "w": "Duh",
+   "s": 1.56,
+   "e": 2.96
+  },
+  {
+   "w": "Woah",
+   "s": 24.79,
+   "e": 26.19
+  }
+ ]
+}

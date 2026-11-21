@@ -1,0 +1,29 @@
+{
+ "off": 1794877832,
+ "a": 1794877832,
+ "b": 1794877865,
+ "views": 9,
+ "fan_titles": [
+  "9: jeff turns into prime moneymaker to tg after"
+ ],
+ "fan_clip": "https://www.twitch.tv/asianjeff/clip/MildDeterminedPresidentDogFace-YoKhCdgxDipT3Nwu",
+ "file": "asianjeff-04.mp4",
+ "section_start_in_vod": 1794877832,
+ "section_end_in_vod": 1794877865,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/asianjeff/clips",
+ "stream_title": "fan clips",
+ "streamer_channel": "asianjeff",
+ "words": [
+  {
+   "w": "Watch",
+   "s": 2.38,
+   "e": 2.94
+  },
+  {
+   "w": "this",
+   "s": 2.94,
+   "e": 3.26
+  }
+ ]
+}
