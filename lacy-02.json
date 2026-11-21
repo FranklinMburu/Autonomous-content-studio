@@ -1,0 +1,45 @@
+{
+ "off": 7909,
+ "a": 7909,
+ "b": 7944,
+ "views": 4683,
+ "fan_titles": [
+  "4048: THE LUCIA SHOWER",
+  "635: oooooo lu"
+ ],
+ "fan_clip": "https://www.twitch.tv/lacy/clip/BreakableGlamorousHamburgerPrimeMe-jgWIVjeBE5spIXiU",
+ "file": "lacy-02.mp4",
+ "section_start_in_vod": 7909,
+ "section_end_in_vod": 7944,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/videos/2933767012",
+ "stream_title": "☀️ GTA 6 MARATHON ☀️GIVING AWAY GTA 6 TO VIEWERS ☀️ IN MIAMI ☀️ CHAPTER 2 ☀️ LIVE 24/7 ☀️ !CLIPPING !COM",
+ "streamer_channel": "lacy",
+ "words": [
+  {
+   "w": "We'll",
+   "s": 0.21,
+   "e": 0.25
+  },
+  {
+   "w": "see",
+   "s": 0.25,
+   "e": 0.43
+  },
+  {
+   "w": "you",
+   "s": 0.43,
+   "e": 0.57
+  },
+  {
+   "w": "shower.",
+   "s": 0.57,
+   "e": 0.99
+  },
+  {
+   "w": "Yeah.",
+   "s": 9.49,
+   "e": 9.93
+  }
+ ]
+}

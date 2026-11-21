@@ -1,0 +1,79 @@
+{
+ "off": 19994,
+ "a": 19994,
+ "b": 19999,
+ "views": 1871,
+ "fan_titles": [
+  "1871: lacy saying n word"
+ ],
+ "fan_clip": "https://www.twitch.tv/lacy/clip/AbrasiveTameQuailSquadGoals-tAXBTJhwRYMREnO9",
+ "file": "lacy-04.mp4",
+ "section_start_in_vod": 19994,
+ "section_end_in_vod": 19999,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/videos/2933767012",
+ "stream_title": "☀️ GTA 6 MARATHON ☀️GIVING AWAY GTA 6 TO VIEWERS ☀️ IN MIAMI ☀️ CHAPTER 2 ☀️ LIVE 24/7 ☀️ !CLIPPING !COM",
+ "streamer_channel": "lacy",
+ "words": [
+  {
+   "w": "I",
+   "s": 1.39,
+   "e": 1.47
+  },
+  {
+   "w": "should",
+   "s": 1.47,
+   "e": 1.65
+  },
+  {
+   "w": "be",
+   "s": 1.65,
+   "e": 1.91
+  },
+  {
+   "w": "a",
+   "s": 1.91,
+   "e": 2.07
+  },
+  {
+   "w": "baby,",
+   "s": 2.07,
+   "e": 2.37
+  },
+  {
+   "w": "baby,",
+   "s": 2.51,
+   "e": 2.75
+  },
+  {
+   "w": "stop",
+   "s": 2.99,
+   "e": 3.05
+  },
+  {
+   "w": "this,",
+   "s": 3.05,
+   "e": 3.29
+  },
+  {
+   "w": "that's",
+   "s": 3.47,
+   "e": 3.59
+  },
+  {
+   "w": "not",
+   "s": 3.59,
+   "e": 3.67
+  },
+  {
+   "w": "good,",
+   "s": 3.67,
+   "e": 3.91
+  },
+  {
+   "w": "no.",
+   "s": 3.99,
+   "e": 4.31
+  }
+ ]
+}

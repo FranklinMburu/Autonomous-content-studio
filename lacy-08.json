@@ -1,0 +1,64 @@
+{
+ "off": 18991,
+ "a": 18991,
+ "b": 19021,
+ "views": 1167,
+ "fan_titles": [
+  "1167: a"
+ ],
+ "fan_clip": "https://www.twitch.tv/lacy/clip/RoughTiredOkapiPhilosoraptor-hXTDCj8Dd9UNO4pS",
+ "file": "lacy-08.mp4",
+ "section_start_in_vod": 18991,
+ "section_end_in_vod": 19021,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/videos/2933767012",
+ "stream_title": "☀️ GTA 6 MARATHON ☀️GIVING AWAY GTA 6 TO VIEWERS ☀️ IN MIAMI ☀️ CHAPTER 2 ☀️ LIVE 24/7 ☀️ !CLIPPING !COM",
+ "streamer_channel": "lacy",
+ "words": [
+  {
+   "w": "oh",
+   "s": 0.0,
+   "e": 0.86
+  },
+  {
+   "w": "my",
+   "s": 0.86,
+   "e": 1.08
+  },
+  {
+   "w": "god",
+   "s": 1.08,
+   "e": 6.18
+  },
+  {
+   "w": "look",
+   "s": 9.83,
+   "e": 13.71
+  },
+  {
+   "w": "at",
+   "s": 13.71,
+   "e": 18.83
+  },
+  {
+   "w": "the",
+   "s": 18.83,
+   "e": 19.01
+  },
+  {
+   "w": "jiggle",
+   "s": 19.01,
+   "e": 19.59
+  },
+  {
+   "w": "physics",
+   "s": 19.59,
+   "e": 20.03
+  },
+  {
+   "w": "bro",
+   "s": 20.03,
+   "e": 20.61
+  }
+ ]
+}
