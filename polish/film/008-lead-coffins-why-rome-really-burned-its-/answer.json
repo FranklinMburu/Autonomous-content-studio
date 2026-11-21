@@ -1,0 +1,407 @@
+{
+ "script": {
+  "title": "Why Sulla Chose Fire Over His Family's Grave",
+  "beats": [
+   {
+    "feel": "awe",
+    "lines": [
+     "Rome carried its dead dictator on a golden litter, then burned him.",
+     "Two thousand gold crowns stood for the offices he held in life."
+    ]
+   },
+   {
+    "feel": "curiosity",
+    "lines": [
+     "His name was Sulla, and the year was 79 BC.",
+     "By then, most Romans burned their dead.",
+     "But Sulla's noble family still buried their dead in the ground.",
+     "Sulla was the first of them cremated."
+    ]
+   },
+   {
+    "feel": "dread",
+    "lines": [
+     "Why break with his family?",
+     "Sulla's arch-enemy was Gaius Marius.",
+     "Sulla may have feared that Marius's supporters would deface his body."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like shredding a secret note instead of just throwing it away."
+    ]
+   },
+   {
+    "feel": "tension",
+    "lines": [
+     "But burning a body was hard work.",
+     "A good pyre used about half a cord of timber.",
+     "Someone had to tend the fire for 8 or 9 hours.",
+     "Without enough wood or skill, bodies were left part-burnt, like Pompey's.",
+     "After the fire, the heir sprinkled the ashes with wine.",
+     "He gathered them into an urn and buried it."
+    ]
+   },
+   {
+    "feel": "surprise",
+    "lines": [
+     "Yet even ashes could be attacked.",
+     "The emperor Caracalla took his brother Geta's ashes.",
+     "He mixed them with the ashes of executed men, as a final insult."
+    ]
+   }
+  ],
+  "key_words": [
+   "Sulla",
+   "Marius",
+   "cremated",
+   "pyre",
+   "ashes",
+   "Caracalla",
+   "Geta"
+  ],
+  "claims": [
+   {
+    "claim": "The dictator Sulla, given a funeral at public expense, was carried on a golden litter, with two thousand gold crowns to represent his offices in life.",
+    "url": "https://en.wikipedia.org/wiki/Roman_funerary_practices"
+   },
+   {
+    "claim": "In the Mid- to Late Republic cremation became the most common burial practice; patrician members of the gens Cornelia continued inhumating their dead until 79 BC, when Sulla became the first patrician Cornelius to be cremated.",
+    "url": "https://en.wikipedia.org/wiki/Roman_funerary_practices"
+   },
+   {
+    "claim": "Sulla was cremated perhaps because he feared his body would be defaced by supporters of his arch-enemy, Gaius Marius.",
+    "url": "https://en.wikipedia.org/wiki/Roman_funerary_practices"
+   },
+   {
+    "claim": "An effective pyre used about half a cord of timber and had to be tended for 8 or 9 hours; the unplanned cremations of Pompey and Caligula left their bodies part-burnt for want of fuel or skill.",
+    "url": "https://en.wikipedia.org/wiki/Roman_funerary_practices"
+   },
+   {
+    "claim": "After a cremation, the heir sprinkled the ashes with wine, gathered them, placed them in an urn and interred them.",
+    "url": "https://en.wikipedia.org/wiki/Roman_funerary_practices"
+   },
+   {
+    "claim": "Caracalla deliberately mixed the ashes of his brother Geta with those of his executed supporters, as a final insult.",
+    "url": "https://en.wikipedia.org/wiki/Roman_funerary_practices"
+   }
+  ]
+ },
+ "film": {
+  "era": "1st century BC",
+  "music": "mysterious",
+  "key_words": [
+   "Sulla",
+   "Marius",
+   "pyre",
+   "ashes",
+   "Caracalla"
+  ],
+  "cast": {
+   "sulla": "a 60 year old Roman dictator, heavy build, a pale blotchy reddish face, short thin white hair, a heavy jaw, clean shaven, cold pale blue eyes, a white toga with a broad purple border, 1st century BC",
+   "marius": "a 70 year old Roman general, wiry build, a deeply tanned wrinkled face, close-cropped iron grey hair, a hooked nose, a bronze muscled breastplate and a dark crimson cloak, 1st century BC",
+   "undertaker": "a 45 year old Roman undertaker, broad shoulders, a shaved head, a thick black beard, a sleeveless rust orange wool tunic and a stained leather apron, 1st century BC",
+   "heir": "a 22 year old Roman nobleman, slim build, thick black curly hair, a thin beardless olive face, a plain dark grey mourning toga, 1st century BC",
+   "caracalla": "a 25 year old Roman emperor, stocky build, short tight black curls, a short dark beard, a deep scowl, a gold-trimmed purple cloak over gilded bronze armour, 3rd century AD"
+  },
+  "shots": [
+   {
+    "name": "dead",
+    "at": 0,
+    "who": "sulla",
+    "clip": true,
+    "prompt": "close-up, a dead old man lying still on gold cushions with eyes closed, he is {sulla}, flickering torchlight, ancient Rome at night",
+    "motion": "torchlight flickers across his still face, slow camera pull back",
+    "check": "Is an old man lying with eyes closed?"
+   },
+   {
+    "name": "litter",
+    "at": "golden#1",
+    "clip": true,
+    "prompt": "medium shot, Roman soldiers carrying a golden litter with a dead old man lying on it through a crowded torch-lit Roman street at dusk",
+    "motion": "the litter sways gently as they carry it, slow camera push in",
+    "check": "Is a golden litter being carried?"
+   },
+   {
+    "name": "burn",
+    "at": "burned#1",
+    "hit": "burned#1",
+    "clip": true,
+    "prompt": "close-up of a tall stacked wooden funeral pyre bursting into bright orange flames at night, sparks rising, ancient Rome",
+    "motion": "flames leap upward and sparks drift, slow camera push in",
+    "check": "Is a wooden pyre burning?"
+   },
+   {
+    "name": "crowns",
+    "at": "Two#1",
+    "move": "push",
+    "prompt": "close-up of a great heap of shining gold laurel crowns on red cloth, carried on a wooden platform, torchlight glinting",
+    "check": "Is there a heap of gold crowns?"
+   },
+   {
+    "name": "magistrates",
+    "at": "offices#1",
+    "clip": true,
+    "prompt": "medium shot, older Roman magistrates in white togas with purple borders walking with bowed heads through a marble forum, evening light",
+    "motion": "they walk slowly with heads bowed, slow camera push in",
+    "check": "Are men in white togas walking?"
+   },
+   {
+    "name": "sulla",
+    "at": "His#1",
+    "who": "sulla",
+    "clip": true,
+    "xfade": true,
+    "prompt": "medium close-up, an old Roman dictator raising one hand to silence a crowd from marble steps, he is {sulla}, bright Roman forum, midday sun",
+    "motion": "he lifts his hand slowly, slow camera push in",
+    "check": "Is an old man raising his hand?"
+   },
+   {
+    "name": "forum",
+    "at": "year#1",
+    "move": "push",
+    "prompt": "wide shot of the Roman forum with marble temples and columns at sunrise, smoke from a few cooking fires, pale gold light",
+    "check": "Are there marble temples?"
+   },
+   {
+    "name": "pyres",
+    "at": "most#1",
+    "move": "right",
+    "prompt": "wide shot of several funeral pyres burning on a hillside outside tall Roman city walls, grey smoke rising into an orange dusk sky",
+    "check": "Are pyres burning on a hillside?"
+   },
+   {
+    "name": "family",
+    "at": "noble#1",
+    "clip": true,
+    "prompt": "medium shot, a proud Roman noble family in white togas gathering around an old carved stone family tomb, roadside cemetery, soft grey light",
+    "motion": "they bow their heads together, slow camera push in",
+    "check": "Is a family standing at a stone tomb?"
+   },
+   {
+    "name": "grave",
+    "at": "buried#1",
+    "clip": true,
+    "prompt": "medium shot, Roman men in togas lowering a body wrapped in white linen into a stone-lined grave, cypress trees, soft grey morning light",
+    "motion": "they lower the wrapped body slowly, slow camera push in",
+    "check": "Are men lowering a wrapped body into a grave?"
+   },
+   {
+    "name": "torch",
+    "at": "Sulla#2",
+    "who": "heir",
+    "clip": true,
+    "prompt": "close-up, a young nobleman touching a burning torch to a funeral pyre with his face turned away, he is {heir}, night, orange firelight",
+    "motion": "he pushes the torch into the wood as flames catch, slow camera push in",
+    "check": "Is a young man holding a torch to a pyre?"
+   },
+   {
+    "name": "doubt",
+    "at": "Why#1",
+    "who": "sulla",
+    "clip": true,
+    "prompt": "close-up, an old dictator frowning down at a carved stone family tomb, he is {sulla}, quiet cemetery by a road, cold grey light",
+    "motion": "he narrows his eyes slowly, slow camera push in",
+    "check": "Is an old man frowning at a stone tomb?"
+   },
+   {
+    "name": "marius",
+    "at": "Sulla's#2",
+    "who": "marius",
+    "clip": true,
+    "prompt": "medium shot, an old general pointing angrily across a army camp, he is {marius}, leather tents behind him, harsh afternoon sun",
+    "motion": "he jabs his finger forward, slow camera push in",
+    "check": "Is an old general pointing?"
+   },
+   {
+    "name": "fear",
+    "at": "may#1",
+    "who": "sulla",
+    "clip": true,
+    "prompt": "close-up, an old dictator glancing back over his shoulder in a dark marble hallway, he is {sulla}, a single oil lamp",
+    "motion": "he turns his head slowly to look behind him, slow camera push in",
+    "check": "Is an old man looking over his shoulder?"
+   },
+   {
+    "name": "mob",
+    "at": "Marius's#1",
+    "clip": true,
+    "prompt": "medium shot, angry Roman men in rough tunics shaking wooden clubs in a narrow torch-lit alley at night",
+    "motion": "they shake the clubs in the air, slow camera push in",
+    "check": "Are angry men holding clubs?"
+   },
+   {
+    "name": "deface",
+    "at": "deface#1",
+    "hit": "deface#1",
+    "clip": true,
+    "prompt": "close-up, an iron hammer smashing the nose off a white marble bust of an old man, chips flying, dark workshop",
+    "motion": "the hammer strikes and marble chips fly, slow camera push in",
+    "check": "Is a hammer hitting a marble bust?"
+   },
+   {
+    "name": "note",
+    "at": "You#1",
+    "xfade": true,
+    "clip": true,
+    "prompt": "close-up, two hands unfolding a small secret paper note by candlelight on a wooden desk",
+    "motion": "the hands open the folded paper, slow camera push in",
+    "check": "Are hands holding a folded paper?"
+   },
+   {
+    "name": "shred",
+    "at": "shredding#1",
+    "clip": true,
+    "prompt": "close-up, two hands tearing a sheet of paper into tiny pieces over a wooden kitchen table, warm lamp light",
+    "motion": "the hands rip the paper again, slow camera push in",
+    "check": "Are hands tearing paper?"
+   },
+   {
+    "name": "bin",
+    "at": "throwing#1",
+    "move": "down",
+    "prompt": "close-up of a whole crumpled paper ball lying in an empty wicker basket on a wooden floor, soft lamp light",
+    "check": "Is there a paper ball in a basket?"
+   },
+   {
+    "name": "stack",
+    "at": "burning#1",
+    "who": "undertaker",
+    "clip": true,
+    "xfade": true,
+    "prompt": "medium shot, a bearded undertaker stacking heavy split logs crosswise onto a tall pyre, he is {undertaker}, open field outside Rome, overcast day",
+    "motion": "he sets a log down on the stack, slow camera push in",
+    "check": "Is a man stacking logs?"
+   },
+   {
+    "name": "timber",
+    "at": "good#1",
+    "move": "up",
+    "prompt": "wide shot of a huge pile of chopped timber logs beside a square stone cremation platform, open field, overcast light",
+    "check": "Is there a big pile of logs?"
+   },
+   {
+    "name": "carry",
+    "at": "half#1",
+    "clip": true,
+    "prompt": "medium shot, two slaves in plain tunics carrying armfuls of split logs across a muddy field, overcast morning",
+    "motion": "they shift the heavy logs in their arms, slow camera move right",
+    "check": "Are men carrying logs?"
+   },
+   {
+    "name": "tend",
+    "at": "Someone#1",
+    "who": "undertaker",
+    "clip": true,
+    "prompt": "medium shot, a bearded undertaker pushing a long iron pole into a roaring pyre at night, he is {undertaker}, orange firelight, dark field",
+    "motion": "he pushes the pole into the flames, sparks rise, slow camera push in",
+    "check": "Is a man pushing a pole into a fire?"
+   },
+   {
+    "name": "embers",
+    "at": "8#1",
+    "move": "push",
+    "prompt": "close-up of a collapsed pyre glowing with orange embers under a pale grey dawn sky, thin smoke rising",
+    "check": "Are there glowing embers?"
+   },
+   {
+    "name": "sticks",
+    "at": "Without#1",
+    "move": "left",
+    "prompt": "close-up of a few thin sticks smoking under a small badly built pyre on a grey beach, gloomy light",
+    "check": "Is there a small smoking pyre?"
+   },
+   {
+    "name": "partburnt",
+    "at": "left#1",
+    "move": "push",
+    "prompt": "close-up of a half-burnt funeral pyre with blackened unburnt logs and thin smoke on a grey beach, gloomy light",
+    "check": "Is there a half-burnt pyre?"
+   },
+   {
+    "name": "dawn",
+    "at": "After#1",
+    "move": "pull",
+    "prompt": "wide shot of a cold grey ash heap on a square stone platform in an empty field at dawn, mist, pale light",
+    "check": "Is there a grey ash heap?"
+   },
+   {
+    "name": "wine",
+    "at": "heir#1",
+    "who": "heir",
+    "clip": true,
+    "prompt": "close-up, a young nobleman sprinkling red wine from a silver cup over grey ashes, he is {heir}, stone cremation platform, soft morning light",
+    "motion": "wine drips from the cup onto the ashes, slow camera push in",
+    "check": "Is a man pouring wine from a cup?"
+   },
+   {
+    "name": "urn",
+    "at": "gathered#1",
+    "clip": true,
+    "prompt": "close-up, two hands placing pale ashes and small bone pieces into a round clay urn, stone platform, soft morning light",
+    "motion": "the hands lower ashes into the urn, slow camera push in",
+    "check": "Is there a clay urn?"
+   },
+   {
+    "name": "niche",
+    "at": "buried#2",
+    "who": "heir",
+    "clip": true,
+    "prompt": "medium shot, a young nobleman setting a clay urn into a small stone niche in a roadside tomb, he is {heir}, cypress trees, golden light",
+    "motion": "he slides the urn into the niche, slow camera push in",
+    "check": "Is a man placing an urn?"
+   },
+   {
+    "name": "shelf",
+    "at": "Yet#1",
+    "xfade": true,
+    "move": "push",
+    "prompt": "close-up of a single round clay urn on a stone shelf in a dark tomb chamber, a shaft of cold light",
+    "check": "Is there a clay urn on a shelf?"
+   },
+   {
+    "name": "caracalla",
+    "at": "emperor#1",
+    "who": "caracalla",
+    "clip": true,
+    "prompt": "medium shot, a scowling young emperor lifting a clay urn from a stone shelf, he is {caracalla}, dark tomb chamber, flickering torchlight",
+    "motion": "he lifts the urn slowly, slow camera push in",
+    "check": "Is a man lifting an urn?"
+   },
+   {
+    "name": "pour",
+    "at": "brother#1",
+    "clip": true,
+    "prompt": "close-up, grey ashes pouring out of a tipped clay urn into a bronze bowl, dark tomb, torchlight",
+    "motion": "the ashes stream slowly out of the urn, slow camera push in",
+    "check": "Are grey ashes pouring from an urn?"
+   },
+   {
+    "name": "mix",
+    "at": "mixed#1",
+    "hit": "mixed#1",
+    "clip": true,
+    "prompt": "close-up, a hand with a gold ring stirring a heap of grey ashes in a wide bronze bowl, dark tomb, torchlight",
+    "motion": "the hand stirs the ashes in a slow circle, slow camera push in",
+    "check": "Is a hand stirring grey ashes?"
+   },
+   {
+    "name": "executed",
+    "at": "executed#1",
+    "move": "pull",
+    "prompt": "wide shot of a long row of plain clay urns on a rough stone shelf in a dim crypt, cold blue light",
+    "check": "Is there a row of clay urns?"
+   },
+   {
+    "name": "insult",
+    "at": "final#1",
+    "who": "caracalla",
+    "clip": true,
+    "prompt": "close-up, a young emperor smirking coldly as he turns away in torchlight, he is {caracalla}, dark stone crypt",
+    "motion": "he turns his head away with a cold smile, slow camera pull back",
+    "check": "Is a man smirking?"
+   }
+  ]
+ }
+}
