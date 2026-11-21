@@ -1,0 +1,89 @@
+{
+ "off": 1795239174,
+ "a": 1795239174,
+ "b": 1795239187,
+ "views": 1,
+ "fan_titles": [
+  "1: what a save"
+ ],
+ "fan_clip": "https://www.twitch.tv/moistcr1tikal/clip/EnthusiasticPolishedDolphinDendiFace-wvWEvq-o8SMK_oof",
+ "file": "moistcr1tikal-02.mp4",
+ "section_start_in_vod": 1795239174,
+ "section_end_in_vod": 1795239187,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/moistcr1tikal/clips",
+ "stream_title": "fan clips",
+ "streamer_channel": "moistcr1tikal",
+ "words": [
+  {
+   "w": "For",
+   "s": 0.0,
+   "e": 0.4
+  },
+  {
+   "w": "the",
+   "s": 0.4,
+   "e": 0.52
+  },
+  {
+   "w": "crystal",
+   "s": 0.52,
+   "e": 0.86
+  },
+  {
+   "w": "brother",
+   "s": 0.86,
+   "e": 1.58
+  },
+  {
+   "w": "ain't",
+   "s": 1.58,
+   "e": 1.96
+  },
+  {
+   "w": "got",
+   "s": 1.96,
+   "e": 2.04
+  },
+  {
+   "w": "time",
+   "s": 2.04,
+   "e": 2.36
+  },
+  {
+   "w": "for",
+   "s": 2.36,
+   "e": 2.56
+  },
+  {
+   "w": "crystal",
+   "s": 2.56,
+   "e": 2.88
+  },
+  {
+   "w": "right",
+   "s": 2.88,
+   "e": 3.18
+  },
+  {
+   "w": "now",
+   "s": 3.18,
+   "e": 3.51
+  },
+  {
+   "w": "Why",
+   "s": 11.6,
+   "e": 11.93
+  },
+  {
+   "w": "would",
+   "s": 11.93,
+   "e": 12.59
+  },
+  {
+   "w": "you",
+   "s": 12.59,
+   "e": 12.71
+  }
+ ]
+}
