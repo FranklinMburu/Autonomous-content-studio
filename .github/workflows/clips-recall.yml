@@ -11,16 +11,16 @@ permissions:
   actions: read
 
 env:
-  REUSE_RUN: "43366288431"   # run 6 (judge with real-winner anchors): transcript, chat, AI eyes and judge scores reused
-  REJUDGE: ""                # reuse run 6 judge scores (13 Nov: measuring the agreement bonus, no new Gemini calls)
+  REUSE_RUN: "43834913377"   # run 6 (judge with real-winner anchors): transcript, chat, AI eyes and judge scores reused
+  REJUDGE: "1"                # reuse run 6 judge scores (13 Nov: measuring the agreement bonus, no new Gemini calls)
   EYES_REDO: ""             # "1" = run the AI eyes again even when an earlier run's eyes could be reused
   EYES_MODEL: ""            # e.g. gemma-4-26b-a4b-it: the eyes on Gemma's own daily allowance; "" = the Gemini Flash default
-  JUDGE_MODEL: ""           # e.g. gemma-4-31b-it: the judge on Gemma's own allowance (frames + transcript); "" = the Gemini Flash default
-  TW_VOD: "https://www.twitch.tv/videos/2910392998"   # the test stream; "" = pick the best recent one from TW_CHANNELS
+  JUDGE_MODEL: "gemma-4-31b-it"           # e.g. gemma-4-31b-it: the judge on Gemma's own allowance (frames + transcript); "" = the Gemini Flash default
+  TW_VOD: "https://www.twitch.tv/videos/2915383492"   # the test stream; "" = pick the best recent one from TW_CHANNELS
   TW_CHANNEL: "kaicenat"
   TW_CHANNELS: "kaicenat,plaqueboymax,lacy,fanum,dukedennis"
   STREAMER: "Kai Cenat"
-  KEY_RUN: "43327666336"     # the run whose answer key still had all 10 fan clips (they age out of Twitch's 30-day list)
+  KEY_RUN: "43834913377"     # the run whose answer key still had all 10 fan clips (they age out of Twitch's 30-day list)
 
 jobs:
   recon:
