@@ -79,3 +79,6 @@ Written 21 Nov 2026 13:40 Nairobi. It is built from the full chat "GTA clipping 
 2. Build "5 Things You NEED To Know Before Playing GTA 6" (no autosave, story length, controls…), then "How The Wanted System Works In GTA 6" (xQc/Lirik/Cohh chases). Each needs a footage hunt via the fetch workflow (`fetch.py --title-re`).
 3. Check k07, k04 and k03 (shorts/sc); upload k04 if it passes and the cap allows; fix k03.
 4. Feedback loop: pull retention per Short and update PLAYBOOK.md.
+
+## Latest
+- 21 Nov 13:20: the loop moved to Franklin's main Claude account (new scheduled task trig_01Xnz3yJBKhgAGJ58ngaiHKu, same 11:23/23:23 schedule); the old one on precisionexecutionlabs is PAUSED. Both chats on that account are in its project "YouTube Creator Studio — GTA Clip Room (IntNext)". k04 was uploaded this morning; numbers and lesson in POSTED.md / PLAYBOOK.md.

@@ -30,3 +30,19 @@ Daily upload limit not reset yet (10 uploads since ~22:45 19 Nov; resets ~23:00-
 8 uploads used since 23:35 20 Nov (limit ~10/24 h). dog-L1 held back (conditional on secrets1b's dog item holding viewers).
 Content Rewards: not signed in in the built-in browser, so the 4 Kai clips are NOT submitted to the Kai pool yet (Franklin: sign in + link IntNext's YouTube).
 No new Shorts produced this run: the queue fills the schedule to 22 Nov 13:00 and only ~2 upload slots remain until ~23:30 21 Nov. Next run: source verdict / GTA 5-vs-6 / lost-progress footage (TREND_DATA_21NOV_0000.md).
+
+## 21 Nov 11:23 run (other account): stopped at its usage limit after uploading k04
+| id | title | link | public (Nairobi) |
+|---|---|---|---|
+| k04 | Kai Cenat's FACE When GTA 6 Ended After 67 HOURS Live (#ad, paid promotion) | (scheduled; see Studio) | 21 Nov (scheduled) |
+k07 (Niko, self-score 7) and k03 (kid, 6) were NOT uploaded; they are on shorts/sc. Uploads in the 24 h since 23:35 20 Nov: 9 (cap ~10).
+
+## Numbers 21 Nov 13:17 Nairobi (YouTube Studio)
+| Short | views | stayed to watch | likes | last 60 min |
+|---|---|---|---|---|
+| Kai 4 MINUTES in settings (19 Nov) | 1,207 | 54% (20 Nov) | - | - |
+| secrets1b 5 GTA 6 Secrets (list, 53 s) | 1,109 | 56.7% | 23 | 1 (stalled) |
+| parrot-C1 money tip (19 s) | 900 | 41.5% | 11 | 126 (climbing, Shorts feed 114) |
+| agent00 jail FULL | 89 | - | - | - |
+| all other single reactions | 1-12 | - | - | - |
+| list-R1 (public 10:00) | 2 | - | - | - |

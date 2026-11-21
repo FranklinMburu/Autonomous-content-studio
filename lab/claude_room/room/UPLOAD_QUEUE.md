@@ -5,3 +5,6 @@
 |---|---|---|---|
 | 1 | dog-L1 | 22 Nov 4:00 PM or later | only if secrets1b's dog item holds viewers (check its retention graph); no campaign |
 Method notes: click the title box once (real click) before the execCommand fill; date via #datepicker-trigger then click the day; default time zone is local GMT+3.
+| 2 | k07 (Niko Bellic) | after a critic pass ≥9.5 | self-score 7: needs a stronger frame 0/hook; Kai pool (#ad) |
+| - | k03 (kid watches streamers) | held | self-score 6, needs a fix |
+# k04 was uploaded by the 21 Nov 11:23 run (scheduled 21 Nov). Do not upload it again.
