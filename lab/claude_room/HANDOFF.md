@@ -82,3 +82,4 @@ Written 21 Nov 2026 13:40 Nairobi. It is built from the full chat "GTA clipping 
 
 ## Latest
 - 21 Nov 13:20: the loop moved to Franklin's main Claude account (new scheduled task trig_01Xnz3yJBKhgAGJ58ngaiHKu, same 11:23/23:23 schedule); the old one on precisionexecutionlabs is PAUSED. Both chats on that account are in its project "YouTube Creator Studio — GTA Clip Room (IntNext)". k04 was uploaded this morning; numbers and lesson in POSTED.md / PLAYBOOK.md.
+- 21 Nov 19:00: **read room/BLUEPRINT_21NOV.md before making anything.** It holds the 10 laws, the myths we believed, 5 format recipes, a gap analysis of our best 3 and a 15-point critic gate. It comes from a frame-by-frame teardown of 36 winning Shorts Franklin picked (room/reference_teardown/). The critic applies the gate in section 5 before anything ships.

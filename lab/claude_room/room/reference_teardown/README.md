@@ -1,0 +1,3 @@
+# Reference teardown, 21 Nov 2026
+These are 36 winning Shorts that Franklin picked by hand (meta.tsv has views, likes, comments, his labels and links: youtube.com/shorts/<id>). His laptop helper downloaded them (release yt-sections, ref-<id>.mp4). `deep_teardown.py` measured them at 4 fps (cuts, quality, loudness, OCR) and made frame sheets. Four Claude analysts watched every sheet (notes/A-D), and a strategist wrote ../BLUEPRINT_21NOV.md.
+Caveat: the first run's OCR text was mixed between videos processed at the same time (a shared temp file, since fixed), so treat the text-share figures in summary.json as rough. The frame sheets and the notes are reliable. Our sharpness is measured at 1080x1920 and most references at 608x1080, so the two can't be compared.
