@@ -7,4 +7,4 @@ Topic: Why the 18th‑century Russian engineer Mikhail Lomonosov added copper pl
 - Logic check issues found: 5
 - Words: 167, length 59.0s, 170 words/min, 10 words in first 3 s
 - Fact check: {'partial': 2, 'unsupported': 7, 'supported': 3}
-- Film shot list: none yet: made in the polish step
+- Film shot list: 33 shots, 7 problem(s) left for the polish step (NEEDS_POLISH.md)

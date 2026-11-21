@@ -1,0 +1,305 @@
+{
+ "era": "1750s",
+ "cast": {
+  "lomonosov": "a 45 year old Russian scholar with a broad sturdy face, dark brown hair pulled back in a neat ponytail, clean-shaven cheeks, wearing a long dark blue wool coat with silver embroidery, a white ruffled cravat and a grey waistcoat, 1750s",
+  "shipwright": "a 35 year old burly Russian shipbuilder with broad shoulders, a sun-beaten face, a thick reddish-brown beard, wearing a brown leather apron over a beige linen shirt with rolled sleeves and dark trousers, 1750s",
+  "officer": "a 50 year old Russian naval admiral with a stern face, a grey powdered wig with side curls, a neat grey moustache, wearing an emerald green naval coat with gold epaulettes and gold braid, 1750s",
+  "engineer": "a 28 year old thin Russian mechanic with a pale narrow face, short wavy blond hair, clean-shaven, wearing a dark grey canvas tunic with a brown leather belt and dark trousers, 1750s"
+ },
+ "music": "curious",
+ "key_words": [
+  "engineer",
+  "copper",
+  "hull",
+  "shipwrights",
+  "Lomonosov",
+  "waterline",
+  "St. Petersburg",
+  "slime",
+  "barnacles",
+  "shipworm",
+  "greasy",
+  "poisonous",
+  "dissolves",
+  "speed",
+  "copper-bottomed",
+  "bolt-corrosion",
+  "fasteners"
+ ],
+ "shots": [
+  {
+   "name": "hammering",
+   "at": 0,
+   "who": "engineer",
+   "clip": true,
+   "prompt": "close-up, a young mechanic hammering a shiny copper sheet onto a dark wooden ship hull, sparks flying, he is {engineer}, shipyard background, warm daylight",
+   "motion": "he hammers the copper sheet firmly, sparks fly, slow camera push in",
+   "check": "Is a man hammering a copper sheet?"
+  },
+  {
+   "name": "sparks",
+   "at": "sparks#1",
+   "clip": true,
+   "prompt": "extreme close-up of iron rivets and bright sparks flying off a reddish copper plate on a wooden ship hull, daylight",
+   "motion": "sparks fly as a hammer strikes the copper plate, slow camera push in",
+   "hit": "sparks#1",
+   "check": "Are there sparks flying from copper?"
+  },
+  {
+   "name": "engineer_aims",
+   "at": "He#1",
+   "who": "engineer",
+   "clip": true,
+   "prompt": "medium shot, a thin young mechanic wiping sweat from his forehead while inspecting a ship hull, he is {engineer}, a dusty 1750s shipyard, daylight",
+   "motion": "he wipes sweat from his forehead and looks up, slow camera push in",
+   "check": "Is a man wiping his forehead?"
+  },
+  {
+   "name": "beneath_waves",
+   "at": "beneath#1",
+   "move": "push",
+   "prompt": "wide shot of dark murky seawater slapping against the dark wooden hull of a massive 1750s sailing ship, daytime",
+   "check": "Is water splashing against a ship hull?"
+  },
+  {
+   "name": "laughing_wrights",
+   "at": "Fellow#1",
+   "who": "shipwright",
+   "clip": true,
+   "prompt": "medium shot, a burly shipbuilder laughing and pointing mockingly while holding a wooden cup, he is {shipwright}, standing on a busy 1750s wooden dockyard with another worker, sunlight",
+   "motion": "he throws his head back laughing and points, slow camera push in",
+   "check": "Is a man laughing?"
+  },
+  {
+   "name": "rusty_plate",
+   "at": "rust#1",
+   "clip": true,
+   "prompt": "close-up of a heavily corroded orange-rusted iron plate sitting under dark salty water in a wooden bucket, tiny bubbles rising, 1750s dockyard background, bright daylight",
+   "motion": "water ripples gently over the rusted iron plate, slow camera push in",
+   "check": "Is there a rusted iron plate in water?"
+  },
+  {
+   "name": "heavy_sheets",
+   "at": "They#1",
+   "clip": true,
+   "prompt": "medium shot, two broad workmen straining and sweating as they carry a thick, heavy sheet of copper across a wooden dock, 1750s shipyard, sunny morning",
+   "motion": "they strain as they step forward carrying the metal sheet, slow camera push in",
+   "check": "Are men carrying a metal sheet?"
+  },
+  {
+   "name": "sluggish_ship",
+   "at": "slow#1",
+   "move": "push",
+   "hit": "slow#1",
+   "prompt": "wide shot, a large 1750s wooden sailing ship sitting low in calm murky harbor water, moving sluggishly past dark wooden piers, hazy morning light",
+   "check": "Is there a sailing ship in the water?"
+  },
+  {
+   "name": "order",
+   "at": "Lomonosov#1",
+   "who": "lomonosov",
+   "xfade": true,
+   "clip": true,
+   "prompt": "medium shot, a scholar pointing down firmly at a copper-plated ship hull from a wooden scaffold, he is {lomonosov}, 1750s St Petersburg shipyard, cold overcast daylight",
+   "motion": "he points down at the hull and speaks firmly, slow camera push in",
+   "check": "Is a man pointing at a ship hull?"
+  },
+  {
+   "name": "hammer",
+   "at": "copper#2",
+   "clip": true,
+   "prompt": "close-up, a shipwright hammering a bright copper sheet onto the wooden hull below the waterline, sparks flying, 1750s shipyard, warm forge light",
+   "motion": "the hammer strikes the copper and sparks fly, slow camera push in",
+   "check": "Is a hammer striking copper plates?"
+  },
+  {
+   "name": "seam",
+   "at": "waterline#1",
+   "clip": true,
+   "prompt": "extreme close-up, a hammer driving copper nails along the shiny copper seam at the hull waterline, 1750s shipyard, warm lamp light",
+   "motion": "the hammer drives nails into the copper seam, slow camera push in",
+   "check": "Is a hammer nailing copper plates?"
+  },
+  {
+   "name": "departure",
+   "at": "The#7",
+   "move": "pull",
+   "prompt": "wide shot, a large 1750s wooden warship sliding out of a timber dock into grey harbour water, its hull crusted with green slime, St Petersburg, overcast light",
+   "check": "Is a ship leaving a dock?"
+  },
+  {
+   "name": "slime",
+   "at": "slime#1",
+   "move": "push",
+   "prompt": "close-up, the copper hull below the waterline thickly coated in bright green slime with small barnacles, murky harbour water, cold daylight",
+   "check": "Is the hull covered in green slime?"
+  },
+  {
+   "name": "shipworm_holes",
+   "at": "shipworm#1",
+   "move": "left",
+   "prompt": "close-up of a wooden ship hull underwater, small pale sea worms burrowing in black rotten planks beside white barnacles, murky green water, cold grey light",
+   "check": "Is the wooden hull covered with sea creatures?"
+  },
+  {
+   "name": "barn",
+   "at": "barn#1",
+   "hit": "barn#1",
+   "move": "left",
+   "prompt": "medium close-up, a fouled ship hull crusted with dense white barnacles and pitted shipworm holes like a barn wall, murky green water, cold grey light",
+   "check": "Is the hull covered in barnacles?"
+  },
+  {
+   "name": "greasy_pan",
+   "at": "You#1",
+   "clip": true,
+   "prompt": "close-up, a hand tilting a greasy black frying pan so a browned piece of food stays stuck to the oily surface, on a rough wooden table, warm hearth light",
+   "motion": "the pan tilts slightly and the food stays stuck, slow camera push in",
+   "check": "Is food stuck to a greasy pan?"
+  },
+  {
+   "name": "slime_hull",
+   "at": "slime#2",
+   "move": "left",
+   "prompt": "close-up of a wooden ship hull underwater thick with green slime and barnacles, dark green water streaming past the fouled planks, cold murky light",
+   "check": "Is a ship hull covered in green slime?"
+  },
+  {
+   "name": "copper_sea",
+   "at": "Copper#3",
+   "xfade": true,
+   "move": "push",
+   "prompt": "extreme close-up of a copper plate lying under clear seawater, a faint green film spreading across its surface, sunlight rippling above, 1750s shipyard dock",
+   "check": "Is there a copper plate under seawater?"
+  },
+  {
+   "name": "plate_lift",
+   "at": "forming#1",
+   "clip": true,
+   "prompt": "close-up of a mechanic's hands lifting a copper plate out of a wooden tub of seawater, a blue-green film forming on the metal, 1750s workshop, daylight",
+   "motion": "the hands lift the dripping plate slowly, slow camera push in",
+   "check": "Are hands lifting a copper plate out of water?"
+  },
+  {
+   "name": "patina",
+   "at": "copper‑oxy‑chloride#1",
+   "move": "left",
+   "prompt": "extreme close-up of a copper plate surface covered by a thin blue-green patina film, tiny water droplets beading and one droplet sliding down, soft daylight, dark background",
+   "check": "Is there a blue-green film on a copper plate?"
+  },
+  {
+   "name": "poison",
+   "at": "poisonous#1",
+   "hit": "poisonous#1",
+   "clip": true,
+   "prompt": "close-up of a copper plate underwater covered with small pale barnacles and mussels, the tiny animals shrinking back from the metal, cold sea light",
+   "motion": "the tiny barnacles slowly close and loosen, slow camera push in",
+   "check": "Are pale barnacles on a copper plate?"
+  },
+  {
+   "name": "dissolve",
+   "at": "dissolves#1",
+   "clip": true,
+   "prompt": "close-up of a hand holding a wet copper plate under a stream of seawater, the green film washing away in pale wisps, 1750s dock, daylight",
+   "motion": "the water runs over the plate and the film fades, slow camera push in",
+   "check": "Is a hand holding a copper plate under running water?"
+  },
+  {
+   "name": "no_barnacles",
+   "at": "barnacles#2",
+   "hit": "barnacles#2",
+   "clip": true,
+   "prompt": "close-up of a bare smooth copper plate underwater, small barnacle shells sliding off and sinking away from the metal, clear sea water, sunlight from above",
+   "motion": "the shells drift downward off the smooth plate, slow camera push in",
+   "check": "Are barnacle shells sliding off a copper plate?"
+  },
+  {
+   "name": "cannot_attach",
+   "at": "cannot#1",
+   "clip": true,
+   "prompt": "close-up of a smooth copper plate underwater, a pale barnacle shell and a small sea worm drifting loose away from the metal, clear sea water, sunlight from above",
+   "motion": "the shells and worm drift away from the plate, slow camera push in",
+   "check": "Are shells drifting away from a copper plate?"
+  },
+  {
+   "name": "clean_hull",
+   "at": "hull#3",
+   "xfade": true,
+   "move": "right",
+   "prompt": "wide shot of a 1750s sailing warship slicing through blue sea water, its clean copper hull leaving a bright white wake, strong sunlight, open ocean",
+   "check": "Is a ship moving through water with a white wake?"
+  },
+  {
+   "name": "admiral_speed",
+   "at": "speed#1",
+   "who": "officer",
+   "hit": "speed#1",
+   "clip": true,
+   "prompt": "medium shot, a naval officer gripping the rail on a ship deck and watching the ship race ahead, he is {officer}, bright windy sea, sunlight",
+   "motion": "he grips the rail and leans forward as wind blows, slow camera push in",
+   "check": "Is a man gripping a rail on a ship deck?"
+  },
+  {
+   "name": "dubship",
+   "at": "The#15",
+   "who": "officer",
+   "clip": true,
+   "prompt": "medium shot, a naval admiral pointing at the gleaming copper-plated bottom of a warship at a wooden dock in St Petersburg, he is {officer}, bright morning light",
+   "motion": "he points along the copper plates and nods, slow camera push in",
+   "check": "Is a man pointing at a copper ship hull?"
+  },
+  {
+   "name": "medal",
+   "at": "a#8",
+   "move": "push",
+   "prompt": "close-up of a round gold medal with a green ribbon lying on a dark polished wooden table, warm lamp light, blurred copper hull behind",
+   "check": "Is there a round gold medal?"
+  },
+  {
+   "name": "premium",
+   "at": "that#3",
+   "clip": true,
+   "prompt": "medium shot, a fur-coated shipowner counting silver coins into a leather purse at a counting table in a St Petersburg merchant office, warm candle light",
+   "motion": "he counts the coins onto the table, slow camera push in",
+   "hit": "premiums#1",
+   "check": "Is a man counting silver coins?"
+  },
+  {
+   "name": "verdigris",
+   "at": "Ironically#1",
+   "xfade": true,
+   "move": "down",
+   "prompt": "close-up of warship hull copper plates streaked with bright green verdigris and rusty weeping bolts in a drydock, cold daylight",
+   "check": "Is there green corrosion on copper plates?"
+  },
+  {
+   "name": "rustybolt",
+   "at": "later#1",
+   "who": "shipwright",
+   "clip": true,
+   "prompt": "close-up, a burly shipbuilder holding up a badly rusted iron bolt crusted with green copper stains, he is {shipwright}, drydock daylight",
+   "motion": "he slowly turns the rusted bolt in his fingers, slow camera push in",
+   "hit": "crisis#1",
+   "check": "Is a man holding up a rusty bolt?"
+  },
+  {
+   "name": "redesign",
+   "at": "forcing#1",
+   "who": "engineer",
+   "xfade": true,
+   "clip": true,
+   "prompt": "medium shot, a thin mechanic hammering a new bronze bolt on an anvil in a workshop, sparks flying, he is {engineer}, warm forge light",
+   "motion": "he strikes the bronze bolt and sparks fly, slow camera push in",
+   "hit": "redesign#1",
+   "check": "Is a man hammering a bronze bolt?"
+  },
+  {
+   "name": "fasteners",
+   "at": "fasteners#1",
+   "clip": true,
+   "prompt": "close-up of a hand placing a bright new bronze fastener among a neat row of bronze bolts on a wooden workbench, workshop daylight",
+   "motion": "the hand sets the bronze bolt down, slow camera push in",
+   "check": "Is a hand placing a bronze bolt?"
+  }
+ ]
+}

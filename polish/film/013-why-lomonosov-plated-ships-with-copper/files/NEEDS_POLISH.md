@@ -7,4 +7,3 @@ Problems left by the free models (the copy-paste polish fixes them):
 - script: not supported by the sources, fix or remove: Lomonosov orders the copper nailed beneath the waterline in St. Petersburg.
 - script: not supported by the sources, fix or remove: The ship leaves the dock still covered in thick, green slime.
 - script: not supported by the sources, fix or remove: Barnacles and shipworm have already turned the hull into a barn.
-- the free models could not write the shots for part 6
