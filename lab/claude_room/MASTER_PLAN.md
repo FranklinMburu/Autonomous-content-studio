@@ -1,5 +1,5 @@
 # IntNext GTA 6 Shorts: master plan (single source of truth)
-Last updated 20 Nov 2026, 16:20 Nairobi. Read this first in any new session, then RUNBOOK.md and room/UPLOAD_QUEUE.md.
+Last updated 20 Nov 2026, 16:20 Nairobi. Read this first in any new session (and HANDOFF.md for the 19-21 Nov chat), then RUNBOOK.md and room/UPLOAD_QUEUE.md.
 
 ## Franklin's direction (in his words, condensed)
 - **Focus:** GTA 6 only for now. The goal is views (views = money).
