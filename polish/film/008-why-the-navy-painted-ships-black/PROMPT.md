@@ -74,152 +74,236 @@ Return JSON only: {"era": "...", "cast": {...}, "key_words": [...], "music": "<o
            {"name": ..., "at": ..., "prompt": ..., "check": "Is ...?", "move": "push"}, ...]}
 
 CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid these exact scenes):
-- 004-why-john-snow-removed-a-london-pump-hand: cast snow = a 41 year old English doctor with short dark wavy hair, a clean shaven narrow face, thin lips, deep-set grey eyes, a black frock coat, a grey waistcoat, a white high collar and a black necktie, 1850s; whitehead = a 28 year old English vicar with fair curly hair, a round friendly face, rosy cheeks, a black clerical coat and a white clerical collar, 1850s; simon = a 38 year old London health official with a neat full black beard, a high bald forehead, a brown overcoat with a fur collar and a grey top hat, 1850s; mother = a 30 year old poor London woman with red hair tied under a white cotton cap, a faded blue cotton dress and a brown wool shawl, 1850s; brewer = a burly 50 year old brewery worker with a thick ginger beard, a flat cloth cap, rolled-up shirt sleeves and a grey canvas apron, 1850s
-  scenes: medium shot, two men in black top hats pulling the long iron handle of | medium close-up, a doctor pointing firmly at an iron street water pump | wide shot of a crowded narrow 1850s London street with laundry hanging | close-up, a pale sweating man lying sick on a straw mattress in a dark | high angle, men carrying plain wooden coffins out of narrow brick hous | medium shot, three doctors in black coats pressing white handkerchiefs | wide shot, thick greenish yellow fog drifting over a rubbish-strewn mu | medium shot, a bearded official shaking his head while reading a lette | close-up, a doctor frowning as he reads a letter by a rainy window, he | medium shot, {snow} and {whitehead} knocking on the wooden door of a n | medium close-up, a crying woman in a doorway answering questions, she  | extreme close-up, a hand with a quill pen marking small black dots on 
-- 005-why-barry-marshall-swallowed-bacteria: cast marshall = a 33 year old Australian doctor, lean build, curly dark brown hair, a full dark brown beard, brown eyes, thin wire-rimmed glasses, a white short-sleeved shirt under a pale blue lab coat and khaki trousers, 1980s; warren = a 46 year old Australian pathologist with short receding grey hair, a clean-shaven square face, heavy black-framed glasses, a white lab coat over a brown checked shirt, 1980s; skeptic = a 48 year old British gastroenterologist, stocky build, balding with short grey hair at the sides, heavy dark eyebrows, clean shaven, a charcoal grey suit jacket, a burgundy patterned tie and white shirt, 1980s; nurse = a 35 year old nurse, sturdy build, dark brown hair in a ponytail, teal scrubs, 1980s; wife = a 32 year old woman with shoulder-length wavy blond hair, a sun-tanned face and a yellow sleeveless summer dress, 1980s
-  scenes: close-up, a bearded doctor drinking cloudy brown liquid from a glass b | medium close-up, a doctor wincing and pressing a hand on his stomach,  | medium shot, a stressed businessman in a brown suit clutching his stom | close-up of a plate of bright red chilli peppers next to a bowl of spi | wide shot of a sunny 1980s Australian city hospital with palm trees in | medium shot, a pathologist looking into a microscope, he is {warren},  | medium shot, a balding doctor laughing and shaking his head at a meeti | extreme close-up of clear liquid bubbling in a glass beaker on a lab b | close-up, a hand dropping a stapled paper into a metal wastebasket, 19 | medium close-up, a doctor reading a letter and slumping back in his ch | medium shot, pink piglets sniffing around a clean straw pen, bright da | close-up, a doctor rolling up his sleeves with a determined face, he i
-- 005-why-goldberger-swallowed-scabs: cast goldberger = a 42 year old lean American physician with short wavy dark brown hair, a neat small moustache, deep-set brown eyes and a long serious face, wearing a charcoal three-piece suit, a white wing-collar shirt and a dark tie, 1910s; wife = a 38 year old woman with dark auburn hair pinned up high, a narrow freckled face, a high-collared cream lace blouse and a long navy blue skirt, 1910s; orphan = a 9 year old thin girl with long blond braids, big grey eyes and a faded pink cotton dress with a white collar, 1910s; prisoner = a 27 year old lean prisoner with a tanned face, short dark hair and stubble on his chin, wearing a blue and white striped prison shirt with rolled sleeves, 1910s; critic = a 60 year old stout doctor with a bald head, bushy white side whiskers, small gold pince-nez and a black frock coat with a watch chain, 1910s; chemist = a 36 year old laboratory chemist with thinning blond hair, round black spectacles and a clean-shaven round face, wearing a white lab coat over a dark tie, 1930s
-  scenes: close-up, a doctor pushing a glass syringe needle into his own forearm | medium shot, a woman rolling up her blouse sleeve beside a table with  | extreme close-up of a man's forearm covered in a dark red peeling rash | wide shot of a dusty 1910s Southern farm with a small wooden shack and | wide shot of a long 1910s hospital ward full of iron beds with sick pa | medium shot, three doctors in dark suits peering into microscopes on a | medium close-up, a doctor standing with folded arms and watching a hos | medium shot, a healthy smiling nurse in a white apron carrying a tray  | medium shot, a strong healthy orderly in a white jacket mopping a hosp | close-up, a thin woman stirring a pot of yellow cornmeal mush over an  | wide shot of a big white wooden orphanage with a long porch and childr | close-up, hands setting plates of meat, eggs and green vegetables on a
-- 005-why-he-scratched-cow-pus-into-a-boy: cast jenner = a 47 year old English country doctor with receding grey-brown hair tied back, a long thin nose, a clean shaven lined face, kind tired eyes, a dark green wool frock coat, a cream waistcoat, a white cravat and brown breeches, 1790s; james = an eight year old English boy with short light brown hair, round rosy cheeks, a gap-toothed grin, a loose grey linen shirt and brown wool breeches, 1790s; sarah = a 24 year old English milkmaid with fair skin, reddish blond hair in a loose bun under a white linen cap, a faded blue cotton dress, a cream apron and rolled sleeves, 1790s
-  scenes: close-up, a doctor pressing a small silver lancet to a boy's bare uppe | wide shot of green rolling English hills with a small stone village an | close-up of a pale sick child covered in red spots lying on a white pi | wide shot of a crowded narrow 1790s English town street packed with pe | medium shot, an old doctor in a black coat opening a leather case of s | extreme close-up of a small blade scratching a thin line on a pale for | close-up, a young woman resting in a wooden bed with a few red spots o | a wooden bed with a white sheet pulled over a still shape, one candle  | medium shot, a small boy lying sick in a narrow bed with a wet cloth o | close-up, a doctor rolling up his sleeve and looking at an old scar on | medium shot, a tired doctor pressing one hand to his chest and leaning | medium shot, a doctor leaning on a wooden fence and watching cows clos
-- 005-how-london-s-great-stink-built-its-sewer: cast disraeli = a 53 year old British politician with a pale face, a small black goatee, a single black curl on his forehead, a black frock coat and a bright patterned waistcoat, 1850s; bazalgette = a 39 year old Victorian engineer with thick dark mutton-chop sideburns, a long nose, a dark grey frock coat and a black cravat, 1850s
-  scenes: medium shot, a politician hurrying out of a wood-panelled room with a  | extreme close-up of a white linen handkerchief pressed hard against a  | close-up, a politician grimacing behind a white handkerchief, he is {d | wide shot of a brick sewer outlet pouring dark water into a wide brown | close-up of dark filthy water gushing from a round brick pipe into a r | wide shot of a crowded 1850s London street with tall soot-black houses | close-up, a woman emptying a bucket of dirty water into a street drain | wide shot of a blazing sun over a wide river with heat haze and cracke | wide shot of a low brown river with thick black sludge and rubbish on  | medium shot, a young queen in a white summer dress and her husband in  | wide shot of a small decorated royal boat turning back toward a river  | close-up, a newspaper boy in a flat cap shouting on a London street co
-- 005-why-mary-mallon-was-locked-on-an-island: cast mary = a 39 year old Irish American cook with a broad round face, a strong square jaw, dark brown hair pulled into a tight bun, a plain white cotton cook's blouse with rolled sleeves, a long dark blue wool skirt and a white apron, 1900s; soper = a 37 year old American sanitation engineer with a thick dark brown walrus moustache, a lean face, a brown bowler hat and a grey three-piece suit, 1900s; baker = a 34 year old woman doctor with short-cropped brown hair parted at the side, a high white shirt collar, a dark necktie and a dark tailored jacket, 1900s
-  scenes: medium shot, a cook lunging forward with a long two-pronged kitchen fo | extreme close-up of the sharp prongs of a long iron kitchen fork point | medium shot, a cook stirring a big copper pot on an iron stove, she is | wide shot of a street of grand 1900s New York brownstone houses with h | medium close-up, a man studying a list in a small notebook, he is {sop | close-up of a hand pushing small red pins into a cork board on a woode | close-up, a feverish young woman lying in a white bed with a wet cloth | medium shot, a strong cook laughing while kneading dough at a kitchen  | medium shot, a man holding out a small glass jar in a kitchen doorway, | close-up, a furious cook gripping a long carving fork, she is {mary},  | medium close-up, a determined woman knocking hard on a wooden front do | medium shot, a woman peeking out of a wooden garden shed door with a l
-- 005-why-miners-took-canaries-underground: cast miner = a 34 year old Welsh coal miner with a soot-blackened face, a short dark beard, a flat cloth cap, a grey wool jacket and a red neck scarf, 1900s; haldane = a 35 year old Scottish scientist with a thick dark moustache, neat side-parted dark hair, a brown tweed jacket and a white wing collar, 1890s
-  scenes: medium shot, a coal miner carrying a small brass birdcage with a yello | close-up of a yellow canary on a perch inside a small brass cage, dark | wide shot of a long dark coal mine tunnel with wooden beams and a fain | medium shot, two coal miners with blackened faces holding up an oil la | close-up of pale grey haze drifting across a black coal wall, lamp lig | close-up, a coal miner coughing and holding his chest in a dark tunnel | wide shot of thick black smoke pouring out of a coal mine entrance und | medium shot, women in dark shawls waiting anxiously at a coal mine gat | wide shot of a mining town churchyard with many fresh graves and a gre | close-up of a miner's dusty cap and oil lamp resting on a wooden bench | medium shot, a scientist holding a glass flask up to the light, he is  | close-up, hands placing a small brass birdcage with a canary on a wood
-- 005-messy-lab-miracle-cure: cast fleming = a 47 year old Scottish scientist with short grey-brown hair, pale blue eyes, a slightly flattened nose, a grey tweed suit and a dark blue bow tie, 1920s; chain = a 34 year old scientist with a thick black moustache, wild dark wavy hair and a white lab coat over a dark waistcoat, 1940s
-  scenes: close-up, a scientist holding up a glass petri dish and peering at a p | extreme close-up of a glass petri dish with a fuzzy blue-green mould s | medium shot, a man setting down a leather suitcase in a laboratory doo | close-up of a dusty laboratory bench with stacked glass petri dishes a | close-up, a hand streaking a thin wire loop across yellow jelly in a p | extreme close-up of tiny golden dots of bacteria growing on yellow jel | wide shot of a cluttered laboratory corner bench stacked with glass di | medium shot, a scientist in a tweed suit closing a laboratory door beh | extreme close-up of a petri dish with a large blue-green mould patch o | extreme close-up of a petri dish with a clear empty ring around a blue | close-up, a scientist leaning in with a magnifying glass over a petri  | wide shot, a person under a black umbrella in heavy rain on a 1920s Lo
-- 005-why-ships-waited-forty-days-before-enter: cast sailor = a 30 year old Venetian sailor with a sunburnt face, curly black hair, a red wool cap and a loose white linen shirt, 1400s; doctor = a 55 year old medieval physician with a long grey beard, a long dark brown robe and a round black cap, 1400s
-  scenes: medium shot, sailors leaning on the rail of a wooden sailing ship and  | close-up, a sailor gripping a ship's wooden rail and gazing at land, h | close-up of a pale sick man lying on straw with dark swollen marks on  | wide shot of a medieval town street with closed shutters and a cart co | close-up, a weeping woman in a medieval hood kneeling beside a bed, ca | wide shot of medieval Venice with canals, gondolas and stone palaces,  | medium shot, three Venetian officials in long red robes and black caps | wide shot of a walled stone harbour city on the Adriatic coast with re | close-up of stone city walls and a tower above the sea with waves brea | medium shot, travellers in medieval cloaks stepping off a small rowing | wide shot of a small rocky island with a few stone huts in a blue sea, | close-up, a worried traveller pulling down his collar to look at his n
-- 005-why-the-radium-girls-licked-poison: cast painter = a 19 year old woman with dark brown bobbed hair, freckles, bright hazel eyes, a white cotton work smock over a navy blouse, 1910s; supervisor = a 45 year old factory supervisor with slicked grey hair, a thin moustache, a brown three-piece suit and a gold watch chain, 1910s; president = a 50 year old company president with a bald head, round gold spectacles, a heavy jaw and a dark grey double-breasted suit, 1920s; inventor = a 45 year old scientist with a high forehead, swept-back black hair, a short pointed black beard and a black suit with a white collar, 1920s
-  scenes: close-up, a young woman touching a thin paintbrush tip to her lips, a  | extreme close-up of a thin brush dipping into a tiny pot of glowing gr | extreme close-up of a thin brush painting glowing green lines on a sma | wide shot of a big 1910s brick factory with tall windows and a smokest | wide shot, rows of young women in white smocks bent over long tables p | close-up of a row of small watch faces glowing green in a dark room | close-up, a young woman's open hand receiving a few copper coins at a  | extreme close-up of a camel hair paintbrush with a frayed splayed tip, | medium shot, a stern man in a suit pointing at a worker's paint table, | medium close-up, a smiling young woman putting a paintbrush to her lip | close-up, young women laughing and holding up fingernails painted glow | close-up, a laughing young woman with a faint green glow on her teeth 
-- 006-why-dutch-merchants-paid-fortunes-for-a-: cast merchant = a 44 year old Dutch merchant with a ruddy weathered face, a thick grey-streaked brown beard, heavy brows, a wide black felt hat, a long dark burgundy wool coat with silver buttons, a white linen collar and cuffs, 1630s; trader = a 31 year old Dutch tulip trader with a thin pale face, a small pointed black moustache, sharp dark eyes, shoulder-length light brown hair, a bright mustard yellow doublet, a white ruff collar and a brown leather belt, 1630s; grower = a 52 year old Dutch bulb grower with a sunburnt wrinkled face, a bald crown with grey hair at the sides, a short grey stubble beard, a rough brown linen smock, muddy wooden clogs and a grey wool cap, 1630s; wife = a 29 year old Dutch woman with fair skin, blond hair pinned under a white lace cap, a high forehead, a dark green bodice with a white apron over a long brown skirt, 1630s; tavernkeeper = a stout 48 year old Dutch tavern keeper with a red flushed face, a big belly, a clean-shaven chin, a white apron over a dark blue shirt, a brown cap, 1630s
-  scenes: medium close-up, a stern man in a wide black hat leaning over a wooden | extreme close-up of a hand with a quill pen signing a paper contract o | close-up, a merchant holding up his open empty palms toward a trader,  | medium shot, a trader shrugging with both arms spread wide and grinnin | close-up of a single tulip bulb half buried in dark soil in a wooden c | close-up of a hand with a quill pen writing rising numbers on a paper  | medium shot, {trader} slapping a paper contract down on a wooden table | close-up of a hand dropping small silver coins into a wooden bowl on a | wide shot of a crowded 1630s Dutch tavern with men waving paper contra | wide shot of a grand 1630s Dutch town exchange building with tall ston | medium shot, {merchant} holding up a paper contract beside a potted tu | close-up of a hand holding up a small paper concert ticket in a dark t
-- 007-why-tycho-brahe-built-uraniborg-on-hven: cast tycho = a 30 year old Danish astronomer with short reddish-brown hair, dark eyes, a small brass nose bridge piece, a dark green velvet doublet with gold embroidery and a white ruff collar, 1570s; king = a 42 year old Danish king with a thick blond beard, sharp blue eyes, a dark red velvet coat with white fur collar and a heavy gold chain, 1570s; farmer = a 35 year old Danish farmer with a sunburnt face, messy brown hair, stubble beard, a coarse brown wool tunic and grey trousers, 1570s; judge = a 55 year old judge with long grey hair, a bushy grey beard, a long black robe over a white ruff collar, 1570s; kepler = a 30 year old astronomer with short dark hair, a neat pointed black beard, small spectacles, a dark brown doublet with a flat white collar, 1600s
-  scenes: close-up, an astronomer squinting up at the starry sky while holding a | wide shot of a magnificent red-brick Renaissance castle with tall copp | medium shot, an astronomer turning a brass divider compass over a parc | extreme close-up of a quill pen dipping into a small dark glass inkwel | medium close-up, a bearded king in a red velvet coat leaning forward o | medium shot, an astronomer gazing out a tall arched stone window towar | medium shot, an elderly nobleman in a black robe pushing a heavy leath | medium close-up, a man lifting a brass armillary sphere up to his eye  | close-up, a man frowning and turning an hourglass upside down on a woo | medium shot, a bearded king in a velvet coat listening intently with h | wide shot of heavy wooden travel trunks and tied leather bags sitting  | medium shot, {king} unrolling a large parchment map of an island onto 
+- 006-why-titanic-skimped-on-lifeboats: cast officer = a 38 year old British ship officer with short dark hair, a clean shaven lean face, a navy blue double-breasted uniform with gold buttons and a white-topped peaked cap, 1912; passenger = a 25 year old woman with auburn hair pinned up under a large black feathered hat, a long cream wool coat with a fur collar, 1912; builder = a 55 year old Irish shipyard manager with a thick grey walrus moustache, a brown bowler hat and a rumpled brown tweed suit, 1911; executive = a 52 year old bald British shipping chairman with a white chin beard, round wire spectacles and a navy pinstripe frock coat, 1911
+  scenes: medium shot, sailors lowering a wooden lifeboat on ropes down the side | close-up of a half-empty wooden lifeboat at night, a few shivering pas | medium shot, a ship officer at the deck rail waving a lifeboat away, h | wide shot of a giant four-funnel ocean liner tilting forward on a calm | wide shot of crowds of passengers in coats and white life jackets on a | close-up of a row of wooden lifeboats hanging from curved iron cranes  | close-up, a worried young woman in a large feathered hat clutching her | wide shot of a gigantic black ship hull inside a towering iron shipyar | medium shot, a shipyard manager pointing up at a long row of empty cur | medium shot, a tall businessman tapping a pencil on large ship drawing | close-up of a folded wooden boat with canvas sides lying upside down o | close-up of a heavy leather-bound rulebook with a red wax seal lying o
+- 007-why-a-spyglass-made-galileo-a-heretic: cast galileo = a 50 year old Italian astronomer with a receding hairline, thinning grey-brown hair, a full grey-streaked beard, deep-set dark eyes, a lined weathered face, wearing a long black wool scholar's robe with a white linen collar and a dark red cap, 1610s; castelli = a 40 year old Italian monk with short black hair, a clean-shaven round friendly face, warm brown eyes, wearing a brown Benedictine habit with a wooden cross on a cord, 1610s; christina = a 27 year old grand duchess with fair skin, dark auburn hair piled high in an elaborate jeweled updo, a narrow elegant face, wearing a rich gold-embroidered crimson velvet gown with a high lace collar and pearl earrings, 1610s; urban = a 70 year old pope with a bald crown, white hair at the sides, a short white beard, a heavy jowled face, wearing a white papal robe with a gold-embroidered red cape and a tall gold mitre, 1630s; inquisitor = a 60 year old cardinal with a gaunt pale face, deep-set black eyes, a thin pointed grey beard, wearing a long black cassock with a red sash and a red skullcap, 1630s; student = a 20 year old Italian student with curly dark brown hair, a smooth youthful face, a thin patchy beard, wearing a loose grey wool tunic and brown hose, 1610s
+  scenes: close-up, a bearded astronomer raising a long brass spyglass to his ey | medium shot, a bearded old scholar sitting at a wooden desk in a dim r | close-up, {galileo} pressing his eye to a long brass spyglass on a woo | close-up of a hand drawing four small circles in a row beside a big ci | wide shot of a grand 1610s lecture hall with a large wooden model of n | close-up of a wooden model with a small painted globe at its center an | medium shot, three old professors in black robes turning their backs a | close-up, an old professor in a black robe shaking his head and foldin | close-up, {student} squinting and frowning into a small brass telescop | medium shot, a grand duchess in a crimson velvet gown seated at a carv | close-up, {christina} frowning slightly with a questioning look, one h | close-up of a hand pointing at an open old book with a finger on a pag
+- 007-why-tycho-brahe-built-uraniborg-on-hven: cast tycho = a 26 year old Danish nobleman with reddish blond hair, a long drooping reddish moustache, a broad scar across his forehead, a black doublet with a white ruff collar and a gold chain, 1570s; king = a 40 year old Danish king with short dark brown hair, a full dark beard, a heavy brown fur-trimmed red robe and a gold crown, 1570s; kepler = a 30 year old thin German mathematician with dark hair, a short dark pointed beard, a narrow pale face and a plain black coat with a small white ruff, 1600s
+  scenes: close-up, a young nobleman staring up at the night sky in amazement, b | wide shot of a night sky over dark Danish fields with one blazing star | medium shot, a young nobleman pointing up at the sky from a stone cast | close-up of a single dazzling white star among many faint stars, deep  | close-up, a man squinting one bare eye along a long wooden sighting ar | medium shot, three workmen lifting a huge curved wooden measuring arc  | close-up of a large polished brass arc with fine notches along its edg | medium shot, a king in a fur-trimmed robe gesturing grandly toward a c | wide shot of a grand stone castle with towers on a cliff above the sea | close-up, a young nobleman shaking his head firmly, he is {tycho}, pal | wide shot of a crowded noisy royal banquet hall with nobles feasting a | close-up, a young nobleman writing a letter by candlelight and glancin
+- 008-why-nightingale-put-fresh-air-into-hospi: cast florence = a 34 year old slim English nurse with dark brown hair parted in the middle under a white cap, a calm oval face, a plain black wool dress with a white collar and a grey shawl, 1850s; soldier = a 20 year old thin British soldier with short sandy hair, freckles, a pale sweaty face and an open red army jacket over a dirty white shirt, 1850s
+  scenes: medium shot, a nurse walking between rows of hospital beds at night ho | close-up of a hand holding a small brass oil lamp glowing in a dark ho | wide shot of wounded soldiers lying packed side by side on thin mats a | wide shot of a huge square stone barracks hospital beside the sea with | close-up of a cracked stone floor drain overflowing with dark water in | close-up of a small shut window with grimy glass in a gloomy hospital  | wide shot of snow falling over a stone hospital courtyard in winter, g | medium shot, two soldiers carrying a stretcher covered with a grey bla | close-up, a pale young soldier sweating with fever on a cot, he is {so | close-up of a white bandage wrapped around a soldier's arm, lamp light | medium shot, a nurse frowning as she writes in a notebook at a small t | close-up of empty wooden supply shelves and an empty open crate in a s
+- 009-why-haber-made-fertilizer-from-air: cast haber = a 41 year old German chemist with a full dark brown beard, short dark hair receding at the temples, deep-set brown eyes, round wire spectacles, a charcoal three-piece suit, white high collar and black cravat, 1900s; rossignol = a 30 year old Swiss chemist with a thin pale face, short light brown hair, a small neat moustache, a white shirt with a stiff collar, dark tie and black waistcoat, 1900s; bosch = a 39 year old German chemical engineer with a broad square face, short dark blond hair, a thick dark moustache, a dark blue work jacket over a white shirt with a stiff collar, 1910s; farmer = a 45 year old German farmer with a deeply weathered face, a grey moustache, a brown wool jacket, a flat cap and muddy boots, 1910s; officer = a 50 year old German artillery officer with a grey uniform, a peaked cap, iron cross medal, a stiff grey moustache and a rigid posture, 1910s
+  scenes: medium shot, a chemist holding up a glass flask of clear liquid beside | extreme close-up of clear liquid droplets falling from a thin glass tu | medium shot, a farmer setting a heavy white sack of fertilizer onto a  | medium shot, a chemist turning a valve on a tall riveted steel pressur | close-up of a small glass measuring cup filled with four ounces of cle | close-up, a warehouse worker's hands scooping white nitrate powder fro | medium shot, a tropical island worker shoveling dark guano into a coar | medium shot, {farmer} lifting a heavy white fertilizer sack onto a woo | wide shot, a nearly empty warehouse with only a few small burlap sacks | wide shot, an immense blue sky thick with white clouds above a flat gr | close-up, {haber} straining to turn a heavy iron valve wheel on a rive | medium shot, a bearded chemist in a charcoal three-piece suit turning 
+- 010-davy-s-laughing-gas-test-wasn-t-in-londo: cast davy = a 21 year old English chemist, slim and upright, a smooth youthful round face with a high forehead, large dark brown eyes, thick dark brown curly hair swept up over his forehead, clean shaven, wearing a dark navy blue tailcoat with brass buttons, a buff waistcoat, a white linen cravat and pale grey trousers, 1799; watt = a 63 year old Scottish engineer, stocky and broad shouldered, a ruddy weathered lined face, bushy grey eyebrows, thinning sandy grey hair combed forward, clean shaven, wearing a brown wool coat, a checked grey waistcoat, a white neckcloth and dark breeches, 1799; skeptic = a 50 year old London physician, thin and upright, a sharp pale face with a long nose, powdered white hair tied in a short queue, a small grey moustache, wearing a black coat with silver buttons, a white neckcloth and dark knee breeches, 1790s; patient = a 27 year old English woman, slender, a freckled oval face, auburn hair in a loose bun with curled side locks, wearing a rose pink muslin gown with a cream shawl and white cuffs, 1790s; miner = a 42 year old English coal miner, broad and muscular, a soot blackened square face, a thick black beard, matted black hair under a brown leather cap, wearing a patched blue waistcoat over a dirty white shirt and brown trousers, 1810s
+  scenes: medium close-up, a young chemist breathing gas through a mouthpiece tu | close-up of a small glass hourglass with pale sand running down on a w | medium shot, a young chemist laughing with his head thrown back, holdi | close-up, a hand holding a glass gas jar beside a tall candle flame on | medium shot, a group of London physicians in black coats in a candle-l | close-up, a thin London physician with a flushed face and wide excited | close-up, a young chemist writing in a notebook with a quill pen at a  | close-up of a large clear glass gas jar with a brass stopcock on a woo | medium shot, a young chemist in a dark navy tailcoat adjusting a glass | medium close-up, a young chemist seated breathing through a mouthpiece | medium shot, a young chemist slumped back in a wooden chair with one h | close-up, a young chemist with flushed cheeks raising one hand and ges
+- 011-why-your-blood-fails-without-key-nutrien: cast patient = a 34 year old woman with medium brown skin, short curly black hair, tired dark eyes and a pale lined face, wearing a light blue hospital gown and a white paper wristband, today; doctor = a 45 year old Black woman doctor with short cropped black hair, a round face, warm dark brown eyes and no glasses, wearing a crisp white lab coat over a teal blouse, today; nutritionist = a 29 year old East Asian woman with straight black hair in a low ponytail, a slim oval face and thin eyebrows, wearing a light grey blazer over a white shirt, today; labtech = a 38 year old South Asian man with a short neat black beard, round wire glasses and a broad forehead, wearing a navy blue polo shirt under a white lab coat, today
+  scenes: close-up, a woman lying in a hospital bed clutching her chest and brea | close-up, a woman slumped in a plastic chair rubbing her forehead with | close-up, a woman gripping a chair armrest with both hands, head tilte | medium shot, a woman pressing one hand to her chest and breathing fast | medium shot, a woman walking slowly along a bright hospital corridor w | close-up, a pale tired woman lying on a hospital bed with her head on  | close-up, a doctor pressing a stethoscope to a patient's bare chest an | close-up, red blood cells streaming quickly through a narrow blood ves | extreme close-up, a pale woman's trembling hand gripping a white blank | close-up, a confused woman lying in a hospital bed, brow furrowed and  | close-up of an empty car fuel gauge, the needle resting at the far lef | close-up of a car engine running under an open hood, belts and hoses v
+- 008-why-edison-added-a-carbon-button: cast edison = a 30 year old American inventor with messy dark brown hair, sharp blue eyes, a clean-shaven intense face, wearing a navy blue three-piece wool suit, a white shirt with a loose black tie and ink-stained cuffs, 1870s; bell = a 29 year old Scottish man with thick wavy black hair, bushy black side whiskers joined to a moustache, a long straight nose, a dark green wool frock coat with a high white collar, 1870s; woman = a 26 year old American woman with black hair in a high bun, a round freckled face, a plum purple dress with a white lace collar and puffed sleeves, 1870s; judge = a 58 year old American judge with thick swept-back silver hair, a clean-shaven heavy jaw, deep frown lines, a black judge's robe over a white cravat, 1890s
+  scenes: close-up, a man biting the polished wooden edge of a grand piano with  | close-up, a man cupping a hand behind his ear with a worried frown, he | medium close-up, a man pressing his jaw against the lid of a grand pia | wide shot of a snowy 1870s American city street at dusk with horse car | medium shot, a man speaking into a brass funnel above a glass cup of c | close-up of a glass cup of clear liquid with a thin brass wire dipping | close-up, a hand pushing a small glass cup of liquid away across a woo | wide shot of a grand 1870s stone government building with tall columns | medium close-up, a man writing on a paper at a wooden desk with a pen, | close-up, an open palm holding a small pile of black carbon grains, fi | close-up of a small open brass capsule filled with black grains beside | extreme close-up of fingertips holding a very thin shiny round metal p
+- 012-why-carnot-tracked-heat-instead-of-engin: cast carnot = a 28 year old slim French army engineer with a narrow oval face, dark brown curly hair swept over his forehead, a clean-shaven chin, sharp dark eyes, wearing a dark navy blue military tunic with gold epaulettes and brass buttons, a white leather cross-belt and white trousers, 1820s; british = a 46 year old stocky British steam engineer with a broad ruddy face, a thick curly ginger beard, bushy ginger eyebrows, a soot-streaked dark brown waistcoat over a rolled-sleeve white shirt, 1820s; french = a 39 year old tall lean French engineer with a long pale lined face, dark hair greying at the temples, long dark sideburns, a dark green frock coat over a grey waistcoat and black cravat, 1820s; worker = a 34 year old burly French foundry worker with a square sun-darkened face, black curly hair, a thick black moustache, a brown leather apron over a faded blue shirt, 1820s; woman = a 30 year old French woman with a round face, dark brown hair in a neat bun under a white linen cap, a blue cotton dress with white sleeves and a white apron, 1820s
+  scenes: medium shot, a young French army engineer leaning over a wooden desk d | extreme close-up of a hand-drawn ink diagram of a cylinder steam engin | medium shot, a French army engineer pointing at a hand-drawn engine di | medium shot, a burly foundry worker straining to hoist a heavy black s | medium shot, a young French army engineer pointing at a rolled enginee | medium shot, a stocky British steam engineer gripping a large iron wre | close-up of a polished brass valve wheel on a huge 1820s steam engine, | medium shot, a tall lean French engineer pointing at a small wooden mo | medium shot, a French woman in a blue dress and white apron handing si | medium shot, a young engineer pointing at a large hand-drawn cylinder  | close-up of a red-hot iron billet glowing bright orange on a forge anv | close-up, a hand lowering a glowing red-hot iron bar into a bucket of 
+- 008-gray-hulls-hidden-purpose: cast researcher = a 45 year old woman historian with shoulder-length auburn hair with silver streaks, round tortoiseshell glasses, an olive green cardigan over a cream blouse; painter = a 50 year old broad-shouldered German shipyard painter with grey stubble, a flat cap splashed with paint and blue overalls stained with grey paint, 1940s; reviewer = a 55 year old man with a bald head, a neat grey goatee, a navy blazer and a red bow tie; baker = a 30 year old woman baker with black curly hair under a yellow headscarf, brown skin, a white apron over a teal shirt; reader = a 70 year old man with wild white hair, bushy white eyebrows, a brown corduroy jacket and a red scarf
+  scenes: close-up, a woman pulling old folders from a dusty archive shelf and p | extreme close-up of a steel ship hull painted in grey and blue zigzag  | wide shot of an ancient wooden rowing ship with one square sail on a b | wide shot of a large grey German warship tied up in a harbour, cranes  | medium shot, a painter brushing a pale blue-grey stripe on a steel shi | close-up, a row of open paint cans in grey, blue, green and brown on a | wide shot of a shipyard dock with several warships in different patchy | medium close-up, a woman writing notes in a notebook at a desk piled w | close-up, a hand sorting dozens of small old black and white warship p | close-up of a thick plain hardcover book lying closed on a wooden desk | medium shot, a woman running her finger along a long library shelf and | close-up of a long wooden library shelf of old books with one wide emp
+- 008-why-katyushas-rode-wooden-sleds: cast flyorov = a 30 year old Soviet artillery captain with a lean clean-shaven face, sharp cheekbones, short dark brown hair, a khaki field tunic with a brown leather belt and a khaki peaked cap with a red star, 1940s; crew = a 22 year old Soviet soldier with a round ruddy face, a short red beard, a grey quilted padded jacket, a brown fur hat with ear flaps and green wool mittens, 1940s; officer = a 58 year old heavy-set Soviet artillery general with a shaved head, a thick white handlebar moustache and a dark olive greatcoat with red collar tabs, 1930s; german = a 24 year old German soldier with a thin pale face, sunken blue eyes, a grey steel helmet and a grey-green wool greatcoat, 1940s; woman = a 25 year old Russian village woman with long dark braids, rosy cheeks, a red flowered headscarf and a white embroidered linen blouse, 1940s
+  scenes: close-up, a soldier bolting a rack of long rocket rails onto a low sle | low angle of a rack of long steel rocket rails on a sledge pointing at | wide shot of a group of officers in greatcoats watching a rocket launc | close-up, an artillery general frowning and shaking his head slowly, h | medium shot, a soldier sliding a long rocket onto a steel launcher rai | extreme close-up of a brass pocket watch ticking in a gloved hand, mud | close-up of a full rack of long rockets lined up on launcher rails, co | medium shot, gunners ramming a shell into a big howitzer, smoke drifti | wide shot of a big howitzer firing with a flash and a puff of smoke, m | medium shot, workers welding a steel rocket rail frame in a small dim  | wide shot of grey tanks rolling across a summer wheat field under a du | wide shot of a small Russian town square with wooden houses and a mark
+- 008-why-yokohama-marine-tower-was-built: cast perry = a 59 year old American naval commodore with a stern square jaw, grey bushy sideburns, a dark navy double-breasted coat with gold buttons and a black bicorne hat, 1850s; official = a 48 year old Japanese shogunate official with a shaved forehead and a black topknot, a grey-blue silk robe with stiff winged shoulders and a dark sash, 1850s; fisher = a 22 year old Japanese fisherman with a sun-darkened face, a wide straw hat, a short faded indigo cotton jacket and bare brown legs, 1850s; trader = a 33 year old European trader with slicked blond hair, a thin blond moustache, a bright green waistcoat, a white shirt and a dark blue frock coat, 1860s
+  scenes: medium shot, a naval commodore standing at the rail of a black wooden  | wide shot of a line of black wooden warships with dark smoke on a grey | close-up of a huge shut wooden gate with iron studs in a grey stone wa | medium shot, a fisherman on a pebble beach shading his eyes with one h | medium shot, a naval commodore sitting upright in a wooden rowboat wit | close-up, a commodore jabbing one finger forward, stern face, he is {p | wide shot of a bay with a wooden pier and moored wooden sailing ships  | medium shot, a Japanese official kneeling at a low wooden table slowly | extreme close-up of a hand pressing an ink brush onto a long blank pap | medium shot, an official pointing at a hand-drawn map spread on a low  | wide shot of a dusty street of an old Japanese post town with wooden i | wide shot of a long dirt highway lined with tall pine trees, traveller
 
 PROBLEMS FOUND BY THE CHECKS
-- script: not supported by the sources, fix or remove: A young carpenter slathers tar on a brand‑new hull, his hands trembling.
-- script: not supported by the sources, fix or remove: His mates snicker, saying the black paint is just for looks.
-- script: not supported by the sources, fix or remove: Weeks later, the ship drifts slower, its wake thick with slime.
-- script: not supported by the sources, fix or remove: The crew grumbles as the voyage takes longer than promised.
-- script: not supported by the sources, fix or remove: Ironically, the very darkness that made the ships look menacing was a simple speed hack.
-- script: narration has 103 words; it must be 150-210
+- shot landing: 3.6 s on screen (max 3.2; split it)
+- shot pitching: only 0.60 s on screen (min 0.7)
 
 DRAFT SCRIPT
-{"title": "Why the Navy Painted Ships Black", "beats": [{"feel": "curiosity", "lines": ["A young carpenter slathers tar on a brand‑new hull, his hands trembling."]}, {"feel": "skepticism", "lines": ["His mates snicker, saying the black paint is just for looks."]}, {"feel": "tension", "lines": ["Weeks later, the ship drifts slower, its wake thick with slime.", "The crew grumbles as the voyage takes longer than promised."]}, {"feel": "recognition", "lines": ["You see, it’s like trying to run in a wet sweater – the extra drag hurts."]}, {"feel": "awe", "lines": ["The black mixture of tar and pitch actually seals the wood, hiding barnacles and algae.", "By hiding biofouling, the hull stays smooth and the ship keeps its speed."]}, {"feel": "surprise", "lines": ["Ironically, the very darkness that made the ships look menacing was a simple speed hack."]}]}
+{"title": "Why Japan Called Them the Black Ships", "beats": [{"feel": "dread", "lines": ["An American commodore sailed four smoking warships into Edo Bay.", "Their black smoke deeply frightened the Japanese."]}, {"feel": "curiosity", "lines": ["This was Matthew Perry, in 1853.", "Japan called his fleet the Black Ships.", "But the name was older."]}, {"feel": "awe", "lines": ["In 1543, Portuguese traders reached Japan.", "Their giant carracks weighed 1200 to 1600 tons.", "Each hull was painted black with pitch.", "Black Ships meant every Western ship."]}, {"feel": "disgust", "lines": ["But why paint a hull black?", "Weeds and barnacles grow on ship hulls.", "Plutarch wrote that weeds and filth made a ship weak.", "Fouling can raise drag by up to 60 percent."]}, {"feel": "recognition", "lines": ["You see, it's like running in a soaking wet coat."]}, {"feel": "doubt", "lines": ["So sailors coated hulls in Black stuff, a mix of tar and pitch.", "But did it stop weeds?", "It may only have fought shipworms that bore into wood."]}, {"feel": "surprise", "lines": ["In 1761, HMS Alarm was covered in copper.", "Copper made a poisonous film that kept weed away.", "From about 1770, the Royal Navy coppered its whole fleet."]}, {"feel": "irony", "lines": ["And Perry's Black Ships?", "Their hulls were not even black.", "Their coal-fired engines belched black smoke.", "Yet their arrival reopened Japan after more than 200 years of isolation."]}]}
 CLAIMS IN THE DRAFT
-- {'claim': 'Biofouling can increase hull drag up to sixty percent, reducing speed by ten percent and requiring up to forty percent more fuel.', 'url': 'https://en.wikipedia.org/wiki/Biofouling'}
-- {'claim': 'Before the eighteenth century, ships were coated with "Black stuff" – a mixture of tar and pitch – to protect the hull.', 'url': 'https://en.wikipedia.org/wiki/Biofouling'}
+- {'claim': 'The sight of the four ships entering Edo Bay, belching black smoke, deeply frightened the Japanese; the expedition was under the command of Commodore Matthew C. Perry in 1853.', 'url': 'https://en.wikipedia.org/wiki/Black_Ships'}
+- {'claim': 'In 1543 Portuguese traders arrived in Japan; carracks of 1200 to 1600 tons engaged in this trade had the hull painted black with pitch, and the term came to apply for all western vessels.', 'url': 'https://en.wikipedia.org/wiki/Black_Ships'}
+- {'claim': "Plutarch explained that when weeds, ooze and filth stick upon a ship's sides, the stroke of the ship is more obtuse and weak; biofouling can increase drag by up to 60%.", 'url': 'https://en.wikipedia.org/wiki/Biofouling'}
+- {'claim': 'Before the 18th century, Black stuff, a mixture of tar and pitch, was used; there is dispute whether such treatments were actual anti-fouling techniques or were intended to combat wood-boring shipworms.', 'url': 'https://en.wikipedia.org/wiki/Biofouling'}
+- {'claim': 'The first copper sheathing experiments were made in 1761 on HMS Alarm; the copper produced a poisonous film that deterred marine creatures, and from about 1770 the Royal Navy coppered the bottoms of the entire fleet.', 'url': 'https://en.wikipedia.org/wiki/Biofouling'}
+- {'claim': "Though the hulls of Perry's ships were not black, their coal-fired steam engines belched black smoke; the kurofune became a symbol of the end of isolation after more than two hundred years.", 'url': 'https://en.wikipedia.org/wiki/Black_Ships'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
-0.14s A#1
-0.24s young#1
-0.47s carpenter#1
-1.02s slathers#1
-1.50s tar#1
-1.79s on#1
-1.90s a#2
-1.97s brand‑new#1
-2.40s hull#1
-2.94s his#1
-3.12s hands#1
-3.42s trembling#1
-4.38s His#2
-4.58s mates#1
-4.86s snicker#1
-5.48s saying#1
-5.76s the#1
-5.86s black#1
-6.16s paint#1
-6.48s is#1
-6.63s just#1
-6.83s for#1
-6.98s looks#1
-7.83s Weeks#1
-8.11s later#1
-8.38s the#2
-8.53s ship#1
-8.76s drifts#1
-9.03s slower#1
-9.68s its#1
-9.83s wake#1
-10.06s thick#1
-10.26s with#1
-10.43s slime#1
-11.12s The#3
-11.21s crew#1
-11.46s grumbles#1
-12.21s as#1
-12.34s the#4
-12.44s voyage#1
-12.89s takes#1
-13.16s longer#1
-13.52s than#1
-13.64s promised#1
-14.64s You#1
-14.82s see#1
-15.22s it’s#1
-15.34s like#1
-15.49s trying#1
-15.69s to#1
-15.82s run#1
-16.09s in#1
-16.17s a#3
-16.27s wet#1
-16.49s sweater#1
-16.70s –#1
-16.77s the#5
-16.89s extra#1
-17.29s drag#1
-17.59s hurts#1
-18.42s The#6
-18.52s black#2
-18.82s mixture#1
-19.14s of#1
-19.24s tar#2
-19.52s and#1
-19.64s pitch#1
-20.04s actually#1
-20.52s seals#1
-20.82s the#7
-20.92s wood#1
-21.44s hiding#1
-21.82s barnacles#1
-22.37s and#2
-22.49s algae#1
-23.08s By#1
-23.28s hiding#2
-23.63s biofouling#1
-24.61s the#8
-24.71s hull#2
-24.93s stays#1
-25.26s smooth#1
-25.68s and#3
-25.78s the#9
-25.91s ship#2
-26.16s keeps#1
-26.38s its#2
-26.51s speed#1
-27.39s Ironically#1
-28.22s the#10
-28.32s very#1
-28.59s darkness#1
-29.09s that#1
-29.22s made#1
-29.39s the#11
-29.52s ships#1
-29.79s look#1
-29.99s menacing#1
-30.72s was#1
-30.84s a#4
-30.99s simple#1
-31.34s speed#2
-31.59s hack#1
+0.14s An#1
+0.24s American#1
+0.74s commodore#1
+1.47s sailed#1
+1.82s four#1
+2.07s smoking#1
+2.42s warships#1
+2.87s into#1
+3.10s Edo#1
+3.35s Bay#1
+3.88s Their#1
+4.03s black#1
+4.35s smoke#1
+4.80s deeply#1
+5.15s frightened#1
+5.48s the#1
+5.58s Japanese#1
+6.72s This#1
+6.92s was#1
+7.12s Matthew#1
+7.50s Perry#1
+8.02s in#1
+8.12s 1853#1
+9.29s Japan#1
+9.76s called#1
+9.96s his#1
+10.14s fleet#1
+10.34s the#2
+10.44s Black#2
+10.76s Ships#1
+11.40s But#1
+11.53s the#3
+11.63s name#1
+11.93s was#2
+12.08s older#1
+12.96s In#2
+13.11s 1543#1
+14.31s Portuguese#1
+14.94s traders#1
+15.36s reached#1
+15.59s Japan#2
+16.32s Their#2
+16.52s giant#1
+16.87s carracks#1
+17.34s weighed#1
+17.79s 1200#1
+18.44s to#1
+18.57s 1600#1
+19.17s tons#1
+19.83s Each#1
+20.08s hull#1
+20.28s was#3
+20.43s painted#1
+20.78s black#3
+21.08s with#1
+21.25s pitch#1
+21.86s Black#4
+22.19s Ships#2
+22.46s meant#1
+22.69s every#1
+22.99s Western#1
+23.41s ship#1
+24.16s But#2
+24.31s why#1
+24.53s paint#1
+24.73s a#1
+24.81s hull#2
+25.03s black#5
+25.71s Weeds#1
+26.06s and#1
+26.18s barnacles#1
+26.83s grow#1
+27.08s on#1
+27.28s ship#2
+27.43s hulls#1
+28.05s Plutarch#1
+28.50s wrote#1
+28.75s that#1
+28.95s weeds#2
+29.28s and#2
+29.43s filth#1
+29.73s made#1
+29.88s a#2
+29.98s ship#3
+30.23s weak#1
+30.82s Fouling#1
+31.24s can#1
+31.37s raise#1
+31.64s drag#1
+32.17s by#1
+32.29s up#1
+32.39s to#2
+32.52s 60#1
+32.87s percent#1
+33.78s You#1
+33.93s see#1
+34.33s it's#1
+34.45s like#1
+34.65s running#1
+34.90s in#3
+34.98s a#3
+35.10s soaking#1
+35.50s wet#1
+35.70s coat#1
+36.53s So#1
+36.73s sailors#1
+37.18s coated#1
+37.45s hulls#2
+37.75s in#4
+37.85s Black#6
+38.15s stuff#1
+38.78s a#4
+38.85s mix#1
+39.05s of#1
+39.20s tar#1
+39.50s and#3
+39.63s pitch#2
+40.30s But#3
+40.42s did#1
+40.55s it#1
+40.65s stop#1
+41.00s weeds#3
+41.67s It#2
+41.77s may#1
+41.95s only#1
+42.17s have#1
+42.30s fought#1
+42.52s shipworms#1
+43.15s that#2
+43.30s bore#1
+43.50s into#2
+43.75s wood#1
+44.46s In#5
+44.61s 1761#1
+45.96s HMS#1
+46.59s Alarm#1
+46.99s was#4
+47.16s covered#1
+47.54s in#6
+47.69s copper#1
+48.32s Copper#2
+48.65s made#2
+48.80s a#5
+48.90s poisonous#1
+49.37s film#1
+49.82s that#3
+49.97s kept#1
+50.25s weed#1
+50.42s away#1
+51.04s From#1
+51.17s about#1
+51.44s 1770#1
+52.59s the#4
+52.72s Royal#1
+53.04s Navy#1
+53.42s coppered#1
+53.77s its#1
+53.89s whole#1
+54.14s fleet#2
+54.96s And#4
+55.09s Perry's#1
+55.49s Black#7
+55.79s Ships#3
+56.44s Their#3
+56.64s hulls#3
+56.96s were#1
+57.06s not#1
+57.24s even#1
+57.44s black#8
+58.07s Their#4
+58.27s coal-fired#1
+58.82s engines#1
+59.34s belched#1
+59.74s black#9
+60.04s smoke#2
+60.65s Yet#1
+60.88s their#5
+61.05s arrival#1
+61.53s reopened#1
+61.93s Japan#3
+62.73s after#1
+63.03s more#1
+63.20s than#1
+63.40s 200#1
+63.98s years#1
+64.25s of#2
+64.33s isolation#1
 
 DRAFT film.json
-{"era": "1750s", "cast": {"carpenter": "a 22 year old ship carpenter with a lean build, a freckled sun-tanned face, tousled brown hair, a clean-shaven chin, a faded blue wool shirt with rolled sleeves, a brown leather apron and canvas trousers, 1750s", "mate": "a 31 year old Royal Navy sailor with a stocky build, a ruddy round face, a bushy ginger beard, a blue and white striped shirt, a faded red waistcoat, a navy wool cap and blue trousers, 1750s", "captain": "a 46 year old Royal Navy captain with a square-jawed face, short grey hair, heavy dark eyebrows, a clean-shaven chin, a dark navy blue coat with brass buttons and gold trim, a white waistcoat and a black bicorne hat, 1750s", "deckhand": "a 19 year old deckhand with a thin pale face, short sandy hair, freckles, a loose white linen shirt, a blue waistcoat and brown trousers, 1750s", "shipboy": "a 14 year old shipboy with a round freckled face, short dark brown hair, a loose white shirt, a red neckerchief and dark trousers, 1750s"}, "music": "curious", "key_words": ["carpenter#1", "slathers#1", "tar#1", "brand‑new#1", "hull#1", "hands#1", "trembling#1", "mates#1", "snicker#1", "black#1", "paint#1", "looks#1", "Weeks#1", "ship#1", "drifts#1", "slower#1", "wake#1", "thick#1", "slime#1", "crew#1", "grumbles#1", "voyage#1", "longer#1", "promised#1", "You#1", "like#1", "wet#1", "sweater#1", "extra#1", "drag#1", "hurts#1", "mixture#1", "black#2", "pitch#1", "seals#1", "wood#1", "hiding#1", "barnacles#1", "algae#1", "hiding#2", "biofouling#1", "smooth#1", "stays#1", "keeps#1", "speed#1", "Ironically#1", "darkness#1", "menacing#1", "simple#1", "hack#1"], "shots": [{"name": "tar_hull", "at": 0, "who": "carpenter", "clip": true, "prompt": "medium close-up, a young ship carpenter slathering thick black tar onto a brand-new pale wooden ship hull with a wide brush, he is {carpenter}, a wooden shipyard slipway, grey daylight", "motion": "the brush sweeps slowly across the hull, slow camera push in", "check": "Is a man painting a ship hull with black tar?"}, {"name": "new_hull", "at": "hull#1", "clip": true, "prompt": "close-up, a wide brush spreading thick black tar over the pale planking of a brand-new wooden ship hull, 1750s shipyard slipway, grey daylight", "motion": "the brush sweeps tar across the pale planking, slow camera push in", "check": "Is a brush spreading black tar on a wooden hull?"}, {"name": "trembling_hands", "at": "trembling#1", "clip": true, "prompt": "extreme close-up, a young man's trembling hands gripping a wide tar brush over fresh pale ship planking, black tar dripping from the bristles, wooden shipyard, soft daylight", "motion": "his hands tremble slightly and tar drips slowly, slow camera push in", "hit": "trembling#1", "check": "Are trembling hands holding a tar brush?"}, {"name": "mates_snicker", "at": "His#2", "who": "mate", "clip": true, "xfade": true, "prompt": "medium close-up, a stocky ginger-bearded sailor laughing and pointing at a wooden ship hull, he is {mate}, two other sailors snickering behind him, 1750s dockyard, bright morning light", "motion": "he laughs and points at the hull, slow camera push in", "check": "Is a man pointing and laughing?"}, {"name": "black_paint", "at": "paint#1", "clip": true, "prompt": "close-up, a hand pointing a finger at glossy black tarred hull planks of a wooden ship, 1750s dockyard, bright daylight", "motion": "the finger taps the glossy black planking, slow camera push in", "check": "Is a finger pointing at black hull planks?"}, {"name": "weeks_later", "at": "Weeks#1", "xfade": true, "move": "left", "prompt": "wide shot, a large wooden sailing ship with full white sails gliding slowly across a calm grey sea, 1750s, overcast daylight", "check": "Is a sailing ship on the sea?"}, {"name": "slimy_wake", "at": "wake#1", "hit": "wake#1", "move": "push", "prompt": "close-up of dark green slimy foam churning in the wake behind a wooden ship hull on a grey sea, overcast daylight", "check": "Is there green slime in the water?"}, {"name": "grumbling_crew", "at": "grumbles#1", "who": "mate", "clip": true, "prompt": "medium shot, a stocky ginger-bearded sailor leaning over the wooden rail and pointing back at the wake, he is {mate}, deck of a 1750s Royal Navy ship, grey daylight", "motion": "he points back and mutters, slow camera push in", "check": "Is a man pointing over a ship rail?"}, {"name": "late_voyage", "at": "longer#1", "who": "captain", "clip": true, "prompt": "medium shot, a captain holding up an open brass pocket watch and frowning toward the horizon, he is {captain}, quarterdeck of a 1750s Royal Navy ship, grey daylight", "motion": "he opens the watch and lowers it slowly, slow camera push in", "check": "Is a man holding a pocket watch?"}, {"name": "wetsweater", "at": "You#1", "who": "deckhand", "clip": true, "xfade": true, "prompt": "a man in a soaking wet wool sweater straining to run on a wet wooden ship deck, water dripping from his sleeves, he is {deckhand}, grey overcast daylight", "motion": "he tugs at the heavy wet sweater and strains forward, slow camera push in", "check": "Is a man in a wet sweater?"}, {"name": "drag", "at": "drag#1", "move": "right", "prompt": "close-up of a black wooden ship hull dragging slowly through thick green seawater, a heavy trail of slime and seaweed streaming behind the hull, dull grey daylight", "hit": "drag#1", "check": "Is a black ship hull in green water?"}, {"name": "tarcoat", "at": "The#6", "xfade": true, "clip": true, "prompt": "close-up, a hand spreading thick glossy black tar over a pale wooden ship hull plank with a wide brush, 1750s shipyard, warm daylight", "motion": "the brush drags tar across the plank, slow camera push in", "check": "Is a hand spreading black tar on a wooden hull?"}, {"name": "sealing", "at": "seals#1", "clip": true, "prompt": "extreme close-up, a hand pressing a ribbon of black tar into the seam between two wooden hull planks, 1750s shipyard, warm daylight", "motion": "the hand presses the tar firmly into the seam, slow camera push in", "check": "Is a hand pressing tar into a seam between planks?"}, {"name": "fouling", "at": "barnacles#1", "move": "right", "prompt": "close-up, a ship's underwater hull covered in pale barnacles and green algae fronds swaying in the current, blue-green sea light", "check": "Is the hull covered in barnacles and green algae?"}, {"name": "smoothhull", "at": "biofouling#1", "clip": true, "prompt": "close-up, a sailor's hand sliding over a smooth glossy black ship hull, water streaming past the wood, 1750s at sea, bright daylight", "motion": "the hand slides along the smooth hull, slow camera push in", "check": "Is a hand sliding over a smooth black hull?"}, {"name": "speed", "at": "speed#1", "move": "right", "prompt": "wide shot, a black-hulled 1750s sailing ship racing across a blue sea with full white sails and a long clean white wake, bright daylight", "hit": "speed#1", "check": "Is a black sailing ship with white sails on the sea?"}, {"name": "menacing_sail", "at": "Ironically#1", "who": "captain", "clip": true, "xfade": true, "prompt": "low angle, a captain gripping the rail of a black-painted warship with towering black sails behind him, he is {captain}, stormy dusk light, dark clouds", "motion": "his coat and hat brim flutter in the wind, slow camera push in", "check": "Is a captain gripping a rail on a ship?"}, {"name": "black_ship", "at": "menacing#1", "hit": "menacing#1", "move": "push", "prompt": "wide shot, a black-hulled warship with tall black sails cutting across a grey choppy sea, dark storm clouds, cold dim light", "check": "Is there a black ship on the sea?"}, {"name": "clean_wake", "at": "speed#2", "move": "right", "prompt": "close-up, a smooth glossy black ship hull slicing through dark blue sea water, a clean narrow white wake trailing behind, cold silver light", "check": "Is a black hull moving through water?"}]}
+{"era": "1850s", "music": "mysterious", "key_words": ["Perry", "Black", "pitch", "Plutarch", "copper", "smoke"], "cast": {"perry": "a 59 year old American naval commodore, heavy build, a broad fleshy clean shaven face, thick dark brown hair swept forward, a stern frown, a dark navy blue frock coat with gold epaulettes and brass buttons, 1850s", "samurai": "a 35 year old Japanese samurai official, slim build, a shaved crown with a black oiled topknot, a narrow clean shaven face, a dark indigo kimono, grey striped hakama trousers and two swords at the waist, 1850s", "captain": "a 40 year old Portuguese sea captain, tall, olive skin, a long forked black beard, a black velvet cap, a deep crimson doublet with puffed sleeves and a white ruffled shirt, 1540s", "sailor": "a 25 year old Portuguese sailor, wiry build, a shaved bald head, a thin black moustache, a loose cream canvas shirt with torn sleeves and brown baggy knee breeches, barefoot, 1540s", "plutarch": "a 60 year old Greek writer, slender, curly white hair, a full curly white beard, a calm lined face, a pale sky blue tunic under a cream wool cloak, 1st century AD", "shipwright": "a 50 year old English shipwright, stout, a ruddy round face, a grey tied-back wig, a brown wool coat with sleeves rolled up and a black leather apron, 1760s"}, "shots": [{"name": "commodore", "at": 0, "who": "perry", "clip": true, "prompt": "medium shot, a stern naval commodore gripping the rail of a steam warship and staring ahead, he is {perry}, thick black smoke behind him, hazy morning bay", "motion": "he tightens his grip on the rail as smoke drifts, slow camera push in", "check": "Is a man gripping a ship rail?"}, {"name": "fleet", "at": "four#1", "move": "push", "prompt": "wide shot of four dark steam warships with tall funnels pouring black smoke, entering a calm green bay with wooded hills, 1850s Japan, hazy morning", "check": "Are there steam warships with smoke?"}, {"name": "funnel", "at": "Their#1", "hit": "smoke#1", "clip": true, "motion": "black smoke billows upward, slow camera tilt up", "prompt": "low angle close-up of a tall iron ship funnel belching thick black smoke into a pale sky, 1850s", "check": "Is a funnel pouring black smoke?"}, {"name": "fear", "at": "frightened#1", "who": "samurai", "clip": true, "prompt": "close-up, a Japanese official staring out to sea with wide frightened eyes, he is {samurai}, a sandy shore with pine trees, grey morning light", "motion": "his eyes widen and he steps back slightly, slow camera push in", "check": "Is a man staring with wide eyes?"}, {"name": "perry", "at": "Matthew#1", "who": "perry", "clip": true, "prompt": "medium close-up, a commodore raising a brass telescope to his eye on a ship deck, he is {perry}, drifting smoke, morning light", "motion": "he lifts the telescope slowly, slow camera push in", "check": "Is a man holding a telescope?"}, {"name": "shore", "at": "Japan#1", "clip": true, "prompt": "medium shot, Japanese villagers in plain cotton kimonos pointing out to sea from a fishing beach with wooden boats, 1850s, grey morning", "motion": "they point and lean forward, slow camera move right", "check": "Are villagers pointing?"}, {"name": "older", "at": "But#1", "move": "pull", "prompt": "wide shot of an old wooden sailing ship with tall masts fading into thick sea fog, pale grey dawn light", "check": "Is there a sailing ship in fog?"}, {"name": "landing", "at": "In#2", "who": "captain", "xfade": true, "clip": true, "prompt": "medium shot, a sea captain stepping off a rowing boat onto a sandy beach, he is {captain}, 1540s Japan, green hills, bright sunlight", "motion": "he steps onto the sand and looks around, slow camera push in", "check": "Is a man stepping onto a beach?"}, {"name": "carrack", "at": "giant#1", "move": "left", "prompt": "wide shot of a huge carrack with a black hull, tall castles at both ends and billowing sails anchored in a blue harbour, 1540s, bright sun", "check": "Is there a large ship with a black hull?"}, {"name": "pitching", "at": "Each#1", "who": "sailor", "clip": true, "prompt": "medium shot, a bald sailor brushing thick black pitch onto wooden hull planks with a long brush, he is {sailor}, beached ship, sunny shore", "motion": "he sweeps the brush down the planks, slow camera push in", "check": "Is a man brushing black pitch on a hull?"}, {"name": "pitchclose", "at": "painted#1", "clip": true, "motion": "black pitch drips slowly down the planks, slow camera move down", "prompt": "close-up of glossy black pitch dripping down fresh wooden hull planks in bright sunlight, sandy beach below", "check": "Is black pitch on wooden planks?"}, {"name": "western", "at": "Ships#2", "move": "right", "prompt": "wide shot of several black-hulled wooden sailing ships anchored in a busy Japanese harbour with tiled roofs on the hills, 1600s, golden light", "check": "Are there ships with black hulls?"}, {"name": "why", "at": "But#2", "xfade": true, "clip": true, "prompt": "close-up of a heavy iron pot of thick black pitch bubbling over a wood fire on a beach, smoke rising, warm light", "motion": "the black pitch bubbles slowly, slow camera push in", "check": "Is there a pot of black pitch?"}, {"name": "barnacles", "at": "Weeds#1", "clip": true, "motion": "the green weeds sway in the current, slow camera push in", "prompt": "underwater close-up of a wooden ship hull thick with white barnacles and long green weeds swaying, murky green light", "check": "Is the hull covered in barnacles?"}, {"name": "plutarch", "at": "Plutarch#1", "who": "plutarch", "clip": true, "prompt": "medium close-up, an old Greek writer dipping a reed pen and writing on a papyrus scroll, he is {plutarch}, sunlit stone room with columns", "motion": "he moves the pen across the scroll, slow camera push in", "check": "Is an old man writing on a scroll?"}, {"name": "galley", "at": "filth#1", "clip": true, "prompt": "medium shot, long wooden oars dipping slowly into murky green water beside an ancient galley hull streaked with slime, overcast light", "motion": "the oars dip and pull slowly, slow camera move left", "check": "Are wooden oars in the water?"}, {"name": "drag", "at": "Fouling#1", "hit": "drag#1", "clip": true, "motion": "the weeds trail and ripple behind the hull, slow camera move right", "prompt": "close-up of a weed-covered wooden hull pushing slowly through grey water, long green weeds trailing behind it, overcast sea", "check": "Are weeds trailing from a hull?"}, {"name": "bow", "at": "60#1", "move": "push", "prompt": "close-up of a heavy wooden ship bow shoving a thick foamy wave through grey choppy sea, overcast light", "check": "Is a ship bow pushing a wave?"}, {"name": "coat", "at": "You#1", "xfade": true, "clip": true, "prompt": "medium shot, a man in a soaked heavy wool coat trudging slowly through pouring rain on a muddy country road, grey light", "motion": "he trudges forward with heavy steps, slow camera push in", "check": "Is a man in a wet coat?"}, {"name": "drip", "at": "soaking#1", "clip": true, "prompt": "close-up of rainwater dripping from the sleeve of a soaked heavy wool coat, grey rainy light", "motion": "water drips steadily from the sleeve, slow camera push in", "check": "Is water dripping from a coat sleeve?"}, {"name": "coating", "at": "So#1", "clip": true, "prompt": "medium shot, two barefoot sailors brushing black tar onto the hull of a beached wooden ship, sandy shore, afternoon sun", "motion": "they sweep their brushes along the hull, slow camera move right", "check": "Are men brushing tar on a hull?"}, {"name": "bucket", "at": "mix#1", "clip": true, "prompt": "close-up of a wooden stick stirring thick glossy black tar in a wooden bucket, sandy shore, warm afternoon light", "motion": "the stick turns slowly through the tar, slow camera push in", "check": "Is black tar in a bucket?"}, {"name": "doubt", "at": "But#3", "move": "push", "prompt": "underwater close-up of a black tarred hull with fresh green weeds still sprouting along its planks, dim green light", "check": "Is there green weed on a dark hull?"}, {"name": "wormholes", "at": "may#1", "hit": "shipworms#1", "move": "push", "prompt": "extreme close-up of a grey wooden ship plank riddled with round worm holes and tunnels, wet and broken, soft light", "check": "Is a plank full of holes?"}, {"name": "rotten", "at": "bore#1", "clip": true, "prompt": "close-up, two hands snapping a soft wet worm-eaten plank in half, splinters crumbling, dim boatshed light", "motion": "the plank breaks and crumbles, slow camera push in", "check": "Are hands breaking a wooden plank?"}, {"name": "drydock", "at": "In#5", "xfade": true, "move": "left", "prompt": "wide shot of a wooden warship propped up in a stone dry dock with workers on scaffolds, 1760s English dockyard, morning light", "check": "Is there a ship in a dry dock?"}, {"name": "hammer", "at": "Alarm#1", "who": "shipwright", "clip": true, "prompt": "medium shot, a stout shipwright hammering a shiny copper sheet onto a wooden hull, he is {shipwright}, 1760s dockyard, warm daylight", "motion": "he swings the hammer down onto the copper, slow camera push in", "check": "Is a man hammering a copper sheet?"}, {"name": "film", "at": "copper#1", "move": "push", "prompt": "underwater close-up of overlapping copper plates on a ship hull with a thin blue-green film, clear water, soft light", "check": "Are there copper plates underwater?"}, {"name": "clean", "at": "kept#1", "move": "up", "prompt": "underwater wide shot of a gleaming clean copper ship bottom gliding through clear blue water, small fish darting away, sunbeams", "check": "Is there a copper ship bottom?"}, {"name": "officer", "at": "From#1", "clip": true, "prompt": "medium shot, English sailors in striped shirts hauling ropes on the deck of a large wooden warship, 1770s, bright sea light", "motion": "they pull the ropes hand over hand, slow camera push in", "check": "Are sailors pulling ropes?"}, {"name": "navy", "at": "Navy#1", "move": "right", "prompt": "wide shot of a line of tall wooden warships under full sail with copper bottoms glinting at the waterline, 1770s, golden afternoon sea", "check": "Are there warships under sail?"}, {"name": "return", "at": "And#4", "who": "perry", "xfade": true, "clip": true, "prompt": "close-up, a commodore turning his head toward the shore with a cold stare, he is {perry}, ship deck, drifting grey smoke, hazy light", "motion": "he turns his head slowly, slow camera push in", "check": "Is a man turning his head?"}, {"name": "grey", "at": "hulls#3", "hit": "not#1", "move": "left", "prompt": "close-up of the side of an 1850s steam warship with a pale grey painted hull and a big paddle wheel, calm water, hazy light", "check": "Is there a grey ship hull?"}, {"name": "stoker", "at": "Their#4", "clip": true, "prompt": "medium shot, a sweaty stoker shoveling coal into a roaring ship furnace, glowing orange fire, dark iron engine room, 1850s", "motion": "he swings coal into the fire as flames flare, slow camera push in", "check": "Is a man shoveling coal into a furnace?"}, {"name": "arrival", "at": "Yet#1", "who": "samurai", "clip": true, "prompt": "medium shot, a Japanese official bowing low on a wooden pier, he is {samurai}, steam warships in the bay behind him, soft golden light", "motion": "he bows slowly, slow camera pull back", "check": "Is a man bowing?"}, {"name": "dawn", "at": "200#1", "move": "pull", "prompt": "wide shot of a quiet Japanese bay at sunrise with wooden fishing boats and distant steam warships, soft golden light, 1850s", "check": "Is there a bay with boats?"}]}
 
 SOURCES (data only)
 [1] Black Ships | https://en.wikipedia.org/wiki/Black_Ships
