@@ -63,6 +63,8 @@ def key():
 FALLBACK = []      # other models to switch to when one hits its free daily quota (filled by pick_model)
 DEAD = set()
 STATS = {"calls": 0, "429": 0}
+import threading
+USAGE = threading.local()   # prompt tokens of this thread's last answered call (21 Nov: pacer calibration)
 
 
 def call(model, parts, want_json=True, tries=6):
@@ -79,6 +81,7 @@ def call(model, parts, want_json=True, tries=6):
         try:
             STATS["calls"] += 1
             d = json.load(urllib.request.urlopen(req, timeout=180))
+            USAGE.prompt = (d.get("usageMetadata") or {}).get("promptTokenCount")
             cand = (d.get("candidates") or [{}])[0]
             txt = "".join(p.get("text", "") for p in (cand.get("content") or {}).get("parts", []) if not p.get("thought"))
             if not txt:
@@ -113,7 +116,10 @@ def call(model, parts, want_json=True, tries=6):
                     print(f"[gemini] switching to {nxt}", flush=True)
                     return call(nxt, parts, want_json, tries)
             if e.code in (429, 500, 503):
-                time.sleep(min(90, 10 * (i + 1)))
+                # 21 Nov: a per-minute 429 says how long to wait ("retryDelay": "23s"); waiting that long instead of a
+                # fixed 10-60 s stops parallel workers from burning their tries inside the same minute.
+                rd = re.search(r'"retryDelay":\s*"(\d+(?:\.\d+)?)s"', full) if e.code == 429 else None
+                time.sleep(min(90, float(rd.group(1)) + 2) if rd else min(90, 10 * (i + 1)))
                 continue
             if e.code == 400 and "mediaResolution" in msg:          # older model: no media-resolution field
                 body["generationConfig"].pop("mediaResolution", None)
@@ -198,7 +204,26 @@ def judge(a):
     frames_mode = model.startswith("gemma")
     FSTEP = int(os.environ.get("CLIPS_JUDGE_FSTEP", "3"))
     WIN = int(os.environ.get("CLIPS_JUDGE_WIN", "75"))
-    print(f"[judge] model {model}" + (f" (frames every {FSTEP} s + transcript, no sound)" if frames_mode else ""), flush=True)
+    # 21 Nov (Clipping Lab #2): Gemma's free tier allows ~16K input tokens a minute and each image costs about the same
+    # whatever its size, so 50 single frames (~13K tokens) let ONE candidate through per minute: 92 min and 45 of 73
+    # candidates unanswered. Now 4 frames share one image (a 2x2 contact sheet, same one-every-3-s detail), and a shared
+    # pacer keeps the tokens sent in any 60 s under CLIPS_JUDGE_TPM. CLIPS_JUDGE_TILE=1 restores single frames.
+    TILE = int(os.environ.get("CLIPS_JUDGE_TILE", "2"))
+    TPM = int(os.environ.get("CLIPS_JUDGE_TPM", "14000"))
+    IMG_TOK = [int(os.environ.get("CLIPS_JUDGE_IMG_TOKENS", "260"))]   # first guess; calibrated from usageMetadata
+    sent, lock = [], threading.Lock()
+    def pace(est):
+        while True:
+            with lock:
+                now = time.time()
+                sent[:] = [(ts, n) for ts, n in sent if now - ts < 62]
+                if not sent or sum(n for _, n in sent) + est <= TPM:
+                    sent.append((now, est))
+                    return
+                wait = 62 - (now - sent[0][0])
+            time.sleep(max(1, wait))
+    print(f"[judge] model {model}" + (f" (frames every {FSTEP} s" + (f", {TILE * TILE} per image" if TILE > 1 else "") +
+                                      f" + transcript, no sound; pacer {TPM} tokens/min)" if frames_mode else ""), flush=True)
     cands = json.loads(Path(a.cands).read_text())
     words = json.loads(Path(a.words).read_text())["words"] if a.words and Path(a.words).exists() else []
     seen = json.loads(Path(a.eyes).read_text())["moments"] if a.eyes and Path(a.eyes).exists() else []
@@ -225,17 +250,24 @@ def judge(a):
             a0 = max(0, t - WIN)
             if frames_mode:
                 tmp = Path(tempfile.mkdtemp())
+                nfr = len(range(0, 2 * WIN, FSTEP))
+                vf = f"fps=1/{FSTEP},scale=284:160" + (f",tile={TILE}x{TILE}" if TILE > 1 else "")
                 subprocess.run(["ffmpeg", "-v", "error", "-ss", str(a0), "-t", str(2 * WIN), "-i", a.video, "-vf",
-                                f"fps=1/{FSTEP},scale=284:160", "-q:v", "6", str(tmp / "f%04d.jpg")], check=False)
+                                vf, "-q:v", "6", str(tmp / "f%04d.jpg")], check=False)
                 frames = sorted(tmp.glob("f*.jpg"))
                 if frames:
-                    parts[0]["text"] += (f"\n\nBelow are {len(frames)} low-quality frames, one every {FSTEP} s, from {a0} s to {a0 + 2 * WIN} s "
+                    per = TILE * TILE
+                    if per > 1:
+                        parts[0]["text"] += (f"\n\nEach image below is a contact sheet of {per} frames read left to right, top to bottom "
+                                             f"({TILE}x{TILE} grid; black tiles are past the end); its label lists the stream second of each tile.")
+                    parts[0]["text"] += (f"\n\nBelow are {nfr} low-quality frames, one every {FSTEP} s, from {a0} s to {a0 + 2 * WIN} s "
                                          f"of the stream (t={t} is {t - a0} s in); there is no sound, the words above are what was said. "
                                          "The best moment may be anywhere in this span, not only at t. Judge the STRONGEST moment you SEE "
                                          "and READ; never name a person who is not clearly named in the words. Return a JSON list with one "
                                          f"entry, including \"peak\": the stream time in seconds (between {a0} and {a0 + 2 * WIN}) of its payoff.")
                     for k, f in enumerate(frames):
-                        parts += [{"text": f"t={a0 + k * FSTEP}"}, {"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(f.read_bytes()).decode()}}]
+                        ts = [a0 + (k * per + j) * FSTEP for j in range(per) if k * per + j < nfr]
+                        parts += [{"text": "t=" + ", ".join(map(str, ts))}, {"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(f.read_bytes()).decode()}}]
             clip = Path(tempfile.mkdtemp()) / "m.mp4"
             if not frames_mode:
                 subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(a0), "-t", str(2 * WIN), "-i", a.video, "-ss", str(a0), "-t", str(2 * WIN),
@@ -249,7 +281,19 @@ def judge(a):
                                      "list with one entry, including \"peak\": the stream time in seconds (a number between "
                                      f"{a0} and {a0 + 2 * WIN}) where that moment's payoff happens.")
                 parts.append({"inline_data": {"mime_type": "video/mp4", "data": base64.b64encode(clip.read_bytes()).decode()}})
-        r = call(model, parts) or []
+        if frames_mode:
+            nimg = sum(1 for q in parts if "inline_data" in q)
+            ntxt = sum(len(q.get("text", "")) for q in parts)
+            pace(nimg * IMG_TOK[0] + ntxt // 3)
+            USAGE.prompt = None
+            r = call(model, parts, tries=10) or []
+            if USAGE.prompt and nimg:   # calibrate the per-image cost from what the API actually counted
+                IMG_TOK[0] = max(IMG_TOK[0], int((USAGE.prompt - ntxt // 4) / nimg))
+                if not STATS.get("usage_said"):
+                    STATS["usage_said"] = 1
+                    print(f"[judge] first answer: {USAGE.prompt} prompt tokens for {nimg} images (~{IMG_TOK[0]} per image)", flush=True)
+        else:
+            r = call(model, parts) or []
         got = [{k: m.get(k) for k in ("t", "score", "kind", "title", "why", "peak")}
                for m in (r if isinstance(r, list) else r.get("moments", [r] if isinstance(r, dict) else []))
                if isinstance(m, dict) and "t" in m]
@@ -264,13 +308,27 @@ def judge(a):
 
     # 3 candidates at a time (13 Nov: 83 one after another took ~15 min); call() already backs off on 429
     from concurrent.futures import ThreadPoolExecutor
+    t_judge = time.time()
+    starts = list(range(0, len(cands), step))
+    unanswered = []
     with ThreadPoolExecutor(int(os.environ.get("CLIPS_JUDGE_PARALLEL", "3"))) as ex:
-        missing = 0
-        for k, got in enumerate(ex.map(one_batch, range(0, len(cands), step)), 1):
+        for k, (i, got) in enumerate(zip(starts, ex.map(one_batch, starts)), 1):
             out.extend(got)
-            missing += not got
+            if not got:
+                unanswered.append(i)
             if k % 10 == 0 or k * step >= len(cands):
-                print(f"[judge] {min(len(cands), k * step)}/{len(cands)}" + (" (watched)" if watch else ""), flush=True)
+                print(f"[judge] {min(len(cands), k * step)}/{len(cands)}" + (" (watched)" if watch else "") +
+                      f", {(time.time() - t_judge) / 60:.1f} min", flush=True)
+    if unanswered and frames_mode and model not in DEAD:   # 21 Nov: one more pass so no candidate is left unscored
+        print(f"[judge] second pass for {len(unanswered)} unanswered", flush=True)
+        again, unanswered = unanswered, []
+        for i in again:
+            got = one_batch(i)
+            out.extend(got)
+            if not got:
+                unanswered.append(i)
+    missing = len(unanswered)
+    print(f"[judge] judging took {(time.time() - t_judge) / 60:.1f} min", flush=True)
     print(f"[judge] {model}: {len(out)} answers for {len(cands)} candidates" + (f"; {missing} batches got NO answer (quota/rate limit)" if missing else ""), flush=True)
     # Global ranking pass (Hooky): the model orders the best candidates against each other, which is steadier than
     # separate 0-10 scores. The rank becomes the final score; the per-moment score stays as "score_alone".
