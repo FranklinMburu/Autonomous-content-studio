@@ -1,0 +1,421 @@
+{
+ "script": {
+  "title": "Why Japan Called Them the Black Ships",
+  "beats": [
+   {
+    "feel": "dread",
+    "lines": [
+     "An American commodore sailed four smoking warships into Edo Bay.",
+     "Their black smoke deeply frightened the Japanese."
+    ]
+   },
+   {
+    "feel": "curiosity",
+    "lines": [
+     "This was Matthew Perry, in 1853.",
+     "Japan called his fleet the Black Ships.",
+     "But the name was older."
+    ]
+   },
+   {
+    "feel": "awe",
+    "lines": [
+     "In 1543, Portuguese traders reached Japan.",
+     "Their giant carracks weighed 1200 to 1600 tons.",
+     "Each hull was painted black with pitch.",
+     "Black Ships meant every Western ship."
+    ]
+   },
+   {
+    "feel": "disgust",
+    "lines": [
+     "But why paint a hull black?",
+     "Weeds and barnacles grow on ship hulls.",
+     "Plutarch wrote that weeds and filth made a ship weak.",
+     "Fouling can raise drag by up to 60 percent."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like running in a soaking wet coat."
+    ]
+   },
+   {
+    "feel": "doubt",
+    "lines": [
+     "So sailors coated hulls in Black stuff, a mix of tar and pitch.",
+     "But did it stop weeds?",
+     "It may only have fought shipworms that bore into wood."
+    ]
+   },
+   {
+    "feel": "surprise",
+    "lines": [
+     "In 1761, HMS Alarm was covered in copper.",
+     "Copper made a poisonous film that kept weed away.",
+     "From about 1770, the Royal Navy coppered its whole fleet."
+    ]
+   },
+   {
+    "feel": "irony",
+    "lines": [
+     "And Perry's Black Ships?",
+     "Their hulls were not even black.",
+     "Their coal-fired engines belched black smoke.",
+     "Yet their arrival reopened Japan after more than 200 years of isolation."
+    ]
+   }
+  ],
+  "key_words": [
+   "Perry",
+   "Black Ships",
+   "pitch",
+   "Plutarch",
+   "drag",
+   "copper",
+   "smoke"
+  ],
+  "claims": [
+   {
+    "claim": "The sight of the four ships entering Edo Bay, belching black smoke, deeply frightened the Japanese; the expedition was under the command of Commodore Matthew C. Perry in 1853.",
+    "url": "https://en.wikipedia.org/wiki/Black_Ships"
+   },
+   {
+    "claim": "In 1543 Portuguese traders arrived in Japan; carracks of 1200 to 1600 tons engaged in this trade had the hull painted black with pitch, and the term came to apply for all western vessels.",
+    "url": "https://en.wikipedia.org/wiki/Black_Ships"
+   },
+   {
+    "claim": "Plutarch explained that when weeds, ooze and filth stick upon a ship's sides, the stroke of the ship is more obtuse and weak; biofouling can increase drag by up to 60%.",
+    "url": "https://en.wikipedia.org/wiki/Biofouling"
+   },
+   {
+    "claim": "Before the 18th century, Black stuff, a mixture of tar and pitch, was used; there is dispute whether such treatments were actual anti-fouling techniques or were intended to combat wood-boring shipworms.",
+    "url": "https://en.wikipedia.org/wiki/Biofouling"
+   },
+   {
+    "claim": "The first copper sheathing experiments were made in 1761 on HMS Alarm; the copper produced a poisonous film that deterred marine creatures, and from about 1770 the Royal Navy coppered the bottoms of the entire fleet.",
+    "url": "https://en.wikipedia.org/wiki/Biofouling"
+   },
+   {
+    "claim": "Though the hulls of Perry's ships were not black, their coal-fired steam engines belched black smoke; the kurofune became a symbol of the end of isolation after more than two hundred years.",
+    "url": "https://en.wikipedia.org/wiki/Black_Ships"
+   }
+  ]
+ },
+ "film": {
+  "era": "1850s",
+  "music": "mysterious",
+  "key_words": [
+   "Perry",
+   "Black",
+   "pitch",
+   "Plutarch",
+   "copper",
+   "smoke"
+  ],
+  "cast": {
+   "perry": "a 59 year old American naval commodore, heavy build, a broad fleshy clean shaven face, thick dark brown hair swept forward, a stern frown, a dark navy blue frock coat with gold epaulettes and brass buttons, 1850s",
+   "samurai": "a 35 year old Japanese samurai official, slim build, a shaved crown with a black oiled topknot, a narrow clean shaven face, a dark indigo kimono, grey striped hakama trousers and two swords at the waist, 1850s",
+   "captain": "a 40 year old Portuguese sea captain, tall, olive skin, a long forked black beard, a black velvet cap, a deep crimson doublet with puffed sleeves and a white ruffled shirt, 1540s",
+   "sailor": "a 25 year old Portuguese sailor, wiry build, a shaved bald head, a thin black moustache, a loose cream canvas shirt with torn sleeves and brown baggy knee breeches, barefoot, 1540s",
+   "plutarch": "a 60 year old Greek writer, slender, curly white hair, a full curly white beard, a calm lined face, a pale sky blue tunic under a cream wool cloak, 1st century AD",
+   "shipwright": "a 50 year old English shipwright, stout, a ruddy round face, a grey tied-back wig, a brown wool coat with sleeves rolled up and a black leather apron, 1760s"
+  },
+  "shots": [
+   {
+    "name": "commodore",
+    "at": 0,
+    "who": "perry",
+    "clip": true,
+    "prompt": "medium shot, a stern naval commodore gripping the rail of a steam warship and staring ahead, he is {perry}, thick black smoke behind him, hazy morning bay",
+    "motion": "he tightens his grip on the rail as smoke drifts, slow camera push in",
+    "check": "Is a man gripping a ship rail?"
+   },
+   {
+    "name": "fleet",
+    "at": "four#1",
+    "move": "push",
+    "prompt": "wide shot of four dark steam warships with tall funnels pouring black smoke, entering a calm green bay with wooded hills, 1850s Japan, hazy morning",
+    "check": "Are there steam warships with smoke?"
+   },
+   {
+    "name": "funnel",
+    "at": "Their#1",
+    "hit": "smoke#1",
+    "clip": true,
+    "motion": "black smoke billows upward, slow camera tilt up",
+    "prompt": "low angle close-up of a tall iron ship funnel belching thick black smoke into a pale sky, 1850s",
+    "check": "Is a funnel pouring black smoke?"
+   },
+   {
+    "name": "fear",
+    "at": "frightened#1",
+    "who": "samurai",
+    "clip": true,
+    "prompt": "close-up, a Japanese official staring out to sea with wide frightened eyes, he is {samurai}, a sandy shore with pine trees, grey morning light",
+    "motion": "his eyes widen and he steps back slightly, slow camera push in",
+    "check": "Is a man staring with wide eyes?"
+   },
+   {
+    "name": "perry",
+    "at": "Matthew#1",
+    "who": "perry",
+    "clip": true,
+    "prompt": "medium close-up, a commodore raising a brass telescope to his eye on a ship deck, he is {perry}, drifting smoke, morning light",
+    "motion": "he lifts the telescope slowly, slow camera push in",
+    "check": "Is a man holding a telescope?"
+   },
+   {
+    "name": "shore",
+    "at": "Japan#1",
+    "clip": true,
+    "prompt": "medium shot, Japanese villagers in plain cotton kimonos pointing out to sea from a fishing beach with wooden boats, 1850s, grey morning",
+    "motion": "they point and lean forward, slow camera move right",
+    "check": "Are villagers pointing?"
+   },
+   {
+    "name": "older",
+    "at": "But#1",
+    "move": "pull",
+    "prompt": "wide shot of an old wooden sailing ship with tall masts fading into thick sea fog, pale grey dawn light",
+    "check": "Is there a sailing ship in fog?"
+   },
+   {
+    "name": "landing",
+    "at": "In#2",
+    "who": "captain",
+    "xfade": true,
+    "clip": true,
+    "prompt": "medium shot, a sea captain stepping off a rowing boat onto a sandy beach, he is {captain}, 1540s Japan, green hills, bright sunlight",
+    "motion": "he steps onto the sand and looks around, slow camera push in",
+    "check": "Is a man stepping onto a beach?"
+   },
+   {
+    "name": "carrack",
+    "at": "giant#1",
+    "move": "left",
+    "prompt": "wide shot of a huge carrack with a black hull, tall castles at both ends and billowing sails anchored in a blue harbour, 1540s, bright sun",
+    "check": "Is there a large ship with a black hull?"
+   },
+   {
+    "name": "pitching",
+    "at": "Each#1",
+    "who": "sailor",
+    "clip": true,
+    "prompt": "medium shot, a bald sailor brushing thick black pitch onto wooden hull planks with a long brush, he is {sailor}, beached ship, sunny shore",
+    "motion": "he sweeps the brush down the planks, slow camera push in",
+    "check": "Is a man brushing black pitch on a hull?"
+   },
+   {
+    "name": "pitchclose",
+    "at": "painted#1",
+    "clip": true,
+    "motion": "black pitch drips slowly down the planks, slow camera move down",
+    "prompt": "close-up of glossy black pitch dripping down fresh wooden hull planks in bright sunlight, sandy beach below",
+    "check": "Is black pitch on wooden planks?"
+   },
+   {
+    "name": "western",
+    "at": "Ships#2",
+    "move": "right",
+    "prompt": "wide shot of several black-hulled wooden sailing ships anchored in a busy Japanese harbour with tiled roofs on the hills, 1600s, golden light",
+    "check": "Are there ships with black hulls?"
+   },
+   {
+    "name": "why",
+    "at": "But#2",
+    "xfade": true,
+    "clip": true,
+    "prompt": "close-up of a heavy iron pot of thick black pitch bubbling over a wood fire on a beach, smoke rising, warm light",
+    "motion": "the black pitch bubbles slowly, slow camera push in",
+    "check": "Is there a pot of black pitch?"
+   },
+   {
+    "name": "barnacles",
+    "at": "Weeds#1",
+    "clip": true,
+    "motion": "the green weeds sway in the current, slow camera push in",
+    "prompt": "underwater close-up of a wooden ship hull thick with white barnacles and long green weeds swaying, murky green light",
+    "check": "Is the hull covered in barnacles?"
+   },
+   {
+    "name": "plutarch",
+    "at": "Plutarch#1",
+    "who": "plutarch",
+    "clip": true,
+    "prompt": "medium close-up, an old Greek writer dipping a reed pen and writing on a papyrus scroll, he is {plutarch}, sunlit stone room with columns",
+    "motion": "he moves the pen across the scroll, slow camera push in",
+    "check": "Is an old man writing on a scroll?"
+   },
+   {
+    "name": "galley",
+    "at": "filth#1",
+    "clip": true,
+    "prompt": "medium shot, long wooden oars dipping slowly into murky green water beside an ancient galley hull streaked with slime, overcast light",
+    "motion": "the oars dip and pull slowly, slow camera move left",
+    "check": "Are wooden oars in the water?"
+   },
+   {
+    "name": "drag",
+    "at": "Fouling#1",
+    "hit": "drag#1",
+    "clip": true,
+    "motion": "the weeds trail and ripple behind the hull, slow camera move right",
+    "prompt": "close-up of a weed-covered wooden hull pushing slowly through grey water, long green weeds trailing behind it, overcast sea",
+    "check": "Are weeds trailing from a hull?"
+   },
+   {
+    "name": "bow",
+    "at": "60#1",
+    "move": "push",
+    "prompt": "close-up of a heavy wooden ship bow shoving a thick foamy wave through grey choppy sea, overcast light",
+    "check": "Is a ship bow pushing a wave?"
+   },
+   {
+    "name": "coat",
+    "at": "You#1",
+    "xfade": true,
+    "clip": true,
+    "prompt": "medium shot, a man in a soaked heavy wool coat trudging slowly through pouring rain on a muddy country road, grey light",
+    "motion": "he trudges forward with heavy steps, slow camera push in",
+    "check": "Is a man in a wet coat?"
+   },
+   {
+    "name": "drip",
+    "at": "soaking#1",
+    "clip": true,
+    "prompt": "close-up of rainwater dripping from the sleeve of a soaked heavy wool coat, grey rainy light",
+    "motion": "water drips steadily from the sleeve, slow camera push in",
+    "check": "Is water dripping from a coat sleeve?"
+   },
+   {
+    "name": "coating",
+    "at": "So#1",
+    "clip": true,
+    "prompt": "medium shot, two barefoot sailors brushing black tar onto the hull of a beached wooden ship, sandy shore, afternoon sun",
+    "motion": "they sweep their brushes along the hull, slow camera move right",
+    "check": "Are men brushing tar on a hull?"
+   },
+   {
+    "name": "bucket",
+    "at": "mix#1",
+    "clip": true,
+    "prompt": "close-up of a wooden stick stirring thick glossy black tar in a wooden bucket, sandy shore, warm afternoon light",
+    "motion": "the stick turns slowly through the tar, slow camera push in",
+    "check": "Is black tar in a bucket?"
+   },
+   {
+    "name": "doubt",
+    "at": "But#3",
+    "move": "push",
+    "prompt": "underwater close-up of a black tarred hull with fresh green weeds still sprouting along its planks, dim green light",
+    "check": "Is there green weed on a dark hull?"
+   },
+   {
+    "name": "wormholes",
+    "at": "may#1",
+    "hit": "shipworms#1",
+    "move": "push",
+    "prompt": "extreme close-up of a grey wooden ship plank riddled with round worm holes and tunnels, wet and broken, soft light",
+    "check": "Is a plank full of holes?"
+   },
+   {
+    "name": "rotten",
+    "at": "bore#1",
+    "clip": true,
+    "prompt": "close-up, two hands snapping a soft wet worm-eaten plank in half, splinters crumbling, dim boatshed light",
+    "motion": "the plank breaks and crumbles, slow camera push in",
+    "check": "Are hands breaking a wooden plank?"
+   },
+   {
+    "name": "drydock",
+    "at": "In#5",
+    "xfade": true,
+    "move": "left",
+    "prompt": "wide shot of a wooden warship propped up in a stone dry dock with workers on scaffolds, 1760s English dockyard, morning light",
+    "check": "Is there a ship in a dry dock?"
+   },
+   {
+    "name": "hammer",
+    "at": "Alarm#1",
+    "who": "shipwright",
+    "clip": true,
+    "prompt": "medium shot, a stout shipwright hammering a shiny copper sheet onto a wooden hull, he is {shipwright}, 1760s dockyard, warm daylight",
+    "motion": "he swings the hammer down onto the copper, slow camera push in",
+    "check": "Is a man hammering a copper sheet?"
+   },
+   {
+    "name": "film",
+    "at": "copper#1",
+    "move": "push",
+    "prompt": "underwater close-up of overlapping copper plates on a ship hull with a thin blue-green film, clear water, soft light",
+    "check": "Are there copper plates underwater?"
+   },
+   {
+    "name": "clean",
+    "at": "kept#1",
+    "move": "up",
+    "prompt": "underwater wide shot of a gleaming clean copper ship bottom gliding through clear blue water, small fish darting away, sunbeams",
+    "check": "Is there a copper ship bottom?"
+   },
+   {
+    "name": "officer",
+    "at": "From#1",
+    "clip": true,
+    "prompt": "medium shot, English sailors in striped shirts hauling ropes on the deck of a large wooden warship, 1770s, bright sea light",
+    "motion": "they pull the ropes hand over hand, slow camera push in",
+    "check": "Are sailors pulling ropes?"
+   },
+   {
+    "name": "navy",
+    "at": "Navy#1",
+    "move": "right",
+    "prompt": "wide shot of a line of tall wooden warships under full sail with copper bottoms glinting at the waterline, 1770s, golden afternoon sea",
+    "check": "Are there warships under sail?"
+   },
+   {
+    "name": "return",
+    "at": "And#4",
+    "who": "perry",
+    "xfade": true,
+    "clip": true,
+    "prompt": "close-up, a commodore turning his head toward the shore with a cold stare, he is {perry}, ship deck, drifting grey smoke, hazy light",
+    "motion": "he turns his head slowly, slow camera push in",
+    "check": "Is a man turning his head?"
+   },
+   {
+    "name": "grey",
+    "at": "hulls#3",
+    "hit": "not#1",
+    "move": "left",
+    "prompt": "close-up of the side of an 1850s steam warship with a pale grey painted hull and a big paddle wheel, calm water, hazy light",
+    "check": "Is there a grey ship hull?"
+   },
+   {
+    "name": "stoker",
+    "at": "Their#4",
+    "clip": true,
+    "prompt": "medium shot, a sweaty stoker shoveling coal into a roaring ship furnace, glowing orange fire, dark iron engine room, 1850s",
+    "motion": "he swings coal into the fire as flames flare, slow camera push in",
+    "check": "Is a man shoveling coal into a furnace?"
+   },
+   {
+    "name": "arrival",
+    "at": "Yet#1",
+    "who": "samurai",
+    "clip": true,
+    "prompt": "medium shot, a Japanese official bowing low on a wooden pier, he is {samurai}, steam warships in the bay behind him, soft golden light",
+    "motion": "he bows slowly, slow camera pull back",
+    "check": "Is a man bowing?"
+   },
+   {
+    "name": "dawn",
+    "at": "200#1",
+    "move": "pull",
+    "prompt": "wide shot of a quiet Japanese bay at sunrise with wooden fishing boats and distant steam warships, soft golden light, 1850s",
+    "check": "Is there a bay with boats?"
+   }
+  ]
+ }
+}
