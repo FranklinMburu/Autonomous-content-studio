@@ -74,22 +74,6 @@ Return JSON only: {"era": "...", "cast": {...}, "key_words": [...], "music": "<o
            {"name": ..., "at": ..., "prompt": ..., "check": "Is ...?", "move": "push"}, ...]}
 
 CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid these exact scenes):
-- 005-why-ships-waited-forty-days-before-enter: cast sailor = a 30 year old Venetian sailor with a sunburnt face, curly black hair, a red wool cap and a loose white linen shirt, 1400s; doctor = a 55 year old medieval physician with a long grey beard, a long dark brown robe and a round black cap, 1400s
-  scenes: medium shot, sailors leaning on the rail of a wooden sailing ship and  | close-up, a sailor gripping a ship's wooden rail and gazing at land, h | close-up of a pale sick man lying on straw with dark swollen marks on  | wide shot of a medieval town street with closed shutters and a cart co | close-up, a weeping woman in a medieval hood kneeling beside a bed, ca | wide shot of medieval Venice with canals, gondolas and stone palaces,  | medium shot, three Venetian officials in long red robes and black caps | wide shot of a walled stone harbour city on the Adriatic coast with re | close-up of stone city walls and a tower above the sea with waves brea | medium shot, travellers in medieval cloaks stepping off a small rowing | wide shot of a small rocky island with a few stone huts in a blue sea, | close-up, a worried traveller pulling down his collar to look at his n
-- 005-why-the-radium-girls-licked-poison: cast painter = a 19 year old woman with dark brown bobbed hair, freckles, bright hazel eyes, a white cotton work smock over a navy blouse, 1910s; supervisor = a 45 year old factory supervisor with slicked grey hair, a thin moustache, a brown three-piece suit and a gold watch chain, 1910s; president = a 50 year old company president with a bald head, round gold spectacles, a heavy jaw and a dark grey double-breasted suit, 1920s; inventor = a 45 year old scientist with a high forehead, swept-back black hair, a short pointed black beard and a black suit with a white collar, 1920s
-  scenes: close-up, a young woman touching a thin paintbrush tip to her lips, a  | extreme close-up of a thin brush dipping into a tiny pot of glowing gr | extreme close-up of a thin brush painting glowing green lines on a sma | wide shot of a big 1910s brick factory with tall windows and a smokest | wide shot, rows of young women in white smocks bent over long tables p | close-up of a row of small watch faces glowing green in a dark room | close-up, a young woman's open hand receiving a few copper coins at a  | extreme close-up of a camel hair paintbrush with a frayed splayed tip, | medium shot, a stern man in a suit pointing at a worker's paint table, | medium close-up, a smiling young woman putting a paintbrush to her lip | close-up, young women laughing and holding up fingernails painted glow | close-up, a laughing young woman with a faint green glow on her teeth 
-- 006-why-dutch-merchants-paid-fortunes-for-a-: cast merchant = a 44 year old Dutch merchant with a ruddy weathered face, a thick grey-streaked brown beard, heavy brows, a wide black felt hat, a long dark burgundy wool coat with silver buttons, a white linen collar and cuffs, 1630s; trader = a 31 year old Dutch tulip trader with a thin pale face, a small pointed black moustache, sharp dark eyes, shoulder-length light brown hair, a bright mustard yellow doublet, a white ruff collar and a brown leather belt, 1630s; grower = a 52 year old Dutch bulb grower with a sunburnt wrinkled face, a bald crown with grey hair at the sides, a short grey stubble beard, a rough brown linen smock, muddy wooden clogs and a grey wool cap, 1630s; wife = a 29 year old Dutch woman with fair skin, blond hair pinned under a white lace cap, a high forehead, a dark green bodice with a white apron over a long brown skirt, 1630s; tavernkeeper = a stout 48 year old Dutch tavern keeper with a red flushed face, a big belly, a clean-shaven chin, a white apron over a dark blue shirt, a brown cap, 1630s
-  scenes: medium close-up, a stern man in a wide black hat leaning over a wooden | extreme close-up of a hand with a quill pen signing a paper contract o | close-up, a merchant holding up his open empty palms toward a trader,  | medium shot, a trader shrugging with both arms spread wide and grinnin | close-up of a single tulip bulb half buried in dark soil in a wooden c | close-up of a hand with a quill pen writing rising numbers on a paper  | medium shot, {trader} slapping a paper contract down on a wooden table | close-up of a hand dropping small silver coins into a wooden bowl on a | wide shot of a crowded 1630s Dutch tavern with men waving paper contra | wide shot of a grand 1630s Dutch town exchange building with tall ston | medium shot, {merchant} holding up a paper contract beside a potted tu | close-up of a hand holding up a small paper concert ticket in a dark t
-- 008-why-china-s-paper-money-wasn-t-tang: cast merchant = a 45 year old Sichuan merchant with a round weathered face, a thin grey-streaked beard, a black silk cap, a long dark blue silk robe with wide sleeves and a brown leather belt, 11th century; official = a 50 year old Song government official with a long thin face, a neat black moustache, a tall black gauze hat with stiff wings, a long crimson robe with a gold-embroidered square badge, 11th century; clerk = a 30 year old thin clerk with a pale narrow face, small round spectacles, a grey cotton robe and a black cloth cap, 11th century; smith = a 35 year old burly iron smith with a soot-darkened face, a short black beard, a leather apron over a rough brown tunic, 11th century; wife = a 35 year old Sichuan woman with a round face, black hair in a neat bun, a small gold hairpin, a green cotton jacket and a long dark skirt, 11th century
-  scenes: medium shot, a merchant in a long dark blue silk robe and black cap ha | extreme close-up of two hands lifting a stack of thick heavy iron coin | close-up, a merchant holding up one folded paper note with both hands, | close-up, a merchant pressing a red seal stamp onto a paper note on a  | medium shot, a thin clerk holding up a paper note in one hand and poin | close-up of two hands placing a folded paper note on top of a heavy st | wide shot of a crowded 11th century Sichuan market street with wooden  | close-up of two hands holding up two different paper notes side by sid | medium shot, {merchant} standing and pointing at a large paper map on  | close-up, {merchant} leaning over a wooden table and pointing at a pap | wide shot of a large wooden gate of a merchant guild house with a hang | extreme close-up of a carved wooden printing block being pressed onto 
-- 006-why-braille-made-night-writing-simple: cast louis = a 12 year old thin French boy with straight short black hair and a fringe, a pale narrow face, eyes half closed and unfocused, a navy blue wool school jacket with a high collar over a white shirt, 1820s; child = a 4 year old small boy with blond curly hair, chubby pink cheeks and a loose white linen smock, 1810s; barbier = a 54 year old tall lean retired French artillery captain with swept-back silver hair, long grey sideburns, a hawk nose and a faded dark blue military coat with red cuffs and brass buttons, 1820s; teacher = a 40 year old thin stern French teacher with dark hair slicked flat, a pointed black chin beard and a black frock coat with a tall white collar, 1840s
-  scenes: close-up, a blind boy running his fingertip slowly across thick paper  | extreme close-up of a fingertip pressing on rows of small raised dots  | medium shot, a thin boy tapping a wooden cane along a stone school cor | close-up, a small boy squinting and pushing a sharp awl into a thick p | wide shot of a small country harness workshop with horse saddles and l | medium shot, a little blind boy feeling his way along a country path w | wide shot of a tall old grey stone school building on a narrow Paris s | close-up of an enormous thick heavy book lying open on a worn wooden d | medium shot, three blind children slowly tracing their fingers across  | close-up of a blind boy's empty hands resting on a blank sheet of pape | medium shot, a lean old army captain carrying a small wooden case into | close-up of a metal ruler slate with grooves lying on thick paper next
-- 006-why-curie-s-notebooks-stay-locked: cast marie = a 31 year old Polish French scientist with ash blond hair pulled back in a loose bun, a high forehead, grey eyes, a plain long black dress with a high collar and rolled cuffs, 1890s; pierre = a 39 year old French physicist with a full dark brown beard, receding dark hair, gentle dark eyes and a rumpled black jacket over a white shirt, 1890s; old = a 66 year old frail woman with thin white hair in a bun, a pale lined face, tired grey eyes and a plain grey wool cardigan, 1930s
-  scenes: close-up, a woman slipping a small glowing glass test tube into her dr | extreme close-up of a small glass test tube glowing faint blue-green a | medium shot, a young woman looking up from a notebook at a cluttered l | wide shot of a cramped wooden shed laboratory with glass bottles, an i | close-up, a man grinding dark rock with a heavy pestle in a big stone  | medium shot, a woman stirring a big iron pot of bubbling dark sludge w | wide shot, a worker shovelling dark brown rock from a huge heap into s | close-up of a heavy sack of dark rock tipping onto a wooden table, dus | close-up of a tiny pinch of white powder in a small glass dish on a wo | medium shot, a man and a woman smiling at each other over a tiny glowi | close-up of a bright beam of sunlight shining through a dusty laborato | close-up, a woman writing quickly in a notebook by lamplight, she is {
-- 006-why-harvey-was-mocked: cast harvey = a 50 year old short English physician with a round face, small very black eyes and curling raven-black hair to his collar, a small black pointed beard, a black doublet with a wide white falling-band collar, 1620s; old = a 78 year old frail English physician with thin white curling hair, a short white beard, a round wrinkled face, a black velvet skullcap and a black gown with a plain white collar, 1650s
-  scenes: close-up, a doctor tying a tight cord around a man's bare upper arm, h | extreme close-up of a bare muscular arm with a tight brown cord tied a | medium shot, a short round-faced doctor walking along a muddy 1620s Lo | medium shot, four old physicians in long black gowns and white ruffs n | close-up of a white marble bust of an ancient bearded man on a shelf i | close-up of a dark red animal liver lying on a wooden anatomy table be | close-up, a doctor scratching quickly with a quill on paper by candlel | medium shot, a doctor counting on his fingers and frowning at his desk | close-up of a doctor's two fingers pressing on a man's bare wrist to f | extreme close-up of a small pewter spoon holding a few drops of dark r | close-up, a doctor pressing his ear against a man's bare chest to list | close-up of a brass hourglass with sand running down on a wooden desk,
-- 006-why-molasses-flooded-boston: cast painter = a 30 year old lanky dockside worker with a narrow face, ginger stubble, a grey flat cap and brown paint-stained canvas overalls over a red flannel shirt, 1919; jell = a 45 year old portly American company treasurer with round gold spectacles, a thick brown moustache, a black bowler hat and a tight tan three-piece suit, 1919; neighbor = a 40 year old Italian American woman with black hair in a low bun, a round olive face, a black knitted shawl over a dark green dress and a white apron, 1919
-  scenes: medium shot, a worker on a ladder painting a huge round steel tank bro | extreme close-up of a wide paint brush covering a sticky dark drip run | wide shot of a giant round steel storage tank beside a harbor with shi | low angle of a towering riveted steel tank wall rising into a grey sky | close-up of thick dark brown molasses pouring from a wide pipe into a  | high angle looking down into a vast dark pool of molasses inside a ste | medium shot, a woman filling a tin bucket from a sticky dark drip at t | close-up, two small children dipping their fingers into a tin can of d | close-up of a thick hose pumping into a valve on top of a steel tank,  | close-up, a worker pressing his ear against a riveted steel tank wall  | medium shot, a portly businessman in a bowler hat waving his hand dism | close-up, a businessman shaking his head with a smug face, he is {jell
 - 006-why-titanic-skimped-on-lifeboats: cast officer = a 38 year old British ship officer with short dark hair, a clean shaven lean face, a navy blue double-breasted uniform with gold buttons and a white-topped peaked cap, 1912; passenger = a 25 year old woman with auburn hair pinned up under a large black feathered hat, a long cream wool coat with a fur collar, 1912; builder = a 55 year old Irish shipyard manager with a thick grey walrus moustache, a brown bowler hat and a rumpled brown tweed suit, 1911; executive = a 52 year old bald British shipping chairman with a white chin beard, round wire spectacles and a navy pinstripe frock coat, 1911
   scenes: medium shot, sailors lowering a wooden lifeboat on ropes down the side | close-up of a half-empty wooden lifeboat at night, a few shivering pas | medium shot, a ship officer at the deck rail waving a lifeboat away, h | wide shot of a giant four-funnel ocean liner tilting forward on a calm | wide shot of crowds of passengers in coats and white life jackets on a | close-up of a row of wooden lifeboats hanging from curved iron cranes  | close-up, a worried young woman in a large feathered hat clutching her | wide shot of a gigantic black ship hull inside a towering iron shipyar | medium shot, a shipyard manager pointing up at a long row of empty cur | medium shot, a tall businessman tapping a pencil on large ship drawing | close-up of a folded wooden boat with canvas sides lying upside down o | close-up of a heavy leather-bound rulebook with a red wax seal lying o
 - 007-why-a-spyglass-made-galileo-a-heretic: cast galileo = a 50 year old Italian astronomer with a receding hairline, thinning grey-brown hair, a full grey-streaked beard, deep-set dark eyes, a lined weathered face, wearing a long black wool scholar's robe with a white linen collar and a dark red cap, 1610s; castelli = a 40 year old Italian monk with short black hair, a clean-shaven round friendly face, warm brown eyes, wearing a brown Benedictine habit with a wooden cross on a cord, 1610s; christina = a 27 year old grand duchess with fair skin, dark auburn hair piled high in an elaborate jeweled updo, a narrow elegant face, wearing a rich gold-embroidered crimson velvet gown with a high lace collar and pearl earrings, 1610s; urban = a 70 year old pope with a bald crown, white hair at the sides, a short white beard, a heavy jowled face, wearing a white papal robe with a gold-embroidered red cape and a tall gold mitre, 1630s; inquisitor = a 60 year old cardinal with a gaunt pale face, deep-set black eyes, a thin pointed grey beard, wearing a long black cassock with a red sash and a red skullcap, 1630s; student = a 20 year old Italian student with curly dark brown hair, a smooth youthful face, a thin patchy beard, wearing a loose grey wool tunic and brown hose, 1610s
@@ -98,136 +82,222 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: close-up, a young nobleman staring up at the night sky in amazement, b | wide shot of a night sky over dark Danish fields with one blazing star | medium shot, a young nobleman pointing up at the sky from a stone cast | close-up of a single dazzling white star among many faint stars, deep  | close-up, a man squinting one bare eye along a long wooden sighting ar | medium shot, three workmen lifting a huge curved wooden measuring arc  | close-up of a large polished brass arc with fine notches along its edg | medium shot, a king in a fur-trimmed robe gesturing grandly toward a c | wide shot of a grand stone castle with towers on a cliff above the sea | close-up, a young nobleman shaking his head firmly, he is {tycho}, pal | wide shot of a crowded noisy royal banquet hall with nobles feasting a | close-up, a young nobleman writing a letter by candlelight and glancin
 - 008-why-nightingale-put-fresh-air-into-hospi: cast florence = a 34 year old slim English nurse with dark brown hair parted in the middle under a white cap, a calm oval face, a plain black wool dress with a white collar and a grey shawl, 1850s; soldier = a 20 year old thin British soldier with short sandy hair, freckles, a pale sweaty face and an open red army jacket over a dirty white shirt, 1850s
   scenes: medium shot, a nurse walking between rows of hospital beds at night ho | close-up of a hand holding a small brass oil lamp glowing in a dark ho | wide shot of wounded soldiers lying packed side by side on thin mats a | wide shot of a huge square stone barracks hospital beside the sea with | close-up of a cracked stone floor drain overflowing with dark water in | close-up of a small shut window with grimy glass in a gloomy hospital  | wide shot of snow falling over a stone hospital courtyard in winter, g | medium shot, two soldiers carrying a stretcher covered with a grey bla | close-up, a pale young soldier sweating with fever on a cot, he is {so | close-up of a white bandage wrapped around a soldier's arm, lamp light | medium shot, a nurse frowning as she writes in a notebook at a small t | close-up of empty wooden supply shelves and an empty open crate in a s
+- 009-why-haber-made-fertilizer-from-air: cast haber = a 41 year old German chemist with a full dark brown beard, short dark hair receding at the temples, deep-set brown eyes, round wire spectacles, a charcoal three-piece suit, white high collar and black cravat, 1900s; rossignol = a 30 year old Swiss chemist with a thin pale face, short light brown hair, a small neat moustache, a white shirt with a stiff collar, dark tie and black waistcoat, 1900s; bosch = a 39 year old German chemical engineer with a broad square face, short dark blond hair, a thick dark moustache, a dark blue work jacket over a white shirt with a stiff collar, 1910s; farmer = a 45 year old German farmer with a deeply weathered face, a grey moustache, a brown wool jacket, a flat cap and muddy boots, 1910s; officer = a 50 year old German artillery officer with a grey uniform, a peaked cap, iron cross medal, a stiff grey moustache and a rigid posture, 1910s
+  scenes: medium shot, a chemist holding up a glass flask of clear liquid beside | extreme close-up of clear liquid droplets falling from a thin glass tu | medium shot, a farmer setting a heavy white sack of fertilizer onto a  | medium shot, a chemist turning a valve on a tall riveted steel pressur | close-up of a small glass measuring cup filled with four ounces of cle | close-up, a warehouse worker's hands scooping white nitrate powder fro | medium shot, a tropical island worker shoveling dark guano into a coar | medium shot, {farmer} lifting a heavy white fertilizer sack onto a woo | wide shot, a nearly empty warehouse with only a few small burlap sacks | wide shot, an immense blue sky thick with white clouds above a flat gr | close-up, {haber} straining to turn a heavy iron valve wheel on a rive | medium shot, a bearded chemist in a charcoal three-piece suit turning 
+- 010-davy-s-laughing-gas-test-wasn-t-in-londo: cast davy = a 21 year old English chemist, slim and upright, a smooth youthful round face with a high forehead, large dark brown eyes, thick dark brown curly hair swept up over his forehead, clean shaven, wearing a dark navy blue tailcoat with brass buttons, a buff waistcoat, a white linen cravat and pale grey trousers, 1799; watt = a 63 year old Scottish engineer, stocky and broad shouldered, a ruddy weathered lined face, bushy grey eyebrows, thinning sandy grey hair combed forward, clean shaven, wearing a brown wool coat, a checked grey waistcoat, a white neckcloth and dark breeches, 1799; skeptic = a 50 year old London physician, thin and upright, a sharp pale face with a long nose, powdered white hair tied in a short queue, a small grey moustache, wearing a black coat with silver buttons, a white neckcloth and dark knee breeches, 1790s; patient = a 27 year old English woman, slender, a freckled oval face, auburn hair in a loose bun with curled side locks, wearing a rose pink muslin gown with a cream shawl and white cuffs, 1790s; miner = a 42 year old English coal miner, broad and muscular, a soot blackened square face, a thick black beard, matted black hair under a brown leather cap, wearing a patched blue waistcoat over a dirty white shirt and brown trousers, 1810s
+  scenes: medium close-up, a young chemist breathing gas through a mouthpiece tu | close-up of a small glass hourglass with pale sand running down on a w | medium shot, a young chemist laughing with his head thrown back, holdi | close-up, a hand holding a glass gas jar beside a tall candle flame on | medium shot, a group of London physicians in black coats in a candle-l | close-up, a thin London physician with a flushed face and wide excited | close-up, a young chemist writing in a notebook with a quill pen at a  | close-up of a large clear glass gas jar with a brass stopcock on a woo | medium shot, a young chemist in a dark navy tailcoat adjusting a glass | medium close-up, a young chemist seated breathing through a mouthpiece | medium shot, a young chemist slumped back in a wooden chair with one h | close-up, a young chemist with flushed cheeks raising one hand and ges
+- 011-why-your-blood-fails-without-key-nutrien: cast patient = a 34 year old woman with medium brown skin, short curly black hair, tired dark eyes and a pale lined face, wearing a light blue hospital gown and a white paper wristband, today; doctor = a 45 year old Black woman doctor with short cropped black hair, a round face, warm dark brown eyes and no glasses, wearing a crisp white lab coat over a teal blouse, today; nutritionist = a 29 year old East Asian woman with straight black hair in a low ponytail, a slim oval face and thin eyebrows, wearing a light grey blazer over a white shirt, today; labtech = a 38 year old South Asian man with a short neat black beard, round wire glasses and a broad forehead, wearing a navy blue polo shirt under a white lab coat, today
+  scenes: close-up, a woman lying in a hospital bed clutching her chest and brea | close-up, a woman slumped in a plastic chair rubbing her forehead with | close-up, a woman gripping a chair armrest with both hands, head tilte | medium shot, a woman pressing one hand to her chest and breathing fast | medium shot, a woman walking slowly along a bright hospital corridor w | close-up, a pale tired woman lying on a hospital bed with her head on  | close-up, a doctor pressing a stethoscope to a patient's bare chest an | close-up, red blood cells streaming quickly through a narrow blood ves | extreme close-up, a pale woman's trembling hand gripping a white blank | close-up, a confused woman lying in a hospital bed, brow furrowed and  | close-up of an empty car fuel gauge, the needle resting at the far lef | close-up of a car engine running under an open hood, belts and hoses v
+- 008-why-edison-added-a-carbon-button: cast edison = a 30 year old American inventor with messy dark brown hair, sharp blue eyes, a clean-shaven intense face, wearing a navy blue three-piece wool suit, a white shirt with a loose black tie and ink-stained cuffs, 1870s; bell = a 29 year old Scottish man with thick wavy black hair, bushy black side whiskers joined to a moustache, a long straight nose, a dark green wool frock coat with a high white collar, 1870s; woman = a 26 year old American woman with black hair in a high bun, a round freckled face, a plum purple dress with a white lace collar and puffed sleeves, 1870s; judge = a 58 year old American judge with thick swept-back silver hair, a clean-shaven heavy jaw, deep frown lines, a black judge's robe over a white cravat, 1890s
+  scenes: close-up, a man biting the polished wooden edge of a grand piano with  | close-up, a man cupping a hand behind his ear with a worried frown, he | medium close-up, a man pressing his jaw against the lid of a grand pia | wide shot of a snowy 1870s American city street at dusk with horse car | medium shot, a man speaking into a brass funnel above a glass cup of c | close-up of a glass cup of clear liquid with a thin brass wire dipping | close-up, a hand pushing a small glass cup of liquid away across a woo | wide shot of a grand 1870s stone government building with tall columns | medium close-up, a man writing on a paper at a wooden desk with a pen, | close-up, an open palm holding a small pile of black carbon grains, fi | close-up of a small open brass capsule filled with black grains beside | extreme close-up of fingertips holding a very thin shiny round metal p
+- 012-why-carnot-tracked-heat-instead-of-engin: cast carnot = a 28 year old slim French army engineer with a narrow oval face, dark brown curly hair swept over his forehead, a clean-shaven chin, sharp dark eyes, wearing a dark navy blue military tunic with gold epaulettes and brass buttons, a white leather cross-belt and white trousers, 1820s; british = a 46 year old stocky British steam engineer with a broad ruddy face, a thick curly ginger beard, bushy ginger eyebrows, a soot-streaked dark brown waistcoat over a rolled-sleeve white shirt, 1820s; french = a 39 year old tall lean French engineer with a long pale lined face, dark hair greying at the temples, long dark sideburns, a dark green frock coat over a grey waistcoat and black cravat, 1820s; worker = a 34 year old burly French foundry worker with a square sun-darkened face, black curly hair, a thick black moustache, a brown leather apron over a faded blue shirt, 1820s; woman = a 30 year old French woman with a round face, dark brown hair in a neat bun under a white linen cap, a blue cotton dress with white sleeves and a white apron, 1820s
+  scenes: medium shot, a young French army engineer leaning over a wooden desk d | extreme close-up of a hand-drawn ink diagram of a cylinder steam engin | medium shot, a French army engineer pointing at a hand-drawn engine di | medium shot, a burly foundry worker straining to hoist a heavy black s | medium shot, a young French army engineer pointing at a rolled enginee | medium shot, a stocky British steam engineer gripping a large iron wre | close-up of a polished brass valve wheel on a huge 1820s steam engine, | medium shot, a tall lean French engineer pointing at a small wooden mo | medium shot, a French woman in a blue dress and white apron handing si | medium shot, a young engineer pointing at a large hand-drawn cylinder  | close-up of a red-hot iron billet glowing bright orange on a forge anv | close-up, a hand lowering a glowing red-hot iron bar into a bucket of 
+- 008-gray-hulls-hidden-purpose: cast researcher = a 45 year old woman historian with shoulder-length auburn hair with silver streaks, round tortoiseshell glasses, an olive green cardigan over a cream blouse; painter = a 50 year old broad-shouldered German shipyard painter with grey stubble, a flat cap splashed with paint and blue overalls stained with grey paint, 1940s; reviewer = a 55 year old man with a bald head, a neat grey goatee, a navy blazer and a red bow tie; baker = a 30 year old woman baker with black curly hair under a yellow headscarf, brown skin, a white apron over a teal shirt; reader = a 70 year old man with wild white hair, bushy white eyebrows, a brown corduroy jacket and a red scarf
+  scenes: close-up, a woman pulling old folders from a dusty archive shelf and p | extreme close-up of a steel ship hull painted in grey and blue zigzag  | wide shot of an ancient wooden rowing ship with one square sail on a b | wide shot of a large grey German warship tied up in a harbour, cranes  | medium shot, a painter brushing a pale blue-grey stripe on a steel shi | close-up, a row of open paint cans in grey, blue, green and brown on a | wide shot of a shipyard dock with several warships in different patchy | medium close-up, a woman writing notes in a notebook at a desk piled w | close-up, a hand sorting dozens of small old black and white warship p | close-up of a thick plain hardcover book lying closed on a wooden desk | medium shot, a woman running her finger along a long library shelf and | close-up of a long wooden library shelf of old books with one wide emp
+- 008-why-katyushas-rode-wooden-sleds: cast flyorov = a 30 year old Soviet artillery captain with a lean clean-shaven face, sharp cheekbones, short dark brown hair, a khaki field tunic with a brown leather belt and a khaki peaked cap with a red star, 1940s; crew = a 22 year old Soviet soldier with a round ruddy face, a short red beard, a grey quilted padded jacket, a brown fur hat with ear flaps and green wool mittens, 1940s; officer = a 58 year old heavy-set Soviet artillery general with a shaved head, a thick white handlebar moustache and a dark olive greatcoat with red collar tabs, 1930s; german = a 24 year old German soldier with a thin pale face, sunken blue eyes, a grey steel helmet and a grey-green wool greatcoat, 1940s; woman = a 25 year old Russian village woman with long dark braids, rosy cheeks, a red flowered headscarf and a white embroidered linen blouse, 1940s
+  scenes: close-up, a soldier bolting a rack of long rocket rails onto a low sle | low angle of a rack of long steel rocket rails on a sledge pointing at | wide shot of a group of officers in greatcoats watching a rocket launc | close-up, an artillery general frowning and shaking his head slowly, h | medium shot, a soldier sliding a long rocket onto a steel launcher rai | extreme close-up of a brass pocket watch ticking in a gloved hand, mud | close-up of a full rack of long rockets lined up on launcher rails, co | medium shot, gunners ramming a shell into a big howitzer, smoke drifti | wide shot of a big howitzer firing with a flash and a puff of smoke, m | medium shot, workers welding a steel rocket rail frame in a small dim  | wide shot of grey tanks rolling across a summer wheat field under a du | wide shot of a small Russian town square with wooden houses and a mark
+- 008-why-yokohama-marine-tower-was-built: cast perry = a 59 year old American naval commodore with a stern square jaw, grey bushy sideburns, a dark navy double-breasted coat with gold buttons and a black bicorne hat, 1850s; official = a 48 year old Japanese shogunate official with a shaved forehead and a black topknot, a grey-blue silk robe with stiff winged shoulders and a dark sash, 1850s; fisher = a 22 year old Japanese fisherman with a sun-darkened face, a wide straw hat, a short faded indigo cotton jacket and bare brown legs, 1850s; trader = a 33 year old European trader with slicked blond hair, a thin blond moustache, a bright green waistcoat, a white shirt and a dark blue frock coat, 1860s
+  scenes: medium shot, a naval commodore standing at the rail of a black wooden  | wide shot of a line of black wooden warships with dark smoke on a grey | close-up of a huge shut wooden gate with iron studs in a grey stone wa | medium shot, a fisherman on a pebble beach shading his eyes with one h | medium shot, a naval commodore sitting upright in a wooden rowboat wit | close-up, a commodore jabbing one finger forward, stern face, he is {p | wide shot of a bay with a wooden pier and moored wooden sailing ships  | medium shot, a Japanese official kneeling at a low wooden table slowly | extreme close-up of a hand pressing an ink brush onto a long blank pap | medium shot, an official pointing at a hand-drawn map spread on a low  | wide shot of a dusty street of an old Japanese post town with wooden i | wide shot of a long dirt highway lined with tall pine trees, traveller
 
 PROBLEMS FOUND BY THE CHECKS
-- script: not supported by the sources, fix or remove: Gustave Eiffel hoisted a massive iron beam, then tossed it aside.
-- script: not supported by the sources, fix or remove: Eiffel watches the wind howl over Paris.
-- script: not supported by the sources, fix or remove: He knows the storm could snap a solid tower like a twig.
-- script: not supported by the sources, fix or remove: At the same time the empty spaces shave off tons of weight.
-- script: narration has 111 words; it must be 150-210
+- script: not supported by the sources: Gustave Eiffel hoisted a large flag atop his new iron tower.
+- script: not supported by the sources: You see, it's like a basket: mostly air, yet strong.
 
 DRAFT SCRIPT
-{"title": "Why Eiffel’s Lattice Saves the Tower", "beats": [{"feel": "curiosity", "lines": ["Gustave Eiffel hoisted a massive iron beam, then tossed it aside."]}, {"feel": "skepticism", "lines": ["Critics shouted, “It looks like a giant grill—useless and ugly!”"]}, {"feel": "tension", "lines": ["Eiffel watches the wind howl over Paris.", "He knows the storm could snap a solid tower like a twig."]}, {"feel": "recognition", "lines": ["You see how a bicycle’s frame feels lighter when its tubes are spaced, not solid."]}, {"feel": "awe", "lines": ["Eiffel designs a lattice of criss‑crossing iron girders.", "The open web lets air flow through, cutting pressure on every point.", "At the same time the empty spaces shave off tons of weight."]}, {"feel": "surprise", "lines": ["Because of that airy skeleton, the tower sways only nine centimeters in a gale."]}, {"feel": "irony", "lines": ["The “ugly grill” became the world’s most celebrated wind‑proof monument."]}]}
+{"title": "Why Eiffel's Tower Curves", "beats": [{"feel": "pride", "lines": ["Gustave Eiffel hoisted a large flag atop his new iron tower.", "Nothing 300 metres tall had ever been built."]}, {"feel": "scorn", "lines": ["In 1887, famous French artists protested against it.", "Their petition called the tower useless and monstrous.", "They said it would loom over Paris like a gigantic black smokestack."]}, {"feel": "dread", "lines": ["And high up, there was the wind.", "Eiffel said wind resistance was his primary concern."]}, {"feel": "curiosity", "lines": ["His engineers had sketched four lattice girders, open frames of crossing iron.", "Eiffel said wind loads had shaped the curve of its four edges.", "That rule removed the need for cross-bracing, extra diagonal bars."]}, {"feel": "wonder", "lines": ["Melt down all 7,300 tonnes of iron.", "It would cover the base just 6.25 centimetres deep.", "You see, it's like a basket: mostly air, yet strong.", "The air around it weighs almost as much as the iron.", "In the wind, the tower sways by up to 9 centimetres."]}, {"feel": "surprise", "lines": ["A 2020 study found a catch.", "The tower's top two-thirds do use cross-bracing."]}, {"feel": "irony", "lines": ["His wind story made the odd shape seem necessary, not chosen.", "It may have been his answer to the artists who called it monstrous."]}]}
 CLAIMS IN THE DRAFT
-- {'claim': 'Eiffel’s primary design concern was wind resistance, leading to the lattice structure.', 'url': 'https://en.wikipedia.org/wiki/Eiffel_Tower'}
-- {'claim': 'The lattice reduces wind pressure and material weight, allowing the tower to sway only about nine centimeters in strong winds.', 'url': 'https://en.wikipedia.org/wiki/Eiffel_Tower'}
-- {'claim': 'Eiffel presented the curved silhouette as a structural principle to handle wind loads efficiently.', 'url': 'https://openalex.org/W3211338988'}
+- {'claim': 'On 31 March 1889 Eiffel led officials to the top of the tower and hoisted a large Tricolour.', 'url': 'https://en.wikipedia.org/wiki/Eiffel_Tower'}
+- {'claim': "When proposed, nothing equalling the Tower's 300m height had ever been built.", 'url': 'https://openalex.org/W3211338988'}
+- {'claim': "The petition 'Artists against the Eiffel Tower', published on 14 February 1887, protested against this useless and monstrous Eiffel Tower, dominating Paris like a gigantic black smokestack.", 'url': 'https://en.wikipedia.org/wiki/Eiffel_Tower'}
+- {'claim': "Eiffel said the phenomenon he had to give primary concern in designing the Tower was wind resistance; Koechlin's sketch showed four lattice girders standing apart at the base and coming together at the top.", 'url': 'https://en.wikipedia.org/wiki/Eiffel_Tower'}
+- {'claim': "Eiffel declared the curved silhouette was determined by the pattern of wind loads, a principle that removed the need for cross-bracing; however, cross-bracing has been used in the Tower's top two-thirds, and the principle portrayed the profile as a technical necessity rather than an aesthetic choice.", 'url': 'https://openalex.org/W3211338988'}
+- {'claim': 'If the 7,300 tonnes of metal were melted down it would fill the square base to a depth of only 6.25 cm; the air in a box around the tower weighs almost as much as the iron; the tower sways by up to 9 cm in the wind.', 'url': 'https://en.wikipedia.org/wiki/Eiffel_Tower'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
-0.13s Gustave#1
-0.58s Eiffel#1
-1.00s hoisted#1
-1.38s a#1
-1.48s massive#1
-1.88s iron#1
-2.18s beam#1
-2.73s then#1
-2.90s tossed#1
-3.20s it#1
-3.28s aside#1
-4.18s Critics#1
-4.56s shouted#1
-5.16s “It#1
-5.28s looks#1
-5.48s like#1
-5.63s a#2
-5.71s giant#1
-6.11s grill—useless#1
-7.21s and#1
-7.33s ugly!”#1
-8.21s Eiffel#2
-8.58s watches#1
-8.98s the#1
-9.11s wind#1
-9.36s howl#1
-9.66s over#1
-9.88s Paris#1
-10.58s He#1
-10.73s knows#1
-11.01s the#2
-11.11s storm#1
-11.46s could#1
-11.63s snap#1
-11.96s a#3
-12.08s solid#1
-12.46s tower#1
-12.86s like#2
-13.01s a#4
-13.08s twig#1
-13.91s You#1
-14.03s see#1
-14.23s how#1
-14.38s a#5
-14.46s bicycle’s#1
-15.01s frame#1
-15.38s feels#1
-15.68s lighter#1
-16.03s when#1
-16.13s its#1
-16.26s tubes#1
-16.53s are#1
-16.66s spaced#1
-17.38s not#1
-17.63s solid#2
-18.55s Eiffel#3
-18.87s designs#1
-19.50s a#6
-19.59s lattice#1
-19.95s of#1
-20.07s criss‑crossing#1
-20.87s iron#2
-21.17s girders#1
-21.85s The#3
-22.00s open#1
-22.38s web#1
-22.68s lets#1
-22.88s air#1
-23.07s flow#1
-23.38s through#1
-23.90s cutting#1
-24.23s pressure#1
-24.55s on#1
-24.68s every#1
-24.98s point#1
-25.61s At#1
-25.71s the#4
-25.83s same#1
-26.13s time#1
-26.63s the#5
-26.76s empty#1
-27.06s spaces#1
-27.58s shave#1
-27.83s off#1
-28.03s tons#1
-28.31s of#2
-28.41s weight#1
-29.05s Because#1
-29.30s of#3
-29.40s that#1
-29.65s airy#1
-29.92s skeleton#1
-30.75s the#6
-30.85s tower#2
-31.22s sways#1
-31.55s only#1
-31.85s nine#1
-32.17s centimeters#1
-32.72s in#1
-32.80s a#7
-32.87s gale#1
-33.68s The#7
-33.83s “ugly#1
-34.18s grill”#1
-34.71s became#1
-35.08s the#8
-35.18s world’s#1
-35.53s most#1
-35.86s celebrated#1
-36.46s wind‑proof#1
-36.98s monument#1
+0.12s Gustave#1
+0.57s Eiffel#1
+1.05s hoisted#1
+1.42s a#1
+1.52s large#1
+1.90s flag#1
+2.52s atop#1
+2.82s his#1
+3.00s new#1
+3.17s iron#1
+3.50s tower#1
+4.14s Nothing#1
+4.64s 300#1
+5.14s metres#1
+5.46s tall#1
+5.86s had#1
+5.99s ever#1
+6.21s been#1
+6.39s built#1
+7.16s In#1
+7.31s 1887#1
+8.58s famous#1
+8.96s French#1
+9.21s artists#1
+9.71s protested#1
+10.16s against#1
+10.56s it#1
+10.90s Their#1
+11.05s petition#1
+11.57s called#1
+11.75s the#1
+11.85s tower#2
+12.25s useless#1
+12.77s and#1
+12.90s monstrous#1
+13.71s They#1
+13.94s said#1
+14.13s it#2
+14.21s would#1
+14.38s loom#1
+14.61s over#1
+14.84s Paris#1
+15.48s like#1
+15.63s a#2
+15.71s gigantic#1
+16.34s black#1
+16.64s smokestack#1
+17.70s And#2
+17.83s high#1
+18.08s up#1
+18.36s there#1
+18.50s was#1
+18.66s the#2
+18.76s wind#1
+19.40s Eiffel#2
+19.77s said#2
+20.00s wind#2
+20.22s resistance#1
+21.05s was#2
+21.20s his#2
+21.37s primary#1
+21.82s concern#1
+22.82s His#3
+22.99s engineers#1
+23.49s had#2
+23.64s sketched#1
+24.07s four#1
+24.32s lattice#1
+24.69s girders#1
+25.42s open#1
+25.77s frames#1
+26.19s of#1
+26.29s crossing#1
+26.69s iron#2
+27.31s Eiffel#3
+27.69s said#3
+27.91s wind#3
+28.16s loads#1
+28.66s had#3
+28.86s shaped#1
+29.11s the#3
+29.21s curve#1
+29.54s of#2
+29.61s its#1
+29.79s four#2
+29.99s edges#1
+30.69s That#1
+30.91s rule#1
+31.21s removed#1
+31.61s the#4
+31.71s need#1
+31.99s for#1
+32.14s cross-bracing#1
+33.14s extra#1
+33.54s diagonal#1
+34.11s bars#1
+35.09s Melt#1
+35.34s down#1
+35.69s all#1
+35.94s 7,300#1
+37.24s tonnes#1
+37.56s of#3
+37.66s iron#3
+38.23s It#3
+38.31s would#2
+38.43s cover#1
+38.66s the#5
+38.76s base#1
+39.26s just#1
+39.53s 6.25#1
+40.26s centimetres#1
+41.06s deep#1
+41.60s You#1
+41.73s see#1
+41.90s it's#1
+42.00s like#2
+42.15s a#3
+42.23s basket:#1
+42.95s mostly#1
+43.35s air#1
+43.63s yet#1
+43.80s strong#1
+44.48s The#6
+44.66s air#2
+44.88s around#1
+45.21s it#4
+45.51s weighs#1
+45.76s almost#1
+46.16s as#1
+46.31s much#1
+46.53s as#2
+46.63s the#7
+46.78s iron#4
+47.41s In#2
+47.50s the#8
+47.63s wind#4
+48.16s the#9
+48.26s tower#3
+48.61s sways#1
+49.01s by#1
+49.13s up#2
+49.26s to#1
+49.38s 9#1
+49.68s centimetres#2
+50.73s A#4
+50.83s 2020#1
+51.45s study#1
+51.80s found#1
+52.01s a#5
+52.08s catch#1
+52.73s The#10
+52.83s tower's#1
+53.23s top#1
+53.51s two-thirds#1
+53.98s do#1
+54.21s use#1
+54.43s cross-bracing#2
+55.60s His#4
+55.80s wind#5
+56.05s story#1
+56.40s made#1
+56.55s the#11
+56.68s odd#1
+56.95s shape#1
+57.23s seem#1
+57.45s necessary#1
+58.28s not#1
+58.48s chosen#1
+59.22s It#5
+59.35s may#1
+59.46s have#1
+59.60s been#2
+59.72s his#5
+59.87s answer#1
+60.25s to#2
+60.32s the#12
+60.45s artists#2
+60.90s who#1
+61.05s called#2
+61.32s it#6
+61.42s monstrous#2
 
 DRAFT film.json
-{"era": "1880s", "cast": {"eiffel": "a 55 year old tall lean French engineer with a broad high forehead, thinning dark brown hair combed back, deep-set brown eyes, a thick dark moustache with a short pointed beard, wearing a dark navy frock coat over a grey waistcoat, white shirt and black cravat, 1880s", "critic": "a 62 year old stout French critic with a round ruddy face, bushy white eyebrows, small round wire spectacles, a short white beard, wearing a black silk top hat, a dark brown frock coat and a grey waistcoat with a black cravat, 1880s", "worker": "a 34 year old broad muscular ironworker with a soot-darkened face, a thick black moustache, a shaved head under a dark blue flat cap, wearing a faded blue cotton shirt with rolled sleeves, a brown canvas waistcoat and a scorched leather apron, 1880s", "mechanic": "a 27 year old slim bicycle mechanic with a narrow freckled face, sandy blond hair, small round spectacles, wearing a dark green velvet work jacket, a red neckerchief and tan trousers, 1880s", "draughtsman": "a 24 year old pale young draughtsman with curly dark hair, a clean-shaven face, ink-stained fingers, wearing a grey striped shirt, a dark tie and a black waistcoat, 1880s"}, "music": "epic", "key_words": ["Gustave#1", "Eiffel#1", "hoisted#1", "a#1", "massive#1", "iron#1", "beam#1", "then#1", "tossed#1", "it#1", "aside#1", "Critics#1", "shouted#1", "It#1", "looks#1", "like#1", "giant#1", "grill#1", "useless#1", "and#1", "ugly#1", "Eiffel#2", "watches#1", "wind#1", "howl#1", "over#1", "Paris#1", "He#1", "knows#1", "storm#1", "could#1", "snap#1", "solid#1", "tower#1", "a#2", "like#2", "a#3", "twig#1", "You#1", "see#1", "how#1", "a#4", "bicycle's#1", "frame#1", "feels#1", "lighter#1", "when#1", "its#1", "tubes#1", "are#1", "spaced#1", "not#1", "solid#2", "Eiffel#3", "designs#1", "lattice#1", "of#1", "criss-crossing#1", "iron#2", "girders#1", "the#1", "open#1", "web#1", "lets#1", "air#1", "flow#1", "through#1", "cutting#1", "pressure#1", "on#1", "every#1", "point#1", "At#1", "the#2", "same#1", "time#1", "empty#1", "spaces#1", "shave#1", "off#1", "tons#1", "weight#1", "Because#1", "of#2", "that#1", "airy#1", "skeleton#1", "tower#2", "sways#1", "only#1", "nine#1", "centimeters#1", "in#1", "a#5", "gale#1", "the#3", "ugly#2", "grill#2", "became#1", "world's#1", "most#1", "celebrated#1", "wind-proof#1", "monument#1"], "shots": [{"name": "hoist", "at": 0, "who": "eiffel", "clip": true, "prompt": "medium shot, {eiffel} gripping a heavy chain over his shoulder and pulling as a massive riveted iron beam rises beside him, 1880s Paris construction site, cold morning light", "motion": "he pulls the chain down and the beam rises, slow camera push in", "check": "Is a man pulling a heavy chain?"}, {"name": "discard", "at": "tossed#1", "who": "eiffel", "clip": true, "prompt": "medium shot, {eiffel} shoving both arms forward as a massive iron beam swings away from the tower platform edge, workers below, 1880s Paris, grey daylight", "motion": "he shoves his arms forward and the beam swings away, slow camera pull back", "hit": "tossed#1", "check": "Is a man shoving a large iron beam?"}, {"name": "shout", "at": "Critics#1", "who": "critic", "clip": true, "prompt": "medium shot, a stout man in a black top hat pointing upward and shouting angrily, he is {critic}, beside a half-built iron lattice tower in Paris, grey daylight", "motion": "he jabs his finger upward and shouts, slow camera push in", "xfade": true, "check": "Is a man pointing upward and shouting?"}, {"name": "grill", "at": "grill—useless#1", "move": "up", "prompt": "low angle, a half-built iron lattice tower with criss-crossing girders filling the frame against a grey Paris sky, construction site below, overcast daylight", "hit": "grill—useless#1", "check": "Are there criss-crossing iron beams?"}, {"name": "gale_watch", "at": "Eiffel#2", "who": "eiffel", "xfade": true, "clip": true, "prompt": "close-up, a tall lean engineer leaning into the gale on a high iron platform, coat whipping, squinting toward the horizon, he is {eiffel}, the half-built iron tower above Paris, stormy grey light", "motion": "his coat flaps hard and he squints, slow camera push in", "check": "Is a man squinting into the wind?"}, {"name": "storm_paris", "at": "Paris#1", "move": "push", "prompt": "wide shot of Paris rooftops and chimney smoke swirling under dark storm clouds, wind bending treetops and whipping flags, 1880s, grey afternoon light", "check": "Are there Paris rooftops under storm clouds?"}, {"name": "solid_snaps", "at": "snap#1", "hit": "snap#1", "clip": true, "prompt": "medium shot, a thick solid riveted iron column bent and cracked at the base on a Paris construction site, timber scaffolding behind, stormy grey light", "motion": "the cracked iron column creaks and wobbles in the wind, slow camera push in", "check": "Is a solid iron column bent and cracked?"}, {"name": "bicycle_frame", "at": "You#1", "who": "mechanic", "clip": true, "prompt": "medium shot, a young mechanic lifting a hollow black bicycle frame with one hand, testing its light weight, he is {mechanic}, an 1880s workshop with tools, warm sunlight", "motion": "he lifts the bicycle frame gently, slow camera push in", "check": "Is a man lifting a bicycle frame?"}, {"name": "spaced_tubes", "at": "when#1", "clip": true, "prompt": "extreme close-up of hands holding two hollow metal bicycle tubes with open space between them, polished steel joint, wooden workbench background, soft light", "motion": "the hands turn the metal frame tubes slightly, slow camera push in", "check": "Are there metal tubes?"}, {"name": "designs", "at": "Eiffel#3", "who": "eiffel", "xfade": true, "clip": true, "prompt": "close-up, a man leaning over a wooden drafting table drawing diagonal lattice lines with a ruler on blue paper, he is {eiffel}, gas lamp light", "motion": "he draws a crisp ink line with a ruler, gas flame flickers, slow camera push in", "check": "Is a man drawing on paper?"}, {"name": "girders", "at": "criss‑crossing#1", "who": "worker", "clip": true, "prompt": "medium shot, an ironworker hammering a glowing red rivet into criss-crossing black iron girders, he is {worker}, tall wooden scaffolding, daylight", "motion": "he hammers the glowing rivet firmly, sparks fly, slow camera push in", "check": "Is a man hammering a rivet?"}, {"name": "airflow", "at": "open#1", "clip": true, "prompt": "close-up of white steam drifting smoothly through open triangular gaps of a black iron lattice girder, bright blue sky background", "motion": "white steam drifts through the iron open gaps, slow camera push in", "check": "Is there steam drifting through iron girders?"}, {"name": "pressure", "at": "pressure#1", "who": "draughtsman", "hit": "pressure#1", "clip": true, "prompt": "close-up, a young man pressing a brass divider tool onto technical drawings on a wooden desk, he is {draughtsman}, oil lamp light", "motion": "he presses the brass tool onto the paper, slow camera push in", "check": "Is a man pressing a tool onto drawings?"}, {"name": "spaces", "at": "time#1", "move": "up", "prompt": "low angle looking up through empty triangular spaces of a towering black iron structure, fluffy white clouds in a bright blue sky", "check": "Is this a low angle view of iron girders?"}, {"name": "weight", "at": "tons#1", "who": "worker", "clip": true, "prompt": "medium shot, a muscular ironworker pulling a thick hemp rope on a high wooden platform, he is {worker}, sunny sky behind him", "motion": "he pulls the rope downwards smoothly, slow camera push in", "check": "Is a man pulling a rope?"}, {"name": "skeleton", "at": "Because#1", "move": "up", "prompt": "low angle looking up inside the hollow iron lattice tower under construction, open web of dark girders against grey sky, 1880s Paris", "check": "Is this an iron lattice structure?"}, {"name": "gale", "at": "sways#1", "who": "eiffel", "clip": true, "hit": "gale#1", "prompt": "medium shot, a man holding a brass plumb line on a high iron tower platform, wind blowing his dark coat, he is {eiffel}, dark stormy sky behind him, 1880s", "motion": "he holds the brass plumb line as wind blows his coat, slow camera push in", "check": "Is a man holding a plumb line?"}, {"name": "critic_admires", "at": "The#7", "who": "critic", "clip": true, "prompt": "medium close-up, a stout man tipping his black top hat back and looking up in awe, he is {critic}, standing on a Paris street, bright afternoon sky", "motion": "he slowly tips back his hat and looks up, slow camera push in", "check": "Is a man tipping his hat?"}, {"name": "eiffel_triumph", "at": "world’s#1", "who": "eiffel", "clip": true, "prompt": "medium shot, a distinguished engineer standing proudly with arms behind his back on a balcony, smiling, he is {eiffel}, Paris skyline behind him, golden light", "motion": "he smiles gently as wind blows his coat, slow camera push in", "check": "Is a man standing on a balcony?"}, {"name": "iconic_tower", "at": "monument#1", "move": "up", "prompt": "low angle wide shot of the towering iron Eiffel Tower reaching high into a sky with light clouds, golden sunset light through lattice girders, 1880s Paris", "check": "Is there a tall iron tower?"}]}
+{"era": "1880s", "music": "curious", "key_words": ["Eiffel", "lattice", "wind", "smokestack", "basket"], "cast": {"eiffel": "a 56 year old French engineer, upright build, greying swept-back hair, a neatly trimmed full grey-streaked beard, bright alert eyes, a charcoal grey frock coat, a white wing collar and a black silk cravat, 1880s", "garnier": "a 61 year old French architect, stout build, wild curly white hair, a bushy white beard, a round red face, a black velvet jacket and a wide floppy crimson bow tie, 1880s", "koechlin": "a 28 year old slim Swiss engineer, neat short light brown hair, a thin light brown moustache, small wire spectacles, white shirt sleeves rolled up and a tan waistcoat, 1880s"}, "shots": [{"name": "hoist", "at": 0, "who": "eiffel", "clip": true, "prompt": "medium shot, a bearded man pulling hard on a rope atop an iron tower, he is {eiffel}, windy blue sky over Paris, bright sun", "motion": "he pulls the rope hand over hand, slow camera push in", "check": "Is a man pulling a rope?"}, {"name": "flag", "at": "flag#1", "clip": true, "prompt": "close-up, a big red white and blue French flag unfurling on a pole high above Paris, bright blue sky, 1889", "motion": "the flag ripples in the wind, slow camera move up", "check": "Is there a red white and blue flag?"}, {"name": "height", "at": "Nothing#1", "move": "pull", "prompt": "wide shot of a giant iron tower far taller than every church and rooftop of 1880s Paris, hazy afternoon light", "check": "Is there a giant iron tower above a city?"}, {"name": "built", "at": "ever#1", "clip": true, "prompt": "medium shot, ironworkers in flat caps hammering rivets on a high iron girder above Paris, 1880s, hazy sunlight", "motion": "a worker swings his hammer down, slow camera push in", "check": "Are workers on an iron girder?"}, {"name": "artists", "at": "1887#1", "xfade": true, "clip": true, "prompt": "medium shot, angry men in black frock coats and top hats shaking their fists in a gaslit Paris salon, 1880s, warm lamp light", "motion": "they shake their fists, slow camera push in", "check": "Are angry men in top hats shaking their fists?"}, {"name": "garnier", "at": "protested#1", "who": "garnier", "clip": true, "prompt": "close-up, a stout white-bearded architect jabbing his finger in protest, he is {garnier}, ornate Paris salon, warm lamp light", "motion": "he jabs his finger forward, slow camera push in", "check": "Is a white-bearded man pointing?"}, {"name": "petition", "at": "petition#1", "clip": true, "prompt": "close-up, a hand slapping a long paper petition down on a polished wooden table, ink pot beside it, 1880s salon, warm light", "motion": "the hand presses down on the paper, slow camera push in", "check": "Is a hand pressing a paper on a table?"}, {"name": "useless", "at": "useless#1", "hit": "monstrous#1", "who": "garnier", "clip": true, "prompt": "close-up, a white-bearded architect scowling in disgust and turning his head away, he is {garnier}, Paris street, grey afternoon", "motion": "he turns his head away with a scowl, slow camera push in", "check": "Is a white-bearded man scowling?"}, {"name": "loom", "at": "loom#1", "move": "push", "prompt": "low angle of a dark iron tower looming over grey Paris rooftops under a gloomy storm sky, 1880s", "check": "Is a dark tower looming over rooftops?"}, {"name": "smokestack", "at": "gigantic#1", "hit": "smokestack#1", "clip": true, "prompt": "low angle of a gigantic black factory smokestack pouring dark smoke into a grey sky, 1880s, gloomy light", "motion": "dark smoke billows upward, slow camera tilt up", "check": "Is there a black smokestack?"}, {"name": "wind", "at": "And#2", "xfade": true, "clip": true, "prompt": "wide shot of tall trees bending in strong wind along a Paris boulevard, storm clouds racing, cold grey light, 1880s", "motion": "the trees sway hard in the wind, slow camera move left", "check": "Are trees bending in the wind?"}, {"name": "concern", "at": "Eiffel#2", "who": "eiffel", "clip": true, "prompt": "medium shot, a bearded engineer holding his hat against strong wind on an iron platform high above Paris, he is {eiffel}, grey sky", "motion": "he grips his hat as his coat flaps, slow camera push in", "check": "Is a man holding his hat?"}, {"name": "primary", "at": "primary#1", "who": "eiffel", "clip": true, "prompt": "close-up, a bearded engineer frowning up at the sky, he is {eiffel}, iron girders behind him, cold grey light", "motion": "he narrows his eyes at the sky, slow camera push in", "check": "Is a bearded man looking up?"}, {"name": "sketch", "at": "engineers#1", "xfade": true, "who": "koechlin", "clip": true, "prompt": "close-up, a young engineer drawing a tall tower on a large sheet of paper with a pencil, he is {koechlin}, home study, oil lamp light", "motion": "his pencil moves along the paper, slow camera push in", "check": "Is a man drawing on paper?"}, {"name": "lattice", "at": "open#1", "move": "up", "prompt": "low angle looking up inside a brown wrought iron lattice girder, crossing iron bars against a bright sky", "check": "Are there crossing iron bars?"}, {"name": "curve", "at": "Eiffel#3", "who": "eiffel", "clip": true, "prompt": "medium shot, a bearded engineer tracing a curve with his finger on a large tower drawing pinned to a wall, he is {eiffel}, office, daylight", "motion": "his finger slides slowly along the curve, slow camera push in", "check": "Is a man touching a drawing?"}, {"name": "edges", "at": "curve#1", "move": "up", "prompt": "low angle of one curved iron tower leg sweeping upward from a stone base, Paris, golden morning light", "check": "Is there a curved iron tower leg?"}, {"name": "rule", "at": "rule#1", "move": "right", "prompt": "close-up of two iron girders joined by rows of round rivets, no diagonal bars, bright daylight", "check": "Are there iron girders with rivets?"}, {"name": "brace", "at": "extra#1", "move": "push", "prompt": "close-up of a heavy diagonal iron brace bolted across a square iron frame, workshop, dusty daylight", "check": "Is there a diagonal iron brace?"}, {"name": "melt", "at": "Melt#1", "xfade": true, "clip": true, "prompt": "close-up, glowing orange molten iron pouring from a tilted crucible in a dark foundry, sparks flying", "motion": "the molten iron pours and sparks fly, slow camera push in", "check": "Is molten iron pouring?"}, {"name": "tonnes", "at": "tonnes#1", "move": "pull", "prompt": "wide shot of a huge pile of brown wrought iron bars stacked in a factory yard, 1880s, overcast light", "check": "Is there a pile of iron bars?"}, {"name": "base", "at": "cover#1", "move": "down", "prompt": "high angle of a thin shiny layer of cooled iron covering a wide square of ground, soft daylight", "check": "Is there a thin layer of iron on the ground?"}, {"name": "basket", "at": "You#1", "clip": true, "prompt": "close-up, a hand lifting a light woven wicker basket by its handle, kitchen table, warm window light", "motion": "the hand lifts the basket slightly, slow camera push in", "check": "Is a hand lifting a wicker basket?"}, {"name": "weave", "at": "yet#1", "clip": true, "prompt": "extreme close-up of an empty woven wicker basket with sunlight shining through the gaps, warm window light", "motion": "the basket turns slowly as light flickers through, slow camera push in", "check": "Is there a wicker basket?"}, {"name": "air", "at": "around#1", "move": "pull", "prompt": "wide shot of an open iron lattice tower with clear sky visible through its frame, Paris, bright day", "check": "Is there an iron lattice tower?"}, {"name": "iron", "at": "almost#1", "move": "right", "prompt": "close-up of thick brown riveted iron beams of a tower frame with open sky between them, bright daylight", "check": "Are there riveted iron beams?"}, {"name": "storm", "at": "In#2", "clip": true, "prompt": "medium shot, the top of an iron tower in strong wind with storm clouds rushing past, dramatic grey light", "motion": "clouds rush past the tower top, slow camera push in", "check": "Is there the top of an iron tower?"}, {"name": "sway", "at": "sways#1", "hit": "sways#1", "move": "left", "prompt": "close-up of an iron lattice tower tip against fast grey clouds, rain streaks, stormy light", "check": "Is there an iron tower tip?"}, {"name": "study", "at": "A#4", "xfade": true, "clip": true, "prompt": "close-up, a hand turning the page of a thick research journal on a modern desk, soft lamp light", "motion": "the hand turns the page, slow camera push in", "check": "Is a hand turning a page?"}, {"name": "catch", "at": "catch#1", "hit": "catch#1", "move": "push", "prompt": "close-up of a magnifying glass held over an old drawing of a tall iron tower on a desk, soft lamp light", "check": "Is there a magnifying glass?"}, {"name": "top", "at": "top#1", "move": "up", "prompt": "low angle of the upper iron lattice of a tall tower with diagonal cross braces, bright blue sky", "check": "Are there diagonal iron braces?"}, {"name": "story", "at": "His#4", "who": "eiffel", "clip": true, "prompt": "medium shot, a bearded engineer gesturing at a large tower drawing in front of seated men in frock coats, he is {eiffel}, lecture hall, lamp light", "motion": "he sweeps his hand across the drawing, slow camera push in", "check": "Is a man gesturing at a drawing?"}, {"name": "smile", "at": "seem#1", "who": "eiffel", "clip": true, "prompt": "close-up, a bearded engineer smiling slightly with folded arms, he is {eiffel}, lecture hall, warm lamp light", "motion": "he smiles slowly, slow camera push in", "check": "Is a bearded man smiling?"}, {"name": "answer", "at": "It#5", "who": "garnier", "clip": true, "prompt": "close-up, a white-bearded architect staring up with his mouth open, he is {garnier}, Paris street, golden evening light", "motion": "he slowly lifts his gaze upward, slow camera push in", "check": "Is a white-bearded man looking up?"}, {"name": "artists2", "at": "answer#1", "clip": true, "prompt": "medium shot, old men in black frock coats and top hats lowering their heads in a quiet Paris square, iron tower behind them, evening light", "motion": "they slowly lower their heads, slow camera push in", "check": "Are men in top hats standing in a square?"}, {"name": "final", "at": "called#2", "move": "pull", "prompt": "wide shot of a curved iron tower glowing in golden sunset light above 1880s Paris rooftops", "check": "Is there an iron tower at sunset?"}]}
 
 SOURCES (data only)
 [1] Eiffel Tower | https://en.wikipedia.org/wiki/Eiffel_Tower
