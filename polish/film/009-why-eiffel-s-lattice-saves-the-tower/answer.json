@@ -1,0 +1,406 @@
+{
+ "script": {
+  "title": "Why Eiffel's Tower Curves",
+  "beats": [
+   {
+    "feel": "pride",
+    "lines": [
+     "Gustave Eiffel hoisted a large flag atop his new iron tower.",
+     "Nothing 300 metres tall had ever been built."
+    ]
+   },
+   {
+    "feel": "scorn",
+    "lines": [
+     "In 1887, famous French artists protested against it.",
+     "Their petition called the tower useless and monstrous.",
+     "They said it would loom over Paris like a gigantic black smokestack."
+    ]
+   },
+   {
+    "feel": "dread",
+    "lines": [
+     "And high up, there was the wind.",
+     "Eiffel said wind resistance was his primary concern."
+    ]
+   },
+   {
+    "feel": "curiosity",
+    "lines": [
+     "His engineers had sketched four lattice girders, open frames of crossing iron.",
+     "Eiffel said wind loads had shaped the curve of its four edges.",
+     "That rule removed the need for cross-bracing, extra diagonal bars."
+    ]
+   },
+   {
+    "feel": "wonder",
+    "lines": [
+     "Melt down all 7,300 tonnes of iron.",
+     "It would cover the base just 6.25 centimetres deep.",
+     "You see, it's like a basket: mostly air, yet strong.",
+     "The air around it weighs almost as much as the iron.",
+     "In the wind, the tower sways by up to 9 centimetres."
+    ]
+   },
+   {
+    "feel": "surprise",
+    "lines": [
+     "A 2020 study found a catch.",
+     "The tower's top two-thirds do use cross-bracing."
+    ]
+   },
+   {
+    "feel": "irony",
+    "lines": [
+     "His wind story made the odd shape seem necessary, not chosen.",
+     "It may have been his answer to the artists who called it monstrous."
+    ]
+   }
+  ],
+  "key_words": [
+   "Eiffel",
+   "lattice",
+   "wind",
+   "cross-bracing",
+   "monstrous",
+   "smokestack"
+  ],
+  "claims": [
+   {
+    "claim": "On 31 March 1889 Eiffel led officials to the top of the tower and hoisted a large Tricolour.",
+    "url": "https://en.wikipedia.org/wiki/Eiffel_Tower"
+   },
+   {
+    "claim": "When proposed, nothing equalling the Tower's 300m height had ever been built.",
+    "url": "https://openalex.org/W3211338988"
+   },
+   {
+    "claim": "The petition 'Artists against the Eiffel Tower', published on 14 February 1887, protested against this useless and monstrous Eiffel Tower, dominating Paris like a gigantic black smokestack.",
+    "url": "https://en.wikipedia.org/wiki/Eiffel_Tower"
+   },
+   {
+    "claim": "Eiffel said the phenomenon he had to give primary concern in designing the Tower was wind resistance; Koechlin's sketch showed four lattice girders standing apart at the base and coming together at the top.",
+    "url": "https://en.wikipedia.org/wiki/Eiffel_Tower"
+   },
+   {
+    "claim": "Eiffel declared the curved silhouette was determined by the pattern of wind loads, a principle that removed the need for cross-bracing; however, cross-bracing has been used in the Tower's top two-thirds, and the principle portrayed the profile as a technical necessity rather than an aesthetic choice.",
+    "url": "https://openalex.org/W3211338988"
+   },
+   {
+    "claim": "If the 7,300 tonnes of metal were melted down it would fill the square base to a depth of only 6.25 cm; the air in a box around the tower weighs almost as much as the iron; the tower sways by up to 9 cm in the wind.",
+    "url": "https://en.wikipedia.org/wiki/Eiffel_Tower"
+   }
+  ]
+ },
+ "film": {
+  "era": "1880s",
+  "music": "curious",
+  "key_words": [
+   "Eiffel",
+   "lattice",
+   "wind",
+   "smokestack",
+   "basket"
+  ],
+  "cast": {
+   "eiffel": "a 56 year old French engineer, upright build, greying swept-back hair, a neatly trimmed full grey-streaked beard, bright alert eyes, a charcoal grey frock coat, a white wing collar and a black silk cravat, 1880s",
+   "garnier": "a 61 year old French architect, stout build, wild curly white hair, a bushy white beard, a round red face, a black velvet jacket and a wide floppy crimson bow tie, 1880s",
+   "koechlin": "a 28 year old slim Swiss engineer, neat short light brown hair, a thin light brown moustache, small wire spectacles, white shirt sleeves rolled up and a tan waistcoat, 1880s"
+  },
+  "shots": [
+   {
+    "name": "hoist",
+    "at": 0,
+    "who": "eiffel",
+    "clip": true,
+    "prompt": "medium shot, a bearded man pulling hard on a rope atop an iron tower, he is {eiffel}, windy blue sky over Paris, bright sun",
+    "motion": "he pulls the rope hand over hand, slow camera push in",
+    "check": "Is a man pulling a rope?"
+   },
+   {
+    "name": "flag",
+    "at": "flag#1",
+    "clip": true,
+    "prompt": "close-up, a big red white and blue French flag unfurling on a pole high above Paris, bright blue sky, 1889",
+    "motion": "the flag ripples in the wind, slow camera move up",
+    "check": "Is there a red white and blue flag?"
+   },
+   {
+    "name": "height",
+    "at": "Nothing#1",
+    "move": "pull",
+    "prompt": "wide shot of a giant iron tower far taller than every church and rooftop of 1880s Paris, hazy afternoon light",
+    "check": "Is there a giant iron tower above a city?"
+   },
+   {
+    "name": "built",
+    "at": "ever#1",
+    "clip": true,
+    "prompt": "medium shot, ironworkers in flat caps hammering rivets on a high iron girder above Paris, 1880s, hazy sunlight",
+    "motion": "a worker swings his hammer down, slow camera push in",
+    "check": "Are workers on an iron girder?"
+   },
+   {
+    "name": "artists",
+    "at": "1887#1",
+    "xfade": true,
+    "clip": true,
+    "prompt": "medium shot, angry men in black frock coats and top hats shaking their fists in a gaslit Paris salon, 1880s, warm lamp light",
+    "motion": "they shake their fists, slow camera push in",
+    "check": "Are angry men in top hats shaking their fists?"
+   },
+   {
+    "name": "garnier",
+    "at": "protested#1",
+    "who": "garnier",
+    "clip": true,
+    "prompt": "close-up, a stout white-bearded architect jabbing his finger in protest, he is {garnier}, ornate Paris salon, warm lamp light",
+    "motion": "he jabs his finger forward, slow camera push in",
+    "check": "Is a white-bearded man pointing?"
+   },
+   {
+    "name": "petition",
+    "at": "petition#1",
+    "clip": true,
+    "prompt": "close-up, a hand slapping a long paper petition down on a polished wooden table, ink pot beside it, 1880s salon, warm light",
+    "motion": "the hand presses down on the paper, slow camera push in",
+    "check": "Is a hand pressing a paper on a table?"
+   },
+   {
+    "name": "useless",
+    "at": "useless#1",
+    "hit": "monstrous#1",
+    "who": "garnier",
+    "clip": true,
+    "prompt": "close-up, a white-bearded architect scowling in disgust and turning his head away, he is {garnier}, Paris street, grey afternoon",
+    "motion": "he turns his head away with a scowl, slow camera push in",
+    "check": "Is a white-bearded man scowling?"
+   },
+   {
+    "name": "loom",
+    "at": "loom#1",
+    "move": "push",
+    "prompt": "low angle of a dark iron tower looming over grey Paris rooftops under a gloomy storm sky, 1880s",
+    "check": "Is a dark tower looming over rooftops?"
+   },
+   {
+    "name": "smokestack",
+    "at": "gigantic#1",
+    "hit": "smokestack#1",
+    "clip": true,
+    "prompt": "low angle of a gigantic black factory smokestack pouring dark smoke into a grey sky, 1880s, gloomy light",
+    "motion": "dark smoke billows upward, slow camera tilt up",
+    "check": "Is there a black smokestack?"
+   },
+   {
+    "name": "wind",
+    "at": "And#2",
+    "xfade": true,
+    "clip": true,
+    "prompt": "wide shot of tall trees bending in strong wind along a Paris boulevard, storm clouds racing, cold grey light, 1880s",
+    "motion": "the trees sway hard in the wind, slow camera move left",
+    "check": "Are trees bending in the wind?"
+   },
+   {
+    "name": "concern",
+    "at": "Eiffel#2",
+    "who": "eiffel",
+    "clip": true,
+    "prompt": "medium shot, a bearded engineer holding his hat against strong wind on an iron platform high above Paris, he is {eiffel}, grey sky",
+    "motion": "he grips his hat as his coat flaps, slow camera push in",
+    "check": "Is a man holding his hat?"
+   },
+   {
+    "name": "primary",
+    "at": "primary#1",
+    "who": "eiffel",
+    "clip": true,
+    "prompt": "close-up, a bearded engineer frowning up at the sky, he is {eiffel}, iron girders behind him, cold grey light",
+    "motion": "he narrows his eyes at the sky, slow camera push in",
+    "check": "Is a bearded man looking up?"
+   },
+   {
+    "name": "sketch",
+    "at": "engineers#1",
+    "xfade": true,
+    "who": "koechlin",
+    "clip": true,
+    "prompt": "close-up, a young engineer drawing a tall tower on a large sheet of paper with a pencil, he is {koechlin}, home study, oil lamp light",
+    "motion": "his pencil moves along the paper, slow camera push in",
+    "check": "Is a man drawing on paper?"
+   },
+   {
+    "name": "lattice",
+    "at": "open#1",
+    "move": "up",
+    "prompt": "low angle looking up inside a brown wrought iron lattice girder, crossing iron bars against a bright sky",
+    "check": "Are there crossing iron bars?"
+   },
+   {
+    "name": "curve",
+    "at": "Eiffel#3",
+    "who": "eiffel",
+    "clip": true,
+    "prompt": "medium shot, a bearded engineer tracing a curve with his finger on a large tower drawing pinned to a wall, he is {eiffel}, office, daylight",
+    "motion": "his finger slides slowly along the curve, slow camera push in",
+    "check": "Is a man touching a drawing?"
+   },
+   {
+    "name": "edges",
+    "at": "curve#1",
+    "move": "up",
+    "prompt": "low angle of one curved iron tower leg sweeping upward from a stone base, Paris, golden morning light",
+    "check": "Is there a curved iron tower leg?"
+   },
+   {
+    "name": "rule",
+    "at": "rule#1",
+    "move": "right",
+    "prompt": "close-up of two iron girders joined by rows of round rivets, no diagonal bars, bright daylight",
+    "check": "Are there iron girders with rivets?"
+   },
+   {
+    "name": "brace",
+    "at": "extra#1",
+    "move": "push",
+    "prompt": "close-up of a heavy diagonal iron brace bolted across a square iron frame, workshop, dusty daylight",
+    "check": "Is there a diagonal iron brace?"
+   },
+   {
+    "name": "melt",
+    "at": "Melt#1",
+    "xfade": true,
+    "clip": true,
+    "prompt": "close-up, glowing orange molten iron pouring from a tilted crucible in a dark foundry, sparks flying",
+    "motion": "the molten iron pours and sparks fly, slow camera push in",
+    "check": "Is molten iron pouring?"
+   },
+   {
+    "name": "tonnes",
+    "at": "tonnes#1",
+    "move": "pull",
+    "prompt": "wide shot of a huge pile of brown wrought iron bars stacked in a factory yard, 1880s, overcast light",
+    "check": "Is there a pile of iron bars?"
+   },
+   {
+    "name": "base",
+    "at": "cover#1",
+    "move": "down",
+    "prompt": "high angle of a thin shiny layer of cooled iron covering a wide square of ground, soft daylight",
+    "check": "Is there a thin layer of iron on the ground?"
+   },
+   {
+    "name": "basket",
+    "at": "You#1",
+    "clip": true,
+    "prompt": "close-up, a hand lifting a light woven wicker basket by its handle, kitchen table, warm window light",
+    "motion": "the hand lifts the basket slightly, slow camera push in",
+    "check": "Is a hand lifting a wicker basket?"
+   },
+   {
+    "name": "weave",
+    "at": "yet#1",
+    "clip": true,
+    "prompt": "extreme close-up of an empty woven wicker basket with sunlight shining through the gaps, warm window light",
+    "motion": "the basket turns slowly as light flickers through, slow camera push in",
+    "check": "Is there a wicker basket?"
+   },
+   {
+    "name": "air",
+    "at": "around#1",
+    "move": "pull",
+    "prompt": "wide shot of an open iron lattice tower with clear sky visible through its frame, Paris, bright day",
+    "check": "Is there an iron lattice tower?"
+   },
+   {
+    "name": "iron",
+    "at": "almost#1",
+    "move": "right",
+    "prompt": "close-up of thick brown riveted iron beams of a tower frame with open sky between them, bright daylight",
+    "check": "Are there riveted iron beams?"
+   },
+   {
+    "name": "storm",
+    "at": "In#2",
+    "clip": true,
+    "prompt": "medium shot, the top of an iron tower in strong wind with storm clouds rushing past, dramatic grey light",
+    "motion": "clouds rush past the tower top, slow camera push in",
+    "check": "Is there the top of an iron tower?"
+   },
+   {
+    "name": "sway",
+    "at": "sways#1",
+    "hit": "sways#1",
+    "move": "left",
+    "prompt": "close-up of an iron lattice tower tip against fast grey clouds, rain streaks, stormy light",
+    "check": "Is there an iron tower tip?"
+   },
+   {
+    "name": "study",
+    "at": "A#4",
+    "xfade": true,
+    "clip": true,
+    "prompt": "close-up, a hand turning the page of a thick research journal on a modern desk, soft lamp light",
+    "motion": "the hand turns the page, slow camera push in",
+    "check": "Is a hand turning a page?"
+   },
+   {
+    "name": "catch",
+    "at": "catch#1",
+    "hit": "catch#1",
+    "move": "push",
+    "prompt": "close-up of a magnifying glass held over an old drawing of a tall iron tower on a desk, soft lamp light",
+    "check": "Is there a magnifying glass?"
+   },
+   {
+    "name": "top",
+    "at": "top#1",
+    "move": "up",
+    "prompt": "low angle of the upper iron lattice of a tall tower with diagonal cross braces, bright blue sky",
+    "check": "Are there diagonal iron braces?"
+   },
+   {
+    "name": "story",
+    "at": "His#4",
+    "who": "eiffel",
+    "clip": true,
+    "prompt": "medium shot, a bearded engineer gesturing at a large tower drawing in front of seated men in frock coats, he is {eiffel}, lecture hall, lamp light",
+    "motion": "he sweeps his hand across the drawing, slow camera push in",
+    "check": "Is a man gesturing at a drawing?"
+   },
+   {
+    "name": "smile",
+    "at": "seem#1",
+    "who": "eiffel",
+    "clip": true,
+    "prompt": "close-up, a bearded engineer smiling slightly with folded arms, he is {eiffel}, lecture hall, warm lamp light",
+    "motion": "he smiles slowly, slow camera push in",
+    "check": "Is a bearded man smiling?"
+   },
+   {
+    "name": "answer",
+    "at": "It#5",
+    "who": "garnier",
+    "clip": true,
+    "prompt": "close-up, a white-bearded architect staring up with his mouth open, he is {garnier}, Paris street, golden evening light",
+    "motion": "he slowly lifts his gaze upward, slow camera push in",
+    "check": "Is a white-bearded man looking up?"
+   },
+   {
+    "name": "artists2",
+    "at": "answer#1",
+    "clip": true,
+    "prompt": "medium shot, old men in black frock coats and top hats lowering their heads in a quiet Paris square, iron tower behind them, evening light",
+    "motion": "they slowly lower their heads, slow camera push in",
+    "check": "Are men in top hats standing in a square?"
+   },
+   {
+    "name": "final",
+    "at": "called#2",
+    "move": "pull",
+    "prompt": "wide shot of a curved iron tower glowing in golden sunset light above 1880s Paris rooftops",
+    "check": "Is there an iron tower at sunset?"
+   }
+  ]
+ }
+}
