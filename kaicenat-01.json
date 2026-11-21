@@ -1,0 +1,64 @@
+{
+ "off": 1794867795,
+ "a": 1794867795,
+ "b": 1794867825,
+ "views": 17557,
+ "fan_titles": [
+  "17557: Kai Crazy Reaction to GTA VI"
+ ],
+ "fan_clip": "https://www.twitch.tv/kaicenat/clip/SillyTubularOilYee-GTZ5PXa-rOA8pYoA",
+ "file": "kaicenat-01.mp4",
+ "section_start_in_vod": 1794867795,
+ "section_end_in_vod": 1794867825,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/kaicenat/clips",
+ "stream_title": "fan clips",
+ "streamer_channel": "kaicenat",
+ "words": [
+  {
+   "w": "Pick",
+   "s": 9.94,
+   "e": 10.42
+  },
+  {
+   "w": "up",
+   "s": 10.42,
+   "e": 11.06
+  },
+  {
+   "w": "straight",
+   "s": 11.06,
+   "e": 12.44
+  },
+  {
+   "w": "up",
+   "s": 20.08,
+   "e": 20.44
+  },
+  {
+   "w": "first",
+   "s": 20.44,
+   "e": 21.0
+  },
+  {
+   "w": "door",
+   "s": 21.0,
+   "e": 21.2
+  },
+  {
+   "w": "on",
+   "s": 21.2,
+   "e": 21.32
+  },
+  {
+   "w": "the",
+   "s": 21.32,
+   "e": 21.4
+  },
+  {
+   "w": "right",
+   "s": 21.4,
+   "e": 21.98
+  }
+ ]
+}

@@ -1,0 +1,34 @@
+{
+ "off": 1795037135,
+ "a": 1795037135,
+ "b": 1795037149,
+ "views": 678,
+ "fan_titles": [
+  "678: albanian in gta vi?"
+ ],
+ "fan_clip": "https://www.twitch.tv/kaicenat/clip/VibrantJazzyMacaroniPanicBasket-2Hi34N3ZIXsXREhh",
+ "file": "kaicenat-04.mp4",
+ "section_start_in_vod": 1795037135,
+ "section_end_in_vod": 1795037149,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/kaicenat/clips",
+ "stream_title": "fan clips",
+ "streamer_channel": "kaicenat",
+ "words": [
+  {
+   "w": "Hold",
+   "s": 0.0,
+   "e": 1.0
+  },
+  {
+   "w": "my",
+   "s": 1.0,
+   "e": 1.2
+  },
+  {
+   "w": "hand!",
+   "s": 1.2,
+   "e": 1.66
+  }
+ ]
+}

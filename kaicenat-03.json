@@ -1,0 +1,39 @@
+{
+ "off": 1794950176,
+ "a": 1794950176,
+ "b": 1794950181,
+ "views": 1684,
+ "fan_titles": [
+  "1684: NO WAY BBL GIRLS IN GTA VI"
+ ],
+ "fan_clip": "https://www.twitch.tv/kaicenat/clip/PopularHotEggnogBudStar-P1_ApQtjgdBtCvbD",
+ "file": "kaicenat-03.mp4",
+ "section_start_in_vod": 1794950176,
+ "section_end_in_vod": 1794950181,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/kaicenat/clips",
+ "stream_title": "fan clips",
+ "streamer_channel": "kaicenat",
+ "words": [
+  {
+   "w": "And",
+   "s": 2.22,
+   "e": 2.4
+  },
+  {
+   "w": "that's",
+   "s": 2.4,
+   "e": 2.58
+  },
+  {
+   "w": "no",
+   "s": 2.58,
+   "e": 2.68
+  },
+  {
+   "w": "fault.",
+   "s": 2.68,
+   "e": 3.0
+  }
+ ]
+}
