@@ -1,0 +1,75 @@
+{
+ "title": "Why Lomonosov plated ships with copper",
+ "channel": "Hidden Reasons",
+ "topic": "Why the 18th‑century Russian engineer Mikhail Lomonosov added copper plating to ship hulls (St. Petersburg, 1760s) to prevent bio‑fouling and increase speed",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A Russian engineer hammers copper plates onto a ship’s hull, sparks flying.",
+    "He aims to stop the invisible enemies that cling beneath the waves."
+   ]
+  },
+  {
+   "feel": "skepticism",
+   "lines": [
+    "Fellow shipwrights laugh, warning the metal will rust and sink their fleet.",
+    "They claim the extra weight will slow every vessel to a crawl."
+   ]
+  },
+  {
+   "feel": "tension",
+   "lines": [
+    "Lomonosov orders the copper nailed beneath the waterline in St. Petersburg.",
+    "The ship leaves the dock still covered in thick, green slime.",
+    "Barnacles and shipworm have already turned the hull into a barn."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see how a greasy pan sticks to food – the slime drags a ship the same way."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "Copper reacts with seawater, forming a thin copper‑oxy‑chloride film that is poisonous to marine life.",
+    "The film dissolves constantly, so barnacles and shipworm cannot attach.",
+    "With the slime gone, the hull slices through water, gaining precious speed."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "The navy dubs the vessel ‘copper‑bottomed,’ a mark of quality that cuts insurance premiums.",
+    "Ironically, the same copper that saved speed later sparked a bolt‑corrosion crisis, forcing engineers to redesign fasteners."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Copper sheathing creates a poisonous copper‑oxy‑chloride film that deters shipworm and barnacles, reducing drag and increasing speed.",
+   "url": "https://en.wikipedia.org/wiki/Copper_sheathing"
+  }
+ ],
+ "key_words": [
+  "copper",
+  "sheathing",
+  "shipworm",
+  "barnacles",
+  "drag",
+  "speed",
+  "Lomonosov",
+  "St. Petersburg"
+ ]
+}
