@@ -1,0 +1,44 @@
+{
+ "off": 1795065403,
+ "a": 1795065403,
+ "b": 1795065412,
+ "views": 118,
+ "fan_titles": [
+  "118: Streamers Countdown GTA VI Launch"
+ ],
+ "fan_clip": "https://www.twitch.tv/yourragegaming/clip/PiliableKitschyVanillaLitFam-DFFAWBBKt7TaTx3o",
+ "file": "yourragegaming-01.mp4",
+ "section_start_in_vod": 1795065403,
+ "section_end_in_vod": 1795065412,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/yourragegaming/clips",
+ "stream_title": "fan clips",
+ "streamer_channel": "yourragegaming",
+ "words": [
+  {
+   "w": "You're...",
+   "s": 0.0,
+   "e": 0.48
+  },
+  {
+   "w": "you're",
+   "s": 0.48,
+   "e": 0.86
+  },
+  {
+   "w": "good?",
+   "s": 0.86,
+   "e": 1.08
+  },
+  {
+   "w": "SHIT!",
+   "s": 4.97,
+   "e": 5.29
+  },
+  {
+   "w": "SHIT!",
+   "s": 7.09,
+   "e": 7.61
+  }
+ ]
+}
