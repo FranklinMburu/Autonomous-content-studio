@@ -1,0 +1,39 @@
+{
+ "id": "k04",
+ "source_file": "raw/kai-finale/kaicenat-02.mp4",
+ "start": 0.5,
+ "end": 13.0,
+ "length": 12.5,
+ "peak_in_clip": 5.5,
+ "title_box": "Kai after 67 HOURS live, the moment GTA 6 ended 😭",
+ "youtube_title": "Kai Cenat's FACE When GTA 6 Ended After 67 HOURS Live 😭💔",
+ "description": "Kai Cenat's FACE When GTA 6 Ended After 67 HOURS Live 😭💔\nKai Cenat's GTA 6 stream, Twitch, Nov 2026. #ad Paid partnership #KaiCenat #GTA6 #GTAVI #kaicenatclips #shorts",
+ "hashtags": "#KaiCenat #GTA6 #GTAVI #kaicenatclips #shorts",
+ "why_it_trends": "Ending reactions are the live wave; a verified 67 h counter (67:15:46 on screen at the source frame) plus a pure grimace, zero spoilers.",
+ "fan_proof": "32 views on 2 fan clips ('gta 6 final', 'Kai GTA VI Final Scene'); ending-reaction market 50-400K",
+ "spoiler_audit": "full facecam [60,436,214,206] all frames; bg blurred from facecam [10,440,370,196]; no game pixels, no chat (cam bottom 642 < chat 650), no burned captions; no Whisper words 0.5-13.0 (first word 'Yeah, he's gone' at 18.1); audio = Kai's shouts/cries + score",
+ "loudness_lufs": -13.5,
+ "self_score": {
+  "moment": 6,
+  "hook": 5,
+  "story": 4,
+  "layout": 7,
+  "text": 6,
+  "ending": 5,
+  "overall": 5
+ },
+ "checklist": {
+  "1": "pass",
+  "2": "pass (mid-shout at frame 0)",
+  "3": "pass",
+  "4": "pass",
+  "5": "pass (title above cam band)",
+  "6": "pass (head ~520 px)",
+  "7": "pass",
+  "8": "pass (eyes-shut grimace 5-11 s)",
+  "9": "pass-ish (loop cut mid-grimace; no discrete payoff exists)",
+  "10": "pass (12.5 s)",
+  "11": "pass (67:15:46 verified)",
+  "12": "pass"
+ }
+}

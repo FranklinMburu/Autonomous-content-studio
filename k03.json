@@ -1,0 +1,45 @@
+{
+ "id": "k03",
+ "source_file": "raw/kai-day4/kaicenat-07.mp4",
+ "start": 0.0,
+ "end": 14.15,
+ "length": 14.15,
+ "peak_in_clip": 2.8,
+ "title_box": "This GTA 6 kid watches STREAMERS 😭",
+ "youtube_title": "Kai Cenat Found a GTA 6 Kid Who Watches STREAMERS 😭🎮",
+ "description": "Kai Cenat Found a GTA 6 Kid Who Watches STREAMERS 😭🎮\nKai Cenat's GTA 6 stream, Twitch, Nov 2026. #ad Paid partnership #KaiCenat #GTA6 #GTAVI #kaicenatclips #shorts",
+ "hashtags": "#KaiCenat #GTA6 #GTAVI #kaicenatclips #shorts",
+ "why_it_trends": "Rockstar jokes about Kai's own job ('people watching people play video games') and Kai loses it: self-aware, shareable.",
+ "fan_proof": "194 views on the fan clip; a similar 'GTA 6 roasted Kai's viewers' Short already has ~36K (competitor)",
+ "captions_burned": [
+  "\"He likes to watch videos of people watching people play video games\" 0-2.6 (game subtitle on screen in source at 0 s)",
+  "\"Can I get a snack?\" 5.4",
+  "\"No, you already had one.\" 7.6",
+  "\"Can I get a snack?\" 10.0",
+  "punch \"US WATCHING A STREAM, BRO\" 12.3 (Kai, mouth moving on cam)"
+ ],
+ "loudness_lufs": -14.0,
+ "self_score": {
+  "moment": 6,
+  "hook": 6,
+  "story": 6,
+  "layout": 7,
+  "text": 7,
+  "ending": 6,
+  "overall": 6
+ },
+ "checklist": {
+  "1": "pass",
+  "2": "pass (line on screen + laugh at 0)",
+  "3": "pass",
+  "4": "pass",
+  "5": "pass (captions on lower game band, never on faces)",
+  "6": "pass (head ~390 px; dips to cam bottom 3.0-3.6 s, hair only)",
+  "7": "pass (game crop [410,80,1280,720], bg from game crop)",
+  "8": "pass (head-back laugh 2.6-3.6 s)",
+  "9": "pass (cut 0.17 s after 'bro')",
+  "10": "pass (14.2 s)",
+  "11": "pass",
+  "12": "pass (no slurs/sexual words 0-14.15)"
+ }
+}
