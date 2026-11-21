@@ -5,7 +5,7 @@
    {
     "feel": "pride",
     "lines": [
-     "Gustave Eiffel hoisted a large flag atop his new iron tower.",
+     "Gustave Eiffel hoisted a large Tricolour as a 25-gun salute fired.",
      "Nothing 300 metres tall had ever been built."
     ]
    },
@@ -37,7 +37,7 @@
     "lines": [
      "Melt down all 7,300 tonnes of iron.",
      "It would cover the base just 6.25 centimetres deep.",
-     "You see, it's like a basket: mostly air, yet strong.",
+     "You see, it's like lace: there are more holes than thread.",
      "The air around it weighs almost as much as the iron.",
      "In the wind, the tower sways by up to 9 centimetres."
     ]
@@ -100,7 +100,7 @@
    "lattice",
    "wind",
    "smokestack",
-   "basket"
+   "Tricolour"
   ],
   "cast": {
    "eiffel": "a 56 year old French engineer, upright build, greying swept-back hair, a neatly trimmed full grey-streaked beard, bright alert eyes, a charcoal grey frock coat, a white wing collar and a black silk cravat, 1880s",
@@ -119,7 +119,7 @@
    },
    {
     "name": "flag",
-    "at": "flag#1",
+    "at": "Tricolour#1",
     "clip": true,
     "prompt": "close-up, a big red white and blue French flag unfurling on a pole high above Paris, bright blue sky, 1889",
     "motion": "the flag ripples in the wind, slow camera move up",
@@ -290,20 +290,20 @@
     "check": "Is there a thin layer of iron on the ground?"
    },
    {
-    "name": "basket",
+    "name": "lace",
     "at": "You#1",
     "clip": true,
-    "prompt": "close-up, a hand lifting a light woven wicker basket by its handle, kitchen table, warm window light",
-    "motion": "the hand lifts the basket slightly, slow camera push in",
-    "check": "Is a hand lifting a wicker basket?"
+    "prompt": "close-up, a woman's hands holding up a piece of fine white lace against a sunny window, 1880s parlour, warm light",
+    "motion": "the hands lift the lace slightly as light shines through, slow camera push in",
+    "check": "Are hands holding up white lace?"
    },
    {
-    "name": "weave",
-    "at": "yet#1",
+    "name": "holes",
+    "at": "holes#1",
     "clip": true,
-    "prompt": "extreme close-up of an empty woven wicker basket with sunlight shining through the gaps, warm window light",
-    "motion": "the basket turns slowly as light flickers through, slow camera push in",
-    "check": "Is there a wicker basket?"
+    "motion": "the lace sways gently as light flickers through, slow camera push in",
+    "prompt": "extreme close-up of delicate white lace with bright sunlight shining through its many open holes, soft warm light",
+    "check": "Is there white lace with light through it?"
    },
    {
     "name": "air",
@@ -361,7 +361,7 @@
    },
    {
     "name": "story",
-    "at": "His#4",
+    "at": "His#3",
     "who": "eiffel",
     "clip": true,
     "prompt": "medium shot, a bearded engineer gesturing at a large tower drawing in front of seated men in frock coats, he is {eiffel}, lecture hall, lamp light",

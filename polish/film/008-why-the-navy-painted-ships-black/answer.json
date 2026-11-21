@@ -193,10 +193,17 @@
    },
    {
     "name": "carrack",
-    "at": "giant#1",
+    "at": "reached#1",
     "move": "left",
     "prompt": "wide shot of a huge carrack with a black hull, tall castles at both ends and billowing sails anchored in a blue harbour, 1540s, bright sun",
     "check": "Is there a large ship with a black hull?"
+   },
+   {
+    "name": "tons",
+    "at": "1200#1",
+    "move": "up",
+    "prompt": "low angle wide shot of a towering black wooden ship hull dwarfing small dock workers beside it, 1540s harbour, bright sun",
+    "check": "Is there a towering black ship hull?"
    },
    {
     "name": "pitching",
@@ -206,14 +213,6 @@
     "prompt": "medium shot, a bald sailor brushing thick black pitch onto wooden hull planks with a long brush, he is {sailor}, beached ship, sunny shore",
     "motion": "he sweeps the brush down the planks, slow camera push in",
     "check": "Is a man brushing black pitch on a hull?"
-   },
-   {
-    "name": "pitchclose",
-    "at": "painted#1",
-    "clip": true,
-    "motion": "black pitch drips slowly down the planks, slow camera move down",
-    "prompt": "close-up of glossy black pitch dripping down fresh wooden hull planks in bright sunlight, sandy beach below",
-    "check": "Is black pitch on wooden planks?"
    },
    {
     "name": "western",
