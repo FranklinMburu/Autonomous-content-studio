@@ -1,0 +1,114 @@
+{
+ "off": 1795067755,
+ "a": 1795067755,
+ "b": 1795067815,
+ "views": 117,
+ "fan_titles": [
+  "117: robbery"
+ ],
+ "fan_clip": "https://www.twitch.tv/kreekcraft/clip/CleverRealChoughImGlitch-ZTZJKpkoH-HL05Ll",
+ "file": "kreekcraft-05.mp4",
+ "section_start_in_vod": 1795067755,
+ "section_end_in_vod": 1795067815,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/kreekcraft/clips",
+ "stream_title": "fan clips",
+ "streamer_channel": "kreekcraft",
+ "words": [
+  {
+   "w": "Here",
+   "s": 0.0,
+   "e": 0.16
+  },
+  {
+   "w": "we",
+   "s": 0.16,
+   "e": 0.26
+  },
+  {
+   "w": "go.",
+   "s": 0.26,
+   "e": 0.82
+  },
+  {
+   "w": "We",
+   "s": 5.38,
+   "e": 6.56
+  },
+  {
+   "w": "got",
+   "s": 6.56,
+   "e": 7.74
+  },
+  {
+   "w": "to",
+   "s": 7.74,
+   "e": 7.92
+  },
+  {
+   "w": "destroy",
+   "s": 7.92,
+   "e": 8.3
+  },
+  {
+   "w": "the",
+   "s": 8.3,
+   "e": 8.6
+  },
+  {
+   "w": "CCTV",
+   "s": 8.6,
+   "e": 10.1
+  },
+  {
+   "w": "footage.",
+   "s": 10.1,
+   "e": 10.72
+  },
+  {
+   "w": "What's",
+   "s": 32.26,
+   "e": 33.66
+  },
+  {
+   "w": "the",
+   "s": 33.66,
+   "e": 33.74
+  },
+  {
+   "w": "code?",
+   "s": 33.74,
+   "e": 34.16
+  },
+  {
+   "w": "Screw",
+   "s": 34.16,
+   "e": 34.72
+  },
+  {
+   "w": "it.",
+   "s": 34.72,
+   "e": 35.5
+  },
+  {
+   "w": "Let's",
+   "s": 52.9,
+   "e": 54.3
+  },
+  {
+   "w": "go,",
+   "s": 54.3,
+   "e": 55.7
+  },
+  {
+   "w": "let's",
+   "s": 55.8,
+   "e": 55.96
+  },
+  {
+   "w": "go.",
+   "s": 55.96,
+   "e": 56.16
+  }
+ ]
+}
