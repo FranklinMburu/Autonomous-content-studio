@@ -1,6 +1,6 @@
 name: Claude clips, raw footage fetch (no AI)
 
-# 19 Nov 2026, Franklin: his pipeline is paused; Claude makes the GTA 6 Shorts by hand. GitHub only fetches footage
+# 21 Nov 2026 money/secret hunt (Clip Room loop). 19 Nov 2026, Franklin: his pipeline is paused; Claude makes the GTA 6 Shorts by hand. GitHub only fetches footage
 # (YouTube/Twitch/Kick are unreachable from Claude's workspace): the most fan-clipped moments, ~2 min of 1080p each,
 # plus a word-level transcript. Results are a workflow artifact, not a public release.
 on:
@@ -16,10 +16,38 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - name: disc2-lirik
-            args: twitch --channel lirik --title-re "rescue dog|parrot|bigfoot|meets a dog" --top 5 --use-clips --to-s 1e13
-          - name: disc2-more
-            args: twitch --channel cohhcarnage --title-re "parrot|dog|flip|push|sit|boat|wrestl" --top 5 --use-clips --to-s 1e13
+          - name: d3-kaicenat
+            args: twitch --channel kaicenat --title-re "money|cash|\\$|stash|secret|hidden|easter|glitch|parrot|free|rich|million|tip|trick|found|finds|discover|rob|heist|safe|bank|fleeca|bigfoot|ufo|ghost|alien|niko|gta 5|gta v|realistic|didn.t know|you can|save|progress|lost" --top 6 --use-clips --to-s 1e13
+          - name: d3-lacy
+            args: twitch --channel lacy --title-re "money|cash|\\$|stash|secret|hidden|easter|glitch|parrot|free|rich|million|tip|trick|found|finds|discover|rob|heist|safe|bank|fleeca|bigfoot|ufo|ghost|alien|niko|gta 5|gta v|realistic|didn.t know|you can|save|progress|lost" --top 6 --use-clips --to-s 1e13
+          - name: d3-clix
+            args: twitch --channel clix --title-re "money|cash|\\$|stash|secret|hidden|easter|glitch|parrot|free|rich|million|tip|trick|found|finds|discover|rob|heist|safe|bank|fleeca|bigfoot|ufo|ghost|alien|niko|gta 5|gta v|realistic|didn.t know|you can|save|progress|lost" --top 6 --use-clips --to-s 1e13
+          - name: d3-yourragegaming
+            args: twitch --channel yourragegaming --title-re "money|cash|\\$|stash|secret|hidden|easter|glitch|parrot|free|rich|million|tip|trick|found|finds|discover|rob|heist|safe|bank|fleeca|bigfoot|ufo|ghost|alien|niko|gta 5|gta v|realistic|didn.t know|you can|save|progress|lost" --top 6 --use-clips --to-s 1e13
+          - name: d3-asianjeff
+            args: twitch --channel asianjeff --title-re "money|cash|\\$|stash|secret|hidden|easter|glitch|parrot|free|rich|million|tip|trick|found|finds|discover|rob|heist|safe|bank|fleeca|bigfoot|ufo|ghost|alien|niko|gta 5|gta v|realistic|didn.t know|you can|save|progress|lost" --top 6 --use-clips --to-s 1e13
+          - name: d3-kreekcraft
+            args: twitch --channel kreekcraft --title-re "money|cash|\\$|stash|secret|hidden|easter|glitch|parrot|free|rich|million|tip|trick|found|finds|discover|rob|heist|safe|bank|fleeca|bigfoot|ufo|ghost|alien|niko|gta 5|gta v|realistic|didn.t know|you can|save|progress|lost" --top 6 --use-clips --to-s 1e13
+          - name: d3-jynxzi
+            args: twitch --channel jynxzi --title-re "money|cash|\\$|stash|secret|hidden|easter|glitch|parrot|free|rich|million|tip|trick|found|finds|discover|rob|heist|safe|bank|fleeca|bigfoot|ufo|ghost|alien|niko|gta 5|gta v|realistic|didn.t know|you can|save|progress|lost" --top 6 --use-clips --to-s 1e13
+          - name: d3-cohhcarnage
+            args: twitch --channel cohhcarnage --title-re "money|cash|\\$|stash|secret|hidden|easter|glitch|parrot|free|rich|million|tip|trick|found|finds|discover|rob|heist|safe|bank|fleeca|bigfoot|ufo|ghost|alien|niko|gta 5|gta v|realistic|didn.t know|you can|save|progress|lost" --top 6 --use-clips --to-s 1e13
+          - name: d3-lirik
+            args: twitch --channel lirik --title-re "money|cash|\\$|stash|secret|hidden|easter|glitch|parrot|free|rich|million|tip|trick|found|finds|discover|rob|heist|safe|bank|fleeca|bigfoot|ufo|ghost|alien|niko|gta 5|gta v|realistic|didn.t know|you can|save|progress|lost" --top 6 --use-clips --to-s 1e13
+          - name: d3-summit1g
+            args: twitch --channel summit1g --title-re "money|cash|\\$|stash|secret|hidden|easter|glitch|parrot|free|rich|million|tip|trick|found|finds|discover|rob|heist|safe|bank|fleeca|bigfoot|ufo|ghost|alien|niko|gta 5|gta v|realistic|didn.t know|you can|save|progress|lost" --top 6 --use-clips --to-s 1e13
+          - name: d3-moistcr1tikal
+            args: twitch --channel moistcr1tikal --title-re "money|cash|\\$|stash|secret|hidden|easter|glitch|parrot|free|rich|million|tip|trick|found|finds|discover|rob|heist|safe|bank|fleeca|bigfoot|ufo|ghost|alien|niko|gta 5|gta v|realistic|didn.t know|you can|save|progress|lost" --top 6 --use-clips --to-s 1e13
+          - name: d3-stableronaldo
+            args: twitch --channel stableronaldo --title-re "money|cash|\\$|stash|secret|hidden|easter|glitch|parrot|free|rich|million|tip|trick|found|finds|discover|rob|heist|safe|bank|fleeca|bigfoot|ufo|ghost|alien|niko|gta 5|gta v|realistic|didn.t know|you can|save|progress|lost" --top 6 --use-clips --to-s 1e13
+          - name: d3-caseoh
+            args: twitch --channel caseoh_ --title-re "money|cash|\\$|stash|secret|hidden|easter|glitch|parrot|free|rich|million|tip|trick|found|finds|discover|rob|heist|safe|bank|fleeca|bigfoot|ufo|ghost|alien|niko|gta 5|gta v|realistic|didn.t know|you can|save|progress|lost" --top 6 --use-clips --to-s 1e13
+          - name: d3-zackrawrr
+            args: twitch --channel zackrawrr --title-re "money|cash|\\$|stash|secret|hidden|easter|glitch|parrot|free|rich|million|tip|trick|found|finds|discover|rob|heist|safe|bank|fleeca|bigfoot|ufo|ghost|alien|niko|gta 5|gta v|realistic|didn.t know|you can|save|progress|lost" --top 6 --use-clips --to-s 1e13
+          - name: d3-sodapoppin
+            args: twitch --channel sodapoppin --title-re "money|cash|\\$|stash|secret|hidden|easter|glitch|parrot|free|rich|million|tip|trick|found|finds|discover|rob|heist|safe|bank|fleeca|bigfoot|ufo|ghost|alien|niko|gta 5|gta v|realistic|didn.t know|you can|save|progress|lost" --top 6 --use-clips --to-s 1e13
+          - name: d3-tarik
+            args: twitch --channel tarik --title-re "money|cash|\\$|stash|secret|hidden|easter|glitch|parrot|free|rich|million|tip|trick|found|finds|discover|rob|heist|safe|bank|fleeca|bigfoot|ufo|ghost|alien|niko|gta 5|gta v|realistic|didn.t know|you can|save|progress|lost" --top 6 --use-clips --to-s 1e13
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
