@@ -1,0 +1,429 @@
+{
+ "script": {
+  "title": "Why the Army Bet on Camels",
+  "beats": [
+   {
+    "feel": "tension",
+    "lines": [
+     "An Army officer marched camels about 85 miles across Texas without water.",
+     "He was testing if they could survive."
+    ]
+   },
+   {
+    "feel": "curiosity",
+    "lines": [
+     "In 1853, Jefferson Davis became Secretary of War.",
+     "He saw the Southwest as a great desert.",
+     "The Army needed better transport there."
+    ]
+   },
+   {
+    "feel": "hope",
+    "lines": [
+     "Major Henry Wayne sailed to the Mediterranean to buy camels.",
+     "In 1856, 34 camels landed in Texas.",
+     "A second voyage brought 41 more."
+    ]
+   },
+   {
+    "feel": "awe",
+    "lines": [
+     "In 1857, Edward Beale took 25 camels on a road survey.",
+     "Each camel carried 600 pounds.",
+     "Beale said he would rather have one camel than four mules.",
+     "Congress was asked to buy 1,000 more, but did not act."
+    ]
+   },
+   {
+    "feel": "tension",
+    "lines": [
+     "In 1859, Lieutenant Hartz ran that dry test.",
+     "The camels showed no desire for water.",
+     "The horses and mules were distressed.",
+     "The camels were not.",
+     "Camels like these can drink as seldom as once every 10 days."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like filling your car once, then driving all week."
+    ]
+   },
+   {
+    "feel": "frustration",
+    "lines": [
+     "But Davis left to lead the Confederacy.",
+     "The Army ran on horses and mules.",
+     "Its soldiers lacked camel skills.",
+     "In 1864, the camels were sold at auction."
+    ]
+   },
+   {
+    "feel": "surprise",
+    "lines": [
+     "The last one was reportedly seen in Arizona in 1891.",
+     "A loose camel may have inspired the Red Ghost legend."
+    ]
+   }
+  ],
+  "key_words": [
+   "camels",
+   "Jefferson Davis",
+   "Wayne",
+   "Beale",
+   "Hartz",
+   "water",
+   "auction",
+   "Red Ghost"
+  ],
+  "claims": [
+   {
+    "claim": "Davis found the Army needed to improve transportation in the southwestern US, which he and most observers thought a great desert; he was appointed Secretary of War in 1853.",
+    "url": "https://en.wikipedia.org/wiki/United_States_Camel_Corps"
+   },
+   {
+    "claim": "Major Wayne and Porter procured camels in the Mediterranean, with stops including Tunisia, Malta, Greece, Turkey and Egypt; on May 14, 1856, 34 camels were unloaded at Indianola, Texas; a second voyage returned with 41 camels, and the Army then had 70 camels.",
+    "url": "https://en.wikipedia.org/wiki/United_States_Camel_Corps"
+   },
+   {
+    "claim": "In 1857, Edward Beale took 25 pack camels on a wagon road survey; each camel carried a load of 600 pounds; Beale said he would rather have one camel than four mules; Floyd recommended Congress buy an additional 1,000 animals, but Congress did not act.",
+    "url": "https://en.wikipedia.org/wiki/United_States_Camel_Corps"
+   },
+   {
+    "claim": "In 1859, Lieutenant Hartz commanded an escort with 24 camels and 24 mules; to test the camels' ability to survive without water they traveled about 85 miles, and the camels showed no desire for water; at Fort Davis the horses and mules were distressed, but the camels were not.",
+    "url": "https://en.wikipedia.org/wiki/United_States_Camel_Corps"
+   },
+   {
+    "claim": "The dromedary camel can drink as seldom as once every 10 days even under very hot conditions.",
+    "url": "https://en.wikipedia.org/wiki/Camel"
+   },
+   {
+    "claim": "The experiment failed partly because Jefferson Davis left to become President of the Confederacy, and the Army was a horse-and-mule organization whose soldiers lacked the skills to control camels; the camels were sold at auction in 1864.",
+    "url": "https://en.wikipedia.org/wiki/United_States_Camel_Corps"
+   },
+   {
+    "claim": "The last of the animals from California was reportedly seen in Arizona in 1891; a released camel or a descendant is believed to have inspired the Arizonan legend of the Red Ghost.",
+    "url": "https://en.wikipedia.org/wiki/United_States_Camel_Corps"
+   }
+  ]
+ },
+ "film": {
+  "era": "1850s",
+  "music": "curious",
+  "key_words": [
+   "camels",
+   "Davis",
+   "Wayne",
+   "Beale",
+   "Hartz",
+   "water",
+   "auction"
+  ],
+  "cast": {
+   "hartz": "a 25 year old US Army lieutenant, slim build, a boyish freckled clean shaven face, short straw blond hair, a dark blue forage cap, a short dark blue shell jacket with yellow trim, sky blue trousers, 1850s",
+   "davis": "a 45 year old American statesman, gaunt hollow cheeks, high cheekbones, thin lips, clean shaven, short dark brown hair brushed back, cold grey eyes, a black frock coat and a black silk cravat, 1850s",
+   "wayne": "a 40 year old US Army major, stocky build, a round sunburnt face, sandy hair, a full reddish brown beard, a long dark blue frock coat with two rows of brass buttons and gold shoulder straps, 1850s",
+   "beale": "a 35 year old American frontier surveyor, tall and lean, long wavy black hair to his collar, a thick black moustache, a wide brimmed tan felt hat, a fringed buckskin jacket over a red flannel shirt, 1850s",
+   "driver": "a 40 year old Turkish camel driver, a weathered olive face, a thick black moustache, a red felt fez, a striped red and blue vest over a white shirt, baggy brown trousers, 1850s"
+  },
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "who": "hartz",
+    "clip": true,
+    "prompt": "medium shot, a young army officer leading a line of camels by a rope across cracked dry Texas scrubland, he is {hartz}, blazing midday sun, heat haze",
+    "motion": "he tugs the lead rope forward as the camels follow, slow camera push in",
+    "check": "Is a man leading camels?"
+   },
+   {
+    "name": "dryground",
+    "at": "85#1",
+    "move": "pull",
+    "prompt": "wide shot of a long line of camels walking across a vast dry Texas plain with cracked earth and low brush, harsh white sunlight, 1850s",
+    "check": "Is there a line of camels on a dry plain?"
+   },
+   {
+    "name": "canteen",
+    "at": "without#1",
+    "hit": "water#1",
+    "move": "push",
+    "prompt": "close-up of an empty tin army canteen lying on hot cracked earth beside camel hoof prints, harsh sunlight",
+    "check": "Is there a canteen on cracked earth?"
+   },
+   {
+    "name": "testing",
+    "at": "testing#1",
+    "who": "hartz",
+    "clip": true,
+    "prompt": "close-up, a young army officer squinting at a camel's face and touching its neck, he is {hartz}, dry Texas scrubland, blazing sun",
+    "motion": "he runs his hand along the camel's neck, slow camera push in",
+    "check": "Is a man touching a camel?"
+   },
+   {
+    "name": "davis",
+    "at": "Jefferson#1",
+    "who": "davis",
+    "clip": true,
+    "xfade": true,
+    "prompt": "medium shot, a gaunt statesman pacing beside a tall window in a Washington office, he is {davis}, oak desk and bookshelves, soft grey daylight",
+    "motion": "he turns from the window slowly, slow camera push in",
+    "check": "Is a man standing by a window?"
+   },
+   {
+    "name": "map",
+    "at": "saw#1",
+    "who": "davis",
+    "clip": true,
+    "prompt": "close-up, a gaunt statesman tapping his finger on a big paper map spread on a desk, he is {davis}, oil lamp light, dark office",
+    "motion": "he taps the map twice, slow camera push in",
+    "check": "Is a man pointing at a map?"
+   },
+   {
+    "name": "desert",
+    "at": "desert#1",
+    "move": "right",
+    "prompt": "wide shot of an empty red desert with tall mesas and dry brush under a scorching sun, heat shimmer, no people",
+    "check": "Is there an empty desert with mesas?"
+   },
+   {
+    "name": "wagon",
+    "at": "needed#1",
+    "clip": true,
+    "prompt": "medium shot, a heavy army supply wagon pulled by tired mules stuck in deep sand, a teamster whipping the reins, desert trail, harsh sun, 1850s",
+    "motion": "the mules strain forward and the wheels barely turn, slow camera push in",
+    "check": "Is a wagon pulled by mules?"
+   },
+   {
+    "name": "ship",
+    "at": "Wayne#1",
+    "who": "wayne",
+    "clip": true,
+    "xfade": true,
+    "prompt": "medium shot, a bearded army major gripping the rail of a wooden sailing warship at sea, he is {wayne}, white sails and blue Mediterranean water, bright morning",
+    "motion": "he leans on the rail as the ship rolls gently, slow camera push in",
+    "check": "Is a man standing at a ship's rail?"
+   },
+   {
+    "name": "market",
+    "at": "buy#1",
+    "who": "wayne",
+    "clip": true,
+    "prompt": "medium shot, a bearded army major patting the neck of a tall camel in a busy dusty harbour market, he is {wayne}, white stone houses, hot sunlight",
+    "motion": "he pats the camel's neck, slow camera push in",
+    "check": "Is a man patting a camel?"
+   },
+   {
+    "name": "landing",
+    "at": "34#1",
+    "clip": true,
+    "prompt": "medium shot, a camel stepping down a wooden ramp from a sailing ship onto a sandy Texas beach, surf behind, bright afternoon, 1850s",
+    "motion": "the camel takes a careful step down the ramp, slow camera push in",
+    "check": "Is a camel stepping down a ramp?"
+   },
+   {
+    "name": "voyage",
+    "at": "second#1",
+    "move": "right",
+    "prompt": "wide shot of a three masted wooden sailing ship with full white sails crossing a deep blue ocean, bright clear day",
+    "check": "Is there a sailing ship at sea?"
+   },
+   {
+    "name": "beale",
+    "at": "1857#1",
+    "who": "beale",
+    "clip": true,
+    "xfade": true,
+    "prompt": "medium shot, a tall surveyor in a buckskin jacket raising his arm to start a camel caravan, he is {beale}, dusty desert road, early morning light",
+    "motion": "he raises his arm and waves the caravan forward, slow camera push in",
+    "check": "Is a man raising his arm?"
+   },
+   {
+    "name": "caravan",
+    "at": "camels#4",
+    "move": "right",
+    "prompt": "wide shot of a long caravan of pack camels walking beside covered wagons on a dirt road through dry hills, warm morning light, 1850s",
+    "check": "Is there a caravan of camels?"
+   },
+   {
+    "name": "load",
+    "at": "Each#1",
+    "clip": true,
+    "prompt": "close-up of a camel with huge bulging canvas sacks and wooden crates strapped high on its back, rising from kneeling, desert camp, bright sun",
+    "motion": "the camel lifts itself up under the heavy load, slow camera push in",
+    "check": "Is a camel carrying big sacks?"
+   },
+   {
+    "name": "beale_says",
+    "at": "Beale#2",
+    "who": "beale",
+    "clip": true,
+    "prompt": "medium close-up, a tall surveyor grinning and slapping a camel's side, he is {beale}, desert camp with wagons, warm afternoon light",
+    "motion": "he slaps the camel's side and grins, slow camera push in",
+    "check": "Is a man next to a camel?"
+   },
+   {
+    "name": "onecamel",
+    "at": "one#1",
+    "hit": "mules#1",
+    "clip": true,
+    "prompt": "medium shot, a single tall camel striding past a mule wagon stuck on a dusty desert road, hot afternoon light, 1850s",
+    "motion": "the camel strides forward steadily, slow camera move right",
+    "check": "Is a camel walking on a road?"
+   },
+   {
+    "name": "congress",
+    "at": "Congress#1",
+    "move": "push",
+    "prompt": "wide shot of a grand 1850s legislative chamber with rows of wooden desks and men in dark coats, tall windows, soft daylight",
+    "check": "Is there a large chamber with desks?"
+   },
+   {
+    "name": "shrug",
+    "at": "did#1",
+    "clip": true,
+    "prompt": "medium shot, a grey haired lawmaker in a dark coat closing a thick report and pushing it aside on his desk, legislative chamber, dim light, 1850s",
+    "motion": "he pushes the report away across the desk, slow camera push in",
+    "check": "Is a man pushing a report aside?"
+   },
+   {
+    "name": "hartz",
+    "at": "1859#1",
+    "who": "hartz",
+    "clip": true,
+    "xfade": true,
+    "prompt": "medium shot, a young army officer mounting a horse at the head of a camp of camels and mules, he is {hartz}, frontier fort, early morning light",
+    "motion": "he swings up into the saddle, slow camera push in",
+    "check": "Is a man getting on a horse?"
+   },
+   {
+    "name": "march",
+    "at": "dry#1",
+    "move": "left",
+    "prompt": "wide shot of camels and mules walking in a long line across a dry rocky Texas plain, dust rising, harsh noon sun, 1850s",
+    "check": "Are camels walking on a dry plain?"
+   },
+   {
+    "name": "calm",
+    "at": "showed#1",
+    "clip": true,
+    "prompt": "close-up of a calm camel chewing slowly with half closed eyes under a blazing sun, dry scrubland behind",
+    "motion": "the camel chews slowly and blinks, slow camera push in",
+    "check": "Is there a calm camel?"
+   },
+   {
+    "name": "panting",
+    "at": "horses#1",
+    "hit": "distressed#1",
+    "clip": true,
+    "prompt": "medium shot, an exhausted horse with its head drooping and sides heaving, tied to a post, dusty fort yard, hot sun",
+    "motion": "the horse's sides heave as it pants, slow camera push in",
+    "check": "Is there an exhausted horse?"
+   },
+   {
+    "name": "camelup",
+    "at": "camels#6",
+    "clip": true,
+    "prompt": "medium shot, a camel standing tall and alert, turning its head, dusty fort yard, golden late light",
+    "motion": "the camel turns its head calmly, slow camera push in",
+    "check": "Is there a camel standing?"
+   },
+   {
+    "name": "trough",
+    "at": "drink#1",
+    "clip": true,
+    "prompt": "close-up, a camel drinking deeply from a wooden water trough, adobe wall behind, warm evening light",
+    "motion": "the camel gulps water from the trough, slow camera push in",
+    "check": "Is a camel drinking from a trough?"
+   },
+   {
+    "name": "sunset",
+    "at": "every#1",
+    "move": "left",
+    "prompt": "wide shot of a camel resting on the sand beside a dry creek bed as the sun sets behind rocky desert hills, orange sky",
+    "check": "Is a camel resting in the desert?"
+   },
+   {
+    "name": "pump",
+    "at": "You#1",
+    "xfade": true,
+    "clip": true,
+    "prompt": "close-up, a hand holding a fuel nozzle in a car's open tank at a gas station, bright daylight",
+    "motion": "the hand squeezes the nozzle, slow camera push in",
+    "check": "Is a hand holding a fuel nozzle?"
+   },
+   {
+    "name": "drive",
+    "at": "then#1",
+    "move": "right",
+    "prompt": "wide shot of a small car driving along an empty desert highway toward red mesas, bright daylight",
+    "check": "Is a car driving on a highway?"
+   },
+   {
+    "name": "leaves",
+    "at": "Davis#2",
+    "who": "davis",
+    "clip": true,
+    "xfade": true,
+    "prompt": "medium shot, a gaunt statesman stepping out of a carriage door into rain, he is {davis}, dark street at dusk, 1860s",
+    "motion": "he turns his head away as he steps, slow camera push in",
+    "check": "Is a man stepping out of a carriage?"
+   },
+   {
+    "name": "cavalry",
+    "at": "Army#3",
+    "move": "left",
+    "prompt": "wide shot of rows of saddled army horses and pack mules tied in a long line at a frontier fort, dusty light, 1860s",
+    "check": "Are there rows of horses?"
+   },
+   {
+    "name": "struggle",
+    "at": "soldiers#1",
+    "clip": true,
+    "prompt": "medium shot, a young soldier pulling hard on a rope while a stubborn camel refuses to stand up, army camp, overcast light, 1860s",
+    "motion": "he pulls the rope and the camel stays put, slow camera push in",
+    "check": "Is a man pulling a camel's rope?"
+   },
+   {
+    "name": "auction",
+    "at": "camels#8",
+    "hit": "auction#1",
+    "clip": true,
+    "prompt": "medium shot, an auctioneer in a bowler hat raising his hand as a camel stands before a small crowd, dusty town square, 1860s",
+    "motion": "he lifts his hand high, slow camera push in",
+    "check": "Is a man raising his hand?"
+   },
+   {
+    "name": "lone",
+    "at": "last#1",
+    "move": "push",
+    "prompt": "wide shot of a lone camel walking among tall saguaro cactus in an empty Arizona desert, red rocks, low golden sun",
+    "check": "Is there a lone camel in a desert?"
+   },
+   {
+    "name": "arizona",
+    "at": "Arizona#1",
+    "move": "pull",
+    "prompt": "wide shot of a vast empty Arizona desert valley with tall saguaro cactus and red cliffs under a pale sky, morning light",
+    "check": "Is there a desert with saguaro cactus?"
+   },
+   {
+    "name": "loose",
+    "at": "loose#1",
+    "clip": true,
+    "prompt": "medium shot, a riderless camel with a broken rope halter wandering through desert brush at dusk, purple sky",
+    "motion": "the camel walks a slow step and swings its head, slow camera push in",
+    "check": "Is a camel walking in the desert?"
+   },
+   {
+    "name": "ghost",
+    "at": "Red#1",
+    "clip": true,
+    "prompt": "wide shot, a shaggy reddish camel standing on a dark ridge against a moonlit sky, saguaro cactus, cold blue night",
+    "motion": "the camel lifts its head toward the moon, slow camera push in",
+    "check": "Is there a reddish camel on a ridge?"
+   }
+  ]
+ }
+}
