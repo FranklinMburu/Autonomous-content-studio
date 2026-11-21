@@ -17,13 +17,9 @@ jobs:
       matrix:
         include:
           - name: kai-finale
-            args: twitch --vod https://www.twitch.tv/videos/2935613960 --channel kaicenat --top 12 --use-clips
+            args: twitch --vod https://www.twitch.tv/videos/2935613960 --channel kaicenat --top 12 --use-clips --range 24hr
           - name: kai-day4
-            args: twitch --vod https://www.twitch.tv/videos/2934866208 --channel kaicenat --top 10 --use-clips
-          - name: lacy-ch3
-            args: twitch --vod https://www.twitch.tv/videos/2935059680 --channel lacy --top 10 --use-clips
-          - name: lacy-ch2
-            args: twitch --vod https://www.twitch.tv/videos/2933767012 --channel lacy --top 10 --use-clips
+            args: twitch --vod https://www.twitch.tv/videos/2934866208 --channel kaicenat --top 10 --use-clips --range 24hr
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

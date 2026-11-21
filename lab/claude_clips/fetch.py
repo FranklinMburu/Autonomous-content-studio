@@ -29,7 +29,7 @@ def ts(s):
 def twitch_clips(a):
     v = ytj(a.vod); t0, dur = v["timestamp"], v["duration"]
     urls = subprocess.run(["yt-dlp", "--flat-playlist", "--playlist-end", "150", "--print", "%(url)s",
-                           f"https://www.twitch.tv/{a.channel}/clips?filter=clips&range=7d"], capture_output=True, text=True).stdout.split()
+                           f"https://www.twitch.tv/{a.channel}/clips?filter=clips&range={getattr(a, 'range', '7d')}"], capture_output=True, text=True).stdout.split()
     with ThreadPoolExecutor(12) as ex:
         ds = list(ex.map(ytj, urls))
     out = []
@@ -89,7 +89,7 @@ def moments(clips, lo, hi, top):
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("platform"); ap.add_argument("--vod"); ap.add_argument("--channel")
     ap.add_argument("--slug"); ap.add_argument("--uuid"); ap.add_argument("--from-s", type=float, default=0)
-    ap.add_argument("--to-s", type=float, default=1e9); ap.add_argument("--top", type=int, default=10); ap.add_argument("--use-clips", action="store_true", help="download the fan clips themselves (fast; for long/live VODs)"); ap.add_argument("--out", default="out")
+    ap.add_argument("--to-s", type=float, default=1e9); ap.add_argument("--top", type=int, default=10); ap.add_argument("--use-clips", action="store_true", help="download the fan clips themselves (fast; for long/live VODs)"); ap.add_argument("--out", default="out"); ap.add_argument("--range", default="7d", help="Twitch clip range: 24hr / 7d / 30d (24hr for a new VOD: the week's top 150 are all from older streams)")
     a = ap.parse_args(); out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
     src, clips = twitch_clips(a) if a.platform == "twitch" else kick_clips(a)
     print(f"{len(clips)} fan clips in the stream")
