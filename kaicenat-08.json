@@ -1,0 +1,54 @@
+{
+ "off": 10363,
+ "a": 10363,
+ "b": 10393,
+ "views": 18,
+ "fan_titles": [
+  "18: Kai Cenat"
+ ],
+ "fan_clip": "https://www.twitch.tv/kaicenat/clip/SavoryRealWormWutFace-qmazjnlxfBMgKO4L",
+ "file": "kaicenat-08.mp4",
+ "section_start_in_vod": 10363,
+ "section_end_in_vod": 10393,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/videos/2935613960",
+ "stream_title": "BEATING GTA 6 RIGHT NOW *FINALE* 2026-11-21 08:45",
+ "streamer_channel": "kaicenat",
+ "words": [
+  {
+   "w": "Oh",
+   "s": 27.22,
+   "e": 27.32
+  },
+  {
+   "w": "my",
+   "s": 27.32,
+   "e": 27.32
+  },
+  {
+   "w": "gosh,",
+   "s": 27.32,
+   "e": 27.58
+  },
+  {
+   "w": "check,",
+   "s": 27.76,
+   "e": 27.76
+  },
+  {
+   "w": "oh",
+   "s": 28.3,
+   "e": 28.68
+  },
+  {
+   "w": "my",
+   "s": 28.68,
+   "e": 28.82
+  },
+  {
+   "w": "gosh.",
+   "s": 28.82,
+   "e": 29.22
+  }
+ ]
+}

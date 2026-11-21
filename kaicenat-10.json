@@ -1,0 +1,54 @@
+{
+ "off": 2593,
+ "a": 2593,
+ "b": 2652,
+ "views": 16,
+ "fan_titles": [
+  "16: GTA6"
+ ],
+ "fan_clip": "https://www.twitch.tv/kaicenat/clip/EsteemedAbrasiveMangetoutDatBoi-MjT8g_pff7PgiSPX",
+ "file": "kaicenat-10.mp4",
+ "section_start_in_vod": 2593,
+ "section_end_in_vod": 2652,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/videos/2935613960",
+ "stream_title": "BEATING GTA 6 RIGHT NOW *FINALE* 2026-11-21 08:45",
+ "streamer_channel": "kaicenat",
+ "words": [
+  {
+   "w": "Oh",
+   "s": 0.91,
+   "e": 1.19
+  },
+  {
+   "w": "my",
+   "s": 1.19,
+   "e": 1.29
+  },
+  {
+   "w": "gosh,",
+   "s": 1.29,
+   "e": 1.43
+  },
+  {
+   "w": "where",
+   "s": 2.27,
+   "e": 2.27
+  },
+  {
+   "w": "am",
+   "s": 6.66,
+   "e": 7.72
+  },
+  {
+   "w": "I",
+   "s": 16.32,
+   "e": 23.48
+  },
+  {
+   "w": "going?",
+   "s": 23.48,
+   "e": 23.68
+  }
+ ]
+}

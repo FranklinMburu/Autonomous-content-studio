@@ -1,0 +1,35 @@
+{
+ "off": 25140,
+ "a": 25140,
+ "b": 25185,
+ "views": 32,
+ "fan_titles": [
+  "20: gta 6 final",
+  "12: Kai GTA VI Final Scene"
+ ],
+ "fan_clip": "https://www.twitch.tv/kaicenat/clip/MuddyMagnificentCrowNerfBlueBlaster-131ywfTee4YhKzIy",
+ "file": "kaicenat-02.mp4",
+ "section_start_in_vod": 25140,
+ "section_end_in_vod": 25185,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/videos/2935613960",
+ "stream_title": "BEATING GTA 6 RIGHT NOW *FINALE* 2026-11-21 08:45",
+ "streamer_channel": "kaicenat",
+ "words": [
+  {
+   "w": "Yeah,",
+   "s": 18.13,
+   "e": 18.59
+  },
+  {
+   "w": "he's",
+   "s": 18.69,
+   "e": 18.95
+  },
+  {
+   "w": "gone",
+   "s": 18.95,
+   "e": 19.19
+  }
+ ]
+}

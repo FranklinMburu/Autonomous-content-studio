@@ -1,0 +1,34 @@
+{
+ "off": 12705,
+ "a": 12705,
+ "b": 12749,
+ "views": 27,
+ "fan_titles": [
+  "27: we dead 🫪"
+ ],
+ "fan_clip": "https://www.twitch.tv/kaicenat/clip/GlutenFreeAdventurousAlpacaNomNom-YGpdbQ1Txo143SDp",
+ "file": "kaicenat-04.mp4",
+ "section_start_in_vod": 12705,
+ "section_end_in_vod": 12749,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/videos/2935613960",
+ "stream_title": "BEATING GTA 6 RIGHT NOW *FINALE* 2026-11-21 08:45",
+ "streamer_channel": "kaicenat",
+ "words": [
+  {
+   "w": "Put",
+   "s": 7.95,
+   "e": 8.31
+  },
+  {
+   "w": "it",
+   "s": 8.31,
+   "e": 8.47
+  },
+  {
+   "w": "down",
+   "s": 8.47,
+   "e": 8.89
+  }
+ ]
+}
