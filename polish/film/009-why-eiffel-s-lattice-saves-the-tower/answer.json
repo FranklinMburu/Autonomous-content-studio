@@ -5,7 +5,7 @@
    {
     "feel": "pride",
     "lines": [
-     "Gustave Eiffel hoisted a large Tricolour as a 25-gun salute fired.",
+     "Gustave Eiffel hoisted a large Tricolour to a 25-gun salute.",
      "Nothing 300 metres tall had ever been built."
     ]
    },
@@ -18,9 +18,9 @@
     ]
    },
    {
-    "feel": "dread",
+    "feel": "tension",
     "lines": [
-     "And high up, there was the wind.",
+     "Critics said he made art with no regard for engineering.",
      "Eiffel said wind resistance was his primary concern."
     ]
    },
@@ -37,7 +37,7 @@
     "lines": [
      "Melt down all 7,300 tonnes of iron.",
      "It would cover the base just 6.25 centimetres deep.",
-     "You see, it's like lace: there are more holes than thread.",
+     "You see, it's like melting a whole bike into one thin puddle.",
      "The air around it weighs almost as much as the iron.",
      "In the wind, the tower sways by up to 9 centimetres."
     ]
@@ -52,8 +52,8 @@
    {
     "feel": "irony",
     "lines": [
-     "His wind story made the odd shape seem necessary, not chosen.",
-     "It may have been his answer to the artists who called it monstrous."
+     "His rule cast the curve as a technical necessity, not an aesthetic choice.",
+     "The study sees it as a justification of the tower's looks."
     ]
    }
   ],
@@ -67,7 +67,11 @@
   ],
   "claims": [
    {
-    "claim": "On 31 March 1889 Eiffel led officials to the top of the tower and hoisted a large Tricolour.",
+    "claim": "At 2:35 pm, Eiffel hoisted a large Tricolour to the accompaniment of a 25-gun salute fired at the first level.",
+    "url": "https://en.wikipedia.org/wiki/Eiffel_Tower"
+   },
+   {
+    "claim": "When it was built, Eiffel was accused of trying to create something artistic with no regard to the principles of engineering.",
     "url": "https://en.wikipedia.org/wiki/Eiffel_Tower"
    },
    {
@@ -83,7 +87,7 @@
     "url": "https://en.wikipedia.org/wiki/Eiffel_Tower"
    },
    {
-    "claim": "Eiffel declared the curved silhouette was determined by the pattern of wind loads, a principle that removed the need for cross-bracing; however, cross-bracing has been used in the Tower's top two-thirds, and the principle portrayed the profile as a technical necessity rather than an aesthetic choice.",
+    "claim": "Eiffel declared the curved silhouette was determined by the pattern of wind loads, a principle that removed the need for cross-bracing; however, cross-bracing has been used in the Tower's top two-thirds, and the principle portrayed the unusual profile as a technical necessity rather than an aesthetic choice; it can be seen as a justification of the feasibility and aesthetics of the proposal.",
     "url": "https://openalex.org/W3211338988"
    },
    {
@@ -193,13 +197,21 @@
     "check": "Is there a black smokestack?"
    },
    {
-    "name": "wind",
-    "at": "And#2",
+    "name": "critics",
+    "at": "Critics#1",
     "xfade": true,
     "clip": true,
-    "prompt": "wide shot of tall trees bending in strong wind along a Paris boulevard, storm clouds racing, cold grey light, 1880s",
-    "motion": "the trees sway hard in the wind, slow camera move left",
-    "check": "Are trees bending in the wind?"
+    "prompt": "medium shot, men in top hats laughing and pointing up at a half-built iron tower, 1880s Paris street, grey daylight",
+    "motion": "they point up and laugh, slow camera push in",
+    "check": "Are men in top hats pointing up?"
+   },
+   {
+    "name": "dismiss",
+    "at": "regard#1",
+    "clip": true,
+    "prompt": "close-up, a stern critic in a grey top hat waving his gloved hand dismissively, 1880s Paris cafe terrace, soft daylight",
+    "motion": "he waves his hand away, slow camera push in",
+    "check": "Is a man in a top hat waving his hand?"
    },
    {
     "name": "concern",
@@ -290,20 +302,20 @@
     "check": "Is there a thin layer of iron on the ground?"
    },
    {
-    "name": "lace",
+    "name": "bike",
     "at": "You#1",
     "clip": true,
-    "prompt": "close-up, a woman's hands holding up a piece of fine white lace against a sunny window, 1880s parlour, warm light",
-    "motion": "the hands lift the lace slightly as light shines through, slow camera push in",
-    "check": "Are hands holding up white lace?"
+    "prompt": "close-up of an old bicycle leaning against a sunny brick wall, its front wheel slowly turning, warm afternoon light",
+    "motion": "the front wheel turns slowly, slow camera push in",
+    "check": "Is there a bicycle?"
    },
    {
-    "name": "holes",
-    "at": "holes#1",
+    "name": "puddle",
+    "at": "bike#1",
     "clip": true,
-    "motion": "the lace sways gently as light flickers through, slow camera push in",
-    "prompt": "extreme close-up of delicate white lace with bright sunlight shining through its many open holes, soft warm light",
-    "check": "Is there white lace with light through it?"
+    "prompt": "close-up of a thin shiny puddle of molten silver metal spreading across a stone floor, glowing edges, dark workshop",
+    "motion": "the metal puddle spreads slowly, slow camera push in",
+    "check": "Is there a shiny metal puddle?"
    },
    {
     "name": "air",
@@ -337,7 +349,7 @@
    },
    {
     "name": "study",
-    "at": "A#4",
+    "at": "A#5",
     "xfade": true,
     "clip": true,
     "prompt": "close-up, a hand turning the page of a thick research journal on a modern desk, soft lamp light",
@@ -370,7 +382,7 @@
    },
    {
     "name": "smile",
-    "at": "seem#1",
+    "at": "necessity#1",
     "who": "eiffel",
     "clip": true,
     "prompt": "close-up, a bearded engineer smiling slightly with folded arms, he is {eiffel}, lecture hall, warm lamp light",
@@ -379,24 +391,15 @@
    },
    {
     "name": "answer",
-    "at": "It#5",
-    "who": "garnier",
+    "at": "study#2",
     "clip": true,
-    "prompt": "close-up, a white-bearded architect staring up with his mouth open, he is {garnier}, Paris street, golden evening light",
-    "motion": "he slowly lifts his gaze upward, slow camera push in",
-    "check": "Is a white-bearded man looking up?"
-   },
-   {
-    "name": "artists2",
-    "at": "answer#1",
-    "clip": true,
-    "prompt": "medium shot, old men in black frock coats and top hats lowering their heads in a quiet Paris square, iron tower behind them, evening light",
-    "motion": "they slowly lower their heads, slow camera push in",
-    "check": "Are men in top hats standing in a square?"
+    "prompt": "close-up, a hand slowly closing a thick research journal on a modern wooden desk, soft lamp light",
+    "motion": "the hand closes the journal, slow camera push in",
+    "check": "Is a hand closing a book?"
    },
    {
     "name": "final",
-    "at": "called#2",
+    "at": "the#12",
     "move": "pull",
     "prompt": "wide shot of a curved iron tower glowing in golden sunset light above 1880s Paris rooftops",
     "check": "Is there an iron tower at sunset?"
