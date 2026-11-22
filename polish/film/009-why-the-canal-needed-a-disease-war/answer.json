@@ -1,0 +1,465 @@
+{
+ "script": {
+  "title": "Why the Canal Needed a Disease War",
+  "beats": [
+   {
+    "feel": "intrigue",
+    "lines": [
+     "A colonel set pans of sulfur alight in every building in Panama."
+    ]
+   },
+   {
+    "feel": "dread",
+    "lines": [
+     "The French had tried to dig a canal here first.",
+     "Yellow fever and malaria killed thousands of workers.",
+     "By 1884, the death rate was over 200 per month."
+    ]
+   },
+   {
+    "feel": "curiosity",
+    "lines": [
+     "Doctors had blamed yellow fever on filth, and malaria on bad vapors.",
+     "But between 1897 and 1902, both diseases were shown to be spread by mosquitoes."
+    ]
+   },
+   {
+    "feel": "determination",
+    "lines": [
+     "In 1904, the United States took over.",
+     "William Gorgas became head of sanitation.",
+     "Inspectors searched houses for mosquito larvae.",
+     "Carpenters removed anything where still water could collect."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like a bucket of rainwater left in your yard.",
+     "Leave it, and it fills with wriggling bugs."
+    ]
+   },
+   {
+    "feel": "hope",
+    "lines": [
+     "Mosquito larvae live just below the surface of standing water.",
+     "Workers sprayed oil on the pools to destroy them.",
+     "Every building was fumigated, using up the entire US supply of sulfur and pyrethrum."
+    ]
+   },
+   {
+    "feel": "frustration",
+    "lines": [
+     "The commission's head asked President Roosevelt to remove Gorgas for his costly obsession with mosquitoes.",
+     "Roosevelt was told he would get his canal if he supported Gorgas."
+    ]
+   },
+   {
+    "feel": "triumph",
+    "lines": [
+     "In 1906, only one case of yellow fever was reported."
+    ]
+   },
+   {
+    "feel": "sorrow",
+    "lines": [
+     "But black workers, most of the workforce, still died at ten times the rate of white workers.",
+     "Many lived in tents outside the mosquito-controlled zone."
+    ]
+   }
+  ],
+  "key_words": [
+   "Gorgas",
+   "Panama",
+   "yellow fever",
+   "malaria",
+   "mosquitoes",
+   "sulfur",
+   "oil",
+   "Roosevelt"
+  ],
+  "claims": [
+   {
+    "claim": "Gorgas fumigated residences: pans of sulfur or pyrethrum were placed in the rooms, sprinkled with wood-alcohol and set alight; fumigation was extended to all of Panama and every building was fumigated, using up the entire US supply of sulfur and pyrethrum.",
+    "url": "https://en.wikipedia.org/wiki/Health_measures_during_the_construction_of_the_Panama_Canal"
+   },
+   {
+    "claim": "The French tried to build the Panama Canal; yellow fever, malaria and other tropical diseases killed thousands of workers; by 1884 the death rate was over 200 per month.",
+    "url": "https://en.wikipedia.org/wiki/Panama_Canal"
+   },
+   {
+    "claim": "Traditionally yellow fever had been thought to be caused by contact with filth and malaria by noxious vapors; between 1897 and 1902 both diseases were shown to be spread by mosquitoes.",
+    "url": "https://en.wikipedia.org/wiki/Health_measures_during_the_construction_of_the_Panama_Canal"
+   },
+   {
+    "claim": "The United States took control of the Panama Canal project in 1904; Colonel William Crawford Gorgas was appointed head of hospitals and sanitation; inspectors searched houses and buildings for mosquito larvae, and carpenters eliminated places where stagnant water could collect.",
+    "url": "https://en.wikipedia.org/wiki/Health_measures_during_the_construction_of_the_Panama_Canal"
+   },
+   {
+    "claim": "Mosquito larvae live just below the surface of standing water; workers with spray tanks sprayed oil on standing pools, so the larvae could be destroyed.",
+    "url": "https://en.wikipedia.org/wiki/Health_measures_during_the_construction_of_the_Panama_Canal"
+   },
+   {
+    "claim": "Theodore P. Shonts, head of the commission, asked President Roosevelt to remove Gorgas because of his costly obsession with mosquitoes; Roosevelt was told he would get his canal if he supported Gorgas.",
+    "url": "https://en.wikipedia.org/wiki/Health_measures_during_the_construction_of_the_Panama_Canal"
+   },
+   {
+    "claim": "In 1906, only one case of yellow fever was reported.",
+    "url": "https://en.wikipedia.org/wiki/Health_measures_during_the_construction_of_the_Panama_Canal"
+   },
+   {
+    "claim": "Black workers, the majority of the canal workforce, continued to die at ten times the rate of white workers in 1906; many had to live in tents and tenements outside the mosquito-controlled zone.",
+    "url": "https://en.wikipedia.org/wiki/Health_measures_during_the_construction_of_the_Panama_Canal"
+   }
+  ]
+ },
+ "film": {
+  "era": "1900s",
+  "music": "tense",
+  "key_words": [
+   "Gorgas",
+   "Panama",
+   "yellow fever",
+   "malaria",
+   "mosquitoes",
+   "sulfur",
+   "Roosevelt"
+  ],
+  "cast": {
+   "gorgas": "a 50 year old American army doctor, tall and slim, a neat white moustache, thinning white hair, kind blue eyes, a white tropical army uniform with a high collar and brass buttons, 1900s",
+   "olddoctor": "a 65 year old French doctor, short and plump, a bushy white beard, a bald pink head, a black frock coat and a black top hat in his hand, 1880s",
+   "inspector": "a 30 year old Panamanian sanitation inspector, lean, light brown skin, a thin black moustache, a wide white straw hat, a khaki shirt with rolled sleeves, 1900s",
+   "worker": "a 25 year old Black Caribbean canal worker, tall and muscular, a shaved head, a sweat-soaked faded blue cotton shirt and brown work trousers, 1900s",
+   "shonts": "a 49 year old American businessman, heavy build, dark hair slicked and parted in the middle, a clean-shaven fleshy face, a light grey suit with a white waistcoat, 1900s",
+   "roosevelt": "a 47 year old American president, stocky and broad-chested, small pince-nez glasses on a black cord, a bushy brown moustache, a wide toothy grin, short brown hair, a black frock coat, 1900s"
+  },
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "who": "gorgas",
+    "prompt": "medium shot, an army doctor lighting a metal pan of yellow sulfur powder on the floor of a shuttered wooden room, he is {gorgas}, smoke rising, dim orange light",
+    "check": "Is a man lighting a pan on the floor?",
+    "clip": true,
+    "motion": "he lowers the match and smoke curls up, slow camera push in"
+   },
+   {
+    "name": "smoke",
+    "at": "in#1",
+    "prompt": "wide shot of grey smoke seeping from the shutters of a row of wooden houses on a tropical town street, palm trees, hazy sunlight, 1900s",
+    "check": "Is smoke seeping from wooden houses?",
+    "clip": true,
+    "motion": "grey smoke curls slowly out of the shutters, slow camera pan left"
+   },
+   {
+    "name": "french",
+    "at": "the#1",
+    "prompt": "wide shot of a muddy jungle cutting with old steam excavators and workers digging, steep red earth walls, steamy grey light, 1880s",
+    "check": "Are workers digging a muddy cutting?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "dig",
+    "at": "dig#1",
+    "prompt": "medium shot, workers in straw hats swinging shovels into thick red mud in a jungle trench, steamy grey light, 1880s",
+    "check": "Are workers swinging shovels into mud?",
+    "clip": true,
+    "motion": "they swing their shovels into the mud, slow camera push in"
+   },
+   {
+    "name": "fever",
+    "at": "yellow#1",
+    "prompt": "close-up, a pale sick worker sweating with fever on a narrow cot, a damp cloth on his forehead, dim hospital light, 1880s",
+    "check": "Is a sick man sweating on a cot?",
+    "clip": true,
+    "motion": "he shivers and turns his head, slow camera push in"
+   },
+   {
+    "name": "crosses",
+    "at": "killed#1",
+    "prompt": "wide shot of rows of simple wooden crosses on a green jungle hillside under grey rain clouds, 1880s",
+    "check": "Are there rows of wooden crosses?",
+    "move": "pull"
+   },
+   {
+    "name": "ward",
+    "at": "by#1",
+    "prompt": "wide shot of a long crowded hospital ward with sick men on cots under open wooden shutters, dim light, 1880s",
+    "check": "Is there a crowded hospital ward?",
+    "move": "push"
+   },
+   {
+    "name": "grave",
+    "at": "200#1",
+    "prompt": "medium shot, a gravedigger shovelling wet earth in the pouring rain beside a jungle, 1880s, grey light",
+    "check": "Is a man shovelling earth in the rain?",
+    "clip": true,
+    "motion": "he digs and throws a shovel of mud, slow camera push in",
+    "hit": "200#1"
+   },
+   {
+    "name": "filth",
+    "at": "doctors#1",
+    "who": "olddoctor",
+    "prompt": "medium shot, an old doctor in a black frock coat pointing his cane at a heap of rubbish in a muddy street, he is {olddoctor}, hazy sunlight, 1880s",
+    "check": "Is a man pointing a cane at rubbish?",
+    "clip": true,
+    "motion": "he jabs his cane toward the rubbish, slow camera push in"
+   },
+   {
+    "name": "vapors",
+    "at": "malaria#2",
+    "prompt": "wide shot of white mist rising over a dark jungle swamp at dawn, tangled roots, pale light",
+    "check": "Is mist rising over a swamp?",
+    "clip": true,
+    "motion": "the mist drifts slowly over the water, slow camera pan right"
+   },
+   {
+    "name": "microscope",
+    "at": "but#1",
+    "prompt": "close-up, a scientist peering into a brass microscope at a cluttered laboratory desk, glass jars around him, lamp light, 1900s",
+    "check": "Is a man peering into a microscope?",
+    "clip": true,
+    "motion": "he turns the focus knob slowly, slow camera push in"
+   },
+   {
+    "name": "jar",
+    "at": "both#1",
+    "prompt": "close-up, a hand holding up a small glass jar with mosquitoes inside toward a lamp in a laboratory, 1900s, warm light",
+    "check": "Is a hand holding up a glass jar?",
+    "clip": true,
+    "motion": "the hand turns the jar slowly in the light, slow camera push in"
+   },
+   {
+    "name": "mosquito",
+    "at": "spread#1",
+    "prompt": "extreme close-up of a mosquito standing on a man's bare forearm, tiny hairs, warm light",
+    "check": "Is a mosquito on an arm?",
+    "move": "push",
+    "hit": "mosquitoes#1"
+   },
+   {
+    "name": "flag",
+    "at": "in#3",
+    "prompt": "low angle of an American flag rising up a tall wooden flagpole above a tropical work camp, bright blue sky, 1900s",
+    "check": "Is an American flag on a flagpole?",
+    "move": "up",
+    "xfade": true
+   },
+   {
+    "name": "gorgas_map",
+    "at": "william#1",
+    "who": "gorgas",
+    "prompt": "medium shot, an army doctor leaning over a big paper map on a table and tracing it with his finger, he is {gorgas}, wooden office, ceiling lamp, 1900s",
+    "check": "Is a man tracing a map with his finger?",
+    "clip": true,
+    "motion": "he traces a line across the map, slow camera push in"
+   },
+   {
+    "name": "inspector",
+    "at": "inspectors#1",
+    "who": "inspector",
+    "prompt": "close-up, a man in a straw hat peering into an open wooden rain barrel, he is {inspector}, backyard of a wooden house, bright tropical sun",
+    "check": "Is a man peering into a barrel?",
+    "clip": true,
+    "motion": "he leans in and squints at the water, slow camera push in"
+   },
+   {
+    "name": "barrel",
+    "at": "carpenters#1",
+    "prompt": "medium shot, a carpenter tipping water out of an old wooden barrel onto the ground behind a house, 1900s, bright sun",
+    "check": "Is a man tipping water out of a barrel?",
+    "clip": true,
+    "motion": "water splashes out of the tipped barrel, slow camera push in"
+   },
+   {
+    "name": "pot",
+    "at": "where#1",
+    "prompt": "close-up of a cracked clay pot full of still dark water in tall grass, bright sunlight",
+    "check": "Is there a clay pot full of water?",
+    "move": "push"
+   },
+   {
+    "name": "yard",
+    "at": "you#1",
+    "prompt": "wide shot of a quiet sunny backyard with a wooden fence, green grass and a tin bucket standing by the steps",
+    "check": "Is there a sunny backyard with a fence?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "bucket",
+    "at": "bucket#1",
+    "prompt": "close-up of a tin bucket full of rainwater standing in a sunny backyard lawn, leaves floating on top",
+    "check": "Is there a tin bucket of water on grass?",
+    "move": "push"
+   },
+   {
+    "name": "murky",
+    "at": "leave#1",
+    "prompt": "close-up of the water in a tin bucket turning green and murky with floating leaves, soft daylight",
+    "check": "Is there murky green water in a bucket?",
+    "move": "push"
+   },
+   {
+    "name": "larvae",
+    "at": "wriggling#1",
+    "prompt": "extreme close-up of tiny larvae wriggling just under the surface of murky water in a bucket, soft daylight",
+    "check": "Are tiny larvae wriggling in water?",
+    "clip": true,
+    "motion": "the larvae wriggle up and down, slow camera push in"
+   },
+   {
+    "name": "larva",
+    "at": "mosquito#2",
+    "prompt": "extreme close-up of a mosquito larva hanging upside down just under the surface of dark water, soft light",
+    "check": "Is a larva hanging under the water surface?",
+    "clip": true,
+    "motion": "the larva twitches under the surface, slow camera push in"
+   },
+   {
+    "name": "surface",
+    "at": "surface#1",
+    "prompt": "extreme close-up of the flat still surface of a dark puddle with tiny ripples, jungle reflections, soft light",
+    "check": "Is there a still dark puddle?",
+    "move": "push"
+   },
+   {
+    "name": "spray",
+    "at": "workers#2",
+    "who": "worker",
+    "prompt": "medium shot, a worker with a metal tank on his back spraying oil onto a jungle pool, he is {worker}, hot sun, 1900s",
+    "check": "Is a man spraying a pool from a tank on his back?",
+    "clip": true,
+    "motion": "he sweeps the spray nozzle across the water, slow camera push in"
+   },
+   {
+    "name": "oil_film",
+    "at": "destroy#1",
+    "prompt": "extreme close-up of a shiny rainbow film of oil spreading across still green water, bright sunlight",
+    "check": "Is a rainbow oil film spreading on water?",
+    "clip": true,
+    "motion": "the oil film spreads slowly across the water, slow camera push in"
+   },
+   {
+    "name": "sealing",
+    "at": "every#2",
+    "prompt": "medium shot, two workmen pasting paper strips over the windows of a wooden house, tropical street, 1900s, bright sun",
+    "check": "Are men pasting paper over windows?",
+    "clip": true,
+    "motion": "they smooth the paper over the window, slow camera push in"
+   },
+   {
+    "name": "crates",
+    "at": "entire#1",
+    "prompt": "wide shot of a warehouse full of empty open wooden crates and empty sacks, dusty light beams, 1900s",
+    "check": "Is there a warehouse full of empty crates?",
+    "move": "right"
+   },
+   {
+    "name": "shonts",
+    "at": "the#7",
+    "who": "shonts",
+    "prompt": "medium shot, a heavy businessman slamming his palm down on a polished desk, he is {shonts}, wood-panelled office, window light, 1900s",
+    "check": "Is a man slamming his hand on a desk?",
+    "clip": true,
+    "motion": "he slams his hand on the desk, slow camera push in"
+   },
+   {
+    "name": "roosevelt",
+    "at": "remove#1",
+    "who": "roosevelt",
+    "prompt": "close-up, a president frowning while reading a folded paper at a grand desk, he is {roosevelt}, office with tall curtains, daylight, 1900s",
+    "check": "Is a man frowning at a letter?",
+    "clip": true,
+    "motion": "he lowers the paper and frowns, slow camera push in"
+   },
+   {
+    "name": "obsession",
+    "at": "costly#1",
+    "who": "gorgas",
+    "prompt": "close-up, an army doctor kneeling beside a puddle and peering at the water, he is {gorgas}, jungle edge, bright sun, 1900s",
+    "check": "Is a man kneeling beside a puddle?",
+    "clip": true,
+    "motion": "he leans closer to the water, slow camera push in"
+   },
+   {
+    "name": "nod",
+    "at": "roosevelt#2",
+    "who": "roosevelt",
+    "prompt": "close-up, a president nodding firmly with a determined grin, he is {roosevelt}, office with tall curtains, daylight, 1900s",
+    "check": "Is a man nodding?",
+    "clip": true,
+    "motion": "he nods once firmly, slow camera push in"
+   },
+   {
+    "name": "cut",
+    "at": "canal#2",
+    "prompt": "wide shot of a giant canal cutting through green hills with steam shovels and trains on terraces, smoke rising, bright sun, 1900s",
+    "check": "Is there a giant canal cutting through hills?",
+    "move": "pull"
+   },
+   {
+    "name": "clean_ward",
+    "at": "in#5",
+    "prompt": "wide shot of a bright clean hospital ward with screened windows and empty white beds, sunlight streaming in, 1900s",
+    "check": "Is there a bright hospital ward with empty beds?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "smile",
+    "at": "yellow#3",
+    "who": "gorgas",
+    "prompt": "close-up, an army doctor smiling quietly as he looks out of a screened window, he is {gorgas}, warm sunlight, 1900s",
+    "check": "Is a man smiling by a window?",
+    "clip": true,
+    "motion": "he smiles and breathes out slowly, slow camera push in"
+   },
+   {
+    "name": "digger",
+    "at": "but#2",
+    "who": "worker",
+    "prompt": "medium shot, a worker swinging a pickaxe into red rock in a deep muddy cutting, he is {worker}, harsh sun, 1900s",
+    "check": "Is a man swinging a pickaxe?",
+    "clip": true,
+    "motion": "he swings the pickaxe into the rock, slow camera push in"
+   },
+   {
+    "name": "mourners",
+    "at": "still#2",
+    "prompt": "medium shot, a group of Black workmen standing bareheaded around a fresh grave holding their hats, jungle edge, grey sky, 1900s",
+    "check": "Are men standing around a grave?",
+    "clip": true,
+    "motion": "they bow their heads slowly, slow camera push in"
+   },
+   {
+    "name": "cough",
+    "at": "ten#1",
+    "who": "worker",
+    "prompt": "close-up, a sick worker coughing on a cot in a crowded makeshift hospital tent, he is {worker}, dim light, 1900s",
+    "check": "Is a man coughing on a cot?",
+    "clip": true,
+    "motion": "he coughs and clutches the blanket, slow camera push in",
+    "hit": "ten#1"
+   },
+   {
+    "name": "tents",
+    "at": "many#1",
+    "prompt": "wide shot of rows of patched canvas tents on muddy ground at the edge of a jungle at dusk, smoke from cooking fires, 1900s",
+    "check": "Are there rows of canvas tents?",
+    "move": "left"
+   },
+   {
+    "name": "tent",
+    "at": "outside#1",
+    "who": "worker",
+    "prompt": "close-up, a tired worker lying on a thin mat inside a canvas tent swatting at his arm, he is {worker}, dim dusk light, 1900s",
+    "check": "Is a man lying inside a tent?",
+    "clip": true,
+    "motion": "he swats at his arm and closes his eyes, slow camera push in"
+   }
+  ]
+ }
+}
