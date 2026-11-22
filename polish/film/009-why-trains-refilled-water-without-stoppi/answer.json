@@ -5,7 +5,7 @@
    {
     "feel": "curiosity",
     "lines": [
-     "A fireman lowered a scoop into water between the rails at full speed."
+     "A fireman lowered a scoop into a trough of water between the rails."
     ]
    },
    {
@@ -74,7 +74,7 @@
   ],
   "claims": [
    {
-    "claim": "When a steam locomotive passes over the trough lying between the rails, a water scoop can be lowered by the fireman, and the speed of forward motion forces water into the scoop, up the scoop pipe and into the tanks.",
+    "claim": "When a steam locomotive passes over the trough of water lying between the rails, a water scoop can be lowered by the fireman, and the speed of forward motion forces water into the scoop, up the scoop pipe and into the tanks.",
     "url": "https://en.wikipedia.org/wiki/Water_trough"
    },
    {
@@ -141,7 +141,7 @@
    },
    {
     "name": "speed",
-    "at": "at#1",
+    "at": "between#1",
     "prompt": "wide shot of a black steam locomotive racing along a coastal railway trailing white smoke, sea cliffs, cloudy sky, 1860s",
     "check": "Is a steam locomotive racing along the coast?",
     "move": "right"
@@ -219,6 +219,14 @@
     "motion": "thick steam puffs up out of the chimney, slow camera tilt up"
    },
    {
+    "name": "valve",
+    "at": "1,900#1",
+    "prompt": "close-up, a fireman's sooty hand turning a brass water valve on a locomotive boiler, steam hissing, orange firebox light, 1860s",
+    "check": "Is a hand turning a brass valve?",
+    "clip": true,
+    "motion": "the hand turns the valve and steam hisses, slow camera push in"
+   },
+   {
     "name": "storm",
     "at": "in#4",
     "prompt": "wide shot of huge stormy waves crashing against a sea wall beside a railway line, rain lashing, dark clouds, 1860s",
@@ -284,7 +292,7 @@
    },
    {
     "name": "scoop",
-    "at": "a#5",
+    "at": "a#6",
     "prompt": "extreme close-up of a curved iron scoop slicing fast through water in a trough, throwing up a sheet of spray, grey daylight",
     "check": "Is a curved iron scoop slicing through water?",
     "clip": true,
@@ -300,7 +308,7 @@
    },
    {
     "name": "spray_wall",
-    "at": "at#2",
+    "at": "at#1",
     "prompt": "low angle of a steam locomotive thundering over a water trough throwing up a huge white wall of spray, green fields, cloudy sky, 1860s",
     "check": "Is a locomotive throwing up a wall of spray?",
     "clip": true,

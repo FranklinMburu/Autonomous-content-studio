@@ -407,6 +407,13 @@
     "xfade": true
    },
    {
+    "name": "photo",
+    "at": "who#1",
+    "prompt": "close-up of an old black and white photograph of a small dog held in wrinkled hands, soft grey window light",
+    "check": "Is a photograph held in hands?",
+    "move": "push"
+   },
+   {
     "name": "regret",
     "at": "said#1",
     "who": "gazenko",
