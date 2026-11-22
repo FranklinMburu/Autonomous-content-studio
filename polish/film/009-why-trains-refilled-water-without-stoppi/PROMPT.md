@@ -74,45 +74,45 @@ Return JSON only: {"era": "...", "cast": {...}, "key_words": [...], "music": "<o
            {"name": ..., "at": ..., "prompt": ..., "check": "Is ...?", "move": "push"}, ...]}
 
 CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid these exact scenes):
-- 005-why-ships-waited-forty-days-before-enter: cast sailor = a 30 year old Venetian sailor with a sunburnt face, curly black hair, a red wool cap and a loose white linen shirt, 1400s; doctor = a 55 year old medieval physician with a long grey beard, a long dark brown robe and a round black cap, 1400s
-  scenes: medium shot, sailors leaning on the rail of a wooden sailing ship and  | close-up, a sailor gripping a ship's wooden rail and gazing at land, h | close-up of a pale sick man lying on straw with dark swollen marks on  | wide shot of a medieval town street with closed shutters and a cart co | close-up, a weeping woman in a medieval hood kneeling beside a bed, ca | wide shot of medieval Venice with canals, gondolas and stone palaces,  | medium shot, three Venetian officials in long red robes and black caps | wide shot of a walled stone harbour city on the Adriatic coast with re | close-up of stone city walls and a tower above the sea with waves brea | medium shot, travellers in medieval cloaks stepping off a small rowing | wide shot of a small rocky island with a few stone huts in a blue sea, | close-up, a worried traveller pulling down his collar to look at his n
-- 005-why-the-radium-girls-licked-poison: cast painter = a 19 year old woman with dark brown bobbed hair, freckles, bright hazel eyes, a white cotton work smock over a navy blouse, 1910s; supervisor = a 45 year old factory supervisor with slicked grey hair, a thin moustache, a brown three-piece suit and a gold watch chain, 1910s; president = a 50 year old company president with a bald head, round gold spectacles, a heavy jaw and a dark grey double-breasted suit, 1920s; inventor = a 45 year old scientist with a high forehead, swept-back black hair, a short pointed black beard and a black suit with a white collar, 1920s
-  scenes: close-up, a young woman touching a thin paintbrush tip to her lips, a  | extreme close-up of a thin brush dipping into a tiny pot of glowing gr | extreme close-up of a thin brush painting glowing green lines on a sma | wide shot of a big 1910s brick factory with tall windows and a smokest | wide shot, rows of young women in white smocks bent over long tables p | close-up of a row of small watch faces glowing green in a dark room | close-up, a young woman's open hand receiving a few copper coins at a  | extreme close-up of a camel hair paintbrush with a frayed splayed tip, | medium shot, a stern man in a suit pointing at a worker's paint table, | medium close-up, a smiling young woman putting a paintbrush to her lip | close-up, young women laughing and holding up fingernails painted glow | close-up, a laughing young woman with a faint green glow on her teeth 
-- 006-why-dutch-merchants-paid-fortunes-for-a-: cast merchant = a 44 year old Dutch merchant with a ruddy weathered face, a thick grey-streaked brown beard, heavy brows, a wide black felt hat, a long dark burgundy wool coat with silver buttons, a white linen collar and cuffs, 1630s; trader = a 31 year old Dutch tulip trader with a thin pale face, a small pointed black moustache, sharp dark eyes, shoulder-length light brown hair, a bright mustard yellow doublet, a white ruff collar and a brown leather belt, 1630s; grower = a 52 year old Dutch bulb grower with a sunburnt wrinkled face, a bald crown with grey hair at the sides, a short grey stubble beard, a rough brown linen smock, muddy wooden clogs and a grey wool cap, 1630s; wife = a 29 year old Dutch woman with fair skin, blond hair pinned under a white lace cap, a high forehead, a dark green bodice with a white apron over a long brown skirt, 1630s; tavernkeeper = a stout 48 year old Dutch tavern keeper with a red flushed face, a big belly, a clean-shaven chin, a white apron over a dark blue shirt, a brown cap, 1630s
-  scenes: medium close-up, a stern man in a wide black hat leaning over a wooden | extreme close-up of a hand with a quill pen signing a paper contract o | close-up, a merchant holding up his open empty palms toward a trader,  | medium shot, a trader shrugging with both arms spread wide and grinnin | close-up of a single tulip bulb half buried in dark soil in a wooden c | close-up of a hand with a quill pen writing rising numbers on a paper  | medium shot, {trader} slapping a paper contract down on a wooden table | close-up of a hand dropping small silver coins into a wooden bowl on a | wide shot of a crowded 1630s Dutch tavern with men waving paper contra | wide shot of a grand 1630s Dutch town exchange building with tall ston | medium shot, {merchant} holding up a paper contract beside a potted tu | close-up of a hand holding up a small paper concert ticket in a dark t
-- 008-why-china-s-paper-money-wasn-t-tang: cast merchant = a 45 year old Sichuan merchant with a round weathered face, a thin grey-streaked beard, a black silk cap, a long dark blue silk robe with wide sleeves and a brown leather belt, 11th century; official = a 50 year old Song government official with a long thin face, a neat black moustache, a tall black gauze hat with stiff wings, a long crimson robe with a gold-embroidered square badge, 11th century; clerk = a 30 year old thin clerk with a pale narrow face, small round spectacles, a grey cotton robe and a black cloth cap, 11th century; smith = a 35 year old burly iron smith with a soot-darkened face, a short black beard, a leather apron over a rough brown tunic, 11th century; wife = a 35 year old Sichuan woman with a round face, black hair in a neat bun, a small gold hairpin, a green cotton jacket and a long dark skirt, 11th century
-  scenes: medium shot, a merchant in a long dark blue silk robe and black cap ha | extreme close-up of two hands lifting a stack of thick heavy iron coin | close-up, a merchant holding up one folded paper note with both hands, | close-up, a merchant pressing a red seal stamp onto a paper note on a  | medium shot, a thin clerk holding up a paper note in one hand and poin | close-up of two hands placing a folded paper note on top of a heavy st | wide shot of a crowded 11th century Sichuan market street with wooden  | close-up of two hands holding up two different paper notes side by sid | medium shot, {merchant} standing and pointing at a large paper map on  | close-up, {merchant} leaning over a wooden table and pointing at a pap | wide shot of a large wooden gate of a merchant guild house with a hang | extreme close-up of a carved wooden printing block being pressed onto 
-- 006-why-braille-made-night-writing-simple: cast louis = a 12 year old thin French boy with straight short black hair and a fringe, a pale narrow face, eyes half closed and unfocused, a navy blue wool school jacket with a high collar over a white shirt, 1820s; child = a 4 year old small boy with blond curly hair, chubby pink cheeks and a loose white linen smock, 1810s; barbier = a 54 year old tall lean retired French artillery captain with swept-back silver hair, long grey sideburns, a hawk nose and a faded dark blue military coat with red cuffs and brass buttons, 1820s; teacher = a 40 year old thin stern French teacher with dark hair slicked flat, a pointed black chin beard and a black frock coat with a tall white collar, 1840s
-  scenes: close-up, a blind boy running his fingertip slowly across thick paper  | extreme close-up of a fingertip pressing on rows of small raised dots  | medium shot, a thin boy tapping a wooden cane along a stone school cor | close-up, a small boy squinting and pushing a sharp awl into a thick p | wide shot of a small country harness workshop with horse saddles and l | medium shot, a little blind boy feeling his way along a country path w | wide shot of a tall old grey stone school building on a narrow Paris s | close-up of an enormous thick heavy book lying open on a worn wooden d | medium shot, three blind children slowly tracing their fingers across  | close-up of a blind boy's empty hands resting on a blank sheet of pape | medium shot, a lean old army captain carrying a small wooden case into | close-up of a metal ruler slate with grooves lying on thick paper next
-- 006-why-curie-s-notebooks-stay-locked: cast marie = a 31 year old Polish French scientist with ash blond hair pulled back in a loose bun, a high forehead, grey eyes, a plain long black dress with a high collar and rolled cuffs, 1890s; pierre = a 39 year old French physicist with a full dark brown beard, receding dark hair, gentle dark eyes and a rumpled black jacket over a white shirt, 1890s; old = a 66 year old frail woman with thin white hair in a bun, a pale lined face, tired grey eyes and a plain grey wool cardigan, 1930s
-  scenes: close-up, a woman slipping a small glowing glass test tube into her dr | extreme close-up of a small glass test tube glowing faint blue-green a | medium shot, a young woman looking up from a notebook at a cluttered l | wide shot of a cramped wooden shed laboratory with glass bottles, an i | close-up, a man grinding dark rock with a heavy pestle in a big stone  | medium shot, a woman stirring a big iron pot of bubbling dark sludge w | wide shot, a worker shovelling dark brown rock from a huge heap into s | close-up of a heavy sack of dark rock tipping onto a wooden table, dus | close-up of a tiny pinch of white powder in a small glass dish on a wo | medium shot, a man and a woman smiling at each other over a tiny glowi | close-up of a bright beam of sunlight shining through a dusty laborato | close-up, a woman writing quickly in a notebook by lamplight, she is {
-- 006-why-harvey-was-mocked: cast harvey = a 50 year old short English physician with a round face, small very black eyes and curling raven-black hair to his collar, a small black pointed beard, a black doublet with a wide white falling-band collar, 1620s; old = a 78 year old frail English physician with thin white curling hair, a short white beard, a round wrinkled face, a black velvet skullcap and a black gown with a plain white collar, 1650s
-  scenes: close-up, a doctor tying a tight cord around a man's bare upper arm, h | extreme close-up of a bare muscular arm with a tight brown cord tied a | medium shot, a short round-faced doctor walking along a muddy 1620s Lo | medium shot, four old physicians in long black gowns and white ruffs n | close-up of a white marble bust of an ancient bearded man on a shelf i | close-up of a dark red animal liver lying on a wooden anatomy table be | close-up, a doctor scratching quickly with a quill on paper by candlel | medium shot, a doctor counting on his fingers and frowning at his desk | close-up of a doctor's two fingers pressing on a man's bare wrist to f | extreme close-up of a small pewter spoon holding a few drops of dark r | close-up, a doctor pressing his ear against a man's bare chest to list | close-up of a brass hourglass with sand running down on a wooden desk,
-- 006-why-molasses-flooded-boston: cast painter = a 30 year old lanky dockside worker with a narrow face, ginger stubble, a grey flat cap and brown paint-stained canvas overalls over a red flannel shirt, 1919; jell = a 45 year old portly American company treasurer with round gold spectacles, a thick brown moustache, a black bowler hat and a tight tan three-piece suit, 1919; neighbor = a 40 year old Italian American woman with black hair in a low bun, a round olive face, a black knitted shawl over a dark green dress and a white apron, 1919
-  scenes: medium shot, a worker on a ladder painting a huge round steel tank bro | extreme close-up of a wide paint brush covering a sticky dark drip run | wide shot of a giant round steel storage tank beside a harbor with shi | low angle of a towering riveted steel tank wall rising into a grey sky | close-up of thick dark brown molasses pouring from a wide pipe into a  | high angle looking down into a vast dark pool of molasses inside a ste | medium shot, a woman filling a tin bucket from a sticky dark drip at t | close-up, two small children dipping their fingers into a tin can of d | close-up of a thick hose pumping into a valve on top of a steel tank,  | close-up, a worker pressing his ear against a riveted steel tank wall  | medium shot, a portly businessman in a bowler hat waving his hand dism | close-up, a businessman shaking his head with a smug face, he is {jell
-- 006-why-titanic-skimped-on-lifeboats: cast officer = a 38 year old British ship officer with short dark hair, a clean shaven lean face, a navy blue double-breasted uniform with gold buttons and a white-topped peaked cap, 1912; passenger = a 25 year old woman with auburn hair pinned up under a large black feathered hat, a long cream wool coat with a fur collar, 1912; builder = a 55 year old Irish shipyard manager with a thick grey walrus moustache, a brown bowler hat and a rumpled brown tweed suit, 1911; executive = a 52 year old bald British shipping chairman with a white chin beard, round wire spectacles and a navy pinstripe frock coat, 1911
-  scenes: medium shot, sailors lowering a wooden lifeboat on ropes down the side | close-up of a half-empty wooden lifeboat at night, a few shivering pas | medium shot, a ship officer at the deck rail waving a lifeboat away, h | wide shot of a giant four-funnel ocean liner tilting forward on a calm | wide shot of crowds of passengers in coats and white life jackets on a | close-up of a row of wooden lifeboats hanging from curved iron cranes  | close-up, a worried young woman in a large feathered hat clutching her | wide shot of a gigantic black ship hull inside a towering iron shipyar | medium shot, a shipyard manager pointing up at a long row of empty cur | medium shot, a tall businessman tapping a pencil on large ship drawing | close-up of a folded wooden boat with canvas sides lying upside down o | close-up of a heavy leather-bound rulebook with a red wax seal lying o
-- 007-why-a-spyglass-made-galileo-a-heretic: cast galileo = a 50 year old Italian astronomer with a receding hairline, thinning grey-brown hair, a full grey-streaked beard, deep-set dark eyes, a lined weathered face, wearing a long black wool scholar's robe with a white linen collar and a dark red cap, 1610s; castelli = a 40 year old Italian monk with short black hair, a clean-shaven round friendly face, warm brown eyes, wearing a brown Benedictine habit with a wooden cross on a cord, 1610s; christina = a 27 year old grand duchess with fair skin, dark auburn hair piled high in an elaborate jeweled updo, a narrow elegant face, wearing a rich gold-embroidered crimson velvet gown with a high lace collar and pearl earrings, 1610s; urban = a 70 year old pope with a bald crown, white hair at the sides, a short white beard, a heavy jowled face, wearing a white papal robe with a gold-embroidered red cape and a tall gold mitre, 1630s; inquisitor = a 60 year old cardinal with a gaunt pale face, deep-set black eyes, a thin pointed grey beard, wearing a long black cassock with a red sash and a red skullcap, 1630s; student = a 20 year old Italian student with curly dark brown hair, a smooth youthful face, a thin patchy beard, wearing a loose grey wool tunic and brown hose, 1610s
-  scenes: close-up, a bearded astronomer raising a long brass spyglass to his ey | medium shot, a bearded old scholar sitting at a wooden desk in a dim r | close-up, {galileo} pressing his eye to a long brass spyglass on a woo | close-up of a hand drawing four small circles in a row beside a big ci | wide shot of a grand 1610s lecture hall with a large wooden model of n | close-up of a wooden model with a small painted globe at its center an | medium shot, three old professors in black robes turning their backs a | close-up, an old professor in a black robe shaking his head and foldin | close-up, {student} squinting and frowning into a small brass telescop | medium shot, a grand duchess in a crimson velvet gown seated at a carv | close-up, {christina} frowning slightly with a questioning look, one h | close-up of a hand pointing at an open old book with a finger on a pag
-- 007-why-tycho-brahe-built-uraniborg-on-hven: cast tycho = a 26 year old Danish nobleman with reddish blond hair, a long drooping reddish moustache, a broad scar across his forehead, a black doublet with a white ruff collar and a gold chain, 1570s; king = a 40 year old Danish king with short dark brown hair, a full dark beard, a heavy brown fur-trimmed red robe and a gold crown, 1570s; kepler = a 30 year old thin German mathematician with dark hair, a short dark pointed beard, a narrow pale face and a plain black coat with a small white ruff, 1600s
-  scenes: close-up, a young nobleman staring up at the night sky in amazement, b | wide shot of a night sky over dark Danish fields with one blazing star | medium shot, a young nobleman pointing up at the sky from a stone cast | close-up of a single dazzling white star among many faint stars, deep  | close-up, a man squinting one bare eye along a long wooden sighting ar | medium shot, three workmen lifting a huge curved wooden measuring arc  | close-up of a large polished brass arc with fine notches along its edg | medium shot, a king in a fur-trimmed robe gesturing grandly toward a c | wide shot of a grand stone castle with towers on a cliff above the sea | close-up, a young nobleman shaking his head firmly, he is {tycho}, pal | wide shot of a crowded noisy royal banquet hall with nobles feasting a | close-up, a young nobleman writing a letter by candlelight and glancin
-- 008-why-nightingale-put-fresh-air-into-hospi: cast florence = a 34 year old slim English nurse with dark brown hair parted in the middle under a white cap, a calm oval face, a plain black wool dress with a white collar and a grey shawl, 1850s; soldier = a 20 year old thin British soldier with short sandy hair, freckles, a pale sweaty face and an open red army jacket over a dirty white shirt, 1850s
-  scenes: medium shot, a nurse walking between rows of hospital beds at night ho | close-up of a hand holding a small brass oil lamp glowing in a dark ho | wide shot of wounded soldiers lying packed side by side on thin mats a | wide shot of a huge square stone barracks hospital beside the sea with | close-up of a cracked stone floor drain overflowing with dark water in | close-up of a small shut window with grimy glass in a gloomy hospital  | wide shot of snow falling over a stone hospital courtyard in winter, g | medium shot, two soldiers carrying a stretcher covered with a grey bla | close-up, a pale young soldier sweating with fever on a cot, he is {so | close-up of a white bandage wrapped around a soldier's arm, lamp light | medium shot, a nurse frowning as she writes in a notebook at a small t | close-up of empty wooden supply shelves and an empty open crate in a s
+- 009-why-haber-made-fertilizer-from-air: cast haber = a 41 year old German chemist with a full dark brown beard, short dark hair receding at the temples, deep-set brown eyes, round wire spectacles, a charcoal three-piece suit, white high collar and black cravat, 1900s; rossignol = a 30 year old Swiss chemist with a thin pale face, short light brown hair, a small neat moustache, a white shirt with a stiff collar, dark tie and black waistcoat, 1900s; bosch = a 39 year old German chemical engineer with a broad square face, short dark blond hair, a thick dark moustache, a dark blue work jacket over a white shirt with a stiff collar, 1910s; farmer = a 45 year old German farmer with a deeply weathered face, a grey moustache, a brown wool jacket, a flat cap and muddy boots, 1910s; officer = a 50 year old German artillery officer with a grey uniform, a peaked cap, iron cross medal, a stiff grey moustache and a rigid posture, 1910s
+  scenes: medium shot, a chemist holding up a glass flask of clear liquid beside | extreme close-up of clear liquid droplets falling from a thin glass tu | medium shot, a farmer setting a heavy white sack of fertilizer onto a  | medium shot, a chemist turning a valve on a tall riveted steel pressur | close-up of a small glass measuring cup filled with four ounces of cle | close-up, a warehouse worker's hands scooping white nitrate powder fro | medium shot, a tropical island worker shoveling dark guano into a coar | medium shot, {farmer} lifting a heavy white fertilizer sack onto a woo | wide shot, a nearly empty warehouse with only a few small burlap sacks | wide shot, an immense blue sky thick with white clouds above a flat gr | close-up, {haber} straining to turn a heavy iron valve wheel on a rive | medium shot, a bearded chemist in a charcoal three-piece suit turning 
+- 010-davy-s-laughing-gas-test-wasn-t-in-londo: cast davy = a 21 year old English chemist, slim and upright, a smooth youthful round face with a high forehead, large dark brown eyes, thick dark brown curly hair swept up over his forehead, clean shaven, wearing a dark navy blue tailcoat with brass buttons, a buff waistcoat, a white linen cravat and pale grey trousers, 1799; watt = a 63 year old Scottish engineer, stocky and broad shouldered, a ruddy weathered lined face, bushy grey eyebrows, thinning sandy grey hair combed forward, clean shaven, wearing a brown wool coat, a checked grey waistcoat, a white neckcloth and dark breeches, 1799; skeptic = a 50 year old London physician, thin and upright, a sharp pale face with a long nose, powdered white hair tied in a short queue, a small grey moustache, wearing a black coat with silver buttons, a white neckcloth and dark knee breeches, 1790s; patient = a 27 year old English woman, slender, a freckled oval face, auburn hair in a loose bun with curled side locks, wearing a rose pink muslin gown with a cream shawl and white cuffs, 1790s; miner = a 42 year old English coal miner, broad and muscular, a soot blackened square face, a thick black beard, matted black hair under a brown leather cap, wearing a patched blue waistcoat over a dirty white shirt and brown trousers, 1810s
+  scenes: medium close-up, a young chemist breathing gas through a mouthpiece tu | close-up of a small glass hourglass with pale sand running down on a w | medium shot, a young chemist laughing with his head thrown back, holdi | close-up, a hand holding a glass gas jar beside a tall candle flame on | medium shot, a group of London physicians in black coats in a candle-l | close-up, a thin London physician with a flushed face and wide excited | close-up, a young chemist writing in a notebook with a quill pen at a  | close-up of a large clear glass gas jar with a brass stopcock on a woo | medium shot, a young chemist in a dark navy tailcoat adjusting a glass | medium close-up, a young chemist seated breathing through a mouthpiece | medium shot, a young chemist slumped back in a wooden chair with one h | close-up, a young chemist with flushed cheeks raising one hand and ges
+- 011-why-your-blood-fails-without-key-nutrien: cast patient = a 34 year old woman with medium brown skin, short curly black hair, tired dark eyes and a pale lined face, wearing a light blue hospital gown and a white paper wristband, today; doctor = a 45 year old Black woman doctor with short cropped black hair, a round face, warm dark brown eyes and no glasses, wearing a crisp white lab coat over a teal blouse, today; nutritionist = a 29 year old East Asian woman with straight black hair in a low ponytail, a slim oval face and thin eyebrows, wearing a light grey blazer over a white shirt, today; labtech = a 38 year old South Asian man with a short neat black beard, round wire glasses and a broad forehead, wearing a navy blue polo shirt under a white lab coat, today
+  scenes: close-up, a woman lying in a hospital bed clutching her chest and brea | close-up, a woman slumped in a plastic chair rubbing her forehead with | close-up, a woman gripping a chair armrest with both hands, head tilte | medium shot, a woman pressing one hand to her chest and breathing fast | medium shot, a woman walking slowly along a bright hospital corridor w | close-up, a pale tired woman lying on a hospital bed with her head on  | close-up, a doctor pressing a stethoscope to a patient's bare chest an | close-up, red blood cells streaming quickly through a narrow blood ves | extreme close-up, a pale woman's trembling hand gripping a white blank | close-up, a confused woman lying in a hospital bed, brow furrowed and  | close-up of an empty car fuel gauge, the needle resting at the far lef | close-up of a car engine running under an open hood, belts and hoses v
+- 008-why-edison-added-a-carbon-button: cast edison = a 30 year old American inventor with messy dark brown hair, sharp blue eyes, a clean-shaven intense face, wearing a navy blue three-piece wool suit, a white shirt with a loose black tie and ink-stained cuffs, 1870s; bell = a 29 year old Scottish man with thick wavy black hair, bushy black side whiskers joined to a moustache, a long straight nose, a dark green wool frock coat with a high white collar, 1870s; woman = a 26 year old American woman with black hair in a high bun, a round freckled face, a plum purple dress with a white lace collar and puffed sleeves, 1870s; judge = a 58 year old American judge with thick swept-back silver hair, a clean-shaven heavy jaw, deep frown lines, a black judge's robe over a white cravat, 1890s
+  scenes: close-up, a man biting the polished wooden edge of a grand piano with  | close-up, a man cupping a hand behind his ear with a worried frown, he | medium close-up, a man pressing his jaw against the lid of a grand pia | wide shot of a snowy 1870s American city street at dusk with horse car | medium shot, a man speaking into a brass funnel above a glass cup of c | close-up of a glass cup of clear liquid with a thin brass wire dipping | close-up, a hand pushing a small glass cup of liquid away across a woo | wide shot of a grand 1870s stone government building with tall columns | medium close-up, a man writing on a paper at a wooden desk with a pen, | close-up, an open palm holding a small pile of black carbon grains, fi | close-up of a small open brass capsule filled with black grains beside | extreme close-up of fingertips holding a very thin shiny round metal p
+- 012-why-carnot-tracked-heat-instead-of-engin: cast carnot = a 28 year old slim French army engineer with a narrow oval face, dark brown curly hair swept over his forehead, a clean-shaven chin, sharp dark eyes, wearing a dark navy blue military tunic with gold epaulettes and brass buttons, a white leather cross-belt and white trousers, 1820s; british = a 46 year old stocky British steam engineer with a broad ruddy face, a thick curly ginger beard, bushy ginger eyebrows, a soot-streaked dark brown waistcoat over a rolled-sleeve white shirt, 1820s; french = a 39 year old tall lean French engineer with a long pale lined face, dark hair greying at the temples, long dark sideburns, a dark green frock coat over a grey waistcoat and black cravat, 1820s; worker = a 34 year old burly French foundry worker with a square sun-darkened face, black curly hair, a thick black moustache, a brown leather apron over a faded blue shirt, 1820s; woman = a 30 year old French woman with a round face, dark brown hair in a neat bun under a white linen cap, a blue cotton dress with white sleeves and a white apron, 1820s
+  scenes: medium shot, a young French army engineer leaning over a wooden desk d | extreme close-up of a hand-drawn ink diagram of a cylinder steam engin | medium shot, a French army engineer pointing at a hand-drawn engine di | medium shot, a burly foundry worker straining to hoist a heavy black s | medium shot, a young French army engineer pointing at a rolled enginee | medium shot, a stocky British steam engineer gripping a large iron wre | close-up of a polished brass valve wheel on a huge 1820s steam engine, | medium shot, a tall lean French engineer pointing at a small wooden mo | medium shot, a French woman in a blue dress and white apron handing si | medium shot, a young engineer pointing at a large hand-drawn cylinder  | close-up of a red-hot iron billet glowing bright orange on a forge anv | close-up, a hand lowering a glowing red-hot iron bar into a bucket of 
+- 008-gray-hulls-hidden-purpose: cast researcher = a 45 year old woman historian with shoulder-length auburn hair with silver streaks, round tortoiseshell glasses, an olive green cardigan over a cream blouse; painter = a 50 year old broad-shouldered German shipyard painter with grey stubble, a flat cap splashed with paint and blue overalls stained with grey paint, 1940s; reviewer = a 55 year old man with a bald head, a neat grey goatee, a navy blazer and a red bow tie; baker = a 30 year old woman baker with black curly hair under a yellow headscarf, brown skin, a white apron over a teal shirt; reader = a 70 year old man with wild white hair, bushy white eyebrows, a brown corduroy jacket and a red scarf
+  scenes: close-up, a woman pulling old folders from a dusty archive shelf and p | extreme close-up of a steel ship hull painted in grey and blue zigzag  | wide shot of an ancient wooden rowing ship with one square sail on a b | wide shot of a large grey German warship tied up in a harbour, cranes  | medium shot, a painter brushing a pale blue-grey stripe on a steel shi | close-up, a row of open paint cans in grey, blue, green and brown on a | wide shot of a shipyard dock with several warships in different patchy | medium close-up, a woman writing notes in a notebook at a desk piled w | close-up, a hand sorting dozens of small old black and white warship p | close-up of a thick plain hardcover book lying closed on a wooden desk | medium shot, a woman running her finger along a long library shelf and | close-up of a long wooden library shelf of old books with one wide emp
+- 008-why-katyushas-rode-wooden-sleds: cast flyorov = a 30 year old Soviet artillery captain with a lean clean-shaven face, sharp cheekbones, short dark brown hair, a khaki field tunic with a brown leather belt and a khaki peaked cap with a red star, 1940s; crew = a 22 year old Soviet soldier with a round ruddy face, a short red beard, a grey quilted padded jacket, a brown fur hat with ear flaps and green wool mittens, 1940s; officer = a 58 year old heavy-set Soviet artillery general with a shaved head, a thick white handlebar moustache and a dark olive greatcoat with red collar tabs, 1930s; german = a 24 year old German soldier with a thin pale face, sunken blue eyes, a grey steel helmet and a grey-green wool greatcoat, 1940s; woman = a 25 year old Russian village woman with long dark braids, rosy cheeks, a red flowered headscarf and a white embroidered linen blouse, 1940s
+  scenes: close-up, a soldier bolting a rack of long rocket rails onto a low sle | low angle of a rack of long steel rocket rails on a sledge pointing at | wide shot of a group of officers in greatcoats watching a rocket launc | close-up, an artillery general frowning and shaking his head slowly, h | medium shot, a soldier sliding a long rocket onto a steel launcher rai | extreme close-up of a brass pocket watch ticking in a gloved hand, mud | close-up of a full rack of long rockets lined up on launcher rails, co | medium shot, gunners ramming a shell into a big howitzer, smoke drifti | wide shot of a big howitzer firing with a flash and a puff of smoke, m | medium shot, workers welding a steel rocket rail frame in a small dim  | wide shot of grey tanks rolling across a summer wheat field under a du | wide shot of a small Russian town square with wooden houses and a mark
+- 008-why-yokohama-marine-tower-was-built: cast perry = a 59 year old American naval commodore with a stern square jaw, grey bushy sideburns, a dark navy double-breasted coat with gold buttons and a black bicorne hat, 1850s; official = a 48 year old Japanese shogunate official with a shaved forehead and a black topknot, a grey-blue silk robe with stiff winged shoulders and a dark sash, 1850s; fisher = a 22 year old Japanese fisherman with a sun-darkened face, a wide straw hat, a short faded indigo cotton jacket and bare brown legs, 1850s; trader = a 33 year old European trader with slicked blond hair, a thin blond moustache, a bright green waistcoat, a white shirt and a dark blue frock coat, 1860s
+  scenes: medium shot, a naval commodore standing at the rail of a black wooden  | wide shot of a line of black wooden warships with dark smoke on a grey | close-up of a huge shut wooden gate with iron studs in a grey stone wa | medium shot, a fisherman on a pebble beach shading his eyes with one h | medium shot, a naval commodore sitting upright in a wooden rowboat wit | close-up, a commodore jabbing one finger forward, stern face, he is {p | wide shot of a bay with a wooden pier and moored wooden sailing ships  | medium shot, a Japanese official kneeling at a low wooden table slowly | extreme close-up of a hand pressing an ink brush onto a long blank pap | medium shot, an official pointing at a hand-drawn map spread on a low  | wide shot of a dusty street of an old Japanese post town with wooden i | wide shot of a long dirt highway lined with tall pine trees, traveller
+- 008-lead-coffins-why-rome-really-burned-its-: cast sulla = a 60 year old Roman dictator, heavy build, a pale blotchy reddish face, short thin white hair, a heavy jaw, clean shaven, cold pale blue eyes, a white toga with a broad purple border, 1st century BC; marius = a 70 year old Roman general, wiry build, a deeply tanned wrinkled face, close-cropped iron grey hair, a hooked nose, a bronze muscled breastplate and a dark crimson cloak, 1st century BC; undertaker = a 45 year old Roman undertaker, broad shoulders, a shaved head, a thick black beard, a sleeveless rust orange wool tunic and a stained leather apron, 1st century BC; heir = a 22 year old Roman nobleman, slim build, thick black curly hair, a thin beardless olive face, a plain dark grey mourning toga, 1st century BC; caracalla = a 25 year old Roman emperor, stocky build, short tight black curls, a short dark beard, a deep scowl, a gold-trimmed purple cloak over gilded bronze armour, 3rd century AD
+  scenes: close-up, a dead old man lying still on gold cushions with eyes closed | medium shot, Roman soldiers carrying a golden litter with a dead old m | close-up of a tall stacked wooden funeral pyre bursting into bright or | close-up of a great heap of shining gold laurel crowns on red cloth, c | medium shot, older Roman magistrates in white togas with purple border | medium close-up, an old Roman dictator raising one hand to silence a c | wide shot of the Roman forum with marble temples and columns at sunris | wide shot of several funeral pyres burning on a hillside outside tall  | medium shot, a proud Roman noble family in white togas gathering aroun | medium shot, Roman men in togas lowering a body wrapped in white linen | close-up, a young nobleman touching a burning torch to a funeral pyre  | close-up, an old dictator frowning down at a carved stone family tomb,
+- 009-why-the-army-bet-on-camels: cast hartz = a 25 year old US Army lieutenant, slim build, a boyish freckled clean shaven face, short straw blond hair, a dark blue forage cap, a short dark blue shell jacket with yellow trim, sky blue trousers, 1850s; davis = a 45 year old American statesman, gaunt hollow cheeks, high cheekbones, thin lips, clean shaven, short dark brown hair brushed back, cold grey eyes, a black frock coat and a black silk cravat, 1850s; wayne = a 40 year old US Army major, stocky build, a round sunburnt face, sandy hair, a full reddish brown beard, a long dark blue frock coat with two rows of brass buttons and gold shoulder straps, 1850s; beale = a 35 year old American frontier surveyor, tall and lean, long wavy black hair to his collar, a thick black moustache, a wide brimmed tan felt hat, a fringed buckskin jacket over a red flannel shirt, 1850s; driver = a 40 year old Turkish camel driver, a weathered olive face, a thick black moustache, a red felt fez, a striped red and blue vest over a white shirt, baggy brown trousers, 1850s
+  scenes: medium shot, a young army officer leading a line of camels by a rope a | wide shot of a long line of camels walking across a vast dry Texas pla | close-up of an empty tin army canteen lying on hot cracked earth besid | close-up, a young army officer squinting at a camel's face and touchin | medium shot, a gaunt statesman pacing beside a tall window in a Washin | close-up, a gaunt statesman tapping his finger on a big paper map spre | wide shot of an empty red desert with tall mesas and dry brush under a | medium shot, a heavy army supply wagon pulled by tired mules stuck in  | medium shot, a bearded army major gripping the rail of a wooden sailin | medium shot, a bearded army major patting the neck of a tall camel in  | medium shot, a camel stepping down a wooden ramp from a sailing ship o | wide shot of a three masted wooden sailing ship with full white sails 
+- 013-why-smeaton-s-cement-hardened-under-seaw: cast smeaton = a 35 year old English civil engineer with a square sun-lined face, dark brown hair tied back in a short queue, clean shaven, wearing a slate blue wool frock coat, buff waistcoat, white linen cravat and dark knee breeches, 1750s; winstanley = a 50 year old English millwright with a broad ruddy weathered face, long dark brown hair, a heavy brown moustache, wearing a worn brown leather jerkin over a green wool shirt and a muddy canvas apron, 1700s; rudyard = a 45 year old English engineer with a thin pale face, powdered grey wig tied at the nape, a narrow grey moustache, wearing a dark green velvet frock coat with brass buttons and a red waistcoat, 1750s; mason = a 32 year old Cornish stonemason with a deeply tanned square face, short black hair, a heavy jaw, wearing a faded blue wool smock, a brown leather apron and thick boots, 1750s; parker = a 44 year old English clergyman and inventor with a round ruddy face, short grey hair, small round spectacles, wearing a black clerical coat with white neck bands and a dark green waistcoat, 1780s; roman = a 40 year old Roman stone mason with olive skin, short black hair, a full black beard, wearing a red wool tunic with a bronze belt and a leather apron, 1st century AD
+  scenes: medium shot, a man pointing down at wet rock on the Eddystone reef, he | close-up, a mason's hand pressing firm grey wet mortar between two squ | medium shot, a Cornish stonemason kneeling on wet rock lowering a squa | wide shot, the Eddystone reef awash with foaming grey high-tide waves  | wide shot, two ruined old lighthouse remains, a broken stone stump and | medium shot, {winstanley} standing on the Eddystone reef looking up at | wide shot, a huge storm wave swallowing the base of a tall wooden ligh | medium shot, six men in soaked oilskins clinging to a wooden tower gal | wide shot, a tall stone lighthouse tower on the Eddystone reef burning | medium shot, an engineer pointing up at a half-built stone tower on a  | wide shot, a tall stone lighthouse tower with a broad base and a narro | close-up of two grey stone blocks locked together by a toothed dovetai
+- 009-why-eiffel-s-lattice-saves-the-tower: cast eiffel = a 56 year old French engineer, upright build, greying swept-back hair, a neatly trimmed full grey-streaked beard, bright alert eyes, a charcoal grey frock coat, a white wing collar and a black silk cravat, 1880s; garnier = a 61 year old French architect, stout build, wild curly white hair, a bushy white beard, a round red face, a black velvet jacket and a wide floppy crimson bow tie, 1880s; koechlin = a 28 year old slim Swiss engineer, neat short light brown hair, a thin light brown moustache, small wire spectacles, white shirt sleeves rolled up and a tan waistcoat, 1880s
+  scenes: medium shot, a bearded man pulling hard on a rope atop an iron tower,  | close-up, a big red white and blue French flag unfurling on a pole hig | wide shot of a giant iron tower far taller than every church and rooft | medium shot, ironworkers in flat caps hammering rivets on a high iron  | medium shot, angry men in black frock coats and top hats shaking their | close-up, a stout white-bearded architect jabbing his finger in protes | close-up, a hand slapping a long paper petition down on a polished woo | close-up, a white-bearded architect scowling in disgust and turning hi | low angle of a dark iron tower looming over grey Paris rooftops under  | low angle of a gigantic black factory smokestack pouring dark smoke in | wide shot of tall trees bending in strong wind along a Paris boulevard | medium shot, a bearded engineer holding his hat against strong wind on
 
 PROBLEMS FOUND BY THE CHECKS
-- script: narration has 123 words; it must be 150-210
-- script: numbers not in the sources: ['fifteen', 'seven']; remove them or use the sources' numbers
+- shot chimney: 3.9 s on screen (max 3.2; split it)
+- script: not supported by the sources: A fireman lowered a scoop into water between the rails at full speed.
 
 DRAFT SCRIPT
-{"title": "Why Trains Refilled Water Without Stopping", "beats": [{"feel": "curiosity", "lines": ["A fireman lowered a scoop into a trough while his train kept moving."]}, {"feel": "skepticism", "lines": ["One long run used 1,800 to 1,900 gallons of water.", "In rough weather, that climbed to 2,400 gallons.", "The largest tenders held only 2,000 gallons.", "Other railroad companies were slow to adopt the new device."]}, {"feel": "tension", "lines": ["The locomotive passes over the trough.", "The fireman lowers the scoop just before the start.", "Forward motion forces water up the pipe into the tank.", "Raise the scoop too late, and water soaks the tender and footplate."]}, {"feel": "recognition", "lines": ["You see, it's like refilling a water bottle while you're still running."]}, {"feel": "awe", "lines": ["John Ramsbottom proved the method in 1860.", "At 15 miles an hour, motion lifted water 7½ feet.", "That height reached the top of the delivery pipe.", "So trains could skip the water stop and keep their speed.", "In America, big eastern railroads like New York Central and Pennsylvania used them."]}, {"feel": "surprise", "lines": ["The scoop sprayed water over passengers, so guards warned them to close the windows.", "In America, some troughs filled with rainwater and melting snow."]}]}
+{"title": "Why Trains Refilled Water Without Stopping", "beats": [{"feel": "curiosity", "lines": ["A fireman lowered a scoop into water between the rails at full speed."]}, {"feel": "ambition", "lines": ["In 1860, a railway wanted to speed up the Irish mail train.", "Engineer John Ramsbottom had to run it from Chester to Holyhead in 2 hours 5 minutes.", "But engines usually stopped on the way to take in water."]}, {"feel": "frustration", "lines": ["An ordinary run used 1,800 to 1,900 gallons.", "In stormy weather, it could rise to 2,400 gallons.", "The largest tenders only held 2,000 gallons."]}, {"feel": "recognition", "lines": ["You see, it's like holding your hand out of a car window.", "The faster you go, the harder it pushes."]}, {"feel": "wonder", "lines": ["Ramsbottom ran experiments.", "A scoop moving through a trough forced water up a pipe into a tank.", "At 15 miles an hour, the water reached the top of the delivery pipe."]}, {"feel": "tension", "lines": ["The fireman had to watch the water level closely.", "If he raised the scoop too late, water burst from the vents and soaked the tender and footplate."]}, {"feel": "amusement", "lines": ["The spray behind the scoop could drench passengers.", "So guards warned the first coach to keep the windows closed."]}, {"feel": "shock", "lines": ["Once, two trains passed at a trough.", "The spray scattered lumps of coal and broke the other train's windows.", "The railway changed the timetable so it could not happen again."]}]}
 CLAIMS IN THE DRAFT
-- {'claim': 'A long run consumed 1,800 to 1,900 gallons of water, rising to 2,400 gallons in rough weather, while the largest tenders held only 2,000 gallons.', 'url': 'https://en.wikipedia.org/wiki/Water_trough'}
-- {'claim': 'Other railroad companies were slow to adopt the water trough apparatus after the London and North-Western Railway installed it.', 'url': 'https://en.wikipedia.org/wiki/Water_trough'}
-- {'claim': 'The fireman lowered the scoop shortly before the trough, and forward motion forced water up the scoop pipe into the tank; failing to raise it promptly soaked the tender and footplate.', 'url': 'https://en.wikipedia.org/wiki/Water_trough'}
-- {'claim': 'John Ramsbottom demonstrated in 1860 that at 15 miles an hour the forward motion lifted water 7½ feet, reaching the top of the delivery pipe.', 'url': 'https://en.wikipedia.org/wiki/Water_trough'}
-- {'claim': 'Water troughs let steam locomotives replenish water without stopping, and big eastern American railroads such as the New York Central and Pennsylvania used them.', 'url': 'https://en.wikipedia.org/wiki/Water_trough'}
-- {'claim': 'Spray from the scoop could drench passengers, so guards warned passengers in the first coach to keep the windows closed.', 'url': 'https://en.wikipedia.org/wiki/Water_trough'}
-- {'claim': 'In the United States, water troughs could be supplied by rainwater or snowmelt filling the trough during inclement weather.', 'url': 'https://en.wikipedia.org/wiki/Steam_locomotive'}
+- {'claim': 'When a steam locomotive passes over the trough lying between the rails, a water scoop can be lowered by the fireman, and the speed of forward motion forces water into the scoop, up the scoop pipe and into the tanks.', 'url': 'https://en.wikipedia.org/wiki/Water_trough'}
+- {'claim': 'In 1860 the London and North-Western Company decided to accelerate the Irish mail; Mr. Ramsbottom, their chief mechanical engineer, was asked to make the run between Chester and Holyhead in 2 hours 5 minutes; the usual stop on the road to take in water had to be avoided.', 'url': 'https://en.wikipedia.org/wiki/Water_trough'}
+- {'claim': 'In an ordinary way 1,800 to 1,900 gallons were consumed; in rough and stormy weather along the coast of North Wales consumption rose to 2,400 gallons; the largest tenders only held 2,000 gallons.', 'url': 'https://en.wikipedia.org/wiki/Water_trough'}
+- {'claim': 'Ramsbottom arranged experiments and showed that the forward motion of a scoop in a trough of water would force water up a connected pipe and into a tank; at 15 miles an hour the water was raised to the top of the delivery pipe.', 'url': 'https://en.wikipedia.org/wiki/Water_trough'}
+- {'claim': 'The fireman had to observe the water level indicator carefully; failure to raise the scoop promptly expelled large volumes of water from the vents, soaking the tender and footplate.', 'url': 'https://en.wikipedia.org/wiki/Water_trough'}
+- {'claim': 'Taking water at speed causes considerable spray behind the scoop that risks drenching passengers; in Great Britain the guard warned passengers in the first coach to keep the windows closed.', 'url': 'https://en.wikipedia.org/wiki/Water_trough'}
+- {'claim': 'Two trains passed each other at a water trough; the other train suffered broken windows due to lumps of tender coal scattered by the spray, and management retimetabled the trains so this could not happen again.', 'url': 'https://en.wikipedia.org/wiki/Water_trough'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 0.14s A#1
@@ -121,174 +121,206 @@ WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 1.07s a#2
 1.17s scoop#1
 1.45s into#1
-1.65s a#3
-1.72s trough#1
-2.27s while#1
-2.42s his#1
-2.57s train#1
-2.92s kept#1
-3.19s moving#1
-4.04s One#1
-4.29s long#1
-4.59s run#1
-5.02s used#1
-5.32s 1,800#1
-6.82s to#1
-6.94s 1,900#1
-8.09s gallons#1
-8.54s of#1
-8.64s water#1
-9.24s In#1
-9.39s rough#1
-9.64s weather#1
-10.19s that#1
-10.39s climbed#1
-10.81s to#2
-11.04s 2,400#1
-11.99s gallons#2
-12.79s The#1
-12.91s largest#1
-13.34s tenders#1
-13.94s held#1
-14.16s only#1
-14.46s 2,000#1
-15.09s gallons#3
-15.87s Other#1
-16.12s railroad#1
-16.49s companies#1
-17.22s were#1
-17.39s slow#1
-17.74s to#3
-17.89s adopt#1
-18.22s the#2
-18.32s new#1
-18.44s device#1
-19.41s The#3
-19.51s locomotive#1
-20.26s passes#1
-20.63s over#1
-20.78s the#4
-20.88s trough#2
-21.52s The#5
-21.62s fireman#2
-22.12s lowers#1
-22.48s the#6
-22.57s scoop#2
-22.98s just#1
-23.23s before#1
-23.45s the#7
-23.55s start#1
-24.17s Forward#1
-24.55s motion#1
-24.92s forces#1
-25.62s water#2
-25.89s up#1
-26.00s the#8
-26.09s pipe#1
-26.34s into#2
-26.52s the#9
-26.62s tank#1
-27.21s Raise#1
-27.53s the#10
-27.63s scoop#3
-27.91s too#1
-28.06s late#1
-28.56s and#1
-28.68s water#3
-29.01s soaks#1
-29.28s the#11
-29.38s tender#1
-29.73s and#2
-29.86s footplate#1
-30.85s You#1
-31.03s see#1
-31.43s it's#1
-31.56s like#1
-31.73s refilling#1
-32.16s a#4
-32.23s water#4
-32.51s bottle#1
-33.08s while#2
-33.23s you're#1
-33.36s still#1
-33.63s running#1
-34.46s John#1
-34.73s Ramsbottom#1
-35.43s proved#1
-35.71s the#12
-35.81s method#1
-36.16s in#2
-36.26s 1860#1
-37.26s At#1
-37.41s 15#1
-37.73s miles#1
-38.03s an#1
-38.13s hour#1
-38.76s motion#2
-39.18s lifted#1
-39.53s water#5
-39.91s 7½#1
-40.48s feet#1
-41.03s That#2
-41.23s height#1
-41.61s reached#1
-41.86s the#13
-41.96s top#1
-42.26s of#2
-42.32s the#14
-42.44s delivery#1
-42.81s pipe#2
-43.41s So#1
-43.56s trains#1
-43.94s could#1
-44.09s skip#1
-44.31s the#15
-44.41s water#6
-44.69s stop#1
-45.19s and#3
-45.31s keep#1
-45.49s their#1
-45.64s speed#1
-46.30s In#3
-46.42s America#1
-47.25s big#1
-47.47s eastern#1
-47.87s railroads#1
-48.40s like#2
-48.60s New#2
-48.75s York#1
-49.02s Central#1
-49.62s and#4
-49.75s Pennsylvania#1
-50.50s used#2
-50.77s them#1
-51.44s The#16
-51.56s scoop#4
-51.89s sprayed#1
-52.26s water#7
-52.54s over#2
-52.74s passengers#1
-53.69s so#2
-53.84s guards#1
-54.21s warned#1
-54.46s them#2
-54.66s to#4
-54.76s close#1
-55.09s the#17
-55.19s windows#1
-55.95s In#4
-56.05s America#2
-56.78s some#1
-56.98s troughs#1
-57.35s filled#1
-57.58s with#1
-57.75s rainwater#1
-58.35s and#5
-58.48s melting#1
-58.90s snow#1
+1.67s water#1
+1.92s between#1
+2.19s the#1
+2.29s rails#1
+2.79s at#1
+2.94s full#1
+3.17s speed#1
+4.03s In#1
+4.18s 1860#1
+5.38s a#3
+5.50s railway#1
+5.95s wanted#1
+6.18s to#1
+6.33s speed#2
+6.58s up#1
+6.68s the#2
+6.80s Irish#1
+7.15s mail#1
+7.40s train#1
+8.00s Engineer#1
+8.53s John#1
+8.90s Ramsbottom#1
+9.68s had#1
+9.78s to#2
+9.93s run#1
+10.08s it#1
+10.18s from#1
+10.35s Chester#1
+10.95s to#3
+11.08s Holyhead#1
+11.85s in#2
+12.03s 2#1
+12.23s hours#1
+12.58s 5#1
+12.83s minutes#1
+13.48s But#1
+13.65s engines#1
+14.25s usually#1
+14.65s stopped#1
+15.13s on#1
+15.20s the#3
+15.33s way#1
+15.55s to#4
+15.65s take#1
+15.85s in#3
+15.95s water#2
+16.70s An#1
+16.88s ordinary#1
+17.45s run#2
+17.90s used#1
+18.23s 1,800#1
+19.68s to#5
+19.80s 1,900#1
+20.98s gallons#1
+21.78s In#4
+21.93s stormy#1
+22.31s weather#1
+22.88s it#2
+22.98s could#1
+23.16s rise#1
+23.66s to#6
+23.88s 2,400#1
+24.81s gallons#2
+25.59s The#4
+25.69s largest#1
+26.12s tenders#1
+26.74s only#1
+27.02s held#1
+27.32s 2,000#1
+27.94s gallons#3
+28.95s You#1
+29.15s see#1
+29.55s it's#1
+29.67s like#1
+29.87s holding#1
+30.22s your#1
+30.35s hand#1
+30.65s out#1
+30.74s of#1
+30.82s a#4
+30.90s car#1
+31.12s window#1
+31.73s The#5
+31.83s faster#1
+32.20s you#2
+32.33s go#1
+32.80s the#6
+32.91s harder#1
+33.18s it#3
+33.28s pushes#1
+34.26s Ramsbottom#2
+34.86s ran#1
+35.06s experiments#1
+36.04s A#5
+36.16s scoop#2
+36.52s moving#1
+36.79s through#1
+36.94s a#6
+37.02s trough#1
+37.52s forced#1
+37.87s water#3
+38.14s up#2
+38.27s a#7
+38.34s pipe#1
+38.59s into#2
+38.79s a#8
+38.87s tank#1
+39.44s At#2
+39.59s 15#1
+39.97s miles#1
+40.29s an#2
+40.39s hour#1
+40.99s the#7
+41.12s water#4
+41.42s reached#1
+41.67s the#8
+41.77s top#1
+42.07s of#2
+42.13s the#9
+42.24s delivery#1
+42.62s pipe#2
+43.40s The#10
+43.52s fireman#2
+44.07s had#2
+44.20s to#7
+44.37s watch#1
+44.62s the#11
+44.72s water#5
+44.97s level#1
+45.24s closely#1
+45.93s If#1
+46.03s he#1
+46.16s raised#1
+46.48s the#12
+46.58s scoop#3
+46.86s too#1
+47.01s late#1
+47.58s water#6
+47.86s burst#1
+48.13s from#2
+48.25s the#13
+48.36s vents#1
+48.86s and#1
+49.01s soaked#1
+49.28s the#14
+49.38s tender#1
+49.78s and#2
+49.91s footplate#1
+50.80s The#15
+50.93s spray#1
+51.25s behind#1
+51.53s the#16
+51.63s scoop#4
+52.03s could#2
+52.15s drench#1
+52.48s passengers#1
+53.43s So#1
+53.58s guards#1
+53.96s warned#1
+54.18s the#17
+54.31s first#1
+54.61s coach#1
+55.01s to#8
+55.11s keep#1
+55.26s the#18
+55.36s windows#1
+55.73s closed#1
+56.65s Once#1
+57.08s two#1
+57.25s trains#1
+57.63s passed#1
+57.93s at#3
+57.96s a#9
+58.05s trough#2
+58.63s The#19
+58.73s spray#2
+59.10s scattered#1
+59.53s lumps#1
+59.75s of#3
+59.88s coal#1
+60.43s and#3
+60.55s broke#1
+60.75s the#20
+60.85s other#1
+61.05s train's#1
+61.40s windows#2
+62.15s The#21
+62.28s railway#2
+62.70s changed#1
+63.08s the#22
+63.18s timetable#1
+64.08s so#2
+64.20s it#4
+64.30s could#3
+64.43s not#1
+64.63s happen#1
+64.90s again#1
 
 DRAFT film.json
-{"era": "1860s-1890s", "cast": {"fireman": "a 30 year old English railway fireman with a soot-blackened round face, heavy black eyebrows, short black hair under a flat cloth cap, a dark green wool jacket with brass buttons and a red neckerchief, 1860s", "ramsbottom": "a 46 year old English railway engineer with a long narrow face, receding brown hair, a full brown beard, wire spectacles and a dark brown frock coat over a grey waistcoat, 1860s", "driver": "a 38 year old English locomotive driver with a broad weathered face, curly dark brown hair, a thick brown moustache, a blue wool railway jacket with a brass badge and dark trousers, 1860s", "guard": "a 45 year old American railway conductor with a black moustache, a dark blue double-breasted uniform coat with brass buttons and a peaked cap, 1880s", "passenger": "a 28 year old American woman with light brown hair in a neat bun under a wide black hat, a plum coloured wool dress with a white lace collar and a grey shawl, 1880s", "director": "a 55 year old British railway company director with a bald crown, heavy grey sideburns, a dark pinstripe frock coat, a gold watch chain and a black bowler hat, 1860s"}, "music": "curious", "key_words": ["fireman#1", "scoop#1", "scoop#2", "scoop#3", "trough#1", "trough#2", "train#1", "gallons#1", "gallons#2", "tenders#1", "device#1", "locomotive#1", "pipe#1", "tank#1", "footplate#1", "Ramsbottom#1", "miles#1", "railroads#1", "passengers#1", "guards#1", "windows#1", "rainwater#1", "snow#1", "speed#1", "stop#1", "America#1", "America#2"], "shots": [{"name": "hook", "at": 0, "who": "fireman", "clip": true, "prompt": "medium shot, a fireman leaning over the side of a moving steam locomotive lowering a long metal scoop toward a stone water trough, he is {fireman}, 1860s railway line, grey morning light", "motion": "he lowers the scoop toward the trough as the train rushes on, slow camera push in", "check": "Is a fireman lowering a scoop?"}, {"name": "scoop", "at": "train#1", "clip": true, "prompt": "extreme close-up of a long metal scoop dipping into the water inside a stone-lined railway trough, water splashing over the rim, blurred dark locomotive passing above, grey daylight", "motion": "the scoop dips and the water splashes, slow camera push in", "check": "Is a metal scoop dipping into water?"}, {"name": "long_run", "at": "One#1", "move": "right", "xfade": true, "prompt": "wide shot, a black steam locomotive pulling a train across a tall stone viaduct over green countryside, 1860s England, bright summer daylight", "check": "Is there a steam train crossing a bridge?"}, {"name": "water_check", "at": "used#1", "who": "fireman", "clip": true, "prompt": "medium close-up, a fireman leaning over the open tender of a moving steam locomotive and looking down into the dark water inside, he is {fireman}, 1860s railway, bright daylight", "motion": "he leans farther over the tender and looks down, slow camera push in", "check": "Is a man leaning over a water tank?"}, {"name": "full_tender", "at": "1,900#1", "clip": true, "prompt": "close-up, the open top of a steam locomotive tender brimming with dark water sloshing against wooden sides, 1860s, daylight", "motion": "the water sloshes gently against the wooden sides, slow camera push in", "check": "Is there a tender full of water?"}, {"name": "storm", "at": "rough#1", "move": "left", "xfade": true, "prompt": "wide shot, a steam locomotive racing through heavy rain and gusting spray across open moorland, dark storm clouds, 1860s", "check": "Is a steam train running in heavy rain?"}, {"name": "pouring", "at": "2,400#1", "clip": true, "hit": "2,400#1", "prompt": "close-up, clear water pouring hard from a metal spout into a full steam locomotive tender and splashing into the dark water, 1860s, grey daylight", "motion": "the water pours and splashes, slow camera push in", "check": "Is water pouring into a tank?"}, {"name": "big_tender", "at": "tenders#1", "move": "pull", "prompt": "wide shot, a huge steam locomotive tender standing beside a tall stone water tower at a country station, 1860s, soft morning light", "check": "Is there a large tender beside a water tower?"}, {"name": "driver_look", "at": "2,000#1", "who": "driver", "clip": true, "hit": "2,000#1", "prompt": "medium shot, a locomotive driver leaning out of the cab and looking back along the tender behind his engine, he is {driver}, 1860s, bright daylight", "motion": "he leans out and looks back over the tender, slow camera push in", "check": "Is a man looking back from a locomotive cab?"}, {"name": "slow_adopt", "at": "slow#1", "who": "director", "clip": true, "hit": "slow#1", "xfade": true, "prompt": "medium shot, a railway director in a black bowler hat shrugging and waving one hand dismissively beside an old steam locomotive in a railway yard, he is {director}, 1860s, overcast light", "motion": "he shrugs and waves his hand dismissively, slow camera push in", "check": "Is a man in a bowler hat shrugging?"}, {"name": "passes", "at": "The#3", "xfade": true, "move": "right", "prompt": "wide shot, a black steam locomotive rolling forward over a long wooden water trough set between the rails, 1860s English countryside, overcast daylight", "check": "Is there a steam locomotive over a long water trough?"}, {"name": "lower", "at": "fireman#2", "who": "fireman", "clip": true, "prompt": "medium shot, a soot-blackened fireman leaning out of a locomotive cab lowering a long metal scoop pipe toward the trackside trough, he is {fireman}, 1860s railway, daylight", "motion": "he lowers the long scoop toward the trough, slow camera push in", "check": "Is a man lowering a long scoop pipe?"}, {"name": "dip", "at": "start#1", "clip": true, "prompt": "close-up, the open metal mouth of a long scoop pipe dipping into clear trough water between railway rails, splashing droplets, 1860s trackside, daylight", "motion": "the scoop skims through the water and splashes, slow camera push in", "check": "Is a metal scoop dipping into trough water?"}, {"name": "uppipe", "at": "forces#1", "clip": true, "prompt": "close-up, water spraying upward from the top of a tall riveted metal pipe beside a black steam locomotive tender, 1860s trackside, daylight", "motion": "the water climbs and splashes at the pipe top, slow camera push in", "check": "Is water spraying up from a tall pipe?"}, {"name": "tank", "at": "tank#1", "move": "push", "prompt": "close-up, clear water pouring into the open hatch of a black steam locomotive tender tank, wet metal rim, 1860s, daylight", "check": "Is water pouring into an open tender tank?"}, {"name": "soak", "at": "soaks#1", "clip": true, "prompt": "close-up, a raised metal scoop dripping water onto the black tender and wet wooden footplate of a moving steam locomotive, 1860s, daylight", "motion": "water drips from the raised scoop onto the footplate, slow camera push in", "hit": "soaks#1", "check": "Is water dripping onto a locomotive footplate?"}, {"name": "bottle_refill", "at": "You#1", "clip": true, "xfade": true, "prompt": "close-up, a clear glass bottle filling under a running spout of water from a cast iron water column on a railway platform, 1860s, morning light", "motion": "water streams into the bottle, slow camera push in", "check": "Is a glass bottle filling with water?"}, {"name": "running", "at": "running#1", "who": "fireman", "clip": true, "prompt": "medium shot, a fireman running along a railway platform holding a glass bottle in one hand, he is {fireman}, a cast iron water column beside him, 1860s station, morning light", "motion": "he runs forward along the platform with the bottle in his hand, slow camera push in", "check": "Is a man running with a bottle?"}, {"name": "john", "at": "John#1", "who": "ramsbottom", "clip": true, "prompt": "medium shot, an engineer pointing down at a long railway water trough beside a black steam locomotive, he is {ramsbottom}, 1860s English railway siding, cold morning light", "motion": "he points down at the trough, steam drifts, slow camera push in", "xfade": true, "check": "Is a man pointing at a long water trough?"}, {"name": "proved", "at": "proved#1", "clip": true, "prompt": "medium shot, a railway worker lowering a long metal scoop pipe into a long water trough beside a steam locomotive, 1860s test track, grey morning light", "motion": "the pipe sinks into the water, slow camera push in", "check": "Is a man lowering a pipe into a trough?"}, {"name": "speed", "at": "At#1", "move": "right", "prompt": "wide shot, a black steam locomotive racing along a straight track past a long water trough, steam billowing, open English countryside, bright morning light", "check": "Is there a black steam locomotive on the track?"}, {"name": "suck", "at": "motion#2", "clip": true, "prompt": "extreme close-up, clear water rushing upward inside a tall vertical metal pipe, churning and foaming, bright daylight from above", "motion": "the water rises and churns, slow camera push in", "check": "Is water rushing up inside a pipe?"}, {"name": "height", "at": "7½#1", "clip": true, "prompt": "medium shot, a railway worker holding a long wooden measuring rod upright against a tall delivery pipe beside a steam locomotive, 1860s, bright daylight", "motion": "he steadies the rod upright, slow camera push in", "hit": "7½#1", "check": "Is a man holding a long measuring rod?"}, {"name": "top", "at": "That#2", "clip": true, "prompt": "close-up, clear water pouring from the open top of a vertical metal pipe into the open tank of a steam locomotive tender, sunlight glinting on the water", "motion": "the water pours steadily into the tank, slow camera push in", "check": "Is water pouring into a train tank?"}, {"name": "nostop", "at": "So#1", "move": "right", "prompt": "wide shot, a steam locomotive thundering past a small wooden water stop platform, railway workers standing aside, 1860s English countryside, afternoon light", "check": "Is a steam locomotive passing a platform?"}, {"name": "america", "at": "In#3", "move": "push", "prompt": "wide shot, a huge black American steam locomotive pulling passenger coaches past a long scoop water trough, 1880s eastern United States, golden afternoon light", "check": "Is a large American steam locomotive beside a long trough?"}, {"name": "railroads", "at": "New#2", "who": "guard", "clip": true, "prompt": "medium shot, an American conductor raising one hand to signal beside a long water trough, a black steam locomotive passing behind him, 1880s eastern United States, warm afternoon light", "motion": "he raises his hand and waves, steam drifts, slow camera push in", "check": "Is a man raising his hand beside a train?"}, {"name": "spray", "at": "The#16", "clip": true, "prompt": "close-up, a fan of water spraying hard across the window of a moving 1880s American railway carriage, droplets streaking down the glass, grey overcast daylight", "motion": "the water splashes and streaks down the glass, slow camera push in", "check": "Is water spraying across a train window?"}, {"name": "shut", "at": "passengers#1", "who": "passenger", "clip": true, "prompt": "medium close-up, a woman pulling down a wooden carriage window sash while water drips down the glass, she is {passenger}, 1880s American railway carriage, grey daylight", "motion": "she slides the sash down firmly, droplets run down the glass, slow camera push in", "check": "Is a woman pulling down a carriage window?"}, {"name": "warning", "at": "guards#1", "who": "guard", "clip": true, "prompt": "medium shot, a railway conductor raising one hand and calling out to seated passengers, he is {guard}, 1880s American railway carriage, warm lamp light", "motion": "he raises his hand and calls out, slow camera push in", "check": "Is a man raising his hand to passengers?"}, {"name": "america_30", "at": "America#2", "xfade": true, "move": "right", "prompt": "wide shot, a steam locomotive passing over a long wooden water trough set between the rails of an American railway line, bare snowy fields, cold winter daylight", "check": "Is there a long water trough between the rails?"}, {"name": "slush", "at": "filled#1", "move": "push", "prompt": "close-up, a long wooden water trough filled with dark rainwater and grey melting snow slush beside the rails, cold winter light, American railway line", "check": "Is there a wooden trough filled with water and melting snow?"}]}
+{"era": "1860s", "music": "curious", "key_words": ["fireman", "scoop", "trough", "Ramsbottom", "tender", "spray", "windows"], "cast": {"fireman": "a 30 year old English railway fireman with a soot-blackened round face, heavy black eyebrows, short black hair under a flat cloth cap, a dark green wool jacket with brass buttons and a red neckerchief, 1860s", "ramsbottom": "a 46 year old English railway engineer with a long narrow face, receding brown hair, a full brown beard, wire spectacles and a dark brown frock coat over a grey waistcoat, 1860s", "guard": "a 52 year old British railway guard with a ruddy round face, big white mutton-chop whiskers, a black peaked cap and a dark blue frock coat with brass buttons, 1860s", "passenger": "a 26 year old English woman with copper red hair in a bun under a small dark green bonnet, pale freckled skin, a dark green travelling dress with a white collar, 1860s", "manager": "a 58 year old British railway manager with a gaunt pale face, a bald head with grey side hair, a long grey goatee, half-moon spectacles, a black frock coat and a grey cravat, 1860s"}, "shots": [{"name": "hook", "at": 0, "who": "fireman", "prompt": "medium shot, a fireman pulling down a big iron lever in the cab of a steam locomotive, he is {fireman}, glowing firebox, coal dust, orange light", "check": "Is a man pulling down a lever?", "clip": true, "motion": "he hauls the lever down with both hands, slow camera push in"}, {"name": "trough", "at": "into#1", "prompt": "low angle close-up of a long narrow iron trough full of water lying between two railway rails, green fields, grey daylight, 1860s", "check": "Is there a trough of water between rails?", "move": "push"}, {"name": "speed", "at": "at#1", "prompt": "wide shot of a black steam locomotive racing along a coastal railway trailing white smoke, sea cliffs, cloudy sky, 1860s", "check": "Is a steam locomotive racing along the coast?", "move": "right"}, {"name": "station", "at": "in#1", "prompt": "wide shot of a busy 1860s railway station platform with a steam train and travellers in long coats, smoky light through a glass roof", "check": "Is there a steam train at a station platform?", "move": "push"}, {"name": "mail", "at": "the#2", "prompt": "close-up, a porter swinging a heavy canvas mail sack into an open wooden railway carriage door, 1860s station, smoky light", "check": "Is a man swinging a sack into a carriage?", "clip": true, "motion": "he heaves the sack into the carriage, slow camera push in"}, {"name": "ramsbottom", "at": "engineer#1", "who": "ramsbottom", "prompt": "medium shot, an engineer leaning over large paper engine drawings on a desk and tapping them with a pencil, he is {ramsbottom}, office with tall windows, daylight", "check": "Is a man leaning over drawings on a desk?", "clip": true, "motion": "he taps the drawing with his pencil, slow camera push in"}, {"name": "coastline", "at": "chester#1", "prompt": "wide shot of a railway line running along the foot of green cliffs beside a grey sea, a distant steam train, stormy sky, 1860s", "check": "Is there a railway line beside the sea?", "move": "left"}, {"name": "wheels", "at": "2#1", "prompt": "close-up of the big spoked iron driving wheels and pistons of a steam locomotive pounding along the rails, steam bursting, 1860s", "check": "Are big iron locomotive wheels turning?", "clip": true, "motion": "the wheels spin and steam bursts out, slow camera push in"}, {"name": "water_stop", "at": "but#1", "prompt": "medium shot, a steam locomotive standing still under a tall iron water crane while a man swings its leather hose over the tender, 1860s depot, grey light", "check": "Is a locomotive standing under a water crane?", "clip": true, "motion": "the man swings the hose into place, slow camera push in"}, {"name": "hose", "at": "take#1", "prompt": "close-up of water gushing from a thick leather hose into an open hatch on top of a black tender, splashing, grey daylight", "check": "Is water gushing from a hose into a hatch?", "clip": true, "motion": "water pours and splashes into the hatch, slow camera push in"}, {"name": "tank", "at": "an#1", "who": "fireman", "prompt": "medium shot, a fireman kneeling on top of a tender and peering down into an open water tank hatch, he is {fireman}, cloudy sky, 1860s", "check": "Is a man peering into an open hatch?", "clip": true, "motion": "he leans over and peers down into the tank, slow camera push in"}, {"name": "chimney", "at": "used#1", "prompt": "close-up of a steam locomotive chimney puffing thick clouds of white steam into a grey sky, 1860s", "check": "Is a chimney puffing white steam?", "clip": true, "motion": "thick steam puffs up out of the chimney, slow camera tilt up"}, {"name": "storm", "at": "in#4", "prompt": "wide shot of huge stormy waves crashing against a sea wall beside a railway line, rain lashing, dark clouds, 1860s", "check": "Are stormy waves crashing beside a railway?", "move": "push"}, {"name": "slosh", "at": "rise#1", "prompt": "close-up of dark water sloshing violently inside a riveted iron tank, dim light", "check": "Is water sloshing inside an iron tank?", "clip": true, "motion": "the water sloshes from side to side, slow camera push in"}, {"name": "tender", "at": "the#4", "prompt": "close-up of a big black iron locomotive tender with riveted sides standing on rails, rain drops on the metal, grey light", "check": "Is there a big black iron tender?", "move": "pull", "hit": "only#1"}, {"name": "fields", "at": "you#1", "prompt": "wide shot of green fields and hedges rushing past an open window, bright summer sunlight", "check": "Are green fields seen through an open window?", "move": "right", "xfade": true}, {"name": "hand", "at": "holding#1", "prompt": "close-up, a child's hand held out of an open window with fingers spread in the rushing wind, blurred green fields behind, bright sunlight", "check": "Is a hand held out of a window?", "clip": true, "motion": "the fingers ripple in the wind, slow camera push in"}, {"name": "wind", "at": "car#1", "prompt": "close-up, a smiling girl leaning out of an open window with her hair blown straight back by the wind, blurred fields, bright sunlight", "check": "Is a girl's hair blown back by the wind?", "clip": true, "motion": "her hair streams back in the wind, slow camera push in"}, {"name": "rush", "at": "faster#1", "prompt": "low angle of a steam locomotive rushing straight toward the camera along a straight track, smoke streaming back, bright daylight, 1860s", "check": "Is a steam locomotive rushing along a track?", "move": "push"}, {"name": "experiment", "at": "ramsbottom#2", "who": "ramsbottom", "prompt": "medium shot, an engineer pouring a bucket of water into a long wooden trough on a workshop floor, he is {ramsbottom}, tall windows, daylight", "check": "Is a man pouring water into a trough?", "clip": true, "motion": "he tips the bucket and water pours out, slow camera push in", "xfade": true}, {"name": "scoop", "at": "a#5", "prompt": "extreme close-up of a curved iron scoop slicing fast through water in a trough, throwing up a sheet of spray, grey daylight", "check": "Is a curved iron scoop slicing through water?", "clip": true, "motion": "the scoop cuts the water and spray flies up, slow camera push in"}, {"name": "pipe", "at": "up#2", "prompt": "close-up of a strong jet of water gushing out of the top of an iron pipe into a big iron tank, splashing, dim light", "check": "Is water gushing out of an iron pipe?", "clip": true, "motion": "the water gushes and splashes into the tank, slow camera push in"}, {"name": "spray_wall", "at": "at#2", "prompt": "low angle of a steam locomotive thundering over a water trough throwing up a huge white wall of spray, green fields, cloudy sky, 1860s", "check": "Is a locomotive throwing up a wall of spray?", "clip": true, "motion": "the spray billows up beside the wheels, slow camera push in", "hit": "15#1"}, {"name": "smile", "at": "reached#1", "who": "ramsbottom", "prompt": "close-up, an engineer smiling and nodding as he watches from beside the track, he is {ramsbottom}, cloudy daylight", "check": "Is a man smiling and nodding?", "clip": true, "motion": "he smiles and nods slowly, slow camera push in"}, {"name": "gauge", "at": "the#10", "who": "fireman", "prompt": "close-up, a fireman staring hard at a brass pointer on the side of a tender, he is {fireman}, wind blowing smoke past, grey light", "check": "Is a man staring at a brass pointer?", "clip": true, "motion": "he narrows his eyes at the pointer, slow camera push in", "xfade": true}, {"name": "pointer", "at": "water#5", "prompt": "extreme close-up of a brass pointer slowly rising on a riveted iron tender side, water droplets, grey light", "check": "Is there a brass pointer on an iron side?", "move": "push"}, {"name": "crank", "at": "if#1", "who": "fireman", "prompt": "medium shot, a fireman cranking a big iron wheel handle very fast in a locomotive cab, he is {fireman}, glowing firebox, orange light", "check": "Is a man cranking a wheel handle?", "clip": true, "motion": "he spins the handle fast, slow camera push in"}, {"name": "burst", "at": "water#6", "prompt": "close-up of water fountaining out of the vents on top of a black tender, spraying everywhere, grey daylight", "check": "Is water fountaining out of a tender?", "clip": true, "motion": "water bursts up and sprays out, slow camera push in", "hit": "burst#1"}, {"name": "soaked", "at": "soaked#1", "who": "fireman", "prompt": "medium shot, a dripping wet fireman wiping water from his face on a flooded locomotive footplate, he is {fireman}, grey light", "check": "Is a wet man wiping his face?", "clip": true, "motion": "he wipes the water from his face, slow camera push in"}, {"name": "spray", "at": "the#15", "prompt": "wide shot of a long white cloud of spray billowing behind a speeding steam train along a straight track, 1860s, cloudy sky", "check": "Is there a cloud of spray behind a train?", "move": "left"}, {"name": "drench", "at": "drench#1", "who": "passenger", "prompt": "close-up, a startled young woman gasping as water splashes through an open carriage window onto her, she is {passenger}, wooden carriage, grey light", "check": "Is a woman gasping as water splashes on her?", "clip": true, "motion": "she flinches and gasps as the water splashes, slow camera push in"}, {"name": "guard", "at": "so#1", "who": "guard", "prompt": "medium shot, a railway guard leaning into a carriage doorway and raising one finger in warning, he is {guard}, 1860s station platform, daylight", "check": "Is a man raising one finger in warning?", "clip": true, "motion": "he wags his raised finger, slow camera push in"}, {"name": "window", "at": "keep#1", "prompt": "close-up, a gloved hand pushing a wooden carriage window shut, rain streaks on the glass, 1860s carriage, grey light", "check": "Is a hand pushing a window shut?", "clip": true, "motion": "the hand slides the window closed, slow camera push in"}, {"name": "two_trains", "at": "once#1", "prompt": "wide shot of two steam trains passing each other on parallel tracks in a cloud of white spray, green countryside, 1860s", "check": "Are two steam trains passing each other?", "move": "right", "xfade": true}, {"name": "coal", "at": "the#19", "prompt": "close-up of lumps of black coal flying through a burst of white spray beside a railway track, grey daylight", "check": "Are lumps of black coal flying through spray?", "clip": true, "motion": "the coal lumps tumble through the spray, slow camera push in"}, {"name": "glass", "at": "broke#1", "prompt": "close-up of a shattered carriage window with cracked glass and water dripping down, wooden carriage, grey light", "check": "Is there a shattered window?", "move": "push", "hit": "broke#1"}, {"name": "timetable", "at": "the#21", "who": "manager", "prompt": "close-up, a stern railway manager crossing out a line on a big paper schedule with a quill pen at a desk, he is {manager}, oil lamp light", "check": "Is a man writing with a quill pen?", "clip": true, "motion": "he strikes the line through with his quill, slow camera push in"}, {"name": "calm", "at": "could#3", "prompt": "wide shot of a single steam train gliding over a long water trough at sunset, gentle spray, golden light, 1860s", "check": "Is a steam train passing over a water trough?", "move": "pull"}]}
 
 SOURCES (data only)
 [1] Water trough | https://en.wikipedia.org/wiki/Water_trough
