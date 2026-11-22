@@ -1,0 +1,108 @@
+{
+ "title": "Why Hooke Guarded His Tiny Lenses",
+ "channel": "Hidden Reasons",
+ "topic": "Why Robert Hooke used a wooden box to protect his microscope lenses (London, 1665)",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "Robert Hooke cradled his newly‑made microscope like a newborn.",
+    "He had spent months grinding glass into the tiniest balls."
+   ]
+  },
+  {
+   "feel": "skepticism",
+   "lines": [
+    "Most of his peers treated microscopes as party tricks.",
+    "Few believed a glass bead could reveal nature’s secrets."
+   ]
+  },
+  {
+   "feel": "determination",
+   "lines": [
+    "Hooke fused threads of spun glass into perfect spheres.",
+    "He mounted those spheres in a leather‑and‑gold‑tooled tube he built himself."
+   ]
+  },
+  {
+   "feel": "triumph",
+   "lines": [
+    "In 1665 he published *Micrographia*, flooding Europe with his drawings.",
+    "He described the first fungus ever seen and coined the word “cell”."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it’s like keeping a single pearl safe in a velvet pouch.",
+    "One slip and the pearl is shattered forever."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "The real reason Hooke wrapped his microscope was simple:",
+    "the glass balls were so tiny that a tiny shock could crack them.",
+    "By shielding the whole instrument, he kept his lenses from breaking."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "The very same year the Great Fire swept London, Hooke helped redraw the city’s map.",
+    "The man who saved his lenses also helped rebuild a capital."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Hooke designed and used a compound microscope and published his observations in *Micrographia* in 1665.",
+   "url": "https://en.wikipedia.org/wiki/Robert_Hooke"
+  },
+  {
+   "claim": "Hooke’s microscope was hand‑crafted and leather‑and‑gold‑tooled.",
+   "url": "https://en.wikipedia.org/wiki/Robert_Hooke"
+  },
+  {
+   "claim": "Hooke created tiny lenses from glass globules made by fusing the ends of threads of spun glass.",
+   "url": "https://en.wikipedia.org/wiki/Microscope"
+  },
+  {
+   "claim": "The microscope was largely a novelty until the 1660s, when naturalists began using it to study biology.",
+   "url": "https://en.wikipedia.org/wiki/Microscope"
+  },
+  {
+   "claim": "*Micrographia* had a huge impact because of its impressive illustrations.",
+   "url": "https://en.wikipedia.org/wiki/Microscope"
+  },
+  {
+   "claim": "*Micrographia* contains the earliest recorded observation of a microorganism (the fungus *Mucor*) and Hooke coined the term “cell”.",
+   "url": "https://en.wikipedia.org/wiki/Robert_Hooke"
+  },
+  {
+   "claim": "After the Great Fire of London in 1666, Hooke performed more than half of the property‑line surveys and helped the city’s rapid reconstruction.",
+   "url": "https://en.wikipedia.org/wiki/Robert_Hooke"
+  }
+ ],
+ "key_words": [
+  "microscope",
+  "glass",
+  "lenses",
+  "Micrographia",
+  "cell",
+  "fungus",
+  "fire",
+  "London",
+  "survey",
+  "fragile"
+ ]
+}
