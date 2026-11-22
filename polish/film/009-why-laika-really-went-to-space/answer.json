@@ -1,0 +1,428 @@
+{
+ "script": {
+  "title": "Why Laika Really Went to Space",
+  "beats": [
+   {
+    "feel": "tenderness",
+    "lines": [
+     "A technician kissed a little dog's nose, then closed the hatch on her."
+    ]
+   },
+   {
+    "feel": "curiosity",
+    "lines": [
+     "In October 1957, Sputnik 1 was a triumph.",
+     "Nikita Khrushchev wanted a space spectacular by the 40th anniversary of the October Revolution.",
+     "That left less than four weeks."
+    ]
+   },
+   {
+    "feel": "urgency",
+    "lines": [
+     "Sergei Korolev proposed that a dog be placed in the satellite.",
+     "Soviet engineers had long planned a dog in orbit before any human.",
+     "Since 1951, they had lofted 12 dogs on short flights."
+    ]
+   },
+   {
+    "feel": "pity",
+    "lines": [
+     "They chose Laika, a stray from the streets of Moscow.",
+     "Scientists assumed strays had already learned to endure cold and hunger.",
+     "She was kept in smaller and smaller cages for up to twenty days."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like dipping a toe in the water before you jump in."
+    ]
+   },
+   {
+    "feel": "awe",
+    "lines": [
+     "Nobody knew if a living body could survive being launched into orbit.",
+     "Laika was the test.",
+     "Wires on her body sent her breathing, pulse and blood pressure to the ground.",
+     "Her heart rate jumped from 103 to 240 beats a minute."
+    ]
+   },
+   {
+    "feel": "dread",
+    "lines": [
+     "But the technology to come back through the atmosphere did not exist yet.",
+     "Then the cabin overheated.",
+     "Laika died hours into the flight, on the fourth orbit."
+    ]
+   },
+   {
+    "feel": "regret",
+    "lines": [
+     "In 1998, Oleg Gazenko, who trained her, said they did not learn enough to justify her death."
+    ]
+   }
+  ],
+  "key_words": [
+   "Laika",
+   "Sputnik",
+   "Khrushchev",
+   "Korolev",
+   "stray",
+   "Moscow",
+   "orbit",
+   "Gazenko"
+  ],
+  "claims": [
+   {
+    "claim": "One of the technicians said: after placing Laika in the container and before closing the hatch, we kissed her nose and wished her bon voyage, knowing that she would not survive the flight.",
+    "url": "https://en.wikipedia.org/wiki/Laika"
+   },
+   {
+    "claim": "After the success of Sputnik 1 in October 1957, Khrushchev wanted a spacecraft launched to celebrate the 40th anniversary of the October Revolution, a 'space spectacular'; the decision left less than four weeks to design and build the spacecraft.",
+    "url": "https://en.wikipedia.org/wiki/Laika"
+   },
+   {
+    "claim": "Sergei Korolev proposed that a dog be placed in the satellite; Soviet rocket engineers had long intended a canine orbit before attempting human spaceflight; since 1951 they had lofted 12 dogs into sub-orbital space.",
+    "url": "https://en.wikipedia.org/wiki/Laika"
+   },
+   {
+    "claim": "Laika was a stray from the streets of Moscow; Soviet scientists assumed strays had already learned to endure extreme cold and hunger; the dogs were kept in progressively smaller cages for periods of up to twenty days.",
+    "url": "https://en.wikipedia.org/wiki/Laika"
+   },
+   {
+    "claim": "The experiment aimed to prove that a living organism could survive being launched into orbit; sensors measured breathing, pulse and blood pressure; her heart rate was 103 beats/min before launch and 240 beats/min during early acceleration.",
+    "url": "https://en.wikipedia.org/wiki/Laika"
+   },
+   {
+    "claim": "As the technology to re-enter the atmosphere had not yet been developed, Laika's survival was never expected; the cabin overheated and she died hours into the flight, on the craft's fourth orbit.",
+    "url": "https://en.wikipedia.org/wiki/Laika"
+   },
+   {
+    "claim": "In 1998 Oleg Gazenko, one of the scientists who trained Laika, said: We did not learn enough from this mission to justify the death of the dog.",
+    "url": "https://en.wikipedia.org/wiki/Laika"
+   }
+  ]
+ },
+ "film": {
+  "era": "1950s",
+  "music": "sad",
+  "key_words": [
+   "Laika",
+   "Sputnik",
+   "Khrushchev",
+   "Korolev",
+   "stray",
+   "Moscow",
+   "orbit",
+   "Gazenko"
+  ],
+  "cast": {
+   "technician": "a 28 year old Soviet technician, stocky build, a round pale face, short cropped brown hair, a small scar on his chin, a white lab coat over a grey wool sweater, 1950s",
+   "khrushchev": "a 63 year old stout Soviet leader, a completely bald round head, heavy jowls, a wide gap-toothed grin, small blue eyes, a dark grey suit with two gold star medals on the chest, 1950s",
+   "korolev": "a 50 year old broad-shouldered Soviet rocket designer, a heavy square face, thick dark eyebrows, dark wavy hair combed back, a brown leather jacket over a white open-collared shirt, 1950s",
+   "yazdovsky": "a 44 year old lean Soviet doctor, a long narrow face, a neat black moustache, thick black hair parted on the side, round wire spectacles, a white lab coat over a dark blue tie, 1950s",
+   "gazenko": "an 80 year old thin Russian scientist, a long lined face, white hair combed straight back, large square glasses, a navy blue cardigan over a pale blue shirt, 1990s"
+  },
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "who": "technician",
+    "prompt": "close-up, a technician bending down and kissing the nose of a small white mongrel dog with light brown patches on her head and pointed ears inside a small padded metal capsule, he is {technician}, cold hangar, warm lamp light",
+    "check": "Is a man kissing a dog's nose?",
+    "clip": true,
+    "motion": "he leans in and kisses the dog's nose, slow camera push in"
+   },
+   {
+    "name": "hatch",
+    "at": "then#1",
+    "prompt": "close-up, two gloved hands pushing a round metal hatch shut on a small grey capsule, cold launch hangar at night, harsh work lamp",
+    "check": "Is a round metal hatch being closed?",
+    "clip": true,
+    "motion": "the hands push the hatch shut, slow camera push in",
+    "hit": "hatch#1"
+   },
+   {
+    "name": "steppe",
+    "at": "in#1",
+    "prompt": "wide shot of a lonely rocket launch tower on a flat frozen steppe under a pale winter sky, 1950s",
+    "check": "Is there a launch tower on a frozen plain?",
+    "move": "pull"
+   },
+   {
+    "name": "sputnik",
+    "at": "sputnik#1",
+    "prompt": "close-up of a shiny polished metal sphere with four long thin antennas on a stand in a dark workshop, soft spotlight, 1950s",
+    "check": "Is there a shiny metal sphere with antennas?",
+    "move": "push"
+   },
+   {
+    "name": "khrushchev",
+    "at": "nikita#1",
+    "who": "khrushchev",
+    "prompt": "medium shot, a stout leader pounding his fist on a wide wooden desk in a grand office, he is {khrushchev}, red curtains behind, daylight",
+    "check": "Is a man pounding his fist on a desk?",
+    "clip": true,
+    "motion": "he pounds his fist once on the desk, slow camera push in"
+   },
+   {
+    "name": "parade",
+    "at": "40th#1",
+    "prompt": "wide shot of a huge parade of soldiers and red flags marching across a snowy stone square past old red brick walls, grey winter sky, 1950s",
+    "check": "Is there a parade with red flags?",
+    "move": "right"
+   },
+   {
+    "name": "rush",
+    "at": "that#1",
+    "prompt": "medium shot, workers in grey overalls welding a metal cone under bright sparks in a busy factory hall, 1950s, harsh overhead lamps",
+    "check": "Are workers welding metal with sparks?",
+    "clip": true,
+    "motion": "sparks fly as the welder works, slow camera push in"
+   },
+   {
+    "name": "korolev",
+    "at": "sergei#1",
+    "who": "korolev",
+    "prompt": "medium shot, a broad man leaning over a large paper drawing of a rocket on a wooden table and tapping it with a pencil, he is {korolev}, smoky design office, lamp light",
+    "check": "Is a man leaning over a large drawing?",
+    "clip": true,
+    "motion": "he taps the drawing with his pencil, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "dog_capsule",
+    "at": "dog#1",
+    "prompt": "close-up, a small white mongrel dog with light brown patches on her head and pointed ears sitting upright inside a small padded metal container, a cramped grey cabin, soft cold light",
+    "check": "Is a small dog sitting inside a metal container?",
+    "clip": true,
+    "motion": "the dog turns her head and blinks, slow camera push in"
+   },
+   {
+    "name": "engineers",
+    "at": "soviet#1",
+    "prompt": "medium shot, engineers in white coats pointing up at a tall silver rocket standing in a big hangar, 1950s, cold bright light",
+    "check": "Are engineers pointing at a rocket?",
+    "clip": true,
+    "motion": "one engineer points up at the rocket, slow camera tilt up"
+   },
+   {
+    "name": "helmet",
+    "at": "orbit#1",
+    "prompt": "close-up of an empty round white pilot helmet lying on a steel workbench in a quiet workshop, soft side light, 1950s",
+    "check": "Is there an empty white helmet on a workbench?",
+    "move": "push"
+   },
+   {
+    "name": "flight_dogs",
+    "at": "since#1",
+    "prompt": "medium shot, two small dogs in little cloth flight jackets sitting on a laboratory table while a woman in a white coat strokes them, 1950s, white lamp light",
+    "check": "Are two small dogs sitting on a table?",
+    "clip": true,
+    "motion": "the woman strokes one dog's head, slow camera push in"
+   },
+   {
+    "name": "liftoff",
+    "at": "lofted#1",
+    "prompt": "wide shot of a slim rocket lifting off from a flat snowy steppe on a column of orange fire and white smoke, early morning, 1950s",
+    "check": "Is a rocket lifting off with fire?",
+    "move": "up",
+    "hit": "lofted#1"
+   },
+   {
+    "name": "stray",
+    "at": "they#2",
+    "prompt": "medium shot, a small white mongrel dog with light brown patches on her head and pointed ears sniffing along a snowy cobblestone street beside a wooden gate, grey winter morning",
+    "check": "Is a small dog sniffing a snowy street?",
+    "clip": true,
+    "motion": "the dog sniffs the snow and wags her tail, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "moscow",
+    "at": "streets#1",
+    "prompt": "wide shot of a snowy old city street with onion-domed church towers and low stone houses, people in long coats, grey winter light, 1950s",
+    "check": "Is there a snowy city street with onion domes?",
+    "move": "left"
+   },
+   {
+    "name": "scientist",
+    "at": "scientists#1",
+    "who": "yazdovsky",
+    "prompt": "medium shot, a man in a white lab coat kneeling and patting a small white mongrel dog with light brown patches on her head and pointed ears on a frosty courtyard, he is {yazdovsky}, cold morning light",
+    "check": "Is a man kneeling and patting a dog?",
+    "clip": true,
+    "motion": "he pats the dog's head gently, slow camera push in"
+   },
+   {
+    "name": "shiver",
+    "at": "endure#1",
+    "prompt": "close-up, a small white mongrel dog with light brown patches on her head and pointed ears curled up shivering in deep snow beside a brick wall, falling snowflakes, blue winter light",
+    "check": "Is a small dog curled up in snow?",
+    "clip": true,
+    "motion": "the dog shivers as snow falls on her fur, slow camera push in"
+   },
+   {
+    "name": "cage",
+    "at": "she#1",
+    "prompt": "medium shot, a small white mongrel dog with light brown patches on her head and pointed ears lying inside a small wire cage on a laboratory floor, rows of other cages behind, dim white light",
+    "check": "Is a dog lying inside a wire cage?",
+    "clip": true,
+    "motion": "the dog lifts her head and looks out, slow camera push in"
+   },
+   {
+    "name": "tiny_cage",
+    "at": "cages#1",
+    "prompt": "close-up, a small white mongrel dog with light brown patches on her head and pointed ears squeezed into a very small metal box with a padded floor, her nose against the edge, cold dim light",
+    "check": "Is a dog squeezed into a small metal box?",
+    "move": "push"
+   },
+   {
+    "name": "toe",
+    "at": "you#1",
+    "prompt": "close-up, a bare foot dipping its big toe into a calm blue lake from a wooden pier, ripples spreading, warm summer light",
+    "check": "Is a toe dipping into water?",
+    "clip": true,
+    "motion": "the toe touches the water and ripples spread, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "jump",
+    "at": "the#6",
+    "prompt": "medium shot, a boy in swimming shorts crouching at the edge of a wooden pier ready to jump into a lake, summer afternoon",
+    "check": "Is a boy crouching at the edge of a pier?",
+    "clip": true,
+    "motion": "he bends his knees and swings his arms, slow camera pull back"
+   },
+   {
+    "name": "doubt",
+    "at": "nobody#1",
+    "prompt": "medium shot, three worried scientists in white coats frowning at a small metal capsule on a workbench, 1950s laboratory, cold lamp light",
+    "check": "Are scientists frowning at a metal capsule?",
+    "clip": true,
+    "motion": "one scientist rubs his chin and frowns, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "night_launch",
+    "at": "being#1",
+    "prompt": "low angle of a huge rocket rising into a dark night sky on a blazing column of fire and smoke, snowy launch pad, 1950s",
+    "check": "Is a rocket rising at night with fire?",
+    "move": "up"
+   },
+   {
+    "name": "harness",
+    "at": "laika#2",
+    "prompt": "close-up, a small white mongrel dog with light brown patches on her head and pointed ears wearing a snug cloth harness inside a padded metal cabin, cold dim light",
+    "check": "Is a dog wearing a harness?",
+    "clip": true,
+    "motion": "the dog's ears twitch as she breathes, slow camera push in"
+   },
+   {
+    "name": "wires",
+    "at": "wires#1",
+    "prompt": "extreme close-up of thin black wires taped to the fur of a small white mongrel dog with light brown patches on her head and pointed ears, a cloth harness, cold white light",
+    "check": "Are thin wires attached to a dog's fur?",
+    "clip": true,
+    "motion": "the dog's chest rises and falls, slow camera push in"
+   },
+   {
+    "name": "screen",
+    "at": "breathing#1",
+    "prompt": "close-up of a round glass screen with a glowing green wavy line in a dark control room, 1950s, green glow",
+    "check": "Is there a glowing green wavy line on a round screen?",
+    "clip": true,
+    "motion": "the green line ripples across the screen, slow camera push in"
+   },
+   {
+    "name": "control",
+    "at": "to#3",
+    "prompt": "wide shot, men in headphones bent over big grey consoles in a dark ground control room, 1950s, glowing dials",
+    "check": "Are men in headphones at consoles?",
+    "clip": true,
+    "motion": "one man presses his headphones closer, slow camera pan right"
+   },
+   {
+    "name": "panting",
+    "at": "her#4",
+    "prompt": "close-up, a small white mongrel dog with light brown patches on her head and pointed ears panting fast with her ears pressed back inside a cramped metal cabin, harsh light",
+    "check": "Is a dog panting?",
+    "clip": true,
+    "motion": "the dog pants fast with her tongue out, slow camera push in"
+   },
+   {
+    "name": "needle",
+    "at": "240#1",
+    "prompt": "extreme close-up of an ink pen needle scribbling fast jagged lines on a moving paper strip, 1950s machine, lamp light",
+    "check": "Is a pen needle scribbling jagged lines?",
+    "clip": true,
+    "motion": "the needle jerks up and down fast, slow camera push in",
+    "hit": "240#1"
+   },
+   {
+    "name": "orbit",
+    "at": "but#1",
+    "prompt": "wide shot of a small silver cone-shaped satellite floating in black space above the bright blue curve of Earth",
+    "check": "Is there a silver satellite above Earth?",
+    "move": "left",
+    "xfade": true
+   },
+   {
+    "name": "atmosphere",
+    "at": "atmosphere#1",
+    "prompt": "extreme wide shot of the thin glowing blue edge of Earth's atmosphere against black space, the sun rising behind it",
+    "check": "Is there a glowing blue edge of Earth?",
+    "move": "right"
+   },
+   {
+    "name": "heat",
+    "at": "then#2",
+    "prompt": "close-up of the inside of a cramped metal cabin glowing orange with shimmering heat haze, an empty padded seat",
+    "check": "Is a metal cabin glowing orange?",
+    "move": "push",
+    "hit": "overheated#1"
+   },
+   {
+    "name": "drift",
+    "at": "laika#3",
+    "prompt": "wide shot of a small silver satellite drifting silently above the dark night side of Earth, city lights far below",
+    "check": "Is a silver satellite drifting above dark Earth?",
+    "move": "pull"
+   },
+   {
+    "name": "fourth",
+    "at": "fourth#1",
+    "prompt": "extreme wide shot of a tiny glinting satellite crossing in front of the sun above the curve of Earth",
+    "check": "Is there a tiny satellite above Earth?",
+    "move": "left"
+   },
+   {
+    "name": "gazenko",
+    "at": "in#7",
+    "who": "gazenko",
+    "prompt": "medium shot, an old man at a window holding an old black and white photograph of a small dog, he is {gazenko}, quiet apartment, soft grey daylight",
+    "check": "Is an old man holding a photograph?",
+    "clip": true,
+    "motion": "he looks down at the photograph, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "regret",
+    "at": "said#1",
+    "who": "gazenko",
+    "prompt": "close-up, an old man lowering his head and closing his eyes, he is {gazenko}, quiet apartment, soft grey daylight",
+    "check": "Is an old man lowering his head?",
+    "clip": true,
+    "motion": "he slowly lowers his head and closes his eyes, slow camera push in"
+   },
+   {
+    "name": "monument",
+    "at": "justify#1",
+    "prompt": "low angle of a bronze statue of a small dog standing on top of a rocket against a pale sky, gentle snow",
+    "check": "Is there a statue of a dog on a rocket?",
+    "move": "up",
+    "hit": "death#1"
+   }
+  ]
+ }
+}
