@@ -1,0 +1,45 @@
+{
+ "off": 1795114154,
+ "a": 1795114154,
+ "b": 1795114171,
+ "views": 48,
+ "fan_titles": [
+  "24: jynxi crashing out",
+  "24: jynxi crashing out"
+ ],
+ "fan_clip": "https://www.twitch.tv/jynxzi/clip/AgreeableBloodyHorseBrokeBack-ZZmc9_E8HS1Ndg-y",
+ "file": "jynxzi-03.mp4",
+ "section_start_in_vod": 1795114154,
+ "section_end_in_vod": 1795114171,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/jynxzi/clips",
+ "stream_title": "fan clips",
+ "streamer_channel": "jynxzi",
+ "words": [
+  {
+   "w": "I'll",
+   "s": 1.04,
+   "e": 1.38
+  },
+  {
+   "w": "see",
+   "s": 1.38,
+   "e": 1.5
+  },
+  {
+   "w": "you",
+   "s": 1.5,
+   "e": 1.6
+  },
+  {
+   "w": "in",
+   "s": 1.6,
+   "e": 1.72
+  },
+  {
+   "w": "Valhalla.",
+   "s": 1.72,
+   "e": 1.94
+  }
+ ]
+}
