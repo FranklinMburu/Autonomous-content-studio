@@ -1,0 +1,382 @@
+{
+ "era": "1918",
+ "cast": {
+  "soldier": "a 22 year old French soldier, lean build, a pale oval face with dark hollows under his eyes, short dark brown hair, light stubble, wearing a faded horizon blue wool tunic with brass buttons, khaki puttees and a dark blue kepi, 1918",
+  "doctor": "a 48 year old French military physician, tall and lean, a long lined face with a hooked nose, greying black hair parted to one side, a thick greying moustache, round wire spectacles, wearing a white doctor's coat over a dark suit, 1918",
+  "nurse": "a 31 year old French nurse, slim, a soft round freckled face, chestnut brown hair pinned under a white starched cap, wearing a white cotton dress with a blue apron and white cuffs, 1918",
+  "mother": "a 46 year old French village woman, sturdy build, a weathered square face with deep lines, black hair streaked with grey under a black shawl, wearing a dark plum wool dress and a black apron, 1918",
+  "recruit": "a 19 year old French conscript, broad-shouldered boy, a round boyish face, short sandy blond hair, clean shaven, wearing an oversized horizon blue tunic, brown puttees and a new dark blue kepi, 1918",
+  "veteran": "a 33 year old French veteran soldier, stocky, a broad sun-darkened face with deep cheek lines, cropped black hair, a thick black moustache, wearing a mud-stained horizon blue tunic under a grey wool greatcoat, 1918"
+ },
+ "music": "sad",
+ "key_words": [
+  "purple death",
+  "April 1918",
+  "three-quarters",
+  "one point four million",
+  "four million",
+  "second wave",
+  "October 1918",
+  "poor food",
+  "crowded camps",
+  "bacteria",
+  "death bed",
+  "packed bus",
+  "second infection",
+  "spring",
+  "shield"
+ ],
+ "shots": [
+  {
+   "name": "purple_face",
+   "at": 0,
+   "who": "soldier",
+   "clip": true,
+   "prompt": "close-up, a dying soldier lying on a cot with his face turned blue-violet and his lips dark purple, he is {soldier}, a 1918 French field hospital, dim grey daylight",
+   "motion": "his chest rises weakly, slow camera push in",
+   "check": "Is the soldier's face blue-violet?"
+  },
+  {
+   "name": "doctor_checks",
+   "at": "doctors#1",
+   "who": "doctor",
+   "clip": true,
+   "prompt": "medium shot, a military physician bending over a cot and lifting a blanket to check a patient, he is {doctor}, a 1918 French field hospital ward, cold grey daylight",
+   "motion": "he lifts the blanket and leans closer, slow camera push in",
+   "check": "Is a man bending over a cot?"
+  },
+  {
+   "name": "purple_death",
+   "at": "purple#1",
+   "who": "soldier",
+   "clip": true,
+   "prompt": "extreme close-up, a dying soldier's blue-violet face and cracked dark purple lips resting on a white pillow, he is {soldier}, a 1918 field hospital cot, dim grey light",
+   "motion": "his chest rises weakly and his lips part slightly, slow camera push in",
+   "hit": "death#1",
+   "check": "Is the face blue-violet?"
+  },
+  {
+   "name": "records",
+   "at": "France#1",
+   "who": "doctor",
+   "clip": true,
+   "prompt": "medium shot, a military physician writing notes in a small notebook at a wooden table, he is {doctor}, a 1918 French military hospital office, daylight through a window",
+   "motion": "his hand writes across the page, slow camera push in",
+   "check": "Is a man writing in a notebook?"
+  },
+  {
+   "name": "ward",
+   "at": "April#1",
+   "xfade": true,
+   "move": "push",
+   "prompt": "wide shot, a crowded 1918 French military hospital ward with two long rows of iron beds and many sick soldiers, tall windows, spring daylight",
+   "check": "Are there many beds with sick soldiers?"
+  },
+  {
+   "name": "sick_camp",
+   "at": "Three-quarters#1",
+   "who": "nurse",
+   "clip": true,
+   "prompt": "medium shot, a nurse kneeling beside a cot and raising a tin cup to a sick soldier's lips, she is {nurse}, a muddy 1918 French army camp, grey daylight",
+   "motion": "she raises the cup slowly, slow camera push in",
+   "hit": "Three-quarters#1",
+   "check": "Is a nurse kneeling beside a cot?"
+  },
+  {
+   "name": "sick_rows",
+   "at": "sick#1",
+   "move": "left",
+   "prompt": "wide shot, rows of sick French soldiers lying on canvas cots under sagging canvas tents in a muddy 1918 army camp, grey overcast light",
+   "check": "Are there rows of sick soldiers lying on cots?"
+  },
+  {
+   "name": "crosses",
+   "at": "France#2",
+   "move": "push",
+   "prompt": "wide shot, hundreds of simple wooden crosses in neat rows on a grassy French hillside cemetery, grey dawn mist, distant bare trees",
+   "check": "Is there a hillside cemetery with rows of wooden crosses?"
+  },
+  {
+   "name": "hand",
+   "at": "killed#1",
+   "clip": true,
+   "prompt": "extreme close-up, a dead soldier's muddy hand hanging limp over a rifle barrel, a torn horizon blue tunic sleeve, muddy 1918 battlefield, grey overcast light",
+   "motion": "the limp hand sways slightly as rain drips, slow camera push in",
+   "check": "Is there a muddy hand hanging over a rifle?"
+  },
+  {
+   "name": "wounded",
+   "at": "four#2",
+   "who": "veteran",
+   "clip": true,
+   "prompt": "close-up, a wounded soldier lying on a canvas stretcher with a blood-soaked bandage around his head, he is {veteran}, a crowded 1918 field hospital tent, grey daylight",
+   "motion": "he breathes weakly and his bandaged head turns slightly, slow camera push in",
+   "check": "Is a bandaged soldier lying down?"
+  },
+  {
+   "name": "farewell",
+   "at": "Even#1",
+   "who": "mother",
+   "clip": true,
+   "prompt": "medium shot, a village woman pressing a wrapped parcel into a young soldier's hands, she is {mother}, a French village street with stone houses, morning light",
+   "motion": "she presses the parcel into his hands, slow camera push in",
+   "check": "Is a woman handing a parcel to a soldier?"
+  },
+  {
+   "name": "column",
+   "at": "army#1",
+   "move": "right",
+   "prompt": "wide shot, a column of French soldiers in blue tunics marching along a muddy road with rifles and packs toward a distant railway train, grey overcast light",
+   "check": "Are soldiers marching along a muddy road?"
+  },
+  {
+   "name": "trench",
+   "at": "disrupted#1",
+   "who": "soldier",
+   "clip": true,
+   "prompt": "medium close-up, a feverish young soldier lying in a muddy trench with his cheek on his pack while other soldiers crouch behind, he is {soldier}, 1918 front line, cold grey light",
+   "motion": "he shivers and coughs into his sleeve, slow camera push in",
+   "check": "Is a sick soldier lying in a trench?"
+  },
+  {
+   "name": "guns",
+   "at": "operations#1",
+   "clip": true,
+   "prompt": "medium shot, exhausted soldiers slumped beside a muddy field gun while one wipes his face with a cloth, rain falling, grey battlefield light",
+   "motion": "the man wipes his face and the others slump, slow camera pull back",
+   "check": "Are soldiers beside a muddy field gun?"
+  },
+  {
+   "name": "autumn",
+   "at": "Then#1",
+   "xfade": true,
+   "move": "push",
+   "prompt": "wide shot, columns of French soldiers in blue tunics marching along a muddy road between bare yellow poplars, autumn countryside, cold grey overcast light, 1918",
+   "check": "Are soldiers marching on a road?"
+  },
+  {
+   "name": "arrival",
+   "at": "arrived#1",
+   "who": "soldier",
+   "clip": true,
+   "prompt": "medium shot, a weary soldier lowering a blanket-wrapped pack beside crowded canvas tents in a muddy camp, he is {soldier}, cold grey morning light, 1918",
+   "motion": "he lowers the pack to the mud, slow camera push in",
+   "check": "Is a soldier lowering a pack?"
+  },
+  {
+   "name": "hospitalized",
+   "at": "Among#1",
+   "who": "veteran",
+   "clip": true,
+   "prompt": "medium shot, a sick stocky soldier lying in an iron hospital bed, sweat on his face, blanket pulled up, he is {veteran}, crowded 1918 ward, grey window light",
+   "motion": "he breathes fast and shifts on the pillow, slow camera push in",
+   "check": "Is a sick man lying in a hospital bed?"
+  },
+  {
+   "name": "secondwave",
+   "at": "second#2",
+   "who": "doctor",
+   "clip": true,
+   "prompt": "close-up, a military doctor in a white coat pressing two fingers to a sick soldier's wrist, his own face grave, he is {doctor}, dim 1918 ward, cold grey light",
+   "motion": "he lifts the wrist slightly and frowns, slow camera push in",
+   "hit": "death#2",
+   "check": "Is a doctor touching a patient's wrist?"
+  },
+  {
+   "name": "higher",
+   "at": "higher#1",
+   "who": "nurse",
+   "clip": true,
+   "prompt": "medium shot, a nurse in a white dress and blue apron drawing a white sheet over a dead soldier's face in an iron bed, she is {nurse}, dim 1918 ward, cold light",
+   "motion": "she draws the sheet up over his face, slow camera push in",
+   "check": "Is a nurse pulling a sheet over a man's face?"
+  },
+  {
+   "name": "cemetery",
+   "at": "highest#1",
+   "who": "doctor",
+   "move": "pull",
+   "prompt": "wide shot, a doctor in a white coat bowing his head among rows of white wooden crosses in a foggy 1918 French military cemetery, cold grey light",
+   "check": "Are there many white crosses?"
+  },
+  {
+   "name": "world",
+   "at": "World#1",
+   "move": "push",
+   "prompt": "wide shot, soldiers trudging through a muddy 1918 French army camp with wooden huts and canvas tents, low wet ground, grey dawn light",
+   "check": "Are there soldiers in a muddy camp?"
+  },
+  {
+   "name": "food",
+   "at": "food#1",
+   "clip": true,
+   "prompt": "close-up, two muddy hands holding a dented tin cup of thin watery grey soup with a crust of bread on the rim, dim 1918 mess tent light",
+   "motion": "the hands lift the cup slightly, slow camera push in",
+   "check": "Is there a tin cup of thin soup?"
+  },
+  {
+   "name": "camps",
+   "at": "camps#1",
+   "move": "left",
+   "prompt": "medium shot, a crowd of soldiers huddling shoulder to shoulder in a muddy 1918 camp street, wet greatcoats and boots, grey overcast light",
+   "check": "Are many soldiers crowded together?"
+  },
+  {
+   "name": "hygiene",
+   "at": "hygiene#1",
+   "clip": true,
+   "prompt": "extreme close-up, a soldier's filthy mud-caked hands held open over a bucket of brown muddy water, cracked nails, dim overcast light",
+   "motion": "the hands turn slowly, slow camera push in",
+   "check": "Are there filthy hands over a bucket?"
+  },
+  {
+   "name": "bad_hygiene",
+   "at": "bad#2",
+   "who": "soldier",
+   "clip": true,
+   "prompt": "close-up, a soldier wiping his grimy face with a dirty cloth while holding a tin cup of muddy water, he is {soldier}, a 1918 camp tent, dim grey light",
+   "motion": "he wipes his face slowly, slow camera push in",
+   "check": "Is a soldier wiping his face with a dirty cloth?"
+  },
+  {
+   "name": "weakened",
+   "at": "weakened#1",
+   "who": "soldier",
+   "clip": true,
+   "prompt": "medium shot, a thin soldier sitting slumped on a wooden bench in a muddy 1918 camp tent, head resting on his hand, he is {soldier}, pale grey daylight through canvas",
+   "motion": "he lowers his head weakly, slow camera push in",
+   "check": "Is a soldier sitting slumped on a bench?"
+  },
+  {
+   "name": "deathbed",
+   "at": "died#1",
+   "who": "soldier",
+   "clip": true,
+   "prompt": "close-up, a pale soldier lying on his back in an iron hospital bed under a white sheet, eyes closed and still, he is {soldier}, dim 1918 ward light",
+   "motion": "he breathes weakly, slow camera push in",
+   "hit": "died#1",
+   "check": "Is a soldier lying in a bed?"
+  },
+  {
+   "name": "packed_ward",
+   "at": "You#1",
+   "move": "push",
+   "prompt": "wide shot, a crowded 1918 French military hospital ward with two rows of iron beds packed with sick soldiers in blue tunics, a nurse in a white dress and blue apron moving between them, tall windows, grey daylight",
+   "check": "Is this a crowded hospital ward with many beds?"
+  },
+  {
+   "name": "packed_bus",
+   "at": "like#1",
+   "who": "soldier",
+   "clip": true,
+   "prompt": "medium shot, a soldier sitting pressed shoulder to shoulder with other men in a crowded city omnibus bus, he is {soldier}, 1918 France, grey daylight through foggy windows",
+   "motion": "the bus jolts and the packed passengers sway slightly, slow camera push in",
+   "check": "Is a man sitting in a crowded bus?"
+  },
+  {
+   "name": "sickness_spreads",
+   "at": "spread#1",
+   "who": "soldier",
+   "clip": true,
+   "prompt": "close-up, a dying soldier lying on a pillow with a blue-violet face and cracked lips, he is {soldier}, a crowded 1918 ward, dim grey window light",
+   "motion": "he breathes weakly and his chest rises slowly, slow camera push in",
+   "check": "Is a man lying in a bed with a blue-violet face?"
+  },
+  {
+   "name": "purpleface",
+   "at": "The#7",
+   "who": "soldier",
+   "clip": true,
+   "xfade": true,
+   "prompt": "close-up, a sick soldier lying on a canvas cot with blue-violet lips and hollow dark eyes, he is {soldier}, a muddy 1918 army camp tent, cold grey daylight",
+   "motion": "he breathes weakly and his eyes slowly close, slow camera push in",
+   "check": "Is a sick soldier lying on a cot with blue lips?"
+  },
+  {
+   "name": "infectedchest",
+   "at": "bacteria#2",
+   "clip": true,
+   "prompt": "close-up, a soldier's bare chest with a dirty blood-soaked dressing over an angry red infected wound, dim 1918 hospital ward, grey window light",
+   "motion": "his chest rises and falls weakly under the dressing, slow camera push in",
+   "check": "Is there a dirty dressing on a bare chest?"
+  },
+  {
+   "name": "crowdedcamp",
+   "at": "Crowded#3",
+   "move": "left",
+   "prompt": "wide shot, many soldiers crowding along muddy duckboards between rows of canvas tents in a 1918 army camp, wooden poles, grey overcast light",
+   "check": "Are there many soldiers and tents in a camp?"
+  },
+  {
+   "name": "packedward",
+   "at": "hospitals#1",
+   "move": "right",
+   "prompt": "wide shot, a packed 1918 hospital ward with rows of iron beds crowded with sick soldiers, doctors and nurses moving between them, tall windows, grey morning light",
+   "check": "Is the hospital ward crowded with beds and patients?"
+  },
+  {
+   "name": "deadly",
+   "at": "deadly#1",
+   "who": "nurse",
+   "clip": true,
+   "prompt": "close-up, a nurse leaning over a hospital bed and holding a sick soldier's hand, she is {nurse}, a dim 1918 ward, soft lamplight",
+   "motion": "she squeezes his hand gently and bows her head, slow camera push in",
+   "hit": "deadly#1",
+   "check": "Is a nurse holding a patient's hand?"
+  },
+  {
+   "name": "twist",
+   "at": "Here#1",
+   "who": "doctor",
+   "clip": true,
+   "xfade": true,
+   "prompt": "medium shot, a military doctor pointing forward at a standing soldier in a muddy autumn 1918 French army camp, he is {doctor}, grey rain light",
+   "motion": "he raises his arm and points firmly, slow camera push in",
+   "check": "Is a doctor pointing forward?"
+  },
+  {
+   "name": "spring_flu",
+   "at": "caught#1",
+   "who": "soldier",
+   "clip": true,
+   "prompt": "close-up, a young soldier lying in a canvas cot inside a spring 1918 field tent with a flushed feverish face, he is {soldier}, cold grey morning light",
+   "motion": "he shivers and coughs into his blanket, slow camera push in",
+   "check": "Is a soldier lying in a cot?"
+  },
+  {
+   "name": "protected",
+   "at": "protected#1",
+   "who": "veteran",
+   "clip": true,
+   "prompt": "medium shot, a veteran soldier in a grey wool greatcoat raising a metal canteen to his lips on an autumn village street, he is {veteran}, cold autumn light",
+   "motion": "he drinks slowly from the canteen, slow camera push in",
+   "check": "Is a soldier raising a canteen to his lips?"
+  },
+  {
+   "name": "summer",
+   "at": "Spring#2",
+   "move": "push",
+   "prompt": "wide shot, French soldiers washing at water barrels beside a summer 1918 camp, washing lines and canvas tents, warm afternoon sunlight",
+   "check": "Are soldiers washing at water barrels?"
+  },
+  {
+   "name": "protection",
+   "at": "gave#1",
+   "who": "veteran",
+   "clip": true,
+   "prompt": "medium shot, a veteran soldier sitting up strong in an iron hospital bed, healthy and smiling, he is {veteran}, a bright 1918 ward, morning sunlight",
+   "motion": "he smiles and straightens his back, slow camera push in",
+   "check": "Is a soldier sitting up in a hospital bed?"
+  },
+  {
+   "name": "shield",
+   "at": "The#9",
+   "who": "veteran",
+   "clip": true,
+   "xfade": true,
+   "prompt": "medium shot, a strong veteran soldier standing upright in an autumn field holding his rifle across his body like a shield, he is {veteran}, warm golden light",
+   "motion": "he plants his feet and grips the rifle, slow camera push in",
+   "check": "Is a soldier standing upright holding a rifle?"
+  }
+ ]
+}

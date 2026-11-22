@@ -1,0 +1,118 @@
+{
+ "title": "Why Three-Quarters of French Troops Fell Sick",
+ "channel": "Hidden Reasons",
+ "topic": "Why the French army equipped soldiers with iron lung‑shaped canisters during the 1918 influenza pandemic (France, 1918)",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A dying soldier's face turned blue-violet, and doctors called it the purple death.",
+    "France recorded influenza cases in April 1918.",
+    "Three-quarters of French troops fell sick during that first wave."
+   ]
+  },
+  {
+   "feel": "sympathy",
+   "lines": [
+    "France had already lost nearly one point four million men killed or missing.",
+    "Another four million French soldiers were wounded.",
+    "Even so, French families kept sending their sons to the army.",
+    "The first wave disrupted French military operations."
+   ]
+  },
+  {
+   "feel": "dread",
+   "lines": [
+    "Then a deadlier second wave arrived in autumn 1918.",
+    "Among hospitalized soldiers, the second wave's death rate was far higher.",
+    "October 1918 had the highest death rate of the whole pandemic."
+   ]
+  },
+  {
+   "feel": "frustration",
+   "lines": [
+    "World War I caused poor food, crowded camps, and bad hygiene.",
+    "Poor food and bad hygiene helped bacteria attack soldiers weakened by influenza.",
+    "Most victims died after a long death bed."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, a crowded hospital ward was like a packed bus: sickness had room to spread."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "The real reason: influenza weakened soldiers, and bacteria caused a second infection.",
+    "Crowded camps and hospitals made that second infection deadly."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "Here is the twist: soldiers who caught flu in spring were protected from death that fall.",
+    "Spring and summer exposure gave many soldiers protection against death.",
+    "The first wave was a disaster, and also a shield."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Further influenza cases were recorded in France in April 1918, and three-quarters of French troops fell sick during the first wave, which caused significant disruption to military operations.",
+   "url": "https://en.wikipedia.org/wiki/Spanish_flu"
+  },
+  {
+   "claim": "Expiring patients developed a dusky heliotrope face and blue-violet cyanosis, which led to the name 'purple death'.",
+   "url": "https://en.wikipedia.org/wiki/Spanish_flu"
+  },
+  {
+   "claim": "In the studied US Army camps and Britain, fatality among hospitalized soldiers was 1.1% in the first wave and 4.7% in the second wave.",
+   "url": "https://doi.org/10.1086/592454"
+  },
+  {
+   "claim": "October 1918 was the month with the highest fatality rate of the whole pandemic.",
+   "url": "https://en.wikipedia.org/wiki/Spanish_flu"
+  },
+  {
+   "claim": "World War I exacerbated malnourishment, overcrowding in medical camps and hospitals, and poor hygiene, which promoted bacterial superinfection and killed most victims after a prolonged death bed.",
+   "url": "https://en.wikipedia.org/wiki/Spanish_flu"
+  },
+  {
+   "claim": "France had nearly 1.4 million men killed or missing and another four million wounded, yet French families continued to send their sons into the army.",
+   "url": "https://en.wikipedia.org/wiki/French_Army_in_World_War_I"
+  },
+  {
+   "claim": "In the studied US Army camps and Britain, exposure to influenza in the spring and summer of 1918 provided 56 to 89 percent protection against death during the fall wave.",
+   "url": "https://doi.org/10.1086/592454"
+  },
+  {
+   "claim": "The provided French Army source lists equipment such as artillery, machine guns and grenades, but does not mention iron lung-shaped canisters.",
+   "url": "https://en.wikipedia.org/wiki/French_Army_in_World_War_I"
+  }
+ ],
+ "key_words": [
+  "soldier",
+  "purple",
+  "death",
+  "influenza",
+  "troops",
+  "bacteria",
+  "crowded",
+  "hospital",
+  "wave",
+  "protected",
+  "army",
+  "hygiene"
+ ]
+}
