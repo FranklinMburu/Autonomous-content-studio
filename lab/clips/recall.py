@@ -28,6 +28,19 @@ def peaks(score, k, gap=45):
     return sorted(out)
 
 
+def snap_to(curve, t, w):
+    """22 Nov: the judge finds the right area but often names the wrong second; the fused signal has the second.
+    Returns the strongest second of `curve` within [t - w, t + w] (t itself on a tie)."""
+    lo, hi = max(0, int(t) - w), min(len(curve), int(t) + w + 1)
+    if hi <= lo:
+        return int(t)
+    seg = np.asarray(curve[lo:hi], float)
+    best = lo + int(np.argmax(seg))
+    if lo <= int(t) < hi and seg[int(t) - lo] >= seg[best - lo]:
+        return int(t)
+    return best
+
+
 def zz(x):
     return S.z(np.asarray(x, float))
 
@@ -55,6 +68,8 @@ def main():
     ap.add_argument("--eyes", help="AI eyes moments (lab/clips/ai_pass.py eyes)")
     ap.add_argument("--judged", help="AI judge scores (lab/clips/ai_pass.py judge); adds the final finder")
     ap.add_argument("--cands-out", help="write the candidates for the AI judge here (ALL top 40 + strong eyes moments)")
+    ap.add_argument("--snap", type=int, default=20,
+                    help="22 Nov: move the judge's named peak to the strongest fused-signal second within +-SNAP s (0 = off)")
     a = ap.parse_args()
     K = json.loads(Path(a.key).read_text())
     key = [k for k in K["key"] if k.get("views")]
@@ -114,6 +129,8 @@ def main():
         cands = sorted(cands)
         Path(a.cands_out).write_text(json.dumps([{"t": t} for t in cands]))
         print(f"candidates for the AI judge: {len(cands)}")
+        # the fused curve, so find.py pick can snap the judge's peak to the strongest second (22 Nov)
+        Path(a.cands_out).with_name("fused.json").write_text(json.dumps([round(float(x), 3) for x in fams["ALL TOGETHER"]]))
     judged = json.loads(Path(a.judged).read_text())["judged"] if a.judged and Path(a.judged).exists() else []
     # 16 Nov: when the judge says where the payoff really is ("peak"), the pick goes there, not to the candidate's t
     for m in judged:
@@ -123,16 +140,24 @@ def main():
         except (TypeError, ValueError, KeyError):
             pass
     if judged:
-        jc = np.full(n, -1e9)
         allz = fams["ALL TOGETHER"]
-        for m in judged:
-            try:
-                i, sc = int(float(m["t"])), float(m["score"])
-            except (TypeError, ValueError, KeyError):
-                continue
-            if 0 <= i < n:
-                jc[i] = sc * 10 + float(allz[i])
-        fams["ALL + AI JUDGE"] = jc
+
+        def judge_curve(snap):
+            jc = np.full(n, -1e9)
+            for m in judged:
+                try:
+                    i, sc = int(float(m["t"])), float(m["score"])
+                except (TypeError, ValueError, KeyError):
+                    continue
+                if snap and 0 <= i < n:
+                    i = snap_to(allz, i, snap)
+                    m["t_snap"] = i
+                if 0 <= i < n:
+                    jc[i] = max(jc[i], sc * 10 + float(allz[i])) if snap else sc * 10 + float(allz[i])
+            return jc
+        fams["ALL + AI JUDGE"] = judge_curve(0)
+        if a.snap:
+            fams[f"ALL + AI JUDGE + SNAP {a.snap}s"] = judge_curve(a.snap)
     total_views = sum(k["views"] for k in key)
 
     def found(pk, k):
@@ -159,7 +184,7 @@ def main():
             row.append(f"{100 * (sc < v).mean():>9.0f}" if v > -1e8 else f"{'-':>9s}")
         print("  " + " ".join(row) + f"  {k['views']:>6,} {k['title'][:40]}")
     if judged:
-        for fin in ("ALL + AI JUDGE",):
+        for fin in [f for f in fams if f.startswith("ALL + AI JUDGE")]:
             print(f"\n{fin} by number of picks (a 3 h IRL stream can carry 20-40 Shorts):")
             for kk in (10, 20, 30, 40, 60):
                 pk = peaks(fams[fin], kk)
@@ -186,6 +211,17 @@ def main():
             cov = max(0.0, min(s1, w1) - max(s0, w0)) / max(1, s1 - s0)
             print(f"  {k['views']:>7,}  {k['title'][:40]:40s} clip {s0:.0f}-{s1:.0f}  judged t={t:.0f} window {w0:.0f}-{w1:.0f}  "
                   f"covers {cov:.0%} of the clip; {len(inw)} candidates near it")
+        if a.snap:
+            print(f"\nSnap shift per fan clip (+-{a.snap} s; named peak -> snapped second; + = later):")
+            for k in sorted(key, key=lambda k: -k["views"]):
+                s0, s1 = k["offset"], k["offset"] + (k.get("duration") or 30)
+                inw = [m for m in judged if m.get("t") is not None and "t_snap" in m and s0 - 120 <= float(m["t"]) <= s1 + 60]
+                if not inw:
+                    print(f"  {k['views']:>7,}  {k['title'][:40]:40s} no candidate near it"); continue
+                m = max(inw, key=lambda m: float(m.get("score") or 0))
+                t, ts = float(m["t"]), m["t_snap"]
+                ins = lambda x: "IN" if s0 - 10 <= x <= s1 + 10 else "out"
+                print(f"  {k['views']:>7,}  {k['title'][:40]:40s} clip {s0:.0f}-{s1:.0f}  peak {t:.0f} ({ins(t)}) -> {ts} ({ins(ts)})  shift {ts - t:+.0f} s")
         order = sorted(((float(m["score"]), int(float(m["t"]))) for m in judged if isinstance(m.get("score"), (int, float)) and m.get("t") is not None), reverse=True)
         print("\nWhere the judge put each fan clip (its best-scored candidate inside the clip's window):")
         for k in sorted(key, key=lambda k: -k["views"]):
