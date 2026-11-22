@@ -74,199 +74,256 @@ Return JSON only: {"era": "...", "cast": {...}, "key_words": [...], "music": "<o
            {"name": ..., "at": ..., "prompt": ..., "check": "Is ...?", "move": "push"}, ...]}
 
 CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid these exact scenes):
-- 005-why-ships-waited-forty-days-before-enter: cast sailor = a 30 year old Venetian sailor with a sunburnt face, curly black hair, a red wool cap and a loose white linen shirt, 1400s; doctor = a 55 year old medieval physician with a long grey beard, a long dark brown robe and a round black cap, 1400s
-  scenes: medium shot, sailors leaning on the rail of a wooden sailing ship and  | close-up, a sailor gripping a ship's wooden rail and gazing at land, h | close-up of a pale sick man lying on straw with dark swollen marks on  | wide shot of a medieval town street with closed shutters and a cart co | close-up, a weeping woman in a medieval hood kneeling beside a bed, ca | wide shot of medieval Venice with canals, gondolas and stone palaces,  | medium shot, three Venetian officials in long red robes and black caps | wide shot of a walled stone harbour city on the Adriatic coast with re | close-up of stone city walls and a tower above the sea with waves brea | medium shot, travellers in medieval cloaks stepping off a small rowing | wide shot of a small rocky island with a few stone huts in a blue sea, | close-up, a worried traveller pulling down his collar to look at his n
-- 005-why-the-radium-girls-licked-poison: cast painter = a 19 year old woman with dark brown bobbed hair, freckles, bright hazel eyes, a white cotton work smock over a navy blouse, 1910s; supervisor = a 45 year old factory supervisor with slicked grey hair, a thin moustache, a brown three-piece suit and a gold watch chain, 1910s; president = a 50 year old company president with a bald head, round gold spectacles, a heavy jaw and a dark grey double-breasted suit, 1920s; inventor = a 45 year old scientist with a high forehead, swept-back black hair, a short pointed black beard and a black suit with a white collar, 1920s
-  scenes: close-up, a young woman touching a thin paintbrush tip to her lips, a  | extreme close-up of a thin brush dipping into a tiny pot of glowing gr | extreme close-up of a thin brush painting glowing green lines on a sma | wide shot of a big 1910s brick factory with tall windows and a smokest | wide shot, rows of young women in white smocks bent over long tables p | close-up of a row of small watch faces glowing green in a dark room | close-up, a young woman's open hand receiving a few copper coins at a  | extreme close-up of a camel hair paintbrush with a frayed splayed tip, | medium shot, a stern man in a suit pointing at a worker's paint table, | medium close-up, a smiling young woman putting a paintbrush to her lip | close-up, young women laughing and holding up fingernails painted glow | close-up, a laughing young woman with a faint green glow on her teeth 
-- 006-why-dutch-merchants-paid-fortunes-for-a-: cast merchant = a 44 year old Dutch merchant with a ruddy weathered face, a thick grey-streaked brown beard, heavy brows, a wide black felt hat, a long dark burgundy wool coat with silver buttons, a white linen collar and cuffs, 1630s; trader = a 31 year old Dutch tulip trader with a thin pale face, a small pointed black moustache, sharp dark eyes, shoulder-length light brown hair, a bright mustard yellow doublet, a white ruff collar and a brown leather belt, 1630s; grower = a 52 year old Dutch bulb grower with a sunburnt wrinkled face, a bald crown with grey hair at the sides, a short grey stubble beard, a rough brown linen smock, muddy wooden clogs and a grey wool cap, 1630s; wife = a 29 year old Dutch woman with fair skin, blond hair pinned under a white lace cap, a high forehead, a dark green bodice with a white apron over a long brown skirt, 1630s; tavernkeeper = a stout 48 year old Dutch tavern keeper with a red flushed face, a big belly, a clean-shaven chin, a white apron over a dark blue shirt, a brown cap, 1630s
-  scenes: medium close-up, a stern man in a wide black hat leaning over a wooden | extreme close-up of a hand with a quill pen signing a paper contract o | close-up, a merchant holding up his open empty palms toward a trader,  | medium shot, a trader shrugging with both arms spread wide and grinnin | close-up of a single tulip bulb half buried in dark soil in a wooden c | close-up of a hand with a quill pen writing rising numbers on a paper  | medium shot, {trader} slapping a paper contract down on a wooden table | close-up of a hand dropping small silver coins into a wooden bowl on a | wide shot of a crowded 1630s Dutch tavern with men waving paper contra | wide shot of a grand 1630s Dutch town exchange building with tall ston | medium shot, {merchant} holding up a paper contract beside a potted tu | close-up of a hand holding up a small paper concert ticket in a dark t
-- 008-why-china-s-paper-money-wasn-t-tang: cast merchant = a 45 year old Sichuan merchant with a round weathered face, a thin grey-streaked beard, a black silk cap, a long dark blue silk robe with wide sleeves and a brown leather belt, 11th century; official = a 50 year old Song government official with a long thin face, a neat black moustache, a tall black gauze hat with stiff wings, a long crimson robe with a gold-embroidered square badge, 11th century; clerk = a 30 year old thin clerk with a pale narrow face, small round spectacles, a grey cotton robe and a black cloth cap, 11th century; smith = a 35 year old burly iron smith with a soot-darkened face, a short black beard, a leather apron over a rough brown tunic, 11th century; wife = a 35 year old Sichuan woman with a round face, black hair in a neat bun, a small gold hairpin, a green cotton jacket and a long dark skirt, 11th century
-  scenes: medium shot, a merchant in a long dark blue silk robe and black cap ha | extreme close-up of two hands lifting a stack of thick heavy iron coin | close-up, a merchant holding up one folded paper note with both hands, | close-up, a merchant pressing a red seal stamp onto a paper note on a  | medium shot, a thin clerk holding up a paper note in one hand and poin | close-up of two hands placing a folded paper note on top of a heavy st | wide shot of a crowded 11th century Sichuan market street with wooden  | close-up of two hands holding up two different paper notes side by sid | medium shot, {merchant} standing and pointing at a large paper map on  | close-up, {merchant} leaning over a wooden table and pointing at a pap | wide shot of a large wooden gate of a merchant guild house with a hang | extreme close-up of a carved wooden printing block being pressed onto 
-- 006-why-braille-made-night-writing-simple: cast louis = a 12 year old thin French boy with straight short black hair and a fringe, a pale narrow face, eyes half closed and unfocused, a navy blue wool school jacket with a high collar over a white shirt, 1820s; child = a 4 year old small boy with blond curly hair, chubby pink cheeks and a loose white linen smock, 1810s; barbier = a 54 year old tall lean retired French artillery captain with swept-back silver hair, long grey sideburns, a hawk nose and a faded dark blue military coat with red cuffs and brass buttons, 1820s; teacher = a 40 year old thin stern French teacher with dark hair slicked flat, a pointed black chin beard and a black frock coat with a tall white collar, 1840s
-  scenes: close-up, a blind boy running his fingertip slowly across thick paper  | extreme close-up of a fingertip pressing on rows of small raised dots  | medium shot, a thin boy tapping a wooden cane along a stone school cor | close-up, a small boy squinting and pushing a sharp awl into a thick p | wide shot of a small country harness workshop with horse saddles and l | medium shot, a little blind boy feeling his way along a country path w | wide shot of a tall old grey stone school building on a narrow Paris s | close-up of an enormous thick heavy book lying open on a worn wooden d | medium shot, three blind children slowly tracing their fingers across  | close-up of a blind boy's empty hands resting on a blank sheet of pape | medium shot, a lean old army captain carrying a small wooden case into | close-up of a metal ruler slate with grooves lying on thick paper next
-- 006-why-curie-s-notebooks-stay-locked: cast marie = a 31 year old Polish French scientist with ash blond hair pulled back in a loose bun, a high forehead, grey eyes, a plain long black dress with a high collar and rolled cuffs, 1890s; pierre = a 39 year old French physicist with a full dark brown beard, receding dark hair, gentle dark eyes and a rumpled black jacket over a white shirt, 1890s; old = a 66 year old frail woman with thin white hair in a bun, a pale lined face, tired grey eyes and a plain grey wool cardigan, 1930s
-  scenes: close-up, a woman slipping a small glowing glass test tube into her dr | extreme close-up of a small glass test tube glowing faint blue-green a | medium shot, a young woman looking up from a notebook at a cluttered l | wide shot of a cramped wooden shed laboratory with glass bottles, an i | close-up, a man grinding dark rock with a heavy pestle in a big stone  | medium shot, a woman stirring a big iron pot of bubbling dark sludge w | wide shot, a worker shovelling dark brown rock from a huge heap into s | close-up of a heavy sack of dark rock tipping onto a wooden table, dus | close-up of a tiny pinch of white powder in a small glass dish on a wo | medium shot, a man and a woman smiling at each other over a tiny glowi | close-up of a bright beam of sunlight shining through a dusty laborato | close-up, a woman writing quickly in a notebook by lamplight, she is {
-- 006-why-harvey-was-mocked: cast harvey = a 50 year old short English physician with a round face, small very black eyes and curling raven-black hair to his collar, a small black pointed beard, a black doublet with a wide white falling-band collar, 1620s; old = a 78 year old frail English physician with thin white curling hair, a short white beard, a round wrinkled face, a black velvet skullcap and a black gown with a plain white collar, 1650s
-  scenes: close-up, a doctor tying a tight cord around a man's bare upper arm, h | extreme close-up of a bare muscular arm with a tight brown cord tied a | medium shot, a short round-faced doctor walking along a muddy 1620s Lo | medium shot, four old physicians in long black gowns and white ruffs n | close-up of a white marble bust of an ancient bearded man on a shelf i | close-up of a dark red animal liver lying on a wooden anatomy table be | close-up, a doctor scratching quickly with a quill on paper by candlel | medium shot, a doctor counting on his fingers and frowning at his desk | close-up of a doctor's two fingers pressing on a man's bare wrist to f | extreme close-up of a small pewter spoon holding a few drops of dark r | close-up, a doctor pressing his ear against a man's bare chest to list | close-up of a brass hourglass with sand running down on a wooden desk,
-- 006-why-molasses-flooded-boston: cast painter = a 30 year old lanky dockside worker with a narrow face, ginger stubble, a grey flat cap and brown paint-stained canvas overalls over a red flannel shirt, 1919; jell = a 45 year old portly American company treasurer with round gold spectacles, a thick brown moustache, a black bowler hat and a tight tan three-piece suit, 1919; neighbor = a 40 year old Italian American woman with black hair in a low bun, a round olive face, a black knitted shawl over a dark green dress and a white apron, 1919
-  scenes: medium shot, a worker on a ladder painting a huge round steel tank bro | extreme close-up of a wide paint brush covering a sticky dark drip run | wide shot of a giant round steel storage tank beside a harbor with shi | low angle of a towering riveted steel tank wall rising into a grey sky | close-up of thick dark brown molasses pouring from a wide pipe into a  | high angle looking down into a vast dark pool of molasses inside a ste | medium shot, a woman filling a tin bucket from a sticky dark drip at t | close-up, two small children dipping their fingers into a tin can of d | close-up of a thick hose pumping into a valve on top of a steel tank,  | close-up, a worker pressing his ear against a riveted steel tank wall  | medium shot, a portly businessman in a bowler hat waving his hand dism | close-up, a businessman shaking his head with a smug face, he is {jell
-- 006-why-titanic-skimped-on-lifeboats: cast officer = a 38 year old British ship officer with short dark hair, a clean shaven lean face, a navy blue double-breasted uniform with gold buttons and a white-topped peaked cap, 1912; passenger = a 25 year old woman with auburn hair pinned up under a large black feathered hat, a long cream wool coat with a fur collar, 1912; builder = a 55 year old Irish shipyard manager with a thick grey walrus moustache, a brown bowler hat and a rumpled brown tweed suit, 1911; executive = a 52 year old bald British shipping chairman with a white chin beard, round wire spectacles and a navy pinstripe frock coat, 1911
-  scenes: medium shot, sailors lowering a wooden lifeboat on ropes down the side | close-up of a half-empty wooden lifeboat at night, a few shivering pas | medium shot, a ship officer at the deck rail waving a lifeboat away, h | wide shot of a giant four-funnel ocean liner tilting forward on a calm | wide shot of crowds of passengers in coats and white life jackets on a | close-up of a row of wooden lifeboats hanging from curved iron cranes  | close-up, a worried young woman in a large feathered hat clutching her | wide shot of a gigantic black ship hull inside a towering iron shipyar | medium shot, a shipyard manager pointing up at a long row of empty cur | medium shot, a tall businessman tapping a pencil on large ship drawing | close-up of a folded wooden boat with canvas sides lying upside down o | close-up of a heavy leather-bound rulebook with a red wax seal lying o
-- 007-why-a-spyglass-made-galileo-a-heretic: cast galileo = a 50 year old Italian astronomer with a receding hairline, thinning grey-brown hair, a full grey-streaked beard, deep-set dark eyes, a lined weathered face, wearing a long black wool scholar's robe with a white linen collar and a dark red cap, 1610s; castelli = a 40 year old Italian monk with short black hair, a clean-shaven round friendly face, warm brown eyes, wearing a brown Benedictine habit with a wooden cross on a cord, 1610s; christina = a 27 year old grand duchess with fair skin, dark auburn hair piled high in an elaborate jeweled updo, a narrow elegant face, wearing a rich gold-embroidered crimson velvet gown with a high lace collar and pearl earrings, 1610s; urban = a 70 year old pope with a bald crown, white hair at the sides, a short white beard, a heavy jowled face, wearing a white papal robe with a gold-embroidered red cape and a tall gold mitre, 1630s; inquisitor = a 60 year old cardinal with a gaunt pale face, deep-set black eyes, a thin pointed grey beard, wearing a long black cassock with a red sash and a red skullcap, 1630s; student = a 20 year old Italian student with curly dark brown hair, a smooth youthful face, a thin patchy beard, wearing a loose grey wool tunic and brown hose, 1610s
-  scenes: close-up, a bearded astronomer raising a long brass spyglass to his ey | medium shot, a bearded old scholar sitting at a wooden desk in a dim r | close-up, {galileo} pressing his eye to a long brass spyglass on a woo | close-up of a hand drawing four small circles in a row beside a big ci | wide shot of a grand 1610s lecture hall with a large wooden model of n | close-up of a wooden model with a small painted globe at its center an | medium shot, three old professors in black robes turning their backs a | close-up, an old professor in a black robe shaking his head and foldin | close-up, {student} squinting and frowning into a small brass telescop | medium shot, a grand duchess in a crimson velvet gown seated at a carv | close-up, {christina} frowning slightly with a questioning look, one h | close-up of a hand pointing at an open old book with a finger on a pag
-- 007-why-tycho-brahe-built-uraniborg-on-hven: cast tycho = a 26 year old Danish nobleman with reddish blond hair, a long drooping reddish moustache, a broad scar across his forehead, a black doublet with a white ruff collar and a gold chain, 1570s; king = a 40 year old Danish king with short dark brown hair, a full dark beard, a heavy brown fur-trimmed red robe and a gold crown, 1570s; kepler = a 30 year old thin German mathematician with dark hair, a short dark pointed beard, a narrow pale face and a plain black coat with a small white ruff, 1600s
-  scenes: close-up, a young nobleman staring up at the night sky in amazement, b | wide shot of a night sky over dark Danish fields with one blazing star | medium shot, a young nobleman pointing up at the sky from a stone cast | close-up of a single dazzling white star among many faint stars, deep  | close-up, a man squinting one bare eye along a long wooden sighting ar | medium shot, three workmen lifting a huge curved wooden measuring arc  | close-up of a large polished brass arc with fine notches along its edg | medium shot, a king in a fur-trimmed robe gesturing grandly toward a c | wide shot of a grand stone castle with towers on a cliff above the sea | close-up, a young nobleman shaking his head firmly, he is {tycho}, pal | wide shot of a crowded noisy royal banquet hall with nobles feasting a | close-up, a young nobleman writing a letter by candlelight and glancin
-- 008-why-nightingale-put-fresh-air-into-hospi: cast florence = a 34 year old slim English nurse with dark brown hair parted in the middle under a white cap, a calm oval face, a plain black wool dress with a white collar and a grey shawl, 1850s; soldier = a 20 year old thin British soldier with short sandy hair, freckles, a pale sweaty face and an open red army jacket over a dirty white shirt, 1850s
-  scenes: medium shot, a nurse walking between rows of hospital beds at night ho | close-up of a hand holding a small brass oil lamp glowing in a dark ho | wide shot of wounded soldiers lying packed side by side on thin mats a | wide shot of a huge square stone barracks hospital beside the sea with | close-up of a cracked stone floor drain overflowing with dark water in | close-up of a small shut window with grimy glass in a gloomy hospital  | wide shot of snow falling over a stone hospital courtyard in winter, g | medium shot, two soldiers carrying a stretcher covered with a grey bla | close-up, a pale young soldier sweating with fever on a cot, he is {so | close-up of a white bandage wrapped around a soldier's arm, lamp light | medium shot, a nurse frowning as she writes in a notebook at a small t | close-up of empty wooden supply shelves and an empty open crate in a s
+- 009-why-haber-made-fertilizer-from-air: cast haber = a 41 year old German chemist with a full dark brown beard, short dark hair receding at the temples, deep-set brown eyes, round wire spectacles, a charcoal three-piece suit, white high collar and black cravat, 1900s; rossignol = a 30 year old Swiss chemist with a thin pale face, short light brown hair, a small neat moustache, a white shirt with a stiff collar, dark tie and black waistcoat, 1900s; bosch = a 39 year old German chemical engineer with a broad square face, short dark blond hair, a thick dark moustache, a dark blue work jacket over a white shirt with a stiff collar, 1910s; farmer = a 45 year old German farmer with a deeply weathered face, a grey moustache, a brown wool jacket, a flat cap and muddy boots, 1910s; officer = a 50 year old German artillery officer with a grey uniform, a peaked cap, iron cross medal, a stiff grey moustache and a rigid posture, 1910s
+  scenes: medium shot, a chemist holding up a glass flask of clear liquid beside | extreme close-up of clear liquid droplets falling from a thin glass tu | medium shot, a farmer setting a heavy white sack of fertilizer onto a  | medium shot, a chemist turning a valve on a tall riveted steel pressur | close-up of a small glass measuring cup filled with four ounces of cle | close-up, a warehouse worker's hands scooping white nitrate powder fro | medium shot, a tropical island worker shoveling dark guano into a coar | medium shot, {farmer} lifting a heavy white fertilizer sack onto a woo | wide shot, a nearly empty warehouse with only a few small burlap sacks | wide shot, an immense blue sky thick with white clouds above a flat gr | close-up, {haber} straining to turn a heavy iron valve wheel on a rive | medium shot, a bearded chemist in a charcoal three-piece suit turning 
+- 010-davy-s-laughing-gas-test-wasn-t-in-londo: cast davy = a 21 year old English chemist, slim and upright, a smooth youthful round face with a high forehead, large dark brown eyes, thick dark brown curly hair swept up over his forehead, clean shaven, wearing a dark navy blue tailcoat with brass buttons, a buff waistcoat, a white linen cravat and pale grey trousers, 1799; watt = a 63 year old Scottish engineer, stocky and broad shouldered, a ruddy weathered lined face, bushy grey eyebrows, thinning sandy grey hair combed forward, clean shaven, wearing a brown wool coat, a checked grey waistcoat, a white neckcloth and dark breeches, 1799; skeptic = a 50 year old London physician, thin and upright, a sharp pale face with a long nose, powdered white hair tied in a short queue, a small grey moustache, wearing a black coat with silver buttons, a white neckcloth and dark knee breeches, 1790s; patient = a 27 year old English woman, slender, a freckled oval face, auburn hair in a loose bun with curled side locks, wearing a rose pink muslin gown with a cream shawl and white cuffs, 1790s; miner = a 42 year old English coal miner, broad and muscular, a soot blackened square face, a thick black beard, matted black hair under a brown leather cap, wearing a patched blue waistcoat over a dirty white shirt and brown trousers, 1810s
+  scenes: medium close-up, a young chemist breathing gas through a mouthpiece tu | close-up of a small glass hourglass with pale sand running down on a w | medium shot, a young chemist laughing with his head thrown back, holdi | close-up, a hand holding a glass gas jar beside a tall candle flame on | medium shot, a group of London physicians in black coats in a candle-l | close-up, a thin London physician with a flushed face and wide excited | close-up, a young chemist writing in a notebook with a quill pen at a  | close-up of a large clear glass gas jar with a brass stopcock on a woo | medium shot, a young chemist in a dark navy tailcoat adjusting a glass | medium close-up, a young chemist seated breathing through a mouthpiece | medium shot, a young chemist slumped back in a wooden chair with one h | close-up, a young chemist with flushed cheeks raising one hand and ges
+- 011-why-your-blood-fails-without-key-nutrien: cast patient = a 34 year old woman with medium brown skin, short curly black hair, tired dark eyes and a pale lined face, wearing a light blue hospital gown and a white paper wristband, today; doctor = a 45 year old Black woman doctor with short cropped black hair, a round face, warm dark brown eyes and no glasses, wearing a crisp white lab coat over a teal blouse, today; nutritionist = a 29 year old East Asian woman with straight black hair in a low ponytail, a slim oval face and thin eyebrows, wearing a light grey blazer over a white shirt, today; labtech = a 38 year old South Asian man with a short neat black beard, round wire glasses and a broad forehead, wearing a navy blue polo shirt under a white lab coat, today
+  scenes: close-up, a woman lying in a hospital bed clutching her chest and brea | close-up, a woman slumped in a plastic chair rubbing her forehead with | close-up, a woman gripping a chair armrest with both hands, head tilte | medium shot, a woman pressing one hand to her chest and breathing fast | medium shot, a woman walking slowly along a bright hospital corridor w | close-up, a pale tired woman lying on a hospital bed with her head on  | close-up, a doctor pressing a stethoscope to a patient's bare chest an | close-up, red blood cells streaming quickly through a narrow blood ves | extreme close-up, a pale woman's trembling hand gripping a white blank | close-up, a confused woman lying in a hospital bed, brow furrowed and  | close-up of an empty car fuel gauge, the needle resting at the far lef | close-up of a car engine running under an open hood, belts and hoses v
+- 008-why-edison-added-a-carbon-button: cast edison = a 30 year old American inventor with messy dark brown hair, sharp blue eyes, a clean-shaven intense face, wearing a navy blue three-piece wool suit, a white shirt with a loose black tie and ink-stained cuffs, 1870s; bell = a 29 year old Scottish man with thick wavy black hair, bushy black side whiskers joined to a moustache, a long straight nose, a dark green wool frock coat with a high white collar, 1870s; woman = a 26 year old American woman with black hair in a high bun, a round freckled face, a plum purple dress with a white lace collar and puffed sleeves, 1870s; judge = a 58 year old American judge with thick swept-back silver hair, a clean-shaven heavy jaw, deep frown lines, a black judge's robe over a white cravat, 1890s
+  scenes: close-up, a man biting the polished wooden edge of a grand piano with  | close-up, a man cupping a hand behind his ear with a worried frown, he | medium close-up, a man pressing his jaw against the lid of a grand pia | wide shot of a snowy 1870s American city street at dusk with horse car | medium shot, a man speaking into a brass funnel above a glass cup of c | close-up of a glass cup of clear liquid with a thin brass wire dipping | close-up, a hand pushing a small glass cup of liquid away across a woo | wide shot of a grand 1870s stone government building with tall columns | medium close-up, a man writing on a paper at a wooden desk with a pen, | close-up, an open palm holding a small pile of black carbon grains, fi | close-up of a small open brass capsule filled with black grains beside | extreme close-up of fingertips holding a very thin shiny round metal p
+- 012-why-carnot-tracked-heat-instead-of-engin: cast carnot = a 28 year old slim French army engineer with a narrow oval face, dark brown curly hair swept over his forehead, a clean-shaven chin, sharp dark eyes, wearing a dark navy blue military tunic with gold epaulettes and brass buttons, a white leather cross-belt and white trousers, 1820s; british = a 46 year old stocky British steam engineer with a broad ruddy face, a thick curly ginger beard, bushy ginger eyebrows, a soot-streaked dark brown waistcoat over a rolled-sleeve white shirt, 1820s; french = a 39 year old tall lean French engineer with a long pale lined face, dark hair greying at the temples, long dark sideburns, a dark green frock coat over a grey waistcoat and black cravat, 1820s; worker = a 34 year old burly French foundry worker with a square sun-darkened face, black curly hair, a thick black moustache, a brown leather apron over a faded blue shirt, 1820s; woman = a 30 year old French woman with a round face, dark brown hair in a neat bun under a white linen cap, a blue cotton dress with white sleeves and a white apron, 1820s
+  scenes: medium shot, a young French army engineer leaning over a wooden desk d | extreme close-up of a hand-drawn ink diagram of a cylinder steam engin | medium shot, a French army engineer pointing at a hand-drawn engine di | medium shot, a burly foundry worker straining to hoist a heavy black s | medium shot, a young French army engineer pointing at a rolled enginee | medium shot, a stocky British steam engineer gripping a large iron wre | close-up of a polished brass valve wheel on a huge 1820s steam engine, | medium shot, a tall lean French engineer pointing at a small wooden mo | medium shot, a French woman in a blue dress and white apron handing si | medium shot, a young engineer pointing at a large hand-drawn cylinder  | close-up of a red-hot iron billet glowing bright orange on a forge anv | close-up, a hand lowering a glowing red-hot iron bar into a bucket of 
+- 008-gray-hulls-hidden-purpose: cast researcher = a 45 year old woman historian with shoulder-length auburn hair with silver streaks, round tortoiseshell glasses, an olive green cardigan over a cream blouse; painter = a 50 year old broad-shouldered German shipyard painter with grey stubble, a flat cap splashed with paint and blue overalls stained with grey paint, 1940s; reviewer = a 55 year old man with a bald head, a neat grey goatee, a navy blazer and a red bow tie; baker = a 30 year old woman baker with black curly hair under a yellow headscarf, brown skin, a white apron over a teal shirt; reader = a 70 year old man with wild white hair, bushy white eyebrows, a brown corduroy jacket and a red scarf
+  scenes: close-up, a woman pulling old folders from a dusty archive shelf and p | extreme close-up of a steel ship hull painted in grey and blue zigzag  | wide shot of an ancient wooden rowing ship with one square sail on a b | wide shot of a large grey German warship tied up in a harbour, cranes  | medium shot, a painter brushing a pale blue-grey stripe on a steel shi | close-up, a row of open paint cans in grey, blue, green and brown on a | wide shot of a shipyard dock with several warships in different patchy | medium close-up, a woman writing notes in a notebook at a desk piled w | close-up, a hand sorting dozens of small old black and white warship p | close-up of a thick plain hardcover book lying closed on a wooden desk | medium shot, a woman running her finger along a long library shelf and | close-up of a long wooden library shelf of old books with one wide emp
+- 008-why-katyushas-rode-wooden-sleds: cast flyorov = a 30 year old Soviet artillery captain with a lean clean-shaven face, sharp cheekbones, short dark brown hair, a khaki field tunic with a brown leather belt and a khaki peaked cap with a red star, 1940s; crew = a 22 year old Soviet soldier with a round ruddy face, a short red beard, a grey quilted padded jacket, a brown fur hat with ear flaps and green wool mittens, 1940s; officer = a 58 year old heavy-set Soviet artillery general with a shaved head, a thick white handlebar moustache and a dark olive greatcoat with red collar tabs, 1930s; german = a 24 year old German soldier with a thin pale face, sunken blue eyes, a grey steel helmet and a grey-green wool greatcoat, 1940s; woman = a 25 year old Russian village woman with long dark braids, rosy cheeks, a red flowered headscarf and a white embroidered linen blouse, 1940s
+  scenes: close-up, a soldier bolting a rack of long rocket rails onto a low sle | low angle of a rack of long steel rocket rails on a sledge pointing at | wide shot of a group of officers in greatcoats watching a rocket launc | close-up, an artillery general frowning and shaking his head slowly, h | medium shot, a soldier sliding a long rocket onto a steel launcher rai | extreme close-up of a brass pocket watch ticking in a gloved hand, mud | close-up of a full rack of long rockets lined up on launcher rails, co | medium shot, gunners ramming a shell into a big howitzer, smoke drifti | wide shot of a big howitzer firing with a flash and a puff of smoke, m | medium shot, workers welding a steel rocket rail frame in a small dim  | wide shot of grey tanks rolling across a summer wheat field under a du | wide shot of a small Russian town square with wooden houses and a mark
+- 008-why-yokohama-marine-tower-was-built: cast perry = a 59 year old American naval commodore with a stern square jaw, grey bushy sideburns, a dark navy double-breasted coat with gold buttons and a black bicorne hat, 1850s; official = a 48 year old Japanese shogunate official with a shaved forehead and a black topknot, a grey-blue silk robe with stiff winged shoulders and a dark sash, 1850s; fisher = a 22 year old Japanese fisherman with a sun-darkened face, a wide straw hat, a short faded indigo cotton jacket and bare brown legs, 1850s; trader = a 33 year old European trader with slicked blond hair, a thin blond moustache, a bright green waistcoat, a white shirt and a dark blue frock coat, 1860s
+  scenes: medium shot, a naval commodore standing at the rail of a black wooden  | wide shot of a line of black wooden warships with dark smoke on a grey | close-up of a huge shut wooden gate with iron studs in a grey stone wa | medium shot, a fisherman on a pebble beach shading his eyes with one h | medium shot, a naval commodore sitting upright in a wooden rowboat wit | close-up, a commodore jabbing one finger forward, stern face, he is {p | wide shot of a bay with a wooden pier and moored wooden sailing ships  | medium shot, a Japanese official kneeling at a low wooden table slowly | extreme close-up of a hand pressing an ink brush onto a long blank pap | medium shot, an official pointing at a hand-drawn map spread on a low  | wide shot of a dusty street of an old Japanese post town with wooden i | wide shot of a long dirt highway lined with tall pine trees, traveller
+- 008-lead-coffins-why-rome-really-burned-its-: cast sulla = a 60 year old Roman dictator, heavy build, a pale blotchy reddish face, short thin white hair, a heavy jaw, clean shaven, cold pale blue eyes, a white toga with a broad purple border, 1st century BC; marius = a 70 year old Roman general, wiry build, a deeply tanned wrinkled face, close-cropped iron grey hair, a hooked nose, a bronze muscled breastplate and a dark crimson cloak, 1st century BC; undertaker = a 45 year old Roman undertaker, broad shoulders, a shaved head, a thick black beard, a sleeveless rust orange wool tunic and a stained leather apron, 1st century BC; heir = a 22 year old Roman nobleman, slim build, thick black curly hair, a thin beardless olive face, a plain dark grey mourning toga, 1st century BC; caracalla = a 25 year old Roman emperor, stocky build, short tight black curls, a short dark beard, a deep scowl, a gold-trimmed purple cloak over gilded bronze armour, 3rd century AD
+  scenes: close-up, a dead old man lying still on gold cushions with eyes closed | medium shot, Roman soldiers carrying a golden litter with a dead old m | close-up of a tall stacked wooden funeral pyre bursting into bright or | close-up of a great heap of shining gold laurel crowns on red cloth, c | medium shot, older Roman magistrates in white togas with purple border | medium close-up, an old Roman dictator raising one hand to silence a c | wide shot of the Roman forum with marble temples and columns at sunris | wide shot of several funeral pyres burning on a hillside outside tall  | medium shot, a proud Roman noble family in white togas gathering aroun | medium shot, Roman men in togas lowering a body wrapped in white linen | close-up, a young nobleman touching a burning torch to a funeral pyre  | close-up, an old dictator frowning down at a carved stone family tomb,
+- 009-why-the-army-bet-on-camels: cast hartz = a 25 year old US Army lieutenant, slim build, a boyish freckled clean shaven face, short straw blond hair, a dark blue forage cap, a short dark blue shell jacket with yellow trim, sky blue trousers, 1850s; davis = a 45 year old American statesman, gaunt hollow cheeks, high cheekbones, thin lips, clean shaven, short dark brown hair brushed back, cold grey eyes, a black frock coat and a black silk cravat, 1850s; wayne = a 40 year old US Army major, stocky build, a round sunburnt face, sandy hair, a full reddish brown beard, a long dark blue frock coat with two rows of brass buttons and gold shoulder straps, 1850s; beale = a 35 year old American frontier surveyor, tall and lean, long wavy black hair to his collar, a thick black moustache, a wide brimmed tan felt hat, a fringed buckskin jacket over a red flannel shirt, 1850s; driver = a 40 year old Turkish camel driver, a weathered olive face, a thick black moustache, a red felt fez, a striped red and blue vest over a white shirt, baggy brown trousers, 1850s
+  scenes: medium shot, a young army officer leading a line of camels by a rope a | wide shot of a long line of camels walking across a vast dry Texas pla | close-up of an empty tin army canteen lying on hot cracked earth besid | close-up, a young army officer squinting at a camel's face and touchin | medium shot, a gaunt statesman pacing beside a tall window in a Washin | close-up, a gaunt statesman tapping his finger on a big paper map spre | wide shot of an empty red desert with tall mesas and dry brush under a | medium shot, a heavy army supply wagon pulled by tired mules stuck in  | medium shot, a bearded army major gripping the rail of a wooden sailin | medium shot, a bearded army major patting the neck of a tall camel in  | medium shot, a camel stepping down a wooden ramp from a sailing ship o | wide shot of a three masted wooden sailing ship with full white sails 
+- 013-why-smeaton-s-cement-hardened-under-seaw: cast smeaton = a 35 year old English civil engineer with a square sun-lined face, dark brown hair tied back in a short queue, clean shaven, wearing a slate blue wool frock coat, buff waistcoat, white linen cravat and dark knee breeches, 1750s; winstanley = a 50 year old English millwright with a broad ruddy weathered face, long dark brown hair, a heavy brown moustache, wearing a worn brown leather jerkin over a green wool shirt and a muddy canvas apron, 1700s; rudyard = a 45 year old English engineer with a thin pale face, powdered grey wig tied at the nape, a narrow grey moustache, wearing a dark green velvet frock coat with brass buttons and a red waistcoat, 1750s; mason = a 32 year old Cornish stonemason with a deeply tanned square face, short black hair, a heavy jaw, wearing a faded blue wool smock, a brown leather apron and thick boots, 1750s; parker = a 44 year old English clergyman and inventor with a round ruddy face, short grey hair, small round spectacles, wearing a black clerical coat with white neck bands and a dark green waistcoat, 1780s; roman = a 40 year old Roman stone mason with olive skin, short black hair, a full black beard, wearing a red wool tunic with a bronze belt and a leather apron, 1st century AD
+  scenes: medium shot, a man pointing down at wet rock on the Eddystone reef, he | close-up, a mason's hand pressing firm grey wet mortar between two squ | medium shot, a Cornish stonemason kneeling on wet rock lowering a squa | wide shot, the Eddystone reef awash with foaming grey high-tide waves  | wide shot, two ruined old lighthouse remains, a broken stone stump and | medium shot, {winstanley} standing on the Eddystone reef looking up at | wide shot, a huge storm wave swallowing the base of a tall wooden ligh | medium shot, six men in soaked oilskins clinging to a wooden tower gal | wide shot, a tall stone lighthouse tower on the Eddystone reef burning | medium shot, an engineer pointing up at a half-built stone tower on a  | wide shot, a tall stone lighthouse tower with a broad base and a narro | close-up of two grey stone blocks locked together by a toothed dovetai
+- 009-why-eiffel-s-lattice-saves-the-tower: cast eiffel = a 56 year old French engineer, upright build, greying swept-back hair, a neatly trimmed full grey-streaked beard, bright alert eyes, a charcoal grey frock coat, a white wing collar and a black silk cravat, 1880s; garnier = a 61 year old French architect, stout build, wild curly white hair, a bushy white beard, a round red face, a black velvet jacket and a wide floppy crimson bow tie, 1880s; koechlin = a 28 year old slim Swiss engineer, neat short light brown hair, a thin light brown moustache, small wire spectacles, white shirt sleeves rolled up and a tan waistcoat, 1880s
+  scenes: medium shot, a bearded man pulling hard on a rope atop an iron tower,  | close-up, a big red white and blue French flag unfurling on a pole hig | wide shot of a giant iron tower far taller than every church and rooft | medium shot, ironworkers in flat caps hammering rivets on a high iron  | medium shot, angry men in black frock coats and top hats shaking their | close-up, a stout white-bearded architect jabbing his finger in protes | close-up, a hand slapping a long paper petition down on a polished woo | close-up, a white-bearded architect scowling in disgust and turning hi | low angle of a dark iron tower looming over grey Paris rooftops under  | low angle of a gigantic black factory smokestack pouring dark smoke in | wide shot of tall trees bending in strong wind along a Paris boulevard | medium shot, a bearded engineer holding his hat against strong wind on
 
 PROBLEMS FOUND BY THE CHECKS
-- script: not supported by the sources, fix or remove: A Soviet engineer strapped a trembling dog into a cramped metal can.
-- script: not supported by the sources, fix or remove: Colleagues laughed, saying a stray could never survive a launch.
-- script: not supported by the sources, fix or remove: He grabbed a small dog cage and bolted it onto the rocket.
+- shot gazenko: 3.5 s on screen (max 3.2; split it)
 
 DRAFT SCRIPT
-{"title": "Why Laika Really Went to Space", "beats": [{"feel": "curiosity", "lines": ["A Soviet engineer strapped a trembling dog into a cramped metal can."]}, {"feel": "skepticism", "lines": ["Colleagues laughed, saying a stray could never survive a launch."]}, {"feel": "tension", "lines": ["Khrushchev demanded a “space spectacular” for the October Revolution anniversary.", "Korolev had less than four weeks to finish a new satellite.", "He grabbed a small dog cage and bolted it onto the rocket."]}, {"feel": "recognition", "lines": ["You see, it’s like testing a car’s seatbelt on a dummy before letting a driver sit behind the wheel."]}, {"feel": "awe", "lines": ["The real reason: Laika was a living test for the cabin’s air system.", "The capsule held an oxygen maker, a filter to soak up bad air, and a fan that turned on when it got too hot.", "Scientists watched her breathing, pulse, and temperature from the ground."]}, {"feel": "surprise", "lines": ["The twist? The mission never planned to bring her home.", "Laika was a one‑way sacrifice, proving the cabin could keep any creature alive, even if that creature never left orbit."]}]}
+{"title": "Why Laika Really Went to Space", "beats": [{"feel": "tenderness", "lines": ["A technician kissed a little dog's nose, then closed the hatch on her."]}, {"feel": "curiosity", "lines": ["In October 1957, Sputnik 1 was a triumph.", "Nikita Khrushchev wanted a space spectacular by the 40th anniversary of the October Revolution.", "That left less than four weeks."]}, {"feel": "urgency", "lines": ["Sergei Korolev proposed that a dog be placed in the satellite.", "Soviet engineers had long planned a dog in orbit before any human.", "Since 1951, they had lofted 12 dogs on short flights."]}, {"feel": "pity", "lines": ["They chose Laika, a stray from the streets of Moscow.", "Scientists assumed strays had already learned to endure cold and hunger.", "She was kept in smaller and smaller cages for up to twenty days."]}, {"feel": "recognition", "lines": ["You see, it's like dipping a toe in the water before you jump in."]}, {"feel": "awe", "lines": ["Nobody knew if a living body could survive being launched into orbit.", "Laika was the test.", "Wires on her body sent her breathing, pulse and blood pressure to the ground.", "Her heart rate jumped from 103 to 240 beats a minute."]}, {"feel": "dread", "lines": ["But the technology to come back through the atmosphere did not exist yet.", "Then the cabin overheated.", "Laika died hours into the flight, on the fourth orbit."]}, {"feel": "regret", "lines": ["In 1998, Oleg Gazenko, who trained her, said they did not learn enough to justify her death."]}]}
 CLAIMS IN THE DRAFT
-- {'claim': 'Khrushchev demanded a space spectacular for the 40th anniversary of the October Revolution, forcing a rushed satellite launch.', 'url': 'https://en.wikipedia.org/wiki/Laika'}
-- {'claim': 'Sergei Korolev proposed placing a dog in the satellite to meet the deadline, and the decision was made with less than four weeks to design the craft.', 'url': 'https://en.wikipedia.org/wiki/Laika'}
-- {'claim': 'Sputnik\u202f2’s cabin contained an oxygen generator, carbon‑dioxide absorbers, and a fan that activated above 15\u202f°C to keep the passenger alive.', 'url': 'https://en.wikipedia.org/wiki/Laika'}
-- {'claim': 'The mission was never designed to retrieve Laika; she was expected to die, serving only to test life‑support systems for future human flights.', 'url': 'https://en.wikipedia.org/wiki/Sputnik_2'}
+- {'claim': 'One of the technicians said: after placing Laika in the container and before closing the hatch, we kissed her nose and wished her bon voyage, knowing that she would not survive the flight.', 'url': 'https://en.wikipedia.org/wiki/Laika'}
+- {'claim': "After the success of Sputnik 1 in October 1957, Khrushchev wanted a spacecraft launched to celebrate the 40th anniversary of the October Revolution, a 'space spectacular'; the decision left less than four weeks to design and build the spacecraft.", 'url': 'https://en.wikipedia.org/wiki/Laika'}
+- {'claim': 'Sergei Korolev proposed that a dog be placed in the satellite; Soviet rocket engineers had long intended a canine orbit before attempting human spaceflight; since 1951 they had lofted 12 dogs into sub-orbital space.', 'url': 'https://en.wikipedia.org/wiki/Laika'}
+- {'claim': 'Laika was a stray from the streets of Moscow; Soviet scientists assumed strays had already learned to endure extreme cold and hunger; the dogs were kept in progressively smaller cages for periods of up to twenty days.', 'url': 'https://en.wikipedia.org/wiki/Laika'}
+- {'claim': 'The experiment aimed to prove that a living organism could survive being launched into orbit; sensors measured breathing, pulse and blood pressure; her heart rate was 103 beats/min before launch and 240 beats/min during early acceleration.', 'url': 'https://en.wikipedia.org/wiki/Laika'}
+- {'claim': "As the technology to re-enter the atmosphere had not yet been developed, Laika's survival was never expected; the cabin overheated and she died hours into the flight, on the craft's fourth orbit.", 'url': 'https://en.wikipedia.org/wiki/Laika'}
+- {'claim': 'In 1998 Oleg Gazenko, one of the scientists who trained Laika, said: We did not learn enough from this mission to justify the death of the dog.', 'url': 'https://en.wikipedia.org/wiki/Laika'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 0.14s A#1
-0.27s Soviet#1
-0.65s engineer#1
-1.40s strapped#1
-1.72s a#2
-1.79s trembling#1
-2.22s dog#1
-2.54s into#1
-2.75s a#3
-2.82s cramped#1
-3.19s metal#1
-3.42s can#1
-4.18s Colleagues#1
-4.66s laughed#1
-5.24s saying#1
-5.51s a#4
-5.58s stray#1
-5.93s could#1
-6.08s never#1
-6.36s survive#1
-6.74s a#5
-6.81s launch#1
-7.68s Khrushchev#1
-8.20s demanded#1
-8.75s a#6
-8.85s “space#1
-9.23s spectacular”#1
-10.25s for#1
-10.50s the#1
-10.59s October#1
-10.98s Revolution#1
-11.45s anniversary#1
-12.34s Korolev#1
-12.89s had#1
-13.09s less#1
-13.39s than#1
-13.59s four#1
-13.79s weeks#1
-14.06s to#1
-14.16s finish#1
-14.41s a#7
-14.49s new#1
-14.64s satellite#1
-15.38s He#1
-15.50s grabbed#1
-15.83s a#8
-15.95s small#1
-16.30s dog#2
-16.63s cage#1
-17.23s and#1
-17.35s bolted#1
-17.70s it#1
-17.78s onto#1
-17.95s the#2
-18.05s rocket#1
-18.87s You#1
-19.05s see#1
-19.45s it’s#1
-19.57s like#1
-19.77s testing#1
-20.15s a#9
-20.27s car’s#1
-20.65s seatbelt#1
-21.07s on#1
-21.20s a#10
-21.27s dummy#1
-21.90s before#1
-22.17s letting#1
-22.42s a#11
-22.50s driver#1
-22.95s sit#1
-23.12s behind#1
-23.42s the#3
-23.52s wheel#1
-24.26s The#4
-24.38s real#1
-24.66s reason:#1
-25.46s Laika#1
-25.76s was#1
-25.86s a#12
-25.98s living#1
-26.28s test#1
-26.71s for#2
-26.91s the#5
-27.00s cabin’s#1
-27.33s air#1
-27.53s system#1
-28.18s The#6
-28.28s capsule#1
-28.78s held#1
-29.00s an#1
-29.11s oxygen#1
-29.55s maker#1
-30.23s a#13
-30.36s filter#1
-30.75s to#2
-30.88s soak#1
-31.08s up#1
-31.25s bad#1
-31.53s air#2
-32.13s and#2
-32.23s a#14
-32.33s fan#1
-32.58s that#1
-32.70s turned#1
-32.95s on#2
-33.18s when#1
-33.28s it#2
-33.38s got#1
-33.60s too#1
-33.78s hot#1
-34.44s Scientists#1
-35.04s watched#1
-35.29s her#1
-35.41s breathing#1
-36.09s pulse#1
-36.66s and#3
-36.79s temperature#1
-37.26s from#1
-37.38s the#7
-37.49s ground#1
-38.34s The#8
-38.45s twist#1
-39.09s The#9
-39.20s mission#1
-39.55s never#2
-39.82s planned#1
-40.07s to#3
-40.17s bring#1
-40.32s her#2
-40.45s home#1
-41.03s Laika#2
-41.41s was#2
-41.71s a#15
-41.93s one‑way#1
-42.16s sacrifice#1
-43.11s proving#1
-43.46s the#10
-43.56s cabin#1
-43.93s could#2
-44.08s keep#1
-44.26s any#1
-44.46s creature#1
-44.83s alive#1
-45.61s even#1
-45.86s if#1
-45.98s that#2
-46.18s creature#2
-46.66s never#3
-46.93s left#1
-47.21s orbit#1
+0.24s technician#1
+0.87s kissed#1
+1.12s a#2
+1.17s little#1
+1.37s dog's#1
+1.75s nose#1
+2.37s then#1
+2.54s closed#1
+2.90s the#1
+3.00s hatch#1
+3.25s on#1
+3.37s her#1
+3.99s In#1
+4.11s October#1
+4.54s 1957#1
+4.91s Sputnik#1
+5.86s 1#1
+6.31s was#1
+6.54s a#3
+6.76s triumph#1
+7.54s Nikita#1
+7.99s Khrushchev#1
+8.76s wanted#1
+9.04s a#4
+9.11s space#1
+9.41s spectacular#1
+10.19s by#1
+10.34s the#2
+10.46s 40th#1
+10.89s anniversary#1
+11.84s of#1
+11.94s the#3
+12.11s October#2
+12.64s Revolution#1
+13.51s That#1
+13.68s left#1
+13.91s less#1
+14.11s than#1
+14.26s four#1
+14.46s weeks#1
+15.34s Sergei#1
+15.73s Korolev#1
+16.23s proposed#1
+16.86s that#2
+16.95s a#5
+17.06s dog#1
+17.38s be#1
+17.51s placed#1
+17.84s in#2
+17.90s the#4
+18.01s satellite#1
+18.78s Soviet#1
+19.18s engineers#1
+19.93s had#1
+20.13s long#1
+20.38s planned#1
+20.63s a#6
+20.70s dog#2
+21.00s in#3
+21.13s orbit#1
+21.55s before#1
+21.80s any#1
+22.00s human#1
+22.61s Since#1
+22.83s 1951#1
+24.01s they#1
+24.11s had#2
+24.26s lofted#1
+24.66s 12#1
+24.98s dogs#1
+25.33s on#2
+25.51s short#1
+25.73s flights#1
+26.62s They#2
+26.82s chose#1
+27.14s Laika#1
+27.77s a#7
+27.89s stray#1
+28.22s from#1
+28.33s the#5
+28.44s streets#1
+28.74s of#2
+28.84s Moscow#1
+29.63s Scientists#1
+30.18s assumed#1
+30.55s strays#1
+31.25s had#3
+31.38s already#1
+31.70s learned#1
+31.95s to#1
+32.03s endure#1
+32.43s cold#1
+32.85s and#1
+32.98s hunger#1
+33.63s She#1
+33.73s was#2
+33.88s kept#1
+34.13s in#4
+34.30s smaller#1
+34.78s and#2
+34.93s smaller#2
+35.25s cages#1
+35.98s for#1
+36.10s up#1
+36.23s to#2
+36.33s twenty#1
+36.60s days#1
+37.44s You#1
+37.61s see#1
+38.01s it's#1
+38.14s like#1
+38.34s dipping#1
+38.59s a#8
+38.69s toe#1
+38.99s in#5
+39.05s the#6
+39.16s water#1
+39.46s before#2
+39.71s you#2
+39.84s jump#1
+40.06s in#6
+40.79s Nobody#1
+41.24s knew#1
+41.69s if#1
+41.79s a#9
+41.89s living#1
+42.19s body#1
+42.51s could#1
+42.66s survive#1
+43.16s being#1
+43.39s launched#1
+43.71s into#1
+43.94s orbit#2
+44.67s Laika#2
+44.99s was#3
+45.11s the#7
+45.24s test#1
+45.92s Wires#1
+46.30s on#3
+46.40s her#2
+46.52s body#2
+46.95s sent#1
+47.12s her#3
+47.25s breathing#1
+47.95s pulse#1
+48.40s and#3
+48.52s blood#1
+48.80s pressure#1
+49.15s to#3
+49.22s the#8
+49.32s ground#1
+49.99s Her#4
+50.14s heart#1
+50.41s rate#1
+50.71s jumped#1
+51.01s from#2
+51.21s 103#1
+52.29s to#4
+52.44s 240#1
+53.21s beats#1
+53.46s a#10
+53.51s minute#1
+54.26s But#1
+54.38s the#9
+54.48s technology#1
+55.16s to#5
+55.26s come#1
+55.48s back#1
+55.76s through#1
+55.91s the#10
+56.03s atmosphere#1
+56.91s did#1
+57.05s not#1
+57.26s exist#1
+57.68s yet#1
+58.14s Then#2
+58.31s the#11
+58.41s cabin#1
+58.74s overheated#1
+59.67s Laika#3
+59.95s died#1
+60.30s hours#1
+60.60s into#2
+60.77s the#12
+60.87s flight#1
+61.42s on#4
+61.50s the#13
+61.65s fourth#1
+61.87s orbit#3
+62.74s In#7
+62.86s 1998#1
+64.16s Oleg#1
+64.51s Gazenko#1
+65.28s who#1
+65.43s trained#1
+65.76s her#5
+66.26s said#1
+66.38s they#3
+66.51s did#2
+66.67s not#2
+66.93s learn#1
+67.11s enough#1
+67.41s to#6
+67.53s justify#1
+68.11s her#6
+68.23s death#1
 
 DRAFT film.json
-{"era": "1950s", "cast": {"korolev": "a 50 year old Soviet chief rocket engineer with short grey-streaked brown hair, a square jowled face, dark tired eyes, clean-shaven, wearing a heavy dark navy wool coat over a grey suit with a brown tie, 1950s", "khrushchev": "a 63 year old Soviet political leader with a bald head, round fleshy face, small dark eyes, a wide mouth, clean-shaven, wearing a loose dark grey double-breasted coat and a black fur trim hat, 1950s", "scientist": "a 36 year old Soviet woman scientist with short dark brown hair rolled neatly, round wire-rimmed glasses, a calm focused face, wearing a crisp white laboratory coat over a dark green high-neck dress, 1950s"}, "music": "tense", "key_words": ["strapped#1", "laughed#1", "Khrushchev#1", "weeks#1", "bolted#1", "seatbelt#1", "air#1", "fan#1", "pulse#1", "home#1", "orbit#1"], "shots": [{"name": "strap_dog", "at": 0, "who": "korolev", "clip": true, "prompt": "medium close-up, a man carefully fastening a leather harness on a small dog inside a metal capsule, he is {korolev}, dark 1950s hangar, warm overhead light", "motion": "he tightens the harness gently, slow camera push in", "check": "Is a man fastening a harness on a dog?"}, {"name": "cramped_can", "at": "dog#1", "clip": true, "prompt": "close-up of a small white-and-brown dog sitting inside a tiny cylindrical aluminum space pod surrounded by padded lining, dim 1950s workshop light", "motion": "the small dog shivers slightly inside the narrow pod, slow camera push in", "check": "Is a dog inside a metal pod?"}, {"name": "colleagues", "at": "Colleagues#1", "clip": true, "prompt": "medium shot, two Soviet engineers in dark suits laughing mockingly and shaking their heads, a metal hangar room background, dim 1950s interior light", "motion": "they laugh and shake their heads, slow camera push in", "check": "Are men laughing?"}, {"name": "stray", "at": "stray#1", "clip": true, "prompt": "close-up of a small shaggy stray dog sitting on a snowy city street, shivering, 1950s brick buildings behind, gloomy winter daylight", "motion": "the small dog shivers and breathes softly, slow camera push in", "check": "Is there a small dog on a snowy street?"}, {"name": "khrushchev", "at": "Khrushchev#1", "who": "khrushchev", "clip": true, "prompt": "medium shot, a bald leader banging his fist down onto a wooden conference desk, he is {khrushchev}, grand Moscow office, warm chandeliers", "motion": "he bangs his fist on the desk firmly, slow camera push in", "hit": "demanded#1", "check": "Is a man banging his fist on a desk?"}, {"name": "flags", "at": "October#1", "move": "right", "xfade": true, "prompt": "wide shot of tall red Soviet banners waving outside stone Kremlin walls on a windy day, grey cloudy sky, 1950s", "check": "Are red banners waving?"}, {"name": "stress", "at": "Korolev#1", "who": "korolev", "clip": true, "prompt": "medium close-up, a tired engineer rubbing his forehead while staring at large blueprints on a desk, he is {korolev}, dim night office, desk lamp light", "motion": "he rubs his forehead and sighs, slow camera push in", "check": "Is a man looking at blueprints?"}, {"name": "satellite", "at": "finish#1", "move": "push", "prompt": "wide shot of engineers in grey smocks surrounding a polished steel sphere satellite in a vast hangar, bright industrial lights, 1950s", "check": "Is there a shiny metal satellite?"}, {"name": "cage", "at": "grabbed#1", "who": "korolev", "clip": true, "prompt": "medium shot, an engineer lifting a small metal dog cage off a wooden workbench with both hands, he is {korolev}, high ceiling workshop, cool window light", "motion": "he lifts the metal cage upward, slow camera push in", "check": "Is a man lifting a metal cage?"}, {"name": "bolting", "at": "bolted#1", "clip": true, "prompt": "extreme close-up of two hands using a metal wrench to tighten a steel bolt on a metal frame inside a dark rocket compartment, bright spotlight", "motion": "the hands turn the wrench on the bolt, slow camera push in", "hit": "bolted#1", "check": "Are hands using a wrench?"}, {"name": "testing", "at": "You#1", "move": "push", "prompt": "wide shot of a vintage 1950s car testing facility with bright spotlighting and concrete walls, clean background", "check": "Is this an industrial room?"}, {"name": "seatbelt", "at": "seatbelt#1", "clip": true, "prompt": "close-up of a hand clicking a dark fabric seatbelt buckle across the wooden chest of a crash test dummy, vintage 1950s car interior, soft garage light", "motion": "the hand clicks the seatbelt buckle into place, slow camera push in", "check": "Is a seatbelt being buckled?"}, {"name": "driver", "at": "driver#1", "clip": true, "prompt": "close-up of two leather-gloved hands holding a large black vintage steering wheel inside a 1950s car, bright sunlight through the windshield", "motion": "the hands tighten their grip on the steering wheel, slow camera push in", "check": "Are hands holding a steering wheel?"}, {"name": "reason", "at": "The#4", "move": "push", "xfade": true, "prompt": "close-up of a vintage brass desk lamp illuminating handwritten technical notes on a dark wooden table, 1950s office", "check": "Is there a lamp on a desk with notes?"}, {"name": "living_test", "at": "Laika#1", "clip": true, "prompt": "close-up, a small white dog in a tiny leather harness sitting inside a rounded metal capsule chamber, soft interior light", "motion": "the dog blinks gently and breathes, slow camera push in", "check": "Is there a small dog inside a metal chamber?"}, {"name": "air_system", "at": "air#1", "move": "push", "prompt": "medium shot of a complex metal capsule ventilation panel with copper pipes and air valves inside a dark workshop, 1950s", "check": "Is there a metal panel with pipes?"}, {"name": "oxygen_maker", "at": "oxygen#1", "move": "push", "prompt": "close-up of a metallic oxygen canister connected to a clear glass flask filled with bubbling liquid, 1950s laboratory, dim warm light", "check": "Is there a glass flask with bubbling liquid?"}, {"name": "air_filter", "at": "filter#1", "clip": true, "prompt": "extreme close-up of gloved hands twisting a round black charcoal filter unit into a steel air duct panel, warm side lighting", "motion": "the hands twist the filter firmly into place, slow camera push in", "check": "Are gloved hands twisting a filter?"}, {"name": "cooling_fan", "at": "fan#1", "clip": true, "prompt": "close-up of a small four-blade metal fan spinning behind a round wire mesh guard on a capsule wall, cool metallic light", "motion": "the metal fan blades spin steadily, slow camera push in", "hit": "hot#1", "check": "Is a metal fan spinning behind a guard?"}, {"name": "scientist_monitoring", "at": "Scientists#1", "who": "scientist", "clip": true, "xfade": true, "prompt": "medium shot, a woman scientist looking closely at glowing dials on a heavy steel panel, she is {scientist}, dim 1950s control room", "motion": "she turns a small dial on the panel carefully, slow camera push in", "check": "Is a woman looking at a control panel?"}, {"name": "telemetry_chart", "at": "pulse#1", "move": "push", "prompt": "close-up of a mechanical needle arm tracing a red pulsing line onto rolling paper grid tape, vintage 1950s telemetry instrument", "check": "Is a needle drawing a line on paper grid tape?"}, {"name": "ground_control", "at": "ground#1", "who": "korolev", "clip": true, "prompt": "medium shot, a stern man standing with arms crossed in a dim rocket control center, he is {korolev}, glowing equipment behind him", "motion": "he rests his chin thoughtfully while watching the screens, slow camera push in", "check": "Is a man standing with arms crossed?"}, {"name": "twist", "at": "twist#1", "who": "scientist", "clip": true, "xfade": true, "prompt": "medium close-up, a woman scientist in wire-rimmed glasses lowering her gaze sadly over a desk, she is {scientist}, dim Soviet telemetry control room, warm console lights", "motion": "she slowly lowers her head sadly, console lights flicker, slow camera push in", "check": "Is a woman looking down?"}, {"name": "home", "at": "home#1", "move": "pull", "prompt": "close-up of a small spherical metal satellite floating silently in pitch black space above the curved blue horizon of Earth", "check": "Is a metal satellite visible in space?"}, {"name": "sacrifice", "at": "sacrifice#1", "who": "korolev", "clip": true, "prompt": "medium shot, a jowled man in a dark navy wool coat standing in profile near a window with clasped hands, he is {korolev}, dim office at dusk", "motion": "he sighs softly and stares out the glass, dusk light fades, slow camera push in", "hit": "sacrifice#1", "check": "Is a man standing near a window?"}, {"name": "alive", "at": "alive#1", "clip": true, "prompt": "close-up of hands unrolling a long paper chart strip with printed line graphs on a metal table, 1950s laboratory, soft overhead light", "motion": "the hands slowly unroll the paper chart strip, slow camera push in", "check": "Are hands holding paper?"}, {"name": "orbit", "at": "orbit#1", "move": "push", "prompt": "wide shot of planet Earth seen from space, a glowing blue horizon against dark cosmic space with distant stars", "check": "Is planet Earth visible from space?"}]}
+{"era": "1950s", "music": "sad", "key_words": ["Laika", "Sputnik", "Khrushchev", "Korolev", "stray", "Moscow", "orbit", "Gazenko"], "cast": {"technician": "a 28 year old Soviet technician, stocky build, a round pale face, short cropped brown hair, a small scar on his chin, a white lab coat over a grey wool sweater, 1950s", "khrushchev": "a 63 year old stout Soviet leader, a completely bald round head, heavy jowls, a wide gap-toothed grin, small blue eyes, a dark grey suit with two gold star medals on the chest, 1950s", "korolev": "a 50 year old broad-shouldered Soviet rocket designer, a heavy square face, thick dark eyebrows, dark wavy hair combed back, a brown leather jacket over a white open-collared shirt, 1950s", "yazdovsky": "a 44 year old lean Soviet doctor, a long narrow face, a neat black moustache, thick black hair parted on the side, round wire spectacles, a white lab coat over a dark blue tie, 1950s", "gazenko": "an 80 year old thin Russian scientist, a long lined face, white hair combed straight back, large square glasses, a navy blue cardigan over a pale blue shirt, 1990s"}, "shots": [{"name": "hook", "at": 0, "who": "technician", "prompt": "close-up, a technician bending down and kissing the nose of a small white mongrel dog with light brown patches on her head and pointed ears inside a small padded metal capsule, he is {technician}, cold hangar, warm lamp light", "check": "Is a man kissing a dog's nose?", "clip": true, "motion": "he leans in and kisses the dog's nose, slow camera push in"}, {"name": "hatch", "at": "then#1", "prompt": "close-up, two gloved hands pushing a round metal hatch shut on a small grey capsule, cold launch hangar at night, harsh work lamp", "check": "Is a round metal hatch being closed?", "clip": true, "motion": "the hands push the hatch shut, slow camera push in", "hit": "hatch#1"}, {"name": "steppe", "at": "in#1", "prompt": "wide shot of a lonely rocket launch tower on a flat frozen steppe under a pale winter sky, 1950s", "check": "Is there a launch tower on a frozen plain?", "move": "pull"}, {"name": "sputnik", "at": "sputnik#1", "prompt": "close-up of a shiny polished metal sphere with four long thin antennas on a stand in a dark workshop, soft spotlight, 1950s", "check": "Is there a shiny metal sphere with antennas?", "move": "push"}, {"name": "khrushchev", "at": "nikita#1", "who": "khrushchev", "prompt": "medium shot, a stout leader pounding his fist on a wide wooden desk in a grand office, he is {khrushchev}, red curtains behind, daylight", "check": "Is a man pounding his fist on a desk?", "clip": true, "motion": "he pounds his fist once on the desk, slow camera push in"}, {"name": "parade", "at": "40th#1", "prompt": "wide shot of a huge parade of soldiers and red flags marching across a snowy stone square past old red brick walls, grey winter sky, 1950s", "check": "Is there a parade with red flags?", "move": "right"}, {"name": "rush", "at": "that#1", "prompt": "medium shot, workers in grey overalls welding a metal cone under bright sparks in a busy factory hall, 1950s, harsh overhead lamps", "check": "Are workers welding metal with sparks?", "clip": true, "motion": "sparks fly as the welder works, slow camera push in"}, {"name": "korolev", "at": "sergei#1", "who": "korolev", "prompt": "medium shot, a broad man leaning over a large paper drawing of a rocket on a wooden table and tapping it with a pencil, he is {korolev}, smoky design office, lamp light", "check": "Is a man leaning over a large drawing?", "clip": true, "motion": "he taps the drawing with his pencil, slow camera push in", "xfade": true}, {"name": "dog_capsule", "at": "dog#1", "prompt": "close-up, a small white mongrel dog with light brown patches on her head and pointed ears sitting upright inside a small padded metal container, a cramped grey cabin, soft cold light", "check": "Is a small dog sitting inside a metal container?", "clip": true, "motion": "the dog turns her head and blinks, slow camera push in"}, {"name": "engineers", "at": "soviet#1", "prompt": "medium shot, engineers in white coats pointing up at a tall silver rocket standing in a big hangar, 1950s, cold bright light", "check": "Are engineers pointing at a rocket?", "clip": true, "motion": "one engineer points up at the rocket, slow camera tilt up"}, {"name": "helmet", "at": "orbit#1", "prompt": "close-up of an empty round white pilot helmet lying on a steel workbench in a quiet workshop, soft side light, 1950s", "check": "Is there an empty white helmet on a workbench?", "move": "push"}, {"name": "flight_dogs", "at": "since#1", "prompt": "medium shot, two small dogs in little cloth flight jackets sitting on a laboratory table while a woman in a white coat strokes them, 1950s, white lamp light", "check": "Are two small dogs sitting on a table?", "clip": true, "motion": "the woman strokes one dog's head, slow camera push in"}, {"name": "liftoff", "at": "lofted#1", "prompt": "wide shot of a slim rocket lifting off from a flat snowy steppe on a column of orange fire and white smoke, early morning, 1950s", "check": "Is a rocket lifting off with fire?", "move": "up", "hit": "lofted#1"}, {"name": "stray", "at": "they#2", "prompt": "medium shot, a small white mongrel dog with light brown patches on her head and pointed ears sniffing along a snowy cobblestone street beside a wooden gate, grey winter morning", "check": "Is a small dog sniffing a snowy street?", "clip": true, "motion": "the dog sniffs the snow and wags her tail, slow camera push in", "xfade": true}, {"name": "moscow", "at": "streets#1", "prompt": "wide shot of a snowy old city street with onion-domed church towers and low stone houses, people in long coats, grey winter light, 1950s", "check": "Is there a snowy city street with onion domes?", "move": "left"}, {"name": "scientist", "at": "scientists#1", "who": "yazdovsky", "prompt": "medium shot, a man in a white lab coat kneeling and patting a small white mongrel dog with light brown patches on her head and pointed ears on a frosty courtyard, he is {yazdovsky}, cold morning light", "check": "Is a man kneeling and patting a dog?", "clip": true, "motion": "he pats the dog's head gently, slow camera push in"}, {"name": "shiver", "at": "endure#1", "prompt": "close-up, a small white mongrel dog with light brown patches on her head and pointed ears curled up shivering in deep snow beside a brick wall, falling snowflakes, blue winter light", "check": "Is a small dog curled up in snow?", "clip": true, "motion": "the dog shivers as snow falls on her fur, slow camera push in"}, {"name": "cage", "at": "she#1", "prompt": "medium shot, a small white mongrel dog with light brown patches on her head and pointed ears lying inside a small wire cage on a laboratory floor, rows of other cages behind, dim white light", "check": "Is a dog lying inside a wire cage?", "clip": true, "motion": "the dog lifts her head and looks out, slow camera push in"}, {"name": "tiny_cage", "at": "cages#1", "prompt": "close-up, a small white mongrel dog with light brown patches on her head and pointed ears squeezed into a very small metal box with a padded floor, her nose against the edge, cold dim light", "check": "Is a dog squeezed into a small metal box?", "move": "push"}, {"name": "toe", "at": "you#1", "prompt": "close-up, a bare foot dipping its big toe into a calm blue lake from a wooden pier, ripples spreading, warm summer light", "check": "Is a toe dipping into water?", "clip": true, "motion": "the toe touches the water and ripples spread, slow camera push in", "xfade": true}, {"name": "jump", "at": "the#6", "prompt": "medium shot, a boy in swimming shorts crouching at the edge of a wooden pier ready to jump into a lake, summer afternoon", "check": "Is a boy crouching at the edge of a pier?", "clip": true, "motion": "he bends his knees and swings his arms, slow camera pull back"}, {"name": "doubt", "at": "nobody#1", "prompt": "medium shot, three worried scientists in white coats frowning at a small metal capsule on a workbench, 1950s laboratory, cold lamp light", "check": "Are scientists frowning at a metal capsule?", "clip": true, "motion": "one scientist rubs his chin and frowns, slow camera push in", "xfade": true}, {"name": "night_launch", "at": "being#1", "prompt": "low angle of a huge rocket rising into a dark night sky on a blazing column of fire and smoke, snowy launch pad, 1950s", "check": "Is a rocket rising at night with fire?", "move": "up"}, {"name": "harness", "at": "laika#2", "prompt": "close-up, a small white mongrel dog with light brown patches on her head and pointed ears wearing a snug cloth harness inside a padded metal cabin, cold dim light", "check": "Is a dog wearing a harness?", "clip": true, "motion": "the dog's ears twitch as she breathes, slow camera push in"}, {"name": "wires", "at": "wires#1", "prompt": "extreme close-up of thin black wires taped to the fur of a small white mongrel dog with light brown patches on her head and pointed ears, a cloth harness, cold white light", "check": "Are thin wires attached to a dog's fur?", "clip": true, "motion": "the dog's chest rises and falls, slow camera push in"}, {"name": "screen", "at": "breathing#1", "prompt": "close-up of a round glass screen with a glowing green wavy line in a dark control room, 1950s, green glow", "check": "Is there a glowing green wavy line on a round screen?", "clip": true, "motion": "the green line ripples across the screen, slow camera push in"}, {"name": "control", "at": "to#3", "prompt": "wide shot, men in headphones bent over big grey consoles in a dark ground control room, 1950s, glowing dials", "check": "Are men in headphones at consoles?", "clip": true, "motion": "one man presses his headphones closer, slow camera pan right"}, {"name": "panting", "at": "her#4", "prompt": "close-up, a small white mongrel dog with light brown patches on her head and pointed ears panting fast with her ears pressed back inside a cramped metal cabin, harsh light", "check": "Is a dog panting?", "clip": true, "motion": "the dog pants fast with her tongue out, slow camera push in"}, {"name": "needle", "at": "240#1", "prompt": "extreme close-up of an ink pen needle scribbling fast jagged lines on a moving paper strip, 1950s machine, lamp light", "check": "Is a pen needle scribbling jagged lines?", "clip": true, "motion": "the needle jerks up and down fast, slow camera push in", "hit": "240#1"}, {"name": "orbit", "at": "but#1", "prompt": "wide shot of a small silver cone-shaped satellite floating in black space above the bright blue curve of Earth", "check": "Is there a silver satellite above Earth?", "move": "left", "xfade": true}, {"name": "atmosphere", "at": "atmosphere#1", "prompt": "extreme wide shot of the thin glowing blue edge of Earth's atmosphere against black space, the sun rising behind it", "check": "Is there a glowing blue edge of Earth?", "move": "right"}, {"name": "heat", "at": "then#2", "prompt": "close-up of the inside of a cramped metal cabin glowing orange with shimmering heat haze, an empty padded seat", "check": "Is a metal cabin glowing orange?", "move": "push", "hit": "overheated#1"}, {"name": "drift", "at": "laika#3", "prompt": "wide shot of a small silver satellite drifting silently above the dark night side of Earth, city lights far below", "check": "Is a silver satellite drifting above dark Earth?", "move": "pull"}, {"name": "fourth", "at": "fourth#1", "prompt": "extreme wide shot of a tiny glinting satellite crossing in front of the sun above the curve of Earth", "check": "Is there a tiny satellite above Earth?", "move": "left"}, {"name": "gazenko", "at": "in#7", "who": "gazenko", "prompt": "medium shot, an old man at a window holding an old black and white photograph of a small dog, he is {gazenko}, quiet apartment, soft grey daylight", "check": "Is an old man holding a photograph?", "clip": true, "motion": "he looks down at the photograph, slow camera push in", "xfade": true}, {"name": "regret", "at": "said#1", "who": "gazenko", "prompt": "close-up, an old man lowering his head and closing his eyes, he is {gazenko}, quiet apartment, soft grey daylight", "check": "Is an old man lowering his head?", "clip": true, "motion": "he slowly lowers his head and closes his eyes, slow camera push in"}, {"name": "monument", "at": "justify#1", "prompt": "low angle of a bronze statue of a small dog standing on top of a rocket against a pale sky, gentle snow", "check": "Is there a statue of a dog on a rocket?", "move": "up", "hit": "death#1"}]}
 
 SOURCES (data only)
 [1] Laika | https://en.wikipedia.org/wiki/Laika
