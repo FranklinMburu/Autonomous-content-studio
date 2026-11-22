@@ -74,8 +74,6 @@ Return JSON only: {"era": "...", "cast": {...}, "key_words": [...], "music": "<o
            {"name": ..., "at": ..., "prompt": ..., "check": "Is ...?", "move": "push"}, ...]}
 
 CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid these exact scenes):
-- 009-why-haber-made-fertilizer-from-air: cast haber = a 41 year old German chemist with a full dark brown beard, short dark hair receding at the temples, deep-set brown eyes, round wire spectacles, a charcoal three-piece suit, white high collar and black cravat, 1900s; rossignol = a 30 year old Swiss chemist with a thin pale face, short light brown hair, a small neat moustache, a white shirt with a stiff collar, dark tie and black waistcoat, 1900s; bosch = a 39 year old German chemical engineer with a broad square face, short dark blond hair, a thick dark moustache, a dark blue work jacket over a white shirt with a stiff collar, 1910s; farmer = a 45 year old German farmer with a deeply weathered face, a grey moustache, a brown wool jacket, a flat cap and muddy boots, 1910s; officer = a 50 year old German artillery officer with a grey uniform, a peaked cap, iron cross medal, a stiff grey moustache and a rigid posture, 1910s
-  scenes: medium shot, a chemist holding up a glass flask of clear liquid beside | extreme close-up of clear liquid droplets falling from a thin glass tu | medium shot, a farmer setting a heavy white sack of fertilizer onto a  | medium shot, a chemist turning a valve on a tall riveted steel pressur | close-up of a small glass measuring cup filled with four ounces of cle | close-up, a warehouse worker's hands scooping white nitrate powder fro | medium shot, a tropical island worker shoveling dark guano into a coar | medium shot, {farmer} lifting a heavy white fertilizer sack onto a woo | wide shot, a nearly empty warehouse with only a few small burlap sacks | wide shot, an immense blue sky thick with white clouds above a flat gr | close-up, {haber} straining to turn a heavy iron valve wheel on a rive | medium shot, a bearded chemist in a charcoal three-piece suit turning 
 - 010-davy-s-laughing-gas-test-wasn-t-in-londo: cast davy = a 21 year old English chemist, slim and upright, a smooth youthful round face with a high forehead, large dark brown eyes, thick dark brown curly hair swept up over his forehead, clean shaven, wearing a dark navy blue tailcoat with brass buttons, a buff waistcoat, a white linen cravat and pale grey trousers, 1799; watt = a 63 year old Scottish engineer, stocky and broad shouldered, a ruddy weathered lined face, bushy grey eyebrows, thinning sandy grey hair combed forward, clean shaven, wearing a brown wool coat, a checked grey waistcoat, a white neckcloth and dark breeches, 1799; skeptic = a 50 year old London physician, thin and upright, a sharp pale face with a long nose, powdered white hair tied in a short queue, a small grey moustache, wearing a black coat with silver buttons, a white neckcloth and dark knee breeches, 1790s; patient = a 27 year old English woman, slender, a freckled oval face, auburn hair in a loose bun with curled side locks, wearing a rose pink muslin gown with a cream shawl and white cuffs, 1790s; miner = a 42 year old English coal miner, broad and muscular, a soot blackened square face, a thick black beard, matted black hair under a brown leather cap, wearing a patched blue waistcoat over a dirty white shirt and brown trousers, 1810s
   scenes: medium close-up, a young chemist breathing gas through a mouthpiece tu | close-up of a small glass hourglass with pale sand running down on a w | medium shot, a young chemist laughing with his head thrown back, holdi | close-up, a hand holding a glass gas jar beside a tall candle flame on | medium shot, a group of London physicians in black coats in a candle-l | close-up, a thin London physician with a flushed face and wide excited | close-up, a young chemist writing in a notebook with a quill pen at a  | close-up of a large clear glass gas jar with a brass stopcock on a woo | medium shot, a young chemist in a dark navy tailcoat adjusting a glass | medium close-up, a young chemist seated breathing through a mouthpiece | medium shot, a young chemist slumped back in a wooden chair with one h | close-up, a young chemist with flushed cheeks raising one hand and ges
 - 011-why-your-blood-fails-without-key-nutrien: cast patient = a 34 year old woman with medium brown skin, short curly black hair, tired dark eyes and a pale lined face, wearing a light blue hospital gown and a white paper wristband, today; doctor = a 45 year old Black woman doctor with short cropped black hair, a round face, warm dark brown eyes and no glasses, wearing a crisp white lab coat over a teal blouse, today; nutritionist = a 29 year old East Asian woman with straight black hair in a low ponytail, a slim oval face and thin eyebrows, wearing a light grey blazer over a white shirt, today; labtech = a 38 year old South Asian man with a short neat black beard, round wire glasses and a broad forehead, wearing a navy blue polo shirt under a white lab coat, today
@@ -98,6 +96,8 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: medium shot, a man pointing down at wet rock on the Eddystone reef, he | close-up, a mason's hand pressing firm grey wet mortar between two squ | medium shot, a Cornish stonemason kneeling on wet rock lowering a squa | wide shot, the Eddystone reef awash with foaming grey high-tide waves  | wide shot, two ruined old lighthouse remains, a broken stone stump and | medium shot, {winstanley} standing on the Eddystone reef looking up at | wide shot, a huge storm wave swallowing the base of a tall wooden ligh | medium shot, six men in soaked oilskins clinging to a wooden tower gal | wide shot, a tall stone lighthouse tower on the Eddystone reef burning | medium shot, an engineer pointing up at a half-built stone tower on a  | wide shot, a tall stone lighthouse tower with a broad base and a narro | close-up of two grey stone blocks locked together by a toothed dovetai
 - 009-why-eiffel-s-lattice-saves-the-tower: cast eiffel = a 56 year old French engineer, upright build, greying swept-back hair, a neatly trimmed full grey-streaked beard, bright alert eyes, a charcoal grey frock coat, a white wing collar and a black silk cravat, 1880s; garnier = a 61 year old French architect, stout build, wild curly white hair, a bushy white beard, a round red face, a black velvet jacket and a wide floppy crimson bow tie, 1880s; koechlin = a 28 year old slim Swiss engineer, neat short light brown hair, a thin light brown moustache, small wire spectacles, white shirt sleeves rolled up and a tan waistcoat, 1880s
   scenes: medium shot, a bearded man pulling hard on a rope atop an iron tower,  | close-up, a big red white and blue French flag unfurling on a pole hig | wide shot of a giant iron tower far taller than every church and rooft | medium shot, ironworkers in flat caps hammering rivets on a high iron  | medium shot, angry men in black frock coats and top hats shaking their | close-up, a stout white-bearded architect jabbing his finger in protes | close-up, a hand slapping a long paper petition down on a polished woo | close-up, a white-bearded architect scowling in disgust and turning hi | low angle of a dark iron tower looming over grey Paris rooftops under  | low angle of a gigantic black factory smokestack pouring dark smoke in | wide shot of tall trees bending in strong wind along a Paris boulevard | medium shot, a bearded engineer holding his hat against strong wind on
+- 009-why-the-canal-needed-a-disease-war: cast gorgas = a 50 year old American army doctor, tall and slim, a neat white moustache, thinning white hair, kind blue eyes, a white tropical army uniform with a high collar and brass buttons, 1900s; olddoctor = a 65 year old French doctor, short and plump, a bushy white beard, a bald pink head, a black frock coat and a black top hat in his hand, 1880s; inspector = a 30 year old Panamanian sanitation inspector, lean, light brown skin, a thin black moustache, a wide white straw hat, a khaki shirt with rolled sleeves, 1900s; worker = a 25 year old Black Caribbean canal worker, tall and muscular, a shaved head, a sweat-soaked faded blue cotton shirt and brown work trousers, 1900s; shonts = a 49 year old American businessman, heavy build, dark hair slicked and parted in the middle, a clean-shaven fleshy face, a light grey suit with a white waistcoat, 1900s; roosevelt = a 47 year old American president, stocky and broad-chested, small pince-nez glasses on a black cord, a bushy brown moustache, a wide toothy grin, short brown hair, a black frock coat, 1900s
+  scenes: medium shot, an army doctor lighting a metal pan of yellow sulfur powd | wide shot of grey smoke seeping from the shutters of a row of wooden h | wide shot of a muddy jungle cutting with old steam excavators and work | medium shot, workers in straw hats swinging shovels into thick red mud | close-up, a pale sick worker sweating with fever on a narrow cot, a da | wide shot of rows of simple wooden crosses on a green jungle hillside  | wide shot of a long crowded hospital ward with sick men on cots under  | medium shot, a gravedigger shovelling wet earth in the pouring rain be | medium shot, an old doctor in a black frock coat pointing his cane at  | wide shot of white mist rising over a dark jungle swamp at dawn, tangl | close-up, a scientist peering into a brass microscope at a cluttered l | close-up, a hand holding up a small glass jar with mosquitoes inside t
 
 PROBLEMS FOUND BY THE CHECKS
 - script: not supported by the sources, fix or remove: A priest steadies a handful of tiny ceramic spoons over a fresh burial.
@@ -111,7 +111,6 @@ PROBLEMS FOUND BY THE CHECKS
 - script: not supported by the sources, fix or remove: The air smells faintly of metal and incense.
 - script: not supported by the sources, fix or remove: Its vivid colour symbolized blood, life, and the after‑world.
 - script: not supported by the sources, fix or remove: Because cinnabar is toxic, those tiny spoons turned every grave into a silent, centuries‑long warning.
-- film.json is missing: write it
 
 DRAFT SCRIPT
 {"title": "Why Maya buried tiny ceramic spoons", "beats": [{"feel": "curiosity", "lines": ["A priest steadies a handful of tiny ceramic spoons over a fresh burial.", "The clay cups glint like tiny moons in the dim light.", "He whispers that each spoon carries a secret for the dead."]}, {"feel": "skepticism", "lines": ["His apprentices laugh, saying the dead don’t need kitchen tools.", "One scoffs, \"What will a ghost eat?\"", "Another rolls his eyes, shaking his head."]}, {"feel": "tension", "lines": ["The priest places each spoon beside the skull, the clay cool against the earth.", "He slides a red powder into every tiny bowl.", "The air smells faintly of metal and incense."]}, {"feel": "recognition", "lines": ["You see how you tuck a favorite trinket into a loved one’s pocket for comfort.", "It feels like a promise that something familiar travels with them."]}, {"feel": "awe", "lines": ["The real reason: the spoons held cinnabar, a bright red mercury sulfide.", "Cinnabar was used in Maya funerary rites to feed the spirit’s journey.", "Its vivid colour symbolized blood, life, and the after‑world."]}, {"feel": "surprise", "lines": ["Because cinnabar is toxic, those tiny spoons turned every grave into a silent, centuries‑long warning.", "Even centuries later, the poison still lingers in the soil."]}]}
@@ -170,125 +169,125 @@ WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 14.53s "What#1
 14.68s will#1
 14.78s a#5
-14.85s ghost#1
+14.86s ghost#1
 15.13s eat?"#1
-15.65s Another#1
-16.00s rolls#1
+15.66s Another#1
+16.01s rolls#1
 16.28s his#2
 16.43s eyes#1
-16.97s shaking#1
+16.98s shaking#1
 17.25s his#3
-17.42s head#1
-18.13s The#5
-18.23s priest#2
+17.43s head#1
+18.14s The#5
+18.24s priest#2
 18.56s places#1
 18.91s each#2
 19.11s spoon#2
-19.38s beside#1
+19.39s beside#1
 19.66s the#6
 19.76s skull#1
 20.41s the#7
 20.51s clay#2
 20.81s cool#1
-21.13s against#1
-21.43s the#8
+21.14s against#1
+21.44s the#8
 21.56s earth#1
 22.09s He#2
-22.21s slides#1
+22.22s slides#1
 22.59s a#6
-22.69s red#1
-22.91s powder#1
-23.29s into#1
-23.54s every#1
+22.70s red#1
+22.92s powder#1
+23.30s into#1
+23.55s every#1
 23.84s tiny#3
-24.16s bowl#1
-24.73s The#9
-24.88s air#1
+24.17s bowl#1
+24.74s The#9
+24.89s air#1
 25.11s smells#1
 25.56s faintly#1
 25.91s of#2
-26.03s metal#1
-26.38s and#1
+26.04s metal#1
+26.39s and#1
 26.51s incense#1
 27.44s You#1
-27.56s see#1
+27.57s see#1
 27.79s how#1
 27.99s you#2
-28.11s tuck#1
+28.12s tuck#1
 28.34s a#7
-28.46s favorite#1
+28.47s favorite#1
 28.84s trinket#1
 29.49s into#2
 29.74s a#8
-29.86s loved#1
+29.87s loved#1
 30.14s one’s#1
 30.39s pocket#1
 30.74s for#2
 30.89s comfort#1
-31.58s It#1
-31.70s feels#1
-31.95s like#2
-32.10s a#9
-32.18s promise#1
-32.73s that#2
-32.88s something#1
-33.23s familiar#1
-33.85s travels#1
+31.59s It#1
+31.71s feels#1
+31.96s like#2
+32.11s a#9
+32.19s promise#1
+32.74s that#2
+32.89s something#1
+33.24s familiar#1
+33.86s travels#1
 34.28s with#1
 34.41s them#1
-35.07s The#10
-35.19s real#1
-35.47s reason:#1
-36.24s the#11
-36.34s spoons#2
-36.74s held#1
+35.08s The#10
+35.20s real#1
+35.48s reason:#1
+36.25s the#11
+36.35s spoons#2
+36.75s held#1
 37.02s cinnabar#1
 37.67s a#10
-37.79s bright#1
+37.80s bright#1
 38.12s red#2
-38.34s mercury#1
-38.74s sulfide#1
-39.55s Cinnabar#2
+38.35s mercury#1
+38.75s sulfide#1
+39.56s Cinnabar#2
 40.13s was#1
-40.30s used#1
+40.31s used#1
 40.68s in#2
 40.83s Maya#1
 41.18s funerary#1
-41.70s rites#1
-42.25s to#1
+41.71s rites#1
+42.26s to#1
 42.38s feed#1
-42.55s the#12
-42.65s spirit’s#1
+42.56s the#12
+42.66s spirit’s#1
 43.08s journey#1
 43.67s Its#1
 43.87s vivid#1
 44.17s colour#1
-44.54s symbolized#1
+44.55s symbolized#1
 45.12s blood#1
 45.62s life#1
 46.22s and#2
 46.32s the#13
 46.42s after‑world#1
 47.51s Because#1
-47.83s cinnabar#3
-48.33s is#1
-48.48s toxic#1
-49.38s those#1
-49.63s tiny#4
-49.98s spoons#3
-50.43s turned#1
+47.84s cinnabar#3
+48.34s is#1
+48.49s toxic#1
+49.39s those#1
+49.64s tiny#4
+49.99s spoons#3
+50.44s turned#1
 50.81s every#2
 51.11s grave#1
 51.41s into#3
 51.61s a#11
-51.73s silent#1
-52.43s centuries‑long#1
-53.23s warning#1
+51.74s silent#1
+52.44s centuries‑long#1
+53.24s warning#1
 53.91s Even#1
-54.23s centuries#1
-54.68s later#1
-55.23s the#14
-55.33s poison#1
+54.24s centuries#1
+54.69s later#1
+55.24s the#14
+55.34s poison#1
 55.76s still#1
 56.01s lingers#1
 56.36s in#3
@@ -296,7 +295,7 @@ WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
 56.56s soil#1
 
 DRAFT film.json
-(none yet)
+{"era": "800s", "cast": {"priest": "a 48 year old Maya priest with dark copper skin, prominent cheekbones, long straight black hair bound with jade beads, wearing a patterned blue cotton robe, heavy jade ear spools, and a carved bone necklace, 800s", "apprentice": "a 18 year old Maya youth with smooth bronze skin, short straight black hair, alert dark eyes, wearing a brown woven loincloth and a simple beaded shell bracelet, 800s", "scoffer": "a 24 year old Maya apprentice with broad shoulders, tanned brown skin, dark black hair tied in a short ponytail, wearing a terracotta-red loincloth and green jade wrist guards, 800s", "relative": "a 26 year old Maya woman with warm olive skin, neat dark braids along her shoulders, wearing an off-white woven huipil tunic with blue zig-zag embroidery, 800s"}, "music": "mysterious", "key_words": ["priest#1", "steadies#1", "burial#1", "cups#1", "whispers#1", "laugh#1", "scoffs#1", "eat#1", "skull#1", "powder#1", "incense#1", "trinket#1", "promise#1", "cinnabar#1", "rites#1", "blood#1", "toxic#1", "warning#1", "soil#1"], "shots": [{"name": "priest_holding_spoons", "at": 0, "who": "priest", "clip": true, "prompt": "medium close-up, a man holding several tiny terracotta clay spoons in his cupped hand over an earthen pit, he is {priest}, dim torchlit stone tomb", "motion": "his hands steady the tiny clay spoons carefully, slow camera push in", "check": "Is a man holding tiny clay spoons?"}, {"name": "spoons_in_hand", "at": "spoons#1", "clip": true, "prompt": "extreme close-up of tiny terracotta clay spoons cupped in a man's weathered hands over dark earth, dim torchlight in a stone tomb", "motion": "his fingers shift slightly and the clay catches the light, slow camera push in", "check": "Is this a close-up of tiny clay spoons in hands?"}, {"name": "fresh_burial_pit", "at": "burial#1", "move": "down", "prompt": "high angle wide shot, an open rectangular burial pit carved into dark damp soil inside a stone tomb, lit by flickering torchlight", "check": "Is there an open burial pit in the earth?"}, {"name": "clay_cups_glint", "at": "cups#1", "clip": true, "prompt": "extreme close-up of tiny round clay spoon bowls resting on dark earth, catching soft reflections of warm torchlight, dim background", "motion": "torchlight flickers gently across the shiny ceramic surfaces, slow camera push in", "check": "Is this an extreme close-up of small clay spoons?"}, {"name": "priest_whispering", "at": "whispers#1", "who": "priest", "clip": true, "prompt": "close-up, a priest leaning forward with slightly parted lips as if whispering, head tilted down, he is {priest}, dim torchlight in a stone tomb", "motion": "he whispers softly with subtle lip movement, slow camera push in", "check": "Is a man whispering?"}, {"name": "secret_for_dead", "at": "dead#1", "hit": "dead#1", "clip": true, "prompt": "medium shot, a weathered skull resting in dark soil inside a stone grave chamber, a tiny ceramic spoon lying beside it, flickering torchlight", "motion": "soft shadows shift across the skull as the torch flame flickers, slow camera push in", "check": "Is there a skull resting in soil?"}, {"name": "laugh", "at": "His#1", "xfade": true, "clip": true, "prompt": "medium shot, two young Maya apprentices laughing together beside a freshly dug burial pit in a jungle clearing at dusk, one in a brown woven loincloth, one in a terracotta red loincloth, torchlight, stone temple steps behind", "motion": "they laugh and lean toward each other, torch flames flicker, slow camera push in", "check": "Are two young men laughing?"}, {"name": "apprentices_laugh", "at": "laugh#1", "clip": true, "prompt": "medium shot, two young Maya apprentices laughing and pointing down toward a burial pit in a jungle clearing at dusk, one in a brown loincloth, one in a terracotta red loincloth, torchlight", "motion": "they laugh and point at the grave, torch flames flicker, slow camera push in", "check": "Are two young men laughing?"}, {"name": "scoff", "at": "One#1", "who": "scoffer", "clip": true, "prompt": "close-up, a broad-shouldered young Maya man smirking and lifting one hand in a mocking shrug, he is {scoffer}, jungle burial clearing at dusk, warm torchlight", "motion": "he smirks and lifts one hand dismissively, slow camera push in", "check": "Is a young man raising one hand?"}, {"name": "roll", "at": "Another#1", "who": "apprentice", "clip": true, "prompt": "low angle close-up, a young Maya youth rolling his eyes upward in exasperation, he is {apprentice}, jungle burial clearing at dusk, orange torchlight from below", "motion": "his eyes roll upward and his lips purse, slow camera push in", "check": "Is a young man rolling his eyes?"}, {"name": "head", "at": "head#1", "who": "apprentice", "clip": true, "prompt": "medium shot, a young Maya youth shaking his head and folding his arms, he is {apprentice}, beside a freshly dug jungle burial pit at dusk, flickering torchlight", "motion": "he shakes his head slowly and folds his arms, slow camera push in", "check": "Is a young man shaking his head?"}, {"name": "spoons_over_burial", "at": "The#5", "who": "priest", "clip": true, "prompt": "medium shot, a Maya priest kneeling in dark loam over a fresh burial, holding tiny ceramic spoons and lowering one toward a skull, he is {priest}, dim torchlit stone chamber, 800s", "motion": "he lowers a tiny spoon toward the skull, slow camera push in", "xfade": true, "check": "Is a man kneeling over a burial?"}, {"name": "tiny_spoon", "at": "spoon#2", "clip": true, "prompt": "extreme close-up, a hand holding a tiny clay spoon above dark earth beside a weathered skull, blue cotton sleeve at the wrist, dim torchlight in a stone burial chamber", "motion": "his hand lowers the tiny spoon a little, slow camera push in", "check": "Is a tiny clay spoon held in a hand?"}, {"name": "clay_in_earth", "at": "cool#1", "move": "push", "prompt": "close-up of a tiny clay spoon lying against dark loose earth beside a skull, faint red dust in the soil, dim torchlight, stone burial chamber", "check": "Is a tiny clay spoon lying in the earth?"}, {"name": "red_powder", "at": "slides#1", "clip": true, "prompt": "extreme close-up, fingers sliding bright red powder into a tiny clay bowl held over dark earth, blue cotton sleeve, dim torchlight in a stone burial chamber", "motion": "his fingers slide the red powder into the bowl, slow camera push in", "hit": "red#1", "check": "Is red powder in a tiny clay bowl?"}, {"name": "bowl_of_red", "at": "bowl#1", "move": "push", "prompt": "extreme close-up of a tiny clay spoon bowl filled with vivid red powder resting on dark earth, dim torchlight in a stone burial chamber", "check": "Is a tiny clay bowl filled with red powder?"}, {"name": "incense_smoke", "at": "incense#1", "move": "up", "prompt": "close-up of thin incense smoke curling upward from a small clay incense vessel on dark earth beside tiny clay spoons, dim torchlight, stone burial chamber", "check": "Is incense smoke curling upward?"}, {"name": "trinket", "at": "You#1", "modern": true, "clip": true, "prompt": "close-up, a young person's hands gently tucking a small smooth stone into the pocket of an elderly person's grey coat, warm modern bedroom light", "motion": "the hands slide the stone into the pocket, slow camera push in", "xfade": true, "check": "Are hands tucking a small stone into a pocket?"}, {"name": "loved_one", "at": "loved#1", "modern": true, "clip": true, "prompt": "close-up, an elderly woman lying in a modern hospital bed with a soft smile, one hand resting over her coat pocket, warm bedside light", "motion": "she breathes slowly and her fingers curl over the pocket, slow camera push in", "check": "Is an elderly woman lying in a bed?"}, {"name": "promise", "at": "It#1", "modern": true, "move": "push", "prompt": "extreme close-up of a small worn wooden bead locket resting in an open palm, soft modern window light", "check": "Is a small locket resting in an open palm?"}, {"name": "travels", "at": "familiar#1", "modern": true, "clip": true, "prompt": "close-up, a hand pressing a small smooth stone flat inside the open pocket of a folded grey coat on a bed, soft evening light", "motion": "the hand presses the stone into the pocket, slow camera push in", "check": "Is a hand pressing a small stone into a pocket?"}, {"name": "spoons_reveal", "at": "The#10", "who": "priest", "clip": true, "prompt": "medium close-up, a Maya priest opening his cupped hands to show a handful of tiny ceramic spoons over an open earth grave, he is {priest}, dim torchlight and incense smoke", "motion": "he slowly opens his hands to show the spoons, incense smoke drifts, slow camera push in", "xfade": true, "check": "Is a man holding tiny ceramic spoons?"}, {"name": "red_powder_19", "at": "held#1", "move": "push", "prompt": "extreme close-up of a tiny clay spoon filled with a mound of vivid red powder resting in a weathered palm, dim torchlight, dark earth background", "check": "Is there a tiny spoon filled with red powder?"}, {"name": "grinding", "at": "mercury#1", "clip": true, "prompt": "close-up of two hands grinding a chunk of bright red mineral into powder on a stone slab with a round grinding stone, warm torchlight", "motion": "the hands grind the red mineral back and forth, slow camera push in", "check": "Are hands grinding a red mineral?"}, {"name": "rite", "at": "used#1", "who": "priest", "clip": true, "prompt": "medium shot, a Maya priest kneeling beside an open earth grave and lowering a tiny clay spoon toward a skull, he is {priest}, torchlight and drifting incense", "motion": "he lowers the spoon toward the grave, incense smoke drifts, slow camera push in", "xfade": true, "check": "Is a man kneeling beside a grave?"}, {"name": "beside_skull", "at": "feed#1", "clip": true, "prompt": "close-up of a hand setting a tiny clay spoon of red powder down in dark earth beside a human skull, torchlight", "motion": "the hand sets the spoon down in the soil, slow camera push in", "hit": "journey#1", "check": "Is a tiny spoon placed beside a skull?"}, {"name": "red_symbol", "at": "colour#1", "who": "relative", "clip": true, "prompt": "medium close-up, a Maya woman kneeling and painting a vivid red spiral onto a small clay vessel with a thin brush, she is {relative}, warm torchlight in a stone chamber", "motion": "the brush paints a slow red curve, slow camera push in", "hit": "blood#1", "check": "Is a woman painting a red design on a clay vessel?"}, {"name": "afterworld", "at": "after‑world#1", "move": "up", "prompt": "wide shot of a Maya burial chamber with an open grave, tiny clay spoons and red pigment on the earth, incense smoke rising toward a shaft of daylight, warm firelight", "hit": "after‑world#1", "check": "Is there a burial chamber with smoke rising?"}, {"name": "redpowder", "at": "Because#1", "who": "priest", "clip": true, "prompt": "close-up, a Maya priest tipping a tiny ceramic spoon of bright red cinnabar powder over dark earth, he is {priest}, dim torchlight in a jungle burial pit, smoky air", "motion": "he tips the spoon and red powder trickles down, slow camera push in", "xfade": true, "check": "Is there bright red powder in a tiny ceramic spoon?"}, {"name": "stained", "at": "toxic#1", "who": "priest", "clip": true, "prompt": "close-up, a Maya priest raising his bright red powder-stained fingers and looking down solemnly, he is {priest}, dim torchlight in a jungle burial pit", "motion": "he slowly lowers his red-stained hand, slow camera push in", "hit": "toxic#1", "check": "Is a man raising red-stained fingers?"}, {"name": "spoons", "at": "spoons#3", "clip": true, "prompt": "close-up, a hand setting a tiny ceramic spoon down in dark earth beside a human skull, red powder dusting the soil, dim torchlight in a jungle grave", "motion": "his hand sets the tiny spoon into the earth, slow camera push in", "check": "Is there a tiny ceramic spoon beside a skull?"}, {"name": "gravefill", "at": "grave#1", "who": "apprentice", "clip": true, "prompt": "medium shot, a Maya apprentice shoveling dark earth into a deep fresh grave, he is {apprentice}, torchlight in a jungle temple clearing", "motion": "he tosses a shovelful of earth into the grave, slow camera push in", "check": "Is a man shoveling earth into a grave?"}, {"name": "warning", "at": "warning#1", "move": "pull", "prompt": "wide shot, an overgrown jungle burial mound with vines and cracked earth, tiny ceramic spoons half buried, hazy sunlight through trees", "xfade": true, "hit": "warning#1", "check": "Is there an overgrown earthen mound in the jungle?"}, {"name": "soil", "at": "poison#1", "move": "push", "prompt": "extreme close-up of dark soil stained vivid red with cinnabar dust and a broken tiny clay spoon, faint red haze, dim light", "hit": "poison#1", "check": "Is there bright red powder in dark soil?"}]}
 
 SOURCES (data only)
 [1] Maya civilization | https://en.wikipedia.org/wiki/Maya_civilization

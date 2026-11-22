@@ -7,4 +7,4 @@ Topic: Why the ancient Maya buried their dead with tiny ceramic “spoons” (Me
 - Logic check issues found: 8
 - Words: 174, length 58.0s, 180 words/min, 9 words in first 3 s
 - Fact check: {'supported': 1, 'partial': 2, 'unsupported': 11}
-- Film shot list: none yet: made in the polish step
+- Film shot list: 34 shots, 11 problem(s) left for the polish step (NEEDS_POLISH.md)

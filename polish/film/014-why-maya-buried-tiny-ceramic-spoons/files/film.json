@@ -1,0 +1,327 @@
+{
+ "era": "800s",
+ "cast": {
+  "priest": "a 48 year old Maya priest with dark copper skin, prominent cheekbones, long straight black hair bound with jade beads, wearing a patterned blue cotton robe, heavy jade ear spools, and a carved bone necklace, 800s",
+  "apprentice": "a 18 year old Maya youth with smooth bronze skin, short straight black hair, alert dark eyes, wearing a brown woven loincloth and a simple beaded shell bracelet, 800s",
+  "scoffer": "a 24 year old Maya apprentice with broad shoulders, tanned brown skin, dark black hair tied in a short ponytail, wearing a terracotta-red loincloth and green jade wrist guards, 800s",
+  "relative": "a 26 year old Maya woman with warm olive skin, neat dark braids along her shoulders, wearing an off-white woven huipil tunic with blue zig-zag embroidery, 800s"
+ },
+ "music": "mysterious",
+ "key_words": [
+  "priest#1",
+  "steadies#1",
+  "burial#1",
+  "cups#1",
+  "whispers#1",
+  "laugh#1",
+  "scoffs#1",
+  "eat#1",
+  "skull#1",
+  "powder#1",
+  "incense#1",
+  "trinket#1",
+  "promise#1",
+  "cinnabar#1",
+  "rites#1",
+  "blood#1",
+  "toxic#1",
+  "warning#1",
+  "soil#1"
+ ],
+ "shots": [
+  {
+   "name": "priest_holding_spoons",
+   "at": 0,
+   "who": "priest",
+   "clip": true,
+   "prompt": "medium close-up, a man holding several tiny terracotta clay spoons in his cupped hand over an earthen pit, he is {priest}, dim torchlit stone tomb",
+   "motion": "his hands steady the tiny clay spoons carefully, slow camera push in",
+   "check": "Is a man holding tiny clay spoons?"
+  },
+  {
+   "name": "spoons_in_hand",
+   "at": "spoons#1",
+   "clip": true,
+   "prompt": "extreme close-up of tiny terracotta clay spoons cupped in a man's weathered hands over dark earth, dim torchlight in a stone tomb",
+   "motion": "his fingers shift slightly and the clay catches the light, slow camera push in",
+   "check": "Is this a close-up of tiny clay spoons in hands?"
+  },
+  {
+   "name": "fresh_burial_pit",
+   "at": "burial#1",
+   "move": "down",
+   "prompt": "high angle wide shot, an open rectangular burial pit carved into dark damp soil inside a stone tomb, lit by flickering torchlight",
+   "check": "Is there an open burial pit in the earth?"
+  },
+  {
+   "name": "clay_cups_glint",
+   "at": "cups#1",
+   "clip": true,
+   "prompt": "extreme close-up of tiny round clay spoon bowls resting on dark earth, catching soft reflections of warm torchlight, dim background",
+   "motion": "torchlight flickers gently across the shiny ceramic surfaces, slow camera push in",
+   "check": "Is this an extreme close-up of small clay spoons?"
+  },
+  {
+   "name": "priest_whispering",
+   "at": "whispers#1",
+   "who": "priest",
+   "clip": true,
+   "prompt": "close-up, a priest leaning forward with slightly parted lips as if whispering, head tilted down, he is {priest}, dim torchlight in a stone tomb",
+   "motion": "he whispers softly with subtle lip movement, slow camera push in",
+   "check": "Is a man whispering?"
+  },
+  {
+   "name": "secret_for_dead",
+   "at": "dead#1",
+   "hit": "dead#1",
+   "clip": true,
+   "prompt": "medium shot, a weathered skull resting in dark soil inside a stone grave chamber, a tiny ceramic spoon lying beside it, flickering torchlight",
+   "motion": "soft shadows shift across the skull as the torch flame flickers, slow camera push in",
+   "check": "Is there a skull resting in soil?"
+  },
+  {
+   "name": "laugh",
+   "at": "His#1",
+   "xfade": true,
+   "clip": true,
+   "prompt": "medium shot, two young Maya apprentices laughing together beside a freshly dug burial pit in a jungle clearing at dusk, one in a brown woven loincloth, one in a terracotta red loincloth, torchlight, stone temple steps behind",
+   "motion": "they laugh and lean toward each other, torch flames flicker, slow camera push in",
+   "check": "Are two young men laughing?"
+  },
+  {
+   "name": "apprentices_laugh",
+   "at": "laugh#1",
+   "clip": true,
+   "prompt": "medium shot, two young Maya apprentices laughing and pointing down toward a burial pit in a jungle clearing at dusk, one in a brown loincloth, one in a terracotta red loincloth, torchlight",
+   "motion": "they laugh and point at the grave, torch flames flicker, slow camera push in",
+   "check": "Are two young men laughing?"
+  },
+  {
+   "name": "scoff",
+   "at": "One#1",
+   "who": "scoffer",
+   "clip": true,
+   "prompt": "close-up, a broad-shouldered young Maya man smirking and lifting one hand in a mocking shrug, he is {scoffer}, jungle burial clearing at dusk, warm torchlight",
+   "motion": "he smirks and lifts one hand dismissively, slow camera push in",
+   "check": "Is a young man raising one hand?"
+  },
+  {
+   "name": "roll",
+   "at": "Another#1",
+   "who": "apprentice",
+   "clip": true,
+   "prompt": "low angle close-up, a young Maya youth rolling his eyes upward in exasperation, he is {apprentice}, jungle burial clearing at dusk, orange torchlight from below",
+   "motion": "his eyes roll upward and his lips purse, slow camera push in",
+   "check": "Is a young man rolling his eyes?"
+  },
+  {
+   "name": "head",
+   "at": "head#1",
+   "who": "apprentice",
+   "clip": true,
+   "prompt": "medium shot, a young Maya youth shaking his head and folding his arms, he is {apprentice}, beside a freshly dug jungle burial pit at dusk, flickering torchlight",
+   "motion": "he shakes his head slowly and folds his arms, slow camera push in",
+   "check": "Is a young man shaking his head?"
+  },
+  {
+   "name": "spoons_over_burial",
+   "at": "The#5",
+   "who": "priest",
+   "clip": true,
+   "prompt": "medium shot, a Maya priest kneeling in dark loam over a fresh burial, holding tiny ceramic spoons and lowering one toward a skull, he is {priest}, dim torchlit stone chamber, 800s",
+   "motion": "he lowers a tiny spoon toward the skull, slow camera push in",
+   "xfade": true,
+   "check": "Is a man kneeling over a burial?"
+  },
+  {
+   "name": "tiny_spoon",
+   "at": "spoon#2",
+   "clip": true,
+   "prompt": "extreme close-up, a hand holding a tiny clay spoon above dark earth beside a weathered skull, blue cotton sleeve at the wrist, dim torchlight in a stone burial chamber",
+   "motion": "his hand lowers the tiny spoon a little, slow camera push in",
+   "check": "Is a tiny clay spoon held in a hand?"
+  },
+  {
+   "name": "clay_in_earth",
+   "at": "cool#1",
+   "move": "push",
+   "prompt": "close-up of a tiny clay spoon lying against dark loose earth beside a skull, faint red dust in the soil, dim torchlight, stone burial chamber",
+   "check": "Is a tiny clay spoon lying in the earth?"
+  },
+  {
+   "name": "red_powder",
+   "at": "slides#1",
+   "clip": true,
+   "prompt": "extreme close-up, fingers sliding bright red powder into a tiny clay bowl held over dark earth, blue cotton sleeve, dim torchlight in a stone burial chamber",
+   "motion": "his fingers slide the red powder into the bowl, slow camera push in",
+   "hit": "red#1",
+   "check": "Is red powder in a tiny clay bowl?"
+  },
+  {
+   "name": "bowl_of_red",
+   "at": "bowl#1",
+   "move": "push",
+   "prompt": "extreme close-up of a tiny clay spoon bowl filled with vivid red powder resting on dark earth, dim torchlight in a stone burial chamber",
+   "check": "Is a tiny clay bowl filled with red powder?"
+  },
+  {
+   "name": "incense_smoke",
+   "at": "incense#1",
+   "move": "up",
+   "prompt": "close-up of thin incense smoke curling upward from a small clay incense vessel on dark earth beside tiny clay spoons, dim torchlight, stone burial chamber",
+   "check": "Is incense smoke curling upward?"
+  },
+  {
+   "name": "trinket",
+   "at": "You#1",
+   "modern": true,
+   "clip": true,
+   "prompt": "close-up, a young person's hands gently tucking a small smooth stone into the pocket of an elderly person's grey coat, warm modern bedroom light",
+   "motion": "the hands slide the stone into the pocket, slow camera push in",
+   "xfade": true,
+   "check": "Are hands tucking a small stone into a pocket?"
+  },
+  {
+   "name": "loved_one",
+   "at": "loved#1",
+   "modern": true,
+   "clip": true,
+   "prompt": "close-up, an elderly woman lying in a modern hospital bed with a soft smile, one hand resting over her coat pocket, warm bedside light",
+   "motion": "she breathes slowly and her fingers curl over the pocket, slow camera push in",
+   "check": "Is an elderly woman lying in a bed?"
+  },
+  {
+   "name": "promise",
+   "at": "It#1",
+   "modern": true,
+   "move": "push",
+   "prompt": "extreme close-up of a small worn wooden bead locket resting in an open palm, soft modern window light",
+   "check": "Is a small locket resting in an open palm?"
+  },
+  {
+   "name": "travels",
+   "at": "familiar#1",
+   "modern": true,
+   "clip": true,
+   "prompt": "close-up, a hand pressing a small smooth stone flat inside the open pocket of a folded grey coat on a bed, soft evening light",
+   "motion": "the hand presses the stone into the pocket, slow camera push in",
+   "check": "Is a hand pressing a small stone into a pocket?"
+  },
+  {
+   "name": "spoons_reveal",
+   "at": "The#10",
+   "who": "priest",
+   "clip": true,
+   "prompt": "medium close-up, a Maya priest opening his cupped hands to show a handful of tiny ceramic spoons over an open earth grave, he is {priest}, dim torchlight and incense smoke",
+   "motion": "he slowly opens his hands to show the spoons, incense smoke drifts, slow camera push in",
+   "xfade": true,
+   "check": "Is a man holding tiny ceramic spoons?"
+  },
+  {
+   "name": "red_powder_19",
+   "at": "held#1",
+   "move": "push",
+   "prompt": "extreme close-up of a tiny clay spoon filled with a mound of vivid red powder resting in a weathered palm, dim torchlight, dark earth background",
+   "check": "Is there a tiny spoon filled with red powder?"
+  },
+  {
+   "name": "grinding",
+   "at": "mercury#1",
+   "clip": true,
+   "prompt": "close-up of two hands grinding a chunk of bright red mineral into powder on a stone slab with a round grinding stone, warm torchlight",
+   "motion": "the hands grind the red mineral back and forth, slow camera push in",
+   "check": "Are hands grinding a red mineral?"
+  },
+  {
+   "name": "rite",
+   "at": "used#1",
+   "who": "priest",
+   "clip": true,
+   "prompt": "medium shot, a Maya priest kneeling beside an open earth grave and lowering a tiny clay spoon toward a skull, he is {priest}, torchlight and drifting incense",
+   "motion": "he lowers the spoon toward the grave, incense smoke drifts, slow camera push in",
+   "xfade": true,
+   "check": "Is a man kneeling beside a grave?"
+  },
+  {
+   "name": "beside_skull",
+   "at": "feed#1",
+   "clip": true,
+   "prompt": "close-up of a hand setting a tiny clay spoon of red powder down in dark earth beside a human skull, torchlight",
+   "motion": "the hand sets the spoon down in the soil, slow camera push in",
+   "hit": "journey#1",
+   "check": "Is a tiny spoon placed beside a skull?"
+  },
+  {
+   "name": "red_symbol",
+   "at": "colour#1",
+   "who": "relative",
+   "clip": true,
+   "prompt": "medium close-up, a Maya woman kneeling and painting a vivid red spiral onto a small clay vessel with a thin brush, she is {relative}, warm torchlight in a stone chamber",
+   "motion": "the brush paints a slow red curve, slow camera push in",
+   "hit": "blood#1",
+   "check": "Is a woman painting a red design on a clay vessel?"
+  },
+  {
+   "name": "afterworld",
+   "at": "after‑world#1",
+   "move": "up",
+   "prompt": "wide shot of a Maya burial chamber with an open grave, tiny clay spoons and red pigment on the earth, incense smoke rising toward a shaft of daylight, warm firelight",
+   "hit": "after‑world#1",
+   "check": "Is there a burial chamber with smoke rising?"
+  },
+  {
+   "name": "redpowder",
+   "at": "Because#1",
+   "who": "priest",
+   "clip": true,
+   "prompt": "close-up, a Maya priest tipping a tiny ceramic spoon of bright red cinnabar powder over dark earth, he is {priest}, dim torchlight in a jungle burial pit, smoky air",
+   "motion": "he tips the spoon and red powder trickles down, slow camera push in",
+   "xfade": true,
+   "check": "Is there bright red powder in a tiny ceramic spoon?"
+  },
+  {
+   "name": "stained",
+   "at": "toxic#1",
+   "who": "priest",
+   "clip": true,
+   "prompt": "close-up, a Maya priest raising his bright red powder-stained fingers and looking down solemnly, he is {priest}, dim torchlight in a jungle burial pit",
+   "motion": "he slowly lowers his red-stained hand, slow camera push in",
+   "hit": "toxic#1",
+   "check": "Is a man raising red-stained fingers?"
+  },
+  {
+   "name": "spoons",
+   "at": "spoons#3",
+   "clip": true,
+   "prompt": "close-up, a hand setting a tiny ceramic spoon down in dark earth beside a human skull, red powder dusting the soil, dim torchlight in a jungle grave",
+   "motion": "his hand sets the tiny spoon into the earth, slow camera push in",
+   "check": "Is there a tiny ceramic spoon beside a skull?"
+  },
+  {
+   "name": "gravefill",
+   "at": "grave#1",
+   "who": "apprentice",
+   "clip": true,
+   "prompt": "medium shot, a Maya apprentice shoveling dark earth into a deep fresh grave, he is {apprentice}, torchlight in a jungle temple clearing",
+   "motion": "he tosses a shovelful of earth into the grave, slow camera push in",
+   "check": "Is a man shoveling earth into a grave?"
+  },
+  {
+   "name": "warning",
+   "at": "warning#1",
+   "move": "pull",
+   "prompt": "wide shot, an overgrown jungle burial mound with vines and cracked earth, tiny ceramic spoons half buried, hazy sunlight through trees",
+   "xfade": true,
+   "hit": "warning#1",
+   "check": "Is there an overgrown earthen mound in the jungle?"
+  },
+  {
+   "name": "soil",
+   "at": "poison#1",
+   "move": "push",
+   "prompt": "extreme close-up of dark soil stained vivid red with cinnabar dust and a broken tiny clay spoon, faint red haze, dim light",
+   "hit": "poison#1",
+   "check": "Is there bright red powder in dark soil?"
+  }
+ ]
+}

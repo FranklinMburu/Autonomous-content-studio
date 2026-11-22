@@ -11,4 +11,3 @@ Problems left by the free models (the copy-paste polish fixes them):
 - script: not supported by the sources, fix or remove: The air smells faintly of metal and incense.
 - script: not supported by the sources, fix or remove: Its vivid colour symbolized blood, life, and the after‑world.
 - script: not supported by the sources, fix or remove: Because cinnabar is toxic, those tiny spoons turned every grave into a silent, centuries‑long warning.
-- the free models could not write the shots for part 5
