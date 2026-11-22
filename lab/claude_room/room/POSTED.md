@@ -46,3 +46,9 @@ k07 (Niko, self-score 7) and k03 (kid, 6) were NOT uploaded; they are on shorts/
 | agent00 jail FULL | 89 | - | - | - |
 | all other single reactions | 1-12 | - | - | - |
 | list-R1 (public 10:00) | 2 | - | - | - |
+
+## 22 Nov 11:23 run (this account): nothing uploaded (no Short passed the bar)
+Studio content list checked 11:30 Nairobi: 20 Shorts, last upload k04 on 21 Nov; 0 uploads in the last 24 h (kai-R3 went public 10:00 and kai-C3r is scheduled 13:00 today, both uploaded 21 Nov 00:00).
+Built bigfoot1 (F3 story, Lirik knocked out by Bigfoot then checks his BuckMe bank app: $1,625 = same as before; lab/claude_room/specs/bigfoot1.spec.json, tool storyshort.py). Independent critic: 9/15 gate, 5.0/10, KILL (payoff is an anticlimax, Bigfoot never legible, no facecam). Not uploaded, not pushed to shorts/sc.
+Numbers 11:29: kai-R3 "HOUR 0 vs HOUR 20" 252 views in 89 min (195 in first 60 min, 58.6% stayed); parrot 1,270; secrets1b 1,147; Kai settings 1,220; k04 3; kai-C05 3; kai-R2b 3; adin-C10 8; n3on-R7 7; list-R1 13. 48 h channel views 3,534; 3 subscribers.
+Footage hunt for today's "lost save" wave: branch claude-clips/saves-1122 → footage/sv-* (7 channels). The title filter caught crashes, not save losses: no lost-save moment found. Rejected: sv-kaicenat-01 (sexual scene, hard no), sv-stableronaldo-01 (real-life driving, not GTA 6), jynxzi-01 plane crashout (already a 251K Short: repost), caseoh-01 (no payoff).
