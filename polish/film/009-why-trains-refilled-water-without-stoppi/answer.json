@@ -1,0 +1,438 @@
+{
+ "script": {
+  "title": "Why Trains Refilled Water Without Stopping",
+  "beats": [
+   {
+    "feel": "curiosity",
+    "lines": [
+     "A fireman lowered a scoop into water between the rails at full speed."
+    ]
+   },
+   {
+    "feel": "ambition",
+    "lines": [
+     "In 1860, a railway wanted to speed up the Irish mail train.",
+     "Engineer John Ramsbottom had to run it from Chester to Holyhead in 2 hours 5 minutes.",
+     "But engines usually stopped on the way to take in water."
+    ]
+   },
+   {
+    "feel": "frustration",
+    "lines": [
+     "An ordinary run used 1,800 to 1,900 gallons.",
+     "In stormy weather, it could rise to 2,400 gallons.",
+     "The largest tenders only held 2,000 gallons."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like holding your hand out of a car window.",
+     "The faster you go, the harder it pushes."
+    ]
+   },
+   {
+    "feel": "wonder",
+    "lines": [
+     "Ramsbottom ran experiments.",
+     "A scoop moving through a trough forced water up a pipe into a tank.",
+     "At 15 miles an hour, the water reached the top of the delivery pipe."
+    ]
+   },
+   {
+    "feel": "tension",
+    "lines": [
+     "The fireman had to watch the water level closely.",
+     "If he raised the scoop too late, water burst from the vents and soaked the tender and footplate."
+    ]
+   },
+   {
+    "feel": "amusement",
+    "lines": [
+     "The spray behind the scoop could drench passengers.",
+     "So guards warned the first coach to keep the windows closed."
+    ]
+   },
+   {
+    "feel": "shock",
+    "lines": [
+     "Once, two trains passed at a trough.",
+     "The spray scattered lumps of coal and broke the other train's windows.",
+     "The railway changed the timetable so it could not happen again."
+    ]
+   }
+  ],
+  "key_words": [
+   "fireman",
+   "scoop",
+   "trough",
+   "Ramsbottom",
+   "Irish mail",
+   "tender",
+   "spray",
+   "windows"
+  ],
+  "claims": [
+   {
+    "claim": "When a steam locomotive passes over the trough lying between the rails, a water scoop can be lowered by the fireman, and the speed of forward motion forces water into the scoop, up the scoop pipe and into the tanks.",
+    "url": "https://en.wikipedia.org/wiki/Water_trough"
+   },
+   {
+    "claim": "In 1860 the London and North-Western Company decided to accelerate the Irish mail; Mr. Ramsbottom, their chief mechanical engineer, was asked to make the run between Chester and Holyhead in 2 hours 5 minutes; the usual stop on the road to take in water had to be avoided.",
+    "url": "https://en.wikipedia.org/wiki/Water_trough"
+   },
+   {
+    "claim": "In an ordinary way 1,800 to 1,900 gallons were consumed; in rough and stormy weather along the coast of North Wales consumption rose to 2,400 gallons; the largest tenders only held 2,000 gallons.",
+    "url": "https://en.wikipedia.org/wiki/Water_trough"
+   },
+   {
+    "claim": "Ramsbottom arranged experiments and showed that the forward motion of a scoop in a trough of water would force water up a connected pipe and into a tank; at 15 miles an hour the water was raised to the top of the delivery pipe.",
+    "url": "https://en.wikipedia.org/wiki/Water_trough"
+   },
+   {
+    "claim": "The fireman had to observe the water level indicator carefully; failure to raise the scoop promptly expelled large volumes of water from the vents, soaking the tender and footplate.",
+    "url": "https://en.wikipedia.org/wiki/Water_trough"
+   },
+   {
+    "claim": "Taking water at speed causes considerable spray behind the scoop that risks drenching passengers; in Great Britain the guard warned passengers in the first coach to keep the windows closed.",
+    "url": "https://en.wikipedia.org/wiki/Water_trough"
+   },
+   {
+    "claim": "Two trains passed each other at a water trough; the other train suffered broken windows due to lumps of tender coal scattered by the spray, and management retimetabled the trains so this could not happen again.",
+    "url": "https://en.wikipedia.org/wiki/Water_trough"
+   }
+  ]
+ },
+ "film": {
+  "era": "1860s",
+  "music": "curious",
+  "key_words": [
+   "fireman",
+   "scoop",
+   "trough",
+   "Ramsbottom",
+   "tender",
+   "spray",
+   "windows"
+  ],
+  "cast": {
+   "fireman": "a 30 year old English railway fireman with a soot-blackened round face, heavy black eyebrows, short black hair under a flat cloth cap, a dark green wool jacket with brass buttons and a red neckerchief, 1860s",
+   "ramsbottom": "a 46 year old English railway engineer with a long narrow face, receding brown hair, a full brown beard, wire spectacles and a dark brown frock coat over a grey waistcoat, 1860s",
+   "guard": "a 52 year old British railway guard with a ruddy round face, big white mutton-chop whiskers, a black peaked cap and a dark blue frock coat with brass buttons, 1860s",
+   "passenger": "a 26 year old English woman with copper red hair in a bun under a small dark green bonnet, pale freckled skin, a dark green travelling dress with a white collar, 1860s",
+   "manager": "a 58 year old British railway manager with a gaunt pale face, a bald head with grey side hair, a long grey goatee, half-moon spectacles, a black frock coat and a grey cravat, 1860s"
+  },
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "who": "fireman",
+    "prompt": "medium shot, a fireman pulling down a big iron lever in the cab of a steam locomotive, he is {fireman}, glowing firebox, coal dust, orange light",
+    "check": "Is a man pulling down a lever?",
+    "clip": true,
+    "motion": "he hauls the lever down with both hands, slow camera push in"
+   },
+   {
+    "name": "trough",
+    "at": "into#1",
+    "prompt": "low angle close-up of a long narrow iron trough full of water lying between two railway rails, green fields, grey daylight, 1860s",
+    "check": "Is there a trough of water between rails?",
+    "move": "push"
+   },
+   {
+    "name": "speed",
+    "at": "at#1",
+    "prompt": "wide shot of a black steam locomotive racing along a coastal railway trailing white smoke, sea cliffs, cloudy sky, 1860s",
+    "check": "Is a steam locomotive racing along the coast?",
+    "move": "right"
+   },
+   {
+    "name": "station",
+    "at": "in#1",
+    "prompt": "wide shot of a busy 1860s railway station platform with a steam train and travellers in long coats, smoky light through a glass roof",
+    "check": "Is there a steam train at a station platform?",
+    "move": "push"
+   },
+   {
+    "name": "mail",
+    "at": "the#2",
+    "prompt": "close-up, a porter swinging a heavy canvas mail sack into an open wooden railway carriage door, 1860s station, smoky light",
+    "check": "Is a man swinging a sack into a carriage?",
+    "clip": true,
+    "motion": "he heaves the sack into the carriage, slow camera push in"
+   },
+   {
+    "name": "ramsbottom",
+    "at": "engineer#1",
+    "who": "ramsbottom",
+    "prompt": "medium shot, an engineer leaning over large paper engine drawings on a desk and tapping them with a pencil, he is {ramsbottom}, office with tall windows, daylight",
+    "check": "Is a man leaning over drawings on a desk?",
+    "clip": true,
+    "motion": "he taps the drawing with his pencil, slow camera push in"
+   },
+   {
+    "name": "coastline",
+    "at": "chester#1",
+    "prompt": "wide shot of a railway line running along the foot of green cliffs beside a grey sea, a distant steam train, stormy sky, 1860s",
+    "check": "Is there a railway line beside the sea?",
+    "move": "left"
+   },
+   {
+    "name": "wheels",
+    "at": "2#1",
+    "prompt": "close-up of the big spoked iron driving wheels and pistons of a steam locomotive pounding along the rails, steam bursting, 1860s",
+    "check": "Are big iron locomotive wheels turning?",
+    "clip": true,
+    "motion": "the wheels spin and steam bursts out, slow camera push in"
+   },
+   {
+    "name": "water_stop",
+    "at": "but#1",
+    "prompt": "medium shot, a steam locomotive standing still under a tall iron water crane while a man swings its leather hose over the tender, 1860s depot, grey light",
+    "check": "Is a locomotive standing under a water crane?",
+    "clip": true,
+    "motion": "the man swings the hose into place, slow camera push in"
+   },
+   {
+    "name": "hose",
+    "at": "take#1",
+    "prompt": "close-up of water gushing from a thick leather hose into an open hatch on top of a black tender, splashing, grey daylight",
+    "check": "Is water gushing from a hose into a hatch?",
+    "clip": true,
+    "motion": "water pours and splashes into the hatch, slow camera push in"
+   },
+   {
+    "name": "tank",
+    "at": "an#1",
+    "who": "fireman",
+    "prompt": "medium shot, a fireman kneeling on top of a tender and peering down into an open water tank hatch, he is {fireman}, cloudy sky, 1860s",
+    "check": "Is a man peering into an open hatch?",
+    "clip": true,
+    "motion": "he leans over and peers down into the tank, slow camera push in"
+   },
+   {
+    "name": "chimney",
+    "at": "used#1",
+    "prompt": "close-up of a steam locomotive chimney puffing thick clouds of white steam into a grey sky, 1860s",
+    "check": "Is a chimney puffing white steam?",
+    "clip": true,
+    "motion": "thick steam puffs up out of the chimney, slow camera tilt up"
+   },
+   {
+    "name": "storm",
+    "at": "in#4",
+    "prompt": "wide shot of huge stormy waves crashing against a sea wall beside a railway line, rain lashing, dark clouds, 1860s",
+    "check": "Are stormy waves crashing beside a railway?",
+    "move": "push"
+   },
+   {
+    "name": "slosh",
+    "at": "rise#1",
+    "prompt": "close-up of dark water sloshing violently inside a riveted iron tank, dim light",
+    "check": "Is water sloshing inside an iron tank?",
+    "clip": true,
+    "motion": "the water sloshes from side to side, slow camera push in"
+   },
+   {
+    "name": "tender",
+    "at": "the#4",
+    "prompt": "close-up of a big black iron locomotive tender with riveted sides standing on rails, rain drops on the metal, grey light",
+    "check": "Is there a big black iron tender?",
+    "move": "pull",
+    "hit": "only#1"
+   },
+   {
+    "name": "fields",
+    "at": "you#1",
+    "prompt": "wide shot of green fields and hedges rushing past an open window, bright summer sunlight",
+    "check": "Are green fields seen through an open window?",
+    "move": "right",
+    "xfade": true
+   },
+   {
+    "name": "hand",
+    "at": "holding#1",
+    "prompt": "close-up, a child's hand held out of an open window with fingers spread in the rushing wind, blurred green fields behind, bright sunlight",
+    "check": "Is a hand held out of a window?",
+    "clip": true,
+    "motion": "the fingers ripple in the wind, slow camera push in"
+   },
+   {
+    "name": "wind",
+    "at": "car#1",
+    "prompt": "close-up, a smiling girl leaning out of an open window with her hair blown straight back by the wind, blurred fields, bright sunlight",
+    "check": "Is a girl's hair blown back by the wind?",
+    "clip": true,
+    "motion": "her hair streams back in the wind, slow camera push in"
+   },
+   {
+    "name": "rush",
+    "at": "faster#1",
+    "prompt": "low angle of a steam locomotive rushing straight toward the camera along a straight track, smoke streaming back, bright daylight, 1860s",
+    "check": "Is a steam locomotive rushing along a track?",
+    "move": "push"
+   },
+   {
+    "name": "experiment",
+    "at": "ramsbottom#2",
+    "who": "ramsbottom",
+    "prompt": "medium shot, an engineer pouring a bucket of water into a long wooden trough on a workshop floor, he is {ramsbottom}, tall windows, daylight",
+    "check": "Is a man pouring water into a trough?",
+    "clip": true,
+    "motion": "he tips the bucket and water pours out, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "scoop",
+    "at": "a#5",
+    "prompt": "extreme close-up of a curved iron scoop slicing fast through water in a trough, throwing up a sheet of spray, grey daylight",
+    "check": "Is a curved iron scoop slicing through water?",
+    "clip": true,
+    "motion": "the scoop cuts the water and spray flies up, slow camera push in"
+   },
+   {
+    "name": "pipe",
+    "at": "up#2",
+    "prompt": "close-up of a strong jet of water gushing out of the top of an iron pipe into a big iron tank, splashing, dim light",
+    "check": "Is water gushing out of an iron pipe?",
+    "clip": true,
+    "motion": "the water gushes and splashes into the tank, slow camera push in"
+   },
+   {
+    "name": "spray_wall",
+    "at": "at#2",
+    "prompt": "low angle of a steam locomotive thundering over a water trough throwing up a huge white wall of spray, green fields, cloudy sky, 1860s",
+    "check": "Is a locomotive throwing up a wall of spray?",
+    "clip": true,
+    "motion": "the spray billows up beside the wheels, slow camera push in",
+    "hit": "15#1"
+   },
+   {
+    "name": "smile",
+    "at": "reached#1",
+    "who": "ramsbottom",
+    "prompt": "close-up, an engineer smiling and nodding as he watches from beside the track, he is {ramsbottom}, cloudy daylight",
+    "check": "Is a man smiling and nodding?",
+    "clip": true,
+    "motion": "he smiles and nods slowly, slow camera push in"
+   },
+   {
+    "name": "gauge",
+    "at": "the#10",
+    "who": "fireman",
+    "prompt": "close-up, a fireman staring hard at a brass pointer on the side of a tender, he is {fireman}, wind blowing smoke past, grey light",
+    "check": "Is a man staring at a brass pointer?",
+    "clip": true,
+    "motion": "he narrows his eyes at the pointer, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "pointer",
+    "at": "water#5",
+    "prompt": "extreme close-up of a brass pointer slowly rising on a riveted iron tender side, water droplets, grey light",
+    "check": "Is there a brass pointer on an iron side?",
+    "move": "push"
+   },
+   {
+    "name": "crank",
+    "at": "if#1",
+    "who": "fireman",
+    "prompt": "medium shot, a fireman cranking a big iron wheel handle very fast in a locomotive cab, he is {fireman}, glowing firebox, orange light",
+    "check": "Is a man cranking a wheel handle?",
+    "clip": true,
+    "motion": "he spins the handle fast, slow camera push in"
+   },
+   {
+    "name": "burst",
+    "at": "water#6",
+    "prompt": "close-up of water fountaining out of the vents on top of a black tender, spraying everywhere, grey daylight",
+    "check": "Is water fountaining out of a tender?",
+    "clip": true,
+    "motion": "water bursts up and sprays out, slow camera push in",
+    "hit": "burst#1"
+   },
+   {
+    "name": "soaked",
+    "at": "soaked#1",
+    "who": "fireman",
+    "prompt": "medium shot, a dripping wet fireman wiping water from his face on a flooded locomotive footplate, he is {fireman}, grey light",
+    "check": "Is a wet man wiping his face?",
+    "clip": true,
+    "motion": "he wipes the water from his face, slow camera push in"
+   },
+   {
+    "name": "spray",
+    "at": "the#15",
+    "prompt": "wide shot of a long white cloud of spray billowing behind a speeding steam train along a straight track, 1860s, cloudy sky",
+    "check": "Is there a cloud of spray behind a train?",
+    "move": "left"
+   },
+   {
+    "name": "drench",
+    "at": "drench#1",
+    "who": "passenger",
+    "prompt": "close-up, a startled young woman gasping as water splashes through an open carriage window onto her, she is {passenger}, wooden carriage, grey light",
+    "check": "Is a woman gasping as water splashes on her?",
+    "clip": true,
+    "motion": "she flinches and gasps as the water splashes, slow camera push in"
+   },
+   {
+    "name": "guard",
+    "at": "so#1",
+    "who": "guard",
+    "prompt": "medium shot, a railway guard leaning into a carriage doorway and raising one finger in warning, he is {guard}, 1860s station platform, daylight",
+    "check": "Is a man raising one finger in warning?",
+    "clip": true,
+    "motion": "he wags his raised finger, slow camera push in"
+   },
+   {
+    "name": "window",
+    "at": "keep#1",
+    "prompt": "close-up, a gloved hand pushing a wooden carriage window shut, rain streaks on the glass, 1860s carriage, grey light",
+    "check": "Is a hand pushing a window shut?",
+    "clip": true,
+    "motion": "the hand slides the window closed, slow camera push in"
+   },
+   {
+    "name": "two_trains",
+    "at": "once#1",
+    "prompt": "wide shot of two steam trains passing each other on parallel tracks in a cloud of white spray, green countryside, 1860s",
+    "check": "Are two steam trains passing each other?",
+    "move": "right",
+    "xfade": true
+   },
+   {
+    "name": "coal",
+    "at": "the#19",
+    "prompt": "close-up of lumps of black coal flying through a burst of white spray beside a railway track, grey daylight",
+    "check": "Are lumps of black coal flying through spray?",
+    "clip": true,
+    "motion": "the coal lumps tumble through the spray, slow camera push in"
+   },
+   {
+    "name": "glass",
+    "at": "broke#1",
+    "prompt": "close-up of a shattered carriage window with cracked glass and water dripping down, wooden carriage, grey light",
+    "check": "Is there a shattered window?",
+    "move": "push",
+    "hit": "broke#1"
+   },
+   {
+    "name": "timetable",
+    "at": "the#21",
+    "who": "manager",
+    "prompt": "close-up, a stern railway manager crossing out a line on a big paper schedule with a quill pen at a desk, he is {manager}, oil lamp light",
+    "check": "Is a man writing with a quill pen?",
+    "clip": true,
+    "motion": "he strikes the line through with his quill, slow camera push in"
+   },
+   {
+    "name": "calm",
+    "at": "could#3",
+    "prompt": "wide shot of a single steam train gliding over a long water trough at sunset, gentle spray, golden light, 1860s",
+    "check": "Is a steam train passing over a water trough?",
+    "move": "pull"
+   }
+  ]
+ }
+}
