@@ -1,0 +1,80 @@
+{
+ "title": "Why Maya buried tiny ceramic spoons",
+ "channel": "Hidden Reasons",
+ "topic": "Why the ancient Maya buried their dead with tiny ceramic “spoons” (Mesoamerica, 600‑900 CE)",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A priest steadies a handful of tiny ceramic spoons over a fresh burial.",
+    "The clay cups glint like tiny moons in the dim light.",
+    "He whispers that each spoon carries a secret for the dead."
+   ]
+  },
+  {
+   "feel": "skepticism",
+   "lines": [
+    "His apprentices laugh, saying the dead don’t need kitchen tools.",
+    "One scoffs, \"What will a ghost eat?\"",
+    "Another rolls his eyes, shaking his head."
+   ]
+  },
+  {
+   "feel": "tension",
+   "lines": [
+    "The priest places each spoon beside the skull, the clay cool against the earth.",
+    "He slides a red powder into every tiny bowl.",
+    "The air smells faintly of metal and incense."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see how you tuck a favorite trinket into a loved one’s pocket for comfort.",
+    "It feels like a promise that something familiar travels with them."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "The real reason: the spoons held cinnabar, a bright red mercury sulfide.",
+    "Cinnabar was used in Maya funerary rites to feed the spirit’s journey.",
+    "Its vivid colour symbolized blood, life, and the after‑world."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "Because cinnabar is toxic, those tiny spoons turned every grave into a silent, centuries‑long warning.",
+    "Even centuries later, the poison still lingers in the soil."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "The Classic Period Maya used cinnabar (HgS) in decorative and ceremonial, including funerary, contexts.",
+   "url": "https://doi.org/10.3389/fenvs.2022.986119"
+  },
+  {
+   "claim": "Cinnabar was placed in burial contexts, suggesting it was a ritual offering to the dead.",
+   "url": "https://doi.org/10.3389/fenvs.2022.986119"
+  }
+ ],
+ "key_words": [
+  "ceramic spoons",
+  "cinnabar",
+  "funerary rites",
+  "toxic",
+  "Maya",
+  "burial"
+ ]
+}
