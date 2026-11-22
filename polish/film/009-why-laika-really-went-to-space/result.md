@@ -1,3 +1,3 @@
-# Accepted (checked 2026-11-22T10:00:22Z, answer by pull request #182 by FranklinMburu)
+# Video failed (try 1 of 3)
 
-Every check passed. The video is queued: the Film queue makes it automatically.
+The video failed this time (try 1 of 3; log: https://github.com/FranklinMburu/Autonomous-content-studio/actions/runs/45022369334). The queue will try again automatically in about 20 minutes.
