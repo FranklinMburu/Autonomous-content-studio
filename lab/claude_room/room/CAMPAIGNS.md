@@ -117,3 +117,11 @@ Abbreviations: YT = YouTube Shorts, TT = TikTok, IG = Instagram Reels, X = X/Twi
 - **Clipster:** $50 minimum, 5% fee.
 
 Sources: oakgen.ai/blog/gta-6-clipping-campaigns (19 Nov snapshot); contentrewards.com/articles/gta-6-clipping and /articles/get-paid-clip-streamers; clippingalpha.com (18-19 Nov); clyper.io/clipping-programs and /ishowspeed; gtaviclipper.com/board; clipspeed.ai; artae.ai/streamers/n3on; whop.com/gta6-clip-network; docs.whop.com Content Rewards doc.
+
+## Kai Cenat pool: rules read on the official rule sheet, 22 Nov 2026 18:55 Nairobi (signed in, joined)
+Rule sheet: https://docs.google.com/document/d/e/2PACX-1vQGh4gvrS4vs5YUVd3JHwGa3L5SaNhgEEuibOkRgs-iyCpPqDTWYBR1XRMZWlcWxbyaAtzgKYSDkz5i/pub
+- **Audience must be at least 50% from the US, CA, AU, UK or NZ.** (The earlier note "no audience-country rule" was WRONG.)
+- Our clips must reach **750K views in total** to share the pool; each clip needs 1K views to count; paid when the brand ends the pool.
+- Caption/overlay names Kai Cenat; hashtag #KAICENAT; Kai is the main focus; never negative; no logos; no reposting his own Shorts; no Japanese captions.
+- IntNext audience check: "Kai 4 MINUTES in Settings" (1,220 views) = Brazil 68%, Portugal 19%. Fails the 50% rule, so NOT submitted.
+- Decision: do not submit IntNext Kai clips to this pool until a Kai Short's audience is ≥50% US/UK/CA/AU/NZ. Shorts over 1K on 22 Nov (secrets1b 1,348; parrot 1,272) are not single-streamer clips, so no campaign fits them.
