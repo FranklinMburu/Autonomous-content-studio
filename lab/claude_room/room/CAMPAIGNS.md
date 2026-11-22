@@ -125,3 +125,8 @@ Rule sheet: https://docs.google.com/document/d/e/2PACX-1vQGh4gvrS4vs5YUVd3JHwGa3
 - Caption/overlay names Kai Cenat; hashtag #KAICENAT; Kai is the main focus; never negative; no logos; no reposting his own Shorts; no Japanese captions.
 - IntNext audience check: "Kai 4 MINUTES in Settings" (1,220 views) = Brazil 68%, Portugal 19%. Fails the 50% rule, so NOT submitted.
 - Decision: do not submit IntNext Kai clips to this pool until a Kai Short's audience is ≥50% US/UK/CA/AU/NZ. Shorts over 1K on 22 Nov (secrets1b 1,348; parrot 1,272) are not single-streamer clips, so no campaign fits them.
+
+## Vyro: checked signed in, 22 Nov 2026 19:00 Nairobi
+- No GTA VI campaign is listed any more (the "GTA VI YouTube Livestream" campaign is gone).
+- Only 7 campaigns, 5 of them "Locked for new posts". Open: "Ask the Dentist" ($1,400 per 1M views) and "The Drop: TikTok Edits" ($2,000 per 1M views). Neither fits IntNext.
+- Account setup still open: connect a social account, set up payouts.
