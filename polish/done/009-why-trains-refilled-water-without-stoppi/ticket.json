@@ -3,9 +3,10 @@
  "draft": "draft-009-why-trains-refilled-water-without-stoppi-run86",
  "episode": "episodes/hidden_reasons/009-why-trains-refilled-water-without-stoppi",
  "opened": "2026-11-19T05:26:03+00:00",
- "status": "making",
- "checked": "2026-11-22T19:59:57+00:00",
+ "status": "done",
+ "checked": "2026-11-22T21:40:44+00:00",
  "last_answer_by": "pull request #182 by FranklinMburu",
  "tries": 2,
- "started": "2026-11-22T19:59:57+00:00"
+ "started": "2026-11-22T19:59:57+00:00",
+ "video": "https://github.com/FranklinMburu/Autonomous-content-studio/releases/tag/film-009-why-trains-refilled-water-without-stoppi-run101"
 }
