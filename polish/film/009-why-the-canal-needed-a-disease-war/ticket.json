@@ -3,5 +3,9 @@
  "draft": "draft-009-why-the-canal-needed-a-disease-war-run88",
  "episode": "episodes/hidden_reasons/009-why-the-canal-needed-a-disease-war",
  "opened": "2026-11-19T18:07:43+00:00",
- "status": "waiting"
+ "status": "making",
+ "checked": "2026-11-22T09:56:23+00:00",
+ "last_answer_by": "pull request #182 by FranklinMburu",
+ "tries": 1,
+ "started": "2026-11-22T09:56:23+00:00"
 }
