@@ -13,7 +13,7 @@
     "lines": [
      "Yet Scott doubted that dogs were reliable.",
      "On his Discovery expedition, his dogs died of disease.",
-     "So Scott bet on motor sledges instead.",
+     "So Scott developed a tracked snow motor.",
      "But in 1909, he realised motors were unlikely to get him to the Pole.",
      "So he also took ponies, dogs and skis."
     ]
@@ -175,7 +175,7 @@
    },
    {
     "name": "motor",
-    "at": "bet#1",
+    "at": "developed#1",
     "who": "scott",
     "clip": true,
     "prompt": "medium shot, a man wiping oil off the steel caterpillar track of a boxy motor sledge in a snowy yard, he is {scott}, crisp morning light",
