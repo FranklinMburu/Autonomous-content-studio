@@ -1,0 +1,34 @@
+{
+ "off": 1795327237,
+ "a": 1795327237,
+ "b": 1795327250,
+ "views": 28,
+ "fan_titles": [
+  "28: Diag was at 70 stop capping chat"
+ ],
+ "fan_clip": "https://www.twitch.tv/summit1g/clip/SolidPlainOrangeRedCoat-Jh7owlPbZxckGrNv",
+ "file": "summit1g-03.mp4",
+ "section_start_in_vod": 1795327237,
+ "section_end_in_vod": 1795327250,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/summit1g/clips",
+ "stream_title": "fan clips",
+ "streamer_channel": "summit1g",
+ "words": [
+  {
+   "w": "for",
+   "s": 8.94,
+   "e": 9.4
+  },
+  {
+   "w": "testing",
+   "s": 9.4,
+   "e": 9.8
+  },
+  {
+   "w": "purposes.",
+   "s": 9.8,
+   "e": 10.3
+  }
+ ]
+}
