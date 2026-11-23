@@ -45,7 +45,7 @@
     "lines": [
      "Scott reached the meeting point three days early.",
      "The dog teams never came.",
-     "A blizzard stopped him 11 miles south of One Ton Depot."
+     "Scott, Wilson and Bowers were halted by a fierce blizzard, 11 miles south of One Ton Depot."
     ]
    },
    {
@@ -106,7 +106,7 @@
     "url": "https://en.wikipedia.org/wiki/Terra_Nova_Expedition"
    },
    {
-    "claim": "Scott, Wilson and Bowers struggled on to a point 11 miles south of One Ton Depot, but were halted by a fierce blizzard.",
+    "claim": "Scott, Wilson and Bowers struggled on to a point 11 miles (18 km) south of One Ton Depot, but were halted on 20 March, by a fierce blizzard.",
     "url": "https://en.wikipedia.org/wiki/Terra_Nova_Expedition"
    },
    {
@@ -378,8 +378,16 @@
     "check": "Is the snowy plain empty?"
    },
    {
+    "name": "huddle",
+    "at": "Wilson#1",
+    "clip": true,
+    "prompt": "medium shot, three exhausted men in frosted smocks huddling together inside a small sagging canvas tent, faint grey light",
+    "motion": "they shiver and lean closer, slow camera push in",
+    "check": "Are three men huddled in a tent?"
+   },
+   {
     "name": "blizzard",
-    "at": "A#3",
+    "at": "fierce#1",
     "clip": true,
     "hit": "blizzard#1",
     "prompt": "wide shot, a small green canvas tent battered by a fierce blizzard on an ice plain, snow whipping sideways, dim grey light",
