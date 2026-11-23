@@ -1,0 +1,102 @@
+{
+ "title": "Why the Royal Navy Painted Its Turrets Black",
+ "channel": "Hidden Reasons",
+ "topic": "Why the British Royal Navy painted its gun turrets black during the Crimean War (1854) to reduce glare at night",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "lines": [
+    "A Royal Navy sailor painted a gun turret black to cut blinding glare."
+   ],
+   "feel": "curiosity"
+  },
+  {
+   "lines": [
+    "Britain and France declare war on Russia in March 1854.",
+    "The Royal Navy sends ships into the Black Sea.",
+    "The sailor's gun crew faces Sevastopol's formidable batteries."
+   ],
+   "feel": "dread"
+  },
+  {
+   "lines": [
+    "The Crimean campaign opens in September 1854.",
+    "Ships sail in seven columns, each steamer towing two sailing ships.",
+    "British and French officers sail close in a paddle-wheel ship to check those batteries.",
+    "The sailor's fleet now uses steam ships, metal hulls, and explosive guns."
+   ],
+   "feel": "pressure"
+  },
+  {
+   "lines": [
+    "You see, it is like headlights sweeping your face at night.",
+    "That glare blinds you before you can see anything.",
+    "The Royal Navy wanted that glare gone from the sailor's turret."
+   ],
+   "feel": "recognition"
+  },
+  {
+   "lines": [
+    "The real reason: black paint absorbs light instead of reflecting it.",
+    "A pale turret would bounce light straight back at the gun crew.",
+    "Black turrets cut the glare around the gun crew."
+   ],
+   "feel": "clarity"
+  },
+  {
+   "lines": [
+    "The irony came in 1856.",
+    "The Treaty of Paris forbade Russia from basing warships in the Black Sea.",
+    "Russia could no longer block other warships from passing through.",
+    "A sailor changed a turret. The treaty rewrote the rules of that sea."
+   ],
+   "feel": "surprise"
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Britain and France declared war on Russia in March 1854, after Russia ignored an Anglo-French ultimatum to withdraw from the Danubian Principalities.",
+   "url": "https://en.wikipedia.org/wiki/Crimean_War"
+  },
+  {
+   "claim": "The Royal Navy operated in the Black Sea theatre, where Sevastopol's batteries were described as formidable and French and British officers inspected them from the paddle sloop Fury.",
+   "url": "https://en.wikipedia.org/wiki/Crimean_War"
+  },
+  {
+   "claim": "The Crimean campaign opened in September 1854, with ships sailing in seven columns and each steamer towing two sailing ships.",
+   "url": "https://en.wikipedia.org/wiki/Crimean_War"
+  },
+  {
+   "claim": "The Treaty of Paris, signed on 30 March 1856, forbade Russia from basing warships in the Black Sea and deprived Russia of its right to block warships from passing into the Black Sea.",
+   "url": "https://en.wikipedia.org/wiki/Crimean_War"
+  },
+  {
+   "claim": "Naval warfare was transformed by steam propulsion, metal ship construction, and explosive munitions.",
+   "url": "https://en.wikipedia.org/wiki/Royal_Navy"
+  },
+  {
+   "claim": "Source note: the provided sources do not document the black-painted gun turrets; that detail comes from the brief and is used here as the stated premise.",
+   "url": "https://en.wikipedia.org/wiki/Royal_Navy"
+  }
+ ],
+ "key_words": [
+  "turret",
+  "glare",
+  "paint",
+  "sailor",
+  "batteries",
+  "Sevastopol",
+  "Russia",
+  "warships",
+  "Treaty",
+  "headlights"
+ ]
+}
