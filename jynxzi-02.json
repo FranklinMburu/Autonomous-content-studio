@@ -1,0 +1,79 @@
+{
+ "off": 1795283570,
+ "a": 1795283570,
+ "b": 1795283580,
+ "views": 29,
+ "fan_titles": [
+  "29: crash out"
+ ],
+ "fan_clip": "https://www.twitch.tv/jynxzi/clip/WealthyDelightfulWormCmonBruh-DGIlgGjHfYhsijq3",
+ "file": "jynxzi-02.mp4",
+ "section_start_in_vod": 1795283570,
+ "section_end_in_vod": 1795283580,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/jynxzi/clips",
+ "stream_title": "fan clips",
+ "streamer_channel": "jynxzi",
+ "words": [
+  {
+   "w": "how",
+   "s": 3.92,
+   "e": 5.04
+  },
+  {
+   "w": "is",
+   "s": 6.58,
+   "e": 6.78
+  },
+  {
+   "w": "a",
+   "s": 6.78,
+   "e": 6.9
+  },
+  {
+   "w": "cargo",
+   "s": 6.9,
+   "e": 7.34
+  },
+  {
+   "w": "ship",
+   "s": 7.34,
+   "e": 7.84
+  },
+  {
+   "w": "not",
+   "s": 7.84,
+   "e": 8.56
+  },
+  {
+   "w": "a",
+   "s": 8.56,
+   "e": 8.74
+  },
+  {
+   "w": "boat",
+   "s": 8.74,
+   "e": 9.16
+  },
+  {
+   "w": "what",
+   "s": 9.16,
+   "e": 10.24
+  },
+  {
+   "w": "is",
+   "s": 10.24,
+   "e": 10.38
+  },
+  {
+   "w": "it",
+   "s": 10.38,
+   "e": 10.5
+  },
+  {
+   "w": "a",
+   "s": 10.5,
+   "e": 10.6
+  }
+ ]
+}
