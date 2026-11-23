@@ -1,0 +1,69 @@
+{
+ "off": 1795374665,
+ "a": 1795374665,
+ "b": 1795374673,
+ "views": 13,
+ "fan_titles": [
+  "13: GTA physics"
+ ],
+ "fan_clip": "https://www.twitch.tv/lirik/clip/HelpfulPuzzledRabbitRedCoat-q98elkVheCYrBMip",
+ "file": "lirik-05.mp4",
+ "section_start_in_vod": 1795374665,
+ "section_end_in_vod": 1795374673,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/lirik/clips",
+ "stream_title": "fan clips",
+ "streamer_channel": "lirik",
+ "words": [
+  {
+   "w": "Fuck",
+   "s": 2.86,
+   "e": 3.58
+  },
+  {
+   "w": "oh",
+   "s": 3.58,
+   "e": 4.56
+  },
+  {
+   "w": "my",
+   "s": 4.56,
+   "e": 4.74
+  },
+  {
+   "w": "dude.",
+   "s": 4.74,
+   "e": 5.1
+  },
+  {
+   "w": "What",
+   "s": 5.1,
+   "e": 5.38
+  },
+  {
+   "w": "is",
+   "s": 5.38,
+   "e": 5.58
+  },
+  {
+   "w": "that",
+   "s": 5.58,
+   "e": 5.8
+  },
+  {
+   "w": "air?",
+   "s": 5.8,
+   "e": 6.38
+  },
+  {
+   "w": "Are",
+   "s": 7.1,
+   "e": 7.82
+  },
+  {
+   "w": "you?",
+   "s": 7.82,
+   "e": 8.06
+  }
+ ]
+}
