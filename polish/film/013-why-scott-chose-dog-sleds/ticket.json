@@ -3,5 +3,7 @@
  "draft": "draft-013-why-scott-chose-dog-sleds-run94",
  "episode": "episodes/hidden_reasons/013-why-scott-chose-dog-sleds",
  "opened": "2026-11-20T21:25:34+00:00",
- "status": "waiting"
+ "status": "needs-fix",
+ "checked": "2026-11-23T09:54:44+00:00",
+ "last_answer_by": "pull request #190 by FranklinMburu"
 }
