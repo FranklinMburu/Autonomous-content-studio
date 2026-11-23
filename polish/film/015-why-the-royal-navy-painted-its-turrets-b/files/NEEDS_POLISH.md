@@ -7,4 +7,3 @@ Problems left by the free models (the copy-paste polish fixes them):
 - script: not supported by the sources, fix or remove: Black turrets cut the glare around the gun crew.
 - script: not supported by the sources, fix or remove: The irony came in 1856.
 - script: not supported by the sources, fix or remove: A sailor changed a turret.
-- the free models could not write the shots for part 5
