@@ -3,9 +3,10 @@
  "draft": "draft-014-why-three-quarters-of-french-troops-fell-run101",
  "episode": "episodes/hidden_reasons/014-why-three-quarters-of-french-troops-fell",
  "opened": "2026-11-22T06:10:31+00:00",
- "status": "accepted",
- "checked": "2026-11-23T09:57:53+00:00",
+ "status": "done",
+ "checked": "2026-11-23T11:35:25+00:00",
  "last_answer_by": "pull request #190 by FranklinMburu",
- "tries": 0,
- "started": "2026-11-23T09:55:43+00:00"
+ "tries": 1,
+ "started": "2026-11-23T09:55:43+00:00",
+ "video": "https://github.com/FranklinMburu/Autonomous-content-studio/releases/tag/film-014-why-three-quarters-of-french-troops-fell-run105"
 }
