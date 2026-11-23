@@ -132,3 +132,12 @@ Run 2 (43331217075, commit f8f4cdd): exact key + AI eyes + AI judge. Read its lo
   `clips-posters.yml` backfilled the old ones). Live only after the PR is merged into main (Pages publishes from main;
   workflow_dispatch needs the workflow on main).
 - Notion: "How the studio works, end to end (13 Nov 2026)" under YouTube Creator Studio.
+
+## 23 Nov (Clipping improver): unanswered candidates keep a place
+
+- Candidates the judge never answered (429s, quota) used to vanish from the ranking. Now they keep their signal second,
+  scored at the 25th percentile of the answered scores (`recall.py --cands`, `find.py pick --cands`, tagged `unjudged`;
+  the Shorts editor and reviewer still watch them before anything is cut). Zero AI calls to measure.
+- Party (Gemma judge, 28 of 73 answered; run 45159255846): strict top 20 1/12 -> 3/12 (52% -> 55% of views), strict
+  top 60 1/12 -> 5/12 (69%), strict top 10 unchanged 1/12. Japan (Flash; run 45159255578): identical (4/10, 7/10).
+  Median imputation (p50) was worse: party strict top 10 fell to 0/12.

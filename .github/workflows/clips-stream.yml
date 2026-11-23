@@ -145,7 +145,7 @@ jobs:
           python lab/clips/ai_pass.py judge --cands f/cands.json --words f/words.json --eyes f/eyes.json --video f/low.mp4 --audio f/audio.m4a \
             --streamer "$(jq -r .streamer lab/clips/stream_job.json)" --out f/judged.json --pause 5
           echo "judge $(( $(date +%s)-s0 )) s"
-          python lab/clips/find.py pick --judged f/judged.json --top "$(jq -r .top lab/clips/stream_job.json)" --out f/moments.json
+          python lab/clips/find.py pick --judged f/judged.json --cands f/cands.json --top "$(jq -r .top lab/clips/stream_job.json)" --out f/moments.json
       - id: out
         run: |
           python3 - <<'PY'
