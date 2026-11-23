@@ -59,3 +59,9 @@ Numbers 08:55: secrets1b 1,353; parrot 1,273; Kai settings 1,220; kai-R3 "HOUR 0
 Footage hunt claude-clips/money-1123 → footage/m4-* (16 Twitch channels, fan clips since 21 Nov 06:00 UTC, money/secret/NPC/crash titles): 10 channels returned 21 clips, all with 1-232 fan views (Kai's only match was a strip-club clip: hard no).
 Built cash1 (F2, lirik-01: Lirik rides into a manure field to lose 3 stars, gets rear-ended on the road, HUD cash $5,290 → $2,820, WASTED; spec specs/cash1.spec.json, storyshort.py). Independent critic: gate 15/15 (with caveats), overall 5.5/10, FIX with a ceiling of ~7-7.5 (no cop ever on screen, random car, weak name for our audience, frame 0 is plain mud riding). Odds: >1K 20%, >10K 3%, >100K <0.5%. Not uploaded, not pushed to shorts/sc.
 Built-in browser went offline mid-run (after the Studio check and trend scout).
+
+## 23 Nov 11:23 run (fired 11:26 Nairobi): nothing uploaded (no candidate reached the gate)
+Studio content list checked 11:28: 20 Shorts, newest still kai-C3r; 0 uploads in the last 24 h. Numbers unchanged since 08:55 (secrets1b 1,355; parrot 1,273; Kai settings 1,220; kai-R3 1,050; agent00 jail 85; others 1-21).
+Footage hunt claude-clips/top-1123b → footage/t5-* (8 Twitch channels, most-viewed fan clips since 22 Nov 06:00 UTC, no title filter): Kai 0 clips in the window; Lacy 61% save screen (1.9K fan views; already 31K/29K/11K Shorts → gate 15 fail); Summit1g/Zack/Jynxzi off GTA 6 (WoW, talk, football). Nothing built, so no critic pass.
+Laptop helper: info job for IShowSpeed's 22 Nov Easter-egg VOD (izXcd-bU72k, 9.6M views) returned no heatmap yet (release asset info-speed-easter-1122.info.json).
+
