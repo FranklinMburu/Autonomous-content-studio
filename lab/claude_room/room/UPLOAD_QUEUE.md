@@ -9,3 +9,4 @@ Method notes: click the title box once (real click) before the execCommand fill;
 | - | k03 (kid watches streamers) | held | self-score 6, needs a fix |
 # k04 was uploaded by the 21 Nov 11:23 run (scheduled 21 Nov). Do not upload it again.
 # 22 Nov 11:23 run: nothing added. bigfoot1 KILLED by the critic (5.0/10). Queue unchanged (dog-L1 held, k07 needs a critic pass, k03 held).
+# 23 Nov 08:51 run: nothing added. cash1 (Lirik manure field → -$2,470) held: critic 5.5/10, ceiling ~7.5 even with fixes (specs/cash1.spec.json). Queue unchanged.

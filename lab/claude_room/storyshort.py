@@ -56,9 +56,13 @@ def main(spec_path):
     drop = set(s.get("drop_words", []))
     rep = s.get("replace", {})
     for n, g in enumerate(s["segments"]):
-        h = g.get("h", sh); w = round(h * 9 / 16 / 2) * 2
+        h = g.get("h", sh); w = g.get("w") or round(h * 9 / 16 / 2) * 2
         x = max(0, min(sw - w, g["cx"] - w // 2)); y = max(0, min(sh - h, g.get("cy", 0)))
-        vf = f"crop={w}:{h}:{x}:{y},scale={W}:{H}:flags=lanczos,unsharp=5:5:0.5:5:5:0.0,fps=30,format=yuv420p,setsar=1"
+        if g.get("w"):   # 23 Nov: a wider crop (e.g. to fit the WASTED text), fit to width, thin black bars top/bottom
+            vf = (f"crop={w}:{h}:{x}:{y},scale={W}:-2:flags=lanczos,pad={W}:{H}:(ow-iw)/2:(oh-ih)/2:black,"
+                  "unsharp=5:5:0.5:5:5:0.0,fps=30,format=yuv420p,setsar=1")
+        else:
+            vf = f"crop={w}:{h}:{x}:{y},scale={W}:{H}:flags=lanczos,unsharp=5:5:0.5:5:5:0.0,fps=30,format=yuv420p,setsar=1"
         if g.get("vf"):
             vf += "," + g["vf"]
         p = tmp / f"p{n}.mp4"
@@ -108,7 +112,7 @@ def main(spec_path):
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy", str(joined)], check=True)
     ovs = []
     if s.get("label"):
-        L = s["label"]; png = tmp / "label.png"; box_png(L["text"], png, L.get("y", 215), L.get("size", 64)); ovs.append((png, L["at"], L["dur"]))
+        L = s["label"]; png = tmp / "label.png"; box_png(L["text"], png, L.get("y", 215), L.get("size", 64), fg=tuple(L.get("fg", (255, 255, 255)))); ovs.append((png, L["at"], L["dur"]))
     for i, c in enumerate(s.get("chips", [])):
         png = tmp / f"chip{i}.png"
         box_png(c["text"], png, c["y"], c.get("size", 54), bg=tuple(c.get("bg", (0, 0, 0, 220))), fg=tuple(c.get("fg", (255, 255, 255))))
