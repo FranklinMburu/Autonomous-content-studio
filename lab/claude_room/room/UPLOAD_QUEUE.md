@@ -11,3 +11,4 @@ Method notes: click the title box once (real click) before the execCommand fill;
 # 22 Nov 11:23 run: nothing added. bigfoot1 KILLED by the critic (5.0/10). Queue unchanged (dog-L1 held, k07 needs a critic pass, k03 held).
 # 23 Nov 08:51 run: nothing added. cash1 (Lirik manure field → -$2,470) held: critic 5.5/10, ceiling ~7.5 even with fixes (specs/cash1.spec.json). Queue unchanged.
 # 23 Nov 11:26 run: nothing added (no footage cleared the bar). Queue unchanged. Next candidate: F4 Speed Easter-egg list (needs heatmap timestamps).
+# 24 Nov 00:22 run: nothing added (desktop offline). Blueprint item #1 (Kai settings list) KILLED at concept stage (critic 4/10). Queue unchanged. Next: Speed Easter-egg F4 list once info-speed-easter-1124 returns a heatmap.
