@@ -143,6 +143,23 @@ def pick(a):
             ok.append((float(m["score"]), float(m["t"]), m))
         except (TypeError, ValueError, KeyError):
             pass
+    # 23 Nov (Clipping Lab): candidates the judge never answered (429, quota) used to vanish. With --cands they keep a
+    # place at a percentile of the answered scores, tagged unjudged and ranked after judged picks of the same score.
+    if getattr(a, "cands", None) and Path(a.cands).exists() and ok:
+        answered = set()
+        for m in judged:
+            for k in ("t_cand", "t"):
+                try:
+                    answered.add(int(float(m[k])))
+                except (TypeError, ValueError, KeyError):
+                    pass
+        given = [int(float(c["t"])) for c in json.loads(Path(a.cands).read_text())]
+        lost = [t for t in given if all(abs(t - u) > 1 for u in answered)]
+        sc_sorted = sorted(x[0] for x in ok)
+        fill = sc_sorted[min(len(sc_sorted) - 1, int(len(sc_sorted) * a.fill_pct / 100))]
+        print(f"judge answered {len(given) - len(lost)} of {len(given)} candidates; {len(lost)} unanswered kept at {fill:.2f}")
+        ok += [(fill - 1e-6, float(t), {"t": t, "title": "", "kind": "unjudged", "why": "no judge answer; strong signal", "unjudged": True})
+               for t in lost]
     ok.sort(key=lambda x: (-x[0], x[1]))
     keep = []
     for sc, t, m in ok:
@@ -150,7 +167,7 @@ def pick(a):
             break
         if all(abs(t - k["t"]) >= a.gap for k in keep) and not any(same_story(m.get("title") or "", k["title"]) for k in keep):
             keep.append({"t": int(t), "title": m.get("title") or "", "why": f"judge {m.get('score_alone', sc)}; {m.get('kind') or ''}: {(m.get('why') or '')[:200]}",
-                         "score": round(sc, 2)})
+                         "score": round(sc, 2), **({"unjudged": True} if m.get("unjudged") else {})})
     Path(a.out).write_text(json.dumps(keep, indent=1, ensure_ascii=False))
     print(f"moments chosen: {len(keep)}")
     for k in keep:
@@ -165,6 +182,8 @@ def main():
     s = sub.add_parser("subs"); s.add_argument("--stream", required=True); s.add_argument("--out", required=True)
     p = sub.add_parser("pick"); p.add_argument("--judged", required=True); p.add_argument("--out", required=True)
     p.add_argument("--top", type=int, default=12); p.add_argument("--gap", type=float, default=60); p.add_argument("--min-score", type=float, default=0)
+    p.add_argument("--cands", help="23 Nov: the candidates given to the judge; unanswered ones keep a place (tagged unjudged)")
+    p.add_argument("--fill-pct", type=float, default=25, help="percentile of the answered scores given to unanswered candidates")
     a = ap.parse_args()
     {"resolve": resolve, "subs": subs, "pick": pick}[a.cmd](a)
 
