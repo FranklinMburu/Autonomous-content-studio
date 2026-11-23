@@ -236,6 +236,9 @@ def judge(a):
                     m["t_cand"], m["t"] = m["t"], round(float(m["peak"]), 1)
             except (TypeError, ValueError):
                 pass
+        if len(batch) == 1:   # 23 Nov: record which candidate was answered from the batch, not from the model's echo
+            for m in got:
+                m["t_cand"] = batch[0]["t"]
         time.sleep(a.pause)
         return got
 

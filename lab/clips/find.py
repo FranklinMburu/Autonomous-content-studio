@@ -166,7 +166,7 @@ def pick(a):
         if sc < a.min_score or len(keep) >= a.top:
             break
         if all(abs(t - k["t"]) >= a.gap for k in keep) and not any(same_story(m.get("title") or "", k["title"]) for k in keep):
-            keep.append({"t": int(t), "title": m.get("title") or "", "why": f"judge {m.get('score_alone', sc)}; {m.get('kind') or ''}: {(m.get('why') or '')[:200]}",
+            keep.append({"t": int(t), "title": m.get("title") or "", "why": f"judge {m.get('score_alone', round(sc, 2))}; {m.get('kind') or ''}: {(m.get('why') or '')[:200]}",
                          "score": round(sc, 2), **({"unjudged": True} if m.get("unjudged") else {})})
     Path(a.out).write_text(json.dumps(keep, indent=1, ensure_ascii=False))
     print(f"moments chosen: {len(keep)}")
