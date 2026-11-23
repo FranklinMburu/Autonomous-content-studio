@@ -1,0 +1,44 @@
+{
+ "off": 1795387033,
+ "a": 1795387033,
+ "b": 1795387067,
+ "views": 1886,
+ "fan_titles": [
+  "1886: wwwwww"
+ ],
+ "fan_clip": "https://www.twitch.tv/lacy/clip/CloudyJoyousAlmondBibleThump--4P8K4-5MiTiWMjA",
+ "file": "lacy-01.mp4",
+ "section_start_in_vod": 1795387033,
+ "section_end_in_vod": 1795387067,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/lacy/clips",
+ "stream_title": "fan clips",
+ "streamer_channel": "lacy",
+ "words": [
+  {
+   "w": "SIXTY",
+   "s": 11.38,
+   "e": 12.1
+  },
+  {
+   "w": "-ONE",
+   "s": 12.1,
+   "e": 12.52
+  },
+  {
+   "w": "PERCENT!",
+   "s": 12.52,
+   "e": 13.32
+  },
+  {
+   "w": "Ten",
+   "s": 13.72,
+   "e": 14.08
+  },
+  {
+   "w": "percent!",
+   "s": 30.43,
+   "e": 30.91
+  }
+ ]
+}

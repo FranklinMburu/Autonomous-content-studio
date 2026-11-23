@@ -1,0 +1,69 @@
+{
+ "off": 1795330250,
+ "a": 1795330250,
+ "b": 1795330255,
+ "views": 1576,
+ "fan_titles": [
+  "1576: ......."
+ ],
+ "fan_clip": "https://www.twitch.tv/lacy/clip/DiligentPlayfulRadicchioWoofer--ulqfTSwEUbNj7RQ",
+ "file": "lacy-02.mp4",
+ "section_start_in_vod": 1795330250,
+ "section_end_in_vod": 1795330255,
+ "fan_moment_in_section": 0,
+ "vod_page": "https://www.twitch.tv/lacy/clips",
+ "stream_title": "fan clips",
+ "streamer_channel": "lacy",
+ "words": [
+  {
+   "w": "Look",
+   "s": 0.0,
+   "e": 0.0
+  },
+  {
+   "w": "at",
+   "s": 0.0,
+   "e": 0.06
+  },
+  {
+   "w": "that,",
+   "s": 0.06,
+   "e": 0.3
+  },
+  {
+   "w": "did",
+   "s": 3.37,
+   "e": 3.55
+  },
+  {
+   "w": "y",
+   "s": 3.55,
+   "e": 3.63
+  },
+  {
+   "w": "'all",
+   "s": 3.63,
+   "e": 3.69
+  },
+  {
+   "w": "see",
+   "s": 3.69,
+   "e": 3.83
+  },
+  {
+   "w": "my",
+   "s": 3.83,
+   "e": 4.03
+  },
+  {
+   "w": "crackers",
+   "s": 4.03,
+   "e": 4.43
+  },
+  {
+   "w": "now?",
+   "s": 4.43,
+   "e": 4.69
+  }
+ ]
+}
