@@ -16,8 +16,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - name: kai2
-            args: twitch --vod https://www.twitch.tv/videos/2932305259 --channel kaicenat --from-s 36000 --to-s 200000 --top 12 --use-clips
+          - name: sp-1124
+            args: sp-
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -32,7 +32,9 @@ jobs:
           for i in 1 2; do timeout 180 sh -c 'sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg > /dev/null' && break; done
           pip install -q "yt-dlp==2026.10.26" faster-whisper
       - name: Fetch
-        run: python lab/claude_clips/fetch.py ${{ matrix.args }} --out out
+        run: python lab/claude_clips/words_assets.py ${{ matrix.args }}
+        env:
+          GH_TOKEN: ${{ github.token }}
       - name: Footage to branch footage/<name> (Claude's workspace reads git only)
         run: |
           cd out && for f in *.mp4; do [ $(stat -c%s "$f") -gt 95000000 ] && ffmpeg -v error -y -i "$f" -c:v libx264 -preset veryfast -crf 24 -maxrate 4M -bufsize 8M -c:a copy "s_$f" && mv "s_$f" "$f"; done; ls -la
