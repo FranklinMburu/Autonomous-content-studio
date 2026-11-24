@@ -12,3 +12,4 @@ Method notes: click the title box once (real click) before the execCommand fill;
 # 23 Nov 08:51 run: nothing added. cash1 (Lirik manure field → -$2,470) held: critic 5.5/10, ceiling ~7.5 even with fixes (specs/cash1.spec.json). Queue unchanged.
 # 23 Nov 11:26 run: nothing added (no footage cleared the bar). Queue unchanged. Next candidate: F4 Speed Easter-egg list (needs heatmap timestamps).
 # 24 Nov 00:22 run: nothing added (desktop offline). Blueprint item #1 (Kai settings list) KILLED at concept stage (critic 4/10). Queue unchanged. Next: Speed Easter-egg F4 list once info-speed-easter-1124 returns a heatmap.
+# 24 Nov 11:26 run: nothing added. alien1 KILLED by the critic (gate 5/15, 5.0/10). Queue unchanged. Next: alien Easter-egg HOW-TO (code 1342 + raw milk, Speed's run as receipts) once sp-alien-steps arrives.
