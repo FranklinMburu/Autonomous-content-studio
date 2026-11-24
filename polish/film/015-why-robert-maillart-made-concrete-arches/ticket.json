@@ -3,5 +3,8 @@
  "draft": "draft-015-why-robert-maillart-made-concrete-arches-run111",
  "episode": "episodes/hidden_reasons/015-why-robert-maillart-made-concrete-arches",
  "opened": "2026-11-24T06:30:46+00:00",
- "status": "waiting"
+ "status": "accepted",
+ "checked": "2026-11-24T09:54:39+00:00",
+ "last_answer_by": "pull request #197 by FranklinMburu",
+ "tries": 0
 }

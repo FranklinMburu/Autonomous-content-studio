@@ -1,0 +1,437 @@
+{
+ "script": {
+  "title": "Why Robert Maillart Made Concrete Arches Hollow",
+  "beats": [
+   {
+    "feel": "curiosity",
+    "lines": [
+     "An engineer walked out across his new concrete bridge to test it."
+    ]
+   },
+   {
+    "feel": "doubt",
+    "lines": [
+     "Robert Maillart rarely tested his bridges before building them.",
+     "He often tested them by crossing them himself."
+    ]
+   },
+   {
+    "feel": "tension",
+    "lines": [
+     "Other engineers trusted mathematics.",
+     "German engineers built elaborate math methods and felt they needed no real load tests.",
+     "But that math could not fully analyze unusual shapes."
+    ]
+   },
+   {
+    "feel": "sadness",
+    "lines": [
+     "Then Maillart lost everything.",
+     "World War One caught him and his family in Russia.",
+     "In 1916, his wife died.",
+     "In 1917, the revolution took his projects.",
+     "He came home to Switzerland penniless and deep in debt."
+    ]
+   },
+   {
+    "feel": "hope",
+    "lines": [
+     "But his best designs were still to come.",
+     "Maillart stood back and used common sense.",
+     "He joined the road deck and the arch into one thin piece of reinforced concrete.",
+     "Concrete took the squeezing. Steel bars took the pulling.",
+     "And his hollow box technique could cross large spans."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like an empty cardboard box, light, but hard to twist."
+    ]
+   },
+   {
+    "feel": "pride",
+    "lines": [
+     "His Salginatobel bridge design was picked from among 19 entrants, partly for its low cost."
+    ]
+   },
+   {
+    "feel": "surprise",
+    "lines": [
+     "In 2001, a British trade journal voted it the most beautiful bridge of the century."
+    ]
+   }
+  ],
+  "key_words": [
+   "crossing",
+   "mathematics",
+   "unusual shapes",
+   "penniless",
+   "common sense",
+   "hollow box technique",
+   "cardboard box",
+   "19 entrants",
+   "most beautiful bridge"
+  ],
+  "claims": [
+   {
+    "claim": "Maillart rarely tested his bridges prior to construction; only upon completion would he verify the bridge was adequate, and he often tested his bridges by crossing them himself.",
+    "url": "https://en.wikipedia.org/wiki/Robert_Maillart"
+   },
+   {
+    "claim": "German engineers had developed elaborate mathematical techniques and were confident they did not need practical load tests; those techniques did not encourage unusual shapes because such shapes could not be completely analyzed.",
+    "url": "https://en.wikipedia.org/wiki/Robert_Maillart"
+   },
+   {
+    "claim": "A traditional method prior to the 1900s was to use shapes that could be analyzed easily using mathematics; this overuse of mathematics annoyed Maillart.",
+    "url": "https://en.wikipedia.org/wiki/Robert_Maillart"
+   },
+   {
+    "claim": "Maillart was caught in Russia with his family by World War I; in 1916 his wife died, and in 1917 the revolution caused him to lose his projects; he returned to Switzerland penniless and heavily in debt, but the best of his designs were still to come.",
+    "url": "https://en.wikipedia.org/wiki/Robert_Maillart"
+   },
+   {
+    "claim": "Maillart preferred to stand back and use common sense to predict full-scale performance.",
+    "url": "https://en.wikipedia.org/wiki/Robert_Maillart"
+   },
+   {
+    "claim": "Maillart designed arches in which the deck and the arch ribs were combined into closely integrated structures of very thin reinforced concrete.",
+    "url": "https://en.wikipedia.org/wiki/Robert_Maillart"
+   },
+   {
+    "claim": "In reinforced concrete, the concrete carried compressive forces while steel bars carried the tension forces.",
+    "url": "https://en.wikipedia.org/wiki/Robert_Maillart"
+   },
+   {
+    "claim": "Maillart's hollow-box technique is used to overcome large spans.",
+    "url": "https://doi.org/10.5216/reec.v15i1.51419"
+   },
+   {
+    "claim": "A box girder forms an enclosed tube with multiple walls and better resists torsion than an I-beam.",
+    "url": "https://en.wikipedia.org/wiki/Box_girder"
+   },
+   {
+    "claim": "Maillart's Salginatobel design was selected from among 19 entrants in a design competition in part because of the low cost of his proposal.",
+    "url": "https://en.wikipedia.org/wiki/Robert_Maillart"
+   },
+   {
+    "claim": "In 2001 the British trade journal Bridge - Design and Engineering voted Maillart's Salginatobel Bridge the most beautiful bridge of the century.",
+    "url": "https://en.wikipedia.org/wiki/Robert_Maillart"
+   }
+  ]
+ },
+ "film": {
+  "era": "1920s",
+  "cast": {
+   "maillart": "a 48 year old Swiss civil engineer, tall and thin, a narrow sun-lined face with deep-set brown eyes, short dark brown hair parted on the side, small round wire spectacles, clean shaven, wearing a dark olive green three-piece suit with a white shirt and a burgundy tie, 1920s",
+   "wife": "a 40 year old Swiss woman, slender, a gentle pale heart-shaped face, light auburn hair in a low bun, wearing a long dusty rose wool dress with a cream lace collar, 1910s",
+   "german": "a 60 year old German engineering professor, heavy build, a bald head with a grey fringe, a full square grey beard, gold pince-nez glasses, wearing a black frock coat with a stiff high white collar, 1910s",
+   "worker": "a 25 year old Swiss construction worker, lanky, a freckled face, straw blond hair under a flat grey wool cap, wearing a rust red work shirt with rolled sleeves and grey canvas trousers with braces, 1920s"
+  },
+  "key_words": [
+   "test",
+   "crossing",
+   "mathematics",
+   "unusual shapes",
+   "penniless",
+   "common sense",
+   "hollow box technique",
+   "cardboard box",
+   "19 entrants",
+   "most beautiful bridge"
+  ],
+  "music": "curious",
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "who": "maillart",
+    "prompt": "medium shot, a thin man in spectacles stepping slowly across a slender new concrete arch bridge high over a mountain gorge, he is {maillart}, Swiss Alps, bright morning light",
+    "check": "Is a man walking on a bridge?",
+    "clip": true,
+    "motion": "he takes one slow careful step forward, slow camera push in"
+   },
+   {
+    "name": "gorge",
+    "at": "concrete#1",
+    "prompt": "low angle of a thin pale concrete arch bridge spanning a deep rocky mountain gorge, pine forest on the cliffs, morning sun",
+    "check": "Is there a concrete arch bridge?",
+    "move": "up"
+   },
+   {
+    "name": "looks_down",
+    "at": "Robert#1",
+    "who": "maillart",
+    "prompt": "close-up, a thin man in spectacles looking down at the concrete road under his feet, he is {maillart}, on a bridge high in the Swiss Alps, morning light",
+    "check": "Is a man in spectacles looking down?",
+    "clip": true,
+    "motion": "he glances down and frowns thoughtfully, slow camera push in"
+   },
+   {
+    "name": "pouring",
+    "at": "building#1",
+    "prompt": "wide shot, workers tipping buckets of wet concrete into wooden forms on tall timber scaffolding over a mountain gorge, 1920s, hazy daylight",
+    "check": "Are workers pouring concrete?",
+    "clip": true,
+    "motion": "the workers tip the buckets slowly, slow camera pan right"
+   },
+   {
+    "name": "shoes",
+    "at": "crossing#1",
+    "prompt": "close-up of a man's polished brown leather shoes stepping onto a pale concrete bridge deck, olive green trouser cuffs, mountain sunlight",
+    "check": "Are shoes stepping on concrete?",
+    "clip": true,
+    "motion": "one shoe presses down onto the deck, slow camera push in",
+    "hit": "himself#1"
+   },
+   {
+    "name": "desk",
+    "at": "Other#1",
+    "prompt": "medium shot, engineers in dark suits bent over a big desk covered with stacks of papers and slide rules, a 1910s drawing office, grey window light",
+    "check": "Are men bent over a desk?",
+    "clip": true,
+    "motion": "one engineer turns a page, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "pencil",
+    "at": "German#1",
+    "who": "german",
+    "prompt": "close-up, a bald bearded professor tapping a pencil on a thick stack of papers at a lecture desk, he is {german}, a 1910s German lecture hall, lamp light",
+    "check": "Is a man tapping a pencil?",
+    "clip": true,
+    "motion": "he taps the pencil firmly, slow camera push in"
+   },
+   {
+    "name": "weights",
+    "at": "felt#1",
+    "prompt": "close-up of a pile of dusty unused iron weights in the corner of a dim workshop, cobwebs, a shaft of grey light",
+    "check": "Are there dusty iron weights?",
+    "move": "push"
+   },
+   {
+    "name": "shakes_head",
+    "at": "But#1",
+    "who": "german",
+    "prompt": "medium shot, a bald bearded professor shaking his head and pushing away a large drawing of a curved arch, he is {german}, a wood-panelled office, lamp light",
+    "check": "Is a man shaking his head?",
+    "clip": true,
+    "motion": "he shakes his head and pushes the drawing away, slow camera push in"
+   },
+   {
+    "name": "model",
+    "at": "analyze#1",
+    "prompt": "close-up of a strange thin curved white plaster arch model standing on a wooden table, warm lamp light",
+    "check": "Is there a curved arch model?",
+    "move": "push"
+   },
+   {
+    "name": "window",
+    "at": "Then#1",
+    "who": "maillart",
+    "prompt": "close-up, a man in spectacles staring blankly out of a frosted window, he is {maillart}, a cold dim room, grey winter light",
+    "check": "Is a man staring out a window?",
+    "clip": true,
+    "motion": "he lowers his eyes slowly, slow camera push in",
+    "xfade": true,
+    "hit": "everything#1"
+   },
+   {
+    "name": "family",
+    "at": "World#1",
+    "prompt": "medium shot, a woman and three small children huddled together in winter coats on a snowy railway platform, falling snow, grey 1910s light",
+    "check": "Are children huddled on a snowy platform?",
+    "clip": true,
+    "motion": "snow falls and the children press closer to her, slow camera push in"
+   },
+   {
+    "name": "russia",
+    "at": "family#1",
+    "prompt": "wide shot of a snowy 1910s Russian city with golden onion domes and a horse sleigh in the street, grey winter light",
+    "check": "Are there onion domes?",
+    "move": "left"
+   },
+   {
+    "name": "wife",
+    "at": "1916#1",
+    "who": "wife",
+    "prompt": "close-up, a pale woman lying ill in a bed with her eyes closed, she is {wife}, a dim candlelit bedroom, 1910s",
+    "check": "Is a woman lying in bed?",
+    "clip": true,
+    "motion": "her chest rises slowly, the candle flickers, slow camera push in"
+   },
+   {
+    "name": "factory",
+    "at": "1917#1",
+    "prompt": "wide shot of an empty half-built brick factory with abandoned cranes standing in deep snow, grey sky, 1910s",
+    "check": "Is there an abandoned factory?",
+    "move": "right"
+   },
+   {
+    "name": "suitcase",
+    "at": "He#2",
+    "who": "maillart",
+    "prompt": "medium shot, a tired thin man holding a worn brown suitcase on a small Swiss railway platform, he is {maillart}, a steam train behind him, cloudy daylight",
+    "check": "Is a man holding a suitcase?",
+    "clip": true,
+    "motion": "he sets the suitcase down slowly, slow camera push in"
+   },
+   {
+    "name": "wallet",
+    "at": "penniless#1",
+    "prompt": "close-up of an empty open brown leather wallet lying on a bare wooden table, a single candle, dark room",
+    "check": "Is there an empty wallet?",
+    "move": "push",
+    "hit": "debt#1"
+   },
+   {
+    "name": "sketch",
+    "at": "But#2",
+    "who": "maillart",
+    "prompt": "medium shot, a thin man in spectacles sketching a curved bridge with a pencil at a wooden drafting table, he is {maillart}, a sunny 1920s Geneva office",
+    "check": "Is a man sketching at a table?",
+    "clip": true,
+    "motion": "his pencil moves across the paper, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "looks_gorge",
+    "at": "Maillart#3",
+    "who": "maillart",
+    "prompt": "wide shot, a thin man standing on a grassy slope with arms folded, looking across a deep mountain gorge, he is {maillart}, Swiss Alps, soft afternoon light",
+    "check": "Is a man looking across a gorge?",
+    "clip": true,
+    "motion": "he folds his arms and tilts his head, slow camera push in"
+   },
+   {
+    "name": "points_arch",
+    "at": "He#3",
+    "who": "maillart",
+    "prompt": "medium shot, a thin man in spectacles pointing up at a curved concrete arch under construction, he is {maillart}, a mountain bridge site, bright daylight",
+    "check": "Is a man pointing up at an arch?",
+    "clip": true,
+    "motion": "he raises his arm and points up, slow camera push in"
+   },
+   {
+    "name": "deck_arch",
+    "at": "arch#1",
+    "prompt": "close-up of a slender concrete arch rising up to meet a flat bridge road in one smooth curve, mountain sky, bright light",
+    "check": "Is there a concrete arch?",
+    "move": "up"
+   },
+   {
+    "name": "rebar",
+    "at": "piece#1",
+    "who": "worker",
+    "prompt": "close-up, a worker tying steel bars together inside a wooden mould, he is {worker}, a 1920s bridge building site, bright daylight",
+    "check": "Is a man tying steel bars?",
+    "clip": true,
+    "motion": "he twists the wire tight around the bars, slow camera push in"
+   },
+   {
+    "name": "pour",
+    "at": "Concrete#3",
+    "prompt": "extreme close-up of wet grey concrete pouring from a wooden chute over steel bars, splashes, bright daylight",
+    "check": "Is wet concrete being poured?",
+    "clip": true,
+    "motion": "the concrete flows and spreads slowly, slow camera push in"
+   },
+   {
+    "name": "pull",
+    "at": "Steel#1",
+    "who": "worker",
+    "prompt": "medium shot, a worker gripping and pulling hard on a thick steel bar, he is {worker}, a bridge building site in the mountains, bright daylight",
+    "check": "Is a man pulling a steel bar?",
+    "clip": true,
+    "motion": "he leans back and pulls harder, slow camera pull back"
+   },
+   {
+    "name": "draws_box",
+    "at": "And#6",
+    "prompt": "close-up, a hand drawing a hollow square box shape with a pencil on a large sheet of paper, olive green sleeve, warm lamp light",
+    "check": "Is a hand drawing a square with a pencil?",
+    "clip": true,
+    "motion": "the pencil moves along the paper, slow camera push in",
+    "hit": "hollow#1"
+   },
+   {
+    "name": "hollow",
+    "at": "technique#1",
+    "prompt": "low angle inside a long hollow concrete box under a bridge, bare grey walls, daylight glowing at the far end",
+    "check": "Is this inside a hollow concrete box?",
+    "move": "push"
+   },
+   {
+    "name": "cardboard",
+    "at": "You#1",
+    "prompt": "close-up of an empty open brown cardboard box sitting on a plain wooden table, warm window light",
+    "check": "Is there a cardboard box?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "lift_box",
+    "at": "box#2",
+    "prompt": "close-up, one hand lifting an empty brown cardboard box easily with two fingers, plain wooden table, warm window light",
+    "check": "Is a hand lifting a cardboard box?",
+    "clip": true,
+    "motion": "the hand lifts the box gently, slow camera push in"
+   },
+   {
+    "name": "twist_box",
+    "at": "hard#1",
+    "prompt": "close-up, two hands trying to twist an empty brown cardboard box, plain wooden table, warm window light",
+    "check": "Are two hands gripping a cardboard box?",
+    "clip": true,
+    "motion": "the hands strain and the box barely bends, slow camera push in"
+   },
+   {
+    "name": "salgina",
+    "at": "His#8",
+    "prompt": "wide shot of a long white concrete arch bridge leaping across a deep forested gorge, sunny mountain day, 1930",
+    "check": "Is there an arch bridge over a gorge?",
+    "move": "right",
+    "xfade": true
+   },
+   {
+    "name": "judges",
+    "at": "picked#1",
+    "prompt": "medium shot, a row of men in dark suits examining many bridge drawings spread across a long table, a 1920s meeting room, window light",
+    "check": "Are men examining drawings on a table?",
+    "clip": true,
+    "motion": "one man points at a drawing, slow camera push in"
+   },
+   {
+    "name": "handshake",
+    "at": "partly#1",
+    "who": "maillart",
+    "prompt": "medium shot, a thin man in spectacles smiling and shaking hands across a desk, he is {maillart}, a 1920s office, warm light",
+    "check": "Is a man shaking hands?",
+    "clip": true,
+    "motion": "he shakes hands and smiles, slow camera push in"
+   },
+   {
+    "name": "snow_bridge",
+    "at": "In#5",
+    "prompt": "wide shot of a slender white concrete arch bridge in winter snow over a deep gorge, pine trees, soft light",
+    "check": "Is there an arch bridge in snow?",
+    "move": "left"
+   },
+   {
+    "name": "pillars",
+    "at": "journal#1",
+    "prompt": "close-up of a smooth white concrete arch curve against a deep blue sky, sunlight",
+    "check": "Is there a white concrete arch?",
+    "move": "up"
+   },
+   {
+    "name": "sunset",
+    "at": "most#1",
+    "prompt": "low angle of a slender white concrete arch bridge glowing in golden sunset light high above a misty gorge",
+    "check": "Is there an arch bridge at sunset?",
+    "move": "pull",
+    "hit": "beautiful#1"
+   }
+  ]
+ }
+}
