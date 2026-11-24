@@ -159,6 +159,27 @@ def main():
                         jf[t] = fill * 10 + float(allz[t])
                 fams[f"ALL + AI JUDGE + UNANSWERED p{pct}"] = jf
                 print(f"unanswered candidates scored {fill:.2f} (p{pct} of the answered scores)")
+            # 24 Nov (Clipping Lab): the AI eyes already looked at the whole stream. An unanswered candidate the eyes
+            # saw nothing at (+-30 s) keeps p25; otherwise it gets the answered score at the eyes' own percentile,
+            # never below p25 and never above the median (p50 flooded the top 10 on 23 Nov). Rule fixed before testing.
+            esc = np.array(sorted(float(m["score"]) for m in eyes if isinstance(m.get("score"), (int, float))))
+            p25, p50 = float(np.percentile(scores, 25)), float(np.percentile(scores, 50))
+            je = jc.copy()
+            used = []
+            for t in lost:
+                if not (0 <= t < n) or je[t] > -1e8:
+                    continue
+                near = [float(m["score"]) for m in eyes if isinstance(m.get("score"), (int, float)) and abs(float(m["t"]) - t) <= 30]
+                fill = p25
+                if near and len(esc):
+                    q = 100.0 * np.searchsorted(esc, max(near), side="right") / len(esc)
+                    fill = min(p50, max(p25, float(np.percentile(scores, q))))
+                used.append(fill)
+                je[t] = fill * 10 + float(allz[t])
+            fams["ALL + AI JUDGE + UNANSWERED eyes"] = je
+            if used:
+                print(f"eyes-informed fill: {sum(u > p25 for u in used)} of {len(used)} unanswered lifted above p25 "
+                      f"({p25:.2f}); mean fill {np.mean(used):.2f}, cap p50 {p50:.2f}")
     total_views = sum(k["views"] for k in key)
 
     def found(pk, k):
@@ -193,6 +214,13 @@ def main():
                 exact = [k for k in key if any(k["offset"] - 10 <= p <= k["offset"] + (k.get("duration") or 30) + 10 for p in pk)]
                 print(f"  top {kk:>2}: {len(hit):>2} of {len(key)} fan clips, {sum(k['views'] for k in hit)/max(1,total_views):.0%} of their views"
                       f"  | exact (pick inside the clip +-10 s): {len(exact)}, {sum(k['views'] for k in exact)/max(1,total_views):.0%}")
+        if "ALL + AI JUDGE + UNANSWERED eyes" in fams:
+            print("\nTop 10 of the eyes-informed fill (fan clip or not; eyes score within +-30 s; judged or unanswered):")
+            for p in peaks(fams["ALL + AI JUDGE + UNANSWERED eyes"], 10):
+                fan = next((k for k in key if k["offset"] - 10 <= p <= k["offset"] + (k.get("duration") or 30) + 10), None)
+                ev = max([float(m["score"]) for m in eyes if abs(float(m["t"]) - p) <= 30] or [0])
+                print(f"  @{p:>5d}  {'FAN ' + format(fan['views'], ',') if fan else 'not a fan clip':18s}  eyes {ev:4.1f}  "
+                      f"{'unanswered' if p in lost else 'judged'}")
         # 16 Nov: did the judge actually WATCH the fan's moment? It watches [t-60, t+30] around its candidate t.
         print("\nDid the judge's 90 s window contain the fan clip? (fan clip span vs the window of its best candidate)")
         for k in sorted(key, key=lambda k: -k["views"]):
