@@ -7,4 +7,4 @@ Topic: Why the Swiss engineer Robert Maillart designed concrete arches with holl
 - Logic check issues found: 0
 - Words: 180, length 65.8s, 164 words/min, 10 words in first 3 s
 - Fact check: {'partial': 0, 'unsupported': 0, 'supported': 16}
-- Film shot list: 37 shots, 1 problem(s) left for the polish step (NEEDS_POLISH.md)
+- Film shot list: none yet: made in the polish step
