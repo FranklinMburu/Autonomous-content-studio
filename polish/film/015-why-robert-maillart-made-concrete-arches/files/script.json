@@ -1,0 +1,118 @@
+{
+ "title": "Why Robert Maillart Made Concrete Arches Hollow",
+ "channel": "Hidden Reasons",
+ "topic": "Why the Swiss engineer Robert Maillart designed concrete arches with hollow boxes (Switzerland, 1910)",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "lines": [
+    "Robert Maillart walked across his own bridges to test them.",
+    "He rarely tested a bridge before construction.",
+    "He checked the finished bridge by crossing it himself."
+   ],
+   "feel": "curiosity"
+  },
+  {
+   "lines": [
+    "Before 1900, engineers used shapes that were easy to analyze with mathematics.",
+    "Maillart preferred common sense to predict how a full-size bridge would behave.",
+    "His designs went beyond the common boundaries of concrete design."
+   ],
+   "feel": "doubt"
+  },
+  {
+   "lines": [
+    "So Maillart combined the road deck with the arch ribs.",
+    "That created one closely integrated structure of very thin concrete."
+   ],
+   "feel": "rising tension"
+  },
+  {
+   "lines": [
+    "You see, Maillart's hollow arch was like a cardboard box: light in your hands, yet hard to twist."
+   ],
+   "feel": "recognition"
+  },
+  {
+   "lines": [
+    "A box has multiple walls, so it resists twisting better than an I-beam.",
+    "At the same height, a box carries more load than an I-beam.",
+    "Concrete carried compression, which means squeezing.",
+    "Steel bars carried tension, which means pulling."
+   ],
+   "feel": "understanding"
+  },
+  {
+   "lines": [
+    "Maillart used the material efficiently.",
+    "His Salginatobel proposal won a competition partly for its low cost."
+   ],
+   "feel": "awe"
+  },
+  {
+   "lines": [
+    "In 2001, a British trade journal voted Salginatobel 'the most beautiful bridge of the century.'",
+    "And Maillart checked his work the hard way: by crossing the bridge himself."
+   ],
+   "feel": "surprise"
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Maillart rarely tested his bridges before construction and often tested them by crossing them himself.",
+   "url": "https://en.wikipedia.org/wiki/Robert_Maillart"
+  },
+  {
+   "claim": "Before the 1900s engineers used shapes that could be analyzed easily using mathematics, while Maillart preferred common sense and visualization to predict full-scale performance.",
+   "url": "https://en.wikipedia.org/wiki/Robert_Maillart"
+  },
+  {
+   "claim": "Maillart's designs went beyond the common boundaries of concrete design in his time.",
+   "url": "https://en.wikipedia.org/wiki/Robert_Maillart"
+  },
+  {
+   "claim": "Maillart combined the deck and arch ribs into closely integrated structures of very thin reinforced concrete and concrete slabs.",
+   "url": "https://en.wikipedia.org/wiki/Robert_Maillart"
+  },
+  {
+   "claim": "Maillart's hollow-box technique was used to overcome large spans.",
+   "url": "https://doi.org/10.5216/reec.v15i1.51419"
+  },
+  {
+   "claim": "A box girder forms an enclosed tube with multiple walls, better resists torsion than an I-beam, and can carry more load than an I-beam of equal height.",
+   "url": "https://en.wikipedia.org/wiki/Box_girder"
+  },
+  {
+   "claim": "Concrete carried compressive forces while steel bars carried tension forces.",
+   "url": "https://en.wikipedia.org/wiki/Robert_Maillart"
+  },
+  {
+   "claim": "Maillart's Salginatobel proposal was selected from nineteen entrants in a design competition partly because of its low cost.",
+   "url": "https://en.wikipedia.org/wiki/Robert_Maillart"
+  },
+  {
+   "claim": "In 2001 the British trade journal Bridge - Design and Engineering voted Salginatobel 'the most beautiful bridge of the century'.",
+   "url": "https://en.wikipedia.org/wiki/Robert_Maillart"
+  }
+ ],
+ "key_words": [
+  "Maillart",
+  "bridges",
+  "hollow",
+  "arch",
+  "concrete",
+  "box",
+  "twisting",
+  "material",
+  "Salginatobel",
+  "mathematics"
+ ]
+}

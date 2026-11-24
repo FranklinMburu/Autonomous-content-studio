@@ -1,0 +1,380 @@
+{
+ "era": "1930s",
+ "cast": {
+  "maillart": "a 48 year old Swiss civil engineer, tall and thin, a narrow sun-lined face with deep-set brown eyes, short dark brown hair parted on the side, small round wire spectacles, clean shaven, wearing a dark olive green three-piece suit with a white shirt and a burgundy tie, 1930s",
+  "foreman": "a 38 year old Swiss construction foreman, stocky and broad shouldered, a round ruddy face, curly black hair, a thick black moustache, wearing a faded blue canvas work jacket over a striped shirt and brown trousers, 1930s",
+  "mason": "a 27 year old Swiss stone mason, muscular, a deeply tanned face, a shaved head, wearing an ochre linen shirt with rolled sleeves and a brown leather apron, 1930s",
+  "professor": "a 62 year old Swiss engineering professor, gaunt, a long lined face, short white hair, a neat white moustache, wearing a black academic gown with grey velvet trim, 1930s",
+  "photographer": "a 34 year old woman photographer, slim, short dark brown hair, wearing a teal rain jacket and dark jeans, 2000s"
+ },
+ "music": "curious",
+ "key_words": [
+  "Robert#1",
+  "Maillart#1",
+  "bridges#1",
+  "bridge#1",
+  "tested#1",
+  "He#2",
+  "himself#1",
+  "Before#2",
+  "engineers#1",
+  "shapes#1",
+  "mathematics#1",
+  "Maillart#2",
+  "predict#1",
+  "bridge#3",
+  "boundaries#1",
+  "So#1",
+  "arch#1",
+  "integrated#1",
+  "thin#1",
+  "You#1",
+  "cardboard#1",
+  "twist#1",
+  "A#4",
+  "walls#1",
+  "twisting#1",
+  "I-beam#1",
+  "same#1",
+  "Concrete#3",
+  "Steel#1",
+  "Maillart#4",
+  "Salginatobel#1",
+  "competition#1",
+  "cost#1",
+  "In#2",
+  "British#1",
+  "journal#1",
+  "Salginatobel#2",
+  "bridge#4",
+  "Maillart#5",
+  "concrete#1",
+  "hollow#1",
+  "arch#2",
+  "box#1",
+  "I-beam#2",
+  "compression#1",
+  "tension#1",
+  "material#1",
+  "2001#1",
+  "beautiful#1",
+  "bridge#5",
+  "himself#2"
+ ],
+ "shots": [
+  {
+   "name": "hook",
+   "at": 0,
+   "who": "maillart",
+   "clip": true,
+   "prompt": "low angle medium shot, a tall thin engineer in a dark olive three-piece suit walking carefully across a very slender concrete arch bridge above a deep Swiss alpine gorge, he is {maillart}, bright morning light",
+   "motion": "he takes slow careful steps and grips the thin railing, slow camera push in",
+   "check": "Is a man walking across a thin concrete bridge?"
+  },
+  {
+   "name": "span",
+   "at": "bridges#1",
+   "move": "push",
+   "prompt": "wide shot of a very thin concrete arch bridge spanning a deep rocky alpine valley with a small river far below, clear morning light, 1930s Swiss Alps",
+   "check": "Is there a thin concrete bridge over a deep valley?"
+  },
+  {
+   "name": "drawing",
+   "at": "tested#1",
+   "who": "maillart",
+   "clip": true,
+   "prompt": "medium shot, an engineer drawing a smooth thin arch curve with a pencil on large blank paper at a wooden drafting table, he is {maillart}, 1930s design office, warm lamp light",
+   "motion": "his pencil traces a smooth arch line, slow camera push in",
+   "check": "Is a man drawing with a pencil?"
+  },
+  {
+   "name": "crossing",
+   "at": "He#2",
+   "who": "maillart",
+   "clip": true,
+   "prompt": "medium shot, an engineer crossing a finished concrete arch bridge and leaning to look down into the gorge below, he is {maillart}, golden afternoon light, steep rocky valley",
+   "motion": "he steps forward and peers down over the edge, slow camera push in",
+   "check": "Is a man crossing a bridge and looking down?"
+  },
+  {
+   "name": "himself",
+   "at": "himself#1",
+   "who": "maillart",
+   "clip": true,
+   "prompt": "close-up, an engineer with small round wire spectacles striding across a sunlit concrete bridge, he is {maillart}, blurred alpine valley behind",
+   "motion": "he walks forward and glances down, slow camera push in",
+   "check": "Is a man with round wire spectacles walking?"
+  },
+  {
+   "name": "old_bridge",
+   "at": "Before#2",
+   "xfade": true,
+   "move": "push",
+   "prompt": "wide shot of a massive old stone arch bridge with thick solid grey masonry arches spanning a misty river valley, low morning sun",
+   "check": "Is there an old stone arch bridge?"
+  },
+  {
+   "name": "engineers",
+   "at": "engineers#1",
+   "who": "professor",
+   "clip": true,
+   "prompt": "medium shot, a professor pointing at a heavy solid stone arch model on a wooden table, he is {professor}, a 1930s university lecture hall with tall windows, morning light",
+   "motion": "he points at the model and turns toward the class, slow camera push in",
+   "check": "Is a man pointing at a stone arch model?"
+  },
+  {
+   "name": "solid_shape",
+   "at": "shapes#1",
+   "who": "mason",
+   "clip": true,
+   "prompt": "medium shot, a mason lowering a stone block onto a solid stone arch, he is {mason}, a stone mason's yard with rough walls, morning light",
+   "motion": "he sets the block down and presses it firm, slow camera push in",
+   "check": "Is a man laying a stone block?"
+  },
+  {
+   "name": "geometry",
+   "at": "mathematics#1",
+   "clip": true,
+   "prompt": "close-up of a hand drawing straight geometric triangle lines with chalk on a slate board, a 1930s lecture hall, soft window light",
+   "motion": "the chalk draws long straight lines, slow camera push in",
+   "check": "Is a hand drawing lines on a slate board?"
+  },
+  {
+   "name": "maillart_model",
+   "at": "Maillart#2",
+   "who": "maillart",
+   "clip": true,
+   "prompt": "medium shot, a man pointing at a small concrete arch bridge model on a workshop table, he is {maillart}, a 1930s engineering workshop with tall windows, morning light",
+   "motion": "he points at the model and nods, slow camera push in",
+   "check": "Is a man pointing at a bridge model?"
+  },
+  {
+   "name": "model_test",
+   "at": "predict#1",
+   "clip": true,
+   "prompt": "close-up of a hand pressing down on a small concrete arch model standing on a wooden table, 1930s engineering workshop, warm lamp light",
+   "motion": "the hand presses the model down and holds it, slow camera push in",
+   "check": "Is a hand pressing down on a bridge model?"
+  },
+  {
+   "name": "on_bridge",
+   "at": "bridge#3",
+   "who": "maillart",
+   "clip": true,
+   "prompt": "medium shot, a man gripping the parapet of a slender concrete arch bridge and looking along the span, he is {maillart}, a deep alpine valley, bright morning light",
+   "motion": "he grips the parapet and looks down the span, slow camera push in",
+   "check": "Is a man standing on a concrete bridge?"
+  },
+  {
+   "name": "thin_arch",
+   "at": "boundaries#1",
+   "move": "pull",
+   "prompt": "low angle wide shot of a very slender thin concrete arch bridge with a narrow deck spanning a deep rocky gorge, bright morning light",
+   "check": "Is there a thin concrete arch bridge?"
+  },
+  {
+   "name": "combine",
+   "at": "So#1",
+   "who": "maillart",
+   "xfade": true,
+   "clip": true,
+   "prompt": "medium shot, an engineer pointing with one finger at a wooden bridge model on a workbench, tracing the arch rib beneath the flat road deck, he is {maillart}, 1930s Swiss engineering office, daylight from tall windows",
+   "motion": "he traces the arch rib with his finger, slow camera push in",
+   "check": "Is a man pointing at a bridge model?"
+  },
+  {
+   "name": "archribs",
+   "at": "arch#1",
+   "who": "foreman",
+   "clip": true,
+   "prompt": "low angle, a construction foreman standing on wooden scaffolding pointing up at a slender grey concrete arch rib above a deep river gorge, he is {foreman}, 1930s alpine valley, bright morning light",
+   "motion": "he raises his arm to point at the arch, slow camera push in",
+   "check": "Is a man pointing up at a concrete arch?"
+  },
+  {
+   "name": "integrated",
+   "at": "integrated#1",
+   "who": "maillart",
+   "clip": true,
+   "prompt": "medium shot, an engineer standing under a slender concrete bridge looking up at the thin road deck joined to the arch ribs above him, he is {maillart}, 1930s mountain valley, clear daylight",
+   "motion": "he looks up and lifts one hand toward the arch, slow camera push in",
+   "check": "Is a man looking up at a concrete bridge?"
+  },
+  {
+   "name": "thinconcrete",
+   "at": "thin#1",
+   "move": "push",
+   "prompt": "extreme close-up of a very thin curved grey concrete rib with a smooth slender edge against a pale blue sky, 1930s, bright sunlight",
+   "check": "Is there a thin curved concrete rib?"
+  },
+  {
+   "name": "hollow_arch",
+   "at": "You#1",
+   "xfade": true,
+   "move": "push",
+   "prompt": "wide shot of a very thin concrete hollow arch bridge spanning a steep alpine gorge, slender arch ribs under a narrow road deck, 1930s Switzerland, clear morning light",
+   "check": "Is there a thin concrete arch bridge?"
+  },
+  {
+   "name": "cardboard_box",
+   "at": "cardboard#1",
+   "clip": true,
+   "prompt": "close-up of two bare hands lifting and holding a plain light cardboard box above a wooden workshop bench, 1930s engineering workshop, soft window light",
+   "motion": "the hands raise the box and turn it slowly, slow camera push in",
+   "check": "Are hands holding a cardboard box?"
+  },
+  {
+   "name": "twist_box",
+   "at": "twist#1",
+   "clip": true,
+   "prompt": "extreme close-up of two hands gripping opposite sides of a cardboard box and twisting it on a sunlit wooden table, 1930s office, warm window light",
+   "motion": "the hands twist the box firmly, the walls creak, slow camera push in",
+   "hit": "twist#1",
+   "check": "Are hands twisting a cardboard box?"
+  },
+  {
+   "name": "box_model",
+   "at": "A#4",
+   "move": "push",
+   "prompt": "close-up of a hollow concrete box girder model on a display table in a 1930s university lecture room, thin walls forming an open rectangular tube, warm lamp light",
+   "check": "Is there a hollow concrete box girder model?"
+  },
+  {
+   "name": "walls",
+   "at": "walls#1",
+   "clip": true,
+   "prompt": "close-up of two bare hands pressing the sides of a cardboard box model on a drafting table in a 1930s design office, warm window light",
+   "motion": "the hands press the box sides and they flex, slow camera push in",
+   "check": "Are hands pressing the sides of a cardboard box?"
+  },
+  {
+   "name": "twist",
+   "at": "twisting#1",
+   "who": "professor",
+   "clip": true,
+   "prompt": "medium shot, {professor} gripping a thin concrete box rib model with both hands and twisting it, 1930s university lecture room, warm lamp light",
+   "motion": "he twists the model slowly, slow camera push in",
+   "check": "Is a man twisting a concrete model?"
+  },
+  {
+   "name": "ibeam",
+   "at": "I-beam#1",
+   "move": "right",
+   "prompt": "close-up of a thin steel I-beam model bent into a tight spiral on a wooden laboratory bench, 1930s materials laboratory, cool window light",
+   "check": "Is there a twisted steel I-beam?"
+  },
+  {
+   "name": "load",
+   "at": "same#1",
+   "who": "foreman",
+   "clip": true,
+   "prompt": "medium shot, {foreman} stacking heavy concrete blocks onto a white box girder model in a 1930s testing hall, bright overhead light",
+   "motion": "he lowers a concrete block onto the stack, slow camera push in",
+   "check": "Is a man stacking concrete blocks on a beam?"
+  },
+  {
+   "name": "compression",
+   "at": "Concrete#3",
+   "who": "mason",
+   "clip": true,
+   "prompt": "close-up, {mason} squeezing a lump of wet grey concrete into a ball with both hands on a wooden board, 1930s site workshop, warm lamp light",
+   "motion": "the hands squeeze the wet concrete firmly, slow camera push in",
+   "hit": "compression#1",
+   "check": "Are hands squeezing wet concrete?"
+  },
+  {
+   "name": "tension",
+   "at": "Steel#1",
+   "who": "foreman",
+   "clip": true,
+   "prompt": "close-up, {foreman} gripping a ribbed steel reinforcing bar and pulling it taut, face straining, 1930s bridge site, cold morning light",
+   "motion": "he pulls the bar taut and holds it, slow camera push in",
+   "hit": "pulling#1",
+   "check": "Is a man pulling a steel bar?"
+  },
+  {
+   "name": "efficient",
+   "at": "Maillart#4",
+   "who": "maillart",
+   "clip": true,
+   "prompt": "medium shot, an engineer pointing along a thin concrete arch bridge model on a wooden table, he is {maillart}, a 1930s Swiss engineering office with rolled drawings, warm window light",
+   "motion": "he traces the thin arch with one finger and nods, slow camera push in",
+   "check": "Is a man pointing at a bridge model?"
+  },
+  {
+   "name": "salginatobel",
+   "at": "Salginatobel#1",
+   "move": "push",
+   "prompt": "wide shot of a very slender thin concrete arch bridge spanning a rocky alpine gorge with a narrow road deck on top, Swiss Alps 1930s, clear morning light",
+   "check": "Is there a thin concrete arch bridge over a rocky gorge?"
+  },
+  {
+   "name": "judges",
+   "at": "competition#1",
+   "who": "professor",
+   "clip": true,
+   "prompt": "medium close-up, a judge pointing at a scale arch bridge model on a long wooden table, he is {professor}, a formal 1930s competition hall, warm window light",
+   "motion": "he points at the model as the seated judges lean closer, slow camera push in",
+   "hit": "competition#1",
+   "check": "Is a man pointing at a bridge model?"
+  },
+  {
+   "name": "cost",
+   "at": "cost#1",
+   "clip": true,
+   "prompt": "extreme close-up, a hand setting down a small stack of silver coins on a wooden table, soft window light, blurred hall behind",
+   "motion": "the hand sets the coins down and withdraws, slow camera push in",
+   "check": "Are there silver coins on a table?"
+  },
+  {
+   "name": "modern_photographer",
+   "at": "In#2",
+   "who": "photographer",
+   "xfade": true,
+   "clip": true,
+   "prompt": "medium shot, a woman raising a camera to photograph a slender concrete arch bridge over a rocky Swiss valley, she is {photographer}, green slopes, bright modern daylight",
+   "motion": "she raises the camera and takes a photo, slow camera push in",
+   "check": "Is a woman holding a camera?"
+  },
+  {
+   "name": "british_bus",
+   "at": "British#1",
+   "clip": true,
+   "prompt": "medium shot, a red double-decker bus pulling up to the kerb outside a modern London office building, grey overcast daylight, wet pavement",
+   "motion": "the bus rolls slowly to a stop, slow camera push in",
+   "check": "Is there a red double-decker bus?"
+  },
+  {
+   "name": "journal",
+   "at": "journal#1",
+   "move": "push",
+   "prompt": "close-up of an open glossy magazine on a wooden desk with a black and white photograph of a slender concrete bridge, modern office, cool daylight",
+   "check": "Is there an open magazine on a desk?"
+  },
+  {
+   "name": "salginatobel_33a",
+   "at": "Salginatobel#2",
+   "move": "push",
+   "prompt": "wide low angle, a slender hollow concrete arch bridge with a thin deck and thin arch ribs spanning a deep rocky Swiss gorge, 1930s, clear morning light",
+   "hit": "beautiful#1",
+   "check": "Is there a thin concrete arch bridge over a gorge?"
+  },
+  {
+   "name": "salginatobel_33b",
+   "at": "bridge#4",
+   "move": "push",
+   "prompt": "close-up of a slender elegant concrete arch rib curving gracefully over a rocky gorge, bright modern daylight, clear sky",
+   "check": "Is there a slender concrete arch rib?"
+  },
+  {
+   "name": "maillart_test",
+   "at": "Maillart#5",
+   "who": "maillart",
+   "xfade": true,
+   "clip": true,
+   "prompt": "medium shot, {maillart} stepping carefully along the narrow concrete deck of an alpine bridge, one hand on the slim railing, looking down at the arch, 1930s Swiss gorge, bright morning light",
+   "motion": "he takes one careful step and looks down, slow camera push in",
+   "check": "Is a man walking on a narrow concrete bridge?"
+  }
+ ]
+}
