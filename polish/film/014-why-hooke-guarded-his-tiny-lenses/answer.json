@@ -1,0 +1,411 @@
+{
+ "script": {
+  "title": "Why Hooke Melted Glass Into Tiny Beads",
+  "beats": [
+   {
+    "feel": "curiosity",
+    "lines": [
+     "A scientist melted the end of a glass thread into a tiny bead."
+    ]
+   },
+   {
+    "feel": "doubt",
+    "lines": [
+     "His name was Robert Hooke, and in his youth he was poor.",
+     "Back then, the microscope was still largely a novelty."
+    ]
+   },
+   {
+    "feel": "determination",
+    "lines": [
+     "Hooke wanted to study living things at a tiny scale.",
+     "So he fused the ends of spun glass threads into small glass balls.",
+     "Each little ball became a lens.",
+     "Hooke designed his own microscope too.",
+     "Christopher Cock made it for him in London, in leather and gold."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like a water drop on a leaf, making the veins under it look bigger."
+    ]
+   },
+   {
+    "feel": "wonder",
+    "lines": [
+     "In 1663 and 1664, Hooke peered into a hidden world.",
+     "He made the earliest recorded sighting of a microorganism, a tiny mould called Mucor.",
+     "Plant structures looked like the cells of a honeycomb.",
+     "So Hooke named them cells."
+    ]
+   },
+   {
+    "feel": "triumph",
+    "lines": [
+     "In 1665, his book Micrographia came out.",
+     "Its impressive pictures gave it a huge impact.",
+     "Samuel Pepys sat up until two o'clock reading it."
+    ]
+   },
+   {
+    "feel": "surprise",
+    "lines": [
+     "Then, after the Great Fire of London in 1666, Hooke surveyed more than half the property lines.",
+     "The man who studied tiny cells helped rebuild a whole city."
+    ]
+   }
+  ],
+  "key_words": [
+   "glass bead",
+   "novelty",
+   "spun glass",
+   "lens",
+   "microscope",
+   "Mucor",
+   "honeycomb",
+   "cells",
+   "Micrographia",
+   "two o'clock",
+   "Great Fire",
+   "rebuild"
+  ],
+  "claims": [
+   {
+    "claim": "Hooke created tiny lenses of small glass globules made by fusing the ends of threads of spun glass.",
+    "url": "https://en.wikipedia.org/wiki/Microscope"
+   },
+   {
+    "claim": "Hooke was an impoverished scientific inquirer in young adulthood.",
+    "url": "https://en.wikipedia.org/wiki/Robert_Hooke"
+   },
+   {
+    "claim": "The microscope was still largely a novelty until the 1660s and 1670s, when naturalists in Italy, the Netherlands and England began using them to study biology.",
+    "url": "https://en.wikipedia.org/wiki/Microscope"
+   },
+   {
+    "claim": "Hooke was one of the first scientists to investigate living things at microscopic scale, using a compound microscope that he designed.",
+    "url": "https://en.wikipedia.org/wiki/Robert_Hooke"
+   },
+   {
+    "claim": "The hand-crafted, leather-and-gold-tooled microscope Hooke designed was made for him in London by Christopher Cock.",
+    "url": "https://en.wikipedia.org/wiki/Robert_Hooke"
+   },
+   {
+    "claim": "In 1663 and 1664 Hooke made his microscopic observations; Micrographia contains the earliest-recorded observation of a microorganism, the microfungus Mucor.",
+    "url": "https://en.wikipedia.org/wiki/Robert_Hooke"
+   },
+   {
+    "claim": "Hooke coined the term cell, suggesting a resemblance between plant structures and honeycomb cells.",
+    "url": "https://en.wikipedia.org/wiki/Robert_Hooke"
+   },
+   {
+    "claim": "Micrographia was published in 1665 and had a huge impact, largely because of its impressive illustrations.",
+    "url": "https://en.wikipedia.org/wiki/Microscope"
+   },
+   {
+    "claim": "Samuel Pepys wrote in his diary that he sat up till two o'clock in his chamber reading Hooke's book.",
+    "url": "https://en.wikipedia.org/wiki/Robert_Hooke"
+   },
+   {
+    "claim": "After the Great Fire of London in 1666, Hooke performed more than half of the property line surveys and assisted with the city's rapid reconstruction.",
+    "url": "https://en.wikipedia.org/wiki/Robert_Hooke"
+   }
+  ]
+ },
+ "film": {
+  "era": "1660s",
+  "cast": {
+   "hooke": "a 28 year old English scientist, thin and slightly stooped, a pale narrow face, large protruding grey eyes, long curly brown hair to his shoulders, clean shaven, wearing a plain dark brown wool coat with a white linen collar band, 1660s",
+   "cock": "a 50 year old London instrument maker, stout, a ruddy round face, a short white beard, a black felt cap, a brown leather apron over a faded teal linen shirt, 1660s",
+   "pepys": "a 31 year old English gentleman, plump round face, a long dark brown curled wig, a thin dark moustache, wearing a deep green velvet coat with white lace cuffs, 1660s"
+  },
+  "key_words": [
+   "glass bead",
+   "novelty",
+   "spun glass",
+   "lens",
+   "microscope",
+   "Mucor",
+   "honeycomb",
+   "cells",
+   "Micrographia",
+   "two o'clock",
+   "Great Fire",
+   "rebuild"
+  ],
+  "music": "curious",
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "who": "hooke",
+    "prompt": "close-up, a young man holding a thin glass thread in a candle flame, its tip melting into a tiny bead, he is {hooke}, a dark 1660s London room, warm flame light",
+    "check": "Is a man holding glass in a flame?",
+    "clip": true,
+    "motion": "he turns the glass thread slowly in the flame, slow camera push in"
+   },
+   {
+    "name": "bead",
+    "at": "glass#1",
+    "prompt": "extreme close-up of a tiny glowing glass bead forming on the tip of a thin glass thread above a candle flame, dark background",
+    "check": "Is there a tiny glowing glass bead?",
+    "clip": true,
+    "motion": "the bead glows and rounds slowly, slow camera push in",
+    "hit": "bead#1"
+   },
+   {
+    "name": "books",
+    "at": "his#1",
+    "who": "hooke",
+    "prompt": "medium shot, a thin pale young man carrying an armful of old books up a narrow creaking wooden stair, he is {hooke}, a 1660s Oxford college, dim daylight",
+    "check": "Is a man carrying books?",
+    "clip": true,
+    "motion": "he climbs one step and shifts the books, slow camera push in"
+   },
+   {
+    "name": "coins",
+    "at": "and#1",
+    "prompt": "close-up of a thin pale hand holding two small copper coins, a worn brown wool sleeve, a bare attic room, grey light",
+    "check": "Is a hand holding coins?",
+    "clip": true,
+    "motion": "the fingers close slowly over the coins, slow camera push in"
+   },
+   {
+    "name": "london",
+    "at": "back#1",
+    "prompt": "wide shot of 1660s London rooftops along a misty river with church spires and wooden boats, early morning",
+    "check": "Are there rooftops by a river?",
+    "move": "right"
+   },
+   {
+    "name": "party",
+    "at": "microscope#1",
+    "prompt": "medium shot, gentlemen in curled wigs smiling and passing a small brass microscope around a candlelit dinner table, 1660s",
+    "check": "Are men passing a microscope?",
+    "clip": true,
+    "motion": "one man lifts the microscope to his eye, slow camera push in"
+   },
+   {
+    "name": "leaf",
+    "at": "hooke#2",
+    "who": "hooke",
+    "prompt": "close-up, a young man peering closely at a small green leaf held up in his fingers, he is {hooke}, a garden in soft morning light",
+    "check": "Is a man looking at a leaf?",
+    "clip": true,
+    "motion": "he brings the leaf closer to his eye, slow camera push in"
+   },
+   {
+    "name": "ant",
+    "at": "at#1",
+    "prompt": "extreme close-up of a tiny black ant crawling on a bright green leaf, morning dew, soft light",
+    "check": "Is there an ant on a leaf?",
+    "clip": true,
+    "motion": "the ant crawls slowly along the leaf, slow camera push in"
+   },
+   {
+    "name": "fuse",
+    "at": "so#1",
+    "prompt": "close-up, two thin hands holding glass threads over a small oil lamp flame on a wooden bench, dark workshop, warm light",
+    "check": "Are hands holding glass over a flame?",
+    "clip": true,
+    "motion": "the flame flickers as the hands turn the glass, slow camera push in"
+   },
+   {
+    "name": "balls",
+    "at": "spun#1",
+    "prompt": "extreme close-up of a row of tiny clear glass balls lying on black velvet, sparkling in candle light",
+    "check": "Are there tiny glass balls?",
+    "move": "push"
+   },
+   {
+    "name": "lens",
+    "at": "each#1",
+    "prompt": "extreme close-up of a tiny clear glass bead set in a small brass holder, bright light shining through it",
+    "check": "Is there a tiny glass bead in a brass holder?",
+    "move": "push",
+    "hit": "lens#1"
+   },
+   {
+    "name": "design",
+    "at": "hooke#3",
+    "who": "hooke",
+    "prompt": "medium shot, a young man sketching a tall microscope with a quill at a wooden desk by a bright window, he is {hooke}, a 1660s study, daylight",
+    "check": "Is a man sketching with a quill?",
+    "clip": true,
+    "motion": "his quill moves across the paper, slow camera push in"
+   },
+   {
+    "name": "maker",
+    "at": "christopher#1",
+    "who": "cock",
+    "prompt": "medium shot, a stout craftsman polishing a tall brass microscope tube with a cloth, he is {cock}, a cluttered 1660s London instrument workshop, warm lamp light",
+    "check": "Is a man polishing a microscope?",
+    "clip": true,
+    "motion": "he rubs the brass tube with the cloth, slow camera push in"
+   },
+   {
+    "name": "gold",
+    "at": "in#3",
+    "prompt": "close-up of a tall microscope covered in dark brown leather with gold tooled patterns standing on a wooden table, warm light",
+    "check": "Is there a leather microscope with gold patterns?",
+    "move": "up"
+   },
+   {
+    "name": "rain",
+    "at": "you#1",
+    "prompt": "medium shot of rain drops falling onto broad green garden leaves, soft grey morning light",
+    "check": "Are rain drops falling on leaves?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "drop",
+    "at": "drop#1",
+    "prompt": "extreme close-up of a single round water drop sitting on a bright green leaf, soft morning light",
+    "check": "Is there a water drop on a leaf?",
+    "move": "push"
+   },
+   {
+    "name": "veins",
+    "at": "making#1",
+    "prompt": "extreme close-up of a clear water drop on a green leaf, the leaf veins under it looking much bigger, soft light",
+    "check": "Is a water drop on a leaf?",
+    "clip": true,
+    "motion": "the drop trembles slightly, slow camera push in"
+   },
+   {
+    "name": "eyepiece",
+    "at": "in#4",
+    "who": "hooke",
+    "prompt": "medium shot, a young man pressing his eye to a tall leather microscope at a desk by an oil lamp, he is {hooke}, a 1660s study at night",
+    "check": "Is a man looking into a microscope?",
+    "clip": true,
+    "motion": "he adjusts the microscope slowly, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "eye",
+    "at": "hooke#4",
+    "prompt": "extreme close-up of a large grey eye peering into a small brass eyepiece, warm lamp light",
+    "check": "Is an eye at an eyepiece?",
+    "clip": true,
+    "motion": "the eye blinks slowly, slow camera push in"
+   },
+   {
+    "name": "bread",
+    "at": "he#3",
+    "prompt": "close-up of a slice of old bread covered in fuzzy grey-white mould on a wooden table, dim lamp light",
+    "check": "Is there mouldy bread?",
+    "move": "push"
+   },
+   {
+    "name": "mould",
+    "at": "of#3",
+    "prompt": "extreme close-up of fine white mould threads with tiny round black heads like pins, magnified, soft light",
+    "check": "Is there white mould with round heads?",
+    "move": "push",
+    "hit": "mucor#1"
+   },
+   {
+    "name": "slice",
+    "at": "plant#1",
+    "who": "hooke",
+    "prompt": "close-up, a young man cutting a thin slice from a plant stem with a small knife, he is {hooke}, a wooden desk, warm lamp light",
+    "check": "Is a man slicing a plant stem?",
+    "clip": true,
+    "motion": "he draws the knife slowly through the stem, slow camera push in"
+   },
+   {
+    "name": "honeycomb",
+    "at": "the#6",
+    "prompt": "extreme close-up of a golden honeycomb with rows of six-sided wax cells, warm light",
+    "check": "Is there a honeycomb?",
+    "move": "push"
+   },
+   {
+    "name": "cells",
+    "at": "so#2",
+    "prompt": "extreme close-up of a magnified slice of plant made of many tiny empty boxy compartments, soft light",
+    "check": "Are there many tiny boxy compartments?",
+    "move": "push",
+    "hit": "cells#2"
+   },
+   {
+    "name": "book",
+    "at": "in#5",
+    "prompt": "close-up, a large leather book being opened on a wooden table to a big detailed drawing of magnified plant cells, warm window light",
+    "check": "Is there an open book with a drawing?",
+    "clip": true,
+    "motion": "a page turns slowly, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "crowd",
+    "at": "its#1",
+    "prompt": "medium shot, gentlemen in curled wigs crowding around a big open book, eyes wide in amazement, a 1660s London coffee house, warm light",
+    "check": "Are men crowding around a book?",
+    "clip": true,
+    "motion": "they lean closer to the book, slow camera push in"
+   },
+   {
+    "name": "pepys",
+    "at": "samuel#1",
+    "who": "pepys",
+    "prompt": "medium shot, a plump man reading a big book by a single candle late at night, he is {pepys}, a wood panelled 1660s bedchamber",
+    "check": "Is a man reading by candlelight?",
+    "clip": true,
+    "motion": "he turns a page slowly, slow camera push in"
+   },
+   {
+    "name": "candle",
+    "at": "two#1",
+    "prompt": "close-up of a candle burned down very low beside an open book, dark room, warm glow",
+    "check": "Is there a short candle?",
+    "move": "push"
+   },
+   {
+    "name": "fire",
+    "at": "then#2",
+    "prompt": "wide shot of a 1660s city burning at night, tall orange flames over timber houses and a great church dome, smoke",
+    "check": "Is a city burning?",
+    "clip": true,
+    "motion": "the flames leap and smoke rolls, slow camera pull back",
+    "xfade": true,
+    "hit": "fire#1"
+   },
+   {
+    "name": "survey",
+    "at": "in#6",
+    "who": "hooke",
+    "prompt": "medium shot, a thin man stretching a long iron measuring chain across a burnt street of ash and ruins, he is {hooke}, grey smoky daylight",
+    "check": "Is a man holding a measuring chain?",
+    "clip": true,
+    "motion": "he pulls the chain tight, slow camera push in"
+   },
+   {
+    "name": "plots",
+    "at": "the#8",
+    "prompt": "high angle of wooden stakes and ropes marking out plots on burnt black ground among ruins, grey daylight",
+    "check": "Are there stakes and ropes on the ground?",
+    "move": "down"
+   },
+   {
+    "name": "smile",
+    "at": "the#9",
+    "who": "hooke",
+    "prompt": "close-up, a young man looking up from a tall leather microscope and smiling slightly, he is {hooke}, a 1660s study, warm lamp light",
+    "check": "Is a man smiling beside a microscope?",
+    "clip": true,
+    "motion": "he looks up and smiles, slow camera push in"
+   },
+   {
+    "name": "rebuild",
+    "at": "helped#1",
+    "prompt": "wide shot of new stone and brick houses rising with wooden scaffolding along a 1660s London street, bright morning sun",
+    "check": "Are new houses being built?",
+    "move": "pull"
+   }
+  ]
+ }
+}
