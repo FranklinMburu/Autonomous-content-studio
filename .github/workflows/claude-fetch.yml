@@ -17,7 +17,7 @@ jobs:
       matrix:
         include:
           - name: sp-1124
-            args: sp-
+            args: sp-alien
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -37,7 +37,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
       - name: Footage to branch footage/<name> (Claude's workspace reads git only)
         run: |
-          cd out && for f in *.mp4; do [ $(stat -c%s "$f") -gt 95000000 ] && ffmpeg -v error -y -i "$f" -c:v libx264 -preset veryfast -crf 24 -maxrate 4M -bufsize 8M -c:a copy "s_$f" && mv "s_$f" "$f"; done; ls -la
+          cd out && rm -f *.mp4 && for f in *.mp4; do [ $(stat -c%s "$f") -gt 95000000 ] && ffmpeg -v error -y -i "$f" -c:v libx264 -preset veryfast -crf 24 -maxrate 4M -bufsize 8M -c:a copy "s_$f" && mv "s_$f" "$f"; done; ls -la
           git init -q -b "footage/${{ matrix.name }}" && git add . && git -c user.name="Franklin Mburu" -c user.email="184284364+FranklinMburu@users.noreply.github.com" commit -qm "footage ${{ matrix.name }}"
           git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" "footage/${{ matrix.name }}"
       - uses: actions/upload-artifact@v4
