@@ -1,0 +1,468 @@
+{
+ "script": {
+  "title": "Why Soldiers Signalled by Waving One Flag",
+  "beats": [
+   {
+    "feel": "curiosity",
+    "lines": [
+     "A Union captain kept signalling with a bedsheet as the enemy charged."
+    ]
+   },
+   {
+    "feel": "tenderness",
+    "lines": [
+     "His signal began with an army surgeon, Albert J. Myer.",
+     "In 1851, Myer wrote a sign language for deaf people.",
+     "It tapped a code on a hand or cheek."
+    ]
+   },
+   {
+    "feel": "inspiration",
+    "lines": [
+     "Posted to Texas, Myer turned those taps into the motions of one big flag.",
+     "Each letter was a quick set of dips, left or right."
+    ]
+   },
+   {
+    "feel": "doubt",
+    "lines": [
+     "In 1859, a board under Robert E. Lee saw only limited use for it.",
+     "But it let Myer keep testing."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like waving to a friend across a field. A moving arm is easier to spot."
+    ]
+   },
+   {
+    "feel": "awe",
+    "lines": [
+     "One flag meant both arms could raise a larger flag.",
+     "And motions are easier to tell apart than positions at great distances.",
+     "With a telescope, signalmen read stations up to 20 miles away."
+    ]
+   },
+   {
+    "feel": "tension",
+    "lines": [
+     "Then the Civil War began.",
+     "Signalmen built towers, some well over 100 feet.",
+     "The Confederates sent a gun battery to destroy one. They failed."
+    ]
+   },
+   {
+    "feel": "courage",
+    "lines": [
+     "At Gettysburg, the Confederates tried to seize Little Round Top.",
+     "Its flagman retreated with the flags.",
+     "Captain Davis E. Castle kept signalling with a bedsheet."
+    ]
+   },
+   {
+    "feel": "surprise",
+    "lines": [
+     "Myer never even called it wigwag.",
+     "The name probably came from how random the flag looked."
+    ]
+   }
+  ],
+  "key_words": [
+   "bedsheet",
+   "surgeon",
+   "deaf",
+   "tapping",
+   "one big flag",
+   "Robert E. Lee",
+   "waving",
+   "20 miles",
+   "tower",
+   "Little Round Top",
+   "wigwag"
+  ],
+  "claims": [
+   {
+    "claim": "During Pickett's Charge one of the Union defenders, Captain Davis E. Castle, continued to signal with a bedsheet after the flagman had retreated with the flags; the Confederates had tried but failed to seize the Little Round Top position.",
+    "url": "https://en.wikipedia.org/wiki/Wigwag_%28flag_signals%29"
+   },
+   {
+    "claim": "The wigwag system was invented by US Army surgeon Major Albert J. Myer in the 1850s.",
+    "url": "https://en.wikipedia.org/wiki/Wigwag_%28flag_signals%29"
+   },
+   {
+    "claim": "In 1851 Myer produced A New Sign Language for Deaf Mutes, using the Bain code to communicate with a deaf person by tapping a hand or cheek.",
+    "url": "https://en.wikipedia.org/wiki/Wigwag_%28flag_signals%29"
+   },
+   {
+    "claim": "In 1854 Myer joined the army, was posted to Texas, and there developed the wigwag flag code, building on his previous work with the deaf.",
+    "url": "https://en.wikipedia.org/wiki/Wigwag_%28flag_signals%29"
+   },
+   {
+    "claim": "In 1859 a board of examination under Robert E. Lee thought it had only limited use but allowed Myer to continue with tests.",
+    "url": "https://en.wikipedia.org/wiki/Wigwag_%28flag_signals%29"
+   },
+   {
+    "claim": "Only one flag is used, so both arms could raise a larger, heavier flag; motions are easier to distinguish than positions at great distances.",
+    "url": "https://en.wikipedia.org/wiki/Wigwag_%28flag_signals%29"
+   },
+   {
+    "claim": "A telescope was used to read signals from a remote station up to 20 miles away.",
+    "url": "https://en.wikipedia.org/wiki/Wigwag_%28flag_signals%29"
+   },
+   {
+    "claim": "Enormous towers, some well over 100 feet, were built; the Confederates assigned a gun battery to destroy the Cobb's Hill tower and failed.",
+    "url": "https://en.wikipedia.org/wiki/Wigwag_%28flag_signals%29"
+   },
+   {
+    "claim": "Myer did not use the term wigwag; the name probably came from the apparently random motions of the flag as seen by an untrained observer.",
+    "url": "https://en.wikipedia.org/wiki/Wigwag_%28flag_signals%29"
+   }
+  ]
+ },
+ "film": {
+  "era": "1860s",
+  "music": "tense",
+  "cast": {
+   "myer": "a 30 year old American army surgeon, slim, a long oval face with a high forehead, wavy dark brown hair, a thick drooping dark moustache, wearing a dark blue army frock coat with brass buttons and green shoulder straps, 1850s",
+   "castle": "a 28 year old Union army captain, broad shouldered, a square clean-shaven jaw, short sandy blond hair, a dusty sweaty face, wearing a dark blue officer's coat open over a grey shirt and a dark blue kepi cap, 1860s",
+   "signalman": "a 19 year old Union private, skinny, a freckled narrow face, messy bright red hair, wearing a baggy dark blue sack coat, light blue trousers and a brown leather belt, 1860s",
+   "deaf": "a 35 year old American woman, a round friendly face, black hair parted in the middle in a low bun, wearing a mustard yellow cotton dress with a white collar, 1850s"
+  },
+  "key_words": [
+   "bedsheet",
+   "surgeon",
+   "deaf",
+   "tapping",
+   "one big flag",
+   "Robert E. Lee",
+   "waving",
+   "20 miles",
+   "tower",
+   "Little Round Top",
+   "wigwag"
+  ],
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "prompt": "medium shot, a captain waving a white bedsheet tied to a pole on a rocky hilltop, gun smoke drifting, he is {castle}, 1860s, hazy summer light",
+    "check": "Is a man waving a white sheet?",
+    "clip": true,
+    "motion": "he swings the sheet to one side, slow camera push in",
+    "who": "castle"
+   },
+   {
+    "name": "sheet",
+    "at": "bedsheet#1",
+    "prompt": "close-up of a white bedsheet tied to a wooden pole flapping against a smoky sky, 1860s battlefield",
+    "check": "Is there a white sheet on a pole?",
+    "clip": true,
+    "motion": "the sheet flaps in the wind, slow camera push in"
+   },
+   {
+    "name": "charge",
+    "at": "enemy#1",
+    "prompt": "wide shot of soldiers in grey uniforms charging up a rocky hillside through thick white smoke, 1860s, hazy sun",
+    "check": "Are soldiers on a rocky hillside?",
+    "move": "push",
+    "hit": "charged#1"
+   },
+   {
+    "name": "surgeon",
+    "at": "His#1",
+    "prompt": "medium shot, an army surgeon rolling up his sleeves beside a white canvas army tent, he is {myer}, 1850s camp, morning light",
+    "check": "Is a man rolling up his sleeves?",
+    "clip": true,
+    "motion": "he rolls up one sleeve, slow camera push in",
+    "who": "myer",
+    "xfade": true
+   },
+   {
+    "name": "face",
+    "at": "Albert#1",
+    "prompt": "close-up, a thoughtful army surgeon turning his head toward the camera, he is {myer}, army tent behind, soft morning light",
+    "check": "Is a man turning his head?",
+    "clip": true,
+    "motion": "he turns his head slowly and looks ahead, slow camera push in",
+    "who": "myer"
+   },
+   {
+    "name": "book",
+    "at": "In#1",
+    "prompt": "medium shot, a surgeon bent over a thick open notebook at a wooden desk dipping a quill pen, he is {myer}, 1850s study, oil lamp light",
+    "check": "Is a man at a desk with a quill?",
+    "clip": true,
+    "motion": "he dips the quill and leans over the page, slow camera push in",
+    "who": "myer"
+   },
+   {
+    "name": "woman",
+    "at": "deaf#1",
+    "prompt": "medium shot, a woman watching a man's moving hands with close attention, she is {deaf}, a quiet 1850s parlour, window light",
+    "check": "Is a woman watching closely?",
+    "clip": true,
+    "motion": "she tilts her head and watches intently, slow camera push in",
+    "who": "deaf"
+   },
+   {
+    "name": "tapping",
+    "at": "It#1",
+    "prompt": "close-up of a man's fingertips tapping lightly on the back of a woman's hand resting on a wooden table, warm window light",
+    "check": "Are fingertips tapping on a hand?",
+    "clip": true,
+    "motion": "the fingertips tap twice on the hand, slow camera push in"
+   },
+   {
+    "name": "cheek",
+    "at": "hand#1",
+    "prompt": "close-up, a woman smiling as a fingertip taps gently on her cheek, she is {deaf}, 1850s parlour, soft light",
+    "check": "Is a fingertip touching a woman's cheek?",
+    "clip": true,
+    "motion": "the fingertip taps her cheek and she smiles, slow camera push in",
+    "who": "deaf"
+   },
+   {
+    "name": "fort",
+    "at": "Posted#1",
+    "prompt": "wide shot of a small army fort of low adobe buildings on dry flat Texas plains, a flag pole, harsh sun, 1850s",
+    "check": "Is there a fort on dry plains?",
+    "move": "push"
+   },
+   {
+    "name": "raise",
+    "at": "turned#1",
+    "prompt": "medium shot, an army surgeon raising a big white flag with a red square center on a long pole on a dusty hill, he is {myer}, bright sun",
+    "check": "Is a man raising a big flag?",
+    "clip": true,
+    "motion": "he lifts the flag pole upright, slow camera push in",
+    "who": "myer"
+   },
+   {
+    "name": "bigflag",
+    "at": "one#1",
+    "prompt": "low angle of a big white flag with a red square in its center on a tall pole against a blue sky",
+    "check": "Is there a big white flag?",
+    "move": "up"
+   },
+   {
+    "name": "dipright",
+    "at": "Each#1",
+    "prompt": "medium shot, a young soldier swinging a big flag down to his right side on a grassy hilltop, he is {signalman}, 1860s, clear daylight",
+    "check": "Is a soldier swinging a flag?",
+    "clip": true,
+    "motion": "he swings the flag down to the right, slow camera push in",
+    "who": "signalman"
+   },
+   {
+    "name": "dipleft",
+    "at": "left#1",
+    "prompt": "wide shot from behind of a soldier on a hilltop swinging a big white flag down to his left, valley below, clear daylight",
+    "check": "Is a soldier swinging a flag on a hill?",
+    "clip": true,
+    "motion": "the flag sweeps down to the left, slow camera pan left"
+   },
+   {
+    "name": "board",
+    "at": "In#2",
+    "prompt": "medium shot, a row of stern army officers in dark blue coats seated at a long table, arms folded, 1850s office, grey window light",
+    "check": "Are officers seated at a long table?",
+    "clip": true,
+    "motion": "one officer folds his arms, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "nope",
+    "at": "Lee#1",
+    "prompt": "close-up, an older army officer with dark hair and a moustache shaking his head slowly, dark blue coat, grey window light",
+    "check": "Is an officer shaking his head?",
+    "clip": true,
+    "motion": "he shakes his head slowly, slow camera push in"
+   },
+   {
+    "name": "testing",
+    "at": "But#1",
+    "prompt": "wide shot, a soldier waving a big flag from the wall of a stone fort by the sea, waves below, 1850s, bright day",
+    "check": "Is a soldier waving a flag on a fort wall?",
+    "clip": true,
+    "motion": "he swings the flag side to side, slow camera push in"
+   },
+   {
+    "name": "kid",
+    "at": "You#1",
+    "prompt": "wide shot, a child waving one arm high in a green summer meadow, wildflowers, warm sunshine",
+    "check": "Is a child waving an arm?",
+    "clip": true,
+    "motion": "the child waves the arm side to side, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "friend",
+    "at": "friend#1",
+    "prompt": "wide shot of a small distant figure waving back from the far side of a green meadow, trees behind, warm sun",
+    "check": "Is a distant figure waving?",
+    "move": "push"
+   },
+   {
+    "name": "arm",
+    "at": "moving#1",
+    "prompt": "close-up of a raised arm waving side to side against a bright blue sky",
+    "check": "Is an arm waving?",
+    "clip": true,
+    "motion": "the arm sways side to side, slow camera push in"
+   },
+   {
+    "name": "lift",
+    "at": "One#2",
+    "prompt": "medium shot, a young soldier gripping a long pole with both hands and straining to lift a huge flag, he is {signalman}, windy hilltop, daylight",
+    "check": "Is a soldier lifting a flag with both hands?",
+    "clip": true,
+    "motion": "he strains and lifts the pole higher, slow camera push in",
+    "who": "signalman"
+   },
+   {
+    "name": "black",
+    "at": "larger#1",
+    "prompt": "low angle of a huge black flag with a white square center swinging on a tall pole, cloudy sky",
+    "check": "Is there a huge black flag?",
+    "clip": true,
+    "motion": "the flag swings heavily, slow camera push in"
+   },
+   {
+    "name": "valley",
+    "at": "And#1",
+    "prompt": "wide shot of a wide green valley with a tiny white flag waving on a distant hilltop, summer haze",
+    "check": "Is there a valley with a distant hill?",
+    "move": "push"
+   },
+   {
+    "name": "still",
+    "at": "positions#1",
+    "prompt": "medium shot, a soldier holding a flag motionless straight up above his head on a hilltop, clear daylight",
+    "check": "Is a soldier holding a flag above his head?",
+    "clip": true,
+    "motion": "the flag stirs slightly in the breeze, slow camera push in"
+   },
+   {
+    "name": "scope",
+    "at": "With#3",
+    "prompt": "close-up, a soldier peering through a long brass telescope on a wooden tripod, hilltop, bright daylight",
+    "check": "Is a man looking through a telescope?",
+    "clip": true,
+    "motion": "he squints and adjusts the telescope, slow camera push in"
+   },
+   {
+    "name": "hills",
+    "at": "20#1",
+    "prompt": "wide shot of rolling hills stretching to the horizon under a pale sky, a tiny flag on the farthest hill",
+    "check": "Are there rolling hills?",
+    "move": "pull"
+   },
+   {
+    "name": "march",
+    "at": "Then#1",
+    "prompt": "wide shot of Union soldiers in blue marching along a dirt road past a farm, 1860s, morning light",
+    "check": "Are soldiers marching on a road?",
+    "move": "right",
+    "xfade": true
+   },
+   {
+    "name": "tower",
+    "at": "Signalmen#2",
+    "prompt": "low angle of a very tall wooden lattice tower with tiny signalmen waving a flag at the top, 1860s, blue sky",
+    "check": "Is there a tall wooden tower?",
+    "move": "up"
+   },
+   {
+    "name": "view",
+    "at": "100#1",
+    "prompt": "high angle view from the top of a tall wooden tower over a river and farm fields, 1860s, hazy daylight",
+    "check": "Is there a river below?",
+    "move": "down"
+   },
+   {
+    "name": "gunners",
+    "at": "The#4",
+    "prompt": "medium shot, gunners in grey uniforms loading a cannon aimed at a distant wooden tower, 1860s, smoky daylight",
+    "check": "Are gunners loading a cannon?",
+    "clip": true,
+    "motion": "a gunner rams the barrel, slow camera push in"
+   },
+   {
+    "name": "fire",
+    "at": "destroy#1",
+    "prompt": "wide shot of a cannon firing a puff of white smoke toward a distant tall wooden tower, 1860s fields",
+    "check": "Is a cannon firing?",
+    "move": "push",
+    "hit": "destroy#1"
+   },
+   {
+    "name": "hill",
+    "at": "At#2",
+    "prompt": "wide shot of a rocky wooded hill covered in big boulders under a hazy summer sky, smoke drifting, 1860s",
+    "check": "Is there a rocky hill?",
+    "move": "push"
+   },
+   {
+    "name": "climb",
+    "at": "seize#1",
+    "prompt": "wide shot of soldiers in grey climbing a boulder slope through smoke, 1860s, hazy summer light",
+    "check": "Are soldiers on a slope of boulders?",
+    "move": "right"
+   },
+   {
+    "name": "hide",
+    "at": "flagman#1",
+    "prompt": "medium shot, a young soldier crouching behind a boulder clutching rolled-up flags to his chest, he is {signalman}, smoke, 1860s",
+    "check": "Is a soldier crouching behind a rock?",
+    "clip": true,
+    "motion": "he ducks lower and hugs the flags, slow camera push in",
+    "who": "signalman"
+   },
+   {
+    "name": "tie",
+    "at": "Captain#2",
+    "prompt": "medium shot, a captain tying a white bedsheet to a wooden pole behind a boulder, he is {castle}, gun smoke, hazy light",
+    "check": "Is a man tying a sheet to a pole?",
+    "clip": true,
+    "motion": "he pulls the knot tight, slow camera push in",
+    "who": "castle"
+   },
+   {
+    "name": "wave",
+    "at": "signalling#2",
+    "prompt": "low angle, a captain waving a white bedsheet on a pole high above the rocks through smoke, he is {castle}, 1860s",
+    "check": "Is a man waving a white sheet?",
+    "clip": true,
+    "motion": "he swings the sheet side to side, slow camera push in",
+    "who": "castle",
+    "hit": "bedsheet#2"
+   },
+   {
+    "name": "older",
+    "at": "Myer#5",
+    "prompt": "close-up, an army surgeon smiling to himself as he closes a thick book by lamp light, he is {myer}, 1860s study",
+    "check": "Is a man closing a book?",
+    "clip": true,
+    "motion": "he closes the book slowly and smiles, slow camera push in",
+    "who": "myer",
+    "xfade": true
+   },
+   {
+    "name": "distant",
+    "at": "The#7",
+    "prompt": "wide shot from far away of a tiny soldier on a hilltop waving a flag wildly from side to side, open sky",
+    "check": "Is a soldier waving a flag on a hill?",
+    "clip": true,
+    "motion": "the flag whips from side to side, slow camera push in"
+   },
+   {
+    "name": "last",
+    "at": "flag#4",
+    "prompt": "close-up of a white flag with a red square center whipping in strong wind against a blue sky",
+    "check": "Is there a white flag?",
+    "move": "pull"
+   }
+  ]
+ }
+}
