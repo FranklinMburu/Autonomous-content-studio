@@ -1,0 +1,465 @@
+{
+ "script": {
+  "title": "Why the Royal Navy Plated Ships with Copper",
+  "beats": [
+   {
+    "feel": "curiosity",
+    "lines": [
+     "Charles Middleton carried a model warship with a copper bottom to the King."
+    ]
+   },
+   {
+    "feel": "dread",
+    "lines": [
+     "Wooden warships had a hidden enemy.",
+     "Shipworm attacked their hulls. Weed grew and slowed them."
+    ]
+   },
+   {
+    "feel": "hope",
+    "lines": [
+     "In 1761, the Navy coppered the entire bottom of HMS Alarm.",
+     "In the West Indies, worms had eaten into her wooden hull.",
+     "The copper performed very well."
+    ]
+   },
+   {
+    "feel": "disappointment",
+    "lines": [
+     "But the copper reacted with the iron bolts holding the ship together.",
+     "Many bolts became nearly useless.",
+     "In 1766, the Navy removed Alarm's copper."
+    ]
+   },
+   {
+    "feel": "tension",
+    "lines": [
+     "Then in 1778, France declared war on Britain.",
+     "Middleton had to supply over 100 ships.",
+     "Building one warship could take five years and 2000 trees."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like soap in the shower. Its surface keeps washing away, so nothing sticks."
+    ]
+   },
+   {
+    "feel": "awe",
+    "lines": [
+     "In seawater, copper makes a thin poisonous film.",
+     "The film slowly washes away, so worms and weed cannot attach.",
+     "A coppered ship could stay at sea much longer without cleaning or repairs."
+    ]
+   },
+   {
+    "feel": "determination",
+    "lines": [
+     "Coppering one big warship cost £1,500, compared to £262 for wood.",
+     "The King backed Middleton anyway.",
+     "By 1781, 82 ships of the line had been coppered."
+    ]
+   },
+   {
+    "feel": "surprise",
+    "lines": [
+     "Merchants copied it, and Lloyd's of London charged coppered ships lower insurance.",
+     "That is where the phrase copper-bottomed comes from."
+    ]
+   }
+  ],
+  "key_words": [
+   "model warship",
+   "copper bottom",
+   "shipworm",
+   "HMS Alarm",
+   "iron bolts",
+   "2000 trees",
+   "soap",
+   "poisonous film",
+   "£1,500",
+   "copper-bottomed"
+  ],
+  "claims": [
+   {
+    "claim": "Middleton petitioned King George III directly and took with him a model of HMS Bellona showing a coppered bottom; the King backed him for an expensive process for an untested technology.",
+    "url": "https://en.wikipedia.org/wiki/Copper_sheathing"
+   },
+   {
+    "claim": "Ships' hulls were under continuous attack by shipworm; weed grew rapidly and slowed ships.",
+    "url": "https://en.wikipedia.org/wiki/Copper_sheathing"
+   },
+   {
+    "claim": "In 1761 the 32-gun frigate HMS Alarm was ordered to have her entire bottom coppered after the worms had taken a significant toll on her wooden hull in the West Indies; the copper performed very well.",
+    "url": "https://en.wikipedia.org/wiki/Copper_sheathing"
+   },
+   {
+    "claim": "The copper bolts reacted with the iron bolts, rendering many bolts nearly useless; in 1766 Alarm's copper was removed.",
+    "url": "https://en.wikipedia.org/wiki/Copper_sheathing"
+   },
+   {
+    "claim": "In 1778 France declared war on Britain to support the American rebels; Middleton had to supply over 100 ships; it could take five years and 2000 trees to build a warship.",
+    "url": "https://en.wikipedia.org/wiki/Copper_sheathing"
+   },
+   {
+    "claim": "In contact with water the copper produced a poisonous film that was slightly soluble and gradually washed away, leaving no way for marine life to attach; coppering let the navy stay at sea much longer without cleaning and repairs.",
+    "url": "https://en.wikipedia.org/wiki/Copper_sheathing"
+   },
+   {
+    "claim": "The metal to copper a 74-gun ship cost £1,500, compared to £262 for wood; by 1781, 82 ships of the line had been coppered.",
+    "url": "https://en.wikipedia.org/wiki/Copper_sheathing"
+   },
+   {
+    "claim": "Lloyd's of London charged lower insurance premiums for coppered vessels; from this stems the phrase copper-bottomed.",
+    "url": "https://en.wikipedia.org/wiki/Copper_sheathing"
+   }
+  ]
+ },
+ "film": {
+  "era": "1770s",
+  "music": "curious",
+  "cast": {
+   "middleton": "a 52 year old English naval administrator, tall and gaunt, a long pale face with a hooked nose, grey powdered hair tied back with a black ribbon, wearing a plain chocolate brown frock coat, a buff waistcoat and a white neckcloth, 1770s",
+   "king": "a 40 year old English king, plump, a round fleshy pink face, pale blue eyes, a white powdered wig with side curls, wearing a scarlet velvet coat embroidered with gold, a pale blue sash and a white lace cravat, 1770s",
+   "carpenter": "a 30 year old English ship carpenter, wiry, a sunburned face with a crooked nose, short black curly hair, a short black beard, wearing a rust orange wool shirt with rolled sleeves and a leather apron, 1760s",
+   "captain": "a 45 year old Royal Navy captain, stocky, a weathered ruddy face with heavy grey eyebrows, a white tied-back wig, wearing a dark navy coat with white lapels, gold buttons and a black tricorn hat, 1760s"
+  },
+  "key_words": [
+   "model warship",
+   "copper bottom",
+   "shipworm",
+   "HMS Alarm",
+   "iron bolts",
+   "2000 trees",
+   "soap",
+   "poisonous film",
+   "£1,500",
+   "copper-bottomed"
+  ],
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "prompt": "medium shot, a gaunt man carrying a small wooden model warship in both arms down a grand palace corridor, he is {middleton}, 1770s, golden window light",
+    "check": "Is a man carrying a model ship?",
+    "clip": true,
+    "motion": "he walks one slow step holding the model carefully, slow camera push in",
+    "who": "middleton"
+   },
+   {
+    "name": "model",
+    "at": "with#1",
+    "prompt": "close-up of a small wooden model warship with a shining copper bottom held in two hands, palace room behind, warm candle light",
+    "check": "Is there a model ship with a copper bottom?",
+    "clip": true,
+    "motion": "the hands turn the model slowly so the copper gleams, slow camera push in"
+   },
+   {
+    "name": "king",
+    "at": "to#1",
+    "prompt": "medium shot, a plump king leaning forward on a carved gilded chair to look closely, he is {king}, grand 1770s palace room, warm candle light",
+    "check": "Is a king leaning forward?",
+    "clip": true,
+    "motion": "he leans forward and narrows his eyes, slow camera push in",
+    "who": "king"
+   },
+   {
+    "name": "fleet",
+    "at": "Wooden#1",
+    "prompt": "wide shot of a large wooden warship at anchor on a grey choppy sea under heavy clouds, 1760s",
+    "check": "Is there a wooden sailing warship?",
+    "move": "push",
+    "xfade": true,
+    "hit": "enemy#1"
+   },
+   {
+    "name": "worm",
+    "at": "Shipworm#1",
+    "prompt": "extreme close-up of a rotten wet ship plank riddled with round holes and pale worms, dim underwater light",
+    "check": "Is there a plank full of holes?",
+    "move": "push"
+   },
+   {
+    "name": "weed",
+    "at": "Weed#1",
+    "prompt": "close-up underwater of long green seaweed trailing thickly from a wooden ship hull, murky green water",
+    "check": "Is there seaweed on a ship hull?",
+    "clip": true,
+    "motion": "the seaweed sways in the current, slow camera push in"
+   },
+   {
+    "name": "drydock",
+    "at": "In#1",
+    "prompt": "wide shot of a wooden frigate standing in a stone dry dock propped on timbers, workmen on ladders, 1760s English shipyard, morning haze",
+    "check": "Is there a ship in a dry dock?",
+    "move": "right"
+   },
+   {
+    "name": "nailing",
+    "at": "coppered#1",
+    "prompt": "close-up, a carpenter hammering a bright copper plate onto a wooden ship hull, he is {carpenter}, dry dock, morning light",
+    "check": "Is a man hammering a copper plate?",
+    "clip": true,
+    "motion": "he swings the hammer down onto the copper plate, slow camera push in",
+    "who": "carpenter"
+   },
+   {
+    "name": "coppered",
+    "at": "HMS#1",
+    "prompt": "low angle of a frigate hull fully covered in shining copper plates in a dry dock, morning sun",
+    "check": "Is a ship hull covered in copper plates?",
+    "move": "up"
+   },
+   {
+    "name": "tropics",
+    "at": "In#2",
+    "prompt": "wide shot of a wooden frigate anchored in a turquoise tropical bay with palm trees on the shore, bright sun",
+    "check": "Is a ship anchored in a tropical bay?",
+    "move": "left"
+   },
+   {
+    "name": "rot",
+    "at": "worms#1",
+    "prompt": "close-up, a carpenter's hands pulling a crumbling worm-eaten plank from a ship hull, dry dock, daylight",
+    "check": "Are hands holding a rotten plank?",
+    "clip": true,
+    "motion": "the hands pull the plank away and wood crumbles, slow camera push in"
+   },
+   {
+    "name": "captain",
+    "at": "The#5",
+    "prompt": "medium shot, a navy captain running his hand along clean bright copper plates on a hull, he is {captain}, dry dock, daylight",
+    "check": "Is a man touching copper plates?",
+    "clip": true,
+    "motion": "he slides his palm along the copper and nods, slow camera push in",
+    "who": "captain"
+   },
+   {
+    "name": "rusted",
+    "at": "But#1",
+    "prompt": "extreme close-up of a crumbling rusted iron bolt head in green-stained copper plates on a ship hull, cold grey light",
+    "check": "Is there a rusted bolt?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "pullbolt",
+    "at": "bolts#1",
+    "prompt": "close-up, a carpenter frowning and pulling a crumbling rusted iron bolt out of wet timber, he is {carpenter}, dry dock, grey light",
+    "check": "Is a man holding a rusted bolt?",
+    "clip": true,
+    "motion": "he pulls the bolt free and frowns at it, slow camera push in",
+    "who": "carpenter"
+   },
+   {
+    "name": "crate",
+    "at": "Many#1",
+    "prompt": "close-up of a wooden crate filled with broken corroded iron bolts on a shipyard floor, grey daylight",
+    "check": "Is there a crate of rusted bolts?",
+    "move": "down",
+    "hit": "useless#1"
+   },
+   {
+    "name": "strip",
+    "at": "In#3",
+    "prompt": "medium shot, workmen prying copper plates off a ship hull with iron crowbars in a dry dock, overcast light",
+    "check": "Are men prying plates off a hull?",
+    "clip": true,
+    "motion": "the workmen lever a copper plate loose, slow camera push in"
+   },
+   {
+    "name": "warships",
+    "at": "Then#1",
+    "prompt": "wide shot of a line of tall warships sailing out of a harbour under dark storm clouds, 1770s",
+    "check": "Are warships sailing in a line?",
+    "move": "right",
+    "xfade": true
+   },
+   {
+    "name": "cannon",
+    "at": "France#1",
+    "prompt": "medium shot, French sailors in blue jackets and red caps pushing a black cannon to a gun port on a warship deck, 1770s, smoky light",
+    "check": "Are sailors pushing a cannon?",
+    "clip": true,
+    "motion": "the sailors push the cannon forward a little, slow camera push in"
+   },
+   {
+    "name": "desk",
+    "at": "Middleton#2",
+    "prompt": "medium shot, a gaunt man bent over a desk piled with sea charts, rubbing his brow, he is {middleton}, dark 1770s office, candle light",
+    "check": "Is a man bent over a desk?",
+    "clip": true,
+    "motion": "he rubs his brow and stares at the charts, slow camera push in",
+    "who": "middleton"
+   },
+   {
+    "name": "ribs",
+    "at": "Building#1",
+    "prompt": "wide shot, shipwrights sawing timber on the huge wooden ribs of a half-built warship, 1770s shipyard, dusty sunlight",
+    "check": "Is there a half-built wooden ship?",
+    "clip": true,
+    "motion": "the shipwrights saw back and forth, slow camera push in"
+   },
+   {
+    "name": "logs",
+    "at": "2000#1",
+    "prompt": "wide shot of a huge pile of felled oak logs stacked in a shipyard, sawdust in the air, low sun",
+    "check": "Is there a pile of logs?",
+    "move": "left",
+    "hit": "2000#1"
+   },
+   {
+    "name": "soap",
+    "at": "You#1",
+    "prompt": "close-up, a hand rubbing a wet bar of soap under water pouring from a jug over a basin, bright window light",
+    "check": "Is a hand holding a bar of soap?",
+    "clip": true,
+    "motion": "the hand turns the soap under the water, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "foam",
+    "at": "Its#1",
+    "prompt": "extreme close-up of white foam sliding off a wet bar of soap, water drops falling, bright light",
+    "check": "Is foam sliding off soap?",
+    "clip": true,
+    "motion": "the foam slides down and drips away, slow camera push in"
+   },
+   {
+    "name": "cleanbar",
+    "at": "nothing#1",
+    "prompt": "close-up of a smooth clean bar of soap on a white dish, water beads running off it, bright light",
+    "check": "Is there a clean bar of soap?",
+    "move": "push"
+   },
+   {
+    "name": "film",
+    "at": "In#6",
+    "prompt": "close-up underwater of a copper plate on a ship hull with a faint blue-green sheen, sunlight rippling from above",
+    "check": "Is there a copper plate underwater?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "barnacles",
+    "at": "poisonous#1",
+    "prompt": "close-up underwater of small pale barnacles drifting off a blue-green copper plate, clear sea water, sunlight from above",
+    "check": "Are barnacles near a copper plate?",
+    "clip": true,
+    "motion": "the barnacles loosen and drift away, slow camera push in",
+    "hit": "poisonous#1"
+   },
+   {
+    "name": "wisps",
+    "at": "slowly#1",
+    "prompt": "extreme close-up of pale green wisps washing off a copper plate into clear seawater, sunlight from above",
+    "check": "Is there a copper plate in water?",
+    "clip": true,
+    "motion": "pale wisps drift off the metal, slow camera push in"
+   },
+   {
+    "name": "smooth",
+    "at": "worms#2",
+    "prompt": "close-up underwater of loose green seaweed drifting past a smooth clean copper hull, clear blue water",
+    "check": "Is seaweed drifting past a copper hull?",
+    "clip": true,
+    "motion": "the seaweed drifts away from the hull, slow camera push in"
+   },
+   {
+    "name": "sailing",
+    "at": "A#5",
+    "prompt": "wide shot of a frigate with full white sails racing over a bright blue open sea, its copper bottom flashing in the waves",
+    "check": "Is a ship sailing on the open sea?",
+    "move": "right"
+   },
+   {
+    "name": "spyglass",
+    "at": "longer#1",
+    "prompt": "medium shot, a navy captain raising a brass spyglass on a sunny ship deck far out at sea, he is {captain}, bright wind",
+    "check": "Is a man holding a spyglass?",
+    "clip": true,
+    "motion": "he lifts the spyglass to his eye, slow camera push in",
+    "who": "captain"
+   },
+   {
+    "name": "coins",
+    "at": "Coppering#1",
+    "prompt": "close-up, a clerk's hand stacking gold coins into a tall pile on a dark wooden counting table, candle light",
+    "check": "Is a hand stacking gold coins?",
+    "clip": true,
+    "motion": "the hand sets one more coin on the pile, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "planks",
+    "at": "£262#1",
+    "prompt": "close-up of a neat stack of rough oak planks in a shipyard, sawdust on the ground, warm daylight",
+    "check": "Is there a stack of planks?",
+    "move": "left"
+   },
+   {
+    "name": "nod",
+    "at": "The#12",
+    "prompt": "medium shot, a plump king nodding and resting his hand on a model warship with a copper bottom, he is {king}, palace room, candle light",
+    "check": "Is a king touching a model ship?",
+    "clip": true,
+    "motion": "he nods slowly with his hand on the model, slow camera push in",
+    "who": "king"
+   },
+   {
+    "name": "busydock",
+    "at": "By#1",
+    "prompt": "wide shot, dozens of workmen nailing copper plates onto three big warships in a busy dry dock, 1780s, bright morning",
+    "check": "Are workmen working on ship hulls?",
+    "clip": true,
+    "motion": "the workmen hammer along the hulls, slow camera pan right"
+   },
+   {
+    "name": "line",
+    "at": "line#1",
+    "prompt": "wide shot of a row of big warships with gleaming copper bottoms sailing out to sea, morning sun",
+    "check": "Are warships sailing out to sea?",
+    "move": "right"
+   },
+   {
+    "name": "merchant",
+    "at": "Merchants#1",
+    "prompt": "medium shot, a merchant in a bottle green coat pointing proudly at the copper bottom of his ship at a harbour quay, 1780s, sunshine",
+    "check": "Is a man pointing at a ship?",
+    "clip": true,
+    "motion": "he points at the hull and smiles, slow camera push in"
+   },
+   {
+    "name": "office",
+    "at": "Lloyd's#1",
+    "prompt": "medium shot, gentlemen in wigs and dark coats bent over ledgers at long tables in a busy London office, 1780s, warm window light",
+    "check": "Are men at tables with ledgers?",
+    "clip": true,
+    "motion": "one gentleman turns a page in a ledger, slow camera push in"
+   },
+   {
+    "name": "refund",
+    "at": "lower#1",
+    "prompt": "close-up, a clerk's hand sliding a few silver coins back across a wooden counter, warm light",
+    "check": "Is a hand sliding coins?",
+    "clip": true,
+    "motion": "the hand pushes the coins forward, slow camera push in"
+   },
+   {
+    "name": "harbour",
+    "at": "That#1",
+    "prompt": "wide shot of a merchant sailing ship moored in a calm harbour at golden sunset, 1780s",
+    "check": "Is there a ship in a harbour?",
+    "move": "pull"
+   },
+   {
+    "name": "gleam",
+    "at": "copper-bottomed#1",
+    "prompt": "close-up of gleaming copper plates on a ship hull catching golden sunset light above the waterline",
+    "check": "Are there gleaming copper plates?",
+    "move": "pull"
+   }
+  ]
+ }
+}
