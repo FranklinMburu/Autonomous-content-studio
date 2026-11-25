@@ -11,8 +11,8 @@
    {
     "feel": "dread",
     "lines": [
-     "Wooden warships had a hidden enemy.",
-     "Shipworm attacked their hulls. Weed grew and slowed them."
+     "Wooden hulls were under continuous attack.",
+     "Shipworm attacked their timber. Weed grew rapidly and slowed ships."
     ]
    },
    {
@@ -87,7 +87,7 @@
     "url": "https://en.wikipedia.org/wiki/Copper_sheathing"
    },
    {
-    "claim": "Ships' hulls were under continuous attack by shipworm; weed grew rapidly and slowed ships.",
+    "claim": "Ships' hulls were under continuous attack by shipworm, barnacles and other marine growth; weed grew rapidly and slowed ships.",
     "url": "https://en.wikipedia.org/wiki/Copper_sheathing"
    },
    {
@@ -167,11 +167,11 @@
    {
     "name": "fleet",
     "at": "Wooden#1",
-    "prompt": "wide shot of a large wooden warship at anchor on a grey choppy sea under heavy clouds, 1760s",
+    "prompt": "wide shot of a large wooden warship at anchor on a grey choppy sea under heavy clouds, its hull low in the water, 1760s",
     "check": "Is there a wooden sailing warship?",
     "move": "push",
     "xfade": true,
-    "hit": "enemy#1"
+    "hit": "attack#1"
    },
    {
     "name": "worm",
@@ -269,6 +269,14 @@
     "motion": "the workmen lever a copper plate loose, slow camera push in"
    },
    {
+    "name": "pile",
+    "at": "removed#1",
+    "prompt": "close-up, a workman's hand dropping a bent green-stained copper plate onto a heap of plates on wet dock stones, grey overcast light",
+    "check": "Is there a heap of copper plates?",
+    "clip": true,
+    "motion": "the plate drops onto the heap, slow camera push in"
+   },
+   {
     "name": "warships",
     "at": "Then#1",
     "prompt": "wide shot of a line of tall warships sailing out of a harbour under dark storm clouds, 1770s",
@@ -292,6 +300,13 @@
     "clip": true,
     "motion": "he rubs his brow and stares at the charts, slow camera push in",
     "who": "middleton"
+   },
+   {
+    "name": "harbourfleet",
+    "at": "100#1",
+    "prompt": "wide shot of dozens of wooden warships anchored close together in a crowded grey harbour, masts like a forest, 1770s, overcast",
+    "check": "Are there many ships in a harbour?",
+    "move": "left"
    },
    {
     "name": "ribs",
@@ -368,7 +383,7 @@
    },
    {
     "name": "sailing",
-    "at": "A#5",
+    "at": "A#4",
     "prompt": "wide shot of a frigate with full white sails racing over a bright blue open sea, its copper bottom flashing in the waves",
     "check": "Is a ship sailing on the open sea?",
     "move": "right"
@@ -392,8 +407,24 @@
     "xfade": true
    },
    {
+    "name": "bag",
+    "at": "cost#1",
+    "prompt": "close-up, gold coins pouring from a leather bag into a heaped pile on a dark wooden table, candle light",
+    "check": "Are gold coins pouring from a bag?",
+    "clip": true,
+    "motion": "the coins tumble onto the pile, slow camera push in"
+   },
+   {
+    "name": "ledger",
+    "at": "compared#1",
+    "prompt": "medium shot, a clerk in a grey wig frowning and tapping a quill on an open ledger at a counting desk, 1770s office, candle light",
+    "check": "Is a clerk at a desk with a ledger?",
+    "clip": true,
+    "motion": "he taps the quill and frowns, slow camera push in"
+   },
+   {
     "name": "planks",
-    "at": "£262#1",
+    "at": "for#1",
     "prompt": "close-up of a neat stack of rough oak planks in a shipyard, sawdust on the ground, warm daylight",
     "check": "Is there a stack of planks?",
     "move": "left"
@@ -417,7 +448,7 @@
    },
    {
     "name": "line",
-    "at": "line#1",
+    "at": "ships#3",
     "prompt": "wide shot of a row of big warships with gleaming copper bottoms sailing out to sea, morning sun",
     "check": "Are warships sailing out to sea?",
     "move": "right"
