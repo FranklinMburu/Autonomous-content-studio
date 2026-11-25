@@ -205,7 +205,23 @@ def judge(a):
     out = []
     watch = a.video and a.audio and Path(a.video).exists() and Path(a.audio).exists()
     step = 1 if watch else 8
-    def one_batch(i):
+    prior = []
+    if getattr(a, "prior", None) and Path(a.prior).exists():
+        # 25 Nov (Clipping Lab #2): judge only the candidates an earlier pass never answered and merge. The earlier
+        # global ranking is undone (score_alone back to score) and redone over all answers below.
+        prior = json.loads(Path(a.prior).read_text())["judged"]
+        done = set()
+        for m in prior:
+            if "score_alone" in m:
+                m["score"] = m.pop("score_alone")
+            for k_ in ("t_cand", "t"):
+                try:
+                    done.add(int(float(m[k_])))
+                except (TypeError, ValueError, KeyError):
+                    pass
+        cands = [c for c in cands if all(abs(int(float(c["t"])) - u) > 1 for u in done)]
+        print(f"[judge] prior answers: {len(prior)}; {len(cands)} candidates still unanswered", flush=True)
+    def one_batch(i, tries=6):
         batch = cands[i:i + step]
         blocks = []
         for c in batch:
@@ -249,7 +265,7 @@ def judge(a):
                                      "list with one entry, including \"peak\": the stream time in seconds (a number between "
                                      f"{a0} and {a0 + 2 * WIN}) where that moment's payoff happens.")
                 parts.append({"inline_data": {"mime_type": "video/mp4", "data": base64.b64encode(clip.read_bytes()).decode()}})
-        r = call(model, parts) or []
+        r = call(model, parts, tries=tries) or []
         got = [{k: m.get(k) for k in ("t", "score", "kind", "title", "why", "peak")}
                for m in (r if isinstance(r, list) else r.get("moments", [r] if isinstance(r, dict) else []))
                if isinstance(m, dict) and "t" in m]
@@ -267,14 +283,43 @@ def judge(a):
 
     # 3 candidates at a time (13 Nov: 83 one after another took ~15 min); call() already backs off on 429
     from concurrent.futures import ThreadPoolExecutor
-    with ThreadPoolExecutor(int(os.environ.get("CLIPS_JUDGE_PARALLEL", "3"))) as ex:
-        missing = 0
-        for k, got in enumerate(ex.map(one_batch, range(0, len(cands), step)), 1):
+    starts = list(range(0, len(cands), step))
+    lost = list(starts) if prior else []          # prior mode: everything left goes straight to the retry pass
+    if not prior:
+        with ThreadPoolExecutor(int(os.environ.get("CLIPS_JUDGE_PARALLEL", "3"))) as ex:
+            for k, (i, got) in enumerate(zip(starts, ex.map(one_batch, starts)), 1):
+                out.extend(got)
+                if not got:
+                    lost.append(i)
+                if k % 10 == 0 or k * step >= len(cands):
+                    print(f"[judge] {min(len(cands), k * step)}/{len(cands)}" + (" (watched)" if watch else ""), flush=True)
+        print(f"[judge] {model}: {len(out)} answers for {len(cands)} candidates" + (f"; {len(lost)} batches got NO answer (quota/rate limit)" if lost else ""), flush=True)
+    # 25 Nov (Clipping Lab #2): a retry pass. Parallel calls lose answers to per-minute limits (party: 59 of 73
+    # unanswered on Gemma). Retry the lost ones ONE at a time, strongest fused signal first, inside a hard time budget,
+    # so a quota hiccup costs minutes, not recall. Off unless CLIPS_JUDGE_RETRY_MIN (or --retry-min) is set.
+    budget = 60 * float(getattr(a, "retry_min", None) or os.environ.get("CLIPS_JUDGE_RETRY_MIN") or 0)
+    if lost and budget > 0:
+        lost.sort(key=lambda i: -max(float(c.get("z") or 0) for c in cands[i:i + step]))
+        t0, tried, won = time.time(), 0, 0
+        for i in lost:
+            if time.time() - t0 > budget - 60:
+                break
+            got = one_batch(i, tries=3)
+            tried += 1
+            won += bool(got)
             out.extend(got)
-            missing += not got
-            if k % 10 == 0 or k * step >= len(cands):
-                print(f"[judge] {min(len(cands), k * step)}/{len(cands)}" + (" (watched)" if watch else ""), flush=True)
-    print(f"[judge] {model}: {len(out)} answers for {len(cands)} candidates" + (f"; {missing} batches got NO answer (quota/rate limit)" if missing else ""), flush=True)
+            if tried % 5 == 0:
+                print(f"[judge] retry {tried}/{len(lost)}: {won} answered, {(time.time() - t0) / 60:.1f} min", flush=True)
+        print(f"[judge] retry pass: {won} of {tried} retried batches answered ({len(lost) - tried} not tried) in "
+              f"{(time.time() - t0) / 60:.1f} min (budget {budget / 60:.0f})", flush=True)
+    if prior:
+        new = [m.get("score") for m in out if isinstance(m.get("score"), (int, float))]
+        old_ = [m.get("score") for m in prior if isinstance(m.get("score"), (int, float))]
+        if new and old_:   # same model, same format: the new answers should share the old answers' spread
+            q = lambda v: sorted(v)[len(v) // 2]
+            print(f"[judge] score spread: prior {len(old_)} median {q(old_)} range {min(old_)}-{max(old_)}; "
+                  f"new {len(new)} median {q(new)} range {min(new)}-{max(new)}", flush=True)
+        out = prior + out
     # Global ranking pass (Hooky): the model orders the best candidates against each other, which is steadier than
     # separate 0-10 scores. The rank becomes the final score; the per-moment score stays as "score_alone".
     top = sorted([m for m in out if isinstance(m.get("score"), (int, float))], key=lambda m: -m["score"])[:30]
@@ -324,6 +369,8 @@ def main():
     j.add_argument("--streamer"); j.add_argument("--video", help="low-res stream video: the judge watches each moment"); j.add_argument("--audio", help="stream audio")
     sh = sub.add_parser("show"); sh.add_argument("--eyes", required=True)
     pr = sub.add_parser("probe"); pr.add_argument("--video"); pr.add_argument("--model"); pr.add_argument("--pause", type=float, default=0)
+    j.add_argument("--prior", help="earlier judged.json: judge only the candidates it never answered, then merge")
+    j.add_argument("--retry-min", type=float, help="minutes for the one-at-a-time retry of unanswered candidates")
     for x in (e, j):
         x.add_argument("--model"); x.add_argument("--pause", type=float, default=6)
     a = ap.parse_args()

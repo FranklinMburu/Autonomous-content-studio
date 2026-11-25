@@ -114,7 +114,8 @@ def main():
             if all(abs(t - c) > 30 for c in cands):
                 cands.append(t)
         cands = sorted(cands)
-        Path(a.cands_out).write_text(json.dumps([{"t": t} for t in cands]))
+        # 25 Nov: "z" = fused signal at t, so a retry pass can try the strongest unanswered candidates first
+        Path(a.cands_out).write_text(json.dumps([{"t": t, "z": round(float(fams["ALL TOGETHER"][t]), 3)} for t in cands]))
         print(f"candidates for the AI judge: {len(cands)}")
     judged = json.loads(Path(a.judged).read_text())["judged"] if a.judged and Path(a.judged).exists() else []
     # 16 Nov: when the judge says where the payoff really is ("peak"), the pick goes there, not to the candidate's t
