@@ -206,7 +206,8 @@ def judge(a):
     watch = a.video and a.audio and Path(a.video).exists() and Path(a.audio).exists()
     step = 1 if watch else 8
     prior = []
-    if getattr(a, "prior", None) and Path(a.prior).exists():
+    backfill = bool(getattr(a, "prior", None))   # reviewer: a prior that is missing or empty must never start a full judge run
+    if backfill and Path(a.prior).exists():
         # 25 Nov (Clipping Lab #2): judge only the candidates an earlier pass never answered and merge. The earlier
         # global ranking is undone (score_alone back to score) and redone over all answers below.
         prior = json.loads(Path(a.prior).read_text())["judged"]
@@ -284,8 +285,8 @@ def judge(a):
     # 3 candidates at a time (13 Nov: 83 one after another took ~15 min); call() already backs off on 429
     from concurrent.futures import ThreadPoolExecutor
     starts = list(range(0, len(cands), step))
-    lost = list(starts) if prior else []          # prior mode: everything left goes straight to the retry pass
-    if not prior:
+    lost = list(starts) if backfill else []       # prior mode: everything left goes straight to the retry pass
+    if not backfill:
         with ThreadPoolExecutor(int(os.environ.get("CLIPS_JUDGE_PARALLEL", "3"))) as ex:
             for k, (i, got) in enumerate(zip(starts, ex.map(one_batch, starts)), 1):
                 out.extend(got)
@@ -298,7 +299,9 @@ def judge(a):
     # unanswered on Gemma). Retry the lost ones ONE at a time, strongest fused signal first, inside a hard time budget,
     # so a quota hiccup costs minutes, not recall. Off unless CLIPS_JUDGE_RETRY_MIN (or --retry-min) is set.
     budget = 60 * float(getattr(a, "retry_min", None) or os.environ.get("CLIPS_JUDGE_RETRY_MIN") or 0)
-    if lost and budget > 0:
+    if lost and 0 < budget < 120:
+        print("[judge] retry budget under 2 min: nothing retried", flush=True)
+    if lost and budget >= 120:
         lost.sort(key=lambda i: -max(float(c.get("z") or 0) for c in cands[i:i + step]))
         t0, tried, won = time.time(), 0, 0
         for i in lost:

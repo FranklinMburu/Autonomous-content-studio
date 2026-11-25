@@ -214,7 +214,7 @@ jobs:
           A="--key ../key/twitch.json --audio ../key/audio.m4a --video ../key/low.mp4 --words ../key/words.json --chat ../key/chat.json --eyes ../key/eyes.json --top 20"
           python lab/clips/recall.py $A --cands-out ../key/cands.json --out ../key/recall_signals.json
           j=$(find ../prev -name judged.json 2>/dev/null | head -1)
-          if [ -n "$j" ] && [ -s "$j" ] && [ -z "$REJUDGE" ] && [ -n "$BACKFILL_MIN" ]; then
+          if [ -n "$j" ] && [ -s "$j" ] && [ -z "$REJUDGE" ] && [ -n "$BACKFILL_MIN" ] && [ -z "$NO_AI" ]; then
             cp "$j" ../key/judged_prior.json; echo "judge scores reused from run $REUSE_RUN; backfilling unanswered for up to $BACKFILL_MIN min"
             echo "================ BEFORE THE BACKFILL (saved answers only) ================"
             python lab/clips/recall.py $A --judged ../key/judged_prior.json --cands ../key/cands.json --out ../key/recall_before.json
