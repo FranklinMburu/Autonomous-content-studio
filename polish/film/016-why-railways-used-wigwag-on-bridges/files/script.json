@@ -1,0 +1,79 @@
+{
+ "title": "Why Railways Used Wigwag on Bridges",
+ "channel": "Hidden Reasons",
+ "topic": "Why the 19th‑century British railway company installed “wigwag” signals on bridges (England, 1868)",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "A signalman waved a giant flag from a rickety bridge, arms trembling."
+   ]
+  },
+  {
+   "feel": "skepticism",
+   "lines": [
+    "His fellow engineers snorted, saying the ordinary semaphore arm would suffice.",
+    "They claimed a flag was old‑fashioned and useless."
+   ]
+  },
+  {
+   "feel": "tension",
+   "lines": [
+    "A freight train roared toward the river, driver squinting at the arm.",
+    "Thick fog rolled in, hiding the semaphore like a ghost.",
+    "The driver could not tell if the line was clear."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it’s like reading a street sign through a rain‑soaked windshield."
+   ]
+  },
+  {
+   "feel": "clarity",
+   "lines": [
+    "Wigwag uses one flag swung side‑to‑side, visible farther than a static arm.",
+    "From the bridge the driver’s eye meets the flag, not the arm.",
+    "The flag stays visible even when fog or smoke blocks the semaphore.",
+    "Bridges often limited the height of semaphore arms, forcing a lower placement."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "Ironically, the same flag later retired, becoming a museum relic.",
+    "Modern colour‑light signals never needed a hand‑held flag.",
+    "When electric lights arrived, the flag finally faded into history."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Wigwag uses a single large flag swung side‑to‑side, readable over greater distances than semaphore.",
+   "url": "https://en.wikipedia.org/wiki/Wigwag_%28flag_signals%29"
+  },
+  {
+   "claim": "Signals mounted low on bridges stay in the driver’s eyeline and avoid obstruction.",
+   "url": "https://en.wikipedia.org/wiki/UK_railway_signalling"
+  }
+ ],
+ "key_words": [
+  "signalman",
+  "wigwag",
+  "bridge",
+  "visibility",
+  "semaphore",
+  "fog",
+  "museum"
+ ]
+}
