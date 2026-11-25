@@ -10,4 +10,3 @@ Problems left by the free models (the copy-paste polish fixes them):
 - script: not supported by the sources, fix or remove: Bridges often limited the height of semaphore arms, forcing a lower placement.
 - script: not supported by the sources, fix or remove: Ironically, the same flag later retired, becoming a museum relic.
 - script: not supported by the sources, fix or remove: When electric lights arrived, the flag finally faded into history.
-- the free models could not write the shots for part 3

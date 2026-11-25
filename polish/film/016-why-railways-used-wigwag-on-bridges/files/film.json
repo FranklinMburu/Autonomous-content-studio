@@ -1,0 +1,285 @@
+{
+ "era": "1890s",
+ "cast": {
+  "signalman": "a 45 year old railway signalman, wiry build, weathered face with a bushy grey moustache, short dark brown hair, wearing a dark navy blue wool jacket with brass buttons, grey trousers, and a dark peaked cap, 1890s",
+  "driver": "a 38 year old steam locomotive driver, stocky build, soot-dusted round face, heavy brown eyebrows, wearing a faded denim engineer cap, a dark grey canvas jacket over a blue chambray shirt, and a red neckerchief, 1890s",
+  "engineer": "a 52 year old senior railway engineer, stout build, broad ruddy face with long grey mutton-chop sideburns, clean-shaven chin, wire spectacles, wearing a black frock coat, a dark yellow waistcoat, white shirt with a black cravat, 1890s"
+ },
+ "music": "tense",
+ "key_words": [
+  "signalman#1",
+  "waved#1",
+  "flag#1",
+  "bridge#1",
+  "engineers#1",
+  "snorted#1",
+  "semaphore#1",
+  "suffice#1",
+  "useless#1",
+  "train#1",
+  "river#1",
+  "driver#1",
+  "squinting#1",
+  "fog#1",
+  "ghost#1",
+  "clear#1",
+  "street#1",
+  "rain-soaked#1",
+  "windshield#1",
+  "Wigwag#1",
+  "side-to-side#1",
+  "static#1",
+  "eye#1",
+  "blocks#1",
+  "limited#1",
+  "height#1",
+  "retired#1",
+  "relic#1",
+  "electric#1",
+  "faded#1"
+ ],
+ "shots": [
+  {
+   "name": "wave_flag",
+   "at": 0,
+   "who": "signalman",
+   "clip": true,
+   "prompt": "medium shot, waving a giant red flag side to side on a wooden bridge, he is {signalman}, grey overcast sky, 1890s railway bridge",
+   "motion": "he waves the large red flag side to side, slow camera push in",
+   "check": "Is a man waving a flag?"
+  },
+  {
+   "name": "trembling_arms",
+   "at": "bridge#1",
+   "who": "signalman",
+   "clip": true,
+   "prompt": "close-up, looking anxious with trembling hands gripping a wooden flag pole, he is {signalman}, misty bridge railing behind, cold morning light",
+   "motion": "his arms tremble while gripping the pole, slow camera push in",
+   "check": "Is a man holding a flag pole?"
+  },
+  {
+   "name": "snort",
+   "at": "His#1",
+   "xfade": true,
+   "clip": true,
+   "prompt": "medium shot, a stout senior railway engineer snorting and folding his arms on a rickety wooden bridge over a river, two other engineers in dark coats stand behind him, he is {engineer}, grey misty morning light",
+   "motion": "he snorts and shakes his head, mist drifts past the bridge, slow camera push in",
+   "check": "Is a man standing on a wooden bridge with his arms folded?"
+  },
+  {
+   "name": "point",
+   "at": "saying#1",
+   "who": "engineer",
+   "clip": true,
+   "prompt": "medium close-up, a stout senior engineer pointing firmly toward a semaphore signal post beside the railway tracks, he is {engineer}, a foggy river valley, cold morning light",
+   "motion": "he points and gestures with one hand, fog drifts, slow camera push in",
+   "check": "Is a man pointing at a signal post?"
+  },
+  {
+   "name": "semaphore",
+   "at": "arm#1",
+   "move": "push",
+   "prompt": "close-up of a red and white semaphore arm fixed on a tall steel post beside the railway line, held horizontal and still, cold morning light, misty background",
+   "check": "Is there a red and white semaphore arm?"
+  },
+  {
+   "name": "dismiss",
+   "at": "flag#2",
+   "who": "engineer",
+   "clip": true,
+   "prompt": "close-up, a stout senior engineer shrugging and waving one hand dismissively beside a large faded red and white flag on a pole, he is {engineer}, a rickety wooden bridge, grey morning light",
+   "motion": "he shrugs and waves his hand dismissively, the flag flutters in the wind, slow camera push in",
+   "check": "Is a man shrugging beside a large flag?"
+  },
+  {
+   "name": "roaring_train",
+   "at": "A#5",
+   "xfade": true,
+   "move": "push",
+   "prompt": "wide shot of a black steam freight train racing toward a tall iron girder bridge over a wide grey river, 1890s, overcast daylight, steam billowing from the funnel",
+   "check": "Is there a steam train approaching a bridge?"
+  },
+  {
+   "name": "squinting_driver",
+   "at": "driver#1",
+   "who": "driver",
+   "clip": true,
+   "prompt": "close-up, a soot-dusted locomotive driver squinting out of his cab window toward a semaphore arm ahead, he is {driver}, 1890s, grey overcast light",
+   "motion": "he leans out and narrows his eyes, slow camera push in",
+   "check": "Is a driver squinting from a train cab?"
+  },
+  {
+   "name": "fog_rolls_in",
+   "at": "fog#1",
+   "move": "left",
+   "prompt": "wide shot of thick grey fog rolling in across a river valley, a railway bridge barely visible in the distance, 1890s, dim daylight",
+   "check": "Is there thick fog over a river valley?"
+  },
+  {
+   "name": "hidden_arm",
+   "at": "hiding#1",
+   "clip": true,
+   "prompt": "close-up of a red and white semaphore arm half swallowed by thick grey fog on a wooden railway bridge, 1890s, dim misty light",
+   "motion": "thick fog drifts across the semaphore arm, slow camera push in",
+   "check": "Is there a semaphore arm in the fog?"
+  },
+  {
+   "name": "ghost_arm",
+   "at": "ghost#1",
+   "move": "push",
+   "prompt": "close-up of a semaphore arm almost completely hidden in swirling grey fog, only a pale blur of red and white colour left, 1890s misty railway bridge, dim light",
+   "check": "Is a signal arm barely visible in thick fog?"
+  },
+  {
+   "name": "line_unclear",
+   "at": "clear#1",
+   "who": "driver",
+   "clip": true,
+   "prompt": "medium shot, a driver gripping the cab controls and peering into thick grey fog through his open cab window, he is {driver}, 1890s, dim foggy light",
+   "motion": "he leans forward and scans the fog, slow camera push in",
+   "check": "Is a man peering into fog from a train cab?"
+  },
+  {
+   "name": "you_see",
+   "at": "You#1",
+   "who": "driver",
+   "clip": true,
+   "xfade": true,
+   "prompt": "medium close-up, a stocky locomotive driver squinting forward through a rain-soaked cab windshield, water streaming down the glass, he is {driver}, 1890s steam locomotive cab, grey stormy light",
+   "motion": "he leans forward and blinks at the blurred view, slow camera push in",
+   "check": "Is a man squinting through a rain-covered windshield?"
+  },
+  {
+   "name": "windshield",
+   "at": "windshield#1",
+   "move": "push",
+   "prompt": "extreme close-up of a rain-soaked windshield covered in running water droplets, a blurred roadside sign shape beyond the glass, grey daylight",
+   "check": "Is there a blurred sign behind rain-covered glass?"
+  },
+  {
+   "name": "swing",
+   "at": "Wigwag#1",
+   "who": "signalman",
+   "clip": true,
+   "prompt": "medium shot, a signalman swinging a large red and white flag side to side on a rickety wooden railway bridge, he is {signalman}, misty river valley, grey morning light",
+   "motion": "he swings the flag side to side, his arms trembling, slow camera push in",
+   "xfade": true,
+   "check": "Is a man swinging a flag on a bridge?"
+  },
+  {
+   "name": "flag_swing",
+   "at": "swung#1",
+   "clip": true,
+   "prompt": "extreme close-up of a large red and white checkered flag swinging side to side on a wooden bridge, thick grey fog behind, dim morning light",
+   "motion": "the flag swings side to side, slow camera push in",
+   "check": "Is a red and white flag swinging?"
+  },
+  {
+   "name": "far_flag",
+   "at": "farther#1",
+   "clip": true,
+   "prompt": "low angle shot, a red and white flag on a wooden railway bridge high above a misty river valley, the track dropping away below, grey dawn light",
+   "motion": "the flag swings on the bridge, fog drifts below, slow camera push in",
+   "hit": "farther#1",
+   "check": "Is a flag on a bridge above a valley?"
+  },
+  {
+   "name": "driver_look",
+   "at": "From#2",
+   "who": "driver",
+   "clip": true,
+   "prompt": "medium shot, a locomotive driver leaning out of his cab window squinting toward a distant swinging flag on a bridge, he is {driver}, foggy valley, cold morning light",
+   "motion": "he leans forward and squints into the fog, slow camera push in",
+   "check": "Is a driver looking out of a locomotive cab?"
+  },
+  {
+   "name": "flag_close",
+   "at": "flag#4",
+   "clip": true,
+   "prompt": "close-up, a big red and white flag swinging side to side on a wooden bridge seen from the approaching train, thick grey fog, dim morning light",
+   "motion": "the flag swings side to side, slow camera push in",
+   "check": "Is a red and white flag swinging on a bridge?"
+  },
+  {
+   "name": "fog_flag",
+   "at": "visible#2",
+   "clip": true,
+   "prompt": "medium shot, a bright red and white flag swinging on a wooden bridge emerging clearly from thick rolling grey fog, misty valley, dim daylight",
+   "motion": "the flag swings side to side through the fog, slow camera push in",
+   "xfade": true,
+   "check": "Is a flag visible in thick fog?"
+  },
+  {
+   "name": "fog_arm",
+   "at": "semaphore#3",
+   "move": "push",
+   "prompt": "close-up, a red and white semaphore arm on a metal post beside the railway, almost swallowed by swirling grey fog and smoke, dim daylight",
+   "check": "Is there a semaphore arm in the fog?"
+  },
+  {
+   "name": "tall_arm",
+   "at": "arms#2",
+   "move": "left",
+   "prompt": "medium shot, a semaphore arm on a tall post beside a railway line with a high stone bridge arch rising behind it, grey overcast light",
+   "xfade": true,
+   "check": "Is there a semaphore arm on a tall post?"
+  },
+  {
+   "name": "low_arm",
+   "at": "lower#1",
+   "move": "up",
+   "prompt": "low angle shot, a semaphore arm mounted low on a short wooden post beside the railway track under the dark timber underside of a bridge, grey overcast light",
+   "hit": "lower#1",
+   "check": "Is a semaphore arm mounted low under a bridge?"
+  },
+  {
+   "name": "retired",
+   "at": "Ironically#1",
+   "clip": true,
+   "prompt": "close-up of hands placing a folded red signal flag inside a glass display cabinet on a polished wooden wall, warm indoor exhibition lighting",
+   "motion": "hands place the folded flag into the glass case, slow camera push in",
+   "check": "Is a flag being placed inside a glass case?"
+  },
+  {
+   "name": "museum",
+   "at": "museum#1",
+   "xfade": true,
+   "move": "push",
+   "prompt": "wide shot of visitors walking past an antique railway signal exhibit in a quiet museum hall, soft overhead gallery lights, polished floor",
+   "check": "Are visitors looking at an exhibit in a hall?"
+  },
+  {
+   "name": "signals",
+   "at": "colour‑light#1",
+   "move": "up",
+   "prompt": "low angle shot of a tall steel railway signal gantry with glowing green electric lights against a deep blue evening sky, empty steel tracks",
+   "check": "Is there a railway signal with green lights?"
+  },
+  {
+   "name": "abandoned",
+   "at": "hand‑held#1",
+   "move": "push",
+   "prompt": "close-up of a faded red canvas flag lying rolled up on a dusty wooden bench inside an old signal box, gloomy window light",
+   "check": "Is there a rolled up flag on a wooden surface?"
+  },
+  {
+   "name": "electric",
+   "at": "electric#1",
+   "who": "driver",
+   "clip": true,
+   "hit": "lights#1",
+   "prompt": "medium shot, a train driver looking out of a steam train cab window toward bright electric track signals, he is {driver}, night light",
+   "motion": "he looks out the cab window as signal lights flicker, slow camera push in",
+   "check": "Is a train driver looking out a window?"
+  },
+  {
+   "name": "history",
+   "at": "faded#1",
+   "clip": true,
+   "hit": "history#1",
+   "prompt": "extreme close-up of an old railway record book lying open on a dark desk, displaying a vintage sketch of a signal flag, candle light",
+   "motion": "the candle light flickers softly over the open page, slow camera push in",
+   "check": "Is there an open book with a sketch?"
+  }
+ ]
+}
