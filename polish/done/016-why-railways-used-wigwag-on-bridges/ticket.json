@@ -3,9 +3,10 @@
  "draft": "draft-016-why-railways-used-wigwag-on-bridges-run116",
  "episode": "episodes/hidden_reasons/016-why-railways-used-wigwag-on-bridges",
  "opened": "2026-11-25T05:50:47+00:00",
- "status": "accepted",
- "checked": "2026-11-25T09:58:45+00:00",
+ "status": "done",
+ "checked": "2026-11-25T10:45:46+00:00",
  "last_answer_by": "pull request #203 by FranklinMburu",
- "tries": 0,
- "started": "2026-11-25T09:55:58+00:00"
+ "tries": 1,
+ "started": "2026-11-25T09:55:58+00:00",
+ "video": "https://github.com/FranklinMburu/Autonomous-content-studio/releases/tag/film-016-why-railways-used-wigwag-on-bridges-run117"
 }
