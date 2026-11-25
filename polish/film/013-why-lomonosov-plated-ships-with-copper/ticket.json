@@ -3,8 +3,9 @@
  "draft": "draft-013-why-lomonosov-plated-ships-with-copper-run96",
  "episode": "episodes/hidden_reasons/013-why-lomonosov-plated-ships-with-copper",
  "opened": "2026-11-21T05:31:26+00:00",
- "status": "accepted",
- "checked": "2026-11-25T09:59:53+00:00",
+ "status": "making",
+ "checked": "2026-11-25T10:46:45+00:00",
  "last_answer_by": "pull request #203 by FranklinMburu",
- "tries": 0
+ "tries": 1,
+ "started": "2026-11-25T10:46:45+00:00"
 }
