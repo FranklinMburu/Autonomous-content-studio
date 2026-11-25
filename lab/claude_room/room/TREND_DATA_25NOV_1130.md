@@ -1,0 +1,12 @@
+# YouTube Shorts, filter "uploaded today", captured 25 Nov 2026 ~11:40 Nairobi (GTA 6 day 8, second look). 11 queries, ~200 results. Views at capture.
+OVERALL: GTA 6 vs GTA 5 comparisons keep climbing: NPCs 603K (434K at 08:50), mirror damage 303K, train (6 vs 5 vs RDR2) 104K, physics 33K, detail/plane/grenade/convenience store/tank truck 22-28K, sand burnout 18K. RDR2 Easter eggs in GTA VI 130K; "Coolest Easter egg" 51K.
+KAI: vibing to a song 87K | naming all the planets 54K | REAL Mandy 47K | fake tunnel 28K | NPC pushes Kai 23K | worst ending 15K | sea monster 14K | Niko Bellic 12K.
+SPEED: finds himself 28K | ending reaction 22K | "Speed Wanted Kai To Lose Their $1M Challenge" 21K (11K at 08:50) | aliens 20K | after 52 h 18K | backflip 14K.
+LACY: 90 h didn't save 30K | finale reaction 27K | emotional ending 22K | loses 90 h 21K | 61% 13K.
+MONEY: unlimited money glitch 19K | steal cars no police 16K | respawning loot 15K. SECRET: dog island 26K, secret photo message 13K, time portal 18K.
+KAI vs SPEED $1M RACE (Speed won with ~20 s left; Speed VOD 91c96JtcIFg 5.38M, Kai's edit 426K in 7 h): its ending is now cut ~10 times, all small: "Kai CAUGHT Speed" 1.9K, "Speed Beat Kai" 1.6K, "Speed Beats Kai As Time Runs Out" 1.5K, "This Bag Paid Out" 1.4K, "LAST 20 seconds" 1.2K, "FINAL 5 SECONDS" 863, "BEATS Kai With 20 SECONDS Left" 263, "Kai robs a bank to beat Speed" 1.1K. Only the Speed-rooting-against-Kai angle broke 10K.
+Race facts from Speed's VOD transcript (read in the built-in browser): 4:42:22 Speed sees Kai at "331,000"; 4:42:32 "If Kai steals a vault in 6 minutes he could possibly win"; 4:43:05 "Be smart. He's not still in the vault in 6 minutes"; 4:45:27 "Kai's robbing the vault, he has three minutes left"; 4:46:34 "I have 150 right now. He got 140"; 4:47:03 "He has to stash it. He has cops on him"; 4:48:24 "One minute left"; 4:49:01 "What happened? Did he throw it? No way"; 4:49:17 "5 4 2 1. Yes sir" (Speed wins); 4:49:40 "I sold 500,000"; 4:51:00 "I have 400k".
+
+Pattern (11:40): unchanged from 08:50. Comparisons (6 vs 5) are the day's format by a wide margin; the Kai vs Speed race ending is already saturated by small copies (none above 2K), so it is not an open lane any more: the demand proof is weak, not just the competition.
+
+OUR CHANNEL (IntNext, 25 Nov 11:30): 20 Shorts, newest kai-C3r (published 22 Nov); 0 uploads in the last 24 h. secrets1b 1,354; parrot 1,281; Kai settings 1,220; kai-R3 1,046; agent00 jail 85; N3on plane 36 (1 comment); Agent00 iguana 32; list-R1 26; others 1-16. Flat since 23 Nov.
