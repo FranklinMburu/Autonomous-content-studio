@@ -1,0 +1,108 @@
+{
+ "title": "Why the Killer Mould Came From Downstairs",
+ "channel": "Hidden Reasons",
+ "topic": "Why Sir Alexander Fleming left his petri dishes uncovered (London, 1928)",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "lines": [
+    "Sir Alexander Fleming left his petri dishes sitting out on a laboratory bench.",
+    "Bacteria were growing in Fleming's dishes."
+   ],
+   "feel": "curiosity"
+  },
+  {
+   "lines": [
+    "When Alexander Fleming returned, one dish had a patch of mould.",
+    "Bacteria around the mould died. Bacteria farther away stayed normal.",
+    "Fleming said it was funny, then tested it again.",
+    "Fleming found the mould was Penicillium."
+   ],
+   "feel": "confusion"
+  },
+  {
+   "lines": [
+    "Fleming named the mould's weapon penicillin in 1929.",
+    "But at a microbiology congress in London, nobody believed Fleming.",
+    "Penicillin was too hard to isolate. It stayed mostly forgotten.",
+    "By 1936, the world still saw no value in penicillin."
+   ],
+   "feel": "frustration"
+  },
+  {
+   "lines": [
+    "You see, it is like one patch of mould on bread that stops everything around it from growing."
+   ],
+   "feel": "recognition"
+  },
+  {
+   "lines": [
+    "Here is the real reason. Penicillium mould travels through the air as spores.",
+    "In 1966, scientists traced Fleming's mould to La Touche's room, directly below his.",
+    "So the spores drifted up from downstairs and landed on the dishes Fleming left out."
+   ],
+   "feel": "awe"
+  },
+  {
+   "lines": [
+    "The killer came from downstairs, not from Fleming's own bench.",
+    "That accident gave the world its first antibiotic."
+   ],
+   "feel": "surprise"
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Fleming left his culture plates on a bench in a corner of his laboratory; on his return he found one culture contaminated with a fungus, with the staphylococci colonies around the fungus destroyed and colonies farther away normal.",
+   "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+  },
+  {
+   "claim": "Fleming identified the mould as Penicillium and coined the name penicillin in 1929 for the antibacterial substance from the mould.",
+   "url": "https://en.wikipedia.org/wiki/Penicillin"
+  },
+  {
+   "claim": "When Fleming spoke about the medical importance of penicillin at the Second International Congress of Microbiology held in London, no one believed him.",
+   "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+  },
+  {
+   "claim": "Penicillin was so difficult to isolate that its development as a drug seemed impossible, and Fleming did not convince anyone that his discovery was important.",
+   "url": "https://en.wikipedia.org/wiki/Penicillin"
+  },
+  {
+   "claim": "Penicillin languished largely forgotten in the 1930s, and as late as 1936 there was no appreciation for penicillin.",
+   "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+  },
+  {
+   "claim": "The source of the fungal contaminant was established in 1966 as coming from La Touche's room, which was directly below Fleming's laboratory.",
+   "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+  },
+  {
+   "claim": "Penicillium chrysogenum is a ubiquitous airborne fungus detected in every sampled region of the Earth.",
+   "url": "https://doi.org/10.1016/j.funeco.2013.04.003"
+  },
+  {
+   "claim": "Penicillin was the first antibiotic substance discovered, and Fleming shared the 1945 Nobel Prize in Physiology or Medicine for the discovery of penicillin and its curative effect.",
+   "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+  }
+ ],
+ "key_words": [
+  "Fleming",
+  "petri",
+  "dishes",
+  "mould",
+  "bacteria",
+  "penicillin",
+  "1929",
+  "London",
+  "spores",
+  "antibiotic"
+ ]
+}
