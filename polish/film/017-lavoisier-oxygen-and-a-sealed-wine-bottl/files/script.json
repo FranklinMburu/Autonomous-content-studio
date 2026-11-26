@@ -1,0 +1,108 @@
+{
+ "title": "Lavoisier, Oxygen, and a Sealed Wine Bottle",
+ "channel": "Hidden Reasons",
+ "topic": "Why the French chemist Antoine Lavoisier kept a sealed wine bottle in his laboratory (Paris, 1785)",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "Lavoisier chased a strange gas that made fire burn fiercely."
+   ]
+  },
+  {
+   "feel": "skepticism",
+   "lines": [
+    "Priestley told Lavoisier about the strange gas.",
+    "Priestley thought the gas was just a purer form of common air.",
+    "Lavoisier ran his own experiments on the gas instead."
+   ]
+  },
+  {
+   "feel": "determination",
+   "lines": [
+    "Marie-Anne translated Kirwan's book on phlogiston for him.",
+    "Marie-Anne's footnotes convinced Lavoisier that the old fire theory was wrong.",
+    "Lavoisier studied burning and discovered oxygen gas."
+   ]
+  },
+  {
+   "feel": "dread",
+   "lines": [
+    "Revolutionaries charged Lavoisier with tax fraud and selling adulterated tobacco.",
+    "Revolutionaries guillotined him in 1794.",
+    "Marie-Anne fought for Lavoisier's release, and France later cleared his name."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it's like a soda bottle: the air above the drink rushes out."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "In a sealed wine bottle, the headspace is the gas space above the wine.",
+    "That headspace holds oxygen.",
+    "As the wine uses oxygen, gas moves from the headspace into the wine.",
+    "The sealed bottle becomes an oxygen reserve, feeding oxygen into the wine."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "The bottle's oxygen reserve was measured in a modern wine study, published in 2006.",
+    "Lavoisier's lasting idea was simpler: matter is never made or lost."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Priestley told Lavoisier about air produced by heating the red calx of mercury with a burning glass; it supported combustion with extreme vigor, and Priestley believed it was an especially pure form of common air, while Lavoisier carried out his own research on it.",
+   "url": "https://en.wikipedia.org/wiki/Antoine_Lavoisier"
+  },
+  {
+   "claim": "Marie-Anne Paulze translated Kirwan's Essay on Phlogiston, critiqued it with footnotes pointing out errors, and her translation convinced Lavoisier the phlogiston idea was incorrect, leading to his studies of combustion and his discovery of oxygen gas.",
+   "url": "https://en.wikipedia.org/wiki/Marie-Anne_Paulze_Lavoisier"
+  },
+  {
+   "claim": "Revolutionaries charged Lavoisier with tax fraud and selling adulterated tobacco and guillotined him in 1794, and the French government exonerated him a year and a half later.",
+   "url": "https://en.wikipedia.org/wiki/Antoine_Lavoisier"
+  },
+  {
+   "claim": "Marie-Anne visited Lavoisier in prison and fought for his release, presenting his case before André Dupin de Beaumont.",
+   "url": "https://en.wikipedia.org/wiki/Marie-Anne_Paulze_Lavoisier"
+  },
+  {
+   "claim": "Lavoisier's 1789 Elementary Treatise on Chemistry presented the idea of conservation of mass, meaning matter is neither made nor lost.",
+   "url": "https://en.wikipedia.org/wiki/Marie-Anne_Paulze_Lavoisier"
+  },
+  {
+   "claim": "In sealed wine bottles, the headspace holds 0.38 to 3.58 mg of oxygen at bottling and acts as an oxygen reserve, with gas moving from the headspace into the wine as the wine uses oxygen; this study was published in 2006.",
+   "url": "https://doi.org/10.20870/oeno-one.2006.40.1.884"
+  }
+ ],
+ "key_words": [
+  "Lavoisier",
+  "gas",
+  "fire",
+  "Priestley",
+  "phlogiston",
+  "oxygen",
+  "headspace",
+  "sealed",
+  "wine",
+  "bottle",
+  "guillotined",
+  "matter"
+ ]
+}
