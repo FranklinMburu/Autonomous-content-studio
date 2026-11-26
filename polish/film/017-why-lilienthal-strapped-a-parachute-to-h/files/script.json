@@ -1,0 +1,111 @@
+{
+ "title": "Why Lilienthal Strapped a Parachute to His Glider",
+ "channel": "Hidden Reasons",
+ "topic": "Why the German engineer Otto Lilienthal attached a parachute to his glider (Berlin, 1895)",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "lines": [
+    "A German engineer strapped a parachute to a glider that kept diving.",
+    "Berlin, 1895. Otto Lilienthal was already called the flying man."
+   ],
+   "feel": "curiosity"
+  },
+  {
+   "lines": [
+    "His glider had a habit of pitching down.",
+    "He flew it by shifting his body, like modern hang gliders.",
+    "But when the glider pointed at the ground, he could not shift enough."
+   ],
+   "feel": "sympathy"
+  },
+  {
+   "lines": [
+    "He built a tower shed on a Berlin hill and jumped from its roof.",
+    "He tried many ways to make the glider steadier.",
+    "He and his brother Gustav made more than two thousand flights.",
+    "His total time in the air was five hours."
+   ],
+   "feel": "dread"
+  },
+  {
+   "lines": [
+    "You see, a parachute is like a hand pushing back against your fall."
+   ],
+   "feel": "recognition"
+  },
+  {
+   "lines": [
+    "The real reason was his glider could dive faster than he could correct it.",
+    "A parachute creates drag, the force that slows a falling object.",
+    "Lilienthal attached one to the glider, to slow his fall if it stalled."
+   ],
+   "feel": "awe"
+  },
+  {
+   "lines": [
+    "One year later, his glider stalled again.",
+    "He could not regain control.",
+    "He fell from the glider, broke his neck, and died the next day.",
+    "The engineer who tried to survive a stall died in a stall."
+   ],
+   "feel": "surprise"
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Lilienthal's gliders were difficult to manoeuvre and had a tendency to pitch down, and he had previously struggled to recover because the glider relied on weight shift, which was difficult to achieve when pointed at the ground.",
+   "url": "https://en.wikipedia.org/wiki/Otto_Lilienthal"
+  },
+  {
+   "claim": "Lilienthal controlled his gliders by changing the centre of gravity by shifting his body, much like modern hang gliders.",
+   "url": "https://en.wikipedia.org/wiki/Otto_Lilienthal"
+  },
+  {
+   "claim": "His training area in 1892 was the Maihoehe hill in Steglitz, Berlin, where he built a 4-metre-high shed in the shape of a tower to obtain a jumping-off place 10 metres high.",
+   "url": "https://en.wikipedia.org/wiki/Otto_Lilienthal"
+  },
+  {
+   "claim": "Working with his brother Gustav, Lilienthal made over 2,000 flights in gliders of his design, with a total flying time of five hours.",
+   "url": "https://en.wikipedia.org/wiki/Otto_Lilienthal"
+  },
+  {
+   "claim": "On 9 August 1896, Lilienthal's glider stalled and he was unable to regain control; falling from about 15 metres, he broke his neck and died the next day.",
+   "url": "https://en.wikipedia.org/wiki/Otto_Lilienthal"
+  },
+  {
+   "claim": "A parachute is a device designed to slow an object's descent through an atmosphere by creating drag or aerodynamic lift.",
+   "url": "https://en.wikipedia.org/wiki/Parachute"
+  },
+  {
+   "claim": "Parachute flight dynamics involve deployment, inflation and steady descent, with flight characteristics determined by inertia and aerodynamic drag.",
+   "url": "https://doi.org/10.3390/aerospace10010051"
+  },
+  {
+   "claim": "Hang gliders such as Lilienthal's were among the pioneering aircraft of the 1890-1930 era that preceded the rebirth of hang gliding and ultralight sport aviation.",
+   "url": "https://doi.org/10.2514/6.2003-2876"
+  }
+ ],
+ "key_words": [
+  "parachute",
+  "glider",
+  "stalled",
+  "drag",
+  "Lilienthal",
+  "pitching",
+  "diving",
+  "flights",
+  "Berlin",
+  "Gustav",
+  "fall",
+  "engineer"
+ ]
+}
