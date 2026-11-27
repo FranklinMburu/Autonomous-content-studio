@@ -1,0 +1,461 @@
+{
+ "script": {
+  "title": "Why the Killer Mould Came From Downstairs",
+  "beats": [
+   {
+    "lines": [
+     "A scientist smeared germs on dishes, left them out, and went on holiday."
+    ],
+    "feel": "curiosity"
+   },
+   {
+    "lines": [
+     "This was Alexander Fleming, in London, in 1928.",
+     "Fleming was not a tidy researcher.",
+     "He left the dishes on a bench in a corner of his laboratory."
+    ],
+    "feel": "intrigue"
+   },
+   {
+    "lines": [
+     "In September 1928, Fleming came back.",
+     "One dish was spoiled by a mould.",
+     "Around the mould, the germs had been destroyed.",
+     "Germs farther away were normal.",
+     "Fleming remarked that it was funny."
+    ],
+    "feel": "shock"
+   },
+   {
+    "lines": [
+     "Fleming grew the mould.",
+     "Its juice killed germs that cause pneumonia.",
+     "In 1929, Fleming named the substance penicillin."
+    ],
+    "feel": "excitement"
+   },
+   {
+    "lines": [
+     "But Fleming could not make penicillin in large amounts.",
+     "Chemists failed to purify it.",
+     "Penicillin lay largely forgotten.",
+     "In 1936, Fleming spoke of its value in London.",
+     "No one believed him."
+    ],
+    "feel": "frustration"
+   },
+   {
+    "lines": [
+     "Fleming later shared the 1945 Nobel Prize for penicillin, the first antibiotic.",
+     "But where did that mould come from?"
+    ],
+    "feel": "pride"
+   },
+   {
+    "lines": [
+     "This kind of mould floats in the air.",
+     "It is found in every sampled region of the Earth.",
+     "You see, it's like smelling toast from a kitchen you can't see."
+    ],
+    "feel": "recognition"
+   },
+   {
+    "lines": [
+     "In 1966, the mould's source was found.",
+     "It came from La Touche's room, directly below Fleming's.",
+     "La Touche was the colleague who identified the mould.",
+     "It was right under Fleming's feet."
+    ],
+    "feel": "irony"
+   }
+  ],
+  "key_words": [
+   "Fleming",
+   "mould",
+   "penicillin",
+   "downstairs",
+   "La Touche"
+  ],
+  "claims": [
+   {
+    "claim": "Before leaving for his holiday, Fleming inoculated staphylococci on culture plates and left them on a bench in a corner of his laboratory.",
+    "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+   },
+   {
+    "claim": "Fleming was not a tidy researcher.",
+    "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+   },
+   {
+    "claim": "On his return in September 1928, one culture was contaminated with a fungus; the staphylococci around the fungus had been destroyed, while colonies farther away were normal, and Fleming remarked \"That's funny\".",
+    "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+   },
+   {
+    "claim": "Fleming grew the mould in a pure culture; the broth contained an antibacterial substance that affected pathogens that cause pneumonia, and on 7 March 1929 he gave it the name penicillin.",
+    "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+   },
+   {
+    "claim": "Fleming's problem was the difficulty of producing penicillin in large amounts; even with a team of biochemists, chemical purification was futile, and penicillin languished largely forgotten in the 1930s.",
+    "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+   },
+   {
+    "claim": "In 1936, when Fleming talked of penicillin's medical importance at the Second International Congress of Microbiology in London, no one believed him.",
+    "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+   },
+   {
+    "claim": "Fleming shared the 1945 Nobel Prize for the discovery of penicillin, the first antibiotic substance discovered.",
+    "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+   },
+   {
+    "claim": "Penicillium chrysogenum is a ubiquitous airborne fungus detected in every sampled region of the Earth.",
+    "url": "https://doi.org/10.1016/j.funeco.2013.04.003"
+   },
+   {
+    "claim": "A colleague, Charles J. La Touche, identified the mould; the source of the fungal contaminant was established in 1966 as coming from La Touche's room, directly below Fleming's.",
+    "url": "https://en.wikipedia.org/wiki/Alexander_Fleming"
+   }
+  ]
+ },
+ "film": {
+  "era": "1920s",
+  "cast": {
+   "fleming": "a 47 year old Scottish doctor, short and compact, a broad pale face with a flattened nose, wavy sandy grey hair swept back, clean shaven, pale blue eyes, a long white lab coat over a brown tweed waistcoat and a dark green bow tie, 1920s",
+   "latouche": "a 38 year old Irish scientist, very tall and gangly, a long freckled face, curly ginger hair, clean shaven, thick round horn-rimmed glasses, a mustard yellow knitted cardigan under an open white lab coat, 1920s",
+   "chemist": "a 45 year old English chemist, heavy build, a bald head with dark side hair, a bushy black moustache, a long brown rubber apron over a white shirt with rolled sleeves, 1930s",
+   "professor": "a 65 year old English professor, gaunt, a long white walrus moustache, bald with white side hair, a black tailcoat and a grey silk waistcoat, 1930s",
+   "boy": "a 9 year old English boy, messy dark brown hair, a round rosy face, striped blue and white cotton pyjamas, 1920s"
+  },
+  "key_words": [
+   "Fleming",
+   "mould",
+   "penicillin",
+   "downstairs"
+  ],
+  "music": "mysterious",
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "prompt": "close-up, a man smearing a wire loop across a round glass dish on a lab bench, he is {fleming}, cluttered 1920s laboratory, warm window light",
+    "check": "Is a man holding a round glass dish?",
+    "clip": true,
+    "motion": "his hand draws the wire loop slowly across the dish, slow camera push in",
+    "who": "fleming"
+   },
+   {
+    "name": "left",
+    "at": "left#1",
+    "prompt": "close-up of a messy stack of round glass dishes left on a wooden lab bench beside old bottles, dusty afternoon light",
+    "check": "Is there a stack of round glass dishes?",
+    "move": "push"
+   },
+   {
+    "name": "holiday",
+    "at": "went#1",
+    "prompt": "medium shot, a man putting on a brown hat and coat by a laboratory door, smiling, he is {fleming}, 1920s, soft evening light",
+    "check": "Is a man putting on a hat?",
+    "clip": true,
+    "motion": "he lowers the hat onto his head, slow camera pull out",
+    "who": "fleming"
+   },
+   {
+    "name": "name",
+    "at": "this#1",
+    "prompt": "medium shot, a man rolling up his white lab coat sleeves beside a crowded shelf of glass flasks, he is {fleming}, 1920s laboratory, morning light",
+    "check": "Is a man rolling up his sleeves?",
+    "clip": true,
+    "motion": "he folds back one sleeve, slow camera push in",
+    "who": "fleming"
+   },
+   {
+    "name": "london",
+    "at": "london#1",
+    "prompt": "wide shot of a red brick hospital building on a busy London street, horse carts and old motor buses, grey 1920s morning",
+    "check": "Is there a red brick building?",
+    "move": "right"
+   },
+   {
+    "name": "untidy",
+    "at": "fleming#2",
+    "prompt": "medium shot, a man shoving piles of papers and dirty glassware aside on a cluttered bench, he is {fleming}, 1920s laboratory, lamp light",
+    "check": "Is a man pushing aside piles of glassware?",
+    "clip": true,
+    "motion": "he slides a pile of glassware sideways, slow camera pan left",
+    "who": "fleming"
+   },
+   {
+    "name": "stack",
+    "at": "he#1",
+    "prompt": "close-up, a hand setting a round glass dish on top of a wobbly stack of dishes, white lab coat sleeve, wooden bench, warm light",
+    "check": "Is a hand setting down a glass dish?",
+    "clip": true,
+    "motion": "the hand lets go of the dish gently, slow camera push in"
+   },
+   {
+    "name": "corner",
+    "at": "bench#1",
+    "prompt": "wide shot of a quiet empty laboratory corner, a wooden bench under a tall window crowded with glass dishes, dust in the sunbeams",
+    "check": "Is there a wooden bench under a window?",
+    "move": "pull"
+   },
+   {
+    "name": "return",
+    "at": "in#4",
+    "prompt": "medium shot, a man stepping through a laboratory door carrying a leather suitcase, he is {fleming}, 1920s hospital corridor, morning light",
+    "check": "Is a man carrying a suitcase?",
+    "clip": true,
+    "motion": "he sets the suitcase down, slow camera push in",
+    "who": "fleming",
+    "xfade": true
+   },
+   {
+    "name": "lift",
+    "at": "one#1",
+    "prompt": "close-up, a man holding a round glass dish up to the window and squinting at it, he is {fleming}, bright window light",
+    "check": "Is a man holding up a glass dish?",
+    "clip": true,
+    "motion": "he tilts the dish toward the light, slow camera push in",
+    "who": "fleming"
+   },
+   {
+    "name": "mould",
+    "at": "mould#1",
+    "prompt": "extreme close-up of a round glass dish with a fuzzy white and blue-green mould patch among small yellow dots, bright light",
+    "check": "Is there a fuzzy mould patch in a dish?",
+    "move": "push"
+   },
+   {
+    "name": "ring",
+    "at": "germs#2",
+    "prompt": "extreme close-up of a clear empty ring around a fuzzy mould patch in a glass dish, yellow dots only far from it",
+    "check": "Is there a clear ring around a mould patch?",
+    "move": "push",
+    "hit": "destroyed#1"
+   },
+   {
+    "name": "normal",
+    "at": "germs#3",
+    "prompt": "extreme close-up of many shiny round yellow dots crowded at the edge of a glass dish, soft side light",
+    "check": "Are there many yellow dots?",
+    "move": "left"
+   },
+   {
+    "name": "funny",
+    "at": "fleming#4",
+    "prompt": "close-up, a man raising his eyebrows and chuckling at a glass dish in his hand, he is {fleming}, window light",
+    "check": "Is a man chuckling?",
+    "clip": true,
+    "motion": "he chuckles and shakes his head slightly, slow camera push in",
+    "who": "fleming"
+   },
+   {
+    "name": "grow",
+    "at": "fleming#5",
+    "prompt": "medium shot, a man pouring cloudy golden broth into a tall glass flask, he is {fleming}, 1920s laboratory, lamp light",
+    "check": "Is a man pouring liquid into a flask?",
+    "clip": true,
+    "motion": "golden broth pours slowly into the flask, slow camera push in",
+    "who": "fleming",
+    "xfade": true
+   },
+   {
+    "name": "juice",
+    "at": "its#1",
+    "prompt": "extreme close-up, a glass dropper dripping golden liquid onto a round dish of yellow dots, soft lamp light",
+    "check": "Is a dropper dripping liquid?",
+    "clip": true,
+    "motion": "a single golden drop falls from the dropper, slow camera push in"
+   },
+   {
+    "name": "named",
+    "at": "in#5",
+    "prompt": "close-up, a man writing with a fountain pen in an open notebook on a lab bench, he is {fleming}, glass flasks behind, warm lamp light",
+    "check": "Is a man writing in a notebook?",
+    "clip": true,
+    "motion": "his pen moves across the page, slow camera push in",
+    "who": "fleming"
+   },
+   {
+    "name": "frown",
+    "at": "but#1",
+    "prompt": "close-up, a man frowning at a nearly empty glass flask he holds, he is {fleming}, dim laboratory, cold grey light",
+    "check": "Is a man frowning at a flask?",
+    "clip": true,
+    "motion": "he turns the flask slowly, slow camera push in",
+    "who": "fleming"
+   },
+   {
+    "name": "drop",
+    "at": "penicillin#2",
+    "prompt": "extreme close-up of one tiny golden drop at the bottom of a huge empty glass flask, cold light",
+    "check": "Is there a tiny drop in a big flask?",
+    "move": "push"
+   },
+   {
+    "name": "chemists",
+    "at": "chemists#1",
+    "prompt": "medium shot, a chemist heating a bubbling glass flask over a gas burner, he is {chemist}, 1930s chemistry laboratory, steam, green light",
+    "check": "Is a man heating a flask over a flame?",
+    "clip": true,
+    "motion": "the liquid bubbles in the flask, slow camera pull out",
+    "who": "chemist"
+   },
+   {
+    "name": "forgotten",
+    "at": "penicillin#3",
+    "prompt": "close-up of dusty glass flasks with cobwebs on a high wooden shelf in a dark storeroom, a thin beam of light",
+    "check": "Are there dusty flasks on a shelf?",
+    "move": "up"
+   },
+   {
+    "name": "lecture",
+    "at": "in#7",
+    "prompt": "medium shot, a man speaking at a wooden lectern and raising one hand, he is {fleming}, grand old lecture hall, 1930s, warm stage light",
+    "check": "Is a man speaking at a lectern?",
+    "clip": true,
+    "motion": "he raises his hand while speaking, slow camera push in",
+    "who": "fleming",
+    "xfade": true
+   },
+   {
+    "name": "hall",
+    "at": "value#1",
+    "prompt": "wide shot of rows of men in dark suits sitting in a grand wooden lecture hall, arms folded, 1930s, dim light",
+    "check": "Are there rows of men in a hall?",
+    "move": "pull"
+   },
+   {
+    "name": "doubt",
+    "at": "no#1",
+    "prompt": "close-up, an old professor shaking his head with folded arms, he is {professor}, lecture hall seats, dim warm light",
+    "check": "Is an old man shaking his head?",
+    "clip": true,
+    "motion": "he shakes his head slowly, slow camera push in",
+    "who": "professor",
+    "hit": "believed#1"
+   },
+   {
+    "name": "nobel",
+    "at": "fleming#9",
+    "prompt": "medium shot, a man bowing to receive a gold medal on a grand stage, he is {fleming}, 1940s ceremony hall, golden light, crowd clapping behind",
+    "check": "Is a man receiving a gold medal?",
+    "clip": true,
+    "motion": "he bows his head slowly, slow camera push in",
+    "who": "fleming",
+    "xfade": true
+   },
+   {
+    "name": "vial",
+    "at": "penicillin#4",
+    "prompt": "close-up of a small glass vial of clear golden liquid standing on a white hospital tray, soft clean light",
+    "check": "Is there a small glass vial?",
+    "move": "push"
+   },
+   {
+    "name": "where",
+    "at": "but#2",
+    "prompt": "close-up, a man peering up at a laboratory ceiling with a puzzled frown, he is {fleming}, glass dish in his hand, window light",
+    "check": "Is a man looking up at a ceiling?",
+    "clip": true,
+    "motion": "he looks up slowly, slow camera push in",
+    "who": "fleming"
+   },
+   {
+    "name": "kind",
+    "at": "this#2",
+    "prompt": "extreme close-up of fuzzy blue-green mould growing on an old orange on a wooden table, soft light",
+    "check": "Is there fuzzy mould on an orange?",
+    "move": "push"
+   },
+   {
+    "name": "air",
+    "at": "floats#1",
+    "prompt": "close-up of tiny dust specks floating in a bright sunbeam across a dark laboratory window",
+    "check": "Are there specks floating in a sunbeam?",
+    "clip": true,
+    "motion": "the specks drift slowly through the light, slow camera push up"
+   },
+   {
+    "name": "globe",
+    "at": "it#3",
+    "prompt": "close-up, a hand spinning an old world globe on a wooden desk, warm lamp light",
+    "check": "Is a hand spinning a globe?",
+    "clip": true,
+    "motion": "the globe turns slowly, slow camera push in"
+   },
+   {
+    "name": "fields",
+    "at": "region#1",
+    "prompt": "wide shot of misty green hills and fields under a pale morning sky, soft light",
+    "check": "Are there misty green hills?",
+    "move": "right"
+   },
+   {
+    "name": "sniff",
+    "at": "you#1",
+    "prompt": "medium shot, a boy sniffing the air at the top of a wooden staircase, eyes closed and smiling, he is {boy}, 1920s house, morning light",
+    "check": "Is a boy sniffing the air on stairs?",
+    "clip": true,
+    "motion": "he breathes in deeply and smiles, slow camera push in",
+    "who": "boy",
+    "xfade": true
+   },
+   {
+    "name": "toast",
+    "at": "toast#1",
+    "prompt": "close-up of a slice of bread toasting on a long iron fork before a glowing coal fire, warm orange light",
+    "check": "Is there bread on a fork by a fire?",
+    "clip": true,
+    "motion": "a thin curl of smoke rises from the toast, slow camera push in"
+   },
+   {
+    "name": "floors",
+    "at": "in#11",
+    "prompt": "wide shot of a red brick hospital building at dusk with two lit windows, one directly above the other",
+    "check": "Is there a brick building with lit windows?",
+    "move": "up"
+   },
+   {
+    "name": "stairs",
+    "at": "it#4",
+    "prompt": "low angle of a narrow dark wooden staircase leading down to a lit doorway in an old hospital, warm lamp glow below",
+    "check": "Is there a narrow staircase?",
+    "move": "down"
+   },
+   {
+    "name": "latouche",
+    "at": "la#1",
+    "prompt": "medium shot, a tall scientist bending over shelves of mould-covered glass dishes, he is {latouche}, small cramped 1920s laboratory room, lamp light",
+    "check": "Is a tall man bending over glass dishes?",
+    "clip": true,
+    "motion": "he leans closer to the shelf, slow camera push in",
+    "who": "latouche",
+    "hit": "below#1"
+   },
+   {
+    "name": "identify",
+    "at": "la#2",
+    "prompt": "close-up, a man peering into a brass microscope, he is {latouche}, cramped lab room, warm lamp light",
+    "check": "Is a man looking into a microscope?",
+    "clip": true,
+    "motion": "he turns the focus knob slightly, slow camera push in",
+    "who": "latouche"
+   },
+   {
+    "name": "lens",
+    "at": "identified#1",
+    "prompt": "extreme close-up of a round glass dish with blue-green mould under a brass microscope lens, bright light",
+    "check": "Is there a dish under a microscope?",
+    "move": "push"
+   },
+   {
+    "name": "feet",
+    "at": "right#1",
+    "prompt": "close-up of a man's polished brown shoes standing on old wooden floorboards, warm light glowing up through the cracks",
+    "check": "Are there brown shoes on floorboards?",
+    "clip": true,
+    "motion": "the shoes shift slightly, slow camera push down",
+    "hit": "feet#1"
+   }
+  ]
+ }
+}
