@@ -1,0 +1,299 @@
+{
+ "era": "1860s",
+ "cast": {
+  "mendeleev": "a 35 year old Russian chemist, tall and lean, broad forehead, deep-set brown eyes, long wild shoulder-length dark brown hair, long unkempt dark beard streaked with grey, wearing a dark navy wool frock coat over a high-collared grey shirt and black necktie, 1860s",
+  "assistant": "a 22 year old Russian lab assistant, short wiry build, round pale face, neat short black hair, clean shaven, small round wire spectacles, wearing a brown tweed vest over a white linen shirt with rolled sleeves and grey trousers, 1860s",
+  "professor": "a 55 year old German chemistry professor, stout heavy build, broad pink face with thick white mutton-chop sideburns, balding top with fluffy white side hair, wearing a dark plum wool frock coat over a mustard waistcoat and white cravat, 1860s",
+  "student": "a 19 year old Russian university student, slim frame, freckled oval face, messy wavy ginger hair, light stubble, wearing a faded dark green wool jacket over a collarless blue shirt, 1860s"
+ },
+ "music": "curious",
+ "key_words": [
+  "columns",
+  "gaps",
+  "empty",
+  "mass",
+  "socks",
+  "law",
+  "predictions",
+  "accepted",
+  "electrons"
+ ],
+ "shots": [
+  {
+   "name": "arrange",
+   "at": 0,
+   "who": "mendeleev",
+   "clip": true,
+   "prompt": "medium shot, a tall bearded chemist standing at a long wooden table arranging small glass vials into neat vertical columns, he is {mendeleev}, 1860s St Petersburg study, warm lamp light",
+   "motion": "he slides the vials into straight columns and pauses, lamp light flickers, slow camera push in",
+   "check": "Is a man arranging vials in columns?"
+  },
+  {
+   "name": "gap",
+   "at": "leaving#1",
+   "clip": true,
+   "prompt": "close-up, a hand placing a small glass vial on a wooden table beside a clear empty gap in a neat row of vials, warm lamp light, dark background",
+   "motion": "the hand sets the vial down and withdraws, slow camera push in",
+   "check": "Is there an empty gap in a row of glass vials?"
+  },
+  {
+   "name": "point",
+   "at": "nobody#1",
+   "who": "mendeleev",
+   "clip": true,
+   "prompt": "medium shot, a chemist pointing one finger at an empty space in a row of small glass vials on a long wooden table, he is {mendeleev}, 1860s study, warm lamp light",
+   "motion": "he points at the empty space and nods slowly, slow camera push in",
+   "check": "Is a man pointing at an empty space?"
+  },
+  {
+   "name": "city",
+   "at": "1869#1",
+   "xfade": true,
+   "move": "push",
+   "prompt": "wide shot, a grand 1860s St Petersburg square with grey classical buildings, horse-drawn carriages crossing cobblestones, cold winter daylight",
+   "check": "Is there an old city square with horse carriages?"
+  },
+  {
+   "name": "table",
+   "at": "empty#1",
+   "move": "down",
+   "prompt": "high angle, a large wooden desk covered with neat vertical columns of small glass vials and colored mineral samples, several clear empty gaps between the columns, 1860s study, lamp light",
+   "check": "Are there empty gaps between columns of vials?"
+  },
+  {
+   "name": "blank_cards",
+   "at": "Not#1",
+   "clip": true,
+   "prompt": "close-up of two hands arranging plain rectangular paper cards into grid rows on a dark wooden desk, leaving a wide gap, 1860s, warm oil lamp light",
+   "motion": "the hands slide a paper card carefully into place, slow camera push in",
+   "check": "Are hands arranging paper cards?"
+  },
+  {
+   "name": "mendeleev_points",
+   "at": "Mendeleev#2",
+   "who": "mendeleev",
+   "clip": true,
+   "prompt": "medium shot, a long-haired bearded chemist leaning forward over a cluttered wooden desk and tapping a finger on an empty gap, he is {mendeleev}, 1860s study, dim lamp light",
+   "motion": "he taps his index finger on the desk, slow camera push in",
+   "check": "Is a man tapping a desk?"
+  },
+  {
+   "name": "empty_shelf",
+   "at": "empty#2",
+   "move": "push",
+   "prompt": "close-up of a rustic wooden display rack with an empty slot between two brown glass chemical bottles, dusty 1860s laboratory wall, soft morning window light",
+   "check": "Is there an empty slot between glass bottles?"
+  },
+  {
+   "name": "sorting_cards",
+   "at": "Mendeleev#3",
+   "who": "mendeleev",
+   "clip": true,
+   "prompt": "medium close-up, a bearded man sorting rectangular paper cards into neat rows on a dark wooden desk, he is {mendeleev}, dim candlelit study, 1860s",
+   "motion": "he slides a paper card carefully into a row, candle light flickers, slow camera push in",
+   "check": "Is a man sorting paper cards on a desk?",
+   "xfade": true
+  },
+  {
+   "name": "scale_weight",
+   "at": "atomic#1",
+   "clip": true,
+   "prompt": "close-up of hands placing a small brass weight onto a double-pan balance scale beside glass flasks, wooden lab desk, warm lamp light",
+   "motion": "the hands place the brass weight on the scale pan, slow camera push in",
+   "check": "Is a hand placing a weight on a scale?"
+  },
+  {
+   "name": "chemical_reaction",
+   "at": "weight#1",
+   "who": "assistant",
+   "clip": true,
+   "prompt": "close-up, a young lab assistant in spectacles pouring bubbling blue liquid from a glass beaker into a tall glass cylinder, he is {assistant}, lab table, 1860s",
+   "motion": "he pours the blue liquid into the cylinder, bubbles rise, slow camera push in",
+   "check": "Is a person pouring liquid into a glass cylinder?"
+  },
+  {
+   "name": "column_arrangement",
+   "at": "chemical#1",
+   "move": "push",
+   "prompt": "close-up of several dark glass bottles arranged in a straight vertical column on a polished wooden shelf, lab wall, soft daylight",
+   "check": "Are there glass bottles on a shelf?"
+  },
+  {
+   "name": "table_overview",
+   "at": "column#1",
+   "who": "mendeleev",
+   "clip": true,
+   "prompt": "medium shot, a long-haired bearded chemist leaning over a broad wooden table, pointing at a grid of paper cards, he is {mendeleev}, dusty 1860s office",
+   "motion": "he points his finger along a line of cards, slow camera push in",
+   "check": "Is a man pointing at cards on a table?"
+  },
+  {
+   "name": "matching_flasks",
+   "at": "properties#1",
+   "move": "right",
+   "prompt": "close-up of four identical glass flasks filled with glowing yellow liquid sitting side by side on a wooden bench, 1860s laboratory",
+   "check": "Are there glass flasks filled with yellow liquid?"
+  },
+  {
+   "name": "repeated_columns",
+   "at": "column#2",
+   "who": "student",
+   "clip": true,
+   "prompt": "medium shot, a young student sliding a wooden tray filled with neat rows of glass vials across a lab desk, he is {student}, daylight",
+   "motion": "he slides the wooden tray forward smoothly, slow camera push in",
+   "check": "Is a person sliding a wooden tray?",
+   "hit": "column#2"
+  },
+  {
+   "name": "sorting",
+   "at": "You#1",
+   "clip": true,
+   "prompt": "medium close-up, hands laying colorful folded knitted socks into neat rows on a wooden chest, warm sunlight",
+   "motion": "hands place a blue sock into a row, slow camera push in",
+   "check": "Are there hands sorting socks?"
+  },
+  {
+   "name": "color_piles",
+   "at": "color#1",
+   "move": "push",
+   "prompt": "close-up of neatly folded knitted wool socks sorted into bright red, yellow, and blue piles on a table, soft window light",
+   "check": "Are there piles of colorful socks?"
+  },
+  {
+   "name": "missing_sock",
+   "at": "missing#1",
+   "clip": true,
+   "prompt": "close-up of a single knitted wool sock lying next to a clear empty gap in a row of paired socks on a wooden table",
+   "motion": "a hand points down at the empty gap beside the single sock, slow camera push in",
+   "check": "Is there a single sock next to an empty gap?"
+  },
+  {
+   "name": "reason",
+   "at": "The#3",
+   "who": "mendeleev",
+   "clip": true,
+   "prompt": "medium close-up, a man tapping his index finger on an open leather notebook on a wooden desk, he is {mendeleev}, brass oil lamp light",
+   "motion": "his finger taps the notebook page slowly, lamp light flickers, slow camera push in",
+   "check": "Is a man tapping a notebook?"
+  },
+  {
+   "name": "chemical",
+   "at": "chemical#2",
+   "clip": true,
+   "prompt": "close-up of a hand pouring clear liquid from a small glass bottle into a beaker of bubbling yellow liquid, wooden lab bench",
+   "motion": "the liquid streams into the glass beaker, bubbles rise, slow camera push in",
+   "check": "Is liquid being poured into a beaker?"
+  },
+  {
+   "name": "mass",
+   "at": "atomic#2",
+   "move": "push",
+   "prompt": "close-up of a brass balance scale swaying gently with small metal weights in one brass pan, laboratory table, warm lamp light",
+   "check": "Is there a brass balance scale?"
+  },
+  {
+   "name": "columns",
+   "at": "properties#3",
+   "who": "assistant",
+   "clip": true,
+   "prompt": "medium shot, a young assistant placing blank paper cards into neat vertical columns on a green felt table, he is {assistant}, bright window light",
+   "motion": "he lays down another card into the row, slow camera push in",
+   "check": "Is a young man placing cards on a table?"
+  },
+  {
+   "name": "pointed",
+   "at": "pointed#1",
+   "who": "mendeleev",
+   "clip": true,
+   "prompt": "close-up, a man pointing his finger firmly at an empty gap in a grid of paper cards on a wooden table, he is {mendeleev}, dim oil lamp light",
+   "motion": "his finger points directly down at the empty space, slow camera push in",
+   "hit": "pointed#1",
+   "check": "Is a man pointing at a gap?"
+  },
+  {
+   "name": "predictions",
+   "at": "bold#1",
+   "who": "mendeleev",
+   "clip": true,
+   "prompt": "medium close-up, a bearded man leaning over a desk and writing on a paper card with a feather quill pen, he is {mendeleev}, oil lamp light",
+   "motion": "his hand moves the feather quill across the card, slow camera push in",
+   "check": "Is a man writing with a feather quill?"
+  },
+  {
+   "name": "unfound",
+   "at": "elements#5",
+   "who": "student",
+   "move": "push",
+   "prompt": "medium shot, a young student raising a brass oil lamp to peer into a dark wooden cabinet of glass bottles, he is {student}, dim lab background",
+   "check": "Is a young man holding an oil lamp?"
+  },
+  {
+   "name": "journal_numbers",
+   "at": "The#4",
+   "clip": true,
+   "prompt": "close-up of a hand writing numbers with a feather quill next to chemical symbols on a paper journal, wooden table, oil lamp light",
+   "motion": "the hand writes numbers carefully on paper, lamp light flickers, slow camera push in",
+   "check": "Is a hand writing with a quill?"
+  },
+  {
+   "name": "quantum_board",
+   "at": "quantum#1",
+   "who": "student",
+   "clip": true,
+   "prompt": "medium shot, a young man drawing orbital rings with white chalk on a slate blackboard, he is {student}, 1860s classroom, daylight",
+   "motion": "he draws a neat chalk line on the board, slow camera push in",
+   "check": "Is a man writing on a blackboard?"
+  },
+  {
+   "name": "accepted_chart",
+   "at": "By#3",
+   "move": "push",
+   "xfade": true,
+   "prompt": "medium shot, {professor} and two older scientists standing together admiring a large printed chemical chart on a wooden wall, gaslight",
+   "check": "Are men looking at a wall chart?"
+  },
+  {
+   "name": "students_clap",
+   "at": "everyone#1",
+   "clip": true,
+   "prompt": "medium shot, university students sitting on wooden lecture hall benches clapping their hands warmly, afternoon light",
+   "motion": "the students clap enthusiastically, slow camera push in",
+   "check": "Are people clapping?"
+  },
+  {
+   "name": "today_poster",
+   "at": "Today#1",
+   "xfade": true,
+   "clip": true,
+   "prompt": "close-up of a finger tracing across a bright modern periodic table wall poster with colorful element squares, clean white wall",
+   "motion": "the finger slides across the poster row, slow camera push in",
+   "check": "Is a finger tracing a colorful chart?"
+  },
+  {
+   "name": "electron_tube",
+   "at": "electrons#1",
+   "clip": true,
+   "prompt": "close-up of a hand turning a silver knob on a modern glass laboratory tube glowing with blue light, dim modern laboratory",
+   "motion": "the hand turns the knob as blue light pulses, slow camera push in",
+   "check": "Is a hand turning a knob on a device?"
+  },
+  {
+   "name": "full_table_room",
+   "at": "118#1",
+   "move": "push",
+   "hit": "118#1",
+   "prompt": "wide shot of a bright modern chemistry laboratory with a large filled periodic table poster on the back wall, sunlight",
+   "check": "Is this a room with a periodic table poster?"
+  },
+  {
+   "name": "mendeleev_satisfied",
+   "at": "Mendeleev#5",
+   "who": "mendeleev",
+   "clip": true,
+   "hit": "gaps#2",
+   "prompt": "medium close-up, a bearded man leaning back in a chair holding a paper table draft and smiling calmly, he is {mendeleev}, warm study, lamp light",
+   "motion": "he smiles gently and lowers the paper sheet, lamp light flickers, slow camera push in",
+   "check": "Is a bearded man holding a paper?"
+  }
+ ]
+}

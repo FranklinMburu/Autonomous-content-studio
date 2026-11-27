@@ -1,0 +1,102 @@
+{
+ "title": "Why Mendeleev Grouped Elements by Mass",
+ "channel": "Hidden Reasons",
+ "topic": "Why the Russian physicist Dmitri Mendeleev arranged his periodic table in groups (St. Petersburg, 1869)",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "Mendeleev arranged elements in columns, leaving gaps for elements nobody had found.",
+    "In St. Petersburg in 1869, Mendeleev's table had empty spaces."
+   ]
+  },
+  {
+   "feel": "doubt",
+   "lines": [
+    "Not every element had been found yet.",
+    "Mendeleev left those spaces empty instead of hiding them."
+   ]
+  },
+  {
+   "feel": "tension",
+   "lines": [
+    "Mendeleev sorted elements by atomic mass, a measure of an atom's weight.",
+    "Elements with similar chemical behavior went into the same column.",
+    "In Mendeleev's table, the same properties kept returning, column after column."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it is like sorting socks by color, so a missing pair still tells you what to buy."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "The real reason was Mendeleev's law: chemical properties depend on atomic mass.",
+    "Because properties repeated, Mendeleev's pattern pointed to what was missing.",
+    "Mendeleev made bold predictions about elements nobody had found."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "The answer came later, with atomic numbers and quantum mechanics.",
+    "By the late 1800s, Mendeleev's table was the one everyone accepted.",
+    "Today, groups follow outer electrons, and 118 elements now fill the table Mendeleev left with gaps."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Mendeleev's 1869 table was the first periodic table to become generally accepted, and he formulated the periodic law as a dependence of chemical properties on atomic mass.",
+   "url": "https://en.wikipedia.org/wiki/Periodic_table"
+  },
+  {
+   "claim": "Not all elements were known in 1869, so Mendeleev's table had gaps, and he used the periodic law to predict properties of some missing elements.",
+   "url": "https://en.wikipedia.org/wiki/Periodic_table"
+  },
+  {
+   "claim": "Mendeleev made bold predictions about the chemical and physical properties of undiscovered elements.",
+   "url": "https://openalex.org/W2353836931"
+  },
+  {
+   "claim": "Elements in the same group have similar chemical characteristics, and groups are columns determined by the electron configuration of the atom.",
+   "url": "https://en.wikipedia.org/wiki/Group_%28periodic_table%29"
+  },
+  {
+   "claim": "A group is a column whose elements share similar characteristics in their outermost electron shells, because most chemical properties are dominated by the outermost electron.",
+   "url": "https://en.wikipedia.org/wiki/Group_%28periodic_table%29"
+  },
+  {
+   "claim": "The periodic law was explained in the early 20th century with the discovery of atomic numbers and pioneering work in quantum mechanics.",
+   "url": "https://en.wikipedia.org/wiki/Periodic_table"
+  },
+  {
+   "claim": "Today, 118 elements are known.",
+   "url": "https://en.wikipedia.org/wiki/Periodic_table"
+  }
+ ],
+ "key_words": [
+  "Mendeleev",
+  "columns",
+  "gaps",
+  "mass",
+  "properties",
+  "pattern",
+  "predict",
+  "elements",
+  "electrons",
+  "table"
+ ]
+}
