@@ -1,0 +1,77 @@
+{
+ "title": "Why Franklin fed his crew seal blubber",
+ "channel": "Hidden Reasons",
+ "topic": "Why the British explorer Sir John Franklin ordered his crew to eat seal blubber (Arctic, 1845)",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "feel": "curiosity",
+   "lines": [
+    "Sir John Franklin forces his men to chew raw seal blubber on ice."
+   ]
+  },
+  {
+   "feel": "skepticism",
+   "lines": [
+    "The crew grumbles, calling the order madness.",
+    "Some swear they’ll starve before they swallow any more animal fat."
+   ]
+  },
+  {
+   "feel": "dread",
+   "lines": [
+    "Ice traps the ships for months.",
+    "Rations run low, and every day the men grow weaker."
+   ]
+  },
+  {
+   "feel": "recognition",
+   "lines": [
+    "You see, it’s like skipping breakfast and the only snack left is a greasy doughnut."
+   ]
+  },
+  {
+   "feel": "awe",
+   "lines": [
+    "Seal blubber is dense with calories and fat, the same fuel seals use to survive long fasts.",
+    "Those calories replace missing meat, and the thick fat slows body‑heat loss in sub‑zero air."
+   ]
+  },
+  {
+   "feel": "surprise",
+   "lines": [
+    "Ironically, the blubber could not replace the lost vitamin C and thiamine, so scurvy and beri‑beri still claimed the crew."
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "claim": "Seal blubber provides dense calories and fat that serve as energy and insulation for fasting animals.",
+   "url": "https://en.wikipedia.org/wiki/Pinniped"
+  },
+  {
+   "claim": "The Franklin expedition suffered severe vitamin‑C and thiamine deficiencies that contributed to its death.",
+   "url": "https://doi.org/10.1017/s0032247425100181"
+  }
+ ],
+ "key_words": [
+  "seal",
+  "blubber",
+  "calories",
+  "fat",
+  "vitamin‑C",
+  "thiamine",
+  "Franklin",
+  "crew",
+  "icebound",
+  "starvation"
+ ]
+}
