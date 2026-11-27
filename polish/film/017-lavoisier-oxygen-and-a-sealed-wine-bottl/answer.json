@@ -416,9 +416,18 @@
     "check": "Is water pouring onto tobacco leaves?"
    },
    {
-    "name": "guillotine",
+    "name": "ledaway",
     "at": "1794#1",
+    "who": "lavoisier",
     "xfade": true,
+    "clip": true,
+    "prompt": "medium shot, a chemist with bound hands walking between two guards in red caps down a grey stone corridor, he is {lavoisier}, cold dim daylight",
+    "motion": "he lowers his head as he walks slowly, slow camera push in",
+    "check": "Is a man with bound hands between guards?"
+   },
+   {
+    "name": "guillotine",
+    "at": "guillotined#1",
     "move": "up",
     "hit": "guillotined#1",
     "prompt": "low angle wide shot of a tall wooden guillotine with a raised steel blade in a grey Paris square, a silent crowd, cold overcast sky",

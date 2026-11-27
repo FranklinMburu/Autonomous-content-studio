@@ -53,9 +53,8 @@
    },
    {
     "lines": [
-     "This kind of mould floats in the air.",
-     "It is found in every sampled region of the Earth.",
-     "You see, it's like smelling toast from a kitchen you can't see."
+     "You see, like dust, this kind of mould floats in the air.",
+     "It is found in every sampled region of the Earth."
     ],
     "feel": "recognition"
    },
@@ -266,8 +265,16 @@
     "motion": "a single golden drop falls from the dropper, slow camera push in"
    },
    {
-    "name": "named",
+    "name": "broth",
     "at": "in#5",
+    "prompt": "close-up, a hand gently swirling a tall glass flask of cloudy golden broth by a sunny laboratory window",
+    "check": "Is there a glass flask of golden liquid?",
+    "clip": true,
+    "motion": "the hand swirls the flask gently, slow camera push in"
+   },
+   {
+    "name": "named",
+    "at": "named#1",
     "prompt": "close-up, a man writing with a fountain pen in an open notebook on a lab bench, he is {fleming}, glass flasks behind, warm lamp light",
     "check": "Is a man writing in a notebook?",
     "clip": true,
@@ -360,6 +367,15 @@
     "who": "fleming"
    },
    {
+    "name": "dust",
+    "at": "you#1",
+    "prompt": "close-up, a hand blowing a puff of dust off an old book in a bright sunbeam, 1920s study, warm light",
+    "check": "Is a hand near a cloud of dust?",
+    "clip": true,
+    "motion": "the dust puffs up and drifts, slow camera push in",
+    "xfade": true
+   },
+   {
     "name": "kind",
     "at": "this#2",
     "prompt": "extreme close-up of fuzzy blue-green mould growing on an old orange on a wooden table, soft light",
@@ -390,24 +406,6 @@
     "move": "right"
    },
    {
-    "name": "sniff",
-    "at": "you#1",
-    "prompt": "medium shot, a boy sniffing the air at the top of a wooden staircase, eyes closed and smiling, he is {boy}, 1920s house, morning light",
-    "check": "Is a boy sniffing the air on stairs?",
-    "clip": true,
-    "motion": "he breathes in deeply and smiles, slow camera push in",
-    "who": "boy",
-    "xfade": true
-   },
-   {
-    "name": "toast",
-    "at": "toast#1",
-    "prompt": "close-up of a slice of bread toasting on a long iron fork before a glowing coal fire, warm orange light",
-    "check": "Is there bread on a fork by a fire?",
-    "clip": true,
-    "motion": "a thin curl of smoke rises from the toast, slow camera push in"
-   },
-   {
     "name": "floors",
     "at": "in#11",
     "prompt": "wide shot of a red brick hospital building at dusk with two lit windows, one directly above the other",
@@ -416,7 +414,7 @@
    },
    {
     "name": "stairs",
-    "at": "it#4",
+    "at": "found#2",
     "prompt": "low angle of a narrow dark wooden staircase leading down to a lit doorway in an old hospital, warm lamp glow below",
     "check": "Is there a narrow staircase?",
     "move": "down"
