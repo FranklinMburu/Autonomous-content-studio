@@ -74,8 +74,6 @@ Return JSON only: {"era": "...", "cast": {...}, "key_words": [...], "music": "<o
            {"name": ..., "at": ..., "prompt": ..., "check": "Is ...?", "move": "push"}, ...]}
 
 CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid these exact scenes):
-- 009-why-the-canal-needed-a-disease-war: cast gorgas = a 50 year old American army doctor, tall and slim, a neat white moustache, thinning white hair, kind blue eyes, a white tropical army uniform with a high collar and brass buttons, 1900s; olddoctor = a 65 year old French doctor, short and plump, a bushy white beard, a bald pink head, a black frock coat and a black top hat in his hand, 1880s; inspector = a 30 year old Panamanian sanitation inspector, lean, light brown skin, a thin black moustache, a wide white straw hat, a khaki shirt with rolled sleeves, 1900s; worker = a 25 year old Black Caribbean canal worker, tall and muscular, a shaved head, a sweat-soaked faded blue cotton shirt and brown work trousers, 1900s; shonts = a 49 year old American businessman, heavy build, dark hair slicked and parted in the middle, a clean-shaven fleshy face, a light grey suit with a white waistcoat, 1900s; roosevelt = a 47 year old American president, stocky and broad-chested, small pince-nez glasses on a black cord, a bushy brown moustache, a wide toothy grin, short brown hair, a black frock coat, 1900s
-  scenes: medium shot, an army doctor lighting a metal pan of yellow sulfur powd | wide shot of grey smoke seeping from the shutters of a row of wooden h | wide shot of a muddy jungle cutting with old steam excavators and work | medium shot, workers in straw hats swinging shovels into thick red mud | close-up, a pale sick worker sweating with fever on a narrow cot, a da | wide shot of rows of simple wooden crosses on a green jungle hillside  | wide shot of a long crowded hospital ward with sick men on cots under  | medium shot, a gravedigger shovelling wet earth in the pouring rain be | medium shot, an old doctor in a black frock coat pointing his cane at  | wide shot of white mist rising over a dark jungle swamp at dawn, tangl | close-up, a scientist peering into a brass microscope at a cluttered l | close-up, a hand holding up a small glass jar with mosquitoes inside t
 - 009-why-trains-refilled-water-without-stoppi: cast fireman = a 30 year old English railway fireman with a soot-blackened round face, heavy black eyebrows, short black hair under a flat cloth cap, a dark green wool jacket with brass buttons and a red neckerchief, 1860s; ramsbottom = a 46 year old English railway engineer with a long narrow face, receding brown hair, a full brown beard, wire spectacles and a dark brown frock coat over a grey waistcoat, 1860s; guard = a 52 year old British railway guard with a ruddy round face, big white mutton-chop whiskers, a black peaked cap and a dark blue frock coat with brass buttons, 1860s; passenger = a 26 year old English woman with copper red hair in a bun under a small dark green bonnet, pale freckled skin, a dark green travelling dress with a white collar, 1860s; manager = a 58 year old British railway manager with a gaunt pale face, a bald head with grey side hair, a long grey goatee, half-moon spectacles, a black frock coat and a grey cravat, 1860s
   scenes: medium shot, a fireman pulling down a big iron lever in the cab of a s | low angle close-up of a long narrow iron trough full of water lying be | wide shot of a black steam locomotive racing along a coastal railway t | wide shot of a busy 1860s railway station platform with a steam train  | close-up, a porter swinging a heavy canvas mail sack into an open wood | medium shot, an engineer leaning over large paper engine drawings on a | wide shot of a railway line running along the foot of green cliffs bes | close-up of the big spoked iron driving wheels and pistons of a steam  | medium shot, a steam locomotive standing still under a tall iron water | close-up of water gushing from a thick leather hose into an open hatch | medium shot, a fireman kneeling on top of a tender and peering down in | close-up of a steam locomotive chimney puffing thick clouds of white s
 - 009-why-laika-really-went-to-space: cast technician = a 28 year old Soviet technician, stocky build, a round pale face, short cropped brown hair, a small scar on his chin, a white lab coat over a grey wool sweater, 1950s; khrushchev = a 63 year old stout Soviet leader, a completely bald round head, heavy jowls, a wide gap-toothed grin, small blue eyes, a dark grey suit with two gold star medals on the chest, 1950s; korolev = a 50 year old broad-shouldered Soviet rocket designer, a heavy square face, thick dark eyebrows, dark wavy hair combed back, a brown leather jacket over a white open-collared shirt, 1950s; yazdovsky = a 44 year old lean Soviet doctor, a long narrow face, a neat black moustache, thick black hair parted on the side, round wire spectacles, a white lab coat over a dark blue tie, 1950s; gazenko = an 80 year old thin Russian scientist, a long lined face, white hair combed straight back, large square glasses, a navy blue cardigan over a pale blue shirt, 1990s
@@ -98,196 +96,238 @@ CHANNEL MEMORY (earlier videos; do not reuse these looks for new people, avoid t
   scenes: medium shot, a gaunt man carrying a small wooden model warship in both | close-up of a small wooden model warship with a shining copper bottom  | medium shot, a plump king leaning forward on a carved gilded chair to  | wide shot of a large wooden warship at anchor on a grey choppy sea und | extreme close-up of a rotten wet ship plank riddled with round holes a | close-up underwater of long green seaweed trailing thickly from a wood | wide shot of a wooden frigate standing in a stone dry dock propped on  | close-up, a carpenter hammering a bright copper plate onto a wooden sh | low angle of a frigate hull fully covered in shining copper plates in  | wide shot of a wooden frigate anchored in a turquoise tropical bay wit | close-up, a carpenter's hands pulling a crumbling worm-eaten plank fro | medium shot, a navy captain running his hand along clean bright copper
 - 016-why-the-killer-mould-came-from-downstair: cast fleming = a 47 year old Scottish bacteriologist, lean and upright, a narrow pale face with sharp cheekbones, light brown hair combed neatly to one side, a small neat brown moustache, round wire spectacles, wearing a white lab coat over a dark waistcoat and white shirt with a black tie, 1920s; latouche = a 36 year old Irish laboratory assistant, broad shouldered, a round ruddy freckled face, thick curly black hair, clean shaven, wearing a brown tweed jacket over a mustard waistcoat and a maroon tie, 1920s; skeptic = a 58 year old English professor, heavy build, a broad jowly pale face, a balding head with a grey fringe, a thick grey moustache, wearing a dark plum velvet academic gown with a white bow tie, 1930s; tracer = a 42 year old British medical scientist, small and wiry, a sharp olive face with dark alert eyes, straight black hair in a short bob, wearing a white lab coat over a teal blouse and grey trousers, 1966; patient = a 23 year old British soldier, thin and pale, short dark brown hair, a small scar on his cheek, wearing a khaki army shirt with a white bandage on his forearm, 1940s
   scenes: medium shot, a bacteriologist setting a glass petri dish on a wooden l | close-up of several open glass petri dishes with clear agar sitting on | extreme close-up of yellow-green bacterial colonies spreading across c | close-up, a man in a white lab coat leaning over a bench and peering d | medium shot, a bacteriologist walking into a dim 1920s laboratory towa | close-up, a hand lifting one petri dish from a row of dishes on a wood | extreme close-up of a petri dish with a fuzzy green mould patch in the | medium close-up, a bacteriologist pointing at pale cream colonies on t | medium close-up, a bacteriologist smiling wryly while raising a petri  | close-up, a bacteriologist tilting a petri dish and squinting closely  | extreme close-up of a fuzzy blue-green mould patch with soft white spo | medium shot, a man lifting a glass petri dish and studying a green mou
+- 017-why-morton-used-ether-on-a-tied-printer: cast morton = a 27 year old American dentist, lean build, a narrow pale face with dark brown eyes, short wavy black hair, a thin dark moustache, wearing a black frock coat over a dark green waistcoat and white shirt with a black cravat, 1840s; abbott = a 32 year old American printer, sturdy build, a broad freckled face, short sandy brown hair, thick brown sideburns and a clean shaven chin, wearing a faded blue cotton work shirt with rolled sleeves, a brown canvas apron and brown trousers, 1840s; warren = a 60 year old American surgeon, tall and upright, a long lined pale face with a high forehead, thin white hair combed back, clean shaven, wearing a dark charcoal frock coat with a white shirt and a plain white cravat, 1840s; bigelow = a 38 year old American surgeon, broad shouldered, a square ruddy face, thick dark curly hair, a full dark beard, small round spectacles, wearing a deep brown frock coat over a tan waistcoat, 1840s; wells = a 41 year old American dentist, thin and slightly stooped, a long gaunt face with sunken cheeks, straight dark brown hair to his collar, clean shaven, wearing a dark plum velvet frock coat with a high collar and white shirt, 1840s; long = a 27 year old American doctor, wiry build, a tanned angular face, short curly auburn hair, a bright red beard, wearing a dusty brown wool coat over a faded blue shirt, 1840s
+  scenes: close-up, a printer in a faded blue work shirt inhaling from a glass i | extreme close-up, a brown glass bottle pouring clear ether onto a whit | medium shot, a printer in a brown canvas apron pushing down the wooden | extreme close-up of a man's neck with a large smooth swollen lump unde | medium shot, a printer sitting upright in a wooden chair with his wris | close-up, a freckled printer's face tilted back against a wooden chair | extreme close-up, amber alcohol pouring from a brown glass bottle into | medium close-up, a thin stooped dentist in a plum velvet frock coat ho | close-up of a small glass bottle with a rubber tube and sponge mouthpi | medium shot, a young man sitting upright in a wooden dentist's chair g | medium shot, a lean young dentist in a black frock coat leaning forwar | close-up, a tall older surgeon in a charcoal frock coat giving a small
 
 PROBLEMS FOUND BY THE CHECKS
-- script: narration has 117 words; it must be 150-210
+- shot guillotine: 3.8 s on screen (max 3.2; split it)
 
 DRAFT SCRIPT
-{"title": "Lavoisier, Oxygen, and a Sealed Wine Bottle", "beats": [{"feel": "curiosity", "lines": ["Lavoisier chased a strange gas that made fire burn fiercely."]}, {"feel": "skepticism", "lines": ["Priestley told Lavoisier about the strange gas.", "Priestley thought the gas was just a purer form of common air.", "Lavoisier ran his own experiments on the gas instead."]}, {"feel": "determination", "lines": ["Marie-Anne translated Kirwan's book on phlogiston for him.", "Marie-Anne's footnotes convinced Lavoisier that the old fire theory was wrong.", "Lavoisier studied burning and discovered oxygen gas."]}, {"feel": "dread", "lines": ["Revolutionaries charged Lavoisier with tax fraud and selling adulterated tobacco.", "Revolutionaries guillotined him in 1794.", "Marie-Anne fought for Lavoisier's release, and France later cleared his name."]}, {"feel": "recognition", "lines": ["You see, it's like a soda bottle: the air above the drink rushes out."]}, {"feel": "awe", "lines": ["In a sealed wine bottle, the headspace is the gas space above the wine.", "That headspace holds oxygen.", "As the wine uses oxygen, gas moves from the headspace into the wine.", "The sealed bottle becomes an oxygen reserve, feeding oxygen into the wine."]}, {"feel": "surprise", "lines": ["The bottle's oxygen reserve was measured in a modern wine study, published in 2006.", "Lavoisier's lasting idea was simpler: matter is never made or lost."]}]}
+{"title": "Why Lavoisier sealed burning metal in glass", "beats": [{"feel": "curiosity", "lines": ["A French chemist sealed tin inside a glass vessel, then heated it."]}, {"feel": "puzzlement", "lines": ["Back then, chemists said burning things gave off something called phlogiston.", "But when Antoine Lavoisier burned phosphorus, it got heavier."]}, {"feel": "determination", "lines": ["So in 1774, Lavoisier heated tin and lead in sealed vessels.", "He weighed everything inside the glass, so no gas could escape.", "The metals still got heavier. They had joined with the air."]}, {"feel": "excitement", "lines": ["That October, Joseph Priestley visited Paris.", "Priestley told Lavoisier about an air from heated red mercury powder.", "Fire burned in it with extreme vigor.", "Lavoisier ran his own tests on it."]}, {"feel": "recognition", "lines": ["You see, it's like a sealed bottle of wine.", "The air trapped on top slowly feeds the wine as it uses oxygen."]}, {"feel": "wonder", "lines": ["Lavoisier proved it: burning things combine with part of the air.", "In 1778, he named that part oxygen.", "And in his sealed glass, the total mass stayed the same."]}, {"feel": "dread", "lines": ["But Lavoisier also worked for a hated tax company.", "Revolutionaries charged him with tax fraud and adding water to tobacco.", "In 1794, Lavoisier was guillotined in Paris."]}, {"feel": "irony", "lines": ["A year and a half later, France cleared him.", "His widow got his belongings back, with a note: falsely convicted.", "Today, French schools teach his rule: nothing is lost, nothing is created."]}]}
 CLAIMS IN THE DRAFT
-- {'claim': 'Priestley told Lavoisier about air produced by heating the red calx of mercury with a burning glass; it supported combustion with extreme vigor, and Priestley believed it was an especially pure form of common air, while Lavoisier carried out his own research on it.', 'url': 'https://en.wikipedia.org/wiki/Antoine_Lavoisier'}
-- {'claim': "Marie-Anne Paulze translated Kirwan's Essay on Phlogiston, critiqued it with footnotes pointing out errors, and her translation convinced Lavoisier the phlogiston idea was incorrect, leading to his studies of combustion and his discovery of oxygen gas.", 'url': 'https://en.wikipedia.org/wiki/Marie-Anne_Paulze_Lavoisier'}
-- {'claim': 'Revolutionaries charged Lavoisier with tax fraud and selling adulterated tobacco and guillotined him in 1794, and the French government exonerated him a year and a half later.', 'url': 'https://en.wikipedia.org/wiki/Antoine_Lavoisier'}
-- {'claim': 'Marie-Anne visited Lavoisier in prison and fought for his release, presenting his case before André Dupin de Beaumont.', 'url': 'https://en.wikipedia.org/wiki/Marie-Anne_Paulze_Lavoisier'}
-- {'claim': "Lavoisier's 1789 Elementary Treatise on Chemistry presented the idea of conservation of mass, meaning matter is neither made nor lost.", 'url': 'https://en.wikipedia.org/wiki/Marie-Anne_Paulze_Lavoisier'}
-- {'claim': 'In sealed wine bottles, the headspace holds 0.38 to 3.58 mg of oxygen at bottling and acts as an oxygen reserve, with gas moving from the headspace into the wine as the wine uses oxygen; this study was published in 2006.', 'url': 'https://doi.org/10.20870/oeno-one.2006.40.1.884'}
+- {'claim': 'When phosphorus burned, it combined with a large quantity of air and the phosphorus increased in weight on burning (late 1772).', 'url': 'https://en.wikipedia.org/wiki/Antoine_Lavoisier'}
+- {'claim': 'Priestley thought phlogiston was given off by burning bodies; he called the new air dephlogisticated air.', 'url': 'https://en.wikipedia.org/wiki/Antoine_Lavoisier'}
+- {'claim': 'In the spring of 1774, Lavoisier carried out experiments on the calcination of tin and lead in sealed vessels, confirming that the increase in weight of metals in combustion was due to combination with air.', 'url': 'https://en.wikipedia.org/wiki/Antoine_Lavoisier'}
+- {'claim': 'He carefully weighed the reactants and products of a chemical reaction in a sealed glass vessel so that no gases could escape; the total mass of matter is the same at the end as at the beginning.', 'url': 'https://en.wikipedia.org/wiki/Antoine_Lavoisier'}
+- {'claim': 'In October Joseph Priestley visited Paris and told Lavoisier of the air he had produced by heating the red calx of mercury, which supported combustion with extreme vigor; Lavoisier carried out his own research on it.', 'url': 'https://en.wikipedia.org/wiki/Antoine_Lavoisier'}
+- {'claim': 'Lavoisier theorized that common air, or one of its components, combines with substances when they are burned, and demonstrated this through experiment.', 'url': 'https://en.wikipedia.org/wiki/Antoine_Lavoisier'}
+- {'claim': 'He named oxygen (1778), recognizing it as an element.', 'url': 'https://en.wikipedia.org/wiki/Antoine_Lavoisier'}
+- {'claim': 'Lavoisier was an administrator of the Ferme generale, a tax farming company that was one of the most hated parts of the Ancien Regime.', 'url': 'https://en.wikipedia.org/wiki/Antoine_Lavoisier'}
+- {'claim': 'He was charged with tax fraud and adding water to tobacco before selling it, and was guillotined on 8 May 1794 in Paris.', 'url': 'https://en.wikipedia.org/wiki/Antoine_Lavoisier'}
+- {'claim': "A year and a half after his execution, Lavoisier was exonerated by the French government; his belongings were delivered to his widow with a note reading 'To the widow of Lavoisier, who was falsely convicted'.", 'url': 'https://en.wikipedia.org/wiki/Antoine_Lavoisier'}
+- {'claim': "In France the law of conservation of mass is taught as Lavoisier's Law: 'Nothing is lost, nothing is created, everything is transformed.'", 'url': 'https://en.wikipedia.org/wiki/Antoine_Lavoisier'}
+- {'claim': 'In a sealed wine bottle the headspace functions as an oxygen reserve: as the wine uses oxygen, gas passes from the headspace to the wine.', 'url': 'https://doi.org/10.20870/oeno-one.2006.40.1.884'}
 
 WORD LIST OF THE DRAFT NARRATION (start time, WORD#N)
-0.14s Lavoisier#1
-0.69s chased#1
-0.97s a#1
-1.04s strange#1
-1.47s gas#1
-2.00s that#1
-2.12s made#1
-2.35s fire#1
-2.67s burn#1
-3.00s fiercely#1
-3.91s Priestley#1
-4.33s told#1
-4.56s Lavoisier#2
-5.16s about#1
-5.33s the#1
-5.43s strange#2
-5.83s gas#2
-6.46s Priestley#2
-6.88s thought#1
-7.08s the#2
-7.18s gas#3
-7.56s was#1
-7.71s just#1
-7.93s a#2
-8.06s purer#1
-8.43s form#1
-8.71s of#1
-8.83s common#1
-9.21s air#1
-9.70s Lavoisier#3
-10.27s ran#1
-10.47s his#1
-10.62s own#1
-10.77s experiments#1
-11.42s on#1
-11.49s the#3
-11.62s gas#4
-11.95s instead#1
-12.86s Marie-Anne#1
-13.48s translated#1
-14.06s Kirwan's#1
-14.48s book#1
-14.83s on#2
-15.01s phlogiston#1
-15.61s for#1
-15.76s him#1
-16.23s Marie-Anne's#1
-16.81s footnotes#1
-17.31s convinced#1
-17.73s Lavoisier#4
-18.58s that#2
-18.72s the#4
-18.86s old#1
-19.13s fire#2
-19.46s theory#1
-19.78s was#2
-19.96s wrong#1
-20.49s Lavoisier#5
-21.04s studied#1
-21.34s burning#1
-21.99s and#1
-22.09s discovered#1
-22.59s oxygen#1
-23.09s gas#5
-23.96s Revolutionaries#1
-24.91s charged#1
-25.34s Lavoisier#6
-26.09s with#1
-26.23s tax#1
-26.59s fraud#1
-27.06s and#2
-27.21s selling#1
-27.64s adulterated#1
-28.26s tobacco#1
-29.00s Revolutionaries#2
-30.00s guillotined#1
-30.45s him#2
-30.82s in#1
-30.97s 1794#1
-32.28s Marie-Anne#2
-32.85s fought#1
-33.08s for#2
-33.23s Lavoisier's#1
-33.85s release#1
-34.55s and#3
-34.70s France#1
-35.08s later#1
-35.33s cleared#1
-35.60s his#2
-35.78s name#1
-36.55s You#1
-36.70s see#1
-36.98s it's#1
-37.10s like#1
-37.25s a#3
-37.38s soda#1
-37.70s bottle:#1
-38.35s the#5
-38.52s air#2
-38.77s above#1
-39.00s the#6
-39.10s drink#1
-39.40s rushes#1
-39.73s out#1
-40.47s In#2
-40.57s a#4
-40.70s sealed#1
-41.02s wine#1
-41.27s bottle#1
-41.90s the#7
-42.00s headspace#1
-42.57s is#1
-42.70s the#8
-42.80s gas#6
-43.07s space#1
-43.42s above#2
-43.65s the#9
-43.75s wine#2
-44.36s That#3
-44.56s headspace#2
-45.09s holds#1
-45.36s oxygen#2
-46.20s As#1
-46.35s the#10
-46.45s wine#3
-46.77s uses#1
-47.10s oxygen#3
-47.95s gas#7
-48.32s moves#1
-48.60s from#1
-48.72s the#11
-48.82s headspace#3
-49.32s into#1
-49.50s the#12
-49.60s wine#4
-50.20s The#13
-50.34s sealed#2
-50.65s bottle#2
-51.02s becomes#1
-51.40s an#1
-51.55s oxygen#4
-52.05s reserve#1
-52.82s feeding#1
-53.17s oxygen#5
-53.67s into#2
-53.84s the#14
-53.95s wine#5
-54.76s The#15
-54.86s bottle's#1
-55.31s oxygen#6
-55.81s reserve#2
-56.31s was#3
-56.51s measured#1
-56.91s in#3
-56.99s a#5
-57.11s modern#1
-57.51s wine#6
-57.84s study#1
-58.51s published#1
-58.94s in#4
-59.09s 2006#1
-60.31s Lavoisier's#2
-60.94s lasting#1
-61.34s idea#1
-61.71s was#4
-61.84s simpler:#1
-62.56s matter#1
-62.91s is#2
-63.06s never#1
-63.34s made#2
-63.66s or#1
-63.81s lost#1
+0.14s A#1
+0.27s French#1
+0.57s chemist#1
+0.97s sealed#1
+1.29s tin#1
+1.57s inside#1
+1.90s a#2
+1.97s glass#1
+2.29s vessel#1
+2.94s then#1
+3.19s heated#1
+3.52s it#1
+4.05s Back#1
+4.32s then#2
+4.72s chemists#1
+5.10s said#1
+5.25s burning#1
+5.57s things#1
+6.12s gave#1
+6.35s off#1
+6.55s something#1
+6.90s called#1
+7.20s phlogiston#1
+8.07s But#1
+8.20s when#1
+8.40s Antoine#1
+8.80s Lavoisier#1
+9.35s burned#1
+9.65s phosphorus#1
+10.55s it#2
+10.65s got#1
+10.85s heavier#1
+11.74s So#1
+11.89s in#1
+12.01s 1774#1
+13.39s Lavoisier#2
+13.94s heated#2
+14.31s tin#2
+14.81s and#1
+14.96s lead#1
+15.26s in#2
+15.41s sealed#2
+15.69s vessels#1
+16.42s He#1
+16.55s weighed#1
+16.82s everything#1
+17.25s inside#2
+17.60s the#1
+17.70s glass#2
+18.35s so#2
+18.50s no#1
+18.72s gas#1
+19.02s could#1
+19.12s escape#1
+19.85s The#2
+19.95s metals#1
+20.30s still#1
+20.55s got#2
+20.75s heavier#2
+21.40s They#1
+21.50s had#1
+21.62s joined#1
+22.02s with#1
+22.16s the#3
+22.30s air#1
+23.03s That#1
+23.23s October#1
+23.93s Joseph#1
+24.36s Priestley#1
+24.78s visited#1
+25.11s Paris#1
+25.79s Priestley#2
+26.21s told#1
+26.43s Lavoisier#3
+27.23s about#1
+27.46s an#1
+27.61s air#2
+28.01s from#1
+28.21s heated#3
+28.59s red#1
+28.81s mercury#1
+29.18s powder#1
+29.86s Fire#1
+30.19s burned#2
+30.46s in#3
+30.54s it#3
+30.61s with#2
+30.77s extreme#1
+31.27s vigor#1
+31.90s Lavoisier#4
+32.50s ran#1
+32.70s his#1
+32.82s own#1
+32.97s tests#1
+33.27s on#1
+33.42s it#4
+34.06s You#1
+34.24s see#1
+34.64s it's#1
+34.74s like#1
+34.89s a#3
+35.04s sealed#3
+35.34s bottle#1
+35.64s of#1
+35.74s wine#1
+36.37s The#4
+36.54s air#3
+36.74s trapped#1
+37.04s on#2
+37.17s top#1
+37.59s slowly#1
+37.99s feeds#1
+38.29s the#5
+38.39s wine#2
+38.94s as#1
+39.04s it#5
+39.14s uses#1
+39.44s oxygen#1
+40.49s Lavoisier#5
+41.04s proved#1
+41.36s it:#1
+41.76s burning#2
+42.11s things#2
+42.41s combine#1
+42.86s with#3
+42.99s part#1
+43.21s of#2
+43.30s the#6
+43.44s air#4
+43.95s In#4
+44.12s 1778#1
+45.52s he#2
+45.62s named#1
+45.92s that#2
+46.12s part#2
+46.38s oxygen#2
+47.23s And#2
+47.36s in#5
+47.43s his#2
+47.58s sealed#4
+47.86s glass#3
+48.43s the#7
+48.53s total#1
+48.81s mass#1
+49.08s stayed#1
+49.36s the#8
+49.46s same#1
+50.26s But#2
+50.38s Lavoisier#6
+51.06s also#1
+51.41s worked#1
+51.73s for#1
+51.96s a#4
+52.01s hated#1
+52.23s tax#1
+52.56s company#1
+53.22s Revolutionaries#1
+54.22s charged#1
+54.60s him#1
+54.77s with#4
+54.95s tax#2
+55.27s fraud#1
+55.97s and#3
+56.10s adding#1
+56.40s water#1
+56.67s to#1
+56.77s tobacco#1
+57.51s In#6
+57.66s 1794#1
+59.01s Lavoisier#7
+59.59s was#1
+59.76s guillotined#1
+60.34s in#7
+60.46s Paris#2
+61.38s A#5
+61.48s year#1
+61.65s and#4
+61.75s a#6
+61.83s half#1
+62.05s later#1
+62.49s France#1
+62.86s cleared#1
+63.14s him#2
+63.62s His#3
+63.82s widow#1
+64.10s got#3
+64.27s his#4
+64.42s belongings#1
+64.95s back#2
+65.32s with#5
+65.45s a#7
+65.52s note:#1
+66.12s falsely#1
+66.57s convicted#1
+67.35s Today#1
+67.75s French#2
+67.97s schools#1
+68.30s teach#1
+68.50s his#5
+68.65s rule:#1
+69.35s nothing#1
+69.67s is#1
+69.82s lost#1
+70.43s nothing#2
+70.75s is#2
+70.90s created#1
 
 DRAFT film.json
-{"era": "1780s-1790s", "cast": {"lavoisier": "a 38 year old French chemist, tall and lean, a long oval pale face with high cheekbones, dark brown hair powdered and tied back with a black ribbon, clean shaven, wearing a plum-brown wool coat with gold embroidery over a cream waistcoat and white linen cravat, 1780s", "priestley": "a 51 year old English dissenting minister and chemist, short and plump, a round pale face with heavy jowls and small dark eyes, short grey hair under a black skullcap, wearing a black clerical coat with white neck bands, 1770s", "marie": "a 30 year old French woman, slender, a soft oval face with dark brown eyes, dark brown hair under a white lace cap, wearing a rose-pink silk gown with a cream shawl and a blue sash, 1780s", "academician": "a 62 year old French academy chemist, thin and upright, a long wrinkled pale face, a powdered white wig, wearing a deep blue velvet academic coat with silver embroidery, 1780s", "guard": "a 29 year old French revolutionary guard, lean, a sharp sun-darkened face, short black hair, wearing a dark brown wool coat with a red sash and a black leather hat, 1790s", "scientist": "a 38 year old modern woman scientist, short brown hair, a focused oval face, wearing a white lab coat over a teal blouse, 2000s"}, "music": "curious", "key_words": ["Lavoisier#1", "gas#1", "fire#1", "Priestley#1", "air#1", "experiments#1", "Marie-Anne#1", "Kirwan's#1", "phlogiston#1", "footnotes#1", "theory#1", "burning#1", "oxygen#1", "Revolutionaries#1", "tobacco#1", "guillotined#1", "1794#1", "release#1", "France#1", "bottle#1", "headspace#1", "reserve#1", "2006#1", "matter#1"], "shots": [{"name": "lavoisier", "at": 0, "who": "lavoisier", "clip": true, "prompt": "medium close-up, a tall lean chemist leaning over a wooden laboratory bench and lifting a sealed glass jar toward the candle light, he is {lavoisier}, 1780s Paris laboratory with glass flasks, warm candle light", "motion": "he lifts the jar and turns it slowly, candle flames flicker, slow camera push in", "check": "Is a man lifting a glass jar?"}, {"name": "fiery_gas", "at": "gas#1", "clip": true, "prompt": "extreme close-up, a glowing wooden splint bursting into bright white flame inside a round glass jar of gas on a wooden bench, 1780s laboratory, warm candle light", "motion": "the splint flares into a bright flame, slow camera push in", "hit": "burn#1", "check": "Is a burning splint inside a glass jar?"}, {"name": "priestley_tells", "at": "Priestley#1", "who": "priestley", "xfade": true, "clip": true, "prompt": "close-up, a plump minister speaking eagerly and lifting one hand in a 1770s stone-walled laboratory, he is {priestley}, glass jars on a wooden bench behind him, warm lamp light", "motion": "he speaks and raises his hand slightly, the lamp flame flickers, slow camera push in", "check": "Is a man speaking and raising a hand?"}, {"name": "the_gas", "at": "gas#2", "move": "push", "prompt": "close-up, a glowing wooden splint burning bright inside a clear glass jar on a wooden bench, 1770s laboratory, warm lamp light", "check": "Is a glowing splint burning inside a glass jar?"}, {"name": "purer_air", "at": "purer#1", "who": "priestley", "clip": true, "prompt": "medium shot, a plump minister holding a corked glass jar in one hand and shrugging with the other, he is {priestley}, 1770s laboratory, warm lamp light", "motion": "he raises the jar a little and shrugs, slow camera push in", "check": "Is a man holding a glass jar and shrugging?"}, {"name": "own_lab", "at": "Lavoisier#3", "who": "lavoisier", "clip": true, "prompt": "medium shot, a tall lean chemist pointing at a row of glass vessels on a wooden bench, he is {lavoisier}, 1780s laboratory, brass balance and papers nearby, warm lamp light", "motion": "he points along the row of vessels and leans closer, slow camera push in", "check": "Is a man pointing at glass vessels?"}, {"name": "fierce_flame", "at": "gas#4", "move": "push", "prompt": "close-up, a tall glass bell jar over a brass stand with a bright white flame burning fiercely inside, 1780s laboratory, warm lamp light", "check": "Is a bright flame burning inside a glass bell jar?"}, {"name": "translate", "at": "Marie-Anne#1", "who": "marie", "clip": true, "prompt": "medium shot, a woman writing with a quill in a large open book at a wooden desk, she is {marie}, a quiet 1780s Paris study, candle and soft window light", "motion": "she dips the quill and writes a line, slow camera push in", "check": "Is a woman writing in a book?"}, {"name": "kirwan_book", "at": "book#1", "move": "left", "prompt": "close-up of an open leather-bound book filled with dense handwritten pages on a wooden desk beside an inkwell and a candle, warm candlelight", "check": "Is there an open book with handwritten pages?"}, {"name": "footnotes", "at": "footnotes#1", "clip": true, "prompt": "extreme close-up of a book page covered in small handwritten notes in the wide margin, a quill tip pointing at one line, warm candle light", "motion": "the quill tip taps the margin note, slow camera push in", "check": "Is there handwriting in the margin of a page?"}, {"name": "convinced", "at": "fire#2", "who": "lavoisier", "clip": true, "prompt": "medium shot, a chemist holding an open annotated book and looking up with sudden conviction, he is {lavoisier}, an 1780s laboratory with glass jars, warm candlelight", "motion": "he closes the book slowly and lifts his eyes, slow camera push in", "hit": "fire#2", "check": "Is a man holding an open book?"}, {"name": "burning", "at": "burning#1", "who": "lavoisier", "clip": true, "prompt": "medium shot, a chemist leaning close to a candle burning brightly inside a tall glass bell jar on a stone bench, he is {lavoisier}, an 1780s laboratory, warm candlelight", "motion": "the candle flame flares taller inside the jar, slow camera push in", "check": "Is a man beside a burning candle under a glass jar?"}, {"name": "oxygen", "at": "oxygen#1", "move": "push", "prompt": "extreme close-up, a clear glass jar with a bright pale flame flaring inside, standing on a wooden laboratory bench, cool daylight through a tall window", "check": "Is there a bright flame inside a glass jar?"}, {"name": "accusation", "at": "Revolutionaries#1", "xfade": true, "clip": true, "prompt": "medium shot, a revolutionary official in a dark brown coat and red sash pointing an accusing finger at {lavoisier}, a bare stone chamber, cold grey window light", "motion": "the official jabs his finger forward, slow camera push in", "check": "Is a man pointing at another man?"}, {"name": "protest", "at": "charged#1", "who": "lavoisier", "clip": true, "prompt": "medium shot, a tall lean chemist raising one hand in protest before a wooden tribunal table, he is {lavoisier}, a bare stone chamber, cold grey window light", "motion": "he raises his hand and speaks firmly, slow camera push in", "check": "Is a man raising his hand?"}, {"name": "tobacco", "at": "adulterated#1", "move": "push", "prompt": "close-up of dark soggy tobacco leaves spilling from a torn burlap sack on a wooden market stall, grey Paris daylight", "check": "Are there dark wet tobacco leaves?"}, {"name": "escort", "at": "Revolutionaries#2", "move": "right", "prompt": "wide shot, revolutionary guards in brown coats and red sashes crowding around {lavoisier}, leading him down a cobbled Paris street, grey daylight", "check": "Are several guards walking with a man?"}, {"name": "guillotine", "at": "guillotined#1", "who": "lavoisier", "xfade": true, "clip": true, "prompt": "medium shot, a tall lean chemist kneeling on a wooden block beneath the raised blade of a guillotine, he is {lavoisier}, a bare Paris square, cold grey daylight", "motion": "he lifts his head and holds still, slow camera push in", "hit": "guillotined#1", "check": "Is a man kneeling under a guillotine blade?"}, {"name": "pleading", "at": "Marie-Anne#2", "who": "marie", "clip": true, "prompt": "medium shot, a woman in a rose-pink silk gown kneeling with clasped hands raised, pleading up to a revolutionary official seen from behind, she is {marie}, a cold stone prison corridor, lantern light", "motion": "her clasped hands tremble as she pleads, slow camera push in", "check": "Is a woman kneeling with clasped hands?"}, {"name": "cleared", "at": "cleared#1", "who": "academician", "clip": true, "prompt": "medium shot, a French academy chemist in a deep blue velvet coat pressing a round brass seal onto a folded blank parchment on a wooden desk, he is {academician}, a bright government chamber, morning light", "motion": "he presses the seal down firmly, slow camera push in", "hit": "cleared#1", "check": "Is a man pressing a seal onto a document?"}, {"name": "soda", "at": "You#1", "modern": true, "clip": true, "prompt": "close-up, a hand twisting the metal cap of a chilled glass soda bottle on a modern kitchen counter, fizzy liquid and rising bubbles inside, bright daylight", "motion": "the cap twists loose and bubbles surge up inside, slow camera push in", "check": "Is a hand twisting the cap of a soda bottle?"}, {"name": "fizz", "at": "out#1", "modern": true, "clip": true, "prompt": "extreme close-up, white fizzy gas and foam rushing out of the open neck of a glass soda bottle, bubbles streaming up the glass, modern kitchen counter, bright daylight", "motion": "the foam surges up and spills over the bottle mouth, slow camera push in", "check": "Is fizzy gas rushing out of a bottle?"}, {"name": "sealed_bottle", "at": "In#2", "modern": true, "xfade": true, "move": "push", "prompt": "medium shot, a sealed dark green wine bottle with a wax-sealed cork standing on a pale table, bright modern window light, plain background", "check": "Is there a sealed wine bottle?"}, {"name": "headspace", "at": "headspace#1", "modern": true, "move": "push", "prompt": "medium shot, a clear glass bottle half filled with dark red wine with empty air space above the wine line, on a white lab bench, bright daylight", "check": "Is there a clear glass bottle with red wine?"}, {"name": "oxygen_gas", "at": "oxygen#2", "modern": true, "move": "push", "prompt": "extreme close-up, a wooden splint glowing bright orange inside a sealed glass gas jar on a modern chemistry bench, cool daylight", "check": "Is a glowing splint inside a glass jar?"}, {"name": "bubbles", "at": "oxygen#3", "modern": true, "move": "push", "prompt": "close-up, fine bubbles rising through deep red wine in a clear wine glass on a bright modern kitchen table, daylight", "check": "Are bubbles rising in red wine?"}, {"name": "turn_bottle", "at": "moves#1", "modern": true, "clip": true, "prompt": "close-up, a woman's hands turning a sealed dark green wine bottle on a modern laboratory bench so the red wine swirls against the glass, cool daylight", "motion": "the bottle turns slowly and the wine swirls, slow camera push in", "check": "Are hands turning a sealed wine bottle?"}, {"name": "reserve", "at": "becomes#1", "modern": true, "move": "push", "prompt": "medium shot, a sealed dark green wine bottle standing alone on a white laboratory bench under a bright spotlight, dark background, cool light", "check": "Is there a sealed wine bottle standing alone?"}, {"name": "feeding", "at": "feeding#1", "modern": true, "who": "scientist", "clip": true, "prompt": "close-up, a woman scientist holding up a glass of deep red wine with tiny bubbles rising to the surface, modern laboratory bench, soft daylight", "motion": "she tilts the glass slightly as bubbles rise, slow camera push in", "check": "Is a woman holding a glass of red wine?"}, {"name": "study", "at": "The#15", "modern": true, "who": "scientist", "clip": true, "prompt": "medium shot, a modern woman scientist holding up a sealed clear wine bottle of dark red wine beside a row of sample bottles, she is {scientist}, bright modern wine laboratory, cool white light", "motion": "she lifts the bottle and turns it slightly, slow camera push in", "check": "Is a woman holding up a wine bottle?"}, {"name": "measure", "at": "measured#1", "modern": true, "who": "scientist", "clip": true, "prompt": "close-up, a modern woman scientist pouring dark red wine from an opened bottle into a tall glass measuring cylinder, she is {scientist}, white lab bench, bright modern light", "motion": "the red wine pours slowly into the cylinder, slow camera push in", "check": "Is wine being poured into a glass cylinder?"}, {"name": "bottles", "at": "2006#1", "modern": true, "move": "push", "prompt": "wide shot, rows of sealed clear wine bottles filled with dark red wine lined up on a long white laboratory bench, modern laboratory, cool fluorescent light", "check": "Are many sealed wine bottles on a bench?"}, {"name": "seal", "at": "lasting#1", "who": "lavoisier", "xfade": true, "clip": true, "prompt": "medium shot, a French chemist pressing a wax seal onto the mouth of a glass jar, he is {lavoisier}, 1780s Paris laboratory, warm candlelight", "motion": "he presses the wax seal down firmly, slow camera push in", "check": "Is a man sealing a glass jar?"}, {"name": "balance", "at": "lost#1", "who": "lavoisier", "clip": true, "prompt": "medium shot, a French chemist setting a sealed glass jar onto the pan of a brass balance scale, he is {lavoisier}, 1780s Paris laboratory, warm candlelight", "motion": "he lowers the jar onto the scale pan, slow camera push in", "hit": "lost#1", "check": "Is a man placing a glass jar on a balance scale?"}]}
+{"era": "1770s", "cast": {"lavoisier": "a 31 year old French chemist, tall and slim, a smooth oval face with a long straight nose and dark arched eyebrows, a white powdered wig tied back with a black silk ribbon, clean shaven, wearing a sky blue silk coat with silver buttons over a white lace jabot, 1770s", "priestley": "a 41 year old English minister and chemist, short and plump, a round pink face with a double chin and small dark eyes, a short grey curled wig, wearing a plain black wool coat with white clerical neck bands, 1770s", "elder": "a 60 year old French chemist, thin and stooped, a long wrinkled face with a pointed chin, a tall white powdered wig, wearing a mustard yellow brocade coat with brown cuffs, 1770s", "rebel": "a 29 year old French revolutionary, lean, a sharp sun-darkened face with a short black beard, a red wool cap with a blue white and red rosette, a striped brown and cream waistcoat over a loose white shirt, 1790s", "marie": "a 37 year old French woman, slender, a pale oval face with large dark brown eyes, dark brown hair in loose curls under a black lace cap, wearing a black silk mourning gown with a white muslin fichu, 1790s", "teacher": "a 45 year old French science teacher, a broad friendly face, short curly grey hair, a neat grey beard, round tortoiseshell glasses, wearing a teal knitted cardigan over a white shirt, 2020s"}, "key_words": ["sealed#1", "phlogiston#1", "heavier#1", "weighed#1", "escape#1", "priestley#1", "vigor#1", "wine#1", "oxygen#2", "mass#1", "tobacco#1", "guillotined#1", "cleared#1", "convicted#1", "lost#1"], "music": "curious", "shots": [{"name": "hook", "at": 0, "who": "lavoisier", "clip": true, "prompt": "close-up, a chemist pressing a glass stopper into a round glass flask holding grey lumps of tin, he is {lavoisier}, 1770s Paris laboratory with copper and glass vessels, warm candle light", "motion": "he pushes the stopper down firmly, slow camera push in", "check": "Is a man sealing a glass flask?"}, {"name": "heat", "at": "heated#1", "move": "push", "prompt": "close-up of a sealed round glass flask sitting over the glowing red coals of a small brick furnace, 1770s laboratory, warm orange light", "check": "Is a glass flask over glowing coals?"}, {"name": "elders", "at": "chemists#1", "who": "elder", "clip": true, "prompt": "medium shot, an old chemist pointing at a candle flame and lecturing, he is {elder}, a grand wood-panelled academy hall, warm candle light", "motion": "he wags his finger at the flame, slow camera push in", "check": "Is an old man pointing at a candle?"}, {"name": "smoke", "at": "phlogiston#1", "move": "up", "prompt": "close-up of thick grey smoke curling up from burning logs in a stone fireplace, 1770s room, flickering orange firelight", "check": "Is smoke rising from burning logs?"}, {"name": "phosphorus", "at": "phosphorus#1", "who": "lavoisier", "clip": true, "hit": "heavier#1", "prompt": "medium close-up, a chemist frowning at a small porcelain dish burning with a brilliant white flame, he is {lavoisier}, 1770s Paris laboratory with copper and glass vessels, warm candle light", "motion": "the white flame flares and he leans back, slow camera push in", "check": "Is a man looking at a white flame?"}, {"name": "year1774", "at": "1774#1", "who": "lavoisier", "xfade": true, "clip": true, "prompt": "wide shot, a chemist stoking a brick furnace under a row of sealed glass flasks, he is {lavoisier}, a large vaulted stone laboratory, morning light through tall windows", "motion": "he pushes a coal into the furnace, slow camera pan right", "check": "Is a man stoking a furnace?"}, {"name": "lead", "at": "lead#1", "move": "push", "prompt": "extreme close-up of dull grey lumps of metal glowing hot inside a sealed glass flask, orange furnace light from below", "check": "Are grey metal lumps inside a glass flask?"}, {"name": "weigh", "at": "weighed#1", "who": "lavoisier", "clip": true, "prompt": "medium shot, a chemist lowering a sealed glass flask onto the pan of a large brass balance, he is {lavoisier}, 1770s Paris laboratory with copper and glass vessels, warm candle light", "motion": "he gently sets the flask on the pan, slow camera push in", "check": "Is a man placing a flask on a balance?"}, {"name": "stopper", "at": "no#1", "clip": true, "prompt": "extreme close-up of a red wax seal around a glass stopper on the neck of a flask, a fingertip pressing the wax, warm candle light", "motion": "the fingertip presses the soft wax smooth, slow camera push in", "check": "Is there a wax seal on a glass flask?"}, {"name": "crust", "at": "metals#1", "move": "push", "prompt": "close-up of a powdery grey-white crust coating metal lumps at the bottom of a cooled glass flask, wooden bench, soft candle light", "check": "Is there a grey crust inside a glass flask?"}, {"name": "tilt", "at": "joined#1", "who": "lavoisier", "clip": true, "prompt": "close-up, a chemist raising his eyebrows in surprise as a brass balance pan sinks lower, he is {lavoisier}, 1770s Paris laboratory with copper and glass vessels, warm candle light", "motion": "the balance pan dips and his eyes widen, slow camera push in", "check": "Is a man looking surprised at a balance?"}, {"name": "arrive", "at": "october#1", "who": "priestley", "xfade": true, "clip": true, "prompt": "medium shot, a plump man stepping down from a black horse carriage onto a cobbled street, he is {priestley}, 1770s Paris with autumn leaves, grey daylight", "motion": "he steps down and tips his head, slow camera pan left", "check": "Is a man stepping out of a carriage?"}, {"name": "tells", "at": "priestley#2", "who": "priestley", "clip": true, "prompt": "medium close-up, a plump man talking eagerly and spreading his hands over a dinner table, he is {priestley}, an elegant Paris dining room, silver candlesticks, warm light", "motion": "he spreads his hands as he talks, slow camera push in", "check": "Is a man talking with his hands spread?"}, {"name": "powder", "at": "red#1", "move": "push", "prompt": "extreme close-up of bright orange-red powder in a small glass dish, a beam of sunlight focused onto it by a large round lens, wooden bench", "check": "Is there red powder in a glass dish?"}, {"name": "fierce", "at": "fire#1", "clip": true, "hit": "vigor#1", "prompt": "close-up, a candle flame bursting tall and dazzling white inside a clear glass jar on a wooden bench, dark laboratory", "motion": "the flame leaps up brighter, slow camera push in", "check": "Is a bright candle flame inside a glass jar?"}, {"name": "ownwork", "at": "lavoisier#4", "who": "lavoisier", "clip": true, "prompt": "medium shot, a chemist heating a curved glass retort of red powder over an oil lamp, he is {lavoisier}, 1770s Paris laboratory with copper and glass vessels, warm candle light", "motion": "he turns the retort slowly over the flame, slow camera push in", "check": "Is a man heating a glass retort?"}, {"name": "cork", "at": "you#1", "modern": true, "xfade": true, "clip": true, "prompt": "close-up, a hand pushing a cork into a dark green wine bottle on a wooden kitchen table, bright modern daylight", "motion": "the hand presses the cork down, slow camera push in", "check": "Is a hand corking a wine bottle?"}, {"name": "neck", "at": "bottle#1", "modern": true, "move": "up", "prompt": "close-up of the neck of a clear corked bottle of red wine with a gap of air above the wine, bright window light", "check": "Is there a corked bottle of red wine?"}, {"name": "gap", "at": "trapped#1", "modern": true, "move": "push", "prompt": "extreme close-up of the small air gap between a cork and dark red wine inside a clear bottle neck, soft backlight", "check": "Is there an air gap above red wine?"}, {"name": "pour", "at": "wine#2", "modern": true, "clip": true, "prompt": "close-up, red wine pouring from a bottle into a clear wine glass on a kitchen table, bright modern daylight", "motion": "the wine swirls into the glass, slow camera push in", "check": "Is red wine pouring into a glass?"}, {"name": "belljar", "at": "lavoisier#5", "who": "lavoisier", "clip": true, "prompt": "medium shot, a chemist lowering a tall glass bell jar over a burning candle in a bowl of water, he is {lavoisier}, 1770s Paris laboratory with copper and glass vessels, warm candle light", "motion": "he lowers the jar slowly over the flame, slow camera push in", "check": "Is a man lowering a glass jar over a candle?"}, {"name": "shrink", "at": "part#1", "move": "push", "prompt": "close-up of a small candle flame dying inside a glass bell jar standing in a bowl of water, dim laboratory, soft blue light", "check": "Is a candle burning inside a glass jar?"}, {"name": "name", "at": "1778#1", "who": "lavoisier", "clip": true, "prompt": "medium close-up, a chemist holding a glass jar up to a tall window with a proud smile, he is {lavoisier}, 1770s Paris laboratory, bright morning light", "motion": "he lifts the jar higher and smiles, slow camera push in", "check": "Is a man holding up a glass jar?"}, {"name": "splint", "at": "oxygen#2", "clip": true, "hit": "oxygen#2", "prompt": "extreme close-up, a glowing wooden splint bursting into bright flame inside the mouth of a glass jar, dark laboratory background", "motion": "the ember flares into flame, slow camera push in", "check": "Is a wooden splint bursting into flame?"}, {"name": "level", "at": "glass#3", "move": "push", "prompt": "close-up of a large brass balance hanging perfectly level, a sealed glass flask on one pan and brass weights on the other, candle light", "check": "Is there a level brass balance?"}, {"name": "coins", "at": "but#2", "who": "lavoisier", "xfade": true, "clip": true, "prompt": "medium shot, a chemist stacking gold coins on a polished desk beside leather ledgers, he is {lavoisier}, a rich 1780s office with red curtains, warm lamp light", "motion": "he sets a coin on the stack, slow camera push in", "check": "Is a man stacking gold coins?"}, {"name": "angry", "at": "hated#1", "move": "push", "prompt": "wide shot of an angry crowd of poor Paris workers shaking their fists outside a stone gatehouse, grey overcast daylight", "check": "Is there an angry crowd?"}, {"name": "accuse", "at": "revolutionaries#1", "who": "rebel", "clip": true, "prompt": "medium shot, a revolutionary jabbing his finger forward in accusation across a rough wooden table, he is {rebel}, a bare stone courtroom, cold window light", "motion": "he jabs his finger forward, slow camera push in", "check": "Is a man pointing his finger?"}, {"name": "tobacco", "at": "water#1", "clip": true, "prompt": "close-up, water pouring from a jug onto a heap of dark brown tobacco leaves on a wooden counter, grey daylight", "motion": "the water splashes over the leaves, slow camera push in", "check": "Is water pouring onto tobacco leaves?"}, {"name": "guillotine", "at": "1794#1", "xfade": true, "move": "up", "hit": "guillotined#1", "prompt": "low angle wide shot of a tall wooden guillotine with a raised steel blade in a grey Paris square, a silent crowd, cold overcast sky", "check": "Is there a guillotine?"}, {"name": "empty", "at": "year#1", "move": "left", "prompt": "wide shot of an empty dusty laboratory with cold furnaces and glass flasks covered in cobwebs, pale grey light through tall windows", "check": "Is this an empty dusty laboratory?"}, {"name": "cleared", "at": "cleared#1", "clip": true, "prompt": "close-up, an old official's hand pressing a red wax seal onto folded parchment on a wooden desk, a bright government chamber, morning light", "motion": "the hand presses the seal down, slow camera push in", "check": "Is a hand pressing a wax seal?"}, {"name": "chest", "at": "widow#1", "who": "marie", "clip": true, "prompt": "medium shot, a woman in black lifting the lid of a wooden chest full of glass flasks, she is {marie}, a dim Paris parlour, soft window light", "motion": "she lifts the lid slowly, slow camera push in", "check": "Is a woman opening a wooden chest?"}, {"name": "note", "at": "note:#1", "who": "marie", "clip": true, "hit": "convicted#1", "prompt": "close-up, a woman in black holding a small folded paper to her chest with tears in her eyes, she is {marie}, dim parlour, soft window light", "motion": "a tear rolls down her cheek, slow camera push in", "check": "Is a woman crying?"}, {"name": "class", "at": "today#1", "who": "teacher", "modern": true, "xfade": true, "clip": true, "prompt": "medium shot, a teacher setting a sealed glass jar on a balance in front of watching pupils, he is {teacher}, a bright modern classroom, daylight", "motion": "he sets the jar down gently, slow camera push in", "check": "Is a man putting a jar on a balance?"}, {"name": "final", "at": "lost#1", "move": "push", "prompt": "close-up of a small candle still burning inside a sealed glass jar on a perfectly level brass balance, dark background, warm glow", "check": "Is a candle burning inside a glass jar?"}]}
 
 SOURCES (data only)
 [1] Antoine Lavoisier | https://en.wikipedia.org/wiki/Antoine_Lavoisier
