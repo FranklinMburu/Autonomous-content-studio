@@ -1,0 +1,446 @@
+{
+ "script": {
+  "title": "Why Maya ground still holds mercury",
+  "beats": [
+   {
+    "feel": "unease",
+    "lines": [
+     "A Maya family buried their dead right inside their own home compound."
+    ]
+   },
+   {
+    "feel": "curiosity",
+    "lines": [
+     "For the Maya, the land was the property of the ancestors.",
+     "Burying the dead at home tied each family to its land.",
+     "And for funerals, the Classic Maya used a stone called cinnabar.",
+     "Cinnabar is a mercury material."
+    ]
+   },
+   {
+    "feel": "wonder",
+    "lines": [
+     "Archaeologists report extensive deposits of cinnabar in ancient settlements.",
+     "In important burials, they even found rare traces of pure liquid mercury."
+    ]
+   },
+   {
+    "feel": "tension",
+    "lines": [
+     "Then, by about the 10th century, the great cities were abandoned.",
+     "The families walked away.",
+     "The mercury did not."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like a stain on a carpet.",
+     "The guests go home.",
+     "The stain stays."
+    ]
+   },
+   {
+    "feel": "shock",
+    "lines": [
+     "Scientists compared mercury readings from ten ancient Maya settlements.",
+     "Seven sites from ten had at least one spot that equals or exceeds modern toxic limits.",
+     "The high mercury is typically found where Maya people once lived.",
+     "It most likely came from their cinnabar."
+    ]
+   },
+   {
+    "feel": "irony",
+    "lines": [
+     "The Maya buried their dead to bind them to the land.",
+     "Their mercury stayed bound to the land too.",
+     "Now scientists want to know what it did to people's health."
+    ]
+   }
+  ],
+  "key_words": [
+   "buried",
+   "ancestors",
+   "cinnabar",
+   "mercury",
+   "abandoned",
+   "stain",
+   "seven",
+   "toxic",
+   "health"
+  ],
+  "claims": [
+   {
+    "claim": "Clans held that the land was the property of the ancestors, and ties between the land and the ancestors were reinforced by the burial of the dead within residential compounds.",
+    "url": "https://en.wikipedia.org/wiki/Maya_civilization"
+   },
+   {
+    "claim": "The Classic Period Maya used mercury for decorative and ceremonial (including funerary) purposes, cinnabar predominantly.",
+    "url": "https://doi.org/10.3389/fenvs.2022.986119"
+   },
+   {
+    "claim": "Archaeologists have reported extensive deposits of cinnabar in ancient settlements, and rare finds of elemental mercury in important burial and religious contexts.",
+    "url": "https://doi.org/10.3389/fenvs.2022.986119"
+   },
+   {
+    "claim": "The locations with elevated mercury are typically former Maya occupation areas in large urban settlements abandoned by c. 10th century CE.",
+    "url": "https://doi.org/10.3389/fenvs.2022.986119"
+   },
+   {
+    "claim": "Seven sites from ten reported at least one location with mercury concentrations that equal or exceed modern benchmarks for environmental toxicity.",
+    "url": "https://doi.org/10.3389/fenvs.2022.986119"
+   },
+   {
+    "claim": "The mercury detected in buried contexts at Maya sites is most likely associated with pre-Columbian mercury use, especially of cinnabar.",
+    "url": "https://doi.org/10.3389/fenvs.2022.986119"
+   },
+   {
+    "claim": "Researchers call for interpreting environmental mercury data in the context of mercury exposure and human health at Maya sites.",
+    "url": "https://doi.org/10.3389/fenvs.2022.986119"
+   }
+  ]
+ },
+ "film": {
+  "era": "800s",
+  "cast": {
+   "father": "a 40 year old Maya farmer, lean and wiry, dark copper skin, a long sloping forehead, a hooked nose, clean shaven, long black hair tied in a topknot with a white cloth band, a white cotton loincloth and a short red and black woven cape, 800s",
+   "mother": "a 35 year old Maya woman, short and sturdy, a round face with warm brown skin and full cheeks, long black hair wrapped in a mustard yellow woven headband, a white cotton huipil tunic with red diamond embroidery and a dark blue wrap skirt, 800s",
+   "archaeologist": "a 58 year old woman archaeologist, tall and thin, a deeply tanned lined face, short spiky silver hair, no glasses, a dusty pale blue denim work shirt with rolled sleeves and a wide brimmed straw sun hat, today",
+   "scientist": "a 41 year old Latino environmental scientist, stocky, a shaved head, a short black goatee, thick black eyebrows, a sun faded orange field shirt, khaki cargo trousers and a grey bucket hat, today"
+  },
+  "key_words": [
+   "buried#1",
+   "ancestors#1",
+   "cinnabar#1",
+   "mercury#2",
+   "abandoned#1",
+   "stain#1",
+   "seven#1",
+   "toxic#1",
+   "health#1"
+  ],
+  "music": "mysterious",
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "who": "father",
+    "clip": true,
+    "prompt": "medium shot, a Maya man lowering a body wrapped in white cotton into a pit dug in the earth floor of a house courtyard, he is {father}, warm late afternoon light",
+    "motion": "he slowly lowers the wrapped body, slow camera push in",
+    "check": "Is a man lowering a wrapped body into a pit?"
+   },
+   {
+    "name": "compound",
+    "at": "inside#1",
+    "move": "push",
+    "prompt": "wide shot of a cluster of small white plaster houses with thatched roofs around a dirt courtyard with a fresh grave in the middle, jungle behind, golden light",
+    "check": "Are there small houses with thatched roofs?"
+   },
+   {
+    "name": "land",
+    "at": "for#1",
+    "who": "mother",
+    "clip": true,
+    "xfade": true,
+    "prompt": "close-up, a woman pressing both palms flat onto dark soil at the edge of a maize field, she is {mother}, misty morning light",
+    "motion": "she presses her palms into the soil, slow camera push in",
+    "check": "Is a woman pressing her hands on the soil?"
+   },
+   {
+    "name": "ancestors",
+    "at": "property#1",
+    "move": "up",
+    "prompt": "low angle of a weathered carved stone statue of a seated old man in a feathered headdress at the edge of a maize field, morning mist",
+    "check": "Is there a carved stone statue?"
+   },
+   {
+    "name": "burying",
+    "at": "burying#1",
+    "who": "father",
+    "clip": true,
+    "prompt": "medium shot, a Maya man kneeling and pushing dark earth over a grave in a house courtyard with both hands, he is {father}, warm afternoon light",
+    "motion": "he pushes earth over the grave, slow camera push in",
+    "check": "Is a man kneeling over a grave?"
+   },
+   {
+    "name": "planting",
+    "at": "tied#1",
+    "who": "mother",
+    "clip": true,
+    "prompt": "medium shot, a woman dropping maize seeds into a hole in the soil beside a thatched house, she is {mother}, bright morning sun",
+    "motion": "she drops seeds into the soil, slow camera push in",
+    "check": "Is a woman planting seeds in soil?"
+   },
+   {
+    "name": "procession",
+    "at": "and#1",
+    "clip": true,
+    "xfade": true,
+    "prompt": "wide shot of Maya mourners in white cotton carrying burning torches past a stone pyramid at dusk",
+    "motion": "the torch flames flicker as they walk slowly, slow camera pan right",
+    "check": "Are people carrying torches?"
+   },
+   {
+    "name": "sprinkle",
+    "at": "classic#1",
+    "who": "mother",
+    "clip": true,
+    "prompt": "close-up, a woman sprinkling red powder from her fingers onto a body wrapped in white cotton, she is {mother}, torchlight in a stone room",
+    "motion": "red powder falls from her fingers, slow camera push in",
+    "check": "Is a woman sprinkling red powder?"
+   },
+   {
+    "name": "stone",
+    "at": "stone#1",
+    "clip": true,
+    "hit": "cinnabar#1",
+    "prompt": "extreme close-up of a chunk of glittering deep red crystal rock resting in an open palm, warm torchlight, dark background",
+    "motion": "the palm tilts slightly and the red crystals glint, slow camera push in",
+    "check": "Is there a red rock in a hand?"
+   },
+   {
+    "name": "grind",
+    "at": "cinnabar#2",
+    "clip": true,
+    "prompt": "close-up, two hands grinding red rock into fine red powder on a flat grinding stone, warm torchlight",
+    "motion": "the hands push the grinding stone back and forth, slow camera push in",
+    "check": "Are hands grinding red powder?"
+   },
+   {
+    "name": "dig",
+    "at": "archaeologists#1",
+    "who": "archaeologist",
+    "clip": true,
+    "modern": true,
+    "xfade": true,
+    "prompt": "medium shot, a woman kneeling in a dig trench brushing dust from red-stained soil with a small brush, she is {archaeologist}, jungle ruins, harsh midday sun",
+    "motion": "she brushes the soil gently, slow camera push in",
+    "check": "Is a woman brushing soil in a trench?"
+   },
+   {
+    "name": "layer",
+    "at": "deposits#1",
+    "move": "push",
+    "modern": true,
+    "prompt": "close-up of a bright red layer of powder in the cut wall of an excavation trench, dark brown soil above and below, midday sun",
+    "check": "Is there a red layer in the soil?"
+   },
+   {
+    "name": "tomb",
+    "at": "important#1",
+    "move": "push",
+    "prompt": "wide shot of a dark stone burial chamber deep inside a pyramid with a carved stone coffin, lit by a single torch",
+    "check": "Is there a stone burial chamber?"
+   },
+   {
+    "name": "liquid",
+    "at": "rare#1",
+    "clip": true,
+    "hit": "mercury#2",
+    "prompt": "extreme close-up of shiny silver liquid metal beads pooled in a small clay bowl on stone, torchlight reflections",
+    "motion": "the silver liquid trembles and shimmers, slow camera push in",
+    "check": "Is there shiny silver liquid in a bowl?"
+   },
+   {
+    "name": "leaving",
+    "at": "then#1",
+    "who": "mother",
+    "clip": true,
+    "xfade": true,
+    "prompt": "medium shot, a woman tying a large cloth bundle onto her back beside an empty thatched house, she is {mother}, grey overcast light",
+    "motion": "she pulls the knot tight on the bundle, slow camera push in",
+    "check": "Is a woman tying a bundle on her back?"
+   },
+   {
+    "name": "ruin",
+    "at": "great#1",
+    "move": "left",
+    "hit": "abandoned#1",
+    "prompt": "wide shot of a huge stone pyramid covered in jungle vines and trees, an empty plaza overgrown with grass, grey misty light",
+    "check": "Is a stone pyramid covered in vines?"
+   },
+   {
+    "name": "walkaway",
+    "at": "families#1",
+    "clip": true,
+    "prompt": "wide shot from behind of a line of Maya families carrying bundles walking away along a jungle path, soft grey light",
+    "motion": "they walk slowly away into the trees, slow camera pull back",
+    "check": "Are people walking along a jungle path?"
+   },
+   {
+    "name": "soil",
+    "at": "mercury#3",
+    "move": "down",
+    "prompt": "close-up of an empty cracked earth courtyard floor with red powder seeping into the soil, fallen leaves, dim light",
+    "check": "Is there red powder in cracked soil?"
+   },
+   {
+    "name": "spill",
+    "at": "you#1",
+    "clip": true,
+    "modern": true,
+    "xfade": true,
+    "prompt": "close-up of a glass of red juice tipping over onto a cream carpet in a living room, warm lamp light",
+    "motion": "the red juice splashes onto the carpet, slow camera push in",
+    "check": "Is red juice spilling on a carpet?"
+   },
+   {
+    "name": "dab",
+    "at": "stain#1",
+    "clip": true,
+    "modern": true,
+    "prompt": "close-up, a hand dabbing a white cloth on a red stain on a cream carpet, warm lamp light",
+    "motion": "the hand dabs the stain again and again, slow camera push in",
+    "check": "Is a hand dabbing a stain on a carpet?"
+   },
+   {
+    "name": "guests",
+    "at": "guests#1",
+    "clip": true,
+    "modern": true,
+    "prompt": "medium shot, party guests in winter coats waving goodbye as they walk out of a front door at night, porch light",
+    "motion": "they wave goodbye, slow camera push in",
+    "check": "Are people waving at a door?"
+   },
+   {
+    "name": "stays",
+    "at": "the#12",
+    "move": "push",
+    "modern": true,
+    "prompt": "close-up of a dark red stain on a cream carpet in an empty quiet living room, pale morning light",
+    "check": "Is there a red stain on a carpet?"
+   },
+   {
+    "name": "lab",
+    "at": "compared#1",
+    "who": "scientist",
+    "clip": true,
+    "modern": true,
+    "prompt": "medium shot, a man holding a small glass jar of soil up to a window in a laboratory, he is {scientist}, bright daylight",
+    "motion": "he turns the jar slowly in the light, slow camera push in",
+    "check": "Is a man holding up a jar of soil?"
+   },
+   {
+    "name": "sites",
+    "at": "ten#1",
+    "move": "pull",
+    "prompt": "high angle wide shot of a green jungle canopy with the tops of several stone pyramids rising above the trees, morning haze",
+    "check": "Are stone pyramids rising above a jungle?"
+   },
+   {
+    "name": "probe",
+    "at": "seven#1",
+    "who": "scientist",
+    "clip": true,
+    "modern": true,
+    "hit": "seven#1",
+    "prompt": "close-up, a man pushing a metal soil probe into the ground at a jungle ruin, he is {scientist}, hot sun",
+    "motion": "he pushes the probe deeper into the soil, slow camera push in",
+    "check": "Is a man pushing a metal probe into the ground?"
+   },
+   {
+    "name": "flag",
+    "at": "at#2",
+    "move": "push",
+    "modern": true,
+    "prompt": "close-up of a small orange marker flag stuck in a patch of red-stained soil beside old stone blocks, hot sun",
+    "check": "Is there a small orange flag in the soil?"
+   },
+   {
+    "name": "sample",
+    "at": "equals#1",
+    "clip": true,
+    "modern": true,
+    "prompt": "close-up, a gloved hand holding up a small clear plastic bag of red soil at a jungle ruin, hot sun",
+    "motion": "the hand shakes the bag gently, slow camera push in",
+    "check": "Is a hand holding a bag of red soil?"
+   },
+   {
+    "name": "mask",
+    "at": "toxic#1",
+    "who": "scientist",
+    "clip": true,
+    "modern": true,
+    "hit": "toxic#1",
+    "prompt": "close-up, a man frowning and pulling a white dust mask over his nose and mouth at a dig site, he is {scientist}, harsh sun",
+    "motion": "he pulls the mask up over his face, slow camera push in",
+    "check": "Is a man pulling a mask over his face?"
+   },
+   {
+    "name": "houses",
+    "at": "high#1",
+    "move": "pull",
+    "modern": true,
+    "prompt": "wide shot of excavated low stone house foundations in a jungle clearing with dig trenches between them, afternoon sun",
+    "check": "Are there low stone foundations in a clearing?"
+   },
+   {
+    "name": "lived",
+    "at": "where#1",
+    "who": "mother",
+    "clip": true,
+    "prompt": "medium shot, a woman grinding maize on a flat stone in a sunny house courtyard, she is {mother}, warm morning light",
+    "motion": "she pushes the grinding stone forward, slow camera push in",
+    "check": "Is a woman grinding maize on a stone?"
+   },
+   {
+    "name": "cinnabar",
+    "at": "it#1",
+    "move": "push",
+    "prompt": "close-up of red powder spilled across a cracked plaster floor beside a broken clay bowl, dim light",
+    "check": "Is there red powder on a floor?"
+   },
+   {
+    "name": "bind",
+    "at": "the#14",
+    "who": "father",
+    "clip": true,
+    "xfade": true,
+    "prompt": "close-up, a man kneeling and laying his palm on the soil of a fresh grave in a courtyard, he is {father}, golden evening light",
+    "motion": "he presses his palm onto the grave, slow camera push in",
+    "check": "Is a man laying his hand on a grave?"
+   },
+   {
+    "name": "courtyard",
+    "at": "bind#1",
+    "move": "pull",
+    "prompt": "wide shot of a quiet house courtyard with a low grave mound in the middle and a green maize field beyond, golden evening light",
+    "check": "Is there a grave mound in a courtyard?"
+   },
+   {
+    "name": "roots",
+    "at": "their#5",
+    "move": "down",
+    "prompt": "extreme close-up of plant roots growing through red-stained soil in the cut wall of a trench, soft light",
+    "check": "Are roots growing through red soil?"
+   },
+   {
+    "name": "scoop",
+    "at": "bound#1",
+    "clip": true,
+    "modern": true,
+    "prompt": "close-up, a gloved hand scooping a handful of red-stained soil from a trench floor, soft afternoon light",
+    "motion": "the hand lifts the soil and lets some trickle down, slow camera push in",
+    "check": "Is a hand holding red soil?"
+   },
+   {
+    "name": "bone",
+    "at": "now#1",
+    "who": "archaeologist",
+    "clip": true,
+    "modern": true,
+    "prompt": "close-up, a woman gently lifting an old brown human bone from a dig trench with gloved hands, she is {archaeologist}, soft afternoon light",
+    "motion": "she lifts the bone slowly, slow camera push in",
+    "check": "Is a woman holding a bone?"
+   },
+   {
+    "name": "skull",
+    "at": "it#2",
+    "move": "push",
+    "prompt": "close-up of an ancient human skull resting in red-stained soil at the bottom of a dig trench, soft fading light",
+    "check": "Is there a skull in red soil?"
+   }
+  ]
+ }
+}
