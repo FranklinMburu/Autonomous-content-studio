@@ -156,7 +156,7 @@ jobs:
           python -c "import json; c=json.load(open('key/chat.json'))['comments']; print('chat messages', len(c), 'last at', c[-1]['content_offset_seconds'] if c else None)"
       - name: Media (audio only + 160p, whole stream) and transcript
         run: |
-          sudo apt-get install -y -qq ffmpeg > /dev/null 2>&1
+          sudo apt-get update -qq > /dev/null 2>&1 || true; sudo apt-get install -y -qq ffmpeg > /dev/null 2>&1
           pip install -q "numpy>=1.26" "opencv-python-headless==4.10.0.84" "faster-whisper==1.2.1"
           v=$(python -c "import json; print(json.load(open('key/twitch.json'))['vod']['url'])")
           s0=$(date +%s); yt-dlp -q -f "Audio_Only" -o key/audio.m4a "$v"; echo "audio $(( $(date +%s)-s0 )) s"; ls -la key/audio.m4a
