@@ -3,7 +3,8 @@
  "draft": "draft-016-why-the-killer-mould-came-from-downstair-run117",
  "episode": "episodes/hidden_reasons/016-why-the-killer-mould-came-from-downstair",
  "opened": "2026-11-25T11:17:24+00:00",
- "status": "needs-fix",
- "checked": "2026-11-27T09:59:36+00:00",
- "last_answer_by": "pull request #215 by FranklinMburu"
+ "status": "accepted",
+ "checked": "2026-11-27T10:07:33+00:00",
+ "last_answer_by": "pull request #215 by FranklinMburu",
+ "tries": 0
 }
