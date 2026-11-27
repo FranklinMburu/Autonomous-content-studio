@@ -159,6 +159,35 @@ def main():
                         jf[t] = fill * 10 + float(allz[t])
                 fams[f"ALL + AI JUDGE + UNANSWERED p{pct}"] = jf
                 print(f"unanswered candidates scored {fill:.2f} (p{pct} of the answered scores)")
+        # 27 Nov (Clipping Lab): the text-only global ranking REPLACES the watched score of the top 30 (10 ... 3), while
+        # #31+ keep their raw watched score (a cliff), and redoing it moved the 113K fan clip from rank 8 to 22 (25 Nov).
+        # Side by side, weight fixed before testing: "mean" = (watched + global) / 2; "tiebreak" = watched first, global
+        # rank only breaks ties (the fused signal stays the last tie-break). Unanswered keep p25 of the blended scores.
+        for mode in ("mean", "tiebreak"):
+            def bl(m):
+                sc = float(m["score"])
+                w = m.get("score_alone")
+                if not isinstance(w, (int, float)):
+                    return sc
+                return (float(w) + sc) / 2 if mode == "mean" else float(w) + sc / 100
+            jb = np.full(n, -1e9)
+            bsc = []
+            for m in judged:
+                try:
+                    i, sc = int(float(m["t"])), bl(m)
+                except (TypeError, ValueError, KeyError):
+                    continue
+                bsc.append(sc)
+                if 0 <= i < n:
+                    jb[i] = sc * 10 + float(allz[i])
+            if lost and bsc:
+                fill = float(np.percentile(bsc, 25))
+                for t in lost:
+                    if 0 <= t < n and jb[t] < -1e8:
+                        jb[t] = fill * 10 + float(allz[t])
+            nb = sum(isinstance(m.get("score_alone"), (int, float)) for m in judged)
+            fams[f"ALL + AI JUDGE + UNANSWERED p25 blend {mode}"] = jb
+            print(f"blend {mode}: {nb} of {len(judged)} answers had a global rank to blend")
     total_views = sum(k["views"] for k in key)
 
     def found(pk, k):
@@ -193,6 +222,12 @@ def main():
                 exact = [k for k in key if any(k["offset"] - 10 <= p <= k["offset"] + (k.get("duration") or 30) + 10 for p in pk)]
                 print(f"  top {kk:>2}: {len(hit):>2} of {len(key)} fan clips, {sum(k['views'] for k in hit)/max(1,total_views):.0%} of their views"
                       f"  | exact (pick inside the clip +-10 s): {len(exact)}, {sum(k['views'] for k in exact)/max(1,total_views):.0%}")
+        # 27 Nov: the instability canary: where each ranking puts the most-viewed fan clip (strict, inside +-10 s)
+        top_k = max(key, key=lambda k: k["views"])
+        for fin in [f for f in fams if f.startswith("ALL + AI JUDGE")]:
+            pk = sorted(peaks(fams[fin], 80), key=lambda p: -fams[fin][p])
+            r = next((j + 1 for j, p in enumerate(pk) if top_k["offset"] - 10 <= p <= top_k["offset"] + (top_k.get("duration") or 30) + 10), None)
+            print(f"top fan clip ({top_k['views']:,} views) strict rank under {fin}: {r if r else 'not in top 80'}")
         # 16 Nov: did the judge actually WATCH the fan's moment? It watches [t-60, t+30] around its candidate t.
         print("\nDid the judge's 90 s window contain the fan clip? (fan clip span vs the window of its best candidate)")
         for k in sorted(key, key=lambda k: -k["views"]):
