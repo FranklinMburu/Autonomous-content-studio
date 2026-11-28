@@ -225,6 +225,13 @@
     "xfade": true
    },
    {
+    "name": "flag",
+    "at": "led#1",
+    "prompt": "close-up of a red, white and blue naval flag flapping hard on a wooden ship's mast, 1840s, grey windy sky",
+    "check": "Is a flag flapping on a mast?",
+    "move": "up"
+   },
+   {
     "name": "chart",
     "at": "to#2",
     "prompt": "close-up, a hand drawing a coastline with a quill on a big blank sea chart, 1840s, warm candle light",
