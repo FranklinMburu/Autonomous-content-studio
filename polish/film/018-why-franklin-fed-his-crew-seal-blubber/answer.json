@@ -1,0 +1,444 @@
+{
+ "script": {
+  "title": "Why Franklin's Ships Carried Three Years of Food",
+  "beats": [
+   {
+    "feel": "curiosity",
+    "lines": [
+     "An explorer sailed for the Arctic with thousands of cans of food."
+    ]
+   },
+   {
+    "feel": "dread",
+    "lines": [
+     "Between 1819 and 1822, Sir John Franklin lost 11 of the 20 men in his party.",
+     "The survivors ate lichen and even tried to eat their own leather boots.",
+     "People called him the man who ate his boots."
+    ]
+   },
+   {
+    "feel": "determination",
+    "lines": [
+     "In 1845, Franklin led a British expedition to complete the charting of the Northwest Passage.",
+     "His ships, Erebus and Terror, carried three years' worth of preserved and tinned food."
+    ]
+   },
+   {
+    "feel": "tension",
+    "lines": [
+     "But a cut-rate supplier won the contract only a few months before they sailed.",
+     "Sloppy solder inside the cans let lead leak into the food.",
+     "And the high heat of canning would have degraded or destroyed vitamins B1 and C."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like living on crisps.",
+     "Your belly feels full, but your body still goes hungry."
+    ]
+   },
+   {
+    "feel": "sadness",
+    "lines": [
+     "In September 1846, the ships became trapped in ice off King William Island.",
+     "Franklin died there in June 1847.",
+     "Trapped for so long, they could not hunt or escape.",
+     "The entire crew died from starvation, hypothermia and scurvy."
+    ]
+   },
+   {
+    "feel": "irony",
+    "lines": [
+     "Because the crew carried supplies for three years, the Admiralty waited another year before searching.",
+     "In the end, more ships and men were lost looking for Franklin than in the expedition itself."
+    ]
+   }
+  ],
+  "key_words": [
+   "cans#1",
+   "lichen#1",
+   "boots#1",
+   "1845#1",
+   "tinned#1",
+   "supplier#1",
+   "lead#1",
+   "vitamins#1",
+   "crisps#1",
+   "trapped#1",
+   "1847#1",
+   "escape#1",
+   "scurvy#1",
+   "waited#1",
+   "lost#2"
+  ],
+  "claims": [
+   {
+    "claim": "Between 1819 and 1822, he lost 11 of the 20 men in his party. The survivors were forced to eat lichen and even attempted to eat their own leather boots. This gained Franklin the nickname of the man who ate his boots.",
+    "url": "https://en.wikipedia.org/wiki/John_Franklin"
+   },
+   {
+    "claim": "The British decided to send a well-equipped Arctic expedition to complete the charting of the Northwest Passage; Franklin was named the expedition commander and the expedition set sail on 19 May 1845.",
+    "url": "https://en.wikipedia.org/wiki/John_Franklin"
+   },
+   {
+    "claim": "Erebus and Terror were outfitted with three years' worth of conventionally preserved or tinned preserved food supplies.",
+    "url": "https://en.wikipedia.org/wiki/John_Franklin"
+   },
+   {
+    "claim": "The tinned food was supplied by a cut-rate provisioner who was awarded the contract a few months before the ships were to sail; sloppily applied beads of solder on the cans' interior edges allowed lead to leach into the food.",
+    "url": "https://en.wikipedia.org/wiki/John_Franklin"
+   },
+   {
+    "claim": "High temperatures during canning would have degraded or destroyed vitamin B1 (thiamine) and vitamin C, both being essential to health.",
+    "url": "https://doi.org/10.1017/s0032247425100181"
+   },
+   {
+    "claim": "Terror and Erebus became trapped in ice off King William Island in September 1846. Franklin died there on 11 June 1847.",
+    "url": "https://en.wikipedia.org/wiki/John_Franklin"
+   },
+   {
+    "claim": "The expedition's long entrapment was without recourse to hunting to supplement such deficiencies, or to escape.",
+    "url": "https://doi.org/10.1017/s0032247425100181"
+   },
+   {
+    "claim": "The entire crew died from starvation, hypothermia, and scurvy.",
+    "url": "https://en.wikipedia.org/wiki/John_Franklin"
+   },
+   {
+    "claim": "Because the crew carried supplies for three years, the Admiralty waited another year before launching a search.",
+    "url": "https://en.wikipedia.org/wiki/John_Franklin"
+   },
+   {
+    "claim": "Eventually, more ships and men were lost looking for Franklin than in the expedition itself.",
+    "url": "https://en.wikipedia.org/wiki/John_Franklin"
+   }
+  ]
+ },
+ "film": {
+  "era": "1840s",
+  "cast": {
+   "franklin": "a 59 year old English naval officer, stout and heavy, a round fleshy face with double chin, receding grey hair, clean shaven, wearing a dark navy Royal Navy coat with gold epaulettes and a white cravat, 1840s",
+   "supplier": "a 40 year old London businessman, thin, a sharp narrow face, slick black hair, long black sideburns, wearing a brown and mustard checked waistcoat and a tall grey hat, 1840s",
+   "sailor": "a 24 year old English sailor, gaunt, curly red hair and a scruffy red beard, wearing a navy blue wool jumper and a knitted grey cap, 1840s",
+   "admiral": "a 66 year old Royal Navy admiral, tall and bony, bushy white eyebrows, thin white hair combed forward, wearing a black coat with broad gold braid on the cuffs, 1840s"
+  },
+  "key_words": [
+   "cans#1",
+   "lichen#1",
+   "boots#1",
+   "1845#1",
+   "tinned#1",
+   "supplier#1",
+   "lead#1",
+   "vitamins#1",
+   "crisps#1",
+   "trapped#1",
+   "1847#1",
+   "escape#1",
+   "scurvy#1",
+   "waited#1",
+   "lost#2"
+  ],
+  "music": "tense",
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "who": "franklin",
+    "prompt": "medium shot, a stout old naval officer standing at the rail of a wooden sailing ship as it leaves harbour, crates of tin cans behind him, he is {franklin}, 1840s, grey morning light",
+    "check": "Is a man standing at a ship's rail?",
+    "clip": true,
+    "motion": "his coat stirs in the wind, slow camera push in"
+   },
+   {
+    "name": "tins",
+    "at": "thousands#1",
+    "prompt": "close-up of thousands of shiny tin cans stacked from floor to ceiling in a dim wooden ship's hold, lantern light",
+    "check": "Are there stacks of tin cans?",
+    "move": "push"
+   },
+   {
+    "name": "tundra",
+    "at": "between#1",
+    "prompt": "wide shot of a few men in ragged fur coats trudging across a frozen brown tundra, 1820s, cold grey light",
+    "check": "Are men walking across frozen ground?",
+    "clip": true,
+    "motion": "they trudge slowly forward, slow camera pull back",
+    "xfade": true
+   },
+   {
+    "name": "frost",
+    "at": "franklin#1",
+    "prompt": "close-up, a young naval officer with frost on his eyebrows looking back over his shoulder, a fur hood, frozen tundra, 1820s, grey light",
+    "check": "Is a man with frost on his face?",
+    "clip": true,
+    "motion": "he turns his head slowly, slow camera push in"
+   },
+   {
+    "name": "fallen",
+    "at": "20#1",
+    "prompt": "wide shot of a thin line of exhausted men in the snow, two of them fallen to their knees, 1820s, bleak white light",
+    "check": "Are men struggling in the snow?",
+    "move": "right"
+   },
+   {
+    "name": "lichen",
+    "at": "the#3",
+    "prompt": "close-up, thin dirty hands scraping grey-green lichen off a frozen rock, 1820s, cold light",
+    "check": "Are hands scraping a rock?",
+    "clip": true,
+    "motion": "the fingers scrape at the lichen, slow camera push in"
+   },
+   {
+    "name": "boot",
+    "at": "tried#1",
+    "prompt": "close-up, a starving bearded man gnawing on a leather boot by a small fire, 1820s tundra, flickering firelight",
+    "check": "Is a man biting a leather boot?",
+    "clip": true,
+    "motion": "he chews on the boot, slow camera push in",
+    "hit": "boots#1"
+   },
+   {
+    "name": "gossip",
+    "at": "people#1",
+    "prompt": "medium shot, gentlemen in top hats laughing over a newspaper in a London coffee house, 1820s, warm lamp light",
+    "check": "Are men laughing over a newspaper?",
+    "clip": true,
+    "motion": "they laugh and lean closer, slow camera push in"
+   },
+   {
+    "name": "chewed",
+    "at": "man#1",
+    "prompt": "close-up of a worn old leather boot with chewed edges lying on a dark wooden table, 1820s, warm lamp light",
+    "check": "Is there a chewed leather boot?",
+    "move": "push"
+   },
+   {
+    "name": "orders",
+    "at": "in#2",
+    "who": "franklin",
+    "prompt": "medium shot, a stout old naval officer taking a rolled paper from a grey-haired admiral in a grand panelled office, he is {franklin}, 1840s, window light",
+    "check": "Is a man taking a rolled paper?",
+    "clip": true,
+    "motion": "he grips the rolled paper, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "chart",
+    "at": "to#2",
+    "prompt": "close-up, a hand drawing a coastline with a quill on a big blank sea chart, 1840s, warm candle light",
+    "check": "Is a hand drawing with a quill?",
+    "clip": true,
+    "motion": "the quill traces a coastline, slow camera push in"
+   },
+   {
+    "name": "passage",
+    "at": "the#6",
+    "prompt": "wide shot of a narrow icy sea channel between tall snowy cliffs, floating ice, 1840s Arctic, pale blue light",
+    "check": "Is there an icy channel between cliffs?",
+    "move": "right"
+   },
+   {
+    "name": "ships",
+    "at": "his#3",
+    "prompt": "wide shot of two black wooden sailing ships with yellow stripes leaving a grey English harbour, 1840s, misty light",
+    "check": "Are there two sailing ships?",
+    "move": "left"
+   },
+   {
+    "name": "stack",
+    "at": "three#1",
+    "prompt": "close-up, sailors stacking tin cans into wooden racks in a ship's hold, 1840s, warm lantern light",
+    "check": "Are men stacking tin cans?",
+    "clip": true,
+    "motion": "they set down tins, slow camera push in"
+   },
+   {
+    "name": "barrels",
+    "at": "preserved#1",
+    "prompt": "close-up of wooden barrels and stacked tin cans packed tightly in a ship's hold, 1840s, warm lantern light",
+    "check": "Are there barrels and tin cans?",
+    "move": "left"
+   },
+   {
+    "name": "contract",
+    "at": "but#1",
+    "who": "supplier",
+    "prompt": "medium shot, a thin smirking businessman signing a paper at a cluttered desk, he is {supplier}, 1840s London office, dim lamp light",
+    "check": "Is a man signing a paper?",
+    "clip": true,
+    "motion": "he signs with a flourish, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "factory",
+    "at": "only#1",
+    "prompt": "wide shot of workers rushing to seal tin cans at long tables in a crowded smoky workshop, 1840s London, hazy light",
+    "check": "Are workers sealing tin cans?",
+    "clip": true,
+    "motion": "the workers hurry with their tools, slow camera pan right"
+   },
+   {
+    "name": "solder",
+    "at": "sloppy#1",
+    "prompt": "extreme close-up of a lumpy grey solder bead along the inside rim of an open tin can, harsh lamp light",
+    "check": "Is there an open tin can?",
+    "move": "push"
+   },
+   {
+    "name": "spoon",
+    "at": "lead#1",
+    "prompt": "close-up, a spoon lifting grey meat out of an open tin can on a ship's wooden table, 1840s, lantern light",
+    "check": "Is a spoon lifting meat from a tin?",
+    "clip": true,
+    "motion": "the spoon lifts the meat slowly, slow camera push in",
+    "hit": "lead#1"
+   },
+   {
+    "name": "boil",
+    "at": "and#5",
+    "prompt": "close-up of sealed tin cans bubbling in a big iron pot of boiling water over a fire, 1840s workshop, orange light",
+    "check": "Are tin cans in boiling water?",
+    "clip": true,
+    "motion": "the water bubbles around the tins, slow camera push in"
+   },
+   {
+    "name": "pale",
+    "at": "degraded#1",
+    "who": "sailor",
+    "prompt": "close-up, a pale tired sailor staring down at a tin plate of food, he is {sailor}, cramped 1840s ship's mess deck, dim lantern light",
+    "check": "Is a pale man staring at a plate?",
+    "clip": true,
+    "motion": "he blinks slowly, slow camera push in"
+   },
+   {
+    "name": "crisps",
+    "at": "you#1",
+    "prompt": "close-up, a boy eating from a bag of crisps on a sofa, cosy living room, soft lamp light",
+    "check": "Is a boy eating crisps?",
+    "clip": true,
+    "motion": "he pops a crisp into his mouth, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "belly",
+    "at": "your#1",
+    "prompt": "medium shot, a boy on a sofa patting his full belly beside an empty crisp bag, cosy living room, soft lamp light",
+    "check": "Is a boy patting his belly?",
+    "clip": true,
+    "motion": "he pats his belly, slow camera push in"
+   },
+   {
+    "name": "yawn",
+    "at": "still#1",
+    "prompt": "close-up, a boy yawning and rubbing his tired eyes on a sofa, cosy living room, dim light",
+    "check": "Is a boy yawning?",
+    "clip": true,
+    "motion": "he yawns and rubs his eyes, slow camera push in"
+   },
+   {
+    "name": "trapped",
+    "at": "in#3",
+    "prompt": "wide shot of two black wooden sailing ships locked in jagged white pack ice, 1840s Arctic, pale blue light",
+    "check": "Are ships stuck in ice?",
+    "move": "push",
+    "xfade": true
+   },
+   {
+    "name": "island",
+    "at": "in#4",
+    "prompt": "high angle wide shot of a flat white frozen sea beside a low grey rocky island, 1840s Arctic, overcast light",
+    "check": "Is there a frozen sea?",
+    "move": "pull"
+   },
+   {
+    "name": "death",
+    "at": "franklin#3",
+    "who": "franklin",
+    "prompt": "close-up, a stout old naval officer lying still in a narrow wooden ship bunk under a grey blanket, eyes closed, he is {franklin}, 1840s cabin, flickering candle light",
+    "check": "Is a man lying in a bunk?",
+    "clip": true,
+    "motion": "the candle light flickers on his face, slow camera push in"
+   },
+   {
+    "name": "huddle",
+    "at": "trapped#2",
+    "prompt": "medium shot, sailors in wool coats huddled together on an icy ship deck as snow falls, 1840s Arctic, grey light",
+    "check": "Are men huddled on an icy deck?",
+    "clip": true,
+    "motion": "they shiver and pull their coats tight, slow camera push in"
+   },
+   {
+    "name": "rifle",
+    "at": "not#1",
+    "prompt": "close-up of a rifle leaning unused against a frost-covered ship rail, 1840s Arctic, cold blue light",
+    "check": "Is there a rifle by a ship rail?",
+    "move": "right"
+   },
+   {
+    "name": "sledge",
+    "at": "the#12",
+    "prompt": "wide shot of a line of men hauling a heavy wooden sledge through a blizzard, 1840s Arctic, white blowing snow",
+    "check": "Are men pulling a sledge?",
+    "clip": true,
+    "motion": "they lean into the ropes, slow camera push in"
+   },
+   {
+    "name": "hand",
+    "at": "and#7",
+    "prompt": "close-up of a pale bare hand lying still on frozen snow beside a dropped tin cup, 1840s Arctic, grey light",
+    "check": "Is there a hand on the snow?",
+    "move": "down"
+   },
+   {
+    "name": "table",
+    "at": "because#1",
+    "prompt": "medium shot, navy officials in dark coats around a long table in a London office, one shaking his head, 1840s, grey window light",
+    "check": "Are men sitting at a long table?",
+    "clip": true,
+    "motion": "one man shakes his head, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "stores",
+    "at": "supplies#1",
+    "prompt": "close-up of wooden storeroom shelves in a ship's hold packed tight with tin cans, 1840s, dim lantern light",
+    "check": "Are shelves full of tin cans?",
+    "move": "left"
+   },
+   {
+    "name": "wait",
+    "at": "admiralty#1",
+    "who": "admiral",
+    "prompt": "close-up, an old admiral drumming his fingers on a desk beside a rainy window, he is {admiral}, 1840s London office, grey light",
+    "check": "Is an old man at a desk?",
+    "clip": true,
+    "motion": "his fingers drum on the desk, slow camera push in",
+    "hit": "waited#1"
+   },
+   {
+    "name": "fleet",
+    "at": "in#6",
+    "prompt": "wide shot of many sailing ships spread across an icy grey sea, 1850s Arctic, low sun",
+    "check": "Are there many sailing ships?",
+    "move": "right"
+   },
+   {
+    "name": "telescope",
+    "at": "were#1",
+    "prompt": "close-up, a sailor raising a brass telescope on an icy ship deck, 1850s Arctic, cold light",
+    "check": "Is a man holding a telescope?",
+    "clip": true,
+    "motion": "he lifts the telescope to his eye, slow camera push in"
+   },
+   {
+    "name": "mast",
+    "at": "the#16",
+    "prompt": "wide shot of a lone broken ship mast sticking out of white ice at dusk, Arctic, fading purple light",
+    "check": "Is there a mast in the ice?",
+    "move": "pull"
+   }
+  ]
+ }
+}

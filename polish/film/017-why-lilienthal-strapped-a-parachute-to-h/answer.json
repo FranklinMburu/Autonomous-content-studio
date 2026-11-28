@@ -1,0 +1,447 @@
+{
+ "script": {
+  "title": "Why Lilienthal Built His Own Hill",
+  "beats": [
+   {
+    "feel": "curiosity",
+    "lines": [
+     "A German engineer built his own hill to launch his gliders from."
+    ]
+   },
+   {
+    "feel": "wonder",
+    "lines": [
+     "Otto Lilienthal and his brother Gustav studied the flight of birds.",
+     "Together they made strap-on wings, but failed to fly."
+    ]
+   },
+   {
+    "feel": "determination",
+    "lines": [
+     "In 1891, Lilienthal made his first glider jumps from a sand pit on a hill.",
+     "He flew about 25 metres."
+    ]
+   },
+   {
+    "feel": "tension",
+    "lines": [
+     "In 1894, near his home in Lichterfelde, he built a cone-shaped hill, 15 metres high.",
+     "It allowed him to launch his gliders into the wind, no matter which direction it was coming from."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like flying a kite.",
+     "You always turn to face the wind first."
+    ]
+   },
+   {
+    "feel": "awe",
+    "lines": [
+     "A regular crowd came to watch him.",
+     "He made over 2,000 flights in gliders of his own design.",
+     "Reports and photographs of his flights spread, and he became known as the father of flight."
+    ]
+   },
+   {
+    "feel": "dread",
+    "lines": [
+     "But his gliders tended to pitch down.",
+     "He held them by his shoulders, which limited how much he could shift his weight.",
+     "On 9 August 1896, his glider stalled.",
+     "Lilienthal fell from about 15 metres and broke his neck.",
+     "He died the next day."
+    ]
+   },
+   {
+    "feel": "irony",
+    "lines": [
+     "In 1932, his hill, the Fliegeberg, was redesigned as a memorial to him."
+    ]
+   }
+  ],
+  "key_words": [
+   "hill#1",
+   "gliders#1",
+   "birds#1",
+   "1891#1",
+   "25#1",
+   "1894#1",
+   "15#1",
+   "wind#1",
+   "kite#1",
+   "crowd#1",
+   "father#1",
+   "shoulders#1",
+   "stalled#1",
+   "neck#1",
+   "memorial#1"
+  ],
+  "claims": [
+   {
+    "claim": "Lilienthal studied the flight of birds with his brother Gustav; Lilienthal and his brother made strap-on wings, but failed in their attempts to fly.",
+    "url": "https://en.wikipedia.org/wiki/Otto_Lilienthal"
+   },
+   {
+    "claim": "In the spring of 1891, Lilienthal managed the first jumps and flights on the slope of a sand pit on a hill; in 1891 he succeeded with jumps and flights covering a distance of about 25 metres.",
+    "url": "https://en.wikipedia.org/wiki/Otto_Lilienthal"
+   },
+   {
+    "claim": "He built an artificial conical hill in 1894 near his home in Lichterfelde. It allowed him to launch his gliders into the wind no matter which direction it was coming from. The hill was 15 metres high.",
+    "url": "https://en.wikipedia.org/wiki/Otto_Lilienthal"
+   },
+   {
+    "claim": "There was a regular crowd of people that were interested in seeing his gliding experiments.",
+    "url": "https://en.wikipedia.org/wiki/Otto_Lilienthal"
+   },
+   {
+    "claim": "Lilienthal made over 2,000 flights in gliders of his design.",
+    "url": "https://en.wikipedia.org/wiki/Otto_Lilienthal"
+   },
+   {
+    "claim": "Reports of Lilienthal's flights spread in Germany and elsewhere, with photographs appearing in scientific and popular publications; he soon became known as the father of flight.",
+    "url": "https://en.wikipedia.org/wiki/Otto_Lilienthal"
+   },
+   {
+    "claim": "His gliders had a tendency to pitch down; he held the glider by his shoulders, and only his legs and lower body could be moved, which limited the amount of weight shift he could achieve.",
+    "url": "https://en.wikipedia.org/wiki/Otto_Lilienthal"
+   },
+   {
+    "claim": "On 9 August 1896, Lilienthal's glider stalled. Falling from about 15 metres, he broke his neck and died the next day.",
+    "url": "https://en.wikipedia.org/wiki/Otto_Lilienthal"
+   },
+   {
+    "claim": "The Fliegeberg was redesigned by a Berlin architect in 1932 as a memorial to Lilienthal.",
+    "url": "https://en.wikipedia.org/wiki/Otto_Lilienthal"
+   }
+  ]
+ },
+ "film": {
+  "era": "1890s",
+  "cast": {
+   "lilienthal": "a 46 year old German engineer, stocky and strong, a broad weathered face, a short dark auburn beard, a balding head with short curly hair at the sides, wearing a striped grey and white flannel shirt, padded knee breeches and brown leather boots, 1890s",
+   "photographer": "a 30 year old German photographer, slim, a pale narrow face, a waxed dark blond moustache, a brown bowler hat, wearing a mustard yellow tweed jacket over a white shirt, 1890s"
+  },
+  "key_words": [
+   "hill#1",
+   "gliders#1",
+   "birds#1",
+   "1891#1",
+   "25#1",
+   "1894#1",
+   "15#1",
+   "wind#1",
+   "kite#1",
+   "crowd#1",
+   "father#1",
+   "shoulders#1",
+   "stalled#1",
+   "neck#1",
+   "memorial#1"
+  ],
+  "music": "epic",
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "who": "lilienthal",
+    "prompt": "medium shot, a bearded man gripping the frame of a huge white bird-shaped glider on top of a grassy cone-shaped hill, he is {lilienthal}, 1890s, bright windy sky",
+    "check": "Is a man holding a white glider?",
+    "clip": true,
+    "motion": "the glider wings tilt in the wind, slow camera push in"
+   },
+   {
+    "name": "jump",
+    "at": "to#1",
+    "prompt": "wide shot of a man hanging under a white bird-shaped glider floating off a grassy hill into a blue sky, 1890s, bright sunlight",
+    "check": "Is a glider in the sky?",
+    "clip": true,
+    "motion": "the glider drifts slowly forward, slow camera pull back"
+   },
+   {
+    "name": "brothers",
+    "at": "otto#1",
+    "prompt": "medium shot, two young brothers lying in a summer meadow pointing up at the sky, tall grass, 1860s, warm golden light",
+    "check": "Are two young men pointing at the sky?",
+    "clip": true,
+    "motion": "one brother points and follows a bird, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "stork",
+    "at": "the#1",
+    "prompt": "low angle of a white stork flying with wide black-tipped wings over a green meadow, blue sky, soft sunlight",
+    "check": "Is a stork flying?",
+    "clip": true,
+    "motion": "the stork beats its wings slowly, slow camera tilt up"
+   },
+   {
+    "name": "strapon",
+    "at": "together#1",
+    "prompt": "medium shot, two young brothers holding up big homemade wings of wood and cloth inside a wooden barn, 1860s, dusty light",
+    "check": "Are two young men holding big wings?",
+    "clip": true,
+    "motion": "they lift the wings up, slow camera push in"
+   },
+   {
+    "name": "failed",
+    "at": "but#1",
+    "prompt": "close-up, a young man sitting in the grass beside broken homemade cloth wings, looking down sadly, 1860s, grey light",
+    "check": "Is a young man sitting by broken wings?",
+    "clip": true,
+    "motion": "he lowers his head, slow camera push in"
+   },
+   {
+    "name": "carry",
+    "at": "in#1",
+    "who": "lilienthal",
+    "prompt": "medium shot, a bearded man carrying a white glider on his shoulders up a sandy slope, he is {lilienthal}, 1890s countryside, bright sunlight",
+    "check": "Is a man carrying a glider?",
+    "clip": true,
+    "motion": "he trudges a step up the slope, slow camera pan right",
+    "xfade": true
+   },
+   {
+    "name": "firstjump",
+    "at": "first#1",
+    "prompt": "wide shot of a man under a white glider leaping off a sandy slope, 1890s countryside, bright sunlight",
+    "check": "Is a man jumping with a glider?",
+    "clip": true,
+    "motion": "the glider lifts off the slope, slow camera pull back"
+   },
+   {
+    "name": "sandpit",
+    "at": "sand#1",
+    "prompt": "wide shot of a pale sand pit cut into a grassy hill under a big blue sky, 1890s German countryside, sunny",
+    "check": "Is there a sand pit on a hill?",
+    "move": "right"
+   },
+   {
+    "name": "low",
+    "at": "he#1",
+    "prompt": "low angle of a white glider skimming just above the grass, its shadow on the ground, 1890s, bright sunlight",
+    "check": "Is a glider flying low over grass?",
+    "clip": true,
+    "motion": "the glider glides forward, slow camera push in"
+   },
+   {
+    "name": "villa",
+    "at": "in#2",
+    "prompt": "wide shot of a quiet 1890s Berlin suburb street of red brick villas with gardens and young trees, soft morning light",
+    "check": "Is there a street of brick villas?",
+    "move": "left",
+    "xfade": true
+   },
+   {
+    "name": "dig",
+    "at": "lichterfelde#1",
+    "prompt": "medium shot, workers in caps shovelling earth onto a big growing mound, wheelbarrows nearby, 1890s, sunny day",
+    "check": "Are men shovelling earth?",
+    "clip": true,
+    "motion": "they toss earth onto the mound, slow camera push in"
+   },
+   {
+    "name": "cone",
+    "at": "hill#3",
+    "prompt": "wide shot of a tall grassy cone-shaped hill standing alone in a flat field, 1890s, blue sky",
+    "check": "Is there a cone-shaped hill?",
+    "move": "up"
+   },
+   {
+    "name": "turn",
+    "at": "it#1",
+    "who": "lilienthal",
+    "prompt": "medium shot, a bearded man turning a white glider on top of a round grassy hill, he is {lilienthal}, 1890s, windy bright sky",
+    "check": "Is a man turning a glider?",
+    "clip": true,
+    "motion": "he swings the glider around, slow camera pan right"
+   },
+   {
+    "name": "grass",
+    "at": "into#1",
+    "prompt": "close-up of tall grass bending hard in a strong wind on a hillside, grey clouds, 1890s",
+    "check": "Is grass bending in the wind?",
+    "move": "right"
+   },
+   {
+    "name": "vane",
+    "at": "no#1",
+    "prompt": "close-up of an iron weathervane swinging on a wooden pole against a cloudy sky, 1890s",
+    "check": "Is there a weathervane?",
+    "clip": true,
+    "motion": "the weathervane swings around, slow camera push in"
+   },
+   {
+    "name": "launch",
+    "at": "it#2",
+    "prompt": "wide shot of a white glider lifting off the far side of a grassy cone-shaped hill, 1890s, bright sky",
+    "check": "Is a glider leaving a hill?",
+    "move": "pull"
+   },
+   {
+    "name": "kiteboy",
+    "at": "you#1",
+    "prompt": "medium shot, a boy holding a red kite above his head in an open field, cloudy sky, soft daylight",
+    "check": "Is a boy holding a kite?",
+    "clip": true,
+    "motion": "he lifts the kite higher, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "turnboy",
+    "at": "you#2",
+    "prompt": "close-up, a boy turning around with a kite string in his hands, open field, windy day",
+    "check": "Is a boy holding a kite string?",
+    "clip": true,
+    "motion": "he turns to face the wind, slow camera push in"
+   },
+   {
+    "name": "kiteup",
+    "at": "face#1",
+    "prompt": "low angle of a red kite rising into a cloudy sky, its tail fluttering, soft daylight",
+    "check": "Is a kite flying?",
+    "clip": true,
+    "motion": "the kite climbs and its tail flutters, slow camera tilt up"
+   },
+   {
+    "name": "crowd",
+    "at": "a#6",
+    "prompt": "wide shot of a crowd of 1890s men and women in hats standing at the foot of a grassy hill looking up, sunny day",
+    "check": "Is there a crowd of people?",
+    "clip": true,
+    "motion": "the crowd shifts and points upward, slow camera push in"
+   },
+   {
+    "name": "overhead",
+    "at": "he#3",
+    "prompt": "low angle of a man hanging under a white glider passing overhead against a bright sky, 1890s, sunlight",
+    "check": "Is a glider overhead?",
+    "clip": true,
+    "motion": "the glider sails across the sky, slow camera tilt up"
+   },
+   {
+    "name": "sew",
+    "at": "of#2",
+    "prompt": "close-up, hands stretching white cotton cloth over curved willow ribs on a workshop bench, 1890s, warm window light",
+    "check": "Are hands stretching cloth over ribs?",
+    "clip": true,
+    "motion": "the hands pull the cloth tight, slow camera push in"
+   },
+   {
+    "name": "camera",
+    "at": "reports#1",
+    "prompt": "close-up, a photographer peering out from behind a big wooden camera on a tripod, he is {photographer}, grassy hill, 1890s, bright light",
+    "check": "Is there a big wooden camera?",
+    "clip": true,
+    "motion": "he squints past the camera, slow camera push in",
+    "who": "photographer"
+   },
+   {
+    "name": "newspaper",
+    "at": "he#4",
+    "prompt": "close-up of hands opening a large 1890s newspaper with a photograph of a glider in flight, cafe table, warm light",
+    "check": "Is someone holding a newspaper?",
+    "move": "down"
+   },
+   {
+    "name": "proud",
+    "at": "the#4",
+    "who": "lilienthal",
+    "prompt": "medium shot, a bearded man smiling and resting a hand on his white glider on a hilltop at sunset, he is {lilienthal}, 1890s, golden light",
+    "check": "Is a man standing by a glider?",
+    "clip": true,
+    "motion": "he smiles and looks up, slow camera push in"
+   },
+   {
+    "name": "pitch",
+    "at": "but#2",
+    "prompt": "wide shot of a white glider tipping nose down in the sky above a hill, 1890s, harsh noon light",
+    "check": "Is a glider tipping downward?",
+    "move": "down",
+    "xfade": true
+   },
+   {
+    "name": "strain",
+    "at": "he#5",
+    "who": "lilienthal",
+    "prompt": "medium shot, a bearded man straining as he hangs from a glider frame by his shoulders, he is {lilienthal}, 1890s, bright sky",
+    "check": "Is a man hanging from a glider?",
+    "clip": true,
+    "motion": "he twists his hips hard, slow camera push in"
+   },
+   {
+    "name": "legs",
+    "at": "limited#1",
+    "prompt": "close-up of a man's legs in padded knee breeches dangling below a white glider frame in the air, 1890s, bright sky",
+    "check": "Are legs hanging below a glider?",
+    "clip": true,
+    "motion": "the legs kick sideways, slow camera push in"
+   },
+   {
+    "name": "twist",
+    "at": "shift#1",
+    "prompt": "close-up of a man's legs in padded knee breeches kicking sideways below a white glider frame, 1890s, bright sky",
+    "check": "Are legs kicking below a glider?",
+    "clip": true,
+    "motion": "the legs swing to one side, slow camera push in"
+   },
+   {
+    "name": "summer",
+    "at": "on#2",
+    "prompt": "wide shot of a sunny summer hillside with a tiny white glider high in a clear blue sky, 1890s",
+    "check": "Is there a glider in a blue sky?",
+    "move": "push",
+    "hit": "stalled#1"
+   },
+   {
+    "name": "wreck",
+    "at": "lilienthal#3",
+    "prompt": "close-up of a crumpled white glider wing lying broken on dry grass, 1890s, harsh sunlight",
+    "check": "Is there a broken white wing?",
+    "move": "pull"
+   },
+   {
+    "name": "kneel",
+    "at": "broke#1",
+    "prompt": "close-up, men in shirtsleeves kneeling over a man lying in the grass, 1890s, harsh sunlight",
+    "check": "Are men kneeling in the grass?",
+    "clip": true,
+    "motion": "they bend closer, slow camera push in",
+    "hit": "neck#1"
+   },
+   {
+    "name": "carriage",
+    "at": "he#7",
+    "prompt": "wide shot of a horse-drawn carriage on a dusty country road at dusk, 1890s, fading orange light",
+    "check": "Is there a horse-drawn carriage?",
+    "clip": true,
+    "motion": "the carriage rolls slowly away, slow camera pull back"
+   },
+   {
+    "name": "memorial",
+    "at": "in#5",
+    "prompt": "wide shot of a grassy cone-shaped hill with a small round stone temple of pillars on top, 1930s, soft evening light",
+    "check": "Is there a hill with pillars on top?",
+    "move": "pull",
+    "xfade": true
+   },
+   {
+    "name": "sketch",
+    "at": "redesigned#1",
+    "prompt": "close-up, an architect's hand sketching a small round temple of pillars on a hilltop in pencil, 1930s drafting table, warm lamp light",
+    "check": "Is a hand sketching with a pencil?",
+    "clip": true,
+    "motion": "the pencil traces a pillar, slow camera push in"
+   },
+   {
+    "name": "flowers",
+    "at": "memorial#1",
+    "prompt": "close-up, a hand laying white flowers at the foot of stone pillars on a hilltop, soft evening light",
+    "check": "Is a hand laying flowers?",
+    "clip": true,
+    "motion": "the hand sets the flowers down, slow camera push in"
+   }
+  ]
+ }
+}

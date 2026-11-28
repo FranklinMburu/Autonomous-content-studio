@@ -1,0 +1,451 @@
+{
+ "script": {
+  "title": "Why Mendeleev Left Gaps in His Table",
+  "beats": [
+   {
+    "feel": "curiosity",
+    "lines": [
+     "A Russian chemist drew up a table of the elements, with gaps in it."
+    ]
+   },
+   {
+    "feel": "tension",
+    "lines": [
+     "His name was Dmitri Mendeleev, and the year was 1869.",
+     "Not all elements were known yet.",
+     "So there were gaps in his periodic table."
+    ]
+   },
+   {
+    "feel": "determination",
+    "lines": [
+     "Mendeleev tied the chemical properties of elements to their atomic mass, a measure of an atom's weight.",
+     "Elements with similar chemical properties generally fell into the same group, or column."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like a jigsaw puzzle with one piece missing.",
+     "The pieces around the hole show you its shape."
+    ]
+   },
+   {
+    "feel": "awe",
+    "lines": [
+     "Mendeleev's periodic law said chemical properties depend on atomic mass.",
+     "If you know the elements around a missing one, it is easy to predict its properties.",
+     "So Mendeleev made bold predictions about elements no one had discovered.",
+     "He successfully predicted some properties of some of the missing elements."
+    ]
+   },
+   {
+    "feel": "pride",
+    "lines": [
+     "His table became the first periodic table to be generally accepted.",
+     "In the late 19th century, his law was recognized as a fundamental discovery."
+    ]
+   },
+   {
+    "feel": "surprise",
+    "lines": [
+     "But the law was explained early in the 20th century, with atomic numbers and quantum mechanics.",
+     "Today, 118 elements are known, listed in order of increasing atomic number.",
+     "And 24 of them exist only when people make them in laboratories."
+    ]
+   }
+  ],
+  "key_words": [
+   "gaps#1",
+   "1869#1",
+   "gaps#2",
+   "atomic#1",
+   "group#1",
+   "jigsaw#1",
+   "predict#1",
+   "bold#1",
+   "successfully#1",
+   "accepted#1",
+   "quantum#1",
+   "118#1",
+   "laboratories#1"
+  ],
+  "claims": [
+   {
+    "claim": "The first periodic table to become generally accepted was that of the Russian chemist Dmitri Mendeleev in 1869; he formulated the periodic law as a dependence of chemical properties on atomic mass.",
+    "url": "https://en.wikipedia.org/wiki/Periodic_table"
+   },
+   {
+    "claim": "As not all elements were then known, there were gaps in his periodic table, and Mendeleev successfully used the periodic law to predict some properties of some of the missing elements.",
+    "url": "https://en.wikipedia.org/wiki/Periodic_table"
+   },
+   {
+    "claim": "Elements with similar chemical properties generally fall into the same group; it is relatively easy to predict the chemical properties of an element if one knows the properties of the elements around it.",
+    "url": "https://en.wikipedia.org/wiki/Periodic_table"
+   },
+   {
+    "claim": "Mendeleev made bold predictions about the chemical and physical properties of the undiscovered elements.",
+    "url": "https://openalex.org/W2353836931"
+   },
+   {
+    "claim": "The periodic law was recognized as a fundamental discovery in the late 19th century. It was explained early in the 20th century, with the discovery of atomic numbers and associated pioneering work in quantum mechanics.",
+    "url": "https://en.wikipedia.org/wiki/Periodic_table"
+   },
+   {
+    "claim": "The periodic law states that when the elements are arranged in order of their atomic numbers an approximate recurrence of their properties is evident.",
+    "url": "https://en.wikipedia.org/wiki/Periodic_table"
+   },
+   {
+    "claim": "Today, 118 elements are known; the first 94 occur naturally on Earth and the remaining 24 occur only when synthesized in laboratories.",
+    "url": "https://en.wikipedia.org/wiki/Periodic_table"
+   }
+  ]
+ },
+ "film": {
+  "era": "1860s",
+  "cast": {
+   "mendeleev": "a 35 year old Russian chemist, broad shouldered, a long untamed mane of light brown hair to his shoulders, a full bushy light brown beard, piercing pale blue eyes, wearing a dark grey wool frock coat over a black waistcoat and a loose white shirt, 1860s",
+   "physicist": "a 40 year old European physicist, slim, a smooth pale face, neat black hair parted in the middle, a black waxed handlebar moustache, wearing a dark navy three-piece suit with a gold watch chain and a white winged collar, 1910s",
+   "scientist": "a 30 year old Japanese laboratory scientist, a calm round face, a short black bob haircut, clear safety goggles, wearing a white lab coat over a lavender shirt and blue nitrile gloves, 2010s"
+  },
+  "key_words": [
+   "gaps#1",
+   "1869#1",
+   "gaps#2",
+   "atomic#1",
+   "group#1",
+   "jigsaw#1",
+   "predict#1",
+   "bold#1",
+   "successfully#1",
+   "accepted#1",
+   "quantum#1",
+   "118#1",
+   "laboratories#1"
+  ],
+  "music": "curious",
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "who": "mendeleev",
+    "prompt": "close-up, a bearded chemist drawing a large grid of empty squares with a quill on a big sheet of paper, he is {mendeleev}, 1860s study crowded with books, warm oil lamp light",
+    "check": "Is a man drawing with a quill?",
+    "clip": true,
+    "motion": "his quill hand moves slowly across the paper, slow camera push in"
+   },
+   {
+    "name": "grid",
+    "at": "table#1",
+    "prompt": "close-up of a big sheet of cream paper covered with a hand-inked grid of squares on a wooden desk, 1860s, warm oil lamp light",
+    "check": "Is there a grid drawn on paper?",
+    "move": "down"
+   },
+   {
+    "name": "gaps",
+    "at": "with#1",
+    "prompt": "extreme close-up of a quill tip hovering over one blank square in a hand-inked grid on old cream paper, warm candle light",
+    "check": "Is there a quill over paper?",
+    "hit": "gaps#1",
+    "clip": true,
+    "motion": "the quill tip trembles above the blank square, slow camera push in"
+   },
+   {
+    "name": "window",
+    "at": "his#1",
+    "who": "mendeleev",
+    "prompt": "medium shot, a bearded chemist turning away from a tall frosted window with snow falling outside, he is {mendeleev}, 1860s study with dark wood shelves, grey winter daylight",
+    "check": "Is a man standing by a window?",
+    "clip": true,
+    "motion": "he turns his head from the window, slow camera pull back",
+    "xfade": true
+   },
+   {
+    "name": "city",
+    "at": "year#1",
+    "prompt": "wide shot of a snowy 1860s city street of pastel stone buildings along a frozen canal, horse-drawn sleighs, soft grey winter light",
+    "check": "Is there a snowy city street?",
+    "move": "right"
+   },
+   {
+    "name": "jars",
+    "at": "not#1",
+    "prompt": "close-up of a row of small glass jars of coloured powders and crystals on a wooden shelf with one empty gap in the row, lamp light",
+    "check": "Are there glass jars on a shelf?",
+    "move": "left"
+   },
+   {
+    "name": "point",
+    "at": "so#1",
+    "who": "mendeleev",
+    "prompt": "close-up, a bearded chemist tapping one finger on an empty square of a large paper grid on his desk, he is {mendeleev}, 1860s study, warm oil lamp light",
+    "check": "Is a man pointing at a paper?",
+    "clip": true,
+    "motion": "his finger taps the paper twice, slow camera push in"
+   },
+   {
+    "name": "pin",
+    "at": "his#2",
+    "who": "mendeleev",
+    "prompt": "medium shot, a bearded chemist pinning a large paper grid chart onto a dark wooden wall, he is {mendeleev}, 1860s study, warm lamp light",
+    "check": "Is a man pinning a paper to a wall?",
+    "clip": true,
+    "motion": "he presses the corner of the paper flat, slow camera pull back"
+   },
+   {
+    "name": "scale",
+    "at": "mendeleev#2",
+    "who": "mendeleev",
+    "prompt": "medium shot, a bearded chemist setting a small grey metal lump on the pan of a brass balance scale, he is {mendeleev}, 1860s laboratory bench with glass flasks, warm light",
+    "check": "Is a man using a balance scale?",
+    "clip": true,
+    "motion": "he lowers the metal lump onto the pan, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "pour",
+    "at": "properties#1",
+    "prompt": "close-up, a bearded chemist pouring a clear liquid from a flask into a test tube of white powder, he is {mendeleev}, 1860s laboratory bench, warm light",
+    "check": "Is a man pouring from a flask?",
+    "clip": true,
+    "motion": "the liquid pours into the tube, slow camera push in",
+    "who": "mendeleev"
+   },
+   {
+    "name": "heavy",
+    "at": "atomic#1",
+    "prompt": "extreme close-up of a brass balance pan sinking under a heavy grey metal lump, polished wooden bench, warm lamp light",
+    "check": "Is there a brass balance pan?",
+    "move": "down"
+   },
+   {
+    "name": "weights",
+    "at": "measure#1",
+    "prompt": "close-up of a neat row of small brass weights from tiny to large beside a brass balance, polished wooden bench, warm lamp light",
+    "check": "Are there brass weights in a row?",
+    "move": "right"
+   },
+   {
+    "name": "fizz",
+    "at": "elements#4",
+    "prompt": "close-up of two glass flasks side by side on a wooden bench, both fizzing with the same white bubbles, 1860s laboratory, warm light",
+    "check": "Are two glass flasks bubbling?",
+    "move": "push"
+   },
+   {
+    "name": "shelf",
+    "at": "fell#1",
+    "who": "mendeleev",
+    "prompt": "medium shot, a bearded chemist placing a glass jar of yellow crystals on a tall wooden shelf, he is {mendeleev}, 1860s laboratory, warm lamp light",
+    "check": "Is a man placing a jar on a shelf?",
+    "clip": true,
+    "motion": "he slides the jar into place, slow camera tilt up"
+   },
+   {
+    "name": "seekid",
+    "at": "you#1",
+    "prompt": "medium shot, a girl kneeling at a low wooden table over a half-finished jigsaw puzzle, cosy living room, soft window light",
+    "check": "Is a girl kneeling at a table?",
+    "clip": true,
+    "motion": "she leans over the puzzle, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "puzzle",
+    "at": "jigsaw#1",
+    "prompt": "close-up of a wooden jigsaw puzzle of a green forest on a table, one single piece missing from the middle, soft window light",
+    "check": "Is there a jigsaw puzzle with a hole?",
+    "move": "push"
+   },
+   {
+    "name": "trace",
+    "at": "pieces#1",
+    "prompt": "extreme close-up, a child's fingertip tracing the edge of the hole in a wooden jigsaw puzzle, soft window light",
+    "check": "Is a finger touching a jigsaw puzzle?",
+    "clip": true,
+    "motion": "the fingertip slides around the hole, slow camera push in"
+   },
+   {
+    "name": "piece",
+    "at": "show#1",
+    "prompt": "close-up, a child's hand lowering a single jigsaw piece into the hole in a wooden jigsaw puzzle, soft window light",
+    "check": "Is a hand holding a jigsaw piece?",
+    "clip": true,
+    "motion": "the piece drops gently into place, slow camera push in"
+   },
+   {
+    "name": "lecture",
+    "at": "mendeleev's#1",
+    "who": "mendeleev",
+    "prompt": "medium shot, a bearded chemist pointing at a large paper grid chart hung on a wall, he is {mendeleev}, 1860s lecture room with wooden benches, cool daylight",
+    "check": "Is a man pointing at a chart?",
+    "clip": true,
+    "motion": "he sweeps his hand across the chart, slow camera push in"
+   },
+   {
+    "name": "lumps",
+    "at": "depend#1",
+    "prompt": "close-up of grey metal lumps lined up from smallest to largest on dark polished wood, 1860s laboratory, warm lamp light",
+    "check": "Are metal lumps in a row?",
+    "move": "right"
+   },
+   {
+    "name": "know",
+    "at": "if#1",
+    "prompt": "close-up, a hand sliding along a row of small glass jars of crystals on a wooden shelf, 1860s laboratory, warm lamp light",
+    "check": "Is a hand touching glass jars?",
+    "clip": true,
+    "motion": "the hand moves slowly along the jars, slow camera pan right"
+   },
+   {
+    "name": "around",
+    "at": "around#2",
+    "prompt": "extreme close-up, a man's finger tapping the squares around one empty square on a large paper grid, warm oil lamp light",
+    "check": "Is a finger on a paper grid?",
+    "clip": true,
+    "motion": "the finger taps from square to square, slow camera push in"
+   },
+   {
+    "name": "think",
+    "at": "easy#1",
+    "who": "mendeleev",
+    "prompt": "close-up, a bearded chemist frowning in thought with a quill raised to his lips, he is {mendeleev}, 1860s study, warm oil lamp light",
+    "check": "Is a man holding a quill?",
+    "clip": true,
+    "motion": "he narrows his eyes, slow camera push in"
+   },
+   {
+    "name": "scribble",
+    "at": "so#2",
+    "who": "mendeleev",
+    "prompt": "medium shot, a bearded chemist writing fast in a thick notebook by an oil lamp at night, he is {mendeleev}, 1860s study, warm lamp light",
+    "check": "Is a man writing in a notebook?",
+    "clip": true,
+    "motion": "his quill moves fast across the page, slow camera push in"
+   },
+   {
+    "name": "emptyjar",
+    "at": "elements#6",
+    "prompt": "close-up of one clean empty glass jar standing alone on a dusty wooden shelf, 1860s laboratory, soft lamp light",
+    "check": "Is there an empty glass jar?",
+    "move": "push"
+   },
+   {
+    "name": "crystal",
+    "at": "he#1",
+    "prompt": "close-up, a hand holding a small shining grey metal crystal up to a glowing oil lamp, 1860s laboratory, warm light",
+    "check": "Is a hand holding a crystal?",
+    "clip": true,
+    "motion": "the hand turns the crystal in the light, slow camera push in",
+    "hit": "successfully#1"
+   },
+   {
+    "name": "slap",
+    "at": "some#2",
+    "who": "mendeleev",
+    "prompt": "medium shot, a bearded chemist laughing and slapping his desk with one hand, he is {mendeleev}, 1860s study, warm oil lamp light",
+    "check": "Is a man laughing at a desk?",
+    "clip": true,
+    "motion": "he slaps the desk once and laughs, slow camera push in"
+   },
+   {
+    "name": "hall",
+    "at": "his#3",
+    "prompt": "wide shot of a crowded lecture hall of chemists in dark frock coats facing a huge paper grid chart on the front wall, 1880s, tall windows, daylight",
+    "check": "Is there a crowded lecture hall?",
+    "move": "push"
+   },
+   {
+    "name": "applause",
+    "at": "table#4",
+    "prompt": "medium shot, bearded chemists in dark frock coats standing and clapping in a wooden lecture hall, 1880s, warm daylight",
+    "check": "Are men clapping?",
+    "clip": true,
+    "motion": "they clap their hands, slow camera pan right"
+   },
+   {
+    "name": "university",
+    "at": "in#3",
+    "prompt": "wide shot of a grand pale stone university building with columns under a clear sky, 1890s, horse carriages outside, bright daylight",
+    "check": "Is there a large stone building?",
+    "move": "left"
+   },
+   {
+    "name": "book",
+    "at": "was#3",
+    "prompt": "close-up of a heavy leather-bound book lying open on a library desk, a printed grid of squares across both pages, green lamp light",
+    "check": "Is there an open book?",
+    "move": "down"
+   },
+   {
+    "name": "chalk",
+    "at": "but#1",
+    "who": "physicist",
+    "prompt": "medium shot, a physicist drawing chalk circles around a dot on a blackboard, he is {physicist}, 1910s university classroom, cool morning light",
+    "check": "Is a man drawing on a blackboard?",
+    "clip": true,
+    "motion": "his chalk hand draws a slow circle, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "tube",
+    "at": "the#12",
+    "who": "physicist",
+    "prompt": "close-up, a physicist peering at a glass tube glowing soft purple on a lab bench, he is {physicist}, 1910s laboratory, dim light",
+    "check": "Is a man looking at a glowing tube?",
+    "clip": true,
+    "motion": "the tube flickers as he leans closer, slow camera push in"
+   },
+   {
+    "name": "rings",
+    "at": "atomic#3",
+    "prompt": "extreme close-up of white chalk rings drawn around a single dot on a black slate board, chalk dust, cool light",
+    "check": "Are there chalk rings on a board?",
+    "move": "push"
+   },
+   {
+    "name": "wall",
+    "at": "today#1",
+    "prompt": "wide shot of a huge wall of glowing coloured squares in a dark science museum hall, visitors small below it, cool blue light",
+    "check": "Is there a wall of glowing squares?",
+    "move": "pull",
+    "xfade": true
+   },
+   {
+    "name": "tiles",
+    "at": "listed#1",
+    "prompt": "close-up, a student's hands placing coloured square tiles into a neat grid on a desk, bright modern classroom, daylight",
+    "check": "Are hands placing square tiles?",
+    "clip": true,
+    "motion": "the hands set down one tile, slow camera push in"
+   },
+   {
+    "name": "machine",
+    "at": "and#3",
+    "who": "scientist",
+    "prompt": "medium shot, a scientist in goggles peering through the round window of a large steel machine, she is {scientist}, modern laboratory, cool white light",
+    "check": "Is a woman looking into a machine?",
+    "clip": true,
+    "motion": "she leans closer to the window, slow camera push in",
+    "hit": "24#1"
+   },
+   {
+    "name": "adjust",
+    "at": "when#1",
+    "who": "scientist",
+    "prompt": "close-up, a scientist turning a steel dial on a large laboratory machine, she is {scientist}, modern laboratory, cool white light",
+    "check": "Is a woman turning a dial?",
+    "clip": true,
+    "motion": "she turns the dial slowly, slow camera push in"
+   },
+   {
+    "name": "vial",
+    "at": "laboratories#1",
+    "prompt": "close-up, a scientist's blue gloved hands holding up a tiny glass vial glowing faintly blue, modern laboratory, cool white light",
+    "check": "Are gloved hands holding a small vial?",
+    "clip": true,
+    "motion": "the vial glows softly, slow camera push in"
+   }
+  ]
+ }
+}
