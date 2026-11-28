@@ -3,5 +3,8 @@
  "draft": "draft-017-why-lilienthal-strapped-a-parachute-to-h-run120",
  "episode": "episodes/hidden_reasons/017-why-lilienthal-strapped-a-parachute-to-h",
  "opened": "2026-11-26T06:06:01+00:00",
- "status": "waiting"
+ "status": "accepted",
+ "checked": "2026-11-28T10:01:46+00:00",
+ "last_answer_by": "pull request #224 by FranklinMburu",
+ "tries": 0
 }
