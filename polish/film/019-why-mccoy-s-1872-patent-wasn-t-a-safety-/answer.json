@@ -1,0 +1,498 @@
+{
+ "script": {
+  "title": "Why McCoy Made Steam Engines Oil Themselves",
+  "beats": [
+   {
+    "feel": "curiosity",
+    "lines": [
+     "A certified engineer went to work oiling railroad engines."
+    ]
+   },
+   {
+    "feel": "pride",
+    "lines": [
+     "Elijah McCoy was born free in Ontario in 1844.",
+     "His parents had escaped slavery in Kentucky.",
+     "At 15, McCoy was sent to Scotland.",
+     "He studied in Edinburgh and became a certified mechanical engineer."
+    ]
+   },
+   {
+    "feel": "frustration",
+    "lines": [
+     "But when McCoy arrived in Michigan, he could find work only as a fireman and oiler.",
+     "Trains needed to stop for lubrication and maintenance."
+    ]
+   },
+   {
+    "feel": "determination",
+    "lines": [
+     "In a home-based machine shop in Ypsilanti, McCoy also worked on inventions.",
+     "In 1872, he patented an automatic lubricator for steam engines.",
+     "It was for oiling the engines of locomotives and ships."
+    ]
+   },
+   {
+    "feel": "recognition",
+    "lines": [
+     "You see, it's like a self-watering plant pot.",
+     "Nobody has to stop and pour."
+    ]
+   },
+   {
+    "feel": "triumph",
+    "lines": [
+     "Lubricators let trains run faster, with less need to stop.",
+     "By 1899, the McCoy lubricator was in use on almost all North American railroads."
+    ]
+   },
+   {
+    "feel": "sadness",
+    "lines": [
+     "But McCoy lacked the money to make his lubricators in large numbers.",
+     "So he usually sold his patent rights to investors, or assigned them to his employers.",
+     "He obtained as many as 57 patents, even a lawn sprinkler."
+    ]
+   },
+   {
+    "feel": "surprise",
+    "lines": [
+     "A popular story says engineers asked for his oiler by name: the real McCoy.",
+     "That story is false.",
+     "The phrase actually comes from Scotland, and has nothing to do with Elijah McCoy."
+    ]
+   }
+  ],
+  "key_words": [
+   "oiling#1",
+   "free#1",
+   "slavery#1",
+   "scotland#1",
+   "engineer#2",
+   "fireman#1",
+   "lubrication#1",
+   "ypsilanti#1",
+   "1872#1",
+   "automatic#1",
+   "1899#1",
+   "money#1",
+   "57#1",
+   "real#1",
+   "false#1",
+   "scotland#2"
+  ],
+  "claims": [
+   {
+    "claim": "Elijah McCoy was born free in 1844 in Colchester, Ontario, to parents who had escaped slavery in Kentucky.",
+    "url": "https://en.wikipedia.org/wiki/Elijah_McCoy"
+   },
+   {
+    "claim": "At the age of 15, in 1859, Elijah McCoy was sent to Scotland; after studying at the University of Edinburgh, he was certified as a mechanical engineer.",
+    "url": "https://en.wikipedia.org/wiki/Elijah_McCoy"
+   },
+   {
+    "claim": "When Elijah McCoy arrived in Michigan, he could find work only as a fireman and oiler at the Michigan Central Railroad.",
+    "url": "https://en.wikipedia.org/wiki/Elijah_McCoy"
+   },
+   {
+    "claim": "In a home-based machine shop in Ypsilanti, McCoy did more highly skilled work, such as developing improvements and inventions.",
+    "url": "https://en.wikipedia.org/wiki/Elijah_McCoy"
+   },
+   {
+    "claim": "He invented an automatic lubricator for oiling the steam engines of locomotives and ships, patenting it in 1872 (U.S. patent 129,843).",
+    "url": "https://en.wikipedia.org/wiki/Elijah_McCoy"
+   },
+   {
+    "claim": "Lubricators enabled trains to run faster and more profitably with less need to stop for lubrication and maintenance.",
+    "url": "https://en.wikipedia.org/wiki/Elijah_McCoy"
+   },
+   {
+    "claim": "By 1899, the Michigan Bureau of Labor and Industrial Statistics reported that the McCoy lubricator was in use on almost all North American railroads.",
+    "url": "https://en.wikipedia.org/wiki/Elijah_McCoy"
+   },
+   {
+    "claim": "Lacking the capital with which to manufacture his lubricators in large numbers, he usually assigned his patent rights to his employers or sold them to investors.",
+    "url": "https://en.wikipedia.org/wiki/Elijah_McCoy"
+   },
+   {
+    "claim": "He continued to invent until late in life, obtaining as many as 57 patents, including a folding ironing board and a lawn sprinkler.",
+    "url": "https://en.wikipedia.org/wiki/Elijah_McCoy"
+   },
+   {
+    "claim": "A false etymology claims railroad engineers would request his invention by name, the real McCoy; the phrase actually originates from Scotland and has nothing to do with Elijah McCoy.",
+    "url": "https://en.wikipedia.org/wiki/Elijah_McCoy"
+   }
+  ]
+ },
+ "film": {
+  "era": "1870s",
+  "cast": {
+   "mccoy": "a 28 year old Black Canadian-American engineer, tall and lean, a narrow dark brown face, a neat short black moustache, short black hair, wearing a soot-smudged indigo blue work shirt, brown leather braces and a grey cloth cap, 1870s",
+   "mother": "a 30 year old Black woman, slim, a warm oval face with high cheekbones, black hair wrapped in a mustard yellow headscarf, wearing a rust red wool dress with a cream shawl, 1840s",
+   "teen": "a 15 year old Black boy, thin, a round boyish face with bright brown eyes, close-cropped black hair, wearing a slightly big brown tweed jacket over a white shirt and a dark green neckerchief, 1850s",
+   "investor": "a 55 year old American businessman, heavy build, a pink jowly face, white mutton-chop sideburns, a black silk top hat, wearing a dark grey frock coat over a burgundy waistcoat, 1870s",
+   "older": "a 60 year old Black engineer, a lined dark brown face, short grey hair, a full grey moustache, small round spectacles, wearing a charcoal wool suit with a white shirt and a black bow tie, 1900s"
+  },
+  "key_words": [
+   "oiling#1",
+   "free#1",
+   "slavery#1",
+   "scotland#1",
+   "engineer#2",
+   "fireman#1",
+   "lubrication#1",
+   "ypsilanti#1",
+   "1872#1",
+   "automatic#1",
+   "1899#1",
+   "money#1",
+   "57#1",
+   "real#1",
+   "false#1",
+   "scotland#2"
+  ],
+  "music": "curious",
+  "shots": [
+   {
+    "name": "hook",
+    "at": 0,
+    "who": "mccoy",
+    "prompt": "close-up, a young engineer squirting oil from a long-spouted brass oil can into the steel joints of a black steam locomotive, he is {mccoy}, 1870s rail yard, smoky morning light",
+    "check": "Is a man holding an oil can?",
+    "clip": true,
+    "motion": "he squeezes the oil can, slow camera push in"
+   },
+   {
+    "name": "drip",
+    "at": "oiling#1",
+    "prompt": "extreme close-up of golden oil dripping onto a shiny steel joint of a steam locomotive wheel, smoky warm light",
+    "check": "Is oil dripping onto metal?",
+    "clip": true,
+    "motion": "oil drips slowly onto the joint, slow camera push in"
+   },
+   {
+    "name": "baby",
+    "at": "elijah#1",
+    "who": "mother",
+    "prompt": "medium shot, a Black mother cradling a newborn baby beside a log fire, she is {mother}, small 1840s log cabin, warm firelight",
+    "check": "Is a woman holding a baby?",
+    "clip": true,
+    "motion": "she rocks the baby gently, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "lake",
+    "at": "ontario#1",
+    "prompt": "wide shot of a small log farmhouse near the snowy shore of a huge grey lake, bare trees, 1840s, pale winter light",
+    "check": "Is there a log farmhouse by a lake?",
+    "move": "right"
+   },
+   {
+    "name": "escape",
+    "at": "his#1",
+    "prompt": "wide shot, a Black man and woman trudging through a dark snowy forest at night carrying cloth bundles, cold blue moonlight",
+    "check": "Are two people walking through a snowy forest?",
+    "clip": true,
+    "motion": "they trudge forward slowly, slow camera push in"
+   },
+   {
+    "name": "ship",
+    "at": "at#1",
+    "who": "teen",
+    "prompt": "medium shot, a teenage boy carrying a carpetbag up a wooden gangplank onto a steamship, he is {teen}, 1850s harbour, grey misty light",
+    "check": "Is a boy walking up a gangplank?",
+    "clip": true,
+    "motion": "he steps up the gangplank, slow camera pan right"
+   },
+   {
+    "name": "study",
+    "at": "he#1",
+    "who": "teen",
+    "prompt": "medium shot, a young man bent over a big drawing of a steam engine at a wooden desk, he is {teen}, a stone university hall in Edinburgh, tall windows, soft daylight",
+    "check": "Is a young man drawing at a desk?",
+    "clip": true,
+    "motion": "his pencil moves along the drawing, slow camera push in"
+   },
+   {
+    "name": "certificate",
+    "at": "became#1",
+    "prompt": "close-up, a young man's hands receiving a rolled paper certificate tied with a red ribbon, dark wooden hall, warm light",
+    "check": "Are hands holding a rolled paper?",
+    "clip": true,
+    "motion": "the hands close around the rolled paper, slow camera push in"
+   },
+   {
+    "name": "yard",
+    "at": "but#1",
+    "prompt": "wide shot of a busy 1870s railroad yard with black steam locomotives puffing white smoke, wooden sheds, grey Michigan sky",
+    "check": "Is there a railroad yard?",
+    "move": "left",
+    "xfade": true
+   },
+   {
+    "name": "shovel",
+    "at": "he#2",
+    "who": "mccoy",
+    "prompt": "medium shot, a young fireman shovelling coal into the glowing firebox of a steam locomotive, he is {mccoy}, cramped locomotive cab, orange fire light",
+    "check": "Is a man shovelling coal?",
+    "clip": true,
+    "motion": "he swings the shovel into the fire, slow camera push in"
+   },
+   {
+    "name": "oilcan",
+    "at": "fireman#1",
+    "prompt": "close-up of a long-spouted brass oil can resting on the iron step of a black steam locomotive, 1870s rail yard, smoky light",
+    "check": "Is there a brass oil can?",
+    "move": "push"
+   },
+   {
+    "name": "halt",
+    "at": "trains#1",
+    "prompt": "wide shot of a black steam locomotive standing still at a small wooden station, steam drifting, 1870s, grey daylight",
+    "check": "Is there a steam locomotive at a station?",
+    "move": "right"
+   },
+   {
+    "name": "grease",
+    "at": "lubrication#1",
+    "prompt": "close-up, a railroad worker in overalls kneeling and greasing a big iron train wheel, 1870s rail yard, grey light",
+    "check": "Is a man greasing a train wheel?",
+    "clip": true,
+    "motion": "he wipes grease onto the wheel, slow camera push in"
+   },
+   {
+    "name": "workshop",
+    "at": "in#6",
+    "who": "mccoy",
+    "prompt": "medium shot, a young engineer filing a brass part in a vise on a cluttered workbench, he is {mccoy}, small home workshop with hanging tools, warm lamp light",
+    "check": "Is a man filing metal at a workbench?",
+    "clip": true,
+    "motion": "he pushes the file back and forth, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "inspect",
+    "at": "mccoy#4",
+    "who": "mccoy",
+    "prompt": "close-up, a young engineer squinting at a small brass oil cup held up to an oil lamp, he is {mccoy}, home workshop at night, warm lamp light",
+    "check": "Is a man holding up a brass cup?",
+    "clip": true,
+    "motion": "he turns the brass cup in the light, slow camera push in"
+   },
+   {
+    "name": "seal",
+    "at": "in#8",
+    "prompt": "close-up, a hand pressing a brass seal onto a thick cream official paper on a wooden desk, 1870s office, warm light",
+    "check": "Is a hand pressing a seal on paper?",
+    "clip": true,
+    "motion": "the hand presses the seal down, slow camera push in",
+    "hit": "1872#1"
+   },
+   {
+    "name": "cup",
+    "at": "lubricator#1",
+    "prompt": "extreme close-up of a shiny brass oil cup bolted onto a black steam engine, a drop of oil falling from it, warm light",
+    "check": "Is there a brass oil cup on an engine?",
+    "move": "push"
+   },
+   {
+    "name": "loco",
+    "at": "it#1",
+    "prompt": "low angle of a black steam locomotive rolling along rails with white steam pouring from it, 1870s countryside, golden light",
+    "check": "Is there a steam locomotive?",
+    "move": "left"
+   },
+   {
+    "name": "steamer",
+    "at": "and#4",
+    "prompt": "wide shot of a white paddle steamer ship churning along a wide river with black smoke from its funnels, 1870s, sunny day",
+    "check": "Is there a paddle steamer ship?",
+    "move": "right"
+   },
+   {
+    "name": "plants",
+    "at": "you#1",
+    "prompt": "medium shot, a girl leaning over a row of green potted plants on a sunny windowsill, cosy kitchen, soft daylight",
+    "check": "Is a girl leaning over potted plants?",
+    "clip": true,
+    "motion": "she leans in to look at the plants, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "pot",
+    "at": "plant#1",
+    "prompt": "close-up of a clay plant pot standing in a dish of water, damp dark soil and green leaves, sunny windowsill",
+    "check": "Is there a clay plant pot?",
+    "move": "push"
+   },
+   {
+    "name": "can",
+    "at": "nobody#1",
+    "prompt": "close-up of a tin watering can sitting unused beside a healthy green plant on a windowsill, soft daylight",
+    "check": "Is there a watering can?",
+    "move": "pull"
+   },
+   {
+    "name": "speed",
+    "at": "lubricators#1",
+    "prompt": "low angle of a black steam locomotive speeding along rails with steam streaming back, 1880s prairie, bright daylight",
+    "check": "Is there a speeding locomotive?",
+    "move": "push"
+   },
+   {
+    "name": "driver",
+    "at": "with#1",
+    "prompt": "medium shot, an engine driver leaning out of a locomotive cab window and smiling into the wind, 1880s, bright daylight",
+    "check": "Is a man leaning out of a train window?",
+    "clip": true,
+    "motion": "his scarf flutters in the wind, slow camera push in"
+   },
+   {
+    "name": "shine",
+    "at": "by#1",
+    "prompt": "close-up of a polished brass lubricator gleaming on the side of a black locomotive boiler, 1890s, warm light",
+    "check": "Is there a brass device on a locomotive?",
+    "move": "push"
+   },
+   {
+    "name": "roundhouse",
+    "at": "was#4",
+    "prompt": "wide shot of rows of black steam locomotives inside a huge brick roundhouse, shafts of dusty light, 1890s",
+    "check": "Are there many steam locomotives?",
+    "move": "right"
+   },
+   {
+    "name": "lines",
+    "at": "almost#1",
+    "prompt": "high angle wide shot of many railroad lines crossing a vast green plain with several trains puffing smoke, 1890s, golden light",
+    "check": "Are there many railroad lines?",
+    "move": "pull"
+   },
+   {
+    "name": "coins",
+    "at": "but#2",
+    "who": "mccoy",
+    "prompt": "close-up, an engineer frowning at a few copper coins in his open palm, he is {mccoy}, dim workshop, cold grey light",
+    "check": "Is a man looking at coins in his hand?",
+    "clip": true,
+    "motion": "he closes his hand slowly, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "lonely",
+    "at": "to#6",
+    "prompt": "close-up of a single brass oil cup on an empty wooden workbench in a bare workshop, cold grey light",
+    "check": "Is there a brass cup on a workbench?",
+    "move": "pull"
+   },
+   {
+    "name": "sell",
+    "at": "so#1",
+    "prompt": "medium shot, a young engineer sliding a stack of papers across a desk toward a businessman in a top hat, 1870s office, warm lamp light",
+    "check": "Is a man sliding papers across a desk?",
+    "clip": true,
+    "motion": "he pushes the papers forward, slow camera push in"
+   },
+   {
+    "name": "tuck",
+    "at": "rights#1",
+    "who": "investor",
+    "prompt": "close-up, a businessman tucking folded papers into his coat with a smug smile, he is {investor}, 1870s office, warm lamp light",
+    "check": "Is a man tucking papers into his coat?",
+    "clip": true,
+    "motion": "he slides the papers into his coat, slow camera push in"
+   },
+   {
+    "name": "handshake",
+    "at": "or#1",
+    "prompt": "medium shot, two railroad managers in dark suits shaking hands across a wooden desk, 1870s office, warm lamp light",
+    "check": "Are two men shaking hands?",
+    "clip": true,
+    "motion": "they shake hands firmly, slow camera push in"
+   },
+   {
+    "name": "older",
+    "at": "he#5",
+    "who": "older",
+    "prompt": "close-up, an older engineer sketching a new machine at a drafting table, he is {older}, 1900s workshop, warm lamp light",
+    "check": "Is a man sketching at a table?",
+    "clip": true,
+    "motion": "his pencil moves across the paper, slow camera push in"
+   },
+   {
+    "name": "stack",
+    "at": "57#1",
+    "prompt": "close-up of a tall stack of folded official papers tied with string on a wooden desk, warm lamp light",
+    "check": "Is there a stack of papers?",
+    "move": "up"
+   },
+   {
+    "name": "sprinkler",
+    "at": "lawn#1",
+    "prompt": "close-up of an iron lawn sprinkler spraying water over green grass, sunny garden, 1900s",
+    "check": "Is a sprinkler spraying water?",
+    "clip": true,
+    "motion": "water sprays in a slow arc, slow camera push in"
+   },
+   {
+    "name": "chat",
+    "at": "a#7",
+    "prompt": "medium shot, two engine drivers in caps talking beside a black locomotive, one laughing, 1890s rail yard, smoky light",
+    "check": "Are two men talking by a train?",
+    "clip": true,
+    "motion": "one man laughs and gestures, slow camera push in",
+    "xfade": true
+   },
+   {
+    "name": "ask",
+    "at": "asked#1",
+    "prompt": "close-up, an engine driver in a cap pointing firmly at a brass oil cup on a locomotive, 1890s, smoky light",
+    "check": "Is a man pointing at a brass cup?",
+    "clip": true,
+    "motion": "he taps the brass cup with his finger, slow camera push in"
+   },
+   {
+    "name": "real",
+    "at": "the#4",
+    "prompt": "extreme close-up of a gleaming brass oil cup on a locomotive with a single golden drop of oil, warm light",
+    "check": "Is there a gleaming brass cup?",
+    "move": "push",
+    "hit": "real#1"
+   },
+   {
+    "name": "crumple",
+    "at": "that#1",
+    "prompt": "close-up, a hand crumpling an old yellowed newspaper page into a ball, dark wooden table, warm lamp light",
+    "check": "Is a hand crumpling paper?",
+    "clip": true,
+    "motion": "the hand squeezes the paper, slow camera push in",
+    "hit": "false#1"
+   },
+   {
+    "name": "highlands",
+    "at": "the#5",
+    "prompt": "wide shot of misty green Scottish hills with a stone castle on a rocky crag, grey clouds, soft light",
+    "check": "Is there a castle on a hill?",
+    "move": "pull"
+   },
+   {
+    "name": "nothing",
+    "at": "has#2",
+    "who": "older",
+    "prompt": "medium shot, an older engineer shaking his head with a small smile at his workbench, he is {older}, 1900s workshop, warm lamp light",
+    "check": "Is a man at a workbench?",
+    "clip": true,
+    "motion": "he shakes his head gently, slow camera push in"
+   },
+   {
+    "name": "final",
+    "at": "elijah#2",
+    "who": "older",
+    "prompt": "medium shot, an older engineer holding up a polished brass lubricator in his workshop, he is {older}, 1900s, warm golden lamp light",
+    "check": "Is a man holding up a brass device?",
+    "clip": true,
+    "motion": "he turns the brass lubricator in the light, slow camera push in"
+   }
+  ]
+ }
+}
