@@ -156,7 +156,7 @@ jobs:
           python -c "import json; c=json.load(open('key/chat.json'))['comments']; print('chat messages', len(c), 'last at', c[-1]['content_offset_seconds'] if c else None)"
       - name: Media (audio only + 160p, whole stream) and transcript
         run: |
-          sudo apt-get install -y -qq ffmpeg > /dev/null 2>&1
+          sudo apt-get update -qq > /dev/null 2>&1 || true; sudo apt-get install -y -qq ffmpeg > /dev/null 2>&1
           pip install -q "numpy>=1.26" "opencv-python-headless==4.10.0.84" "faster-whisper==1.2.1"
           v=$(python -c "import json; print(json.load(open('key/twitch.json'))['vod']['url'])")
           s0=$(date +%s); yt-dlp -q -f "Audio_Only" -o key/audio.m4a "$v"; echo "audio $(( $(date +%s)-s0 )) s"; ls -la key/audio.m4a
@@ -213,7 +213,7 @@ jobs:
           j=$(find ../prev -name judged.json 2>/dev/null | head -1)
           if [ -n "$j" ] && [ -s "$j" ] && [ -z "$REJUDGE" ]; then cp "$j" ../key/judged.json; echo "judge scores reused from run $REUSE_RUN"; elif [ -n "$NO_AI" ]; then echo "NO_AI set and no saved judge answers: stopping"; exit 1; else python lab/clips/ai_pass.py judge --cands ../key/cands.json --words ../key/words.json --eyes ../key/eyes.json --video ../key/low.mp4 --audio ../key/audio.m4a --streamer "${STREAMER:-$(python -c "import json; print(json.load(open('../key/twitch.json'))['vod'].get('channel') or 'the streamer')")}" --out ../key/judged.json --pause 5 || true; fi
           echo "================ WITH THE AI JUDGE ================"
-          python lab/clips/recall.py $A --judged ../key/judged.json --cands ../key/cands.json --out ../key/recall_twitch.json
+          python lab/clips/recall.py $A --judged ../key/judged.json --cands ../key/cands.json --streamer "${STREAMER:-}" --out ../key/recall_twitch.json
       - uses: actions/upload-artifact@v4
         with:
           name: recall-key

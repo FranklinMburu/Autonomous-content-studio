@@ -161,6 +161,15 @@ def pick(a):
         ok += [(fill - 1e-6, float(t), {"t": t, "title": "", "kind": "unjudged", "why": "no judge answer; strong signal", "unjudged": True})
                for t in lost]
     ok.sort(key=lambda x: (-x[0], x[1]))
+    # 28 Nov (Clipping Lab): title guard. A judge title naming someone nothing in the stream supports ("LeBron James
+    # dressed as Deadpool" when Kai said "dead booth fit") is never used: the pick keeps its place, the title is blanked
+    # and kept as title_unverified for the editor. Real, not fake. Order unchanged (lab/clips/namecheck.py).
+    chk = None
+    if getattr(a, "words", None) and Path(a.words).exists():
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import namecheck
+        st = json.loads(Path(a.stream).read_text()).get("vod", {}).get("title", "") if getattr(a, "stream", None) and Path(a.stream).exists() else ""
+        chk = namecheck.Checker(json.loads(Path(a.words).read_text()).get("words", []), a.streamer or "", st)
     keep = []
     for sc, t, m in ok:
         if sc < a.min_score or len(keep) >= a.top:
@@ -168,6 +177,10 @@ def pick(a):
         if all(abs(t - k["t"]) >= a.gap for k in keep) and not any(same_story(m.get("title") or "", k["title"]) for k in keep):
             keep.append({"t": int(t), "title": m.get("title") or "", "why": f"judge {m.get('score_alone', round(sc, 2))}; {m.get('kind') or ''}: {(m.get('why') or '')[:200]}",
                          "score": round(sc, 2), **({"unjudged": True} if m.get("unjudged") else {})})
+            bad = chk.unsupported(keep[-1]["title"], float(m.get("t_cand", t))) if chk and keep[-1]["title"] else []
+            if bad:
+                keep[-1].update(title="", title_unverified=m.get("title"), name_unverified=bad)
+                print(f"  title guard: '{m.get('title')}' names {', '.join(bad)}, which nobody said; title not used")
     Path(a.out).write_text(json.dumps(keep, indent=1, ensure_ascii=False))
     print(f"moments chosen: {len(keep)}")
     for k in keep:
@@ -184,6 +197,9 @@ def main():
     p.add_argument("--top", type=int, default=12); p.add_argument("--gap", type=float, default=60); p.add_argument("--min-score", type=float, default=0)
     p.add_argument("--cands", help="23 Nov: the candidates given to the judge; unanswered ones keep a place (tagged unjudged)")
     p.add_argument("--fill-pct", type=float, default=25, help="percentile of the answered scores given to unanswered candidates")
+    p.add_argument("--words", help="28 Nov: transcript (words.json); titles naming someone nobody said are not used")
+    p.add_argument("--streamer", default="", help="the streamer's name (never flagged by the title guard)")
+    p.add_argument("--stream", help="stream.json (its vod title supports names such as JAPAN)")
     a = ap.parse_args()
     {"resolve": resolve, "subs": subs, "pick": pick}[a.cmd](a)
 

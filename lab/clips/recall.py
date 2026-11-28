@@ -57,7 +57,9 @@ def main():
     ap.add_argument("--cands-out", help="write the candidates for the AI judge here (ALL top 40 + strong eyes moments)")
     ap.add_argument("--cands", help="23 Nov: the candidates the judge was given; the ones it did not answer keep a place "
                                     "(scored at a percentile of the answered scores) instead of vanishing")
+    ap.add_argument("--streamer", default="", help="28 Nov: the streamer's name (not checked by the name check)")
     a = ap.parse_args()
+    name_flags = []
     K = json.loads(Path(a.key).read_text())
     key = [k for k in K["key"] if k.get("views")]
     n = int(np.ceil(K["vod"]["duration"]))
@@ -159,6 +161,30 @@ def main():
                         jf[t] = fill * 10 + float(allz[t])
                 fams[f"ALL + AI JUDGE + UNANSWERED p{pct}"] = jf
                 print(f"unanswered candidates scored {fill:.2f} (p{pct} of the answered scores)")
+        # 28 Nov (Clipping Lab): name check. A title naming someone nothing in the stream supports ("LeBron James dressed
+        # as Deadpool" when Kai said "dead booth fit") is flagged; the NAME CAP arm caps that candidate at p25 of the
+        # answered scores, the same as an unanswered one. Rule fixed before testing (lab/clips/namecheck.py).
+        if scores:
+            import namecheck
+            chk = namecheck.Checker(words, a.streamer, K["vod"].get("title") or "")
+            fill25 = float(np.percentile(scores, 25))
+            base = fams.get("ALL + AI JUDGE + UNANSWERED p25", jc)
+            jn = base.copy()
+            name_flags.clear()
+            for m in judged:
+                try:
+                    i, sc = int(float(m["t"])), float(m["score"])
+                except (TypeError, ValueError, KeyError):
+                    continue
+                bad = chk.unsupported(m.get("title") or "", float(m.get("t_cand", m["t"])))
+                if bad:
+                    name_flags.append((i, sc, bad, m.get("title") or ""))
+                    if 0 <= i < n and sc > fill25:
+                        jn[i] = fill25 * 10 + float(allz[i])
+            fams["ALL + AI JUDGE + UNANSWERED p25 + NAME CAP"] = jn
+            named = sum(bool(namecheck.names(m.get("title") or "", a.streamer)) for m in judged)
+            print(f"name check: {named} of {len(judged)} judge titles name someone; {len(name_flags)} unsupported "
+                  f"(capped at {fill25:.2f})")
     total_views = sum(k["views"] for k in key)
 
     def found(pk, k):
@@ -193,6 +219,28 @@ def main():
                 exact = [k for k in key if any(k["offset"] - 10 <= p <= k["offset"] + (k.get("duration") or 30) + 10 for p in pk)]
                 print(f"  top {kk:>2}: {len(hit):>2} of {len(key)} fan clips, {sum(k['views'] for k in hit)/max(1,total_views):.0%} of their views"
                       f"  | exact (pick inside the clip +-10 s): {len(exact)}, {sum(k['views'] for k in exact)/max(1,total_views):.0%}")
+        # 28 Nov: the title guard's own bar: flagged titles in the top 20, and fan-clip titles flagged (must be 0)
+        if "ALL + AI JUDGE + UNANSWERED p25 + NAME CAP" in fams:
+            import namecheck
+            ref = fams.get("ALL + AI JUDGE + UNANSWERED p25", fams["ALL + AI JUDGE"])
+            order = sorted(peaks(ref, 80), key=lambda p: -ref[p])
+
+            def strict_fan(t):
+                return next((k for k in key if k["offset"] - 10 <= t <= k["offset"] + (k.get("duration") or 30) + 10), None)
+            fan_named = [m for m in judged if m.get("t") is not None and strict_fan(float(m["t"]))
+                         and namecheck.names(m.get("title") or "", a.streamer)]
+            print(f"\nName check: judge titles strictly on a fan clip that name someone: {len(fan_named)}")
+            for m in fan_named:
+                print(f"    {m.get('title')}")
+            in20 = 0
+            for i, sc, bad, ti in sorted(name_flags, key=lambda x: -x[1]):
+                r = next((j + 1 for j, p in enumerate(order) if abs(p - i) <= 22), None)
+                fk = strict_fan(i)
+                in20 += bool(r and r <= 20)
+                print(f"  flagged [{sc}] rank {r if r else '-'} {'FAN CLIP ' + fk['title'][:30] if fk else 'non-fan'}: "
+                      f"{', '.join(bad)} | {ti}")
+            print(f"Name check: {len(name_flags)} flagged, {in20} of them in the top 20 (p25 ranking), "
+                  f"{sum(bool(strict_fan(i)) for i, *_ in name_flags)} on a fan clip")
         # 16 Nov: did the judge actually WATCH the fan's moment? It watches [t-60, t+30] around its candidate t.
         print("\nDid the judge's 90 s window contain the fan clip? (fan clip span vs the window of its best candidate)")
         for k in sorted(key, key=lambda k: -k["views"]):
