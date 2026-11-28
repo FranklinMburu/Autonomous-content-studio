@@ -1,0 +1,131 @@
+{
+ "title": "Why McCoy's 1872 Patent Wasn't a Safety Valve",
+ "channel": "Hidden Reasons",
+ "topic": "Why the American inventor Elijah McCoy added a safety valve to his steam engine (Cleveland, 1872)",
+ "voice": "af_heart",
+ "speed": 1.15,
+ "pace": {
+  "gap_line": 0.22,
+  "gap_beat": 0.42,
+  "lead_in": 0.08,
+  "tail": 0.7,
+  "trim_tail": 0.06
+ },
+ "beats": [
+  {
+   "lines": [
+    "McCoy oils railroad engines, then builds a machine to feed oil without stopping.",
+    "He works as a fireman and oiler at the Michigan Central Railroad."
+   ],
+   "feel": "curiosity"
+  },
+  {
+   "lines": [
+    "McCoy can find only that work in Michigan.",
+    "Other automatic oilers have already been patented.",
+    "McCoy does skilled work in a home machine shop in Ypsilanti.",
+    "He keeps refining his devices."
+   ],
+   "feel": "sympathy"
+  },
+  {
+   "lines": [
+    "A safety valve releases steam when pressure rises past a set limit.",
+    "Boilers without one can explode.",
+    "Firemen or crew members tie down valves for extra power.",
+    "Tying a valve down pushes pressure past the safe limit."
+   ],
+   "feel": "dread"
+  },
+  {
+   "lines": [
+    "In 1872, McCoy patents his automatic lubricator for locomotives and ships.",
+    "He lacks the money to build lubricators in large numbers.",
+    "So McCoy assigns or sells his patent rights."
+   ],
+   "feel": "determination"
+  },
+  {
+   "lines": [
+    "You see, it's like a water bottle in your bag, so you never stop.",
+    "His lubricator feeds oil to steam engines automatically.",
+    "Trains run faster and stop less for lubrication and maintenance."
+   ],
+   "feel": "recognition"
+  },
+  {
+   "lines": [
+    "The real reason: his 1872 patent is an automatic lubricator.",
+    "It oils the steam engines of locomotives and ships.",
+    "By 1899, his lubricator runs on almost all North American railroads."
+   ],
+   "feel": "awe"
+  },
+  {
+   "lines": [
+    "But McCoy's 1872 patent is not a safety valve.",
+    "And 'the real McCoy' comes from Scotland, not from McCoy."
+   ],
+   "feel": "surprise"
+  }
+ ],
+ "claims": [
+  {
+   "claim": "When Elijah McCoy arrived in Michigan, he could find work only as a fireman and oiler at the Michigan Central Railroad.",
+   "url": "https://en.wikipedia.org/wiki/Elijah_McCoy"
+  },
+  {
+   "claim": "In a home-based machine shop in Ypsilanti, McCoy did more highly skilled work, such as developing improvements and inventions, and he continued to refine his devices and design new ones.",
+   "url": "https://en.wikipedia.org/wiki/Elijah_McCoy"
+  },
+  {
+   "claim": "Similar automatic oilers had been patented previously.",
+   "url": "https://en.wikipedia.org/wiki/Elijah_McCoy"
+  },
+  {
+   "claim": "A safety valve automatically releases a substance from a boiler, pressure vessel, or other system when the pressure or temperature exceeds preset limits.",
+   "url": "https://en.wikipedia.org/wiki/Safety_valve"
+  },
+  {
+   "claim": "Early boilers operating without safety valves were prone to explosion unless carefully operated.",
+   "url": "https://en.wikipedia.org/wiki/Safety_valve"
+  },
+  {
+   "claim": "Firemen or crew members tied down safety valves to increase the pressure and power of the engine, at further risk of explosion; spring valves could also be screwed down to increase pressure beyond design limits, a dangerous practice sometimes used to marginally increase steam engine performance.",
+   "url": "https://en.wikipedia.org/wiki/Safety_valve"
+  },
+  {
+   "claim": "McCoy invented an automatic lubricator for oiling the steam engines of locomotives and ships, patenting it in 1872 as 'Improvement in Lubricators for Steam-Engines' (U.S. patent 129,843).",
+   "url": "https://en.wikipedia.org/wiki/Elijah_McCoy"
+  },
+  {
+   "claim": "Lacking the capital with which to manufacture his lubricators in large numbers, McCoy usually assigned his patent rights to his employers or sold them to investors.",
+   "url": "https://en.wikipedia.org/wiki/Elijah_McCoy"
+  },
+  {
+   "claim": "Lubricators enabled trains to run faster and more profitably with less need to stop for lubrication and maintenance.",
+   "url": "https://en.wikipedia.org/wiki/Elijah_McCoy"
+  },
+  {
+   "claim": "In 1899, the Michigan Bureau of Labor and Industrial Statistics reported that the McCoy lubricator was in use on almost all North American railroads.",
+   "url": "https://en.wikipedia.org/wiki/Elijah_McCoy"
+  },
+  {
+   "claim": "The phrase 'the real McCoy' originates from Scotland and has nothing to do with Elijah McCoy.",
+   "url": "https://en.wikipedia.org/wiki/Elijah_McCoy"
+  }
+ ],
+ "key_words": [
+  "McCoy",
+  "lubricator",
+  "steam",
+  "safety",
+  "valve",
+  "oil",
+  "trains",
+  "firemen",
+  "patent",
+  "railroads",
+  "Scotland"
+ ]
+}

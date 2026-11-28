@@ -1,0 +1,381 @@
+{
+ "era": "1870s-1890s",
+ "cast": {
+  "mccoy": "a 38 year old American machinist, lean build, a narrow sun-tanned face with a strong jaw, dark brown hair swept back, a full dark brown beard, wearing a faded indigo blue wool work shirt with rolled sleeves, a brown canvas apron and dark trousers, 1870s",
+  "fireman": "a 26 year old railroad fireman, stocky build, a round freckled face, curly black hair under a soot-smudged flat cap, clean shaven, wearing a soot-blackened red flannel shirt with rolled sleeves and a brown leather belt, 1870s",
+  "engineer": "a 48 year old locomotive engineer, broad shouldered, a square weathered face, a thick grey moustache, short grey hair under a dark blue wool cap, wearing a navy railway uniform coat with brass buttons and a red neckerchief, 1870s",
+  "buyer": "a 52 year old American patent agent, portly build, a round pale face with a clean-shaven chin, thinning brown hair, small round spectacles, wearing a black frock coat over a grey waistcoat and a white shirt, 1870s",
+  "clerk": "a 45 year old patent office clerk, thin build, a long narrow face, dark sideburns, short black hair, wearing a dark green velvet coat with a white cravat and a leather document satchel, 1870s",
+  "tailor": "a 44 year old Scottish tailor, thin build, a pale angular face with a long nose, curly ginger hair and a short ginger beard, wearing a dark brown wool suit with a waistcoat and a plain white collar, 1860s Glasgow"
+ },
+ "music": "curious",
+ "key_words": [
+  "McCoy#1",
+  "oil#1",
+  "fireman#1",
+  "Michigan#1",
+  "patented#1",
+  "shop#1",
+  "refining#1",
+  "valve#1",
+  "steam#1",
+  "explode#1",
+  "tie#1",
+  "1872#1",
+  "lubricator#1",
+  "ships#1",
+  "money#1",
+  "bottle#1",
+  "bag#1",
+  "faster#1",
+  "reason#1",
+  "1899#1",
+  "Scotland#1"
+ ],
+ "shots": [
+  {
+   "name": "oil_engines",
+   "at": 0,
+   "who": "mccoy",
+   "clip": true,
+   "prompt": "close-up, a machinist kneeling beside a steam locomotive, pouring oil from a brass can into a hot bearing, he is {mccoy}, a 1870s railway yard, warm morning light",
+   "motion": "he pours oil slowly into the bearing, steam drifts, slow camera push in",
+   "check": "Is a man pouring oil into a locomotive?"
+  },
+  {
+   "name": "build_machine",
+   "at": "then#1",
+   "who": "mccoy",
+   "clip": true,
+   "prompt": "medium shot, a machinist hammering a small brass oil feeder on a wooden workbench, he is {mccoy}, a home machine shop, warm lamp light",
+   "motion": "he taps the small brass device with a hammer, slow camera push in",
+   "hit": "machine#1",
+   "check": "Is a man hammering a small brass device on a workbench?"
+  },
+  {
+   "name": "fireman_work",
+   "at": "He#1",
+   "who": "mccoy",
+   "clip": true,
+   "prompt": "medium shot, a fireman shoveling coal into the open firebox of a steam locomotive, he is {mccoy}, a Michigan Central train, bright morning light",
+   "motion": "he shovels coal into the firebox, steam drifts, slow camera push in",
+   "check": "Is a man shoveling coal into a locomotive firebox?"
+  },
+  {
+   "name": "michigan_depot",
+   "at": "at#1",
+   "move": "right",
+   "prompt": "wide shot, a black steam locomotive pulling a passenger train past a wooden Michigan Central depot, workers on the platform, 1870s, clear morning light",
+   "check": "Is a steam locomotive pulling a train past a depot?"
+  },
+  {
+   "name": "oiling",
+   "at": "McCoy#2",
+   "who": "mccoy",
+   "clip": true,
+   "prompt": "medium close-up, a machinist tipping a heavy tin oil can so oil runs onto the hot steel driving rods of a steam locomotive, he is {mccoy}, 1870s Michigan rail yard, cold morning light",
+   "motion": "he tips the can and oil runs down the rod, slow camera push in",
+   "check": "Is a man pouring oil onto a locomotive?"
+  },
+  {
+   "name": "michigan",
+   "at": "Michigan#2",
+   "move": "push",
+   "prompt": "wide shot of a black steam locomotive and tender standing in a 1870s Michigan railroad yard with wooden freight cars and frosty ground, pale morning light",
+   "check": "Is there a steam locomotive in a rail yard?"
+  },
+  {
+   "name": "rivals",
+   "at": "patented#1",
+   "clip": true,
+   "prompt": "close-up of a brass automatic oiler with copper pipes clamped to a black locomotive boiler, a hand steadying the valve, steam drifting, 1870s rail yard",
+   "motion": "the hand steadies the brass oiler as steam drifts past, slow camera push in",
+   "hit": "patented#1",
+   "check": "Is there a brass oiler with copper pipes on a boiler?"
+  },
+  {
+   "name": "filings",
+   "at": "skilled#1",
+   "who": "mccoy",
+   "clip": true,
+   "prompt": "medium shot, a bearded machinist filing a small brass fitting with a hand file at a wooden workbench in a home machine shop, he is {mccoy}, 1870s Ypsilanti, warm lamp light",
+   "motion": "he files the brass fitting, fine dust on the bench, slow camera push in",
+   "xfade": true,
+   "check": "Is a man filing a metal part at a workbench?"
+  },
+  {
+   "name": "ypsi",
+   "at": "Ypsilanti#1",
+   "move": "left",
+   "prompt": "wide shot of a small brick house with a plain shopfront window on a quiet 1870s Michigan town street, bare trees and a wooden fence, soft morning light",
+   "check": "Is there a small brick house on a street?"
+  },
+  {
+   "name": "device",
+   "at": "devices#1",
+   "clip": true,
+   "prompt": "close-up of a polished brass automatic lubricator with a glass sight tube and copper pipe on a wooden workbench, a hand turning a small screw, warm lamplight",
+   "motion": "the hand turns the small screw and oil shows in the glass tube, slow camera push in",
+   "check": "Is there a brass oiling device with a glass tube?"
+  },
+  {
+   "name": "valve_hook",
+   "at": "A#4",
+   "xfade": true,
+   "move": "push",
+   "prompt": "close-up of a polished brass safety valve mounted on the black riveted boiler of a steam locomotive, a wisp of white steam escaping, 1870s roundhouse, warm lamp light",
+   "check": "Is there a brass safety valve on a boiler?"
+  },
+  {
+   "name": "steam_burst",
+   "at": "steam#1",
+   "move": "push",
+   "prompt": "close-up of a brass safety valve lifting open and releasing a strong burst of white steam, black riveted boiler behind, 1870s, cold daylight",
+   "check": "Is steam bursting out of a brass valve?"
+  },
+  {
+   "name": "gauge_rising",
+   "at": "rises#1",
+   "who": "fireman",
+   "clip": true,
+   "prompt": "close-up, a soot-smudged fireman watching a round brass pressure gauge on a black boiler, his eyes following the climbing needle, he is {fireman}, 1870s locomotive cab, warm firelight",
+   "motion": "his eyes follow the rising needle, firelight flickers, slow camera push in",
+   "check": "Is a man watching a pressure gauge?"
+  },
+  {
+   "name": "roundhouse",
+   "at": "Boilers#1",
+   "move": "left",
+   "prompt": "wide shot of a large black steam locomotive standing inside a 1870s roundhouse with iron columns and a high iron roof, cold daylight through tall windows",
+   "check": "Is there a steam locomotive in a roundhouse?"
+  },
+  {
+   "name": "burst",
+   "at": "explode#1",
+   "who": "engineer",
+   "clip": true,
+   "prompt": "close-up, a locomotive boiler bursting open with white steam blasting out, a broad-shouldered engineer ducking and shielding his face, he is {engineer}, 1870s rail yard, grey daylight",
+   "motion": "steam blasts outward, he shields his face, slow camera push in",
+   "hit": "explode#1",
+   "check": "Is a locomotive boiler bursting with steam?"
+  },
+  {
+   "name": "tie_down",
+   "at": "tie#1",
+   "who": "fireman",
+   "clip": true,
+   "xfade": true,
+   "prompt": "medium shot, a soot-blackened fireman crouching on a locomotive running board, pulling a heavy steel wrench on a brass valve wheel to clamp it down, he is {fireman}, 1870s rail yard, golden afternoon light",
+   "motion": "he pulls the wrench firmly, slow camera push in",
+   "check": "Is a fireman pulling a wrench on a valve wheel?"
+  },
+  {
+   "name": "red_zone",
+   "at": "pressure#2",
+   "move": "push",
+   "prompt": "close-up of a round brass pressure gauge on a black locomotive boiler, its needle pushed deep into the red danger zone, white steam curling past it, 1870s",
+   "hit": "pressure#2",
+   "check": "Is a gauge needle in the red zone?"
+  },
+  {
+   "name": "yard",
+   "at": "In#4",
+   "xfade": true,
+   "move": "push",
+   "prompt": "wide shot, a black steam locomotive standing in a 1872 Michigan rail yard, white steam venting from the stack, freight cars behind, cold morning light",
+   "check": "Is there a steam locomotive?"
+  },
+  {
+   "name": "patent",
+   "at": "patents#1",
+   "who": "mccoy",
+   "clip": true,
+   "prompt": "medium close-up, a bearded machinist pressing a quill to a sheet of paper on a wooden desk, brass machine parts beside him, 1870s home workshop, warm lamp light",
+   "motion": "he presses the quill down and nods, slow camera push in",
+   "check": "Is a man writing with a quill?"
+  },
+  {
+   "name": "lubricator",
+   "at": "lubricator#1",
+   "clip": true,
+   "prompt": "close-up, a small brass automatic lubricator bolted to the side of a black locomotive boiler, a thin stream of oil dripping down, 1870s, daylight",
+   "motion": "oil drips slowly from the nozzle, slow camera push in",
+   "check": "Is there a small brass lubricator?"
+  },
+  {
+   "name": "ship",
+   "at": "ships#1",
+   "move": "left",
+   "prompt": "wide shot, a large black steam-powered ship on a grey lake with smoke pouring from its funnel, 1870s, overcast light",
+   "check": "Is there a steamship on the water?"
+  },
+  {
+   "name": "coins",
+   "at": "lacks#1",
+   "hit": "lacks#1",
+   "clip": true,
+   "prompt": "close-up, a man's work-worn hands counting a few small silver coins on a wooden workbench, brass tools and a half-built machine around, warm lamp light, 1870s",
+   "motion": "his fingers turn the few coins slowly, slow camera push in",
+   "check": "Are hands holding a few coins?"
+  },
+  {
+   "name": "sell",
+   "at": "sells#1",
+   "hit": "sells#1",
+   "clip": true,
+   "prompt": "medium shot, a lean bearded machinist handing a rolled document to a portly man in a black frock coat across a wooden desk, 1870s patent office, warm window light",
+   "motion": "the machinist pushes the document forward, slow camera push in",
+   "check": "Are two men exchanging a document?"
+  },
+  {
+   "name": "analogy",
+   "at": "You#1",
+   "who": "fireman",
+   "clip": true,
+   "prompt": "medium shot, a fireman reaching into a worn canvas bag and pulling out a tin water bottle, he is {fireman}, on a locomotive footplate beside a black steam engine, bright morning light",
+   "motion": "he lifts the tin bottle out of the bag, steam drifts behind, slow camera push in",
+   "xfade": true,
+   "check": "Is a man taking a water bottle from a bag?"
+  },
+  {
+   "name": "tin_bottle",
+   "at": "bottle#1",
+   "move": "push",
+   "prompt": "close-up of a dented tin water bottle standing upright in an open canvas bag on a wooden locomotive footplate, a large steel driving wheel behind, warm morning light",
+   "check": "Is there a tin water bottle in a canvas bag?"
+  },
+  {
+   "name": "no_stop",
+   "at": "stop#1",
+   "move": "left",
+   "prompt": "wide shot of a black steam locomotive racing past a small wooden station platform without stopping, waiting passengers watching, 1870s American railway, bright daylight",
+   "hit": "stop#1",
+   "check": "Is a train passing a station platform?"
+  },
+  {
+   "name": "lubricator_26",
+   "at": "lubricator#2",
+   "clip": true,
+   "prompt": "close-up, a polished brass automatic lubricator bolted to a black locomotive cylinder dripping amber oil onto a shiny piston rod, steam haze behind, morning light",
+   "motion": "oil drips steadily onto the piston rod, steam drifts, slow camera push in",
+   "check": "Is oil dripping from a brass lubricator?"
+  },
+  {
+   "name": "ship_engine",
+   "at": "automatically#1",
+   "clip": true,
+   "prompt": "medium shot, oil dripping from a glass oil reservoir onto a polished piston rod of a ship's steam engine, a stoker in a red shirt watching, engine room lamp light",
+   "motion": "the stoker watches the oil drip, the engine shivers slightly, slow camera push in",
+   "check": "Is oil dripping onto a piston rod?"
+  },
+  {
+   "name": "maintenance",
+   "at": "maintenance#1",
+   "who": "fireman",
+   "clip": true,
+   "prompt": "medium shot, a fireman leaning in to check a brass oil cup on a moving locomotive, wiping the sight glass with a rag, he is {fireman}, blurred countryside behind, daylight",
+   "motion": "he wipes the sight glass and peers closely, slow camera push in",
+   "check": "Is a man checking an oil cup on a locomotive?"
+  },
+  {
+   "name": "hook",
+   "at": "The#4",
+   "who": "mccoy",
+   "clip": true,
+   "prompt": "medium close-up, a bearded machinist lifting a polished brass oil lubricator in both hands and turning it toward the camera, he is {mccoy}, a cluttered 1870s home machine shop with hand tools, warm lamp light",
+   "motion": "he raises the brass device and turns it slowly, lamp flame flickers, slow camera push in",
+   "check": "Is a man holding up a brass machine?"
+  },
+  {
+   "name": "patent_30",
+   "at": "1872#2",
+   "move": "push",
+   "prompt": "close-up, a rolled parchment document tied with a ribbon and a red wax seal lying on a wooden desk beside a small brass lubricator, warm oil lamp light, dark 1870s workshop",
+   "check": "Is there a rolled document with a red seal?",
+   "hit": "1872#2"
+  },
+  {
+   "name": "automatic",
+   "at": "automatic#3",
+   "who": "fireman",
+   "clip": true,
+   "xfade": true,
+   "prompt": "medium shot, a soot-smudged fireman reaching up to turn a brass oil lubricator bolted to the black boiler of a steam locomotive, he is {fireman}, a 1870s rail yard with drifting steam, morning light",
+   "motion": "he turns the brass valve with one hand, steam drifts past, slow camera push in",
+   "check": "Is a man adjusting a brass device on a locomotive?",
+   "hit": "automatic#3"
+  },
+  {
+   "name": "piston",
+   "at": "steam#3",
+   "clip": true,
+   "prompt": "extreme close-up, a thin stream of amber oil dripping from a brass lubricator spout onto the shiny piston rod of a steam locomotive, steam haze, warm firelight",
+   "motion": "oil drips steadily onto the rod, steam curls, slow camera push in",
+   "check": "Is oil dripping onto a piston rod?"
+  },
+  {
+   "name": "ship_33",
+   "at": "ships#2",
+   "xfade": true,
+   "clip": true,
+   "prompt": "medium shot, a brass oil lubricator dripping oil into a hot bearing on a ship's steam engine while a sailor in a blue wool coat leans close, cramped 1870s ship engine room, oil lamp light",
+   "motion": "oil drips into the bearing and the sailor leans closer, slow camera push in",
+   "check": "Is a brass device dripping oil onto a ship engine?"
+  },
+  {
+   "name": "year1899",
+   "at": "1899#1",
+   "who": "engineer",
+   "xfade": true,
+   "clip": true,
+   "prompt": "medium shot, a grey-moustached engineer pulling a brass control lever inside a 1890s locomotive cab, a brass oil lubricator fixed to the boiler outside the window, he is {engineer}, steam and morning light",
+   "motion": "he pulls the lever and steam thickens outside, slow camera push in",
+   "check": "Is a man pulling a lever in a locomotive cab?",
+   "hit": "1899#1"
+  },
+  {
+   "name": "railroads",
+   "at": "almost#1",
+   "move": "right",
+   "prompt": "wide shot, rows of black steam locomotives puffing white steam in a huge North American rail yard with telegraph poles and wooden sheds, 1890s, clear morning light",
+   "check": "Are there many steam locomotives in a rail yard?"
+  },
+  {
+   "name": "notvalve",
+   "at": "But#1",
+   "who": "mccoy",
+   "clip": true,
+   "prompt": "medium close-up, a bearded machinist holding up a small brass automatic lubricator in both hands above a cluttered workbench, he is {mccoy}, 1870s home machine shop, warm lamp light",
+   "motion": "he turns the small brass device slowly in his hands, lamp flame flickers, slow camera push in",
+   "check": "Is a man holding up a small brass device?"
+  },
+  {
+   "name": "patentdevice",
+   "at": "patent#3",
+   "who": "mccoy",
+   "clip": true,
+   "prompt": "medium shot, a bearded machinist pointing at a brass oil lubricator clamped to the black boiler of a steam locomotive, he is {mccoy}, 1870s rail yard, morning daylight",
+   "motion": "he points at the brass device, steam drifts behind him, slow camera push in",
+   "check": "Is a man pointing at a brass device on a locomotive?"
+  },
+  {
+   "name": "safetyvalve",
+   "at": "valve#3",
+   "hit": "valve#3",
+   "move": "push",
+   "prompt": "extreme close-up of a brass safety valve with a heavy iron lever on top of a black locomotive boiler, white steam venting, 1870s rail yard, cold morning light",
+   "check": "Is there a brass safety valve on a boiler?"
+  },
+  {
+   "name": "scotland",
+   "at": "Scotland#1",
+   "who": "tailor",
+   "xfade": true,
+   "hit": "Scotland#1",
+   "clip": true,
+   "prompt": "medium shot, a ginger-bearded Scottish tailor stitching tartan cloth with a needle at a wooden sewing table, he is {tailor}, 1860s Glasgow tailor's shop, soft window light",
+   "motion": "he stitches the tartan cloth steadily, slow camera push in",
+   "check": "Is a man sewing tartan cloth?"
+  }
+ ]
+}
