@@ -1,6 +1,7 @@
 """One-time YouTube sign-in on YOUR computer. Puts the upload permission straight into GitHub secrets.
 
-    python youtube_auth.py path\\to\\client_secret.json
+    python youtube_auth.py path\\to\\client_secret.json        (Hidden Reasons channel)
+    python youtube_auth.py path\\to\\client_secret.json sc     (Streamer Clips channel: stores YOUTUBE_SC_REFRESH_TOKEN)
 
 1. Opens your browser at Google's sign-in page (choose the YouTube channel's account, approve "upload videos").
 2. Receives the answer on this computer only (127.0.0.1).
@@ -25,7 +26,7 @@ AUTH = "https://accounts.google.com/o/oauth2/v2/auth"
 TOKEN = "https://oauth2.googleapis.com/token"
 
 
-def main(path):
+def main(path, channel=""):
     cfg = json.load(open(path, encoding="utf-8"))
     cfg = cfg.get("installed") or cfg.get("web") or cfg
     cid, csec = cfg["client_id"], cfg["client_secret"]
@@ -74,7 +75,7 @@ def main(path):
         print("GitHub CLI (gh) not found. Run SET_SECRETS.bat once first, then this script again.")
         return 1
     for name, value in (("YOUTUBE_CLIENT_ID", cid), ("YOUTUBE_CLIENT_SECRET", csec),
-                        ("YOUTUBE_REFRESH_TOKEN", tok["refresh_token"])):
+                        (f"YOUTUBE_{channel.upper() + '_' if channel else ''}REFRESH_TOKEN", tok["refresh_token"])):
         r = subprocess.run([gh, "secret", "set", name, "--repo", REPO], input=value.encode(), capture_output=True)
         print(f"  {name:24} {'set' if r.returncode == 0 else 'FAILED'}")
     print("Done. Nothing secret was printed.")
@@ -82,7 +83,7 @@ def main(path):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
+    if len(sys.argv) not in (2, 3) or (len(sys.argv) == 3 and sys.argv[2] not in ("sc", "wc", "te")):
         print(__doc__)
         sys.exit(2)
-    sys.exit(main(sys.argv[1]))
+    sys.exit(main(*sys.argv[1:]))
