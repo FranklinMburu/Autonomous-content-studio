@@ -3,7 +3,8 @@
  "draft": "draft-018-why-franklin-fed-his-crew-seal-blubber-run125",
  "episode": "episodes/hidden_reasons/018-why-franklin-fed-his-crew-seal-blubber",
  "opened": "2026-11-27T05:25:23+00:00",
- "status": "needs-fix",
- "checked": "2026-11-28T10:02:38+00:00",
- "last_answer_by": "pull request #224 by FranklinMburu"
+ "status": "accepted",
+ "checked": "2026-11-28T10:06:49+00:00",
+ "last_answer_by": "pull request #224 by FranklinMburu",
+ "tries": 0
 }
