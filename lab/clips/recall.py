@@ -55,6 +55,8 @@ def main():
     ap.add_argument("--eyes", help="AI eyes moments (lab/clips/ai_pass.py eyes)")
     ap.add_argument("--judged", help="AI judge scores (lab/clips/ai_pass.py judge); adds the final finder")
     ap.add_argument("--cands-out", help="write the candidates for the AI judge here (ALL top 40 + strong eyes moments)")
+    ap.add_argument("--cands", help="23 Nov: the candidates the judge was given; the ones it did not answer keep a place "
+                                    "(scored at a percentile of the answered scores) instead of vanishing")
     a = ap.parse_args()
     K = json.loads(Path(a.key).read_text())
     key = [k for k in K["key"] if k.get("views")]
@@ -133,6 +135,30 @@ def main():
             if 0 <= i < n:
                 jc[i] = sc * 10 + float(allz[i])
         fams["ALL + AI JUDGE"] = jc
+        # 23 Nov (Clipping Lab): a candidate the judge never answered (429, quota) used to vanish from the ranking, so
+        # lost quota became lost recall. Keep it at its signal second, scored at a percentile of the answered scores.
+        given = [int(float(c["t"])) for c in json.loads(Path(a.cands).read_text())] if a.cands and Path(a.cands).exists() else []
+        answered_t = set()
+        for m in judged:
+            for key_ in ("t_cand", "t"):
+                try:
+                    answered_t.add(int(float(m[key_])))
+                except (TypeError, ValueError, KeyError):
+                    pass
+        lost = [t for t in given if all(abs(t - u) > 1 for u in answered_t)]
+        scores = [float(m["score"]) for m in judged if isinstance(m.get("score"), (int, float))]
+        if given:
+            print(f"judge answered {len(given) - len(lost)} of {len(given)} candidates ({1 - len(lost) / len(given):.0%}); "
+                  f"{len(lost)} unanswered")
+        if lost and scores:
+            for pct in (50, 25):
+                fill = float(np.percentile(scores, pct))
+                jf = jc.copy()
+                for t in lost:
+                    if 0 <= t < n and jf[t] < -1e8:
+                        jf[t] = fill * 10 + float(allz[t])
+                fams[f"ALL + AI JUDGE + UNANSWERED p{pct}"] = jf
+                print(f"unanswered candidates scored {fill:.2f} (p{pct} of the answered scores)")
     total_views = sum(k["views"] for k in key)
 
     def found(pk, k):
@@ -159,7 +185,7 @@ def main():
             row.append(f"{100 * (sc < v).mean():>9.0f}" if v > -1e8 else f"{'-':>9s}")
         print("  " + " ".join(row) + f"  {k['views']:>6,} {k['title'][:40]}")
     if judged:
-        for fin in ("ALL + AI JUDGE",):
+        for fin in [f for f in fams if f.startswith("ALL + AI JUDGE")]:
             print(f"\n{fin} by number of picks (a 3 h IRL stream can carry 20-40 Shorts):")
             for kk in (10, 20, 30, 40, 60):
                 pk = peaks(fams[fin], kk)
